@@ -1,6 +1,6 @@
 # Openint Python API library
 
-[![PyPI version](https://img.shields.io/pypi/v/openint.svg)](https://pypi.org/project/openint/)
+[![PyPI version](https://img.shields.io/pypi/v/openint_sdk.svg)](https://pypi.org/project/openint_sdk/)
 
 The Openint Python library provides convenient access to the Openint REST API from any Python 3.8+
 application. The library includes type definitions for all request params and response fields,
@@ -15,12 +15,12 @@ The REST API documentation can be found on [docs.openint.com](https://docs.openi
 ## Installation
 
 ```sh
-# install from this staging repo
-pip install git+ssh://git@github.com/stainless-sdks/openint-python.git
+# install from the production repo
+pip install git+ssh://git@github.com/openintegrations/python-sdk.git
 ```
 
 > [!NOTE]
-> Once this package is [published to PyPI](https://app.stainlessapi.com/docs/guides/publish), this will become: `pip install --pre openint`
+> Once this package is [published to PyPI](https://app.stainlessapi.com/docs/guides/publish), this will become: `pip install --pre openint_sdk`
 
 ## Usage
 
@@ -28,7 +28,7 @@ The full API of this library can be found in [api.md](api.md).
 
 ```python
 import os
-from openint import Openint
+from openint_sdk import Openint
 
 client = Openint(
     bearer_token=os.environ.get("OPENINT_BEARER_TOKEN"),  # This is the default and can be omitted
@@ -50,7 +50,7 @@ Simply import `AsyncOpenint` instead of `Openint` and use `await` with each API 
 ```python
 import os
 import asyncio
-from openint import AsyncOpenint
+from openint_sdk import AsyncOpenint
 
 client = AsyncOpenint(
     bearer_token=os.environ.get("OPENINT_BEARER_TOKEN"),  # This is the default and can be omitted
@@ -78,27 +78,27 @@ Typed requests and responses provide autocomplete and documentation within your 
 
 ## Handling errors
 
-When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `openint.APIConnectionError` is raised.
+When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `openint_sdk.APIConnectionError` is raised.
 
 When the API returns a non-success status code (that is, 4xx or 5xx
-response), a subclass of `openint.APIStatusError` is raised, containing `status_code` and `response` properties.
+response), a subclass of `openint_sdk.APIStatusError` is raised, containing `status_code` and `response` properties.
 
-All errors inherit from `openint.APIError`.
+All errors inherit from `openint_sdk.APIError`.
 
 ```python
-import openint
-from openint import Openint
+import openint_sdk
+from openint_sdk import Openint
 
 client = Openint()
 
 try:
     client.retrieve_connection()
-except openint.APIConnectionError as e:
+except openint_sdk.APIConnectionError as e:
     print("The server could not be reached")
     print(e.__cause__)  # an underlying Exception, likely raised within httpx.
-except openint.RateLimitError as e:
+except openint_sdk.RateLimitError as e:
     print("A 429 status code was received; we should back off a bit.")
-except openint.APIStatusError as e:
+except openint_sdk.APIStatusError as e:
     print("Another non-200-range status code was received")
     print(e.status_code)
     print(e.response)
@@ -126,7 +126,7 @@ Connection errors (for example, due to a network connectivity problem), 408 Requ
 You can use the `max_retries` option to configure or disable retry settings:
 
 ```python
-from openint import Openint
+from openint_sdk import Openint
 
 # Configure the default for all requests:
 client = Openint(
@@ -144,7 +144,7 @@ By default requests time out after 1 minute. You can configure this with a `time
 which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
 
 ```python
-from openint import Openint
+from openint_sdk import Openint
 
 # Configure the default for all requests:
 client = Openint(
@@ -196,7 +196,7 @@ if response.my_field is None:
 The "raw" Response object can be accessed by prefixing `.with_raw_response.` to any HTTP method call, e.g.,
 
 ```py
-from openint import Openint
+from openint_sdk import Openint
 
 client = Openint()
 response = client.with_raw_response.retrieve_connection()
@@ -206,9 +206,9 @@ client = response.parse()  # get the object that `retrieve_connection()` would h
 print(client.items)
 ```
 
-These methods return an [`APIResponse`](https://github.com/stainless-sdks/openint-python/tree/main/src/openint/_response.py) object.
+These methods return an [`APIResponse`](https://github.com/openintegrations/python-sdk/tree/main/src/openint_sdk/_response.py) object.
 
-The async client returns an [`AsyncAPIResponse`](https://github.com/stainless-sdks/openint-python/tree/main/src/openint/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
+The async client returns an [`AsyncAPIResponse`](https://github.com/openintegrations/python-sdk/tree/main/src/openint_sdk/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
 
 #### `.with_streaming_response`
 
@@ -270,7 +270,7 @@ You can directly override the [httpx client](https://www.python-httpx.org/api/#c
 
 ```python
 import httpx
-from openint import Openint, DefaultHttpxClient
+from openint_sdk import Openint, DefaultHttpxClient
 
 client = Openint(
     # Or use the `OPENINT_BASE_URL` env var
@@ -293,7 +293,7 @@ client.with_options(http_client=DefaultHttpxClient(...))
 By default the library closes underlying HTTP connections whenever the client is [garbage collected](https://docs.python.org/3/reference/datamodel.html#object.__del__). You can manually close the client using the `.close()` method if desired, or with a context manager that closes when exiting.
 
 ```py
-from openint import Openint
+from openint_sdk import Openint
 
 with Openint() as client:
   # make requests here
@@ -312,7 +312,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/openint-python/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/openintegrations/python-sdk/issues) with questions, bugs, or suggestions.
 
 ### Determining the installed version
 
@@ -321,8 +321,8 @@ If you've upgraded to the latest version but aren't seeing any new features you 
 You can determine the version that is being used at runtime with:
 
 ```py
-import openint
-print(openint.__version__)
+import openint_sdk
+print(openint_sdk.__version__)
 ```
 
 ## Requirements
