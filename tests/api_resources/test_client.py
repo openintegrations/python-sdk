@@ -7,9 +7,9 @@ from typing import Any, cast
 
 import pytest
 
-from openint import Openint, AsyncOpenint
+from openint_sdk import Openint, AsyncOpenint
 from tests.utils import assert_matches_type
-from openint.types import RetrieveConnectionResponse, RetrieveConnectorConfigResponse
+from openint_sdk.types import RetrieveConnectionResponse, RetrieveConnectorConfigResponse
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 

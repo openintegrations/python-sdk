@@ -1,5 +1,5 @@
 [project]
-name = "openint"
+name = "openint_sdk"
 version = "0.0.1-alpha.0"
 description = "The official Python library for the openint API"
 dynamic = ["readme"]
@@ -34,8 +34,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/stainless-sdks/openint-python"
-Repository = "https://github.com/stainless-sdks/openint-python"
+Homepage = "https://github.com/openintegrations/python-sdk"
+Repository = "https://github.com/openintegrations/python-sdk"
 
 
 
@@ -76,14 +76,14 @@ format = { chain = [
 "check:ruff" = "ruff check ."
 "fix:ruff" = "ruff check --fix ."
 
-"check:importable" = "python -c 'import openint'"
+"check:importable" = "python -c 'import openint_sdk'"
 
 typecheck = { chain = [
   "typecheck:pyright",
   "typecheck:mypy"
 ]}
 "typecheck:pyright" = "pyright"
-"typecheck:verify-types" = "pyright --verifytypes openint --ignoreexternal"
+"typecheck:verify-types" = "pyright --verifytypes openint_sdk --ignoreexternal"
 "typecheck:mypy" = "mypy ."
 
 [build-system]
@@ -96,7 +96,7 @@ include = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/openint"]
+packages = ["src/openint_sdk"]
 
 [tool.hatch.build.targets.sdist]
 # Basically everything except hidden files/directories (such as .github, .devcontainers, .python-version, etc)
@@ -122,7 +122,7 @@ path = "README.md"
 [[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
 # replace relative links with absolute links
 pattern = '\[(.+?)\]\(((?!https?://)\S+?)\)'
-replacement = '[\1](https://github.com/stainless-sdks/openint-python/tree/main/\g<2>)'
+replacement = '[\1](https://github.com/openintegrations/python-sdk/tree/main/\g<2>)'
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -199,7 +199,7 @@ length-sort = true
 length-sort-straight = true
 combine-as-imports = true
 extra-standard-library = ["typing_extensions"]
-known-first-party = ["openint", "tests"]
+known-first-party = ["openint_sdk", "tests"]
 
 [tool.ruff.lint.per-file-ignores]
 "bin/**.py" = ["T201", "T203"]
