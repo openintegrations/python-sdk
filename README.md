@@ -10,7 +10,7 @@ It is generated with [Stainless](https://www.stainless.com/).
 
 ## Documentation
 
-The REST API documentation can be found on [docs.openint.com](https://docs.openint.com). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [docs.openint.dev](https://docs.openint.dev). The full API of this library can be found in [api.md](api.md).
 
 ## Installation
 
