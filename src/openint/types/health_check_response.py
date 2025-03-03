@@ -2,6 +2,6 @@
 
 from typing_extensions import TypeAlias
 
-__all__ = ["CheckHealthResponse"]
+__all__ = ["HealthCheckResponse"]
 
-CheckHealthResponse: TypeAlias = str
+HealthCheckResponse: TypeAlias = str

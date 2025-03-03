@@ -12,10 +12,7 @@ from . import _exceptions
 from ._qs import Querystring
 from ._types import (
     NOT_GIVEN,
-    Body,
     Omit,
-    Query,
-    Headers,
     Timeout,
     NotGiven,
     Transport,
@@ -27,37 +24,32 @@ from ._utils import (
     get_async_library,
 )
 from ._version import __version__
-from ._response import (
-    to_raw_response_wrapper,
-    to_streamed_response_wrapper,
-    async_to_raw_response_wrapper,
-    async_to_streamed_response_wrapper,
-)
+from .resources import health, connection, connector_config
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
 from ._exceptions import OpenintError, APIStatusError
 from ._base_client import (
     DEFAULT_MAX_RETRIES,
     SyncAPIClient,
     AsyncAPIClient,
-    make_request_options,
 )
-from .types.retrieve_connection_response import RetrieveConnectionResponse
-from .types.retrieve_connector_config_response import RetrieveConnectorConfigResponse
 
 __all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Openint", "AsyncOpenint", "Client", "AsyncClient"]
 
 
 class Openint(SyncAPIClient):
+    connection: connection.ConnectionResource
+    connector_config: connector_config.ConnectorConfigResource
+    health: health.HealthResource
     with_raw_response: OpenintWithRawResponse
     with_streaming_response: OpenintWithStreamedResponse
 
     # client options
-    bearer_token: str
+    api_key: str
 
     def __init__(
         self,
         *,
-        bearer_token: str | None = None,
+        api_key: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -79,20 +71,20 @@ class Openint(SyncAPIClient):
     ) -> None:
         """Construct a new synchronous Openint client instance.
 
-        This automatically infers the `bearer_token` argument from the `OPENINT_BEARER_TOKEN` environment variable if it is not provided.
+        This automatically infers the `api_key` argument from the `OPENINT_API_KEY` environment variable if it is not provided.
         """
-        if bearer_token is None:
-            bearer_token = os.environ.get("OPENINT_BEARER_TOKEN")
-        if bearer_token is None:
+        if api_key is None:
+            api_key = os.environ.get("OPENINT_API_KEY")
+        if api_key is None:
             raise OpenintError(
-                "The bearer_token client option must be set either by passing bearer_token to the client or by setting the OPENINT_BEARER_TOKEN environment variable"
+                "The api_key client option must be set either by passing api_key to the client or by setting the OPENINT_API_KEY environment variable"
             )
-        self.bearer_token = bearer_token
+        self.api_key = api_key
 
         if base_url is None:
             base_url = os.environ.get("OPENINT_BASE_URL")
         if base_url is None:
-            base_url = f"http://localhost:3000"
+            base_url = f"https://localhost:3000"
 
         super().__init__(
             version=__version__,
@@ -105,6 +97,9 @@ class Openint(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
+        self.connection = connection.ConnectionResource(self)
+        self.connector_config = connector_config.ConnectorConfigResource(self)
+        self.health = health.HealthResource(self)
         self.with_raw_response = OpenintWithRawResponse(self)
         self.with_streaming_response = OpenintWithStreamedResponse(self)
 
@@ -112,12 +107,6 @@ class Openint(SyncAPIClient):
     @override
     def qs(self) -> Querystring:
         return Querystring(array_format="comma")
-
-    @property
-    @override
-    def auth_headers(self) -> dict[str, str]:
-        bearer_token = self.bearer_token
-        return {"Authorization": f"Bearer {bearer_token}"}
 
     @property
     @override
@@ -131,7 +120,7 @@ class Openint(SyncAPIClient):
     def copy(
         self,
         *,
-        bearer_token: str | None = None,
+        api_key: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
         http_client: httpx.Client | None = None,
@@ -165,7 +154,7 @@ class Openint(SyncAPIClient):
 
         http_client = http_client or self._client
         return self.__class__(
-            bearer_token=bearer_token or self.bearer_token,
+            api_key=api_key or self.api_key,
             base_url=base_url or self.base_url,
             timeout=self.timeout if isinstance(timeout, NotGiven) else timeout,
             http_client=http_client,
@@ -178,60 +167,6 @@ class Openint(SyncAPIClient):
     # Alias for `copy` for nicer inline usage, e.g.
     # client.with_options(timeout=10).foo.create(...)
     with_options = copy
-
-    def check_health(
-        self,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> str:
-        return self.get(
-            "/health",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=str,
-        )
-
-    def retrieve_connection(
-        self,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RetrieveConnectionResponse:
-        return self.get(
-            "/connection",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=RetrieveConnectionResponse,
-        )
-
-    def retrieve_connector_config(
-        self,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RetrieveConnectorConfigResponse:
-        return self.get(
-            "/connector-config",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=RetrieveConnectorConfigResponse,
-        )
 
     @override
     def _make_status_error(
@@ -268,16 +203,19 @@ class Openint(SyncAPIClient):
 
 
 class AsyncOpenint(AsyncAPIClient):
+    connection: connection.AsyncConnectionResource
+    connector_config: connector_config.AsyncConnectorConfigResource
+    health: health.AsyncHealthResource
     with_raw_response: AsyncOpenintWithRawResponse
     with_streaming_response: AsyncOpenintWithStreamedResponse
 
     # client options
-    bearer_token: str
+    api_key: str
 
     def __init__(
         self,
         *,
-        bearer_token: str | None = None,
+        api_key: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -299,20 +237,20 @@ class AsyncOpenint(AsyncAPIClient):
     ) -> None:
         """Construct a new async AsyncOpenint client instance.
 
-        This automatically infers the `bearer_token` argument from the `OPENINT_BEARER_TOKEN` environment variable if it is not provided.
+        This automatically infers the `api_key` argument from the `OPENINT_API_KEY` environment variable if it is not provided.
         """
-        if bearer_token is None:
-            bearer_token = os.environ.get("OPENINT_BEARER_TOKEN")
-        if bearer_token is None:
+        if api_key is None:
+            api_key = os.environ.get("OPENINT_API_KEY")
+        if api_key is None:
             raise OpenintError(
-                "The bearer_token client option must be set either by passing bearer_token to the client or by setting the OPENINT_BEARER_TOKEN environment variable"
+                "The api_key client option must be set either by passing api_key to the client or by setting the OPENINT_API_KEY environment variable"
             )
-        self.bearer_token = bearer_token
+        self.api_key = api_key
 
         if base_url is None:
             base_url = os.environ.get("OPENINT_BASE_URL")
         if base_url is None:
-            base_url = f"http://localhost:3000"
+            base_url = f"https://localhost:3000"
 
         super().__init__(
             version=__version__,
@@ -325,6 +263,9 @@ class AsyncOpenint(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
+        self.connection = connection.AsyncConnectionResource(self)
+        self.connector_config = connector_config.AsyncConnectorConfigResource(self)
+        self.health = health.AsyncHealthResource(self)
         self.with_raw_response = AsyncOpenintWithRawResponse(self)
         self.with_streaming_response = AsyncOpenintWithStreamedResponse(self)
 
@@ -332,12 +273,6 @@ class AsyncOpenint(AsyncAPIClient):
     @override
     def qs(self) -> Querystring:
         return Querystring(array_format="comma")
-
-    @property
-    @override
-    def auth_headers(self) -> dict[str, str]:
-        bearer_token = self.bearer_token
-        return {"Authorization": f"Bearer {bearer_token}"}
 
     @property
     @override
@@ -351,7 +286,7 @@ class AsyncOpenint(AsyncAPIClient):
     def copy(
         self,
         *,
-        bearer_token: str | None = None,
+        api_key: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
         http_client: httpx.AsyncClient | None = None,
@@ -385,7 +320,7 @@ class AsyncOpenint(AsyncAPIClient):
 
         http_client = http_client or self._client
         return self.__class__(
-            bearer_token=bearer_token or self.bearer_token,
+            api_key=api_key or self.api_key,
             base_url=base_url or self.base_url,
             timeout=self.timeout if isinstance(timeout, NotGiven) else timeout,
             http_client=http_client,
@@ -398,60 +333,6 @@ class AsyncOpenint(AsyncAPIClient):
     # Alias for `copy` for nicer inline usage, e.g.
     # client.with_options(timeout=10).foo.create(...)
     with_options = copy
-
-    async def check_health(
-        self,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> str:
-        return await self.get(
-            "/health",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=str,
-        )
-
-    async def retrieve_connection(
-        self,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RetrieveConnectionResponse:
-        return await self.get(
-            "/connection",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=RetrieveConnectionResponse,
-        )
-
-    async def retrieve_connector_config(
-        self,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> RetrieveConnectorConfigResponse:
-        return await self.get(
-            "/connector-config",
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=RetrieveConnectorConfigResponse,
-        )
 
     @override
     def _make_status_error(
@@ -489,54 +370,32 @@ class AsyncOpenint(AsyncAPIClient):
 
 class OpenintWithRawResponse:
     def __init__(self, client: Openint) -> None:
-        self.check_health = to_raw_response_wrapper(
-            client.check_health,
-        )
-        self.retrieve_connection = to_raw_response_wrapper(
-            client.retrieve_connection,
-        )
-        self.retrieve_connector_config = to_raw_response_wrapper(
-            client.retrieve_connector_config,
-        )
+        self.connection = connection.ConnectionResourceWithRawResponse(client.connection)
+        self.connector_config = connector_config.ConnectorConfigResourceWithRawResponse(client.connector_config)
+        self.health = health.HealthResourceWithRawResponse(client.health)
 
 
 class AsyncOpenintWithRawResponse:
     def __init__(self, client: AsyncOpenint) -> None:
-        self.check_health = async_to_raw_response_wrapper(
-            client.check_health,
-        )
-        self.retrieve_connection = async_to_raw_response_wrapper(
-            client.retrieve_connection,
-        )
-        self.retrieve_connector_config = async_to_raw_response_wrapper(
-            client.retrieve_connector_config,
-        )
+        self.connection = connection.AsyncConnectionResourceWithRawResponse(client.connection)
+        self.connector_config = connector_config.AsyncConnectorConfigResourceWithRawResponse(client.connector_config)
+        self.health = health.AsyncHealthResourceWithRawResponse(client.health)
 
 
 class OpenintWithStreamedResponse:
     def __init__(self, client: Openint) -> None:
-        self.check_health = to_streamed_response_wrapper(
-            client.check_health,
-        )
-        self.retrieve_connection = to_streamed_response_wrapper(
-            client.retrieve_connection,
-        )
-        self.retrieve_connector_config = to_streamed_response_wrapper(
-            client.retrieve_connector_config,
-        )
+        self.connection = connection.ConnectionResourceWithStreamingResponse(client.connection)
+        self.connector_config = connector_config.ConnectorConfigResourceWithStreamingResponse(client.connector_config)
+        self.health = health.HealthResourceWithStreamingResponse(client.health)
 
 
 class AsyncOpenintWithStreamedResponse:
     def __init__(self, client: AsyncOpenint) -> None:
-        self.check_health = async_to_streamed_response_wrapper(
-            client.check_health,
+        self.connection = connection.AsyncConnectionResourceWithStreamingResponse(client.connection)
+        self.connector_config = connector_config.AsyncConnectorConfigResourceWithStreamingResponse(
+            client.connector_config
         )
-        self.retrieve_connection = async_to_streamed_response_wrapper(
-            client.retrieve_connection,
-        )
-        self.retrieve_connector_config = async_to_streamed_response_wrapper(
-            client.retrieve_connector_config,
-        )
+        self.health = health.AsyncHealthResourceWithStreamingResponse(client.health)
 
 
 Client = Openint
