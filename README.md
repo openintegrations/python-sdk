@@ -33,8 +33,8 @@ client = Openint(
     api_key="My API Key",
 )
 
-connection = client.connection.retrieve()
-print(connection.items)
+response = client.get_connection()
+print(response.items)
 ```
 
 ## Async usage
@@ -51,8 +51,8 @@ client = AsyncOpenint(
 
 
 async def main() -> None:
-    connection = await client.connection.retrieve()
-    print(connection.items)
+    response = await client.get_connection()
+    print(response.items)
 
 
 asyncio.run(main())
@@ -87,7 +87,7 @@ client = Openint(
 )
 
 try:
-    client.connection.retrieve()
+    client.get_connection()
 except openint.APIConnectionError as e:
     print("The server could not be reached")
     print(e.__cause__)  # an underlying Exception, likely raised within httpx.
@@ -131,7 +131,7 @@ client = Openint(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).connection.retrieve()
+client.with_options(max_retries=5).get_connection()
 ```
 
 ### Timeouts
@@ -156,7 +156,7 @@ client = Openint(
 )
 
 # Override per-request:
-client.with_options(timeout=5.0).connection.retrieve()
+client.with_options(timeout=5.0).get_connection()
 ```
 
 On timeout, an `APITimeoutError` is thrown.
@@ -199,11 +199,11 @@ from openint import Openint
 client = Openint(
     api_key="My API Key",
 )
-response = client.connection.with_raw_response.retrieve()
+response = client.with_raw_response.get_connection()
 print(response.headers.get('X-My-Header'))
 
-connection = response.parse()  # get the object that `connection.retrieve()` would have returned
-print(connection.items)
+client = response.parse()  # get the object that `get_connection()` would have returned
+print(client.items)
 ```
 
 These methods return an [`APIResponse`](https://github.com/stainless-sdks/openint-python/tree/main/src/openint/_response.py) object.
@@ -217,7 +217,7 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.connection.with_streaming_response.retrieve() as response:
+with client.with_streaming_response.get_connection() as response:
     print(response.headers.get("X-My-Header"))
 
     for line in response.iter_lines():
