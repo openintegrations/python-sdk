@@ -7,14 +7,14 @@ from typing import TYPE_CHECKING, Iterator, AsyncIterator
 import pytest
 from pytest_asyncio import is_async_test
 
-from openint_sdk import Openint, AsyncOpenint
+from openint import Openint, AsyncOpenint
 
 if TYPE_CHECKING:
     from _pytest.fixtures import FixtureRequest
 
 pytest.register_assert_rewrite("tests.utils")
 
-logging.getLogger("openint_sdk").setLevel(logging.DEBUG)
+logging.getLogger("openint").setLevel(logging.DEBUG)
 
 
 # automatically add `pytest.mark.asyncio()` to all of our async tests
@@ -28,7 +28,7 @@ def pytest_collection_modifyitems(items: list[pytest.Function]) -> None:
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
-bearer_token = "My Bearer Token"
+api_key = "My API Key"
 
 
 @pytest.fixture(scope="session")
@@ -37,7 +37,7 @@ def client(request: FixtureRequest) -> Iterator[Openint]:
     if not isinstance(strict, bool):
         raise TypeError(f"Unexpected fixture parameter type {type(strict)}, expected {bool}")
 
-    with Openint(base_url=base_url, bearer_token=bearer_token, _strict_response_validation=strict) as client:
+    with Openint(base_url=base_url, api_key=api_key, _strict_response_validation=strict) as client:
         yield client
 
 
@@ -47,5 +47,5 @@ async def async_client(request: FixtureRequest) -> AsyncIterator[AsyncOpenint]:
     if not isinstance(strict, bool):
         raise TypeError(f"Unexpected fixture parameter type {type(strict)}, expected {bool}")
 
-    async with AsyncOpenint(base_url=base_url, bearer_token=bearer_token, _strict_response_validation=strict) as client:
+    async with AsyncOpenint(base_url=base_url, api_key=api_key, _strict_response_validation=strict) as client:
         yield client
