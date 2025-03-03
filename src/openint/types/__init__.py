@@ -2,6 +2,6 @@
 
 from __future__ import annotations
 
-from .health_check_response import HealthCheckResponse as HealthCheckResponse
-from .connection_retrieve_response import ConnectionRetrieveResponse as ConnectionRetrieveResponse
-from .connector_config_retrieve_response import ConnectorConfigRetrieveResponse as ConnectorConfigRetrieveResponse
+from .check_health_response import CheckHealthResponse as CheckHealthResponse
+from .get_connection_response import GetConnectionResponse as GetConnectionResponse
+from .get_connection_config_response import GetConnectionConfigResponse as GetConnectionConfigResponse

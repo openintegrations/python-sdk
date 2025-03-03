@@ -12,7 +12,10 @@ from . import _exceptions
 from ._qs import Querystring
 from ._types import (
     NOT_GIVEN,
+    Body,
     Omit,
+    Query,
+    Headers,
     Timeout,
     NotGiven,
     Transport,
@@ -24,22 +27,27 @@ from ._utils import (
     get_async_library,
 )
 from ._version import __version__
-from .resources import health, connection, connector_config
+from ._response import (
+    to_raw_response_wrapper,
+    to_streamed_response_wrapper,
+    async_to_raw_response_wrapper,
+    async_to_streamed_response_wrapper,
+)
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
 from ._exceptions import OpenintError, APIStatusError
 from ._base_client import (
     DEFAULT_MAX_RETRIES,
     SyncAPIClient,
     AsyncAPIClient,
+    make_request_options,
 )
+from .types.get_connection_response import GetConnectionResponse
+from .types.get_connection_config_response import GetConnectionConfigResponse
 
 __all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Openint", "AsyncOpenint", "Client", "AsyncClient"]
 
 
 class Openint(SyncAPIClient):
-    connection: connection.ConnectionResource
-    connector_config: connector_config.ConnectorConfigResource
-    health: health.HealthResource
     with_raw_response: OpenintWithRawResponse
     with_streaming_response: OpenintWithStreamedResponse
 
@@ -97,9 +105,6 @@ class Openint(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.connection = connection.ConnectionResource(self)
-        self.connector_config = connector_config.ConnectorConfigResource(self)
-        self.health = health.HealthResource(self)
         self.with_raw_response = OpenintWithRawResponse(self)
         self.with_streaming_response = OpenintWithStreamedResponse(self)
 
@@ -168,6 +173,60 @@ class Openint(SyncAPIClient):
     # client.with_options(timeout=10).foo.create(...)
     with_options = copy
 
+    def check_health(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> str:
+        return self.get(
+            "/health",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=str,
+        )
+
+    def get_connection(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> GetConnectionResponse:
+        return self.get(
+            "/connection",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=GetConnectionResponse,
+        )
+
+    def get_connection_config(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> GetConnectionConfigResponse:
+        return self.get(
+            "/connector-config",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=GetConnectionConfigResponse,
+        )
+
     @override
     def _make_status_error(
         self,
@@ -203,9 +262,6 @@ class Openint(SyncAPIClient):
 
 
 class AsyncOpenint(AsyncAPIClient):
-    connection: connection.AsyncConnectionResource
-    connector_config: connector_config.AsyncConnectorConfigResource
-    health: health.AsyncHealthResource
     with_raw_response: AsyncOpenintWithRawResponse
     with_streaming_response: AsyncOpenintWithStreamedResponse
 
@@ -263,9 +319,6 @@ class AsyncOpenint(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.connection = connection.AsyncConnectionResource(self)
-        self.connector_config = connector_config.AsyncConnectorConfigResource(self)
-        self.health = health.AsyncHealthResource(self)
         self.with_raw_response = AsyncOpenintWithRawResponse(self)
         self.with_streaming_response = AsyncOpenintWithStreamedResponse(self)
 
@@ -334,6 +387,60 @@ class AsyncOpenint(AsyncAPIClient):
     # client.with_options(timeout=10).foo.create(...)
     with_options = copy
 
+    async def check_health(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> str:
+        return await self.get(
+            "/health",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=str,
+        )
+
+    async def get_connection(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> GetConnectionResponse:
+        return await self.get(
+            "/connection",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=GetConnectionResponse,
+        )
+
+    async def get_connection_config(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> GetConnectionConfigResponse:
+        return await self.get(
+            "/connector-config",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=GetConnectionConfigResponse,
+        )
+
     @override
     def _make_status_error(
         self,
@@ -370,32 +477,54 @@ class AsyncOpenint(AsyncAPIClient):
 
 class OpenintWithRawResponse:
     def __init__(self, client: Openint) -> None:
-        self.connection = connection.ConnectionResourceWithRawResponse(client.connection)
-        self.connector_config = connector_config.ConnectorConfigResourceWithRawResponse(client.connector_config)
-        self.health = health.HealthResourceWithRawResponse(client.health)
+        self.check_health = to_raw_response_wrapper(
+            client.check_health,
+        )
+        self.get_connection = to_raw_response_wrapper(
+            client.get_connection,
+        )
+        self.get_connection_config = to_raw_response_wrapper(
+            client.get_connection_config,
+        )
 
 
 class AsyncOpenintWithRawResponse:
     def __init__(self, client: AsyncOpenint) -> None:
-        self.connection = connection.AsyncConnectionResourceWithRawResponse(client.connection)
-        self.connector_config = connector_config.AsyncConnectorConfigResourceWithRawResponse(client.connector_config)
-        self.health = health.AsyncHealthResourceWithRawResponse(client.health)
+        self.check_health = async_to_raw_response_wrapper(
+            client.check_health,
+        )
+        self.get_connection = async_to_raw_response_wrapper(
+            client.get_connection,
+        )
+        self.get_connection_config = async_to_raw_response_wrapper(
+            client.get_connection_config,
+        )
 
 
 class OpenintWithStreamedResponse:
     def __init__(self, client: Openint) -> None:
-        self.connection = connection.ConnectionResourceWithStreamingResponse(client.connection)
-        self.connector_config = connector_config.ConnectorConfigResourceWithStreamingResponse(client.connector_config)
-        self.health = health.HealthResourceWithStreamingResponse(client.health)
+        self.check_health = to_streamed_response_wrapper(
+            client.check_health,
+        )
+        self.get_connection = to_streamed_response_wrapper(
+            client.get_connection,
+        )
+        self.get_connection_config = to_streamed_response_wrapper(
+            client.get_connection_config,
+        )
 
 
 class AsyncOpenintWithStreamedResponse:
     def __init__(self, client: AsyncOpenint) -> None:
-        self.connection = connection.AsyncConnectionResourceWithStreamingResponse(client.connection)
-        self.connector_config = connector_config.AsyncConnectorConfigResourceWithStreamingResponse(
-            client.connector_config
+        self.check_health = async_to_streamed_response_wrapper(
+            client.check_health,
         )
-        self.health = health.AsyncHealthResourceWithStreamingResponse(client.health)
+        self.get_connection = async_to_streamed_response_wrapper(
+            client.get_connection,
+        )
+        self.get_connection_config = async_to_streamed_response_wrapper(
+            client.get_connection_config,
+        )
 
 
 Client = Openint
