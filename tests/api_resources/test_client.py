@@ -9,7 +9,11 @@ import pytest
 
 from openint_sdk import Openint, AsyncOpenint
 from tests.utils import assert_matches_type
-from openint_sdk.types import CheckHealthResponse, GetConnectionResponse, GetConnectionConfigResponse
+from openint_sdk.types import (
+    CheckHealthResponse,
+    GetConnectionResponse,
+    GetConnectionConfigResponse,
+)
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -53,6 +57,20 @@ class TestClient:
 
     @pytest.mark.skip()
     @parametrize
+    def test_method_get_connection_with_all_params(self, client: Openint) -> None:
+        client_ = client.get_connection(
+            connector_config_id="connector_config_id",
+            connector_name="connector_name",
+            customer_id="customer_id",
+            expand=["connector"],
+            include_secrets="none",
+            limit=1,
+            offset=0,
+        )
+        assert_matches_type(GetConnectionResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
     def test_raw_response_get_connection(self, client: Openint) -> None:
         response = client.with_raw_response.get_connection()
 
@@ -77,6 +95,17 @@ class TestClient:
     @parametrize
     def test_method_get_connection_config(self, client: Openint) -> None:
         client_ = client.get_connection_config()
+        assert_matches_type(GetConnectionConfigResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_get_connection_config_with_all_params(self, client: Openint) -> None:
+        client_ = client.get_connection_config(
+            connector_name="connector_name",
+            expand=["connector"],
+            limit=1,
+            offset=0,
+        )
         assert_matches_type(GetConnectionConfigResponse, client_, path=["response"])
 
     @pytest.mark.skip()
@@ -141,6 +170,20 @@ class TestAsyncClient:
 
     @pytest.mark.skip()
     @parametrize
+    async def test_method_get_connection_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.get_connection(
+            connector_config_id="connector_config_id",
+            connector_name="connector_name",
+            customer_id="customer_id",
+            expand=["connector"],
+            include_secrets="none",
+            limit=1,
+            offset=0,
+        )
+        assert_matches_type(GetConnectionResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
     async def test_raw_response_get_connection(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.get_connection()
 
@@ -165,6 +208,17 @@ class TestAsyncClient:
     @parametrize
     async def test_method_get_connection_config(self, async_client: AsyncOpenint) -> None:
         client = await async_client.get_connection_config()
+        assert_matches_type(GetConnectionConfigResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_get_connection_config_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.get_connection_config(
+            connector_name="connector_name",
+            expand=["connector"],
+            limit=1,
+            offset=0,
+        )
         assert_matches_type(GetConnectionConfigResponse, client, path=["response"])
 
     @pytest.mark.skip()

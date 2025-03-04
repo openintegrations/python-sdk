@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 import os
-from typing import Any, Union, Mapping
-from typing_extensions import Self, override
+from typing import Any, List, Union, Mapping
+from typing_extensions import Self, Literal, override
 
 import httpx
 
 from . import _exceptions
 from ._qs import Querystring
+from .types import client_get_connection_params, client_get_connection_config_params
 from ._types import (
     NOT_GIVEN,
     Body,
@@ -24,7 +25,9 @@ from ._types import (
 )
 from ._utils import (
     is_given,
+    maybe_transform,
     get_async_library,
+    async_maybe_transform,
 )
 from ._version import __version__
 from ._response import (
@@ -201,6 +204,13 @@ class Openint(SyncAPIClient):
     def get_connection(
         self,
         *,
+        connector_config_id: str | NotGiven = NOT_GIVEN,
+        connector_name: str | NotGiven = NOT_GIVEN,
+        customer_id: str | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
+        include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -208,10 +218,37 @@ class Openint(SyncAPIClient):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> GetConnectionResponse:
+        """
+        Args:
+          include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
         return self.get(
             "/connection",
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "connector_config_id": connector_config_id,
+                        "connector_name": connector_name,
+                        "customer_id": customer_id,
+                        "expand": expand,
+                        "include_secrets": include_secrets,
+                        "limit": limit,
+                        "offset": offset,
+                    },
+                    client_get_connection_params.ClientGetConnectionParams,
+                ),
             ),
             cast_to=GetConnectionResponse,
         )
@@ -219,6 +256,10 @@ class Openint(SyncAPIClient):
     def get_connection_config(
         self,
         *,
+        connector_name: str | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -226,10 +267,32 @@ class Openint(SyncAPIClient):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> GetConnectionConfigResponse:
+        """
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
         return self.get(
             "/connector-config",
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "connector_name": connector_name,
+                        "expand": expand,
+                        "limit": limit,
+                        "offset": offset,
+                    },
+                    client_get_connection_config_params.ClientGetConnectionConfigParams,
+                ),
             ),
             cast_to=GetConnectionConfigResponse,
         )
@@ -421,6 +484,13 @@ class AsyncOpenint(AsyncAPIClient):
     async def get_connection(
         self,
         *,
+        connector_config_id: str | NotGiven = NOT_GIVEN,
+        connector_name: str | NotGiven = NOT_GIVEN,
+        customer_id: str | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
+        include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -428,10 +498,37 @@ class AsyncOpenint(AsyncAPIClient):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> GetConnectionResponse:
+        """
+        Args:
+          include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
         return await self.get(
             "/connection",
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {
+                        "connector_config_id": connector_config_id,
+                        "connector_name": connector_name,
+                        "customer_id": customer_id,
+                        "expand": expand,
+                        "include_secrets": include_secrets,
+                        "limit": limit,
+                        "offset": offset,
+                    },
+                    client_get_connection_params.ClientGetConnectionParams,
+                ),
             ),
             cast_to=GetConnectionResponse,
         )
@@ -439,6 +536,10 @@ class AsyncOpenint(AsyncAPIClient):
     async def get_connection_config(
         self,
         *,
+        connector_name: str | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -446,10 +547,32 @@ class AsyncOpenint(AsyncAPIClient):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> GetConnectionConfigResponse:
+        """
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
         return await self.get(
             "/connector-config",
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {
+                        "connector_name": connector_name,
+                        "expand": expand,
+                        "limit": limit,
+                        "offset": offset,
+                    },
+                    client_get_connection_config_params.ClientGetConnectionConfigParams,
+                ),
             ),
             cast_to=GetConnectionConfigResponse,
         )

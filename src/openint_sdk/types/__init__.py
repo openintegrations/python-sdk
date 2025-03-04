@@ -4,4 +4,6 @@ from __future__ import annotations
 
 from .check_health_response import CheckHealthResponse as CheckHealthResponse
 from .get_connection_response import GetConnectionResponse as GetConnectionResponse
+from .client_get_connection_params import ClientGetConnectionParams as ClientGetConnectionParams
 from .get_connection_config_response import GetConnectionConfigResponse as GetConnectionConfigResponse
+from .client_get_connection_config_params import ClientGetConnectionConfigParams as ClientGetConnectionConfigParams
