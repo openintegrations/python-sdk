@@ -41,6 +41,7 @@ from ._base_client import (
     AsyncAPIClient,
     make_request_options,
 )
+from .types.check_health_response import CheckHealthResponse
 from .types.get_connection_response import GetConnectionResponse
 from .types.get_connection_config_response import GetConnectionConfigResponse
 
@@ -188,13 +189,13 @@ class Openint(SyncAPIClient):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> str:
+    ) -> CheckHealthResponse:
         return self.get(
             "/health",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=str,
+            cast_to=CheckHealthResponse,
         )
 
     def get_connection(
@@ -408,13 +409,13 @@ class AsyncOpenint(AsyncAPIClient):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> str:
+    ) -> CheckHealthResponse:
         return await self.get(
             "/health",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=str,
+            cast_to=CheckHealthResponse,
         )
 
     async def get_connection(
