@@ -8,8 +8,8 @@ from typing import Any, TypeVar, Iterator, cast
 from datetime import date, datetime
 from typing_extensions import Literal, get_args, get_origin, assert_type
 
-from openint._types import Omit, NoneType
-from openint._utils import (
+from openint_sdk._types import Omit, NoneType
+from openint_sdk._utils import (
     is_dict,
     is_list,
     is_list_type,
@@ -18,8 +18,8 @@ from openint._utils import (
     is_annotated_type,
     is_type_alias_type,
 )
-from openint._compat import PYDANTIC_V2, field_outer_type, get_model_fields
-from openint._models import BaseModel
+from openint_sdk._compat import PYDANTIC_V2, field_outer_type, get_model_fields
+from openint_sdk._models import BaseModel
 
 BaseModelT = TypeVar("BaseModelT", bound=BaseModel)
 
