@@ -3,14 +3,19 @@
 from __future__ import annotations
 
 import os
-from typing import Any, List, Union, Mapping
+from typing import Any, List, Union, Mapping, cast
 from typing_extensions import Self, Literal, override
 
 import httpx
 
 from . import _exceptions
 from ._qs import Querystring
-from .types import client_get_connection_params, client_get_connection_config_params
+from .types import (
+    client_list_events_params,
+    client_get_connection_params,
+    client_list_connections_params,
+    client_list_connection_configs_params,
+)
 from ._types import (
     NOT_GIVEN,
     Body,
@@ -37,16 +42,18 @@ from ._response import (
     async_to_streamed_response_wrapper,
 )
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
-from ._exceptions import OpenintError, APIStatusError
+from ._exceptions import APIStatusError
 from ._base_client import (
     DEFAULT_MAX_RETRIES,
     SyncAPIClient,
     AsyncAPIClient,
     make_request_options,
 )
-from .types.check_health_response import CheckHealthResponse
+from .types.list_events_response import ListEventsResponse
 from .types.get_connection_response import GetConnectionResponse
-from .types.get_connection_config_response import GetConnectionConfigResponse
+from .types.check_connection_response import CheckConnectionResponse
+from .types.list_connections_response import ListConnectionsResponse
+from .types.list_connection_configs_response import ListConnectionConfigsResponse
 
 __all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Openint", "AsyncOpenint", "Client", "AsyncClient"]
 
@@ -56,12 +63,14 @@ class Openint(SyncAPIClient):
     with_streaming_response: OpenintWithStreamedResponse
 
     # client options
-    api_key: str
+    api_key: str | None
+    customer_token: str | None
 
     def __init__(
         self,
         *,
         api_key: str | None = None,
+        customer_token: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -87,11 +96,9 @@ class Openint(SyncAPIClient):
         """
         if api_key is None:
             api_key = os.environ.get("OPENINT_API_KEY")
-        if api_key is None:
-            raise OpenintError(
-                "The api_key client option must be set either by passing api_key to the client or by setting the OPENINT_API_KEY environment variable"
-            )
         self.api_key = api_key
+
+        self.customer_token = customer_token
 
         if base_url is None:
             base_url = os.environ.get("OPENINT_BASE_URL")
@@ -121,6 +128,8 @@ class Openint(SyncAPIClient):
     @override
     def auth_headers(self) -> dict[str, str]:
         api_key = self.api_key
+        if api_key is None:
+            return {}
         return {"Authorization": f"Bearer {api_key}"}
 
     @property
@@ -132,10 +141,22 @@ class Openint(SyncAPIClient):
             **self._custom_headers,
         }
 
+    @override
+    def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
+        if self.api_key and headers.get("Authorization"):
+            return
+        if isinstance(custom_headers.get("Authorization"), Omit):
+            return
+
+        raise TypeError(
+            '"Could not resolve authentication method. Expected the api_key to be set. Or for the `Authorization` headers to be explicitly omitted"'
+        )
+
     def copy(
         self,
         *,
         api_key: str | None = None,
+        customer_token: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
         http_client: httpx.Client | None = None,
@@ -170,6 +191,7 @@ class Openint(SyncAPIClient):
         http_client = http_client or self._client
         return self.__class__(
             api_key=api_key or self.api_key,
+            customer_token=customer_token or self.customer_token,
             base_url=base_url or self.base_url,
             timeout=self.timeout if isinstance(timeout, NotGiven) else timeout,
             http_client=http_client,
@@ -183,8 +205,9 @@ class Openint(SyncAPIClient):
     # client.with_options(timeout=10).foo.create(...)
     with_options = copy
 
-    def check_health(
+    def check_connection(
         self,
+        id: str,
         *,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -192,13 +215,25 @@ class Openint(SyncAPIClient):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> CheckHealthResponse:
-        return self.get(
-            "/health",
+    ) -> CheckConnectionResponse:
+        """
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        return self.post(
+            f"/connection/{id}/check",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=CheckHealthResponse,
+            cast_to=CheckConnectionResponse,
         )
 
     def get_connection(
@@ -253,7 +288,7 @@ class Openint(SyncAPIClient):
             cast_to=GetConnectionResponse,
         )
 
-    def get_connection_config(
+    def list_connection_configs(
         self,
         *,
         connector_name: str | NotGiven = NOT_GIVEN,
@@ -266,7 +301,7 @@ class Openint(SyncAPIClient):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> GetConnectionConfigResponse:
+    ) -> ListConnectionConfigsResponse:
         """
         Args:
           extra_headers: Send extra headers
@@ -291,10 +326,105 @@ class Openint(SyncAPIClient):
                         "limit": limit,
                         "offset": offset,
                     },
-                    client_get_connection_config_params.ClientGetConnectionConfigParams,
+                    client_list_connection_configs_params.ClientListConnectionConfigsParams,
                 ),
             ),
-            cast_to=GetConnectionConfigResponse,
+            cast_to=ListConnectionConfigsResponse,
+        )
+
+    def list_connections(
+        self,
+        id: str,
+        *,
+        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
+        include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
+        refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> ListConnectionsResponse:
+        """
+        Args:
+          include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
+
+          refresh_policy: Controls credential refresh: none (never), force (always), or auto (when
+              expired, default)
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        return cast(
+            ListConnectionsResponse,
+            self.get(
+                f"/connection/{id}",
+                options=make_request_options(
+                    extra_headers=extra_headers,
+                    extra_query=extra_query,
+                    extra_body=extra_body,
+                    timeout=timeout,
+                    query=maybe_transform(
+                        {
+                            "expand": expand,
+                            "include_secrets": include_secrets,
+                            "refresh_policy": refresh_policy,
+                        },
+                        client_list_connections_params.ClientListConnectionsParams,
+                    ),
+                ),
+                cast_to=cast(
+                    Any, ListConnectionsResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+    def list_events(
+        self,
+        *,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> ListEventsResponse:
+        """
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self.get(
+            "/event",
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "limit": limit,
+                        "offset": offset,
+                    },
+                    client_list_events_params.ClientListEventsParams,
+                ),
+            ),
+            cast_to=ListEventsResponse,
         )
 
     @override
@@ -336,12 +466,14 @@ class AsyncOpenint(AsyncAPIClient):
     with_streaming_response: AsyncOpenintWithStreamedResponse
 
     # client options
-    api_key: str
+    api_key: str | None
+    customer_token: str | None
 
     def __init__(
         self,
         *,
         api_key: str | None = None,
+        customer_token: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -367,11 +499,9 @@ class AsyncOpenint(AsyncAPIClient):
         """
         if api_key is None:
             api_key = os.environ.get("OPENINT_API_KEY")
-        if api_key is None:
-            raise OpenintError(
-                "The api_key client option must be set either by passing api_key to the client or by setting the OPENINT_API_KEY environment variable"
-            )
         self.api_key = api_key
+
+        self.customer_token = customer_token
 
         if base_url is None:
             base_url = os.environ.get("OPENINT_BASE_URL")
@@ -401,6 +531,8 @@ class AsyncOpenint(AsyncAPIClient):
     @override
     def auth_headers(self) -> dict[str, str]:
         api_key = self.api_key
+        if api_key is None:
+            return {}
         return {"Authorization": f"Bearer {api_key}"}
 
     @property
@@ -412,10 +544,22 @@ class AsyncOpenint(AsyncAPIClient):
             **self._custom_headers,
         }
 
+    @override
+    def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
+        if self.api_key and headers.get("Authorization"):
+            return
+        if isinstance(custom_headers.get("Authorization"), Omit):
+            return
+
+        raise TypeError(
+            '"Could not resolve authentication method. Expected the api_key to be set. Or for the `Authorization` headers to be explicitly omitted"'
+        )
+
     def copy(
         self,
         *,
         api_key: str | None = None,
+        customer_token: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
         http_client: httpx.AsyncClient | None = None,
@@ -450,6 +594,7 @@ class AsyncOpenint(AsyncAPIClient):
         http_client = http_client or self._client
         return self.__class__(
             api_key=api_key or self.api_key,
+            customer_token=customer_token or self.customer_token,
             base_url=base_url or self.base_url,
             timeout=self.timeout if isinstance(timeout, NotGiven) else timeout,
             http_client=http_client,
@@ -463,8 +608,9 @@ class AsyncOpenint(AsyncAPIClient):
     # client.with_options(timeout=10).foo.create(...)
     with_options = copy
 
-    async def check_health(
+    async def check_connection(
         self,
+        id: str,
         *,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -472,13 +618,25 @@ class AsyncOpenint(AsyncAPIClient):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> CheckHealthResponse:
-        return await self.get(
-            "/health",
+    ) -> CheckConnectionResponse:
+        """
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        return await self.post(
+            f"/connection/{id}/check",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=CheckHealthResponse,
+            cast_to=CheckConnectionResponse,
         )
 
     async def get_connection(
@@ -533,7 +691,7 @@ class AsyncOpenint(AsyncAPIClient):
             cast_to=GetConnectionResponse,
         )
 
-    async def get_connection_config(
+    async def list_connection_configs(
         self,
         *,
         connector_name: str | NotGiven = NOT_GIVEN,
@@ -546,7 +704,7 @@ class AsyncOpenint(AsyncAPIClient):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> GetConnectionConfigResponse:
+    ) -> ListConnectionConfigsResponse:
         """
         Args:
           extra_headers: Send extra headers
@@ -571,10 +729,105 @@ class AsyncOpenint(AsyncAPIClient):
                         "limit": limit,
                         "offset": offset,
                     },
-                    client_get_connection_config_params.ClientGetConnectionConfigParams,
+                    client_list_connection_configs_params.ClientListConnectionConfigsParams,
                 ),
             ),
-            cast_to=GetConnectionConfigResponse,
+            cast_to=ListConnectionConfigsResponse,
+        )
+
+    async def list_connections(
+        self,
+        id: str,
+        *,
+        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
+        include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
+        refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> ListConnectionsResponse:
+        """
+        Args:
+          include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
+
+          refresh_policy: Controls credential refresh: none (never), force (always), or auto (when
+              expired, default)
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        return cast(
+            ListConnectionsResponse,
+            await self.get(
+                f"/connection/{id}",
+                options=make_request_options(
+                    extra_headers=extra_headers,
+                    extra_query=extra_query,
+                    extra_body=extra_body,
+                    timeout=timeout,
+                    query=await async_maybe_transform(
+                        {
+                            "expand": expand,
+                            "include_secrets": include_secrets,
+                            "refresh_policy": refresh_policy,
+                        },
+                        client_list_connections_params.ClientListConnectionsParams,
+                    ),
+                ),
+                cast_to=cast(
+                    Any, ListConnectionsResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+    async def list_events(
+        self,
+        *,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> ListEventsResponse:
+        """
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return await self.get(
+            "/event",
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {
+                        "limit": limit,
+                        "offset": offset,
+                    },
+                    client_list_events_params.ClientListEventsParams,
+                ),
+            ),
+            cast_to=ListEventsResponse,
         )
 
     @override
@@ -613,53 +866,77 @@ class AsyncOpenint(AsyncAPIClient):
 
 class OpenintWithRawResponse:
     def __init__(self, client: Openint) -> None:
-        self.check_health = to_raw_response_wrapper(
-            client.check_health,
+        self.check_connection = to_raw_response_wrapper(
+            client.check_connection,
         )
         self.get_connection = to_raw_response_wrapper(
             client.get_connection,
         )
-        self.get_connection_config = to_raw_response_wrapper(
-            client.get_connection_config,
+        self.list_connection_configs = to_raw_response_wrapper(
+            client.list_connection_configs,
+        )
+        self.list_connections = to_raw_response_wrapper(
+            client.list_connections,
+        )
+        self.list_events = to_raw_response_wrapper(
+            client.list_events,
         )
 
 
 class AsyncOpenintWithRawResponse:
     def __init__(self, client: AsyncOpenint) -> None:
-        self.check_health = async_to_raw_response_wrapper(
-            client.check_health,
+        self.check_connection = async_to_raw_response_wrapper(
+            client.check_connection,
         )
         self.get_connection = async_to_raw_response_wrapper(
             client.get_connection,
         )
-        self.get_connection_config = async_to_raw_response_wrapper(
-            client.get_connection_config,
+        self.list_connection_configs = async_to_raw_response_wrapper(
+            client.list_connection_configs,
+        )
+        self.list_connections = async_to_raw_response_wrapper(
+            client.list_connections,
+        )
+        self.list_events = async_to_raw_response_wrapper(
+            client.list_events,
         )
 
 
 class OpenintWithStreamedResponse:
     def __init__(self, client: Openint) -> None:
-        self.check_health = to_streamed_response_wrapper(
-            client.check_health,
+        self.check_connection = to_streamed_response_wrapper(
+            client.check_connection,
         )
         self.get_connection = to_streamed_response_wrapper(
             client.get_connection,
         )
-        self.get_connection_config = to_streamed_response_wrapper(
-            client.get_connection_config,
+        self.list_connection_configs = to_streamed_response_wrapper(
+            client.list_connection_configs,
+        )
+        self.list_connections = to_streamed_response_wrapper(
+            client.list_connections,
+        )
+        self.list_events = to_streamed_response_wrapper(
+            client.list_events,
         )
 
 
 class AsyncOpenintWithStreamedResponse:
     def __init__(self, client: AsyncOpenint) -> None:
-        self.check_health = async_to_streamed_response_wrapper(
-            client.check_health,
+        self.check_connection = async_to_streamed_response_wrapper(
+            client.check_connection,
         )
         self.get_connection = async_to_streamed_response_wrapper(
             client.get_connection,
         )
-        self.get_connection_config = async_to_streamed_response_wrapper(
-            client.get_connection_config,
+        self.list_connection_configs = async_to_streamed_response_wrapper(
+            client.list_connection_configs,
+        )
+        self.list_connections = async_to_streamed_response_wrapper(
+            client.list_connections,
+        )
+        self.list_events = async_to_streamed_response_wrapper(
+            client.list_events,
         )
 
 

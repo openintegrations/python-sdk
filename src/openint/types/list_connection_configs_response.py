@@ -9,7 +9,7 @@ from pydantic import Field as FieldInfo
 from .._models import BaseModel
 
 __all__ = [
-    "GetConnectionConfigResponse",
+    "ListConnectionConfigsResponse",
     "Item",
     "ItemConnectorsAircallConnectorConfig",
     "ItemConnectorsAirtableConnectorConfig",
@@ -1518,7 +1518,7 @@ Item: TypeAlias = Union[
 ]
 
 
-class GetConnectionConfigResponse(BaseModel):
+class ListConnectionConfigsResponse(BaseModel):
     items: List[Item]
 
     limit: int

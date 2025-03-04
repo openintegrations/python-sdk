@@ -8,15 +8,15 @@ from typing_extensions import Required, Annotated, TypedDict
 
 import pytest
 
-from openint_sdk._types import Base64FileInput
-from openint_sdk._utils import (
+from openint._types import Base64FileInput
+from openint._utils import (
     PropertyInfo,
     transform as _transform,
     parse_datetime,
     async_transform as _async_transform,
 )
-from openint_sdk._compat import PYDANTIC_V2
-from openint_sdk._models import BaseModel
+from openint._compat import PYDANTIC_V2
+from openint._models import BaseModel
 
 _T = TypeVar("_T")
 
