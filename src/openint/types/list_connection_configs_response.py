@@ -21,7 +21,6 @@ __all__ = [
     "ConnectorsConfluenceConnectorConfig",
     "ConnectorsConfluenceConnectorConfigConfig",
     "ConnectorsConfluenceConnectorConfigConfigOAuth",
-    "ConnectorsDebugConnectorConfig",
     "ConnectorsDiscordConnectorConfig",
     "ConnectorsDiscordConnectorConfigConfig",
     "ConnectorsDiscordConnectorConfigConfigOAuth",
@@ -29,7 +28,6 @@ __all__ = [
     "ConnectorsFinchConnectorConfigConfig",
     "ConnectorsFirebaseConnectorConfig",
     "ConnectorsForeceiptConnectorConfig",
-    "ConnectorsFsConnectorConfig",
     "ConnectorsGitHubConnectorConfig",
     "ConnectorsGitHubConnectorConfigConfig",
     "ConnectorsGitHubConnectorConfigConfigOAuth",
@@ -81,7 +79,6 @@ __all__ = [
     "ConnectorsMicrosoftConnectorConfigConfigIntegrationsSharepoint",
     "ConnectorsMicrosoftConnectorConfigConfigIntegrationsTeams",
     "ConnectorsMicrosoftConnectorConfigConfigOAuth",
-    "ConnectorsMongoDBConnectorConfig",
     "ConnectorsMootaConnectorConfig",
     "ConnectorsMootaConnectorConfigConfig",
     "ConnectorsOnebrickConnectorConfig",
@@ -102,8 +99,6 @@ __all__ = [
     "ConnectorsRampConnectorConfig",
     "ConnectorsRampConnectorConfigConfig",
     "ConnectorsRampConnectorConfigConfigOAuth",
-    "ConnectorsRevertConnectorConfig",
-    "ConnectorsRevertConnectorConfigConfig",
     "ConnectorsSalesforceConnectorConfig",
     "ConnectorsSalesforceConnectorConfigConfig",
     "ConnectorsSalesforceConnectorConfigConfigOAuth",
@@ -116,8 +111,6 @@ __all__ = [
     "ConnectorsSlackConnectorConfigConfig",
     "ConnectorsSlackConnectorConfigConfigOAuth",
     "ConnectorsSplitwiseConnectorConfig",
-    "ConnectorsSpreadsheetConnectorConfig",
-    "ConnectorsSpreadsheetConnectorConfigConfig",
     "ConnectorsStripeConnectorConfig",
     "ConnectorsStripeConnectorConfigConfig",
     "ConnectorsStripeConnectorConfigConfigOAuth",
@@ -128,7 +121,6 @@ __all__ = [
     "ConnectorsVenmoConnectorConfig",
     "ConnectorsVenmoConnectorConfigConfig",
     "ConnectorsVenmoConnectorConfigConfigProxy",
-    "ConnectorsWebhookConnectorConfig",
     "ConnectorsWiseConnectorConfig",
     "ConnectorsXeroConnectorConfig",
     "ConnectorsXeroConnectorConfigConfig",
@@ -266,20 +258,6 @@ class ConnectorsConfluenceConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ConnectorsDebugConnectorConfig(BaseModel):
-    connector_name: Literal["debug"]
-
-    id: Optional[str] = None
-
-    config: Optional[object] = None
-
-    created_at: Optional[datetime] = None
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[datetime] = None
-
-
 class ConnectorsDiscordConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
@@ -350,20 +328,6 @@ class ConnectorsForeceiptConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["foreceipt"]
-
-    id: Optional[str] = None
-
-    created_at: Optional[datetime] = None
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[datetime] = None
-
-
-class ConnectorsFsConnectorConfig(BaseModel):
-    config: None
-
-    connector_name: Literal["fs"]
 
     id: Optional[str] = None
 
@@ -810,20 +774,6 @@ class ConnectorsMicrosoftConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ConnectorsMongoDBConnectorConfig(BaseModel):
-    config: None
-
-    connector_name: Literal["mongodb"]
-
-    id: Optional[str] = None
-
-    created_at: Optional[datetime] = None
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[datetime] = None
-
-
 class ConnectorsMootaConnectorConfigConfig(BaseModel):
     token: str
 
@@ -1048,26 +998,6 @@ class ConnectorsRampConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ConnectorsRevertConnectorConfigConfig(BaseModel):
-    api_token: str
-
-    api_version: Optional[str] = None
-
-
-class ConnectorsRevertConnectorConfig(BaseModel):
-    config: ConnectorsRevertConnectorConfigConfig
-
-    connector_name: Literal["revert"]
-
-    id: Optional[str] = None
-
-    created_at: Optional[datetime] = None
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[datetime] = None
-
-
 class ConnectorsSalesforceConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
@@ -1182,44 +1112,6 @@ class ConnectorsSplitwiseConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ConnectorsSpreadsheetConnectorConfigConfig(BaseModel):
-    enabled_presets: Optional[
-        List[
-            Literal[
-                "ramp",
-                "apple-card",
-                "alliant-credit-union",
-                "bbva-mexico",
-                "brex-cash",
-                "brex",
-                "capitalone-bank",
-                "capitalone",
-                "coinbase",
-                "coinkeeper",
-                "etrade",
-                "first-republic",
-                "wise",
-            ]
-        ]
-    ] = FieldInfo(alias="enabledPresets", default=None)
-
-    source_providers: Optional[List[object]] = FieldInfo(alias="sourceProviders", default=None)
-
-
-class ConnectorsSpreadsheetConnectorConfig(BaseModel):
-    connector_name: Literal["spreadsheet"]
-
-    id: Optional[str] = None
-
-    config: Optional[ConnectorsSpreadsheetConnectorConfigConfig] = None
-
-    created_at: Optional[datetime] = None
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[datetime] = None
-
-
 class ConnectorsStripeConnectorConfigConfigOAuth(BaseModel):
     client_id: str = FieldInfo(alias="clientId")
 
@@ -1312,20 +1204,6 @@ class ConnectorsVenmoConnectorConfig(BaseModel):
     config: ConnectorsVenmoConnectorConfigConfig
 
     connector_name: Literal["venmo"]
-
-    id: Optional[str] = None
-
-    created_at: Optional[datetime] = None
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[datetime] = None
-
-
-class ConnectorsWebhookConnectorConfig(BaseModel):
-    config: None
-
-    connector_name: Literal["webhook"]
 
     id: Optional[str] = None
 
@@ -1466,12 +1344,10 @@ ListConnectionConfigsResponse: TypeAlias = Union[
     ConnectorsBrexConnectorConfig,
     ConnectorsCodaConnectorConfig,
     ConnectorsConfluenceConnectorConfig,
-    ConnectorsDebugConnectorConfig,
     ConnectorsDiscordConnectorConfig,
     ConnectorsFinchConnectorConfig,
     ConnectorsFirebaseConnectorConfig,
     ConnectorsForeceiptConnectorConfig,
-    ConnectorsFsConnectorConfig,
     ConnectorsGitHubConnectorConfig,
     ConnectorsGongConnectorConfig,
     ConnectorsGoogleConnectorConfig,
@@ -1487,7 +1363,6 @@ ListConnectionConfigsResponse: TypeAlias = Union[
     ConnectorsMercuryConnectorConfig,
     ConnectorsMergeConnectorConfig,
     ConnectorsMicrosoftConnectorConfig,
-    ConnectorsMongoDBConnectorConfig,
     ConnectorsMootaConnectorConfig,
     ConnectorsOnebrickConnectorConfig,
     ConnectorsOutreachConnectorConfig,
@@ -1496,19 +1371,16 @@ ListConnectionConfigsResponse: TypeAlias = Union[
     ConnectorsPostgresConnectorConfig,
     ConnectorsQboConnectorConfig,
     ConnectorsRampConnectorConfig,
-    ConnectorsRevertConnectorConfig,
     ConnectorsSalesforceConnectorConfig,
     ConnectorsSalesloftConnectorConfig,
     ConnectorsSaltedgeConnectorConfig,
     ConnectorsSlackConnectorConfig,
     ConnectorsSplitwiseConnectorConfig,
-    ConnectorsSpreadsheetConnectorConfig,
     ConnectorsStripeConnectorConfig,
     ConnectorsTellerConnectorConfig,
     ConnectorsTogglConnectorConfig,
     ConnectorsTwentyConnectorConfig,
     ConnectorsVenmoConnectorConfig,
-    ConnectorsWebhookConnectorConfig,
     ConnectorsWiseConnectorConfig,
     ConnectorsXeroConnectorConfig,
     ConnectorsYodleeConnectorConfig,
