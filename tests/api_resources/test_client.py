@@ -11,8 +11,10 @@ from openint import Openint, AsyncOpenint
 from tests.utils import assert_matches_type
 from openint.types import (
     ListEventsResponse,
+    CreateTokenResponse,
     GetConnectionResponse,
     CheckConnectionResponse,
+    CreateMagicLinkResponse,
     ListConnectionsResponse,
     ListConnectionConfigsResponse,
 )
@@ -64,6 +66,101 @@ class TestClient:
             client.with_raw_response.check_connection(
                 "",
             )
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_create_magic_link(self, client: Openint) -> None:
+        client_ = client.create_magic_link(
+            customer_id="x",
+            email="dev@stainless.com",
+        )
+        assert_matches_type(CreateMagicLinkResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_create_magic_link_with_all_params(self, client: Openint) -> None:
+        client_ = client.create_magic_link(
+            customer_id="x",
+            email="dev@stainless.com",
+            connection_id="connection_id",
+            connector_names="aircall",
+            redirect_url="redirect_url",
+            theme="light",
+            validity_in_seconds=0,
+            view="manage",
+        )
+        assert_matches_type(CreateMagicLinkResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_raw_response_create_magic_link(self, client: Openint) -> None:
+        response = client.with_raw_response.create_magic_link(
+            customer_id="x",
+            email="dev@stainless.com",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client_ = response.parse()
+        assert_matches_type(CreateMagicLinkResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_streaming_response_create_magic_link(self, client: Openint) -> None:
+        with client.with_streaming_response.create_magic_link(
+            customer_id="x",
+            email="dev@stainless.com",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client_ = response.parse()
+            assert_matches_type(CreateMagicLinkResponse, client_, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_create_token(self, client: Openint) -> None:
+        client_ = client.create_token(
+            customer_id="x",
+        )
+        assert_matches_type(CreateTokenResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_create_token_with_all_params(self, client: Openint) -> None:
+        client_ = client.create_token(
+            customer_id="x",
+            validity_in_seconds=1,
+        )
+        assert_matches_type(CreateTokenResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_raw_response_create_token(self, client: Openint) -> None:
+        response = client.with_raw_response.create_token(
+            customer_id="x",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client_ = response.parse()
+        assert_matches_type(CreateTokenResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_streaming_response_create_token(self, client: Openint) -> None:
+        with client.with_streaming_response.create_token(
+            customer_id="x",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client_ = response.parse()
+            assert_matches_type(CreateTokenResponse, client_, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
 
     @pytest.mark.skip()
     @parametrize
@@ -281,6 +378,101 @@ class TestAsyncClient:
             await async_client.with_raw_response.check_connection(
                 "",
             )
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_create_magic_link(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.create_magic_link(
+            customer_id="x",
+            email="dev@stainless.com",
+        )
+        assert_matches_type(CreateMagicLinkResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_create_magic_link_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.create_magic_link(
+            customer_id="x",
+            email="dev@stainless.com",
+            connection_id="connection_id",
+            connector_names="aircall",
+            redirect_url="redirect_url",
+            theme="light",
+            validity_in_seconds=0,
+            view="manage",
+        )
+        assert_matches_type(CreateMagicLinkResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_raw_response_create_magic_link(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.create_magic_link(
+            customer_id="x",
+            email="dev@stainless.com",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client = await response.parse()
+        assert_matches_type(CreateMagicLinkResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_streaming_response_create_magic_link(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.create_magic_link(
+            customer_id="x",
+            email="dev@stainless.com",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client = await response.parse()
+            assert_matches_type(CreateMagicLinkResponse, client, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_create_token(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.create_token(
+            customer_id="x",
+        )
+        assert_matches_type(CreateTokenResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_create_token_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.create_token(
+            customer_id="x",
+            validity_in_seconds=1,
+        )
+        assert_matches_type(CreateTokenResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_raw_response_create_token(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.create_token(
+            customer_id="x",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client = await response.parse()
+        assert_matches_type(CreateTokenResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_streaming_response_create_token(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.create_token(
+            customer_id="x",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client = await response.parse()
+            assert_matches_type(CreateTokenResponse, client, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
 
     @pytest.mark.skip()
     @parametrize
