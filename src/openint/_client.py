@@ -130,31 +130,12 @@ class Openint(SyncAPIClient):
 
     @property
     @override
-    def auth_headers(self) -> dict[str, str]:
-        api_key = self.api_key
-        if api_key is None:
-            return {}
-        return {"Authorization": f"Bearer {api_key}"}
-
-    @property
-    @override
     def default_headers(self) -> dict[str, str | Omit]:
         return {
             **super().default_headers,
             "X-Stainless-Async": "false",
             **self._custom_headers,
         }
-
-    @override
-    def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
-        if self.api_key and headers.get("Authorization"):
-            return
-        if isinstance(custom_headers.get("Authorization"), Omit):
-            return
-
-        raise TypeError(
-            '"Could not resolve authentication method. Expected the api_key to be set. Or for the `Authorization` headers to be explicitly omitted"'
-        )
 
     def copy(
         self,
@@ -246,7 +227,6 @@ class Openint(SyncAPIClient):
         self,
         *,
         customer_id: str,
-        email: str,
         connection_id: Optional[str] | NotGiven = NOT_GIVEN,
         connector_names: Optional[
             Literal[
@@ -306,6 +286,7 @@ class Openint(SyncAPIClient):
             ]
         ]
         | NotGiven = NOT_GIVEN,
+        email: str | NotGiven = NOT_GIVEN,
         redirect_url: Optional[str] | NotGiven = NOT_GIVEN,
         theme: Optional[Literal["light", "dark"]] | NotGiven = NOT_GIVEN,
         validity_in_seconds: float | NotGiven = NOT_GIVEN,
@@ -321,9 +302,9 @@ class Openint(SyncAPIClient):
         Create a magic link for connecting integrations
 
         Args:
-          email: The email address of the customer
-
           connector_names: Filter integrations by comma separated connector names
+
+          email: The email address of the customer
 
           redirect_url: Where to send user to after connect / if they press back button
 
@@ -346,9 +327,9 @@ class Openint(SyncAPIClient):
             body=maybe_transform(
                 {
                     "customer_id": customer_id,
-                    "email": email,
                     "connection_id": connection_id,
                     "connector_names": connector_names,
+                    "email": email,
                     "redirect_url": redirect_url,
                     "theme": theme,
                     "validity_in_seconds": validity_in_seconds,
@@ -821,31 +802,12 @@ class AsyncOpenint(AsyncAPIClient):
 
     @property
     @override
-    def auth_headers(self) -> dict[str, str]:
-        api_key = self.api_key
-        if api_key is None:
-            return {}
-        return {"Authorization": f"Bearer {api_key}"}
-
-    @property
-    @override
     def default_headers(self) -> dict[str, str | Omit]:
         return {
             **super().default_headers,
             "X-Stainless-Async": f"async:{get_async_library()}",
             **self._custom_headers,
         }
-
-    @override
-    def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
-        if self.api_key and headers.get("Authorization"):
-            return
-        if isinstance(custom_headers.get("Authorization"), Omit):
-            return
-
-        raise TypeError(
-            '"Could not resolve authentication method. Expected the api_key to be set. Or for the `Authorization` headers to be explicitly omitted"'
-        )
 
     def copy(
         self,
@@ -937,7 +899,6 @@ class AsyncOpenint(AsyncAPIClient):
         self,
         *,
         customer_id: str,
-        email: str,
         connection_id: Optional[str] | NotGiven = NOT_GIVEN,
         connector_names: Optional[
             Literal[
@@ -997,6 +958,7 @@ class AsyncOpenint(AsyncAPIClient):
             ]
         ]
         | NotGiven = NOT_GIVEN,
+        email: str | NotGiven = NOT_GIVEN,
         redirect_url: Optional[str] | NotGiven = NOT_GIVEN,
         theme: Optional[Literal["light", "dark"]] | NotGiven = NOT_GIVEN,
         validity_in_seconds: float | NotGiven = NOT_GIVEN,
@@ -1012,9 +974,9 @@ class AsyncOpenint(AsyncAPIClient):
         Create a magic link for connecting integrations
 
         Args:
-          email: The email address of the customer
-
           connector_names: Filter integrations by comma separated connector names
+
+          email: The email address of the customer
 
           redirect_url: Where to send user to after connect / if they press back button
 
@@ -1037,9 +999,9 @@ class AsyncOpenint(AsyncAPIClient):
             body=await async_maybe_transform(
                 {
                     "customer_id": customer_id,
-                    "email": email,
                     "connection_id": connection_id,
                     "connector_names": connector_names,
+                    "email": email,
                     "redirect_url": redirect_url,
                     "theme": theme,
                     "validity_in_seconds": validity_in_seconds,
