@@ -76,8 +76,8 @@ class TestClient:
     def test_method_get_connection_with_all_params(self, client: Openint) -> None:
         client_ = client.get_connection(
             connector_config_id="connector_config_id",
-            connector_name="connector_name",
-            customer_id="customer_id",
+            connector_name="aircall",
+            customer_id="x",
             expand=["connector"],
             include_secrets="none",
             limit=1,
@@ -117,7 +117,7 @@ class TestClient:
     @parametrize
     def test_method_list_connection_configs_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connection_configs(
-            connector_name="connector_name",
+            connector_name="aircall",
             expand=["connector"],
             limit=1,
             offset=0,
@@ -293,8 +293,8 @@ class TestAsyncClient:
     async def test_method_get_connection_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.get_connection(
             connector_config_id="connector_config_id",
-            connector_name="connector_name",
-            customer_id="customer_id",
+            connector_name="aircall",
+            customer_id="x",
             expand=["connector"],
             include_secrets="none",
             limit=1,
@@ -334,7 +334,7 @@ class TestAsyncClient:
     @parametrize
     async def test_method_list_connection_configs_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connection_configs(
-            connector_name="connector_name",
+            connector_name="aircall",
             expand=["connector"],
             limit=1,
             offset=0,

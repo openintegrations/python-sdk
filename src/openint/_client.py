@@ -217,6 +217,8 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> CheckConnectionResponse:
         """
+        Verify that a connection is healthy
+
         Args:
           extra_headers: Send extra headers
 
@@ -240,7 +242,62 @@ class Openint(SyncAPIClient):
         self,
         *,
         connector_config_id: str | NotGiven = NOT_GIVEN,
-        connector_name: str | NotGiven = NOT_GIVEN,
+        connector_name: Literal[
+            "aircall",
+            "airtable",
+            "apollo",
+            "beancount",
+            "brex",
+            "coda",
+            "confluence",
+            "debug",
+            "discord",
+            "finch",
+            "firebase",
+            "foreceipt",
+            "fs",
+            "github",
+            "gong",
+            "google",
+            "greenhouse",
+            "heron",
+            "hubspot",
+            "intercom",
+            "jira",
+            "kustomer",
+            "lever",
+            "linear",
+            "lunchmoney",
+            "merge",
+            "microsoft",
+            "mongodb",
+            "moota",
+            "onebrick",
+            "outreach",
+            "pipedrive",
+            "plaid",
+            "postgres",
+            "qbo",
+            "ramp",
+            "revert",
+            "salesforce",
+            "salesloft",
+            "saltedge",
+            "slack",
+            "splitwise",
+            "spreadsheet",
+            "stripe",
+            "teller",
+            "toggl",
+            "twenty",
+            "webhook",
+            "wise",
+            "xero",
+            "yodlee",
+            "zohodesk",
+            "googledrive",
+        ]
+        | NotGiven = NOT_GIVEN,
         customer_id: str | NotGiven = NOT_GIVEN,
         expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
         include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
@@ -254,7 +311,11 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> GetConnectionResponse:
         """
+        List all connections with optional filtering
+
         Args:
+          connector_name: The name of the connector
+
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
           extra_headers: Send extra headers
@@ -291,7 +352,62 @@ class Openint(SyncAPIClient):
     def list_connection_configs(
         self,
         *,
-        connector_name: str | NotGiven = NOT_GIVEN,
+        connector_name: Literal[
+            "aircall",
+            "airtable",
+            "apollo",
+            "beancount",
+            "brex",
+            "coda",
+            "confluence",
+            "debug",
+            "discord",
+            "finch",
+            "firebase",
+            "foreceipt",
+            "fs",
+            "github",
+            "gong",
+            "google",
+            "greenhouse",
+            "heron",
+            "hubspot",
+            "intercom",
+            "jira",
+            "kustomer",
+            "lever",
+            "linear",
+            "lunchmoney",
+            "merge",
+            "microsoft",
+            "mongodb",
+            "moota",
+            "onebrick",
+            "outreach",
+            "pipedrive",
+            "plaid",
+            "postgres",
+            "qbo",
+            "ramp",
+            "revert",
+            "salesforce",
+            "salesloft",
+            "saltedge",
+            "slack",
+            "splitwise",
+            "spreadsheet",
+            "stripe",
+            "teller",
+            "toggl",
+            "twenty",
+            "webhook",
+            "wise",
+            "xero",
+            "yodlee",
+            "zohodesk",
+            "googledrive",
+        ]
+        | NotGiven = NOT_GIVEN,
         expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
@@ -303,7 +419,11 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ListConnectionConfigsResponse:
         """
+        List all connector configurations with optional filtering
+
         Args:
+          connector_name: The name of the connector
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -347,6 +467,8 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ListConnectionsResponse:
         """
+        Get details of a specific connection
+
         Args:
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
@@ -400,6 +522,8 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ListEventsResponse:
         """
+        List all events for an organization
+
         Args:
           extra_headers: Send extra headers
 
@@ -620,6 +744,8 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> CheckConnectionResponse:
         """
+        Verify that a connection is healthy
+
         Args:
           extra_headers: Send extra headers
 
@@ -643,7 +769,62 @@ class AsyncOpenint(AsyncAPIClient):
         self,
         *,
         connector_config_id: str | NotGiven = NOT_GIVEN,
-        connector_name: str | NotGiven = NOT_GIVEN,
+        connector_name: Literal[
+            "aircall",
+            "airtable",
+            "apollo",
+            "beancount",
+            "brex",
+            "coda",
+            "confluence",
+            "debug",
+            "discord",
+            "finch",
+            "firebase",
+            "foreceipt",
+            "fs",
+            "github",
+            "gong",
+            "google",
+            "greenhouse",
+            "heron",
+            "hubspot",
+            "intercom",
+            "jira",
+            "kustomer",
+            "lever",
+            "linear",
+            "lunchmoney",
+            "merge",
+            "microsoft",
+            "mongodb",
+            "moota",
+            "onebrick",
+            "outreach",
+            "pipedrive",
+            "plaid",
+            "postgres",
+            "qbo",
+            "ramp",
+            "revert",
+            "salesforce",
+            "salesloft",
+            "saltedge",
+            "slack",
+            "splitwise",
+            "spreadsheet",
+            "stripe",
+            "teller",
+            "toggl",
+            "twenty",
+            "webhook",
+            "wise",
+            "xero",
+            "yodlee",
+            "zohodesk",
+            "googledrive",
+        ]
+        | NotGiven = NOT_GIVEN,
         customer_id: str | NotGiven = NOT_GIVEN,
         expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
         include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
@@ -657,7 +838,11 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> GetConnectionResponse:
         """
+        List all connections with optional filtering
+
         Args:
+          connector_name: The name of the connector
+
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
           extra_headers: Send extra headers
@@ -694,7 +879,62 @@ class AsyncOpenint(AsyncAPIClient):
     async def list_connection_configs(
         self,
         *,
-        connector_name: str | NotGiven = NOT_GIVEN,
+        connector_name: Literal[
+            "aircall",
+            "airtable",
+            "apollo",
+            "beancount",
+            "brex",
+            "coda",
+            "confluence",
+            "debug",
+            "discord",
+            "finch",
+            "firebase",
+            "foreceipt",
+            "fs",
+            "github",
+            "gong",
+            "google",
+            "greenhouse",
+            "heron",
+            "hubspot",
+            "intercom",
+            "jira",
+            "kustomer",
+            "lever",
+            "linear",
+            "lunchmoney",
+            "merge",
+            "microsoft",
+            "mongodb",
+            "moota",
+            "onebrick",
+            "outreach",
+            "pipedrive",
+            "plaid",
+            "postgres",
+            "qbo",
+            "ramp",
+            "revert",
+            "salesforce",
+            "salesloft",
+            "saltedge",
+            "slack",
+            "splitwise",
+            "spreadsheet",
+            "stripe",
+            "teller",
+            "toggl",
+            "twenty",
+            "webhook",
+            "wise",
+            "xero",
+            "yodlee",
+            "zohodesk",
+            "googledrive",
+        ]
+        | NotGiven = NOT_GIVEN,
         expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
@@ -706,7 +946,11 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ListConnectionConfigsResponse:
         """
+        List all connector configurations with optional filtering
+
         Args:
+          connector_name: The name of the connector
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -750,6 +994,8 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ListConnectionsResponse:
         """
+        Get details of a specific connection
+
         Args:
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
@@ -803,6 +1049,8 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ListEventsResponse:
         """
+        List all events for an organization
+
         Args:
           extra_headers: Send extra headers
 
