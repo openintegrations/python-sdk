@@ -36,6 +36,7 @@ from openint._base_client import (
 from .utils import update_env
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
+api_key = "My API Key"
 
 
 def _get_params(client: BaseClient[Any, Any]) -> dict[str, str]:
@@ -57,7 +58,7 @@ def _get_open_connections(client: Openint | AsyncOpenint) -> int:
 
 
 class TestOpenint:
-    client = Openint(base_url=base_url, _strict_response_validation=True)
+    client = Openint(base_url=base_url, api_key=api_key, _strict_response_validation=True)
 
     @pytest.mark.respx(base_url=base_url)
     def test_raw_response(self, respx_mock: MockRouter) -> None:
@@ -83,6 +84,10 @@ class TestOpenint:
         copied = self.client.copy()
         assert id(copied) != id(self.client)
 
+        copied = self.client.copy(api_key="another My API Key")
+        assert copied.api_key == "another My API Key"
+        assert self.client.api_key == "My API Key"
+
     def test_copy_default_options(self) -> None:
         # options that have a default are overridden correctly
         copied = self.client.copy(max_retries=7)
@@ -100,7 +105,9 @@ class TestOpenint:
         assert isinstance(self.client.timeout, httpx.Timeout)
 
     def test_copy_default_headers(self) -> None:
-        client = Openint(base_url=base_url, _strict_response_validation=True, default_headers={"X-Foo": "bar"})
+        client = Openint(
+            base_url=base_url, api_key=api_key, _strict_response_validation=True, default_headers={"X-Foo": "bar"}
+        )
         assert client.default_headers["X-Foo"] == "bar"
 
         # does not override the already given value when not specified
@@ -132,7 +139,9 @@ class TestOpenint:
             client.copy(set_default_headers={}, default_headers={"X-Foo": "Bar"})
 
     def test_copy_default_query(self) -> None:
-        client = Openint(base_url=base_url, _strict_response_validation=True, default_query={"foo": "bar"})
+        client = Openint(
+            base_url=base_url, api_key=api_key, _strict_response_validation=True, default_query={"foo": "bar"}
+        )
         assert _get_params(client)["foo"] == "bar"
 
         # does not override the already given value when not specified
@@ -255,7 +264,7 @@ class TestOpenint:
         assert timeout == httpx.Timeout(100.0)
 
     def test_client_timeout_option(self) -> None:
-        client = Openint(base_url=base_url, _strict_response_validation=True, timeout=httpx.Timeout(0))
+        client = Openint(base_url=base_url, api_key=api_key, _strict_response_validation=True, timeout=httpx.Timeout(0))
 
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -264,7 +273,9 @@ class TestOpenint:
     def test_http_client_timeout_option(self) -> None:
         # custom timeout given to the httpx client should be used
         with httpx.Client(timeout=None) as http_client:
-            client = Openint(base_url=base_url, _strict_response_validation=True, http_client=http_client)
+            client = Openint(
+                base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client
+            )
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
             timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -272,7 +283,9 @@ class TestOpenint:
 
         # no timeout given to the httpx client should not use the httpx default
         with httpx.Client() as http_client:
-            client = Openint(base_url=base_url, _strict_response_validation=True, http_client=http_client)
+            client = Openint(
+                base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client
+            )
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
             timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -280,7 +293,9 @@ class TestOpenint:
 
         # explicitly passing the default timeout currently results in it being ignored
         with httpx.Client(timeout=HTTPX_DEFAULT_TIMEOUT) as http_client:
-            client = Openint(base_url=base_url, _strict_response_validation=True, http_client=http_client)
+            client = Openint(
+                base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client
+            )
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
             timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -289,16 +304,24 @@ class TestOpenint:
     async def test_invalid_http_client(self) -> None:
         with pytest.raises(TypeError, match="Invalid `http_client` arg"):
             async with httpx.AsyncClient() as http_client:
-                Openint(base_url=base_url, _strict_response_validation=True, http_client=cast(Any, http_client))
+                Openint(
+                    base_url=base_url,
+                    api_key=api_key,
+                    _strict_response_validation=True,
+                    http_client=cast(Any, http_client),
+                )
 
     def test_default_headers_option(self) -> None:
-        client = Openint(base_url=base_url, _strict_response_validation=True, default_headers={"X-Foo": "bar"})
+        client = Openint(
+            base_url=base_url, api_key=api_key, _strict_response_validation=True, default_headers={"X-Foo": "bar"}
+        )
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         assert request.headers.get("x-foo") == "bar"
         assert request.headers.get("x-stainless-lang") == "python"
 
         client2 = Openint(
             base_url=base_url,
+            api_key=api_key,
             _strict_response_validation=True,
             default_headers={
                 "X-Foo": "stainless",
@@ -309,8 +332,29 @@ class TestOpenint:
         assert request.headers.get("x-foo") == "stainless"
         assert request.headers.get("x-stainless-lang") == "my-overriding-header"
 
+    def test_validate_headers(self) -> None:
+        client = Openint(base_url=base_url, api_key=api_key, _strict_response_validation=True)
+        request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
+        assert request.headers.get("authorization") == api_key
+
+        with update_env(**{"OPENINT_API_KEY": Omit()}):
+            client2 = Openint(base_url=base_url, api_key=None, _strict_response_validation=True)
+
+        with pytest.raises(
+            TypeError,
+            match="Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `authorization` or `Authorization` headers to be explicitly omitted",
+        ):
+            client2._build_request(FinalRequestOptions(method="get", url="/foo"))
+
+        request2 = client2._build_request(
+            FinalRequestOptions(method="get", url="/foo", headers={"authorization": Omit()})
+        )
+        assert request2.headers.get("authorization") is None
+
     def test_default_query_option(self) -> None:
-        client = Openint(base_url=base_url, _strict_response_validation=True, default_query={"query_param": "bar"})
+        client = Openint(
+            base_url=base_url, api_key=api_key, _strict_response_validation=True, default_query={"query_param": "bar"}
+        )
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         url = httpx.URL(request.url)
         assert dict(url.params) == {"query_param": "bar"}
@@ -509,7 +553,7 @@ class TestOpenint:
         assert response.foo == 2
 
     def test_base_url_setter(self) -> None:
-        client = Openint(base_url="https://example.com/from_init", _strict_response_validation=True)
+        client = Openint(base_url="https://example.com/from_init", api_key=api_key, _strict_response_validation=True)
         assert client.base_url == "https://example.com/from_init/"
 
         client.base_url = "https://example.com/from_setter"  # type: ignore[assignment]
@@ -518,15 +562,16 @@ class TestOpenint:
 
     def test_base_url_env(self) -> None:
         with update_env(OPENINT_BASE_URL="http://localhost:5000/from/env"):
-            client = Openint(_strict_response_validation=True)
+            client = Openint(api_key=api_key, _strict_response_validation=True)
             assert client.base_url == "http://localhost:5000/from/env/"
 
     @pytest.mark.parametrize(
         "client",
         [
-            Openint(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
+            Openint(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True),
             Openint(
                 base_url="http://localhost:5000/custom/path/",
+                api_key=api_key,
                 _strict_response_validation=True,
                 http_client=httpx.Client(),
             ),
@@ -546,9 +591,10 @@ class TestOpenint:
     @pytest.mark.parametrize(
         "client",
         [
-            Openint(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
+            Openint(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True),
             Openint(
                 base_url="http://localhost:5000/custom/path/",
+                api_key=api_key,
                 _strict_response_validation=True,
                 http_client=httpx.Client(),
             ),
@@ -568,9 +614,10 @@ class TestOpenint:
     @pytest.mark.parametrize(
         "client",
         [
-            Openint(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
+            Openint(base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True),
             Openint(
                 base_url="http://localhost:5000/custom/path/",
+                api_key=api_key,
                 _strict_response_validation=True,
                 http_client=httpx.Client(),
             ),
@@ -588,7 +635,7 @@ class TestOpenint:
         assert request.url == "https://myapi.com/foo"
 
     def test_copied_client_does_not_close_http(self) -> None:
-        client = Openint(base_url=base_url, _strict_response_validation=True)
+        client = Openint(base_url=base_url, api_key=api_key, _strict_response_validation=True)
         assert not client.is_closed()
 
         copied = client.copy()
@@ -599,7 +646,7 @@ class TestOpenint:
         assert not client.is_closed()
 
     def test_client_context_manager(self) -> None:
-        client = Openint(base_url=base_url, _strict_response_validation=True)
+        client = Openint(base_url=base_url, api_key=api_key, _strict_response_validation=True)
         with client as c2:
             assert c2 is client
             assert not c2.is_closed()
@@ -620,7 +667,7 @@ class TestOpenint:
 
     def test_client_max_retries_validation(self) -> None:
         with pytest.raises(TypeError, match=r"max_retries cannot be None"):
-            Openint(base_url=base_url, _strict_response_validation=True, max_retries=cast(Any, None))
+            Openint(base_url=base_url, api_key=api_key, _strict_response_validation=True, max_retries=cast(Any, None))
 
     @pytest.mark.respx(base_url=base_url)
     def test_received_text_for_expected_json(self, respx_mock: MockRouter) -> None:
@@ -629,12 +676,12 @@ class TestOpenint:
 
         respx_mock.get("/foo").mock(return_value=httpx.Response(200, text="my-custom-format"))
 
-        strict_client = Openint(base_url=base_url, _strict_response_validation=True)
+        strict_client = Openint(base_url=base_url, api_key=api_key, _strict_response_validation=True)
 
         with pytest.raises(APIResponseValidationError):
             strict_client.get("/foo", cast_to=Model)
 
-        client = Openint(base_url=base_url, _strict_response_validation=False)
+        client = Openint(base_url=base_url, api_key=api_key, _strict_response_validation=False)
 
         response = client.get("/foo", cast_to=Model)
         assert isinstance(response, str)  # type: ignore[unreachable]
@@ -662,7 +709,7 @@ class TestOpenint:
     )
     @mock.patch("time.time", mock.MagicMock(return_value=1696004797))
     def test_parse_retry_after_header(self, remaining_retries: int, retry_after: str, timeout: float) -> None:
-        client = Openint(base_url=base_url, _strict_response_validation=True)
+        client = Openint(base_url=base_url, api_key=api_key, _strict_response_validation=True)
 
         headers = httpx.Headers({"retry-after": retry_after})
         options = FinalRequestOptions(method="get", url="/foo", max_retries=3)
@@ -768,7 +815,7 @@ class TestOpenint:
 
 
 class TestAsyncOpenint:
-    client = AsyncOpenint(base_url=base_url, _strict_response_validation=True)
+    client = AsyncOpenint(base_url=base_url, api_key=api_key, _strict_response_validation=True)
 
     @pytest.mark.respx(base_url=base_url)
     @pytest.mark.asyncio
@@ -796,6 +843,10 @@ class TestAsyncOpenint:
         copied = self.client.copy()
         assert id(copied) != id(self.client)
 
+        copied = self.client.copy(api_key="another My API Key")
+        assert copied.api_key == "another My API Key"
+        assert self.client.api_key == "My API Key"
+
     def test_copy_default_options(self) -> None:
         # options that have a default are overridden correctly
         copied = self.client.copy(max_retries=7)
@@ -813,7 +864,9 @@ class TestAsyncOpenint:
         assert isinstance(self.client.timeout, httpx.Timeout)
 
     def test_copy_default_headers(self) -> None:
-        client = AsyncOpenint(base_url=base_url, _strict_response_validation=True, default_headers={"X-Foo": "bar"})
+        client = AsyncOpenint(
+            base_url=base_url, api_key=api_key, _strict_response_validation=True, default_headers={"X-Foo": "bar"}
+        )
         assert client.default_headers["X-Foo"] == "bar"
 
         # does not override the already given value when not specified
@@ -845,7 +898,9 @@ class TestAsyncOpenint:
             client.copy(set_default_headers={}, default_headers={"X-Foo": "Bar"})
 
     def test_copy_default_query(self) -> None:
-        client = AsyncOpenint(base_url=base_url, _strict_response_validation=True, default_query={"foo": "bar"})
+        client = AsyncOpenint(
+            base_url=base_url, api_key=api_key, _strict_response_validation=True, default_query={"foo": "bar"}
+        )
         assert _get_params(client)["foo"] == "bar"
 
         # does not override the already given value when not specified
@@ -968,7 +1023,9 @@ class TestAsyncOpenint:
         assert timeout == httpx.Timeout(100.0)
 
     async def test_client_timeout_option(self) -> None:
-        client = AsyncOpenint(base_url=base_url, _strict_response_validation=True, timeout=httpx.Timeout(0))
+        client = AsyncOpenint(
+            base_url=base_url, api_key=api_key, _strict_response_validation=True, timeout=httpx.Timeout(0)
+        )
 
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -977,7 +1034,9 @@ class TestAsyncOpenint:
     async def test_http_client_timeout_option(self) -> None:
         # custom timeout given to the httpx client should be used
         async with httpx.AsyncClient(timeout=None) as http_client:
-            client = AsyncOpenint(base_url=base_url, _strict_response_validation=True, http_client=http_client)
+            client = AsyncOpenint(
+                base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client
+            )
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
             timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -985,7 +1044,9 @@ class TestAsyncOpenint:
 
         # no timeout given to the httpx client should not use the httpx default
         async with httpx.AsyncClient() as http_client:
-            client = AsyncOpenint(base_url=base_url, _strict_response_validation=True, http_client=http_client)
+            client = AsyncOpenint(
+                base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client
+            )
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
             timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -993,7 +1054,9 @@ class TestAsyncOpenint:
 
         # explicitly passing the default timeout currently results in it being ignored
         async with httpx.AsyncClient(timeout=HTTPX_DEFAULT_TIMEOUT) as http_client:
-            client = AsyncOpenint(base_url=base_url, _strict_response_validation=True, http_client=http_client)
+            client = AsyncOpenint(
+                base_url=base_url, api_key=api_key, _strict_response_validation=True, http_client=http_client
+            )
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
             timeout = httpx.Timeout(**request.extensions["timeout"])  # type: ignore
@@ -1002,16 +1065,24 @@ class TestAsyncOpenint:
     def test_invalid_http_client(self) -> None:
         with pytest.raises(TypeError, match="Invalid `http_client` arg"):
             with httpx.Client() as http_client:
-                AsyncOpenint(base_url=base_url, _strict_response_validation=True, http_client=cast(Any, http_client))
+                AsyncOpenint(
+                    base_url=base_url,
+                    api_key=api_key,
+                    _strict_response_validation=True,
+                    http_client=cast(Any, http_client),
+                )
 
     def test_default_headers_option(self) -> None:
-        client = AsyncOpenint(base_url=base_url, _strict_response_validation=True, default_headers={"X-Foo": "bar"})
+        client = AsyncOpenint(
+            base_url=base_url, api_key=api_key, _strict_response_validation=True, default_headers={"X-Foo": "bar"}
+        )
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         assert request.headers.get("x-foo") == "bar"
         assert request.headers.get("x-stainless-lang") == "python"
 
         client2 = AsyncOpenint(
             base_url=base_url,
+            api_key=api_key,
             _strict_response_validation=True,
             default_headers={
                 "X-Foo": "stainless",
@@ -1022,8 +1093,29 @@ class TestAsyncOpenint:
         assert request.headers.get("x-foo") == "stainless"
         assert request.headers.get("x-stainless-lang") == "my-overriding-header"
 
+    def test_validate_headers(self) -> None:
+        client = AsyncOpenint(base_url=base_url, api_key=api_key, _strict_response_validation=True)
+        request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
+        assert request.headers.get("authorization") == api_key
+
+        with update_env(**{"OPENINT_API_KEY": Omit()}):
+            client2 = AsyncOpenint(base_url=base_url, api_key=None, _strict_response_validation=True)
+
+        with pytest.raises(
+            TypeError,
+            match="Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `authorization` or `Authorization` headers to be explicitly omitted",
+        ):
+            client2._build_request(FinalRequestOptions(method="get", url="/foo"))
+
+        request2 = client2._build_request(
+            FinalRequestOptions(method="get", url="/foo", headers={"authorization": Omit()})
+        )
+        assert request2.headers.get("authorization") is None
+
     def test_default_query_option(self) -> None:
-        client = AsyncOpenint(base_url=base_url, _strict_response_validation=True, default_query={"query_param": "bar"})
+        client = AsyncOpenint(
+            base_url=base_url, api_key=api_key, _strict_response_validation=True, default_query={"query_param": "bar"}
+        )
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         url = httpx.URL(request.url)
         assert dict(url.params) == {"query_param": "bar"}
@@ -1222,7 +1314,9 @@ class TestAsyncOpenint:
         assert response.foo == 2
 
     def test_base_url_setter(self) -> None:
-        client = AsyncOpenint(base_url="https://example.com/from_init", _strict_response_validation=True)
+        client = AsyncOpenint(
+            base_url="https://example.com/from_init", api_key=api_key, _strict_response_validation=True
+        )
         assert client.base_url == "https://example.com/from_init/"
 
         client.base_url = "https://example.com/from_setter"  # type: ignore[assignment]
@@ -1231,15 +1325,18 @@ class TestAsyncOpenint:
 
     def test_base_url_env(self) -> None:
         with update_env(OPENINT_BASE_URL="http://localhost:5000/from/env"):
-            client = AsyncOpenint(_strict_response_validation=True)
+            client = AsyncOpenint(api_key=api_key, _strict_response_validation=True)
             assert client.base_url == "http://localhost:5000/from/env/"
 
     @pytest.mark.parametrize(
         "client",
         [
-            AsyncOpenint(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
+            AsyncOpenint(
+                base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True
+            ),
             AsyncOpenint(
                 base_url="http://localhost:5000/custom/path/",
+                api_key=api_key,
                 _strict_response_validation=True,
                 http_client=httpx.AsyncClient(),
             ),
@@ -1259,9 +1356,12 @@ class TestAsyncOpenint:
     @pytest.mark.parametrize(
         "client",
         [
-            AsyncOpenint(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
+            AsyncOpenint(
+                base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True
+            ),
             AsyncOpenint(
                 base_url="http://localhost:5000/custom/path/",
+                api_key=api_key,
                 _strict_response_validation=True,
                 http_client=httpx.AsyncClient(),
             ),
@@ -1281,9 +1381,12 @@ class TestAsyncOpenint:
     @pytest.mark.parametrize(
         "client",
         [
-            AsyncOpenint(base_url="http://localhost:5000/custom/path/", _strict_response_validation=True),
+            AsyncOpenint(
+                base_url="http://localhost:5000/custom/path/", api_key=api_key, _strict_response_validation=True
+            ),
             AsyncOpenint(
                 base_url="http://localhost:5000/custom/path/",
+                api_key=api_key,
                 _strict_response_validation=True,
                 http_client=httpx.AsyncClient(),
             ),
@@ -1301,7 +1404,7 @@ class TestAsyncOpenint:
         assert request.url == "https://myapi.com/foo"
 
     async def test_copied_client_does_not_close_http(self) -> None:
-        client = AsyncOpenint(base_url=base_url, _strict_response_validation=True)
+        client = AsyncOpenint(base_url=base_url, api_key=api_key, _strict_response_validation=True)
         assert not client.is_closed()
 
         copied = client.copy()
@@ -1313,7 +1416,7 @@ class TestAsyncOpenint:
         assert not client.is_closed()
 
     async def test_client_context_manager(self) -> None:
-        client = AsyncOpenint(base_url=base_url, _strict_response_validation=True)
+        client = AsyncOpenint(base_url=base_url, api_key=api_key, _strict_response_validation=True)
         async with client as c2:
             assert c2 is client
             assert not c2.is_closed()
@@ -1335,7 +1438,9 @@ class TestAsyncOpenint:
 
     async def test_client_max_retries_validation(self) -> None:
         with pytest.raises(TypeError, match=r"max_retries cannot be None"):
-            AsyncOpenint(base_url=base_url, _strict_response_validation=True, max_retries=cast(Any, None))
+            AsyncOpenint(
+                base_url=base_url, api_key=api_key, _strict_response_validation=True, max_retries=cast(Any, None)
+            )
 
     @pytest.mark.respx(base_url=base_url)
     @pytest.mark.asyncio
@@ -1345,12 +1450,12 @@ class TestAsyncOpenint:
 
         respx_mock.get("/foo").mock(return_value=httpx.Response(200, text="my-custom-format"))
 
-        strict_client = AsyncOpenint(base_url=base_url, _strict_response_validation=True)
+        strict_client = AsyncOpenint(base_url=base_url, api_key=api_key, _strict_response_validation=True)
 
         with pytest.raises(APIResponseValidationError):
             await strict_client.get("/foo", cast_to=Model)
 
-        client = AsyncOpenint(base_url=base_url, _strict_response_validation=False)
+        client = AsyncOpenint(base_url=base_url, api_key=api_key, _strict_response_validation=False)
 
         response = await client.get("/foo", cast_to=Model)
         assert isinstance(response, str)  # type: ignore[unreachable]
@@ -1379,7 +1484,7 @@ class TestAsyncOpenint:
     @mock.patch("time.time", mock.MagicMock(return_value=1696004797))
     @pytest.mark.asyncio
     async def test_parse_retry_after_header(self, remaining_retries: int, retry_after: str, timeout: float) -> None:
-        client = AsyncOpenint(base_url=base_url, _strict_response_validation=True)
+        client = AsyncOpenint(base_url=base_url, api_key=api_key, _strict_response_validation=True)
 
         headers = httpx.Headers({"retry-after": retry_after})
         options = FinalRequestOptions(method="get", url="/foo", max_retries=3)
