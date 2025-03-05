@@ -130,12 +130,51 @@ class Openint(SyncAPIClient):
 
     @property
     @override
+    def auth_headers(self) -> dict[str, str]:
+        if self._organization_auth:
+            return self._organization_auth
+        if self._customer_auth:
+            return self._customer_auth
+        return {}
+
+    @property
+    def _organization_auth(self) -> dict[str, str]:
+        api_key = self.api_key
+        if api_key is None:
+            return {}
+        return {"authorization": api_key}
+
+    @property
+    def _customer_auth(self) -> dict[str, str]:
+        customer_token = self.customer_token
+        if customer_token is None:
+            return {}
+        return {"Authorization": f"Bearer {customer_token}"}
+
+    @property
+    @override
     def default_headers(self) -> dict[str, str | Omit]:
         return {
             **super().default_headers,
             "X-Stainless-Async": "false",
             **self._custom_headers,
         }
+
+    @override
+    def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
+        if self.api_key and headers.get("authorization"):
+            return
+        if isinstance(custom_headers.get("authorization"), Omit):
+            return
+
+        if self.customer_token and headers.get("Authorization"):
+            return
+        if isinstance(custom_headers.get("Authorization"), Omit):
+            return
+
+        raise TypeError(
+            '"Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `authorization` or `Authorization` headers to be explicitly omitted"'
+        )
 
     def copy(
         self,
@@ -802,12 +841,51 @@ class AsyncOpenint(AsyncAPIClient):
 
     @property
     @override
+    def auth_headers(self) -> dict[str, str]:
+        if self._organization_auth:
+            return self._organization_auth
+        if self._customer_auth:
+            return self._customer_auth
+        return {}
+
+    @property
+    def _organization_auth(self) -> dict[str, str]:
+        api_key = self.api_key
+        if api_key is None:
+            return {}
+        return {"authorization": api_key}
+
+    @property
+    def _customer_auth(self) -> dict[str, str]:
+        customer_token = self.customer_token
+        if customer_token is None:
+            return {}
+        return {"Authorization": f"Bearer {customer_token}"}
+
+    @property
+    @override
     def default_headers(self) -> dict[str, str | Omit]:
         return {
             **super().default_headers,
             "X-Stainless-Async": f"async:{get_async_library()}",
             **self._custom_headers,
         }
+
+    @override
+    def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
+        if self.api_key and headers.get("authorization"):
+            return
+        if isinstance(custom_headers.get("authorization"), Omit):
+            return
+
+        if self.customer_token and headers.get("Authorization"):
+            return
+        if isinstance(custom_headers.get("Authorization"), Omit):
+            return
+
+        raise TypeError(
+            '"Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `authorization` or `Authorization` headers to be explicitly omitted"'
+        )
 
     def copy(
         self,
