@@ -11,10 +11,8 @@ from openint import Openint, AsyncOpenint
 from tests.utils import assert_matches_type
 from openint.types import (
     ListEventsResponse,
-    CreateTokenResponse,
     GetConnectionResponse,
     CheckConnectionResponse,
-    CreateMagicLinkResponse,
     ListConnectionsResponse,
     ListConnectionConfigsResponse,
 )
@@ -30,7 +28,7 @@ class TestClient:
     @parametrize
     def test_method_check_connection(self, client: Openint) -> None:
         client_ = client.check_connection(
-            "id",
+            "conn_",
         )
         assert_matches_type(CheckConnectionResponse, client_, path=["response"])
 
@@ -38,7 +36,7 @@ class TestClient:
     @parametrize
     def test_raw_response_check_connection(self, client: Openint) -> None:
         response = client.with_raw_response.check_connection(
-            "id",
+            "conn_",
         )
 
         assert response.is_closed is True
@@ -50,7 +48,7 @@ class TestClient:
     @parametrize
     def test_streaming_response_check_connection(self, client: Openint) -> None:
         with client.with_streaming_response.check_connection(
-            "id",
+            "conn_",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -70,101 +68,9 @@ class TestClient:
 
     @pytest.mark.skip()
     @parametrize
-    def test_method_create_magic_link(self, client: Openint) -> None:
-        client_ = client.create_magic_link(
-            customer_id="x",
-        )
-        assert_matches_type(CreateMagicLinkResponse, client_, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    def test_method_create_magic_link_with_all_params(self, client: Openint) -> None:
-        client_ = client.create_magic_link(
-            customer_id="x",
-            connection_id="connection_id",
-            connector_names="aircall",
-            email="email",
-            redirect_url="redirect_url",
-            theme="light",
-            validity_in_seconds=0,
-            view="manage",
-        )
-        assert_matches_type(CreateMagicLinkResponse, client_, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    def test_raw_response_create_magic_link(self, client: Openint) -> None:
-        response = client.with_raw_response.create_magic_link(
-            customer_id="x",
-        )
-
-        assert response.is_closed is True
-        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
-        client_ = response.parse()
-        assert_matches_type(CreateMagicLinkResponse, client_, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    def test_streaming_response_create_magic_link(self, client: Openint) -> None:
-        with client.with_streaming_response.create_magic_link(
-            customer_id="x",
-        ) as response:
-            assert not response.is_closed
-            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
-
-            client_ = response.parse()
-            assert_matches_type(CreateMagicLinkResponse, client_, path=["response"])
-
-        assert cast(Any, response.is_closed) is True
-
-    @pytest.mark.skip()
-    @parametrize
-    def test_method_create_token(self, client: Openint) -> None:
-        client_ = client.create_token(
-            customer_id="x",
-        )
-        assert_matches_type(CreateTokenResponse, client_, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    def test_method_create_token_with_all_params(self, client: Openint) -> None:
-        client_ = client.create_token(
-            customer_id="x",
-            validity_in_seconds=1,
-        )
-        assert_matches_type(CreateTokenResponse, client_, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    def test_raw_response_create_token(self, client: Openint) -> None:
-        response = client.with_raw_response.create_token(
-            customer_id="x",
-        )
-
-        assert response.is_closed is True
-        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
-        client_ = response.parse()
-        assert_matches_type(CreateTokenResponse, client_, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    def test_streaming_response_create_token(self, client: Openint) -> None:
-        with client.with_streaming_response.create_token(
-            customer_id="x",
-        ) as response:
-            assert not response.is_closed
-            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
-
-            client_ = response.parse()
-            assert_matches_type(CreateTokenResponse, client_, path=["response"])
-
-        assert cast(Any, response.is_closed) is True
-
-    @pytest.mark.skip()
-    @parametrize
     def test_method_get_connection(self, client: Openint) -> None:
         client_ = client.get_connection(
-            id="id",
+            id="conn_",
         )
         assert_matches_type(GetConnectionResponse, client_, path=["response"])
 
@@ -172,7 +78,7 @@ class TestClient:
     @parametrize
     def test_method_get_connection_with_all_params(self, client: Openint) -> None:
         client_ = client.get_connection(
-            id="id",
+            id="conn_",
             expand=["connector"],
             include_secrets="none",
             refresh_policy="none",
@@ -183,7 +89,7 @@ class TestClient:
     @parametrize
     def test_raw_response_get_connection(self, client: Openint) -> None:
         response = client.with_raw_response.get_connection(
-            id="id",
+            id="conn_",
         )
 
         assert response.is_closed is True
@@ -195,7 +101,7 @@ class TestClient:
     @parametrize
     def test_streaming_response_get_connection(self, client: Openint) -> None:
         with client.with_streaming_response.get_connection(
-            id="id",
+            id="conn_",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -262,9 +168,9 @@ class TestClient:
     @parametrize
     def test_method_list_connections_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connections(
-            connector_config_id="connector_config_id",
+            connector_config_id="ccfg_",
             connector_name="aircall",
-            customer_id="x",
+            customer_id="customer_id",
             expand=["connector"],
             include_secrets="none",
             limit=1,
@@ -339,7 +245,7 @@ class TestAsyncClient:
     @parametrize
     async def test_method_check_connection(self, async_client: AsyncOpenint) -> None:
         client = await async_client.check_connection(
-            "id",
+            "conn_",
         )
         assert_matches_type(CheckConnectionResponse, client, path=["response"])
 
@@ -347,7 +253,7 @@ class TestAsyncClient:
     @parametrize
     async def test_raw_response_check_connection(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.check_connection(
-            "id",
+            "conn_",
         )
 
         assert response.is_closed is True
@@ -359,7 +265,7 @@ class TestAsyncClient:
     @parametrize
     async def test_streaming_response_check_connection(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.check_connection(
-            "id",
+            "conn_",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -379,101 +285,9 @@ class TestAsyncClient:
 
     @pytest.mark.skip()
     @parametrize
-    async def test_method_create_magic_link(self, async_client: AsyncOpenint) -> None:
-        client = await async_client.create_magic_link(
-            customer_id="x",
-        )
-        assert_matches_type(CreateMagicLinkResponse, client, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    async def test_method_create_magic_link_with_all_params(self, async_client: AsyncOpenint) -> None:
-        client = await async_client.create_magic_link(
-            customer_id="x",
-            connection_id="connection_id",
-            connector_names="aircall",
-            email="email",
-            redirect_url="redirect_url",
-            theme="light",
-            validity_in_seconds=0,
-            view="manage",
-        )
-        assert_matches_type(CreateMagicLinkResponse, client, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    async def test_raw_response_create_magic_link(self, async_client: AsyncOpenint) -> None:
-        response = await async_client.with_raw_response.create_magic_link(
-            customer_id="x",
-        )
-
-        assert response.is_closed is True
-        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
-        client = await response.parse()
-        assert_matches_type(CreateMagicLinkResponse, client, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    async def test_streaming_response_create_magic_link(self, async_client: AsyncOpenint) -> None:
-        async with async_client.with_streaming_response.create_magic_link(
-            customer_id="x",
-        ) as response:
-            assert not response.is_closed
-            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
-
-            client = await response.parse()
-            assert_matches_type(CreateMagicLinkResponse, client, path=["response"])
-
-        assert cast(Any, response.is_closed) is True
-
-    @pytest.mark.skip()
-    @parametrize
-    async def test_method_create_token(self, async_client: AsyncOpenint) -> None:
-        client = await async_client.create_token(
-            customer_id="x",
-        )
-        assert_matches_type(CreateTokenResponse, client, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    async def test_method_create_token_with_all_params(self, async_client: AsyncOpenint) -> None:
-        client = await async_client.create_token(
-            customer_id="x",
-            validity_in_seconds=1,
-        )
-        assert_matches_type(CreateTokenResponse, client, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    async def test_raw_response_create_token(self, async_client: AsyncOpenint) -> None:
-        response = await async_client.with_raw_response.create_token(
-            customer_id="x",
-        )
-
-        assert response.is_closed is True
-        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
-        client = await response.parse()
-        assert_matches_type(CreateTokenResponse, client, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    async def test_streaming_response_create_token(self, async_client: AsyncOpenint) -> None:
-        async with async_client.with_streaming_response.create_token(
-            customer_id="x",
-        ) as response:
-            assert not response.is_closed
-            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
-
-            client = await response.parse()
-            assert_matches_type(CreateTokenResponse, client, path=["response"])
-
-        assert cast(Any, response.is_closed) is True
-
-    @pytest.mark.skip()
-    @parametrize
     async def test_method_get_connection(self, async_client: AsyncOpenint) -> None:
         client = await async_client.get_connection(
-            id="id",
+            id="conn_",
         )
         assert_matches_type(GetConnectionResponse, client, path=["response"])
 
@@ -481,7 +295,7 @@ class TestAsyncClient:
     @parametrize
     async def test_method_get_connection_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.get_connection(
-            id="id",
+            id="conn_",
             expand=["connector"],
             include_secrets="none",
             refresh_policy="none",
@@ -492,7 +306,7 @@ class TestAsyncClient:
     @parametrize
     async def test_raw_response_get_connection(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.get_connection(
-            id="id",
+            id="conn_",
         )
 
         assert response.is_closed is True
@@ -504,7 +318,7 @@ class TestAsyncClient:
     @parametrize
     async def test_streaming_response_get_connection(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.get_connection(
-            id="id",
+            id="conn_",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -571,9 +385,9 @@ class TestAsyncClient:
     @parametrize
     async def test_method_list_connections_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connections(
-            connector_config_id="connector_config_id",
+            connector_config_id="ccfg_",
             connector_name="aircall",
-            customer_id="x",
+            customer_id="customer_id",
             expand=["connector"],
             include_secrets="none",
             limit=1,
