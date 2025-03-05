@@ -10,242 +10,241 @@ from .._models import BaseModel
 
 __all__ = [
     "GetConnectionResponse",
-    "Item",
-    "ItemConnectorsAircallConnectionSettings",
-    "ItemConnectorsAircallConnectionSettingsSettings",
-    "ItemConnectorsAirtableConnectionSettings",
-    "ItemConnectorsAirtableConnectionSettingsSettings",
-    "ItemConnectorsApolloConnectionSettings",
-    "ItemConnectorsApolloConnectionSettingsSettings",
-    "ItemConnectorsApolloConnectionSettingsSettingsOAuth",
-    "ItemConnectorsApolloConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsApolloConnectionSettingsSettingsError",
-    "ItemConnectorsBeancountConnectionSettings",
-    "ItemConnectorsBrexConnectionSettings",
-    "ItemConnectorsBrexConnectionSettingsSettings",
-    "ItemConnectorsCodaConnectionSettings",
-    "ItemConnectorsCodaConnectionSettingsSettings",
-    "ItemConnectorsConfluenceConnectionSettings",
-    "ItemConnectorsConfluenceConnectionSettingsSettings",
-    "ItemConnectorsConfluenceConnectionSettingsSettingsOAuth",
-    "ItemConnectorsConfluenceConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsConfluenceConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsConfluenceConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsConfluenceConnectionSettingsSettingsError",
-    "ItemConnectorsDebugConnectionSettings",
-    "ItemConnectorsDiscordConnectionSettings",
-    "ItemConnectorsDiscordConnectionSettingsSettings",
-    "ItemConnectorsDiscordConnectionSettingsSettingsOAuth",
-    "ItemConnectorsDiscordConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsDiscordConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsDiscordConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsDiscordConnectionSettingsSettingsError",
-    "ItemConnectorsFinchConnectionSettings",
-    "ItemConnectorsFinchConnectionSettingsSettings",
-    "ItemConnectorsFirebaseConnectionSettings",
-    "ItemConnectorsFirebaseConnectionSettingsSettings",
-    "ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember0",
-    "ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccount",
-    "ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1",
-    "ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthData",
-    "ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0",
-    "ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson",
-    "ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember1",
-    "ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember2",
-    "ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig",
-    "ItemConnectorsForeceiptConnectionSettings",
-    "ItemConnectorsForeceiptConnectionSettingsSettings",
-    "ItemConnectorsFsConnectionSettings",
-    "ItemConnectorsFsConnectionSettingsSettings",
-    "ItemConnectorsGitHubConnectionSettings",
-    "ItemConnectorsGitHubConnectionSettingsSettings",
-    "ItemConnectorsGitHubConnectionSettingsSettingsOAuth",
-    "ItemConnectorsGitHubConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsGitHubConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsGitHubConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsGitHubConnectionSettingsSettingsError",
-    "ItemConnectorsGongConnectionSettings",
-    "ItemConnectorsGongConnectionSettingsSettings",
-    "ItemConnectorsGongConnectionSettingsSettingsOAuth",
-    "ItemConnectorsGongConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsGongConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsGongConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsGongConnectionSettingsSettingsError",
-    "ItemConnectorsGoogleConnectionSettings",
-    "ItemConnectorsGoogleConnectionSettingsSettings",
-    "ItemConnectorsGoogleConnectionSettingsSettingsOAuth",
-    "ItemConnectorsGoogleConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsGoogleConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsGoogleConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsGoogleConnectionSettingsSettingsError",
-    "ItemConnectorsGreenhouseConnectionSettings",
-    "ItemConnectorsGreenhouseConnectionSettingsSettings",
-    "ItemConnectorsHeronConnectionSettings",
-    "ItemConnectorsHubspotConnectionSettings",
-    "ItemConnectorsHubspotConnectionSettingsSettings",
-    "ItemConnectorsHubspotConnectionSettingsSettingsOAuth",
-    "ItemConnectorsHubspotConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsHubspotConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsHubspotConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsHubspotConnectionSettingsSettingsError",
-    "ItemConnectorsIntercomConnectionSettings",
-    "ItemConnectorsIntercomConnectionSettingsSettings",
-    "ItemConnectorsIntercomConnectionSettingsSettingsOAuth",
-    "ItemConnectorsIntercomConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsIntercomConnectionSettingsSettingsError",
-    "ItemConnectorsJiraConnectionSettings",
-    "ItemConnectorsJiraConnectionSettingsSettings",
-    "ItemConnectorsJiraConnectionSettingsSettingsOAuth",
-    "ItemConnectorsJiraConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsJiraConnectionSettingsSettingsError",
-    "ItemConnectorsKustomerConnectionSettings",
-    "ItemConnectorsKustomerConnectionSettingsSettings",
-    "ItemConnectorsKustomerConnectionSettingsSettingsOAuth",
-    "ItemConnectorsKustomerConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsKustomerConnectionSettingsSettingsError",
-    "ItemConnectorsLeverConnectionSettings",
-    "ItemConnectorsLeverConnectionSettingsSettings",
-    "ItemConnectorsLeverConnectionSettingsSettingsOAuth",
-    "ItemConnectorsLeverConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsLeverConnectionSettingsSettingsError",
-    "ItemConnectorsLinearConnectionSettings",
-    "ItemConnectorsLinearConnectionSettingsSettings",
-    "ItemConnectorsLinearConnectionSettingsSettingsOAuth",
-    "ItemConnectorsLinearConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsLinearConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsLinearConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsLinearConnectionSettingsSettingsError",
-    "ItemConnectorsLunchmoneyConnectionSettings",
-    "ItemConnectorsMercuryConnectionSettings",
-    "ItemConnectorsMergeConnectionSettings",
-    "ItemConnectorsMergeConnectionSettingsSettings",
-    "ItemConnectorsMicrosoftConnectionSettings",
-    "ItemConnectorsMicrosoftConnectionSettingsSettings",
-    "ItemConnectorsMicrosoftConnectionSettingsSettingsOAuth",
-    "ItemConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsMicrosoftConnectionSettingsSettingsError",
-    "ItemConnectorsMongoDBConnectionSettings",
-    "ItemConnectorsMongoDBConnectionSettingsSettings",
-    "ItemConnectorsMootaConnectionSettings",
-    "ItemConnectorsOnebrickConnectionSettings",
-    "ItemConnectorsOnebrickConnectionSettingsSettings",
-    "ItemConnectorsOutreachConnectionSettings",
-    "ItemConnectorsOutreachConnectionSettingsSettings",
-    "ItemConnectorsOutreachConnectionSettingsSettingsOAuth",
-    "ItemConnectorsOutreachConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsOutreachConnectionSettingsSettingsError",
-    "ItemConnectorsPipedriveConnectionSettings",
-    "ItemConnectorsPipedriveConnectionSettingsSettings",
-    "ItemConnectorsPipedriveConnectionSettingsSettingsOAuth",
-    "ItemConnectorsPipedriveConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsPipedriveConnectionSettingsSettingsError",
-    "ItemConnectorsPlaidConnectionSettings",
-    "ItemConnectorsPlaidConnectionSettingsSettings",
-    "ItemConnectorsPostgresConnectionSettings",
-    "ItemConnectorsPostgresConnectionSettingsSettings",
-    "ItemConnectorsPostgresConnectionSettingsSettingsSourceQueries",
-    "ItemConnectorsQboConnectionSettings",
-    "ItemConnectorsQboConnectionSettingsSettings",
-    "ItemConnectorsQboConnectionSettingsSettingsOAuth",
-    "ItemConnectorsQboConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsQboConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsQboConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsQboConnectionSettingsSettingsError",
-    "ItemConnectorsRampConnectionSettings",
-    "ItemConnectorsRampConnectionSettingsSettings",
-    "ItemConnectorsRevertConnectionSettings",
-    "ItemConnectorsRevertConnectionSettingsSettings",
-    "ItemConnectorsSalesforceConnectionSettings",
-    "ItemConnectorsSalesforceConnectionSettingsSettings",
-    "ItemConnectorsSalesforceConnectionSettingsSettingsOAuth",
-    "ItemConnectorsSalesforceConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsSalesforceConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsSalesforceConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsSalesforceConnectionSettingsSettingsError",
-    "ItemConnectorsSalesloftConnectionSettings",
-    "ItemConnectorsSalesloftConnectionSettingsSettings",
-    "ItemConnectorsSalesloftConnectionSettingsSettingsOAuth",
-    "ItemConnectorsSalesloftConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsSalesloftConnectionSettingsSettingsError",
-    "ItemConnectorsSaltedgeConnectionSettings",
-    "ItemConnectorsSlackConnectionSettings",
-    "ItemConnectorsSlackConnectionSettingsSettings",
-    "ItemConnectorsSlackConnectionSettingsSettingsOAuth",
-    "ItemConnectorsSlackConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsSlackConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsSlackConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsSlackConnectionSettingsSettingsError",
-    "ItemConnectorsSplitwiseConnectionSettings",
-    "ItemConnectorsSplitwiseConnectionSettingsSettings",
-    "ItemConnectorsSplitwiseConnectionSettingsSettingsCurrentUser",
-    "ItemConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications",
-    "ItemConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture",
-    "ItemConnectorsSpreadsheetConnectionSettings",
-    "ItemConnectorsSpreadsheetConnectionSettingsSettings",
-    "ItemConnectorsStripeConnectionSettings",
-    "ItemConnectorsStripeConnectionSettingsSettings",
-    "ItemConnectorsTellerConnectionSettings",
-    "ItemConnectorsTellerConnectionSettingsSettings",
-    "ItemConnectorsTogglConnectionSettings",
-    "ItemConnectorsTogglConnectionSettingsSettings",
-    "ItemConnectorsTwentyConnectionSettings",
-    "ItemConnectorsTwentyConnectionSettingsSettings",
-    "ItemConnectorsVenmoConnectionSettings",
-    "ItemConnectorsVenmoConnectionSettingsSettings",
-    "ItemConnectorsWebhookConnectionSettings",
-    "ItemConnectorsWebhookConnectionSettingsSettings",
-    "ItemConnectorsWiseConnectionSettings",
-    "ItemConnectorsWiseConnectionSettingsSettings",
-    "ItemConnectorsXeroConnectionSettings",
-    "ItemConnectorsXeroConnectionSettingsSettings",
-    "ItemConnectorsXeroConnectionSettingsSettingsOAuth",
-    "ItemConnectorsXeroConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsXeroConnectionSettingsSettingsError",
-    "ItemConnectorsYodleeConnectionSettings",
-    "ItemConnectorsYodleeConnectionSettingsSettings",
-    "ItemConnectorsYodleeConnectionSettingsSettingsAccessToken",
-    "ItemConnectorsYodleeConnectionSettingsSettingsProviderAccount",
-    "ItemConnectorsZohodeskConnectionSettings",
-    "ItemConnectorsZohodeskConnectionSettingsSettings",
-    "ItemConnectorsZohodeskConnectionSettingsSettingsOAuth",
-    "ItemConnectorsZohodeskConnectionSettingsSettingsOAuthCredentials",
-    "ItemConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ItemConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig",
-    "ItemConnectorsZohodeskConnectionSettingsSettingsError",
-    "ItemConnectorsGoogledriveConnectionSettings",
+    "ConnectorsAircallConnectionSettings",
+    "ConnectorsAircallConnectionSettingsSettings",
+    "ConnectorsAirtableConnectionSettings",
+    "ConnectorsAirtableConnectionSettingsSettings",
+    "ConnectorsApolloConnectionSettings",
+    "ConnectorsApolloConnectionSettingsSettings",
+    "ConnectorsApolloConnectionSettingsSettingsOAuth",
+    "ConnectorsApolloConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsApolloConnectionSettingsSettingsError",
+    "ConnectorsBeancountConnectionSettings",
+    "ConnectorsBrexConnectionSettings",
+    "ConnectorsBrexConnectionSettingsSettings",
+    "ConnectorsCodaConnectionSettings",
+    "ConnectorsCodaConnectionSettingsSettings",
+    "ConnectorsConfluenceConnectionSettings",
+    "ConnectorsConfluenceConnectionSettingsSettings",
+    "ConnectorsConfluenceConnectionSettingsSettingsOAuth",
+    "ConnectorsConfluenceConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsConfluenceConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsConfluenceConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsConfluenceConnectionSettingsSettingsError",
+    "ConnectorsDebugConnectionSettings",
+    "ConnectorsDiscordConnectionSettings",
+    "ConnectorsDiscordConnectionSettingsSettings",
+    "ConnectorsDiscordConnectionSettingsSettingsOAuth",
+    "ConnectorsDiscordConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsDiscordConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsDiscordConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsDiscordConnectionSettingsSettingsError",
+    "ConnectorsFinchConnectionSettings",
+    "ConnectorsFinchConnectionSettingsSettings",
+    "ConnectorsFirebaseConnectionSettings",
+    "ConnectorsFirebaseConnectionSettingsSettings",
+    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember0",
+    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccount",
+    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1",
+    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthData",
+    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0",
+    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson",
+    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember1",
+    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember2",
+    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig",
+    "ConnectorsForeceiptConnectionSettings",
+    "ConnectorsForeceiptConnectionSettingsSettings",
+    "ConnectorsFsConnectionSettings",
+    "ConnectorsFsConnectionSettingsSettings",
+    "ConnectorsGitHubConnectionSettings",
+    "ConnectorsGitHubConnectionSettingsSettings",
+    "ConnectorsGitHubConnectionSettingsSettingsOAuth",
+    "ConnectorsGitHubConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsGitHubConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsGitHubConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsGitHubConnectionSettingsSettingsError",
+    "ConnectorsGongConnectionSettings",
+    "ConnectorsGongConnectionSettingsSettings",
+    "ConnectorsGongConnectionSettingsSettingsOAuth",
+    "ConnectorsGongConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsGongConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsGongConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsGongConnectionSettingsSettingsError",
+    "ConnectorsGoogleConnectionSettings",
+    "ConnectorsGoogleConnectionSettingsSettings",
+    "ConnectorsGoogleConnectionSettingsSettingsOAuth",
+    "ConnectorsGoogleConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsGoogleConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsGoogleConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsGoogleConnectionSettingsSettingsError",
+    "ConnectorsGreenhouseConnectionSettings",
+    "ConnectorsGreenhouseConnectionSettingsSettings",
+    "ConnectorsHeronConnectionSettings",
+    "ConnectorsHubspotConnectionSettings",
+    "ConnectorsHubspotConnectionSettingsSettings",
+    "ConnectorsHubspotConnectionSettingsSettingsOAuth",
+    "ConnectorsHubspotConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsHubspotConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsHubspotConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsHubspotConnectionSettingsSettingsError",
+    "ConnectorsIntercomConnectionSettings",
+    "ConnectorsIntercomConnectionSettingsSettings",
+    "ConnectorsIntercomConnectionSettingsSettingsOAuth",
+    "ConnectorsIntercomConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsIntercomConnectionSettingsSettingsError",
+    "ConnectorsJiraConnectionSettings",
+    "ConnectorsJiraConnectionSettingsSettings",
+    "ConnectorsJiraConnectionSettingsSettingsOAuth",
+    "ConnectorsJiraConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsJiraConnectionSettingsSettingsError",
+    "ConnectorsKustomerConnectionSettings",
+    "ConnectorsKustomerConnectionSettingsSettings",
+    "ConnectorsKustomerConnectionSettingsSettingsOAuth",
+    "ConnectorsKustomerConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsKustomerConnectionSettingsSettingsError",
+    "ConnectorsLeverConnectionSettings",
+    "ConnectorsLeverConnectionSettingsSettings",
+    "ConnectorsLeverConnectionSettingsSettingsOAuth",
+    "ConnectorsLeverConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsLeverConnectionSettingsSettingsError",
+    "ConnectorsLinearConnectionSettings",
+    "ConnectorsLinearConnectionSettingsSettings",
+    "ConnectorsLinearConnectionSettingsSettingsOAuth",
+    "ConnectorsLinearConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsLinearConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsLinearConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsLinearConnectionSettingsSettingsError",
+    "ConnectorsLunchmoneyConnectionSettings",
+    "ConnectorsMercuryConnectionSettings",
+    "ConnectorsMergeConnectionSettings",
+    "ConnectorsMergeConnectionSettingsSettings",
+    "ConnectorsMicrosoftConnectionSettings",
+    "ConnectorsMicrosoftConnectionSettingsSettings",
+    "ConnectorsMicrosoftConnectionSettingsSettingsOAuth",
+    "ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsMicrosoftConnectionSettingsSettingsError",
+    "ConnectorsMongoDBConnectionSettings",
+    "ConnectorsMongoDBConnectionSettingsSettings",
+    "ConnectorsMootaConnectionSettings",
+    "ConnectorsOnebrickConnectionSettings",
+    "ConnectorsOnebrickConnectionSettingsSettings",
+    "ConnectorsOutreachConnectionSettings",
+    "ConnectorsOutreachConnectionSettingsSettings",
+    "ConnectorsOutreachConnectionSettingsSettingsOAuth",
+    "ConnectorsOutreachConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsOutreachConnectionSettingsSettingsError",
+    "ConnectorsPipedriveConnectionSettings",
+    "ConnectorsPipedriveConnectionSettingsSettings",
+    "ConnectorsPipedriveConnectionSettingsSettingsOAuth",
+    "ConnectorsPipedriveConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsPipedriveConnectionSettingsSettingsError",
+    "ConnectorsPlaidConnectionSettings",
+    "ConnectorsPlaidConnectionSettingsSettings",
+    "ConnectorsPostgresConnectionSettings",
+    "ConnectorsPostgresConnectionSettingsSettings",
+    "ConnectorsPostgresConnectionSettingsSettingsSourceQueries",
+    "ConnectorsQboConnectionSettings",
+    "ConnectorsQboConnectionSettingsSettings",
+    "ConnectorsQboConnectionSettingsSettingsOAuth",
+    "ConnectorsQboConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsQboConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsQboConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsQboConnectionSettingsSettingsError",
+    "ConnectorsRampConnectionSettings",
+    "ConnectorsRampConnectionSettingsSettings",
+    "ConnectorsRevertConnectionSettings",
+    "ConnectorsRevertConnectionSettingsSettings",
+    "ConnectorsSalesforceConnectionSettings",
+    "ConnectorsSalesforceConnectionSettingsSettings",
+    "ConnectorsSalesforceConnectionSettingsSettingsOAuth",
+    "ConnectorsSalesforceConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsSalesforceConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsSalesforceConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsSalesforceConnectionSettingsSettingsError",
+    "ConnectorsSalesloftConnectionSettings",
+    "ConnectorsSalesloftConnectionSettingsSettings",
+    "ConnectorsSalesloftConnectionSettingsSettingsOAuth",
+    "ConnectorsSalesloftConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsSalesloftConnectionSettingsSettingsError",
+    "ConnectorsSaltedgeConnectionSettings",
+    "ConnectorsSlackConnectionSettings",
+    "ConnectorsSlackConnectionSettingsSettings",
+    "ConnectorsSlackConnectionSettingsSettingsOAuth",
+    "ConnectorsSlackConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsSlackConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsSlackConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsSlackConnectionSettingsSettingsError",
+    "ConnectorsSplitwiseConnectionSettings",
+    "ConnectorsSplitwiseConnectionSettingsSettings",
+    "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUser",
+    "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications",
+    "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture",
+    "ConnectorsSpreadsheetConnectionSettings",
+    "ConnectorsSpreadsheetConnectionSettingsSettings",
+    "ConnectorsStripeConnectionSettings",
+    "ConnectorsStripeConnectionSettingsSettings",
+    "ConnectorsTellerConnectionSettings",
+    "ConnectorsTellerConnectionSettingsSettings",
+    "ConnectorsTogglConnectionSettings",
+    "ConnectorsTogglConnectionSettingsSettings",
+    "ConnectorsTwentyConnectionSettings",
+    "ConnectorsTwentyConnectionSettingsSettings",
+    "ConnectorsVenmoConnectionSettings",
+    "ConnectorsVenmoConnectionSettingsSettings",
+    "ConnectorsWebhookConnectionSettings",
+    "ConnectorsWebhookConnectionSettingsSettings",
+    "ConnectorsWiseConnectionSettings",
+    "ConnectorsWiseConnectionSettingsSettings",
+    "ConnectorsXeroConnectionSettings",
+    "ConnectorsXeroConnectionSettingsSettings",
+    "ConnectorsXeroConnectionSettingsSettingsOAuth",
+    "ConnectorsXeroConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsXeroConnectionSettingsSettingsError",
+    "ConnectorsYodleeConnectionSettings",
+    "ConnectorsYodleeConnectionSettingsSettings",
+    "ConnectorsYodleeConnectionSettingsSettingsAccessToken",
+    "ConnectorsYodleeConnectionSettingsSettingsProviderAccount",
+    "ConnectorsZohodeskConnectionSettings",
+    "ConnectorsZohodeskConnectionSettingsSettings",
+    "ConnectorsZohodeskConnectionSettingsSettingsOAuth",
+    "ConnectorsZohodeskConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorsZohodeskConnectionSettingsSettingsError",
+    "ConnectorsGoogledriveConnectionSettings",
 ]
 
 
-class ItemConnectorsAircallConnectionSettingsSettings(BaseModel):
+class ConnectorsAircallConnectionSettingsSettings(BaseModel):
     api_id: str = FieldInfo(alias="apiId")
 
     api_token: str = FieldInfo(alias="apiToken")
 
 
-class ItemConnectorsAircallConnectionSettings(BaseModel):
+class ConnectorsAircallConnectionSettings(BaseModel):
     connector_name: Literal["aircall"]
 
-    settings: ItemConnectorsAircallConnectionSettingsSettings
+    settings: ConnectorsAircallConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -256,16 +255,16 @@ class ItemConnectorsAircallConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsAirtableConnectionSettingsSettings(BaseModel):
+class ConnectorsAirtableConnectionSettingsSettings(BaseModel):
     airtable_base: str = FieldInfo(alias="airtableBase")
 
     api_key: str = FieldInfo(alias="apiKey")
 
 
-class ItemConnectorsAirtableConnectionSettings(BaseModel):
+class ConnectorsAirtableConnectionSettings(BaseModel):
     connector_name: Literal["airtable"]
 
-    settings: ItemConnectorsAirtableConnectionSettingsSettings
+    settings: ConnectorsAirtableConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -276,7 +275,7 @@ class ItemConnectorsAirtableConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -292,8 +291,8 @@ class ItemConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRaw(BaseMode
     scope: Optional[str] = None
 
 
-class ItemConnectorsApolloConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsApolloConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -306,7 +305,7 @@ class ItemConnectorsApolloConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -318,30 +317,30 @@ class ItemConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfig(BaseMo
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsApolloConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsApolloConnectionSettingsSettingsOAuthCredentials
+class ConnectorsApolloConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsApolloConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsApolloConnectionSettingsSettingsError(BaseModel):
+class ConnectorsApolloConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsApolloConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsApolloConnectionSettingsSettingsOAuth
+class ConnectorsApolloConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsApolloConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsApolloConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsApolloConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsApolloConnectionSettings(BaseModel):
+class ConnectorsApolloConnectionSettings(BaseModel):
     connector_name: Literal["apollo"]
 
-    settings: ItemConnectorsApolloConnectionSettingsSettings
+    settings: ConnectorsApolloConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -352,7 +351,7 @@ class ItemConnectorsApolloConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsBeancountConnectionSettings(BaseModel):
+class ConnectorsBeancountConnectionSettings(BaseModel):
     connector_name: Literal["beancount"]
 
     settings: None
@@ -366,14 +365,14 @@ class ItemConnectorsBeancountConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsBrexConnectionSettingsSettings(BaseModel):
+class ConnectorsBrexConnectionSettingsSettings(BaseModel):
     access_token: str = FieldInfo(alias="accessToken")
 
 
-class ItemConnectorsBrexConnectionSettings(BaseModel):
+class ConnectorsBrexConnectionSettings(BaseModel):
     connector_name: Literal["brex"]
 
-    settings: ItemConnectorsBrexConnectionSettingsSettings
+    settings: ConnectorsBrexConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -384,14 +383,14 @@ class ItemConnectorsBrexConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsCodaConnectionSettingsSettings(BaseModel):
+class ConnectorsCodaConnectionSettingsSettings(BaseModel):
     api_key: str = FieldInfo(alias="apiKey")
 
 
-class ItemConnectorsCodaConnectionSettings(BaseModel):
+class ConnectorsCodaConnectionSettings(BaseModel):
     connector_name: Literal["coda"]
 
-    settings: ItemConnectorsCodaConnectionSettingsSettings
+    settings: ConnectorsCodaConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -402,7 +401,7 @@ class ItemConnectorsCodaConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsConfluenceConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsConfluenceConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -418,8 +417,8 @@ class ItemConnectorsConfluenceConnectionSettingsSettingsOAuthCredentialsRaw(Base
     scope: Optional[str] = None
 
 
-class ItemConnectorsConfluenceConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsConfluenceConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsConfluenceConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsConfluenceConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -432,7 +431,7 @@ class ItemConnectorsConfluenceConnectionSettingsSettingsOAuthCredentials(BaseMod
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsConfluenceConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsConfluenceConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -444,30 +443,30 @@ class ItemConnectorsConfluenceConnectionSettingsSettingsOAuthConnectionConfig(Ba
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsConfluenceConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsConfluenceConnectionSettingsSettingsOAuthCredentials
+class ConnectorsConfluenceConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsConfluenceConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsConfluenceConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsConfluenceConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsConfluenceConnectionSettingsSettingsError(BaseModel):
+class ConnectorsConfluenceConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsConfluenceConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsConfluenceConnectionSettingsSettingsOAuth
+class ConnectorsConfluenceConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsConfluenceConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsConfluenceConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsConfluenceConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsConfluenceConnectionSettings(BaseModel):
+class ConnectorsConfluenceConnectionSettings(BaseModel):
     connector_name: Literal["confluence"]
 
-    settings: ItemConnectorsConfluenceConnectionSettingsSettings
+    settings: ConnectorsConfluenceConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -478,7 +477,7 @@ class ItemConnectorsConfluenceConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsDebugConnectionSettings(BaseModel):
+class ConnectorsDebugConnectionSettings(BaseModel):
     connector_name: Literal["debug"]
 
     id: Optional[str] = None
@@ -492,7 +491,7 @@ class ItemConnectorsDebugConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsDiscordConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsDiscordConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -508,8 +507,8 @@ class ItemConnectorsDiscordConnectionSettingsSettingsOAuthCredentialsRaw(BaseMod
     scope: Optional[str] = None
 
 
-class ItemConnectorsDiscordConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsDiscordConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsDiscordConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsDiscordConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -522,7 +521,7 @@ class ItemConnectorsDiscordConnectionSettingsSettingsOAuthCredentials(BaseModel)
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsDiscordConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsDiscordConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -534,30 +533,30 @@ class ItemConnectorsDiscordConnectionSettingsSettingsOAuthConnectionConfig(BaseM
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsDiscordConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsDiscordConnectionSettingsSettingsOAuthCredentials
+class ConnectorsDiscordConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsDiscordConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsDiscordConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsDiscordConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsDiscordConnectionSettingsSettingsError(BaseModel):
+class ConnectorsDiscordConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsDiscordConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsDiscordConnectionSettingsSettingsOAuth
+class ConnectorsDiscordConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsDiscordConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsDiscordConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsDiscordConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsDiscordConnectionSettings(BaseModel):
+class ConnectorsDiscordConnectionSettings(BaseModel):
     connector_name: Literal["discord"]
 
-    settings: ItemConnectorsDiscordConnectionSettingsSettings
+    settings: ConnectorsDiscordConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -568,14 +567,14 @@ class ItemConnectorsDiscordConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsFinchConnectionSettingsSettings(BaseModel):
+class ConnectorsFinchConnectionSettingsSettings(BaseModel):
     access_token: str
 
 
-class ItemConnectorsFinchConnectionSettings(BaseModel):
+class ConnectorsFinchConnectionSettings(BaseModel):
     connector_name: Literal["finch"]
 
-    settings: ItemConnectorsFinchConnectionSettingsSettings
+    settings: ConnectorsFinchConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -586,7 +585,7 @@ class ItemConnectorsFinchConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccount(BaseModel):
+class ConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccount(BaseModel):
     project_id: str
 
     if TYPE_CHECKING:
@@ -596,15 +595,15 @@ class ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccount
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember0(BaseModel):
+class ConnectorsFirebaseConnectionSettingsSettingsUnionMember0(BaseModel):
     role: Literal["admin"]
 
-    service_account: ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccount = FieldInfo(
+    service_account: ConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccount = FieldInfo(
         alias="serviceAccount"
     )
 
 
-class ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson(BaseModel):
+class ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson(BaseModel):
     app_name: str = FieldInfo(alias="appName")
 
     sts_token_manager: Dict[str, object] = FieldInfo(alias="stsTokenManager")
@@ -618,21 +617,21 @@ class ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionM
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0(BaseModel):
+class ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0(BaseModel):
     method: Literal["userJson"]
 
-    user_json: ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson = FieldInfo(
+    user_json: ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson = FieldInfo(
         alias="userJson"
     )
 
 
-class ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember1(BaseModel):
+class ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember1(BaseModel):
     custom_token: str = FieldInfo(alias="customToken")
 
     method: Literal["customToken"]
 
 
-class ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember2(BaseModel):
+class ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember2(BaseModel):
     email: str
 
     method: Literal["emailPassword"]
@@ -640,14 +639,14 @@ class ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionM
     password: str
 
 
-ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthData: TypeAlias = Union[
-    ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0,
-    ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember1,
-    ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember2,
+ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthData: TypeAlias = Union[
+    ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0,
+    ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember1,
+    ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember2,
 ]
 
 
-class ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig(BaseModel):
+class ConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig(BaseModel):
     api_key: str = FieldInfo(alias="apiKey")
 
     app_id: str = FieldInfo(alias="appId")
@@ -665,26 +664,25 @@ class ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig
     storage_bucket: Optional[str] = FieldInfo(alias="storageBucket", default=None)
 
 
-class ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1(BaseModel):
-    auth_data: ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthData = FieldInfo(alias="authData")
+class ConnectorsFirebaseConnectionSettingsSettingsUnionMember1(BaseModel):
+    auth_data: ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthData = FieldInfo(alias="authData")
 
-    firebase_config: ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig = FieldInfo(
+    firebase_config: ConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig = FieldInfo(
         alias="firebaseConfig"
     )
 
     role: Literal["user"]
 
 
-ItemConnectorsFirebaseConnectionSettingsSettings: TypeAlias = Union[
-    ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember0,
-    ItemConnectorsFirebaseConnectionSettingsSettingsUnionMember1,
+ConnectorsFirebaseConnectionSettingsSettings: TypeAlias = Union[
+    ConnectorsFirebaseConnectionSettingsSettingsUnionMember0, ConnectorsFirebaseConnectionSettingsSettingsUnionMember1
 ]
 
 
-class ItemConnectorsFirebaseConnectionSettings(BaseModel):
+class ConnectorsFirebaseConnectionSettings(BaseModel):
     connector_name: Literal["firebase"]
 
-    settings: ItemConnectorsFirebaseConnectionSettingsSettings
+    settings: ConnectorsFirebaseConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -695,7 +693,7 @@ class ItemConnectorsFirebaseConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsForeceiptConnectionSettingsSettings(BaseModel):
+class ConnectorsForeceiptConnectionSettingsSettings(BaseModel):
     env_name: Literal["staging", "production"] = FieldInfo(alias="envName")
 
     api_id: Optional[object] = FieldInfo(alias="_id", default=None)
@@ -705,10 +703,10 @@ class ItemConnectorsForeceiptConnectionSettingsSettings(BaseModel):
     options: Optional[object] = None
 
 
-class ItemConnectorsForeceiptConnectionSettings(BaseModel):
+class ConnectorsForeceiptConnectionSettings(BaseModel):
     connector_name: Literal["foreceipt"]
 
-    settings: ItemConnectorsForeceiptConnectionSettingsSettings
+    settings: ConnectorsForeceiptConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -719,14 +717,14 @@ class ItemConnectorsForeceiptConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsFsConnectionSettingsSettings(BaseModel):
+class ConnectorsFsConnectionSettingsSettings(BaseModel):
     base_path: str = FieldInfo(alias="basePath")
 
 
-class ItemConnectorsFsConnectionSettings(BaseModel):
+class ConnectorsFsConnectionSettings(BaseModel):
     connector_name: Literal["fs"]
 
-    settings: ItemConnectorsFsConnectionSettingsSettings
+    settings: ConnectorsFsConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -737,7 +735,7 @@ class ItemConnectorsFsConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsGitHubConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsGitHubConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -753,8 +751,8 @@ class ItemConnectorsGitHubConnectionSettingsSettingsOAuthCredentialsRaw(BaseMode
     scope: Optional[str] = None
 
 
-class ItemConnectorsGitHubConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsGitHubConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsGitHubConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsGitHubConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -767,7 +765,7 @@ class ItemConnectorsGitHubConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsGitHubConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsGitHubConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -779,30 +777,30 @@ class ItemConnectorsGitHubConnectionSettingsSettingsOAuthConnectionConfig(BaseMo
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsGitHubConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsGitHubConnectionSettingsSettingsOAuthCredentials
+class ConnectorsGitHubConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsGitHubConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsGitHubConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsGitHubConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsGitHubConnectionSettingsSettingsError(BaseModel):
+class ConnectorsGitHubConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsGitHubConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsGitHubConnectionSettingsSettingsOAuth
+class ConnectorsGitHubConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsGitHubConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsGitHubConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsGitHubConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsGitHubConnectionSettings(BaseModel):
+class ConnectorsGitHubConnectionSettings(BaseModel):
     connector_name: Literal["github"]
 
-    settings: ItemConnectorsGitHubConnectionSettingsSettings
+    settings: ConnectorsGitHubConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -813,7 +811,7 @@ class ItemConnectorsGitHubConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsGongConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsGongConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -829,8 +827,8 @@ class ItemConnectorsGongConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel)
     scope: Optional[str] = None
 
 
-class ItemConnectorsGongConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsGongConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsGongConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsGongConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -843,7 +841,7 @@ class ItemConnectorsGongConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsGongConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsGongConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -855,30 +853,30 @@ class ItemConnectorsGongConnectionSettingsSettingsOAuthConnectionConfig(BaseMode
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsGongConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsGongConnectionSettingsSettingsOAuthCredentials
+class ConnectorsGongConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsGongConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsGongConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsGongConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsGongConnectionSettingsSettingsError(BaseModel):
+class ConnectorsGongConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsGongConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsGongConnectionSettingsSettingsOAuth
+class ConnectorsGongConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsGongConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsGongConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsGongConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsGongConnectionSettings(BaseModel):
+class ConnectorsGongConnectionSettings(BaseModel):
     connector_name: Literal["gong"]
 
-    settings: ItemConnectorsGongConnectionSettingsSettings
+    settings: ConnectorsGongConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -889,7 +887,7 @@ class ItemConnectorsGongConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsGoogleConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsGoogleConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -905,8 +903,8 @@ class ItemConnectorsGoogleConnectionSettingsSettingsOAuthCredentialsRaw(BaseMode
     scope: Optional[str] = None
 
 
-class ItemConnectorsGoogleConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsGoogleConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsGoogleConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsGoogleConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -919,7 +917,7 @@ class ItemConnectorsGoogleConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsGoogleConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsGoogleConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -931,32 +929,32 @@ class ItemConnectorsGoogleConnectionSettingsSettingsOAuthConnectionConfig(BaseMo
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsGoogleConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsGoogleConnectionSettingsSettingsOAuthCredentials
+class ConnectorsGoogleConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsGoogleConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsGoogleConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsGoogleConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsGoogleConnectionSettingsSettingsError(BaseModel):
+class ConnectorsGoogleConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsGoogleConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsGoogleConnectionSettingsSettingsOAuth
+class ConnectorsGoogleConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsGoogleConnectionSettingsSettingsOAuth
 
     client_id: Optional[str] = None
 
-    error: Optional[ItemConnectorsGoogleConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsGoogleConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsGoogleConnectionSettings(BaseModel):
+class ConnectorsGoogleConnectionSettings(BaseModel):
     connector_name: Literal["google"]
 
-    settings: ItemConnectorsGoogleConnectionSettingsSettings
+    settings: ConnectorsGoogleConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -967,14 +965,14 @@ class ItemConnectorsGoogleConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsGreenhouseConnectionSettingsSettings(BaseModel):
+class ConnectorsGreenhouseConnectionSettingsSettings(BaseModel):
     api_key: str = FieldInfo(alias="apiKey")
 
 
-class ItemConnectorsGreenhouseConnectionSettings(BaseModel):
+class ConnectorsGreenhouseConnectionSettings(BaseModel):
     connector_name: Literal["greenhouse"]
 
-    settings: ItemConnectorsGreenhouseConnectionSettingsSettings
+    settings: ConnectorsGreenhouseConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -985,7 +983,7 @@ class ItemConnectorsGreenhouseConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsHeronConnectionSettings(BaseModel):
+class ConnectorsHeronConnectionSettings(BaseModel):
     connector_name: Literal["heron"]
 
     settings: None
@@ -999,7 +997,7 @@ class ItemConnectorsHeronConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsHubspotConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsHubspotConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -1015,8 +1013,8 @@ class ItemConnectorsHubspotConnectionSettingsSettingsOAuthCredentialsRaw(BaseMod
     scope: Optional[str] = None
 
 
-class ItemConnectorsHubspotConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsHubspotConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsHubspotConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsHubspotConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -1029,7 +1027,7 @@ class ItemConnectorsHubspotConnectionSettingsSettingsOAuthCredentials(BaseModel)
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsHubspotConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsHubspotConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -1041,32 +1039,32 @@ class ItemConnectorsHubspotConnectionSettingsSettingsOAuthConnectionConfig(BaseM
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsHubspotConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsHubspotConnectionSettingsSettingsOAuthCredentials
+class ConnectorsHubspotConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsHubspotConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsHubspotConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsHubspotConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsHubspotConnectionSettingsSettingsError(BaseModel):
+class ConnectorsHubspotConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsHubspotConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsHubspotConnectionSettingsSettingsOAuth
+class ConnectorsHubspotConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsHubspotConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsHubspotConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsHubspotConnectionSettingsSettingsError] = None
 
     extra: Optional[object] = None
 
 
-class ItemConnectorsHubspotConnectionSettings(BaseModel):
+class ConnectorsHubspotConnectionSettings(BaseModel):
     connector_name: Literal["hubspot"]
 
-    settings: ItemConnectorsHubspotConnectionSettingsSettings
+    settings: ConnectorsHubspotConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1077,7 +1075,7 @@ class ItemConnectorsHubspotConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -1093,8 +1091,8 @@ class ItemConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRaw(BaseMo
     scope: Optional[str] = None
 
 
-class ItemConnectorsIntercomConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsIntercomConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -1107,7 +1105,7 @@ class ItemConnectorsIntercomConnectionSettingsSettingsOAuthCredentials(BaseModel
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -1119,30 +1117,30 @@ class ItemConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfig(Base
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsIntercomConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsIntercomConnectionSettingsSettingsOAuthCredentials
+class ConnectorsIntercomConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsIntercomConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsIntercomConnectionSettingsSettingsError(BaseModel):
+class ConnectorsIntercomConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsIntercomConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsIntercomConnectionSettingsSettingsOAuth
+class ConnectorsIntercomConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsIntercomConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsIntercomConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsIntercomConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsIntercomConnectionSettings(BaseModel):
+class ConnectorsIntercomConnectionSettings(BaseModel):
     connector_name: Literal["intercom"]
 
-    settings: ItemConnectorsIntercomConnectionSettingsSettings
+    settings: ConnectorsIntercomConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1153,7 +1151,7 @@ class ItemConnectorsIntercomConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -1169,8 +1167,8 @@ class ItemConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel)
     scope: Optional[str] = None
 
 
-class ItemConnectorsJiraConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsJiraConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -1183,7 +1181,7 @@ class ItemConnectorsJiraConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -1195,30 +1193,30 @@ class ItemConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfig(BaseMode
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsJiraConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsJiraConnectionSettingsSettingsOAuthCredentials
+class ConnectorsJiraConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsJiraConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsJiraConnectionSettingsSettingsError(BaseModel):
+class ConnectorsJiraConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsJiraConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsJiraConnectionSettingsSettingsOAuth
+class ConnectorsJiraConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsJiraConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsJiraConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsJiraConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsJiraConnectionSettings(BaseModel):
+class ConnectorsJiraConnectionSettings(BaseModel):
     connector_name: Literal["jira"]
 
-    settings: ItemConnectorsJiraConnectionSettingsSettings
+    settings: ConnectorsJiraConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1229,7 +1227,7 @@ class ItemConnectorsJiraConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -1245,8 +1243,8 @@ class ItemConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRaw(BaseMo
     scope: Optional[str] = None
 
 
-class ItemConnectorsKustomerConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsKustomerConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -1259,7 +1257,7 @@ class ItemConnectorsKustomerConnectionSettingsSettingsOAuthCredentials(BaseModel
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -1271,30 +1269,30 @@ class ItemConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfig(Base
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsKustomerConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsKustomerConnectionSettingsSettingsOAuthCredentials
+class ConnectorsKustomerConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsKustomerConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsKustomerConnectionSettingsSettingsError(BaseModel):
+class ConnectorsKustomerConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsKustomerConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsKustomerConnectionSettingsSettingsOAuth
+class ConnectorsKustomerConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsKustomerConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsKustomerConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsKustomerConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsKustomerConnectionSettings(BaseModel):
+class ConnectorsKustomerConnectionSettings(BaseModel):
     connector_name: Literal["kustomer"]
 
-    settings: ItemConnectorsKustomerConnectionSettingsSettings
+    settings: ConnectorsKustomerConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1305,7 +1303,7 @@ class ItemConnectorsKustomerConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -1321,8 +1319,8 @@ class ItemConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel
     scope: Optional[str] = None
 
 
-class ItemConnectorsLeverConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsLeverConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -1335,7 +1333,7 @@ class ItemConnectorsLeverConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -1347,30 +1345,30 @@ class ItemConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfig(BaseMod
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsLeverConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsLeverConnectionSettingsSettingsOAuthCredentials
+class ConnectorsLeverConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsLeverConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsLeverConnectionSettingsSettingsError(BaseModel):
+class ConnectorsLeverConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsLeverConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsLeverConnectionSettingsSettingsOAuth
+class ConnectorsLeverConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsLeverConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsLeverConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsLeverConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsLeverConnectionSettings(BaseModel):
+class ConnectorsLeverConnectionSettings(BaseModel):
     connector_name: Literal["lever"]
 
-    settings: ItemConnectorsLeverConnectionSettingsSettings
+    settings: ConnectorsLeverConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1381,7 +1379,7 @@ class ItemConnectorsLeverConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsLinearConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsLinearConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -1397,8 +1395,8 @@ class ItemConnectorsLinearConnectionSettingsSettingsOAuthCredentialsRaw(BaseMode
     scope: Optional[str] = None
 
 
-class ItemConnectorsLinearConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsLinearConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsLinearConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsLinearConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -1411,7 +1409,7 @@ class ItemConnectorsLinearConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsLinearConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsLinearConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -1423,30 +1421,30 @@ class ItemConnectorsLinearConnectionSettingsSettingsOAuthConnectionConfig(BaseMo
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsLinearConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsLinearConnectionSettingsSettingsOAuthCredentials
+class ConnectorsLinearConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsLinearConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsLinearConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsLinearConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsLinearConnectionSettingsSettingsError(BaseModel):
+class ConnectorsLinearConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsLinearConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsLinearConnectionSettingsSettingsOAuth
+class ConnectorsLinearConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsLinearConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsLinearConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsLinearConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsLinearConnectionSettings(BaseModel):
+class ConnectorsLinearConnectionSettings(BaseModel):
     connector_name: Literal["linear"]
 
-    settings: ItemConnectorsLinearConnectionSettingsSettings
+    settings: ConnectorsLinearConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1457,7 +1455,7 @@ class ItemConnectorsLinearConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsLunchmoneyConnectionSettings(BaseModel):
+class ConnectorsLunchmoneyConnectionSettings(BaseModel):
     connector_name: Literal["lunchmoney"]
 
     settings: None
@@ -1471,7 +1469,7 @@ class ItemConnectorsLunchmoneyConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsMercuryConnectionSettings(BaseModel):
+class ConnectorsMercuryConnectionSettings(BaseModel):
     connector_name: Literal["mercury"]
 
     settings: None
@@ -1485,16 +1483,16 @@ class ItemConnectorsMercuryConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsMergeConnectionSettingsSettings(BaseModel):
+class ConnectorsMergeConnectionSettingsSettings(BaseModel):
     account_token: str = FieldInfo(alias="accountToken")
 
     account_details: Optional[object] = FieldInfo(alias="accountDetails", default=None)
 
 
-class ItemConnectorsMergeConnectionSettings(BaseModel):
+class ConnectorsMergeConnectionSettings(BaseModel):
     connector_name: Literal["merge"]
 
-    settings: ItemConnectorsMergeConnectionSettingsSettings
+    settings: ConnectorsMergeConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1505,7 +1503,7 @@ class ItemConnectorsMergeConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -1521,8 +1519,8 @@ class ItemConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw(BaseM
     scope: Optional[str] = None
 
 
-class ItemConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -1535,7 +1533,7 @@ class ItemConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentials(BaseMode
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -1547,32 +1545,32 @@ class ItemConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig(Bas
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsMicrosoftConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentials
+class ConnectorsMicrosoftConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsMicrosoftConnectionSettingsSettingsError(BaseModel):
+class ConnectorsMicrosoftConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsMicrosoftConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsMicrosoftConnectionSettingsSettingsOAuth
+class ConnectorsMicrosoftConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsMicrosoftConnectionSettingsSettingsOAuth
 
     client_id: Optional[str] = None
 
-    error: Optional[ItemConnectorsMicrosoftConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsMicrosoftConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsMicrosoftConnectionSettings(BaseModel):
+class ConnectorsMicrosoftConnectionSettings(BaseModel):
     connector_name: Literal["microsoft"]
 
-    settings: ItemConnectorsMicrosoftConnectionSettingsSettings
+    settings: ConnectorsMicrosoftConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1583,16 +1581,16 @@ class ItemConnectorsMicrosoftConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsMongoDBConnectionSettingsSettings(BaseModel):
+class ConnectorsMongoDBConnectionSettingsSettings(BaseModel):
     database_name: str = FieldInfo(alias="databaseName")
 
     database_url: str = FieldInfo(alias="databaseUrl")
 
 
-class ItemConnectorsMongoDBConnectionSettings(BaseModel):
+class ConnectorsMongoDBConnectionSettings(BaseModel):
     connector_name: Literal["mongodb"]
 
-    settings: ItemConnectorsMongoDBConnectionSettingsSettings
+    settings: ConnectorsMongoDBConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1603,7 +1601,7 @@ class ItemConnectorsMongoDBConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsMootaConnectionSettings(BaseModel):
+class ConnectorsMootaConnectionSettings(BaseModel):
     connector_name: Literal["moota"]
 
     settings: None
@@ -1617,14 +1615,14 @@ class ItemConnectorsMootaConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsOnebrickConnectionSettingsSettings(BaseModel):
+class ConnectorsOnebrickConnectionSettingsSettings(BaseModel):
     access_token: str = FieldInfo(alias="accessToken")
 
 
-class ItemConnectorsOnebrickConnectionSettings(BaseModel):
+class ConnectorsOnebrickConnectionSettings(BaseModel):
     connector_name: Literal["onebrick"]
 
-    settings: ItemConnectorsOnebrickConnectionSettingsSettings
+    settings: ConnectorsOnebrickConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1635,7 +1633,7 @@ class ItemConnectorsOnebrickConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -1651,8 +1649,8 @@ class ItemConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRaw(BaseMo
     scope: Optional[str] = None
 
 
-class ItemConnectorsOutreachConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsOutreachConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -1665,7 +1663,7 @@ class ItemConnectorsOutreachConnectionSettingsSettingsOAuthCredentials(BaseModel
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -1677,30 +1675,30 @@ class ItemConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfig(Base
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsOutreachConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsOutreachConnectionSettingsSettingsOAuthCredentials
+class ConnectorsOutreachConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsOutreachConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsOutreachConnectionSettingsSettingsError(BaseModel):
+class ConnectorsOutreachConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsOutreachConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsOutreachConnectionSettingsSettingsOAuth
+class ConnectorsOutreachConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsOutreachConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsOutreachConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsOutreachConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsOutreachConnectionSettings(BaseModel):
+class ConnectorsOutreachConnectionSettings(BaseModel):
     connector_name: Literal["outreach"]
 
-    settings: ItemConnectorsOutreachConnectionSettingsSettings
+    settings: ConnectorsOutreachConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1711,7 +1709,7 @@ class ItemConnectorsOutreachConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -1727,8 +1725,8 @@ class ItemConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRaw(BaseM
     scope: Optional[str] = None
 
 
-class ItemConnectorsPipedriveConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsPipedriveConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -1741,7 +1739,7 @@ class ItemConnectorsPipedriveConnectionSettingsSettingsOAuthCredentials(BaseMode
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -1753,30 +1751,30 @@ class ItemConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfig(Bas
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsPipedriveConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsPipedriveConnectionSettingsSettingsOAuthCredentials
+class ConnectorsPipedriveConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsPipedriveConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsPipedriveConnectionSettingsSettingsError(BaseModel):
+class ConnectorsPipedriveConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsPipedriveConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsPipedriveConnectionSettingsSettingsOAuth
+class ConnectorsPipedriveConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsPipedriveConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsPipedriveConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsPipedriveConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsPipedriveConnectionSettings(BaseModel):
+class ConnectorsPipedriveConnectionSettings(BaseModel):
     connector_name: Literal["pipedrive"]
 
-    settings: ItemConnectorsPipedriveConnectionSettingsSettings
+    settings: ConnectorsPipedriveConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1787,7 +1785,7 @@ class ItemConnectorsPipedriveConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsPlaidConnectionSettingsSettings(BaseModel):
+class ConnectorsPlaidConnectionSettingsSettings(BaseModel):
     access_token: str = FieldInfo(alias="accessToken")
 
     institution: Optional[object] = None
@@ -1801,10 +1799,10 @@ class ItemConnectorsPlaidConnectionSettingsSettings(BaseModel):
     webhook_item_error: None = FieldInfo(alias="webhookItemError", default=None)
 
 
-class ItemConnectorsPlaidConnectionSettings(BaseModel):
+class ConnectorsPlaidConnectionSettings(BaseModel):
     connector_name: Literal["plaid"]
 
-    settings: ItemConnectorsPlaidConnectionSettingsSettings
+    settings: ConnectorsPlaidConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1815,24 +1813,24 @@ class ItemConnectorsPlaidConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsPostgresConnectionSettingsSettingsSourceQueries(BaseModel):
+class ConnectorsPostgresConnectionSettingsSettingsSourceQueries(BaseModel):
     invoice: Optional[str] = None
 
 
-class ItemConnectorsPostgresConnectionSettingsSettings(BaseModel):
+class ConnectorsPostgresConnectionSettingsSettings(BaseModel):
     database_url: str = FieldInfo(alias="databaseUrl")
 
     migrate_tables: Optional[bool] = FieldInfo(alias="migrateTables", default=None)
 
-    source_queries: Optional[ItemConnectorsPostgresConnectionSettingsSettingsSourceQueries] = FieldInfo(
+    source_queries: Optional[ConnectorsPostgresConnectionSettingsSettingsSourceQueries] = FieldInfo(
         alias="sourceQueries", default=None
     )
 
 
-class ItemConnectorsPostgresConnectionSettings(BaseModel):
+class ConnectorsPostgresConnectionSettings(BaseModel):
     connector_name: Literal["postgres"]
 
-    settings: ItemConnectorsPostgresConnectionSettingsSettings
+    settings: ConnectorsPostgresConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1843,11 +1841,11 @@ class ItemConnectorsPostgresConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsQboConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsQboConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     realm_id: str = FieldInfo(alias="realmId")
 
 
-class ItemConnectorsQboConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsQboConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -1863,8 +1861,8 @@ class ItemConnectorsQboConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     scope: Optional[str] = None
 
 
-class ItemConnectorsQboConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsQboConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsQboConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsQboConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -1877,30 +1875,30 @@ class ItemConnectorsQboConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsQboConnectionSettingsSettingsOAuth(BaseModel):
-    connection_config: ItemConnectorsQboConnectionSettingsSettingsOAuthConnectionConfig
+class ConnectorsQboConnectionSettingsSettingsOAuth(BaseModel):
+    connection_config: ConnectorsQboConnectionSettingsSettingsOAuthConnectionConfig
 
-    credentials: ItemConnectorsQboConnectionSettingsSettingsOAuthCredentials
+    credentials: ConnectorsQboConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
 
-class ItemConnectorsQboConnectionSettingsSettingsError(BaseModel):
+class ConnectorsQboConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsQboConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsQboConnectionSettingsSettingsOAuth
+class ConnectorsQboConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsQboConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsQboConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsQboConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsQboConnectionSettings(BaseModel):
+class ConnectorsQboConnectionSettings(BaseModel):
     connector_name: Literal["qbo"]
 
-    settings: ItemConnectorsQboConnectionSettingsSettings
+    settings: ConnectorsQboConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1911,16 +1909,16 @@ class ItemConnectorsQboConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsRampConnectionSettingsSettings(BaseModel):
+class ConnectorsRampConnectionSettingsSettings(BaseModel):
     access_token: Optional[str] = FieldInfo(alias="accessToken", default=None)
 
     start_after_transaction_id: Optional[str] = FieldInfo(alias="startAfterTransactionId", default=None)
 
 
-class ItemConnectorsRampConnectionSettings(BaseModel):
+class ConnectorsRampConnectionSettings(BaseModel):
     connector_name: Literal["ramp"]
 
-    settings: ItemConnectorsRampConnectionSettingsSettings
+    settings: ConnectorsRampConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1931,14 +1929,14 @@ class ItemConnectorsRampConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsRevertConnectionSettingsSettings(BaseModel):
+class ConnectorsRevertConnectionSettingsSettings(BaseModel):
     tenant_id: str
 
 
-class ItemConnectorsRevertConnectionSettings(BaseModel):
+class ConnectorsRevertConnectionSettings(BaseModel):
     connector_name: Literal["revert"]
 
-    settings: ItemConnectorsRevertConnectionSettingsSettings
+    settings: ConnectorsRevertConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1949,7 +1947,7 @@ class ItemConnectorsRevertConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsSalesforceConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsSalesforceConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -1965,8 +1963,8 @@ class ItemConnectorsSalesforceConnectionSettingsSettingsOAuthCredentialsRaw(Base
     scope: Optional[str] = None
 
 
-class ItemConnectorsSalesforceConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsSalesforceConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsSalesforceConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsSalesforceConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -1979,7 +1977,7 @@ class ItemConnectorsSalesforceConnectionSettingsSettingsOAuthCredentials(BaseMod
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsSalesforceConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsSalesforceConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -1991,30 +1989,30 @@ class ItemConnectorsSalesforceConnectionSettingsSettingsOAuthConnectionConfig(Ba
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsSalesforceConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsSalesforceConnectionSettingsSettingsOAuthCredentials
+class ConnectorsSalesforceConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsSalesforceConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsSalesforceConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsSalesforceConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsSalesforceConnectionSettingsSettingsError(BaseModel):
+class ConnectorsSalesforceConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsSalesforceConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsSalesforceConnectionSettingsSettingsOAuth
+class ConnectorsSalesforceConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsSalesforceConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsSalesforceConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsSalesforceConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsSalesforceConnectionSettings(BaseModel):
+class ConnectorsSalesforceConnectionSettings(BaseModel):
     connector_name: Literal["salesforce"]
 
-    settings: ItemConnectorsSalesforceConnectionSettingsSettings
+    settings: ConnectorsSalesforceConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2025,7 +2023,7 @@ class ItemConnectorsSalesforceConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -2041,8 +2039,8 @@ class ItemConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRaw(BaseM
     scope: Optional[str] = None
 
 
-class ItemConnectorsSalesloftConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsSalesloftConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -2055,7 +2053,7 @@ class ItemConnectorsSalesloftConnectionSettingsSettingsOAuthCredentials(BaseMode
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -2067,30 +2065,30 @@ class ItemConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfig(Bas
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsSalesloftConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsSalesloftConnectionSettingsSettingsOAuthCredentials
+class ConnectorsSalesloftConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsSalesloftConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsSalesloftConnectionSettingsSettingsError(BaseModel):
+class ConnectorsSalesloftConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsSalesloftConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsSalesloftConnectionSettingsSettingsOAuth
+class ConnectorsSalesloftConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsSalesloftConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsSalesloftConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsSalesloftConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsSalesloftConnectionSettings(BaseModel):
+class ConnectorsSalesloftConnectionSettings(BaseModel):
     connector_name: Literal["salesloft"]
 
-    settings: ItemConnectorsSalesloftConnectionSettingsSettings
+    settings: ConnectorsSalesloftConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2101,7 +2099,7 @@ class ItemConnectorsSalesloftConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsSaltedgeConnectionSettings(BaseModel):
+class ConnectorsSaltedgeConnectionSettings(BaseModel):
     connector_name: Literal["saltedge"]
 
     id: Optional[str] = None
@@ -2115,7 +2113,7 @@ class ItemConnectorsSaltedgeConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsSlackConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsSlackConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -2131,8 +2129,8 @@ class ItemConnectorsSlackConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel
     scope: Optional[str] = None
 
 
-class ItemConnectorsSlackConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsSlackConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsSlackConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsSlackConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -2145,7 +2143,7 @@ class ItemConnectorsSlackConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsSlackConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsSlackConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -2157,30 +2155,30 @@ class ItemConnectorsSlackConnectionSettingsSettingsOAuthConnectionConfig(BaseMod
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsSlackConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsSlackConnectionSettingsSettingsOAuthCredentials
+class ConnectorsSlackConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsSlackConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsSlackConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsSlackConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsSlackConnectionSettingsSettingsError(BaseModel):
+class ConnectorsSlackConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsSlackConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsSlackConnectionSettingsSettingsOAuth
+class ConnectorsSlackConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsSlackConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsSlackConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsSlackConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsSlackConnectionSettings(BaseModel):
+class ConnectorsSlackConnectionSettings(BaseModel):
     connector_name: Literal["slack"]
 
-    settings: ItemConnectorsSlackConnectionSettingsSettings
+    settings: ConnectorsSlackConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2191,7 +2189,7 @@ class ItemConnectorsSlackConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications(BaseModel):
+class ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications(BaseModel):
     added_as_friend: bool
 
     added_to_group: bool
@@ -2209,7 +2207,7 @@ class ItemConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications(
     payments: bool
 
 
-class ItemConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture(BaseModel):
+class ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture(BaseModel):
     large: Optional[str] = None
 
     medium: Optional[str] = None
@@ -2223,7 +2221,7 @@ class ItemConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture(BaseMo
     xxlarge: Optional[str] = None
 
 
-class ItemConnectorsSplitwiseConnectionSettingsSettingsCurrentUser(BaseModel):
+class ConnectorsSplitwiseConnectionSettingsSettingsCurrentUser(BaseModel):
     id: float
 
     country_code: str
@@ -2246,29 +2244,29 @@ class ItemConnectorsSplitwiseConnectionSettingsSettingsCurrentUser(BaseModel):
 
     locale: str
 
-    notifications: ItemConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications
+    notifications: ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications
 
     notifications_count: float
 
     notifications_read: str
 
-    picture: ItemConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture
+    picture: ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture
 
     registration_status: str
 
 
-class ItemConnectorsSplitwiseConnectionSettingsSettings(BaseModel):
+class ConnectorsSplitwiseConnectionSettingsSettings(BaseModel):
     access_token: str = FieldInfo(alias="accessToken")
 
-    current_user: Optional[ItemConnectorsSplitwiseConnectionSettingsSettingsCurrentUser] = FieldInfo(
+    current_user: Optional[ConnectorsSplitwiseConnectionSettingsSettingsCurrentUser] = FieldInfo(
         alias="currentUser", default=None
     )
 
 
-class ItemConnectorsSplitwiseConnectionSettings(BaseModel):
+class ConnectorsSplitwiseConnectionSettings(BaseModel):
     connector_name: Literal["splitwise"]
 
-    settings: ItemConnectorsSplitwiseConnectionSettingsSettings
+    settings: ConnectorsSplitwiseConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2279,7 +2277,7 @@ class ItemConnectorsSplitwiseConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsSpreadsheetConnectionSettingsSettings(BaseModel):
+class ConnectorsSpreadsheetConnectionSettingsSettings(BaseModel):
     account_external_id: str = FieldInfo(alias="accountExternalId")
 
     preset: Literal[
@@ -2299,10 +2297,10 @@ class ItemConnectorsSpreadsheetConnectionSettingsSettings(BaseModel):
     ]
 
 
-class ItemConnectorsSpreadsheetConnectionSettings(BaseModel):
+class ConnectorsSpreadsheetConnectionSettings(BaseModel):
     connector_name: Literal["spreadsheet"]
 
-    settings: ItemConnectorsSpreadsheetConnectionSettingsSettings
+    settings: ConnectorsSpreadsheetConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2313,14 +2311,14 @@ class ItemConnectorsSpreadsheetConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsStripeConnectionSettingsSettings(BaseModel):
+class ConnectorsStripeConnectionSettingsSettings(BaseModel):
     secret_key: str = FieldInfo(alias="secretKey")
 
 
-class ItemConnectorsStripeConnectionSettings(BaseModel):
+class ConnectorsStripeConnectionSettings(BaseModel):
     connector_name: Literal["stripe"]
 
-    settings: ItemConnectorsStripeConnectionSettingsSettings
+    settings: ConnectorsStripeConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2331,14 +2329,14 @@ class ItemConnectorsStripeConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsTellerConnectionSettingsSettings(BaseModel):
+class ConnectorsTellerConnectionSettingsSettings(BaseModel):
     token: str
 
 
-class ItemConnectorsTellerConnectionSettings(BaseModel):
+class ConnectorsTellerConnectionSettings(BaseModel):
     connector_name: Literal["teller"]
 
-    settings: ItemConnectorsTellerConnectionSettingsSettings
+    settings: ConnectorsTellerConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2349,7 +2347,7 @@ class ItemConnectorsTellerConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsTogglConnectionSettingsSettings(BaseModel):
+class ConnectorsTogglConnectionSettingsSettings(BaseModel):
     api_token: str = FieldInfo(alias="apiToken")
 
     email: Optional[str] = None
@@ -2357,10 +2355,10 @@ class ItemConnectorsTogglConnectionSettingsSettings(BaseModel):
     password: Optional[str] = None
 
 
-class ItemConnectorsTogglConnectionSettings(BaseModel):
+class ConnectorsTogglConnectionSettings(BaseModel):
     connector_name: Literal["toggl"]
 
-    settings: ItemConnectorsTogglConnectionSettingsSettings
+    settings: ConnectorsTogglConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2371,14 +2369,14 @@ class ItemConnectorsTogglConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsTwentyConnectionSettingsSettings(BaseModel):
+class ConnectorsTwentyConnectionSettingsSettings(BaseModel):
     access_token: str
 
 
-class ItemConnectorsTwentyConnectionSettings(BaseModel):
+class ConnectorsTwentyConnectionSettings(BaseModel):
     connector_name: Literal["twenty"]
 
-    settings: ItemConnectorsTwentyConnectionSettingsSettings
+    settings: ConnectorsTwentyConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2389,16 +2387,16 @@ class ItemConnectorsTwentyConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsVenmoConnectionSettingsSettings(BaseModel):
+class ConnectorsVenmoConnectionSettingsSettings(BaseModel):
     credentials: Optional[object] = None
 
     me: Optional[object] = None
 
 
-class ItemConnectorsVenmoConnectionSettings(BaseModel):
+class ConnectorsVenmoConnectionSettings(BaseModel):
     connector_name: Literal["venmo"]
 
-    settings: ItemConnectorsVenmoConnectionSettingsSettings
+    settings: ConnectorsVenmoConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2409,14 +2407,14 @@ class ItemConnectorsVenmoConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsWebhookConnectionSettingsSettings(BaseModel):
+class ConnectorsWebhookConnectionSettingsSettings(BaseModel):
     destination_url: str = FieldInfo(alias="destinationUrl")
 
 
-class ItemConnectorsWebhookConnectionSettings(BaseModel):
+class ConnectorsWebhookConnectionSettings(BaseModel):
     connector_name: Literal["webhook"]
 
-    settings: ItemConnectorsWebhookConnectionSettingsSettings
+    settings: ConnectorsWebhookConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2427,16 +2425,16 @@ class ItemConnectorsWebhookConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsWiseConnectionSettingsSettings(BaseModel):
+class ConnectorsWiseConnectionSettingsSettings(BaseModel):
     env_name: Literal["sandbox", "live"] = FieldInfo(alias="envName")
 
     api_token: Optional[str] = FieldInfo(alias="apiToken", default=None)
 
 
-class ItemConnectorsWiseConnectionSettings(BaseModel):
+class ConnectorsWiseConnectionSettings(BaseModel):
     connector_name: Literal["wise"]
 
-    settings: ItemConnectorsWiseConnectionSettingsSettings
+    settings: ConnectorsWiseConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2447,7 +2445,7 @@ class ItemConnectorsWiseConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -2463,8 +2461,8 @@ class ItemConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel)
     scope: Optional[str] = None
 
 
-class ItemConnectorsXeroConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsXeroConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -2477,7 +2475,7 @@ class ItemConnectorsXeroConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -2489,30 +2487,30 @@ class ItemConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfig(BaseMode
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsXeroConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsXeroConnectionSettingsSettingsOAuthCredentials
+class ConnectorsXeroConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsXeroConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsXeroConnectionSettingsSettingsError(BaseModel):
+class ConnectorsXeroConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsXeroConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsXeroConnectionSettingsSettingsOAuth
+class ConnectorsXeroConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsXeroConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsXeroConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsXeroConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsXeroConnectionSettings(BaseModel):
+class ConnectorsXeroConnectionSettings(BaseModel):
     connector_name: Literal["xero"]
 
-    settings: ItemConnectorsXeroConnectionSettingsSettings
+    settings: ConnectorsXeroConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2523,7 +2521,7 @@ class ItemConnectorsXeroConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsYodleeConnectionSettingsSettingsAccessToken(BaseModel):
+class ConnectorsYodleeConnectionSettingsSettingsAccessToken(BaseModel):
     access_token: str = FieldInfo(alias="accessToken")
 
     expires_in: float = FieldInfo(alias="expiresIn")
@@ -2531,7 +2529,7 @@ class ItemConnectorsYodleeConnectionSettingsSettingsAccessToken(BaseModel):
     issued_at: str = FieldInfo(alias="issuedAt")
 
 
-class ItemConnectorsYodleeConnectionSettingsSettingsProviderAccount(BaseModel):
+class ConnectorsYodleeConnectionSettingsSettingsProviderAccount(BaseModel):
     id: float
 
     aggregation_source: str = FieldInfo(alias="aggregationSource")
@@ -2549,28 +2547,28 @@ class ItemConnectorsYodleeConnectionSettingsSettingsProviderAccount(BaseModel):
     is_deleted: Optional[bool] = FieldInfo(alias="isDeleted", default=None)
 
 
-class ItemConnectorsYodleeConnectionSettingsSettings(BaseModel):
+class ConnectorsYodleeConnectionSettingsSettings(BaseModel):
     login_name: str = FieldInfo(alias="loginName")
 
     provider_account_id: Union[float, str] = FieldInfo(alias="providerAccountId")
 
-    access_token: Optional[ItemConnectorsYodleeConnectionSettingsSettingsAccessToken] = FieldInfo(
+    access_token: Optional[ConnectorsYodleeConnectionSettingsSettingsAccessToken] = FieldInfo(
         alias="accessToken", default=None
     )
 
     provider: None = None
 
-    provider_account: Optional[ItemConnectorsYodleeConnectionSettingsSettingsProviderAccount] = FieldInfo(
+    provider_account: Optional[ConnectorsYodleeConnectionSettingsSettingsProviderAccount] = FieldInfo(
         alias="providerAccount", default=None
     )
 
     user: None = None
 
 
-class ItemConnectorsYodleeConnectionSettings(BaseModel):
+class ConnectorsYodleeConnectionSettings(BaseModel):
     connector_name: Literal["yodlee"]
 
-    settings: ItemConnectorsYodleeConnectionSettingsSettings
+    settings: ConnectorsYodleeConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2581,7 +2579,7 @@ class ItemConnectorsYodleeConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     token_type: str
@@ -2597,8 +2595,8 @@ class ItemConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRaw(BaseMo
     scope: Optional[str] = None
 
 
-class ItemConnectorsZohodeskConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ItemConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorsZohodeskConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -2611,7 +2609,7 @@ class ItemConnectorsZohodeskConnectionSettingsSettingsOAuthCredentials(BaseModel
     refresh_token: Optional[str] = None
 
 
-class ItemConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -2623,30 +2621,30 @@ class ItemConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig(Base
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ItemConnectorsZohodeskConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ItemConnectorsZohodeskConnectionSettingsSettingsOAuthCredentials
+class ConnectorsZohodeskConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorsZohodeskConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ItemConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ItemConnectorsZohodeskConnectionSettingsSettingsError(BaseModel):
+class ConnectorsZohodeskConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ItemConnectorsZohodeskConnectionSettingsSettings(BaseModel):
-    oauth: ItemConnectorsZohodeskConnectionSettingsSettingsOAuth
+class ConnectorsZohodeskConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsZohodeskConnectionSettingsSettingsOAuth
 
-    error: Optional[ItemConnectorsZohodeskConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorsZohodeskConnectionSettingsSettingsError] = None
 
 
-class ItemConnectorsZohodeskConnectionSettings(BaseModel):
+class ConnectorsZohodeskConnectionSettings(BaseModel):
     connector_name: Literal["zohodesk"]
 
-    settings: ItemConnectorsZohodeskConnectionSettingsSettings
+    settings: ConnectorsZohodeskConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2657,7 +2655,7 @@ class ItemConnectorsZohodeskConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsGoogledriveConnectionSettings(BaseModel):
+class ConnectorsGoogledriveConnectionSettings(BaseModel):
     connector_name: Literal["googledrive"]
 
     settings: None
@@ -2671,70 +2669,60 @@ class ItemConnectorsGoogledriveConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-Item: TypeAlias = Union[
-    ItemConnectorsAircallConnectionSettings,
-    ItemConnectorsAirtableConnectionSettings,
-    ItemConnectorsApolloConnectionSettings,
-    ItemConnectorsBeancountConnectionSettings,
-    ItemConnectorsBrexConnectionSettings,
-    ItemConnectorsCodaConnectionSettings,
-    ItemConnectorsConfluenceConnectionSettings,
-    ItemConnectorsDebugConnectionSettings,
-    ItemConnectorsDiscordConnectionSettings,
-    ItemConnectorsFinchConnectionSettings,
-    ItemConnectorsFirebaseConnectionSettings,
-    ItemConnectorsForeceiptConnectionSettings,
-    ItemConnectorsFsConnectionSettings,
-    ItemConnectorsGitHubConnectionSettings,
-    ItemConnectorsGongConnectionSettings,
-    ItemConnectorsGoogleConnectionSettings,
-    ItemConnectorsGreenhouseConnectionSettings,
-    ItemConnectorsHeronConnectionSettings,
-    ItemConnectorsHubspotConnectionSettings,
-    ItemConnectorsIntercomConnectionSettings,
-    ItemConnectorsJiraConnectionSettings,
-    ItemConnectorsKustomerConnectionSettings,
-    ItemConnectorsLeverConnectionSettings,
-    ItemConnectorsLinearConnectionSettings,
-    ItemConnectorsLunchmoneyConnectionSettings,
-    ItemConnectorsMercuryConnectionSettings,
-    ItemConnectorsMergeConnectionSettings,
-    ItemConnectorsMicrosoftConnectionSettings,
-    ItemConnectorsMongoDBConnectionSettings,
-    ItemConnectorsMootaConnectionSettings,
-    ItemConnectorsOnebrickConnectionSettings,
-    ItemConnectorsOutreachConnectionSettings,
-    ItemConnectorsPipedriveConnectionSettings,
-    ItemConnectorsPlaidConnectionSettings,
-    ItemConnectorsPostgresConnectionSettings,
-    ItemConnectorsQboConnectionSettings,
-    ItemConnectorsRampConnectionSettings,
-    ItemConnectorsRevertConnectionSettings,
-    ItemConnectorsSalesforceConnectionSettings,
-    ItemConnectorsSalesloftConnectionSettings,
-    ItemConnectorsSaltedgeConnectionSettings,
-    ItemConnectorsSlackConnectionSettings,
-    ItemConnectorsSplitwiseConnectionSettings,
-    ItemConnectorsSpreadsheetConnectionSettings,
-    ItemConnectorsStripeConnectionSettings,
-    ItemConnectorsTellerConnectionSettings,
-    ItemConnectorsTogglConnectionSettings,
-    ItemConnectorsTwentyConnectionSettings,
-    ItemConnectorsVenmoConnectionSettings,
-    ItemConnectorsWebhookConnectionSettings,
-    ItemConnectorsWiseConnectionSettings,
-    ItemConnectorsXeroConnectionSettings,
-    ItemConnectorsYodleeConnectionSettings,
-    ItemConnectorsZohodeskConnectionSettings,
-    ItemConnectorsGoogledriveConnectionSettings,
+GetConnectionResponse: TypeAlias = Union[
+    ConnectorsAircallConnectionSettings,
+    ConnectorsAirtableConnectionSettings,
+    ConnectorsApolloConnectionSettings,
+    ConnectorsBeancountConnectionSettings,
+    ConnectorsBrexConnectionSettings,
+    ConnectorsCodaConnectionSettings,
+    ConnectorsConfluenceConnectionSettings,
+    ConnectorsDebugConnectionSettings,
+    ConnectorsDiscordConnectionSettings,
+    ConnectorsFinchConnectionSettings,
+    ConnectorsFirebaseConnectionSettings,
+    ConnectorsForeceiptConnectionSettings,
+    ConnectorsFsConnectionSettings,
+    ConnectorsGitHubConnectionSettings,
+    ConnectorsGongConnectionSettings,
+    ConnectorsGoogleConnectionSettings,
+    ConnectorsGreenhouseConnectionSettings,
+    ConnectorsHeronConnectionSettings,
+    ConnectorsHubspotConnectionSettings,
+    ConnectorsIntercomConnectionSettings,
+    ConnectorsJiraConnectionSettings,
+    ConnectorsKustomerConnectionSettings,
+    ConnectorsLeverConnectionSettings,
+    ConnectorsLinearConnectionSettings,
+    ConnectorsLunchmoneyConnectionSettings,
+    ConnectorsMercuryConnectionSettings,
+    ConnectorsMergeConnectionSettings,
+    ConnectorsMicrosoftConnectionSettings,
+    ConnectorsMongoDBConnectionSettings,
+    ConnectorsMootaConnectionSettings,
+    ConnectorsOnebrickConnectionSettings,
+    ConnectorsOutreachConnectionSettings,
+    ConnectorsPipedriveConnectionSettings,
+    ConnectorsPlaidConnectionSettings,
+    ConnectorsPostgresConnectionSettings,
+    ConnectorsQboConnectionSettings,
+    ConnectorsRampConnectionSettings,
+    ConnectorsRevertConnectionSettings,
+    ConnectorsSalesforceConnectionSettings,
+    ConnectorsSalesloftConnectionSettings,
+    ConnectorsSaltedgeConnectionSettings,
+    ConnectorsSlackConnectionSettings,
+    ConnectorsSplitwiseConnectionSettings,
+    ConnectorsSpreadsheetConnectionSettings,
+    ConnectorsStripeConnectionSettings,
+    ConnectorsTellerConnectionSettings,
+    ConnectorsTogglConnectionSettings,
+    ConnectorsTwentyConnectionSettings,
+    ConnectorsVenmoConnectionSettings,
+    ConnectorsWebhookConnectionSettings,
+    ConnectorsWiseConnectionSettings,
+    ConnectorsXeroConnectionSettings,
+    ConnectorsYodleeConnectionSettings,
+    ConnectorsZohodeskConnectionSettings,
+    ConnectorsGoogledriveConnectionSettings,
 ]
-
-
-class GetConnectionResponse(BaseModel):
-    items: List[Item]
-
-    limit: int
-
-    offset: int
-
-    total: float

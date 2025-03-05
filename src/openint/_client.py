@@ -430,69 +430,11 @@ class Openint(SyncAPIClient):
 
     def get_connection(
         self,
+        id: str,
         *,
-        connector_config_id: str | NotGiven = NOT_GIVEN,
-        connector_name: Literal[
-            "aircall",
-            "airtable",
-            "apollo",
-            "beancount",
-            "brex",
-            "coda",
-            "confluence",
-            "debug",
-            "discord",
-            "finch",
-            "firebase",
-            "foreceipt",
-            "fs",
-            "github",
-            "gong",
-            "google",
-            "greenhouse",
-            "heron",
-            "hubspot",
-            "intercom",
-            "jira",
-            "kustomer",
-            "lever",
-            "linear",
-            "lunchmoney",
-            "merge",
-            "microsoft",
-            "mongodb",
-            "moota",
-            "onebrick",
-            "outreach",
-            "pipedrive",
-            "plaid",
-            "postgres",
-            "qbo",
-            "ramp",
-            "revert",
-            "salesforce",
-            "salesloft",
-            "saltedge",
-            "slack",
-            "splitwise",
-            "spreadsheet",
-            "stripe",
-            "teller",
-            "toggl",
-            "twenty",
-            "webhook",
-            "wise",
-            "xero",
-            "yodlee",
-            "zohodesk",
-            "googledrive",
-        ]
-        | NotGiven = NOT_GIVEN,
-        customer_id: str | NotGiven = NOT_GIVEN,
         expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
         include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
+        refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -501,12 +443,13 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> GetConnectionResponse:
         """
-        List all connections with optional filtering
+        Get details of a specific connection
 
         Args:
-          connector_name: The name of the connector
-
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
+
+          refresh_policy: Controls credential refresh: none (never), force (always), or auto (when
+              expired, default)
 
           extra_headers: Send extra headers
 
@@ -516,27 +459,30 @@ class Openint(SyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return self.get(
-            "/connection",
-            options=make_request_options(
-                extra_headers=extra_headers,
-                extra_query=extra_query,
-                extra_body=extra_body,
-                timeout=timeout,
-                query=maybe_transform(
-                    {
-                        "connector_config_id": connector_config_id,
-                        "connector_name": connector_name,
-                        "customer_id": customer_id,
-                        "expand": expand,
-                        "include_secrets": include_secrets,
-                        "limit": limit,
-                        "offset": offset,
-                    },
-                    client_get_connection_params.ClientGetConnectionParams,
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        return cast(
+            GetConnectionResponse,
+            self.get(
+                f"/connection/{id}",
+                options=make_request_options(
+                    extra_headers=extra_headers,
+                    extra_query=extra_query,
+                    extra_body=extra_body,
+                    timeout=timeout,
+                    query=maybe_transform(
+                        {
+                            "expand": expand,
+                            "include_secrets": include_secrets,
+                            "refresh_policy": refresh_policy,
+                        },
+                        client_get_connection_params.ClientGetConnectionParams,
+                    ),
                 ),
+                cast_to=cast(
+                    Any, GetConnectionResponse
+                ),  # Union types cannot be passed in as arguments in the type system
             ),
-            cast_to=GetConnectionResponse,
         )
 
     def list_connection_configs(
@@ -647,26 +593,83 @@ class Openint(SyncAPIClient):
 
     def list_connections(
         self,
-        id: str,
         *,
+        connector_config_id: str | NotGiven = NOT_GIVEN,
+        connector_name: Literal[
+            "aircall",
+            "airtable",
+            "apollo",
+            "beancount",
+            "brex",
+            "coda",
+            "confluence",
+            "debug",
+            "discord",
+            "finch",
+            "firebase",
+            "foreceipt",
+            "fs",
+            "github",
+            "gong",
+            "google",
+            "greenhouse",
+            "heron",
+            "hubspot",
+            "intercom",
+            "jira",
+            "kustomer",
+            "lever",
+            "linear",
+            "lunchmoney",
+            "merge",
+            "microsoft",
+            "mongodb",
+            "moota",
+            "onebrick",
+            "outreach",
+            "pipedrive",
+            "plaid",
+            "postgres",
+            "qbo",
+            "ramp",
+            "revert",
+            "salesforce",
+            "salesloft",
+            "saltedge",
+            "slack",
+            "splitwise",
+            "spreadsheet",
+            "stripe",
+            "teller",
+            "toggl",
+            "twenty",
+            "webhook",
+            "wise",
+            "xero",
+            "yodlee",
+            "zohodesk",
+            "googledrive",
+        ]
+        | NotGiven = NOT_GIVEN,
+        customer_id: str | NotGiven = NOT_GIVEN,
         expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
         include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
-        refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ListConnectionsResponse:
+    ) -> SyncOffsetPagination[ListConnectionsResponse]:
         """
-        Get details of a specific connection
+        List all connections with optional filtering
 
         Args:
-          include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
+          connector_name: The name of the connector
 
-          refresh_policy: Controls credential refresh: none (never), force (always), or auto (when
-              expired, default)
+          include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
           extra_headers: Send extra headers
 
@@ -676,30 +679,28 @@ class Openint(SyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        if not id:
-            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        return cast(
-            ListConnectionsResponse,
-            self.get(
-                f"/connection/{id}",
-                options=make_request_options(
-                    extra_headers=extra_headers,
-                    extra_query=extra_query,
-                    extra_body=extra_body,
-                    timeout=timeout,
-                    query=maybe_transform(
-                        {
-                            "expand": expand,
-                            "include_secrets": include_secrets,
-                            "refresh_policy": refresh_policy,
-                        },
-                        client_list_connections_params.ClientListConnectionsParams,
-                    ),
+        return self.get_api_list(
+            "/connection",
+            page=SyncOffsetPagination[ListConnectionsResponse],
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "connector_config_id": connector_config_id,
+                        "connector_name": connector_name,
+                        "customer_id": customer_id,
+                        "expand": expand,
+                        "include_secrets": include_secrets,
+                        "limit": limit,
+                        "offset": offset,
+                    },
+                    client_list_connections_params.ClientListConnectionsParams,
                 ),
-                cast_to=cast(
-                    Any, ListConnectionsResponse
-                ),  # Union types cannot be passed in as arguments in the type system
             ),
+            model=cast(Any, ListConnectionsResponse),  # Union types cannot be passed in as arguments in the type system
         )
 
     def list_events(
@@ -1145,69 +1146,11 @@ class AsyncOpenint(AsyncAPIClient):
 
     async def get_connection(
         self,
+        id: str,
         *,
-        connector_config_id: str | NotGiven = NOT_GIVEN,
-        connector_name: Literal[
-            "aircall",
-            "airtable",
-            "apollo",
-            "beancount",
-            "brex",
-            "coda",
-            "confluence",
-            "debug",
-            "discord",
-            "finch",
-            "firebase",
-            "foreceipt",
-            "fs",
-            "github",
-            "gong",
-            "google",
-            "greenhouse",
-            "heron",
-            "hubspot",
-            "intercom",
-            "jira",
-            "kustomer",
-            "lever",
-            "linear",
-            "lunchmoney",
-            "merge",
-            "microsoft",
-            "mongodb",
-            "moota",
-            "onebrick",
-            "outreach",
-            "pipedrive",
-            "plaid",
-            "postgres",
-            "qbo",
-            "ramp",
-            "revert",
-            "salesforce",
-            "salesloft",
-            "saltedge",
-            "slack",
-            "splitwise",
-            "spreadsheet",
-            "stripe",
-            "teller",
-            "toggl",
-            "twenty",
-            "webhook",
-            "wise",
-            "xero",
-            "yodlee",
-            "zohodesk",
-            "googledrive",
-        ]
-        | NotGiven = NOT_GIVEN,
-        customer_id: str | NotGiven = NOT_GIVEN,
         expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
         include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
+        refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -1216,12 +1159,13 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> GetConnectionResponse:
         """
-        List all connections with optional filtering
+        Get details of a specific connection
 
         Args:
-          connector_name: The name of the connector
-
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
+
+          refresh_policy: Controls credential refresh: none (never), force (always), or auto (when
+              expired, default)
 
           extra_headers: Send extra headers
 
@@ -1231,27 +1175,30 @@ class AsyncOpenint(AsyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return await self.get(
-            "/connection",
-            options=make_request_options(
-                extra_headers=extra_headers,
-                extra_query=extra_query,
-                extra_body=extra_body,
-                timeout=timeout,
-                query=await async_maybe_transform(
-                    {
-                        "connector_config_id": connector_config_id,
-                        "connector_name": connector_name,
-                        "customer_id": customer_id,
-                        "expand": expand,
-                        "include_secrets": include_secrets,
-                        "limit": limit,
-                        "offset": offset,
-                    },
-                    client_get_connection_params.ClientGetConnectionParams,
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        return cast(
+            GetConnectionResponse,
+            await self.get(
+                f"/connection/{id}",
+                options=make_request_options(
+                    extra_headers=extra_headers,
+                    extra_query=extra_query,
+                    extra_body=extra_body,
+                    timeout=timeout,
+                    query=await async_maybe_transform(
+                        {
+                            "expand": expand,
+                            "include_secrets": include_secrets,
+                            "refresh_policy": refresh_policy,
+                        },
+                        client_get_connection_params.ClientGetConnectionParams,
+                    ),
                 ),
+                cast_to=cast(
+                    Any, GetConnectionResponse
+                ),  # Union types cannot be passed in as arguments in the type system
             ),
-            cast_to=GetConnectionResponse,
         )
 
     def list_connection_configs(
@@ -1360,28 +1307,85 @@ class AsyncOpenint(AsyncAPIClient):
             ),  # Union types cannot be passed in as arguments in the type system
         )
 
-    async def list_connections(
+    def list_connections(
         self,
-        id: str,
         *,
+        connector_config_id: str | NotGiven = NOT_GIVEN,
+        connector_name: Literal[
+            "aircall",
+            "airtable",
+            "apollo",
+            "beancount",
+            "brex",
+            "coda",
+            "confluence",
+            "debug",
+            "discord",
+            "finch",
+            "firebase",
+            "foreceipt",
+            "fs",
+            "github",
+            "gong",
+            "google",
+            "greenhouse",
+            "heron",
+            "hubspot",
+            "intercom",
+            "jira",
+            "kustomer",
+            "lever",
+            "linear",
+            "lunchmoney",
+            "merge",
+            "microsoft",
+            "mongodb",
+            "moota",
+            "onebrick",
+            "outreach",
+            "pipedrive",
+            "plaid",
+            "postgres",
+            "qbo",
+            "ramp",
+            "revert",
+            "salesforce",
+            "salesloft",
+            "saltedge",
+            "slack",
+            "splitwise",
+            "spreadsheet",
+            "stripe",
+            "teller",
+            "toggl",
+            "twenty",
+            "webhook",
+            "wise",
+            "xero",
+            "yodlee",
+            "zohodesk",
+            "googledrive",
+        ]
+        | NotGiven = NOT_GIVEN,
+        customer_id: str | NotGiven = NOT_GIVEN,
         expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
         include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
-        refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ListConnectionsResponse:
+    ) -> AsyncPaginator[ListConnectionsResponse, AsyncOffsetPagination[ListConnectionsResponse]]:
         """
-        Get details of a specific connection
+        List all connections with optional filtering
 
         Args:
-          include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
+          connector_name: The name of the connector
 
-          refresh_policy: Controls credential refresh: none (never), force (always), or auto (when
-              expired, default)
+          include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
           extra_headers: Send extra headers
 
@@ -1391,30 +1395,28 @@ class AsyncOpenint(AsyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        if not id:
-            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        return cast(
-            ListConnectionsResponse,
-            await self.get(
-                f"/connection/{id}",
-                options=make_request_options(
-                    extra_headers=extra_headers,
-                    extra_query=extra_query,
-                    extra_body=extra_body,
-                    timeout=timeout,
-                    query=await async_maybe_transform(
-                        {
-                            "expand": expand,
-                            "include_secrets": include_secrets,
-                            "refresh_policy": refresh_policy,
-                        },
-                        client_list_connections_params.ClientListConnectionsParams,
-                    ),
+        return self.get_api_list(
+            "/connection",
+            page=AsyncOffsetPagination[ListConnectionsResponse],
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "connector_config_id": connector_config_id,
+                        "connector_name": connector_name,
+                        "customer_id": customer_id,
+                        "expand": expand,
+                        "include_secrets": include_secrets,
+                        "limit": limit,
+                        "offset": offset,
+                    },
+                    client_list_connections_params.ClientListConnectionsParams,
                 ),
-                cast_to=cast(
-                    Any, ListConnectionsResponse
-                ),  # Union types cannot be passed in as arguments in the type system
             ),
+            model=cast(Any, ListConnectionsResponse),  # Union types cannot be passed in as arguments in the type system
         )
 
     def list_events(
