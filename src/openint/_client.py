@@ -133,21 +133,21 @@ class Openint(SyncAPIClient):
     @property
     @override
     def auth_headers(self) -> dict[str, str]:
-        if self._organization_auth:
-            return self._organization_auth
-        if self._customer_auth:
-            return self._customer_auth
+        if self._api_key:
+            return self._api_key
+        if self._customer_token:
+            return self._customer_token
         return {}
 
     @property
-    def _organization_auth(self) -> dict[str, str]:
+    def _api_key(self) -> dict[str, str]:
         api_key = self.api_key
         if api_key is None:
             return {}
         return {"authorization": api_key}
 
     @property
-    def _customer_auth(self) -> dict[str, str]:
+    def _customer_token(self) -> dict[str, str]:
         customer_token = self.customer_token
         if customer_token is None:
             return {}
@@ -443,7 +443,7 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> GetConnectionResponse:
         """
-        Get details of a specific connection
+        Get details of a specific connection, including credentials
 
         Args:
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
@@ -849,21 +849,21 @@ class AsyncOpenint(AsyncAPIClient):
     @property
     @override
     def auth_headers(self) -> dict[str, str]:
-        if self._organization_auth:
-            return self._organization_auth
-        if self._customer_auth:
-            return self._customer_auth
+        if self._api_key:
+            return self._api_key
+        if self._customer_token:
+            return self._customer_token
         return {}
 
     @property
-    def _organization_auth(self) -> dict[str, str]:
+    def _api_key(self) -> dict[str, str]:
         api_key = self.api_key
         if api_key is None:
             return {}
         return {"authorization": api_key}
 
     @property
-    def _customer_auth(self) -> dict[str, str]:
+    def _customer_token(self) -> dict[str, str]:
         customer_token = self.customer_token
         if customer_token is None:
             return {}
@@ -1159,7 +1159,7 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> GetConnectionResponse:
         """
-        Get details of a specific connection
+        Get details of a specific connection, including credentials
 
         Args:
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
