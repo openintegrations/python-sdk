@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-alpha.2 (2025-03-05)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/openintegrations/python-sdk/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
+
+### Features
+
+* **api:** manual updates ([#10](https://github.com/openintegrations/python-sdk/issues/10)) ([ee8775b](https://github.com/openintegrations/python-sdk/commit/ee8775bcbe538e4ee176ea6b70613f0e7118627f))
+* **api:** manual updates ([#11](https://github.com/openintegrations/python-sdk/issues/11)) ([035fbea](https://github.com/openintegrations/python-sdk/commit/035fbead3a022304829924c9996f434a7cd4a593))
+* **api:** manual updates ([#12](https://github.com/openintegrations/python-sdk/issues/12)) ([6dfc2e8](https://github.com/openintegrations/python-sdk/commit/6dfc2e881d3b6b113a597c2a9251a00c3203ce84))
+* **api:** manual updates ([#13](https://github.com/openintegrations/python-sdk/issues/13)) ([224a7a0](https://github.com/openintegrations/python-sdk/commit/224a7a02297b3b06218ae5f8297c1e829cb91037))
+* **api:** manual updates ([#7](https://github.com/openintegrations/python-sdk/issues/7)) ([6b05d11](https://github.com/openintegrations/python-sdk/commit/6b05d115709fed32c7c6884621ac0959abf75ea1))
+* **api:** manual updates ([#8](https://github.com/openintegrations/python-sdk/issues/8)) ([5054460](https://github.com/openintegrations/python-sdk/commit/5054460f4d5e441afd71fe29a1ab3ef11ec82cba))
+* **api:** manual updates ([#9](https://github.com/openintegrations/python-sdk/issues/9)) ([ac996eb](https://github.com/openintegrations/python-sdk/commit/ac996ebde3816be7fcef375087d13d62d85374f0))
+* **docs:** updating documented docs for mintlify ([#5](https://github.com/openintegrations/python-sdk/issues/5)) ([80624c2](https://github.com/openintegrations/python-sdk/commit/80624c2bfe3e06d971af96da9a629123b7920290))
+
 ## 0.1.0-alpha.1 (2025-03-04)
 
 Full Changelog: [v0.0.1-alpha.0...v0.1.0-alpha.1](https://github.com/openintegrations/python-sdk/compare/v0.0.1-alpha.0...v0.1.0-alpha.1)
