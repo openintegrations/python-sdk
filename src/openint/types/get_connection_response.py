@@ -33,7 +33,6 @@ __all__ = [
     "ConnectorsConfluenceConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsConfluenceConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsConfluenceConnectionSettingsSettingsError",
-    "ConnectorsDebugConnectionSettings",
     "ConnectorsDiscordConnectionSettings",
     "ConnectorsDiscordConnectionSettingsSettings",
     "ConnectorsDiscordConnectionSettingsSettingsOAuth",
@@ -56,8 +55,6 @@ __all__ = [
     "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig",
     "ConnectorsForeceiptConnectionSettings",
     "ConnectorsForeceiptConnectionSettingsSettings",
-    "ConnectorsFsConnectionSettings",
-    "ConnectorsFsConnectionSettingsSettings",
     "ConnectorsGitHubConnectionSettings",
     "ConnectorsGitHubConnectionSettingsSettings",
     "ConnectorsGitHubConnectionSettingsSettingsOAuth",
@@ -135,8 +132,6 @@ __all__ = [
     "ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsMicrosoftConnectionSettingsSettingsError",
-    "ConnectorsMongoDBConnectionSettings",
-    "ConnectorsMongoDBConnectionSettingsSettings",
     "ConnectorsMootaConnectionSettings",
     "ConnectorsOnebrickConnectionSettings",
     "ConnectorsOnebrickConnectionSettingsSettings",
@@ -168,8 +163,6 @@ __all__ = [
     "ConnectorsQboConnectionSettingsSettingsError",
     "ConnectorsRampConnectionSettings",
     "ConnectorsRampConnectionSettingsSettings",
-    "ConnectorsRevertConnectionSettings",
-    "ConnectorsRevertConnectionSettingsSettings",
     "ConnectorsSalesforceConnectionSettings",
     "ConnectorsSalesforceConnectionSettingsSettings",
     "ConnectorsSalesforceConnectionSettingsSettingsOAuth",
@@ -197,8 +190,6 @@ __all__ = [
     "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUser",
     "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications",
     "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture",
-    "ConnectorsSpreadsheetConnectionSettings",
-    "ConnectorsSpreadsheetConnectionSettingsSettings",
     "ConnectorsStripeConnectionSettings",
     "ConnectorsStripeConnectionSettingsSettings",
     "ConnectorsTellerConnectionSettings",
@@ -209,8 +200,6 @@ __all__ = [
     "ConnectorsTwentyConnectionSettingsSettings",
     "ConnectorsVenmoConnectionSettings",
     "ConnectorsVenmoConnectionSettingsSettings",
-    "ConnectorsWebhookConnectionSettings",
-    "ConnectorsWebhookConnectionSettingsSettings",
     "ConnectorsWiseConnectionSettings",
     "ConnectorsWiseConnectionSettingsSettings",
     "ConnectorsXeroConnectionSettings",
@@ -477,20 +466,6 @@ class ConnectorsConfluenceConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ConnectorsDebugConnectionSettings(BaseModel):
-    connector_name: Literal["debug"]
-
-    id: Optional[str] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[datetime] = None
-
-    settings: Optional[object] = None
-
-    updated_at: Optional[datetime] = None
-
-
 class ConnectorsDiscordConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
@@ -707,24 +682,6 @@ class ConnectorsForeceiptConnectionSettings(BaseModel):
     connector_name: Literal["foreceipt"]
 
     settings: ConnectorsForeceiptConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[datetime] = None
-
-    updated_at: Optional[datetime] = None
-
-
-class ConnectorsFsConnectionSettingsSettings(BaseModel):
-    base_path: str = FieldInfo(alias="basePath")
-
-
-class ConnectorsFsConnectionSettings(BaseModel):
-    connector_name: Literal["fs"]
-
-    settings: ConnectorsFsConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -1581,26 +1538,6 @@ class ConnectorsMicrosoftConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ConnectorsMongoDBConnectionSettingsSettings(BaseModel):
-    database_name: str = FieldInfo(alias="databaseName")
-
-    database_url: str = FieldInfo(alias="databaseUrl")
-
-
-class ConnectorsMongoDBConnectionSettings(BaseModel):
-    connector_name: Literal["mongodb"]
-
-    settings: ConnectorsMongoDBConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[datetime] = None
-
-    updated_at: Optional[datetime] = None
-
-
 class ConnectorsMootaConnectionSettings(BaseModel):
     connector_name: Literal["moota"]
 
@@ -1919,24 +1856,6 @@ class ConnectorsRampConnectionSettings(BaseModel):
     connector_name: Literal["ramp"]
 
     settings: ConnectorsRampConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[datetime] = None
-
-    updated_at: Optional[datetime] = None
-
-
-class ConnectorsRevertConnectionSettingsSettings(BaseModel):
-    tenant_id: str
-
-
-class ConnectorsRevertConnectionSettings(BaseModel):
-    connector_name: Literal["revert"]
-
-    settings: ConnectorsRevertConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2277,40 +2196,6 @@ class ConnectorsSplitwiseConnectionSettings(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ConnectorsSpreadsheetConnectionSettingsSettings(BaseModel):
-    account_external_id: str = FieldInfo(alias="accountExternalId")
-
-    preset: Literal[
-        "ramp",
-        "apple-card",
-        "alliant-credit-union",
-        "bbva-mexico",
-        "brex-cash",
-        "brex",
-        "capitalone-bank",
-        "capitalone",
-        "coinbase",
-        "coinkeeper",
-        "etrade",
-        "first-republic",
-        "wise",
-    ]
-
-
-class ConnectorsSpreadsheetConnectionSettings(BaseModel):
-    connector_name: Literal["spreadsheet"]
-
-    settings: ConnectorsSpreadsheetConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[datetime] = None
-
-    updated_at: Optional[datetime] = None
-
-
 class ConnectorsStripeConnectionSettingsSettings(BaseModel):
     secret_key: str = FieldInfo(alias="secretKey")
 
@@ -2397,24 +2282,6 @@ class ConnectorsVenmoConnectionSettings(BaseModel):
     connector_name: Literal["venmo"]
 
     settings: ConnectorsVenmoConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[datetime] = None
-
-    updated_at: Optional[datetime] = None
-
-
-class ConnectorsWebhookConnectionSettingsSettings(BaseModel):
-    destination_url: str = FieldInfo(alias="destinationUrl")
-
-
-class ConnectorsWebhookConnectionSettings(BaseModel):
-    connector_name: Literal["webhook"]
-
-    settings: ConnectorsWebhookConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -2677,12 +2544,10 @@ GetConnectionResponse: TypeAlias = Union[
     ConnectorsBrexConnectionSettings,
     ConnectorsCodaConnectionSettings,
     ConnectorsConfluenceConnectionSettings,
-    ConnectorsDebugConnectionSettings,
     ConnectorsDiscordConnectionSettings,
     ConnectorsFinchConnectionSettings,
     ConnectorsFirebaseConnectionSettings,
     ConnectorsForeceiptConnectionSettings,
-    ConnectorsFsConnectionSettings,
     ConnectorsGitHubConnectionSettings,
     ConnectorsGongConnectionSettings,
     ConnectorsGoogleConnectionSettings,
@@ -2698,7 +2563,6 @@ GetConnectionResponse: TypeAlias = Union[
     ConnectorsMercuryConnectionSettings,
     ConnectorsMergeConnectionSettings,
     ConnectorsMicrosoftConnectionSettings,
-    ConnectorsMongoDBConnectionSettings,
     ConnectorsMootaConnectionSettings,
     ConnectorsOnebrickConnectionSettings,
     ConnectorsOutreachConnectionSettings,
@@ -2707,19 +2571,16 @@ GetConnectionResponse: TypeAlias = Union[
     ConnectorsPostgresConnectionSettings,
     ConnectorsQboConnectionSettings,
     ConnectorsRampConnectionSettings,
-    ConnectorsRevertConnectionSettings,
     ConnectorsSalesforceConnectionSettings,
     ConnectorsSalesloftConnectionSettings,
     ConnectorsSaltedgeConnectionSettings,
     ConnectorsSlackConnectionSettings,
     ConnectorsSplitwiseConnectionSettings,
-    ConnectorsSpreadsheetConnectionSettings,
     ConnectorsStripeConnectionSettings,
     ConnectorsTellerConnectionSettings,
     ConnectorsTogglConnectionSettings,
     ConnectorsTwentyConnectionSettings,
     ConnectorsVenmoConnectionSettings,
-    ConnectorsWebhookConnectionSettings,
     ConnectorsWiseConnectionSettings,
     ConnectorsXeroConnectionSettings,
     ConnectorsYodleeConnectionSettings,
