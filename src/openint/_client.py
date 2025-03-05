@@ -109,7 +109,7 @@ class Openint(SyncAPIClient):
         if base_url is None:
             base_url = os.environ.get("OPENINT_BASE_URL")
         if base_url is None:
-            base_url = f"https://localhost:3000"
+            base_url = f"https://api.openint.dev/v1"
 
         super().__init__(
             version=__version__,
@@ -825,7 +825,7 @@ class AsyncOpenint(AsyncAPIClient):
         if base_url is None:
             base_url = os.environ.get("OPENINT_BASE_URL")
         if base_url is None:
-            base_url = f"https://localhost:3000"
+            base_url = f"https://api.openint.dev/v1"
 
         super().__init__(
             version=__version__,
