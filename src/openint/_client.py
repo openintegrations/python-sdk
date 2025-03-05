@@ -44,11 +44,13 @@ from ._response import (
     async_to_streamed_response_wrapper,
 )
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
+from .pagination import SyncOffsetPagination, AsyncOffsetPagination
 from ._exceptions import APIStatusError
 from ._base_client import (
     DEFAULT_MAX_RETRIES,
     SyncAPIClient,
     AsyncAPIClient,
+    AsyncPaginator,
     make_request_options,
 )
 from .types.list_events_response import ListEventsResponse
@@ -605,7 +607,7 @@ class Openint(SyncAPIClient):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ListConnectionConfigsResponse:
+    ) -> SyncOffsetPagination[ListConnectionConfigsResponse]:
         """
         List all connector configurations with optional filtering
 
@@ -620,8 +622,9 @@ class Openint(SyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return self.get(
+        return self.get_api_list(
             "/connector-config",
+            page=SyncOffsetPagination[ListConnectionConfigsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -637,7 +640,9 @@ class Openint(SyncAPIClient):
                     client_list_connection_configs_params.ClientListConnectionConfigsParams,
                 ),
             ),
-            cast_to=ListConnectionConfigsResponse,
+            model=cast(
+                Any, ListConnectionConfigsResponse
+            ),  # Union types cannot be passed in as arguments in the type system
         )
 
     def list_connections(
@@ -708,7 +713,7 @@ class Openint(SyncAPIClient):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ListEventsResponse:
+    ) -> SyncOffsetPagination[ListEventsResponse]:
         """
         List all events for an organization
 
@@ -721,8 +726,9 @@ class Openint(SyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return self.get(
+        return self.get_api_list(
             "/event",
+            page=SyncOffsetPagination[ListEventsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -736,7 +742,7 @@ class Openint(SyncAPIClient):
                     client_list_events_params.ClientListEventsParams,
                 ),
             ),
-            cast_to=ListEventsResponse,
+            model=ListEventsResponse,
         )
 
     @override
@@ -1248,7 +1254,7 @@ class AsyncOpenint(AsyncAPIClient):
             cast_to=GetConnectionResponse,
         )
 
-    async def list_connection_configs(
+    def list_connection_configs(
         self,
         *,
         connector_name: Literal[
@@ -1316,7 +1322,7 @@ class AsyncOpenint(AsyncAPIClient):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ListConnectionConfigsResponse:
+    ) -> AsyncPaginator[ListConnectionConfigsResponse, AsyncOffsetPagination[ListConnectionConfigsResponse]]:
         """
         List all connector configurations with optional filtering
 
@@ -1331,14 +1337,15 @@ class AsyncOpenint(AsyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return await self.get(
+        return self.get_api_list(
             "/connector-config",
+            page=AsyncOffsetPagination[ListConnectionConfigsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "connector_name": connector_name,
                         "expand": expand,
@@ -1348,7 +1355,9 @@ class AsyncOpenint(AsyncAPIClient):
                     client_list_connection_configs_params.ClientListConnectionConfigsParams,
                 ),
             ),
-            cast_to=ListConnectionConfigsResponse,
+            model=cast(
+                Any, ListConnectionConfigsResponse
+            ),  # Union types cannot be passed in as arguments in the type system
         )
 
     async def list_connections(
@@ -1408,7 +1417,7 @@ class AsyncOpenint(AsyncAPIClient):
             ),
         )
 
-    async def list_events(
+    def list_events(
         self,
         *,
         limit: int | NotGiven = NOT_GIVEN,
@@ -1419,7 +1428,7 @@ class AsyncOpenint(AsyncAPIClient):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ListEventsResponse:
+    ) -> AsyncPaginator[ListEventsResponse, AsyncOffsetPagination[ListEventsResponse]]:
         """
         List all events for an organization
 
@@ -1432,14 +1441,15 @@ class AsyncOpenint(AsyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return await self.get(
+        return self.get_api_list(
             "/event",
+            page=AsyncOffsetPagination[ListEventsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "limit": limit,
                         "offset": offset,
@@ -1447,7 +1457,7 @@ class AsyncOpenint(AsyncAPIClient):
                     client_list_events_params.ClientListEventsParams,
                 ),
             ),
-            cast_to=ListEventsResponse,
+            model=ListEventsResponse,
         )
 
     @override

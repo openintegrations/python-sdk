@@ -4,10 +4,10 @@ from typing import Dict, List, Union, Optional
 
 from .._models import BaseModel
 
-__all__ = ["ListEventsResponse", "Item"]
+__all__ = ["ListEventsResponse"]
 
 
-class Item(BaseModel):
+class ListEventsResponse(BaseModel):
     id: str
 
     customer_id: Optional[str] = None
@@ -25,13 +25,3 @@ class Item(BaseModel):
     user_id: Optional[str] = None
 
     v: Optional[str] = None
-
-
-class ListEventsResponse(BaseModel):
-    items: List[Item]
-
-    limit: int
-
-    offset: int
-
-    total: float
