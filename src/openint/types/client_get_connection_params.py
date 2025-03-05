@@ -9,17 +9,13 @@ __all__ = ["ClientGetConnectionParams"]
 
 
 class ClientGetConnectionParams(TypedDict, total=False):
-    connector_config_id: str
-
-    connector_name: str
-
-    customer_id: str
-
     expand: List[Literal["connector"]]
 
     include_secrets: Literal["none", "basic", "all"]
     """Controls secret inclusion: none (default), basic (auth only), or all secrets"""
 
-    limit: int
-
-    offset: int
+    refresh_policy: Literal["none", "force", "auto"]
+    """
+    Controls credential refresh: none (never), force (always), or auto (when
+    expired, default)
+    """

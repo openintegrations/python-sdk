@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import os
-from typing import Any, List, Union, Mapping, cast
+from typing import Any, List, Union, Mapping, Optional, cast
 from typing_extensions import Self, Literal, override
 
 import httpx
@@ -12,8 +12,10 @@ from . import _exceptions
 from ._qs import Querystring
 from .types import (
     client_list_events_params,
+    client_create_token_params,
     client_get_connection_params,
     client_list_connections_params,
+    client_create_magic_link_params,
     client_list_connection_configs_params,
 )
 from ._types import (
@@ -42,17 +44,21 @@ from ._response import (
     async_to_streamed_response_wrapper,
 )
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
+from .pagination import SyncOffsetPagination, AsyncOffsetPagination
 from ._exceptions import APIStatusError
 from ._base_client import (
     DEFAULT_MAX_RETRIES,
     SyncAPIClient,
     AsyncAPIClient,
+    AsyncPaginator,
     make_request_options,
 )
 from .types.list_events_response import ListEventsResponse
+from .types.create_token_response import CreateTokenResponse
 from .types.get_connection_response import GetConnectionResponse
 from .types.check_connection_response import CheckConnectionResponse
 from .types.list_connections_response import ListConnectionsResponse
+from .types.create_magic_link_response import CreateMagicLinkResponse
 from .types.list_connection_configs_response import ListConnectionConfigsResponse
 
 __all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Openint", "AsyncOpenint", "Client", "AsyncClient"]
@@ -103,7 +109,7 @@ class Openint(SyncAPIClient):
         if base_url is None:
             base_url = os.environ.get("OPENINT_BASE_URL")
         if base_url is None:
-            base_url = f"https://localhost:3000"
+            base_url = f"https://api.openint.dev/v1"
 
         super().__init__(
             version=__version__,
@@ -127,10 +133,25 @@ class Openint(SyncAPIClient):
     @property
     @override
     def auth_headers(self) -> dict[str, str]:
+        if self._organization_auth:
+            return self._organization_auth
+        if self._customer_auth:
+            return self._customer_auth
+        return {}
+
+    @property
+    def _organization_auth(self) -> dict[str, str]:
         api_key = self.api_key
         if api_key is None:
             return {}
-        return {"Authorization": f"Bearer {api_key}"}
+        return {"authorization": api_key}
+
+    @property
+    def _customer_auth(self) -> dict[str, str]:
+        customer_token = self.customer_token
+        if customer_token is None:
+            return {}
+        return {"Authorization": f"Bearer {customer_token}"}
 
     @property
     @override
@@ -143,13 +164,18 @@ class Openint(SyncAPIClient):
 
     @override
     def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
-        if self.api_key and headers.get("Authorization"):
+        if self.api_key and headers.get("authorization"):
+            return
+        if isinstance(custom_headers.get("authorization"), Omit):
+            return
+
+        if self.customer_token and headers.get("Authorization"):
             return
         if isinstance(custom_headers.get("Authorization"), Omit):
             return
 
         raise TypeError(
-            '"Could not resolve authentication method. Expected the api_key to be set. Or for the `Authorization` headers to be explicitly omitted"'
+            '"Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `authorization` or `Authorization` headers to be explicitly omitted"'
         )
 
     def copy(
@@ -217,6 +243,8 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> CheckConnectionResponse:
         """
+        Verify that a connection is healthy
+
         Args:
           extra_headers: Send extra headers
 
@@ -236,103 +264,171 @@ class Openint(SyncAPIClient):
             cast_to=CheckConnectionResponse,
         )
 
+    def create_magic_link(
+        self,
+        *,
+        customer_id: str,
+        connection_id: Optional[str] | NotGiven = NOT_GIVEN,
+        connector_names: Optional[
+            Literal[
+                "aircall",
+                "airtable",
+                "apollo",
+                "beancount",
+                "brex",
+                "coda",
+                "confluence",
+                "debug",
+                "discord",
+                "finch",
+                "firebase",
+                "foreceipt",
+                "fs",
+                "github",
+                "gong",
+                "google",
+                "greenhouse",
+                "heron",
+                "hubspot",
+                "intercom",
+                "jira",
+                "kustomer",
+                "lever",
+                "linear",
+                "lunchmoney",
+                "merge",
+                "microsoft",
+                "mongodb",
+                "moota",
+                "onebrick",
+                "outreach",
+                "pipedrive",
+                "plaid",
+                "postgres",
+                "qbo",
+                "ramp",
+                "revert",
+                "salesforce",
+                "salesloft",
+                "saltedge",
+                "slack",
+                "splitwise",
+                "spreadsheet",
+                "stripe",
+                "teller",
+                "toggl",
+                "twenty",
+                "webhook",
+                "wise",
+                "xero",
+                "yodlee",
+                "zohodesk",
+                "googledrive",
+            ]
+        ]
+        | NotGiven = NOT_GIVEN,
+        email: str | NotGiven = NOT_GIVEN,
+        redirect_url: Optional[str] | NotGiven = NOT_GIVEN,
+        theme: Optional[Literal["light", "dark"]] | NotGiven = NOT_GIVEN,
+        validity_in_seconds: float | NotGiven = NOT_GIVEN,
+        view: Optional[Literal["manage", "manage-deeplink", "add", "add-deeplink"]] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> CreateMagicLinkResponse:
+        """
+        Create a magic link for connecting integrations
+
+        Args:
+          connector_names: Filter integrations by comma separated connector names
+
+          email: The email address of the customer
+
+          redirect_url: Where to send user to after connect / if they press back button
+
+          theme: Magic Link display theme
+
+          validity_in_seconds: How long the magic link will be valid for (in seconds) before it expires
+
+          view: Magic Link tab view
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self.post(
+            "/connect/magic-link",
+            body=maybe_transform(
+                {
+                    "customer_id": customer_id,
+                    "connection_id": connection_id,
+                    "connector_names": connector_names,
+                    "email": email,
+                    "redirect_url": redirect_url,
+                    "theme": theme,
+                    "validity_in_seconds": validity_in_seconds,
+                    "view": view,
+                },
+                client_create_magic_link_params.ClientCreateMagicLinkParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CreateMagicLinkResponse,
+        )
+
+    def create_token(
+        self,
+        *,
+        customer_id: str,
+        validity_in_seconds: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> CreateTokenResponse:
+        """
+        Create an authentication token for a customer
+
+        Args:
+          customer_id: Anything that uniquely identifies the customer that you will be sending the
+              token to
+
+          validity_in_seconds: How long the token will be valid for (in seconds) before it expires
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self.post(
+            "/connect/token",
+            body=maybe_transform(
+                {
+                    "customer_id": customer_id,
+                    "validity_in_seconds": validity_in_seconds,
+                },
+                client_create_token_params.ClientCreateTokenParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CreateTokenResponse,
+        )
+
     def get_connection(
-        self,
-        *,
-        connector_config_id: str | NotGiven = NOT_GIVEN,
-        connector_name: str | NotGiven = NOT_GIVEN,
-        customer_id: str | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
-        include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> GetConnectionResponse:
-        """
-        Args:
-          include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
-
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        return self.get(
-            "/connection",
-            options=make_request_options(
-                extra_headers=extra_headers,
-                extra_query=extra_query,
-                extra_body=extra_body,
-                timeout=timeout,
-                query=maybe_transform(
-                    {
-                        "connector_config_id": connector_config_id,
-                        "connector_name": connector_name,
-                        "customer_id": customer_id,
-                        "expand": expand,
-                        "include_secrets": include_secrets,
-                        "limit": limit,
-                        "offset": offset,
-                    },
-                    client_get_connection_params.ClientGetConnectionParams,
-                ),
-            ),
-            cast_to=GetConnectionResponse,
-        )
-
-    def list_connection_configs(
-        self,
-        *,
-        connector_name: str | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ListConnectionConfigsResponse:
-        """
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        return self.get(
-            "/connector-config",
-            options=make_request_options(
-                extra_headers=extra_headers,
-                extra_query=extra_query,
-                extra_body=extra_body,
-                timeout=timeout,
-                query=maybe_transform(
-                    {
-                        "connector_name": connector_name,
-                        "expand": expand,
-                        "limit": limit,
-                        "offset": offset,
-                    },
-                    client_list_connection_configs_params.ClientListConnectionConfigsParams,
-                ),
-            ),
-            cast_to=ListConnectionConfigsResponse,
-        )
-
-    def list_connections(
         self,
         id: str,
         *,
@@ -345,8 +441,10 @@ class Openint(SyncAPIClient):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ListConnectionsResponse:
+    ) -> GetConnectionResponse:
         """
+        Get details of a specific connection
+
         Args:
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
@@ -364,7 +462,7 @@ class Openint(SyncAPIClient):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return cast(
-            ListConnectionsResponse,
+            GetConnectionResponse,
             self.get(
                 f"/connection/{id}",
                 options=make_request_options(
@@ -378,13 +476,231 @@ class Openint(SyncAPIClient):
                             "include_secrets": include_secrets,
                             "refresh_policy": refresh_policy,
                         },
-                        client_list_connections_params.ClientListConnectionsParams,
+                        client_get_connection_params.ClientGetConnectionParams,
                     ),
                 ),
                 cast_to=cast(
-                    Any, ListConnectionsResponse
+                    Any, GetConnectionResponse
                 ),  # Union types cannot be passed in as arguments in the type system
             ),
+        )
+
+    def list_connection_configs(
+        self,
+        *,
+        connector_name: Literal[
+            "aircall",
+            "airtable",
+            "apollo",
+            "beancount",
+            "brex",
+            "coda",
+            "confluence",
+            "debug",
+            "discord",
+            "finch",
+            "firebase",
+            "foreceipt",
+            "fs",
+            "github",
+            "gong",
+            "google",
+            "greenhouse",
+            "heron",
+            "hubspot",
+            "intercom",
+            "jira",
+            "kustomer",
+            "lever",
+            "linear",
+            "lunchmoney",
+            "merge",
+            "microsoft",
+            "mongodb",
+            "moota",
+            "onebrick",
+            "outreach",
+            "pipedrive",
+            "plaid",
+            "postgres",
+            "qbo",
+            "ramp",
+            "revert",
+            "salesforce",
+            "salesloft",
+            "saltedge",
+            "slack",
+            "splitwise",
+            "spreadsheet",
+            "stripe",
+            "teller",
+            "toggl",
+            "twenty",
+            "webhook",
+            "wise",
+            "xero",
+            "yodlee",
+            "zohodesk",
+            "googledrive",
+        ]
+        | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> SyncOffsetPagination[ListConnectionConfigsResponse]:
+        """
+        List all connector configurations with optional filtering
+
+        Args:
+          connector_name: The name of the connector
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self.get_api_list(
+            "/connector-config",
+            page=SyncOffsetPagination[ListConnectionConfigsResponse],
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "connector_name": connector_name,
+                        "expand": expand,
+                        "limit": limit,
+                        "offset": offset,
+                    },
+                    client_list_connection_configs_params.ClientListConnectionConfigsParams,
+                ),
+            ),
+            model=cast(
+                Any, ListConnectionConfigsResponse
+            ),  # Union types cannot be passed in as arguments in the type system
+        )
+
+    def list_connections(
+        self,
+        *,
+        connector_config_id: str | NotGiven = NOT_GIVEN,
+        connector_name: Literal[
+            "aircall",
+            "airtable",
+            "apollo",
+            "beancount",
+            "brex",
+            "coda",
+            "confluence",
+            "debug",
+            "discord",
+            "finch",
+            "firebase",
+            "foreceipt",
+            "fs",
+            "github",
+            "gong",
+            "google",
+            "greenhouse",
+            "heron",
+            "hubspot",
+            "intercom",
+            "jira",
+            "kustomer",
+            "lever",
+            "linear",
+            "lunchmoney",
+            "merge",
+            "microsoft",
+            "mongodb",
+            "moota",
+            "onebrick",
+            "outreach",
+            "pipedrive",
+            "plaid",
+            "postgres",
+            "qbo",
+            "ramp",
+            "revert",
+            "salesforce",
+            "salesloft",
+            "saltedge",
+            "slack",
+            "splitwise",
+            "spreadsheet",
+            "stripe",
+            "teller",
+            "toggl",
+            "twenty",
+            "webhook",
+            "wise",
+            "xero",
+            "yodlee",
+            "zohodesk",
+            "googledrive",
+        ]
+        | NotGiven = NOT_GIVEN,
+        customer_id: str | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
+        include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> SyncOffsetPagination[ListConnectionsResponse]:
+        """
+        List all connections with optional filtering
+
+        Args:
+          connector_name: The name of the connector
+
+          include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self.get_api_list(
+            "/connection",
+            page=SyncOffsetPagination[ListConnectionsResponse],
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "connector_config_id": connector_config_id,
+                        "connector_name": connector_name,
+                        "customer_id": customer_id,
+                        "expand": expand,
+                        "include_secrets": include_secrets,
+                        "limit": limit,
+                        "offset": offset,
+                    },
+                    client_list_connections_params.ClientListConnectionsParams,
+                ),
+            ),
+            model=cast(Any, ListConnectionsResponse),  # Union types cannot be passed in as arguments in the type system
         )
 
     def list_events(
@@ -398,8 +714,10 @@ class Openint(SyncAPIClient):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ListEventsResponse:
+    ) -> SyncOffsetPagination[ListEventsResponse]:
         """
+        List all events for an organization
+
         Args:
           extra_headers: Send extra headers
 
@@ -409,8 +727,9 @@ class Openint(SyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return self.get(
+        return self.get_api_list(
             "/event",
+            page=SyncOffsetPagination[ListEventsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -424,7 +743,7 @@ class Openint(SyncAPIClient):
                     client_list_events_params.ClientListEventsParams,
                 ),
             ),
-            cast_to=ListEventsResponse,
+            model=ListEventsResponse,
         )
 
     @override
@@ -506,7 +825,7 @@ class AsyncOpenint(AsyncAPIClient):
         if base_url is None:
             base_url = os.environ.get("OPENINT_BASE_URL")
         if base_url is None:
-            base_url = f"https://localhost:3000"
+            base_url = f"https://api.openint.dev/v1"
 
         super().__init__(
             version=__version__,
@@ -530,10 +849,25 @@ class AsyncOpenint(AsyncAPIClient):
     @property
     @override
     def auth_headers(self) -> dict[str, str]:
+        if self._organization_auth:
+            return self._organization_auth
+        if self._customer_auth:
+            return self._customer_auth
+        return {}
+
+    @property
+    def _organization_auth(self) -> dict[str, str]:
         api_key = self.api_key
         if api_key is None:
             return {}
-        return {"Authorization": f"Bearer {api_key}"}
+        return {"authorization": api_key}
+
+    @property
+    def _customer_auth(self) -> dict[str, str]:
+        customer_token = self.customer_token
+        if customer_token is None:
+            return {}
+        return {"Authorization": f"Bearer {customer_token}"}
 
     @property
     @override
@@ -546,13 +880,18 @@ class AsyncOpenint(AsyncAPIClient):
 
     @override
     def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
-        if self.api_key and headers.get("Authorization"):
+        if self.api_key and headers.get("authorization"):
+            return
+        if isinstance(custom_headers.get("authorization"), Omit):
+            return
+
+        if self.customer_token and headers.get("Authorization"):
             return
         if isinstance(custom_headers.get("Authorization"), Omit):
             return
 
         raise TypeError(
-            '"Could not resolve authentication method. Expected the api_key to be set. Or for the `Authorization` headers to be explicitly omitted"'
+            '"Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `authorization` or `Authorization` headers to be explicitly omitted"'
         )
 
     def copy(
@@ -620,6 +959,8 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> CheckConnectionResponse:
         """
+        Verify that a connection is healthy
+
         Args:
           extra_headers: Send extra headers
 
@@ -639,103 +980,171 @@ class AsyncOpenint(AsyncAPIClient):
             cast_to=CheckConnectionResponse,
         )
 
+    async def create_magic_link(
+        self,
+        *,
+        customer_id: str,
+        connection_id: Optional[str] | NotGiven = NOT_GIVEN,
+        connector_names: Optional[
+            Literal[
+                "aircall",
+                "airtable",
+                "apollo",
+                "beancount",
+                "brex",
+                "coda",
+                "confluence",
+                "debug",
+                "discord",
+                "finch",
+                "firebase",
+                "foreceipt",
+                "fs",
+                "github",
+                "gong",
+                "google",
+                "greenhouse",
+                "heron",
+                "hubspot",
+                "intercom",
+                "jira",
+                "kustomer",
+                "lever",
+                "linear",
+                "lunchmoney",
+                "merge",
+                "microsoft",
+                "mongodb",
+                "moota",
+                "onebrick",
+                "outreach",
+                "pipedrive",
+                "plaid",
+                "postgres",
+                "qbo",
+                "ramp",
+                "revert",
+                "salesforce",
+                "salesloft",
+                "saltedge",
+                "slack",
+                "splitwise",
+                "spreadsheet",
+                "stripe",
+                "teller",
+                "toggl",
+                "twenty",
+                "webhook",
+                "wise",
+                "xero",
+                "yodlee",
+                "zohodesk",
+                "googledrive",
+            ]
+        ]
+        | NotGiven = NOT_GIVEN,
+        email: str | NotGiven = NOT_GIVEN,
+        redirect_url: Optional[str] | NotGiven = NOT_GIVEN,
+        theme: Optional[Literal["light", "dark"]] | NotGiven = NOT_GIVEN,
+        validity_in_seconds: float | NotGiven = NOT_GIVEN,
+        view: Optional[Literal["manage", "manage-deeplink", "add", "add-deeplink"]] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> CreateMagicLinkResponse:
+        """
+        Create a magic link for connecting integrations
+
+        Args:
+          connector_names: Filter integrations by comma separated connector names
+
+          email: The email address of the customer
+
+          redirect_url: Where to send user to after connect / if they press back button
+
+          theme: Magic Link display theme
+
+          validity_in_seconds: How long the magic link will be valid for (in seconds) before it expires
+
+          view: Magic Link tab view
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return await self.post(
+            "/connect/magic-link",
+            body=await async_maybe_transform(
+                {
+                    "customer_id": customer_id,
+                    "connection_id": connection_id,
+                    "connector_names": connector_names,
+                    "email": email,
+                    "redirect_url": redirect_url,
+                    "theme": theme,
+                    "validity_in_seconds": validity_in_seconds,
+                    "view": view,
+                },
+                client_create_magic_link_params.ClientCreateMagicLinkParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CreateMagicLinkResponse,
+        )
+
+    async def create_token(
+        self,
+        *,
+        customer_id: str,
+        validity_in_seconds: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> CreateTokenResponse:
+        """
+        Create an authentication token for a customer
+
+        Args:
+          customer_id: Anything that uniquely identifies the customer that you will be sending the
+              token to
+
+          validity_in_seconds: How long the token will be valid for (in seconds) before it expires
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return await self.post(
+            "/connect/token",
+            body=await async_maybe_transform(
+                {
+                    "customer_id": customer_id,
+                    "validity_in_seconds": validity_in_seconds,
+                },
+                client_create_token_params.ClientCreateTokenParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CreateTokenResponse,
+        )
+
     async def get_connection(
-        self,
-        *,
-        connector_config_id: str | NotGiven = NOT_GIVEN,
-        connector_name: str | NotGiven = NOT_GIVEN,
-        customer_id: str | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
-        include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> GetConnectionResponse:
-        """
-        Args:
-          include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
-
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        return await self.get(
-            "/connection",
-            options=make_request_options(
-                extra_headers=extra_headers,
-                extra_query=extra_query,
-                extra_body=extra_body,
-                timeout=timeout,
-                query=await async_maybe_transform(
-                    {
-                        "connector_config_id": connector_config_id,
-                        "connector_name": connector_name,
-                        "customer_id": customer_id,
-                        "expand": expand,
-                        "include_secrets": include_secrets,
-                        "limit": limit,
-                        "offset": offset,
-                    },
-                    client_get_connection_params.ClientGetConnectionParams,
-                ),
-            ),
-            cast_to=GetConnectionResponse,
-        )
-
-    async def list_connection_configs(
-        self,
-        *,
-        connector_name: str | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ListConnectionConfigsResponse:
-        """
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        return await self.get(
-            "/connector-config",
-            options=make_request_options(
-                extra_headers=extra_headers,
-                extra_query=extra_query,
-                extra_body=extra_body,
-                timeout=timeout,
-                query=await async_maybe_transform(
-                    {
-                        "connector_name": connector_name,
-                        "expand": expand,
-                        "limit": limit,
-                        "offset": offset,
-                    },
-                    client_list_connection_configs_params.ClientListConnectionConfigsParams,
-                ),
-            ),
-            cast_to=ListConnectionConfigsResponse,
-        )
-
-    async def list_connections(
         self,
         id: str,
         *,
@@ -748,8 +1157,10 @@ class AsyncOpenint(AsyncAPIClient):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ListConnectionsResponse:
+    ) -> GetConnectionResponse:
         """
+        Get details of a specific connection
+
         Args:
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
@@ -767,7 +1178,7 @@ class AsyncOpenint(AsyncAPIClient):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return cast(
-            ListConnectionsResponse,
+            GetConnectionResponse,
             await self.get(
                 f"/connection/{id}",
                 options=make_request_options(
@@ -781,16 +1192,234 @@ class AsyncOpenint(AsyncAPIClient):
                             "include_secrets": include_secrets,
                             "refresh_policy": refresh_policy,
                         },
-                        client_list_connections_params.ClientListConnectionsParams,
+                        client_get_connection_params.ClientGetConnectionParams,
                     ),
                 ),
                 cast_to=cast(
-                    Any, ListConnectionsResponse
+                    Any, GetConnectionResponse
                 ),  # Union types cannot be passed in as arguments in the type system
             ),
         )
 
-    async def list_events(
+    def list_connection_configs(
+        self,
+        *,
+        connector_name: Literal[
+            "aircall",
+            "airtable",
+            "apollo",
+            "beancount",
+            "brex",
+            "coda",
+            "confluence",
+            "debug",
+            "discord",
+            "finch",
+            "firebase",
+            "foreceipt",
+            "fs",
+            "github",
+            "gong",
+            "google",
+            "greenhouse",
+            "heron",
+            "hubspot",
+            "intercom",
+            "jira",
+            "kustomer",
+            "lever",
+            "linear",
+            "lunchmoney",
+            "merge",
+            "microsoft",
+            "mongodb",
+            "moota",
+            "onebrick",
+            "outreach",
+            "pipedrive",
+            "plaid",
+            "postgres",
+            "qbo",
+            "ramp",
+            "revert",
+            "salesforce",
+            "salesloft",
+            "saltedge",
+            "slack",
+            "splitwise",
+            "spreadsheet",
+            "stripe",
+            "teller",
+            "toggl",
+            "twenty",
+            "webhook",
+            "wise",
+            "xero",
+            "yodlee",
+            "zohodesk",
+            "googledrive",
+        ]
+        | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> AsyncPaginator[ListConnectionConfigsResponse, AsyncOffsetPagination[ListConnectionConfigsResponse]]:
+        """
+        List all connector configurations with optional filtering
+
+        Args:
+          connector_name: The name of the connector
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self.get_api_list(
+            "/connector-config",
+            page=AsyncOffsetPagination[ListConnectionConfigsResponse],
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "connector_name": connector_name,
+                        "expand": expand,
+                        "limit": limit,
+                        "offset": offset,
+                    },
+                    client_list_connection_configs_params.ClientListConnectionConfigsParams,
+                ),
+            ),
+            model=cast(
+                Any, ListConnectionConfigsResponse
+            ),  # Union types cannot be passed in as arguments in the type system
+        )
+
+    def list_connections(
+        self,
+        *,
+        connector_config_id: str | NotGiven = NOT_GIVEN,
+        connector_name: Literal[
+            "aircall",
+            "airtable",
+            "apollo",
+            "beancount",
+            "brex",
+            "coda",
+            "confluence",
+            "debug",
+            "discord",
+            "finch",
+            "firebase",
+            "foreceipt",
+            "fs",
+            "github",
+            "gong",
+            "google",
+            "greenhouse",
+            "heron",
+            "hubspot",
+            "intercom",
+            "jira",
+            "kustomer",
+            "lever",
+            "linear",
+            "lunchmoney",
+            "merge",
+            "microsoft",
+            "mongodb",
+            "moota",
+            "onebrick",
+            "outreach",
+            "pipedrive",
+            "plaid",
+            "postgres",
+            "qbo",
+            "ramp",
+            "revert",
+            "salesforce",
+            "salesloft",
+            "saltedge",
+            "slack",
+            "splitwise",
+            "spreadsheet",
+            "stripe",
+            "teller",
+            "toggl",
+            "twenty",
+            "webhook",
+            "wise",
+            "xero",
+            "yodlee",
+            "zohodesk",
+            "googledrive",
+        ]
+        | NotGiven = NOT_GIVEN,
+        customer_id: str | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
+        include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> AsyncPaginator[ListConnectionsResponse, AsyncOffsetPagination[ListConnectionsResponse]]:
+        """
+        List all connections with optional filtering
+
+        Args:
+          connector_name: The name of the connector
+
+          include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self.get_api_list(
+            "/connection",
+            page=AsyncOffsetPagination[ListConnectionsResponse],
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "connector_config_id": connector_config_id,
+                        "connector_name": connector_name,
+                        "customer_id": customer_id,
+                        "expand": expand,
+                        "include_secrets": include_secrets,
+                        "limit": limit,
+                        "offset": offset,
+                    },
+                    client_list_connections_params.ClientListConnectionsParams,
+                ),
+            ),
+            model=cast(Any, ListConnectionsResponse),  # Union types cannot be passed in as arguments in the type system
+        )
+
+    def list_events(
         self,
         *,
         limit: int | NotGiven = NOT_GIVEN,
@@ -801,8 +1430,10 @@ class AsyncOpenint(AsyncAPIClient):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ListEventsResponse:
+    ) -> AsyncPaginator[ListEventsResponse, AsyncOffsetPagination[ListEventsResponse]]:
         """
+        List all events for an organization
+
         Args:
           extra_headers: Send extra headers
 
@@ -812,14 +1443,15 @@ class AsyncOpenint(AsyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return await self.get(
+        return self.get_api_list(
             "/event",
+            page=AsyncOffsetPagination[ListEventsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
+                query=maybe_transform(
                     {
                         "limit": limit,
                         "offset": offset,
@@ -827,7 +1459,7 @@ class AsyncOpenint(AsyncAPIClient):
                     client_list_events_params.ClientListEventsParams,
                 ),
             ),
-            cast_to=ListEventsResponse,
+            model=ListEventsResponse,
         )
 
     @override
@@ -869,6 +1501,12 @@ class OpenintWithRawResponse:
         self.check_connection = to_raw_response_wrapper(
             client.check_connection,
         )
+        self.create_magic_link = to_raw_response_wrapper(
+            client.create_magic_link,
+        )
+        self.create_token = to_raw_response_wrapper(
+            client.create_token,
+        )
         self.get_connection = to_raw_response_wrapper(
             client.get_connection,
         )
@@ -887,6 +1525,12 @@ class AsyncOpenintWithRawResponse:
     def __init__(self, client: AsyncOpenint) -> None:
         self.check_connection = async_to_raw_response_wrapper(
             client.check_connection,
+        )
+        self.create_magic_link = async_to_raw_response_wrapper(
+            client.create_magic_link,
+        )
+        self.create_token = async_to_raw_response_wrapper(
+            client.create_token,
         )
         self.get_connection = async_to_raw_response_wrapper(
             client.get_connection,
@@ -907,6 +1551,12 @@ class OpenintWithStreamedResponse:
         self.check_connection = to_streamed_response_wrapper(
             client.check_connection,
         )
+        self.create_magic_link = to_streamed_response_wrapper(
+            client.create_magic_link,
+        )
+        self.create_token = to_streamed_response_wrapper(
+            client.create_token,
+        )
         self.get_connection = to_streamed_response_wrapper(
             client.get_connection,
         )
@@ -925,6 +1575,12 @@ class AsyncOpenintWithStreamedResponse:
     def __init__(self, client: AsyncOpenint) -> None:
         self.check_connection = async_to_streamed_response_wrapper(
             client.check_connection,
+        )
+        self.create_magic_link = async_to_streamed_response_wrapper(
+            client.create_magic_link,
+        )
+        self.create_token = async_to_streamed_response_wrapper(
+            client.create_token,
         )
         self.get_connection = async_to_streamed_response_wrapper(
             client.get_connection,
