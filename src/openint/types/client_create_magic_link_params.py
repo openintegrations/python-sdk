@@ -11,9 +11,6 @@ __all__ = ["ClientCreateMagicLinkParams"]
 class ClientCreateMagicLinkParams(TypedDict, total=False):
     customer_id: Required[str]
 
-    email: Required[str]
-    """The email address of the customer"""
-
     connection_id: Optional[str]
 
     connector_names: Optional[
@@ -74,6 +71,9 @@ class ClientCreateMagicLinkParams(TypedDict, total=False):
         ]
     ]
     """Filter integrations by comma separated connector names"""
+
+    email: str
+    """The email address of the customer"""
 
     redirect_url: Optional[str]
     """Where to send user to after connect / if they press back button"""
