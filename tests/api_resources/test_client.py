@@ -163,27 +163,28 @@ class TestClient:
     @pytest.mark.skip()
     @parametrize
     def test_method_get_connection(self, client: Openint) -> None:
-        client_ = client.get_connection()
+        client_ = client.get_connection(
+            id="id",
+        )
         assert_matches_type(GetConnectionResponse, client_, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
     def test_method_get_connection_with_all_params(self, client: Openint) -> None:
         client_ = client.get_connection(
-            connector_config_id="connector_config_id",
-            connector_name="aircall",
-            customer_id="x",
+            id="id",
             expand=["connector"],
             include_secrets="none",
-            limit=1,
-            offset=0,
+            refresh_policy="none",
         )
         assert_matches_type(GetConnectionResponse, client_, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
     def test_raw_response_get_connection(self, client: Openint) -> None:
-        response = client.with_raw_response.get_connection()
+        response = client.with_raw_response.get_connection(
+            id="id",
+        )
 
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -193,7 +194,9 @@ class TestClient:
     @pytest.mark.skip()
     @parametrize
     def test_streaming_response_get_connection(self, client: Openint) -> None:
-        with client.with_streaming_response.get_connection() as response:
+        with client.with_streaming_response.get_connection(
+            id="id",
+        ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
@@ -201,6 +204,14 @@ class TestClient:
             assert_matches_type(GetConnectionResponse, client_, path=["response"])
 
         assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_path_params_get_connection(self, client: Openint) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            client.with_raw_response.get_connection(
+                id="",
+            )
 
     @pytest.mark.skip()
     @parametrize
@@ -244,55 +255,44 @@ class TestClient:
     @pytest.mark.skip()
     @parametrize
     def test_method_list_connections(self, client: Openint) -> None:
-        client_ = client.list_connections(
-            id="id",
-        )
-        assert_matches_type(ListConnectionsResponse, client_, path=["response"])
+        client_ = client.list_connections()
+        assert_matches_type(SyncOffsetPagination[ListConnectionsResponse], client_, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
     def test_method_list_connections_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connections(
-            id="id",
+            connector_config_id="connector_config_id",
+            connector_name="aircall",
+            customer_id="x",
             expand=["connector"],
             include_secrets="none",
-            refresh_policy="none",
+            limit=1,
+            offset=0,
         )
-        assert_matches_type(ListConnectionsResponse, client_, path=["response"])
+        assert_matches_type(SyncOffsetPagination[ListConnectionsResponse], client_, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
     def test_raw_response_list_connections(self, client: Openint) -> None:
-        response = client.with_raw_response.list_connections(
-            id="id",
-        )
+        response = client.with_raw_response.list_connections()
 
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         client_ = response.parse()
-        assert_matches_type(ListConnectionsResponse, client_, path=["response"])
+        assert_matches_type(SyncOffsetPagination[ListConnectionsResponse], client_, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
     def test_streaming_response_list_connections(self, client: Openint) -> None:
-        with client.with_streaming_response.list_connections(
-            id="id",
-        ) as response:
+        with client.with_streaming_response.list_connections() as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             client_ = response.parse()
-            assert_matches_type(ListConnectionsResponse, client_, path=["response"])
+            assert_matches_type(SyncOffsetPagination[ListConnectionsResponse], client_, path=["response"])
 
         assert cast(Any, response.is_closed) is True
-
-    @pytest.mark.skip()
-    @parametrize
-    def test_path_params_list_connections(self, client: Openint) -> None:
-        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
-            client.with_raw_response.list_connections(
-                id="",
-            )
 
     @pytest.mark.skip()
     @parametrize
@@ -472,27 +472,28 @@ class TestAsyncClient:
     @pytest.mark.skip()
     @parametrize
     async def test_method_get_connection(self, async_client: AsyncOpenint) -> None:
-        client = await async_client.get_connection()
+        client = await async_client.get_connection(
+            id="id",
+        )
         assert_matches_type(GetConnectionResponse, client, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
     async def test_method_get_connection_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.get_connection(
-            connector_config_id="connector_config_id",
-            connector_name="aircall",
-            customer_id="x",
+            id="id",
             expand=["connector"],
             include_secrets="none",
-            limit=1,
-            offset=0,
+            refresh_policy="none",
         )
         assert_matches_type(GetConnectionResponse, client, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
     async def test_raw_response_get_connection(self, async_client: AsyncOpenint) -> None:
-        response = await async_client.with_raw_response.get_connection()
+        response = await async_client.with_raw_response.get_connection(
+            id="id",
+        )
 
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -502,7 +503,9 @@ class TestAsyncClient:
     @pytest.mark.skip()
     @parametrize
     async def test_streaming_response_get_connection(self, async_client: AsyncOpenint) -> None:
-        async with async_client.with_streaming_response.get_connection() as response:
+        async with async_client.with_streaming_response.get_connection(
+            id="id",
+        ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
@@ -510,6 +513,14 @@ class TestAsyncClient:
             assert_matches_type(GetConnectionResponse, client, path=["response"])
 
         assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_path_params_get_connection(self, async_client: AsyncOpenint) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            await async_client.with_raw_response.get_connection(
+                id="",
+            )
 
     @pytest.mark.skip()
     @parametrize
@@ -553,55 +564,44 @@ class TestAsyncClient:
     @pytest.mark.skip()
     @parametrize
     async def test_method_list_connections(self, async_client: AsyncOpenint) -> None:
-        client = await async_client.list_connections(
-            id="id",
-        )
-        assert_matches_type(ListConnectionsResponse, client, path=["response"])
+        client = await async_client.list_connections()
+        assert_matches_type(AsyncOffsetPagination[ListConnectionsResponse], client, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
     async def test_method_list_connections_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connections(
-            id="id",
+            connector_config_id="connector_config_id",
+            connector_name="aircall",
+            customer_id="x",
             expand=["connector"],
             include_secrets="none",
-            refresh_policy="none",
+            limit=1,
+            offset=0,
         )
-        assert_matches_type(ListConnectionsResponse, client, path=["response"])
+        assert_matches_type(AsyncOffsetPagination[ListConnectionsResponse], client, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
     async def test_raw_response_list_connections(self, async_client: AsyncOpenint) -> None:
-        response = await async_client.with_raw_response.list_connections(
-            id="id",
-        )
+        response = await async_client.with_raw_response.list_connections()
 
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         client = await response.parse()
-        assert_matches_type(ListConnectionsResponse, client, path=["response"])
+        assert_matches_type(AsyncOffsetPagination[ListConnectionsResponse], client, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
     async def test_streaming_response_list_connections(self, async_client: AsyncOpenint) -> None:
-        async with async_client.with_streaming_response.list_connections(
-            id="id",
-        ) as response:
+        async with async_client.with_streaming_response.list_connections() as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             client = await response.parse()
-            assert_matches_type(ListConnectionsResponse, client, path=["response"])
+            assert_matches_type(AsyncOffsetPagination[ListConnectionsResponse], client, path=["response"])
 
         assert cast(Any, response.is_closed) is True
-
-    @pytest.mark.skip()
-    @parametrize
-    async def test_path_params_list_connections(self, async_client: AsyncOpenint) -> None:
-        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
-            await async_client.with_raw_response.list_connections(
-                id="",
-            )
 
     @pytest.mark.skip()
     @parametrize
