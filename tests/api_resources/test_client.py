@@ -18,6 +18,7 @@ from openint.types import (
     ListConnectionsResponse,
     ListConnectionConfigsResponse,
 )
+from openint.pagination import SyncOffsetPagination, AsyncOffsetPagination
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -205,7 +206,7 @@ class TestClient:
     @parametrize
     def test_method_list_connection_configs(self, client: Openint) -> None:
         client_ = client.list_connection_configs()
-        assert_matches_type(ListConnectionConfigsResponse, client_, path=["response"])
+        assert_matches_type(SyncOffsetPagination[ListConnectionConfigsResponse], client_, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -216,7 +217,7 @@ class TestClient:
             limit=1,
             offset=0,
         )
-        assert_matches_type(ListConnectionConfigsResponse, client_, path=["response"])
+        assert_matches_type(SyncOffsetPagination[ListConnectionConfigsResponse], client_, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -226,7 +227,7 @@ class TestClient:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         client_ = response.parse()
-        assert_matches_type(ListConnectionConfigsResponse, client_, path=["response"])
+        assert_matches_type(SyncOffsetPagination[ListConnectionConfigsResponse], client_, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -236,7 +237,7 @@ class TestClient:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             client_ = response.parse()
-            assert_matches_type(ListConnectionConfigsResponse, client_, path=["response"])
+            assert_matches_type(SyncOffsetPagination[ListConnectionConfigsResponse], client_, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -297,7 +298,7 @@ class TestClient:
     @parametrize
     def test_method_list_events(self, client: Openint) -> None:
         client_ = client.list_events()
-        assert_matches_type(ListEventsResponse, client_, path=["response"])
+        assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -306,7 +307,7 @@ class TestClient:
             limit=1,
             offset=0,
         )
-        assert_matches_type(ListEventsResponse, client_, path=["response"])
+        assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -316,7 +317,7 @@ class TestClient:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         client_ = response.parse()
-        assert_matches_type(ListEventsResponse, client_, path=["response"])
+        assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -326,7 +327,7 @@ class TestClient:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             client_ = response.parse()
-            assert_matches_type(ListEventsResponse, client_, path=["response"])
+            assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -514,7 +515,7 @@ class TestAsyncClient:
     @parametrize
     async def test_method_list_connection_configs(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connection_configs()
-        assert_matches_type(ListConnectionConfigsResponse, client, path=["response"])
+        assert_matches_type(AsyncOffsetPagination[ListConnectionConfigsResponse], client, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -525,7 +526,7 @@ class TestAsyncClient:
             limit=1,
             offset=0,
         )
-        assert_matches_type(ListConnectionConfigsResponse, client, path=["response"])
+        assert_matches_type(AsyncOffsetPagination[ListConnectionConfigsResponse], client, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -535,7 +536,7 @@ class TestAsyncClient:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         client = await response.parse()
-        assert_matches_type(ListConnectionConfigsResponse, client, path=["response"])
+        assert_matches_type(AsyncOffsetPagination[ListConnectionConfigsResponse], client, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -545,7 +546,7 @@ class TestAsyncClient:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             client = await response.parse()
-            assert_matches_type(ListConnectionConfigsResponse, client, path=["response"])
+            assert_matches_type(AsyncOffsetPagination[ListConnectionConfigsResponse], client, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -606,7 +607,7 @@ class TestAsyncClient:
     @parametrize
     async def test_method_list_events(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_events()
-        assert_matches_type(ListEventsResponse, client, path=["response"])
+        assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -615,7 +616,7 @@ class TestAsyncClient:
             limit=1,
             offset=0,
         )
-        assert_matches_type(ListEventsResponse, client, path=["response"])
+        assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -625,7 +626,7 @@ class TestAsyncClient:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         client = await response.parse()
-        assert_matches_type(ListEventsResponse, client, path=["response"])
+        assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -635,6 +636,6 @@ class TestAsyncClient:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             client = await response.parse()
-            assert_matches_type(ListEventsResponse, client, path=["response"])
+            assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
 
         assert cast(Any, response.is_closed) is True

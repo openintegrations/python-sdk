@@ -10,142 +10,141 @@ from .._models import BaseModel
 
 __all__ = [
     "ListConnectionConfigsResponse",
-    "Item",
-    "ItemConnectorsAircallConnectorConfig",
-    "ItemConnectorsAirtableConnectorConfig",
-    "ItemConnectorsApolloConnectorConfig",
-    "ItemConnectorsBeancountConnectorConfig",
-    "ItemConnectorsBrexConnectorConfig",
-    "ItemConnectorsBrexConnectorConfigConfig",
-    "ItemConnectorsBrexConnectorConfigConfigOAuth",
-    "ItemConnectorsCodaConnectorConfig",
-    "ItemConnectorsConfluenceConnectorConfig",
-    "ItemConnectorsConfluenceConnectorConfigConfig",
-    "ItemConnectorsConfluenceConnectorConfigConfigOAuth",
-    "ItemConnectorsDebugConnectorConfig",
-    "ItemConnectorsDiscordConnectorConfig",
-    "ItemConnectorsDiscordConnectorConfigConfig",
-    "ItemConnectorsDiscordConnectorConfigConfigOAuth",
-    "ItemConnectorsFinchConnectorConfig",
-    "ItemConnectorsFinchConnectorConfigConfig",
-    "ItemConnectorsFirebaseConnectorConfig",
-    "ItemConnectorsForeceiptConnectorConfig",
-    "ItemConnectorsFsConnectorConfig",
-    "ItemConnectorsGitHubConnectorConfig",
-    "ItemConnectorsGitHubConnectorConfigConfig",
-    "ItemConnectorsGitHubConnectorConfigConfigOAuth",
-    "ItemConnectorsGongConnectorConfig",
-    "ItemConnectorsGongConnectorConfigConfig",
-    "ItemConnectorsGongConnectorConfigConfigOAuth",
-    "ItemConnectorsGoogleConnectorConfig",
-    "ItemConnectorsGoogleConnectorConfigConfig",
-    "ItemConnectorsGoogleConnectorConfigConfigIntegrations",
-    "ItemConnectorsGoogleConnectorConfigConfigIntegrationsCalendar",
-    "ItemConnectorsGoogleConnectorConfigConfigIntegrationsDocs",
-    "ItemConnectorsGoogleConnectorConfigConfigIntegrationsDrive",
-    "ItemConnectorsGoogleConnectorConfigConfigIntegrationsGmail",
-    "ItemConnectorsGoogleConnectorConfigConfigIntegrationsSheets",
-    "ItemConnectorsGoogleConnectorConfigConfigIntegrationsSlides",
-    "ItemConnectorsGoogleConnectorConfigConfigOAuth",
-    "ItemConnectorsGreenhouseConnectorConfig",
-    "ItemConnectorsHeronConnectorConfig",
-    "ItemConnectorsHeronConnectorConfigConfig",
-    "ItemConnectorsHubspotConnectorConfig",
-    "ItemConnectorsHubspotConnectorConfigConfig",
-    "ItemConnectorsHubspotConnectorConfigConfigOAuth",
-    "ItemConnectorsIntercomConnectorConfig",
-    "ItemConnectorsIntercomConnectorConfigConfig",
-    "ItemConnectorsIntercomConnectorConfigConfigOAuth",
-    "ItemConnectorsJiraConnectorConfig",
-    "ItemConnectorsJiraConnectorConfigConfig",
-    "ItemConnectorsJiraConnectorConfigConfigOAuth",
-    "ItemConnectorsKustomerConnectorConfig",
-    "ItemConnectorsKustomerConnectorConfigConfig",
-    "ItemConnectorsKustomerConnectorConfigConfigOAuth",
-    "ItemConnectorsLeverConnectorConfig",
-    "ItemConnectorsLeverConnectorConfigConfig",
-    "ItemConnectorsLeverConnectorConfigConfigOAuth",
-    "ItemConnectorsLinearConnectorConfig",
-    "ItemConnectorsLinearConnectorConfigConfig",
-    "ItemConnectorsLinearConnectorConfigConfigOAuth",
-    "ItemConnectorsLunchmoneyConnectorConfig",
-    "ItemConnectorsLunchmoneyConnectorConfigConfig",
-    "ItemConnectorsMercuryConnectorConfig",
-    "ItemConnectorsMercuryConnectorConfigConfig",
-    "ItemConnectorsMercuryConnectorConfigConfigOAuth",
-    "ItemConnectorsMergeConnectorConfig",
-    "ItemConnectorsMergeConnectorConfigConfig",
-    "ItemConnectorsMicrosoftConnectorConfig",
-    "ItemConnectorsMicrosoftConnectorConfigConfig",
-    "ItemConnectorsMicrosoftConnectorConfigConfigIntegrations",
-    "ItemConnectorsMicrosoftConnectorConfigConfigIntegrationsOutlook",
-    "ItemConnectorsMicrosoftConnectorConfigConfigIntegrationsSharepoint",
-    "ItemConnectorsMicrosoftConnectorConfigConfigIntegrationsTeams",
-    "ItemConnectorsMicrosoftConnectorConfigConfigOAuth",
-    "ItemConnectorsMongoDBConnectorConfig",
-    "ItemConnectorsMootaConnectorConfig",
-    "ItemConnectorsMootaConnectorConfigConfig",
-    "ItemConnectorsOnebrickConnectorConfig",
-    "ItemConnectorsOnebrickConnectorConfigConfig",
-    "ItemConnectorsOutreachConnectorConfig",
-    "ItemConnectorsOutreachConnectorConfigConfig",
-    "ItemConnectorsOutreachConnectorConfigConfigOAuth",
-    "ItemConnectorsPipedriveConnectorConfig",
-    "ItemConnectorsPipedriveConnectorConfigConfig",
-    "ItemConnectorsPipedriveConnectorConfigConfigOAuth",
-    "ItemConnectorsPlaidConnectorConfig",
-    "ItemConnectorsPlaidConnectorConfigConfig",
-    "ItemConnectorsPlaidConnectorConfigConfigCredentials",
-    "ItemConnectorsPostgresConnectorConfig",
-    "ItemConnectorsQboConnectorConfig",
-    "ItemConnectorsQboConnectorConfigConfig",
-    "ItemConnectorsQboConnectorConfigConfigOAuth",
-    "ItemConnectorsRampConnectorConfig",
-    "ItemConnectorsRampConnectorConfigConfig",
-    "ItemConnectorsRampConnectorConfigConfigOAuth",
-    "ItemConnectorsRevertConnectorConfig",
-    "ItemConnectorsRevertConnectorConfigConfig",
-    "ItemConnectorsSalesforceConnectorConfig",
-    "ItemConnectorsSalesforceConnectorConfigConfig",
-    "ItemConnectorsSalesforceConnectorConfigConfigOAuth",
-    "ItemConnectorsSalesloftConnectorConfig",
-    "ItemConnectorsSalesloftConnectorConfigConfig",
-    "ItemConnectorsSalesloftConnectorConfigConfigOAuth",
-    "ItemConnectorsSaltedgeConnectorConfig",
-    "ItemConnectorsSaltedgeConnectorConfigConfig",
-    "ItemConnectorsSlackConnectorConfig",
-    "ItemConnectorsSlackConnectorConfigConfig",
-    "ItemConnectorsSlackConnectorConfigConfigOAuth",
-    "ItemConnectorsSplitwiseConnectorConfig",
-    "ItemConnectorsSpreadsheetConnectorConfig",
-    "ItemConnectorsSpreadsheetConnectorConfigConfig",
-    "ItemConnectorsStripeConnectorConfig",
-    "ItemConnectorsStripeConnectorConfigConfig",
-    "ItemConnectorsStripeConnectorConfigConfigOAuth",
-    "ItemConnectorsTellerConnectorConfig",
-    "ItemConnectorsTellerConnectorConfigConfig",
-    "ItemConnectorsTogglConnectorConfig",
-    "ItemConnectorsTwentyConnectorConfig",
-    "ItemConnectorsVenmoConnectorConfig",
-    "ItemConnectorsVenmoConnectorConfigConfig",
-    "ItemConnectorsVenmoConnectorConfigConfigProxy",
-    "ItemConnectorsWebhookConnectorConfig",
-    "ItemConnectorsWiseConnectorConfig",
-    "ItemConnectorsXeroConnectorConfig",
-    "ItemConnectorsXeroConnectorConfigConfig",
-    "ItemConnectorsXeroConnectorConfigConfigOAuth",
-    "ItemConnectorsYodleeConnectorConfig",
-    "ItemConnectorsYodleeConnectorConfigConfig",
-    "ItemConnectorsYodleeConnectorConfigConfigProxy",
-    "ItemConnectorsZohodeskConnectorConfig",
-    "ItemConnectorsZohodeskConnectorConfigConfig",
-    "ItemConnectorsZohodeskConnectorConfigConfigOAuth",
-    "ItemConnectorsGoogledriveConnectorConfig",
-    "ItemConnectorsGoogledriveConnectorConfigConfig",
+    "ConnectorsAircallConnectorConfig",
+    "ConnectorsAirtableConnectorConfig",
+    "ConnectorsApolloConnectorConfig",
+    "ConnectorsBeancountConnectorConfig",
+    "ConnectorsBrexConnectorConfig",
+    "ConnectorsBrexConnectorConfigConfig",
+    "ConnectorsBrexConnectorConfigConfigOAuth",
+    "ConnectorsCodaConnectorConfig",
+    "ConnectorsConfluenceConnectorConfig",
+    "ConnectorsConfluenceConnectorConfigConfig",
+    "ConnectorsConfluenceConnectorConfigConfigOAuth",
+    "ConnectorsDebugConnectorConfig",
+    "ConnectorsDiscordConnectorConfig",
+    "ConnectorsDiscordConnectorConfigConfig",
+    "ConnectorsDiscordConnectorConfigConfigOAuth",
+    "ConnectorsFinchConnectorConfig",
+    "ConnectorsFinchConnectorConfigConfig",
+    "ConnectorsFirebaseConnectorConfig",
+    "ConnectorsForeceiptConnectorConfig",
+    "ConnectorsFsConnectorConfig",
+    "ConnectorsGitHubConnectorConfig",
+    "ConnectorsGitHubConnectorConfigConfig",
+    "ConnectorsGitHubConnectorConfigConfigOAuth",
+    "ConnectorsGongConnectorConfig",
+    "ConnectorsGongConnectorConfigConfig",
+    "ConnectorsGongConnectorConfigConfigOAuth",
+    "ConnectorsGoogleConnectorConfig",
+    "ConnectorsGoogleConnectorConfigConfig",
+    "ConnectorsGoogleConnectorConfigConfigIntegrations",
+    "ConnectorsGoogleConnectorConfigConfigIntegrationsCalendar",
+    "ConnectorsGoogleConnectorConfigConfigIntegrationsDocs",
+    "ConnectorsGoogleConnectorConfigConfigIntegrationsDrive",
+    "ConnectorsGoogleConnectorConfigConfigIntegrationsGmail",
+    "ConnectorsGoogleConnectorConfigConfigIntegrationsSheets",
+    "ConnectorsGoogleConnectorConfigConfigIntegrationsSlides",
+    "ConnectorsGoogleConnectorConfigConfigOAuth",
+    "ConnectorsGreenhouseConnectorConfig",
+    "ConnectorsHeronConnectorConfig",
+    "ConnectorsHeronConnectorConfigConfig",
+    "ConnectorsHubspotConnectorConfig",
+    "ConnectorsHubspotConnectorConfigConfig",
+    "ConnectorsHubspotConnectorConfigConfigOAuth",
+    "ConnectorsIntercomConnectorConfig",
+    "ConnectorsIntercomConnectorConfigConfig",
+    "ConnectorsIntercomConnectorConfigConfigOAuth",
+    "ConnectorsJiraConnectorConfig",
+    "ConnectorsJiraConnectorConfigConfig",
+    "ConnectorsJiraConnectorConfigConfigOAuth",
+    "ConnectorsKustomerConnectorConfig",
+    "ConnectorsKustomerConnectorConfigConfig",
+    "ConnectorsKustomerConnectorConfigConfigOAuth",
+    "ConnectorsLeverConnectorConfig",
+    "ConnectorsLeverConnectorConfigConfig",
+    "ConnectorsLeverConnectorConfigConfigOAuth",
+    "ConnectorsLinearConnectorConfig",
+    "ConnectorsLinearConnectorConfigConfig",
+    "ConnectorsLinearConnectorConfigConfigOAuth",
+    "ConnectorsLunchmoneyConnectorConfig",
+    "ConnectorsLunchmoneyConnectorConfigConfig",
+    "ConnectorsMercuryConnectorConfig",
+    "ConnectorsMercuryConnectorConfigConfig",
+    "ConnectorsMercuryConnectorConfigConfigOAuth",
+    "ConnectorsMergeConnectorConfig",
+    "ConnectorsMergeConnectorConfigConfig",
+    "ConnectorsMicrosoftConnectorConfig",
+    "ConnectorsMicrosoftConnectorConfigConfig",
+    "ConnectorsMicrosoftConnectorConfigConfigIntegrations",
+    "ConnectorsMicrosoftConnectorConfigConfigIntegrationsOutlook",
+    "ConnectorsMicrosoftConnectorConfigConfigIntegrationsSharepoint",
+    "ConnectorsMicrosoftConnectorConfigConfigIntegrationsTeams",
+    "ConnectorsMicrosoftConnectorConfigConfigOAuth",
+    "ConnectorsMongoDBConnectorConfig",
+    "ConnectorsMootaConnectorConfig",
+    "ConnectorsMootaConnectorConfigConfig",
+    "ConnectorsOnebrickConnectorConfig",
+    "ConnectorsOnebrickConnectorConfigConfig",
+    "ConnectorsOutreachConnectorConfig",
+    "ConnectorsOutreachConnectorConfigConfig",
+    "ConnectorsOutreachConnectorConfigConfigOAuth",
+    "ConnectorsPipedriveConnectorConfig",
+    "ConnectorsPipedriveConnectorConfigConfig",
+    "ConnectorsPipedriveConnectorConfigConfigOAuth",
+    "ConnectorsPlaidConnectorConfig",
+    "ConnectorsPlaidConnectorConfigConfig",
+    "ConnectorsPlaidConnectorConfigConfigCredentials",
+    "ConnectorsPostgresConnectorConfig",
+    "ConnectorsQboConnectorConfig",
+    "ConnectorsQboConnectorConfigConfig",
+    "ConnectorsQboConnectorConfigConfigOAuth",
+    "ConnectorsRampConnectorConfig",
+    "ConnectorsRampConnectorConfigConfig",
+    "ConnectorsRampConnectorConfigConfigOAuth",
+    "ConnectorsRevertConnectorConfig",
+    "ConnectorsRevertConnectorConfigConfig",
+    "ConnectorsSalesforceConnectorConfig",
+    "ConnectorsSalesforceConnectorConfigConfig",
+    "ConnectorsSalesforceConnectorConfigConfigOAuth",
+    "ConnectorsSalesloftConnectorConfig",
+    "ConnectorsSalesloftConnectorConfigConfig",
+    "ConnectorsSalesloftConnectorConfigConfigOAuth",
+    "ConnectorsSaltedgeConnectorConfig",
+    "ConnectorsSaltedgeConnectorConfigConfig",
+    "ConnectorsSlackConnectorConfig",
+    "ConnectorsSlackConnectorConfigConfig",
+    "ConnectorsSlackConnectorConfigConfigOAuth",
+    "ConnectorsSplitwiseConnectorConfig",
+    "ConnectorsSpreadsheetConnectorConfig",
+    "ConnectorsSpreadsheetConnectorConfigConfig",
+    "ConnectorsStripeConnectorConfig",
+    "ConnectorsStripeConnectorConfigConfig",
+    "ConnectorsStripeConnectorConfigConfigOAuth",
+    "ConnectorsTellerConnectorConfig",
+    "ConnectorsTellerConnectorConfigConfig",
+    "ConnectorsTogglConnectorConfig",
+    "ConnectorsTwentyConnectorConfig",
+    "ConnectorsVenmoConnectorConfig",
+    "ConnectorsVenmoConnectorConfigConfig",
+    "ConnectorsVenmoConnectorConfigConfigProxy",
+    "ConnectorsWebhookConnectorConfig",
+    "ConnectorsWiseConnectorConfig",
+    "ConnectorsXeroConnectorConfig",
+    "ConnectorsXeroConnectorConfigConfig",
+    "ConnectorsXeroConnectorConfigConfigOAuth",
+    "ConnectorsYodleeConnectorConfig",
+    "ConnectorsYodleeConnectorConfigConfig",
+    "ConnectorsYodleeConnectorConfigConfigProxy",
+    "ConnectorsZohodeskConnectorConfig",
+    "ConnectorsZohodeskConnectorConfigConfig",
+    "ConnectorsZohodeskConnectorConfigConfigOAuth",
+    "ConnectorsGoogledriveConnectorConfig",
+    "ConnectorsGoogledriveConnectorConfigConfig",
 ]
 
 
-class ItemConnectorsAircallConnectorConfig(BaseModel):
+class ConnectorsAircallConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["aircall"]
@@ -159,7 +158,7 @@ class ItemConnectorsAircallConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsAirtableConnectorConfig(BaseModel):
+class ConnectorsAirtableConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["airtable"]
@@ -173,7 +172,7 @@ class ItemConnectorsAirtableConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsApolloConnectorConfig(BaseModel):
+class ConnectorsApolloConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["apollo"]
@@ -187,7 +186,7 @@ class ItemConnectorsApolloConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsBeancountConnectorConfig(BaseModel):
+class ConnectorsBeancountConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["beancount"]
@@ -201,20 +200,20 @@ class ItemConnectorsBeancountConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsBrexConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsBrexConnectorConfigConfigOAuth(BaseModel):
     client_id: str = FieldInfo(alias="clientId")
 
     client_secret: str = FieldInfo(alias="clientSecret")
 
 
-class ItemConnectorsBrexConnectorConfigConfig(BaseModel):
+class ConnectorsBrexConnectorConfigConfig(BaseModel):
     apikey_auth: Optional[bool] = FieldInfo(alias="apikeyAuth", default=None)
 
-    oauth: Optional[ItemConnectorsBrexConnectorConfigConfigOAuth] = None
+    oauth: Optional[ConnectorsBrexConnectorConfigConfigOAuth] = None
 
 
-class ItemConnectorsBrexConnectorConfig(BaseModel):
-    config: ItemConnectorsBrexConnectorConfigConfig
+class ConnectorsBrexConnectorConfig(BaseModel):
+    config: ConnectorsBrexConnectorConfigConfig
 
     connector_name: Literal["brex"]
 
@@ -227,7 +226,7 @@ class ItemConnectorsBrexConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsCodaConnectorConfig(BaseModel):
+class ConnectorsCodaConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["coda"]
@@ -241,7 +240,7 @@ class ItemConnectorsCodaConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsConfluenceConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsConfluenceConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -249,12 +248,12 @@ class ItemConnectorsConfluenceConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsConfluenceConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsConfluenceConnectorConfigConfigOAuth
+class ConnectorsConfluenceConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsConfluenceConnectorConfigConfigOAuth
 
 
-class ItemConnectorsConfluenceConnectorConfig(BaseModel):
-    config: ItemConnectorsConfluenceConnectorConfigConfig
+class ConnectorsConfluenceConnectorConfig(BaseModel):
+    config: ConnectorsConfluenceConnectorConfigConfig
 
     connector_name: Literal["confluence"]
 
@@ -267,7 +266,7 @@ class ItemConnectorsConfluenceConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsDebugConnectorConfig(BaseModel):
+class ConnectorsDebugConnectorConfig(BaseModel):
     connector_name: Literal["debug"]
 
     id: Optional[str] = None
@@ -281,7 +280,7 @@ class ItemConnectorsDebugConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsDiscordConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsDiscordConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -289,12 +288,12 @@ class ItemConnectorsDiscordConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsDiscordConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsDiscordConnectorConfigConfigOAuth
+class ConnectorsDiscordConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsDiscordConnectorConfigConfigOAuth
 
 
-class ItemConnectorsDiscordConnectorConfig(BaseModel):
-    config: ItemConnectorsDiscordConnectorConfigConfig
+class ConnectorsDiscordConnectorConfig(BaseModel):
+    config: ConnectorsDiscordConnectorConfigConfig
 
     connector_name: Literal["discord"]
 
@@ -307,7 +306,7 @@ class ItemConnectorsDiscordConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsFinchConnectorConfigConfig(BaseModel):
+class ConnectorsFinchConnectorConfigConfig(BaseModel):
     client_id: str
 
     client_secret: str
@@ -319,8 +318,8 @@ class ItemConnectorsFinchConnectorConfigConfig(BaseModel):
     api_version: Optional[str] = None
 
 
-class ItemConnectorsFinchConnectorConfig(BaseModel):
-    config: ItemConnectorsFinchConnectorConfigConfig
+class ConnectorsFinchConnectorConfig(BaseModel):
+    config: ConnectorsFinchConnectorConfigConfig
 
     connector_name: Literal["finch"]
 
@@ -333,7 +332,7 @@ class ItemConnectorsFinchConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsFirebaseConnectorConfig(BaseModel):
+class ConnectorsFirebaseConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["firebase"]
@@ -347,7 +346,7 @@ class ItemConnectorsFirebaseConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsForeceiptConnectorConfig(BaseModel):
+class ConnectorsForeceiptConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["foreceipt"]
@@ -361,7 +360,7 @@ class ItemConnectorsForeceiptConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsFsConnectorConfig(BaseModel):
+class ConnectorsFsConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["fs"]
@@ -375,7 +374,7 @@ class ItemConnectorsFsConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsGitHubConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsGitHubConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -383,12 +382,12 @@ class ItemConnectorsGitHubConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsGitHubConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsGitHubConnectorConfigConfigOAuth
+class ConnectorsGitHubConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsGitHubConnectorConfigConfigOAuth
 
 
-class ItemConnectorsGitHubConnectorConfig(BaseModel):
-    config: ItemConnectorsGitHubConnectorConfigConfig
+class ConnectorsGitHubConnectorConfig(BaseModel):
+    config: ConnectorsGitHubConnectorConfigConfig
 
     connector_name: Literal["github"]
 
@@ -401,7 +400,7 @@ class ItemConnectorsGitHubConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsGongConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsGongConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -409,12 +408,12 @@ class ItemConnectorsGongConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsGongConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsGongConnectorConfigConfigOAuth
+class ConnectorsGongConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsGongConnectorConfigConfigOAuth
 
 
-class ItemConnectorsGongConnectorConfig(BaseModel):
-    config: ItemConnectorsGongConnectorConfigConfig
+class ConnectorsGongConnectorConfig(BaseModel):
+    config: ConnectorsGongConnectorConfigConfig
 
     connector_name: Literal["gong"]
 
@@ -427,57 +426,57 @@ class ItemConnectorsGongConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsGoogleConnectorConfigConfigIntegrationsCalendar(BaseModel):
+class ConnectorsGoogleConnectorConfigConfigIntegrationsCalendar(BaseModel):
     enabled: Optional[bool] = None
 
     scopes: Optional[str] = None
 
 
-class ItemConnectorsGoogleConnectorConfigConfigIntegrationsDocs(BaseModel):
+class ConnectorsGoogleConnectorConfigConfigIntegrationsDocs(BaseModel):
     enabled: Optional[bool] = None
 
     scopes: Optional[str] = None
 
 
-class ItemConnectorsGoogleConnectorConfigConfigIntegrationsDrive(BaseModel):
+class ConnectorsGoogleConnectorConfigConfigIntegrationsDrive(BaseModel):
     enabled: Optional[bool] = None
 
     scopes: Optional[str] = None
 
 
-class ItemConnectorsGoogleConnectorConfigConfigIntegrationsGmail(BaseModel):
+class ConnectorsGoogleConnectorConfigConfigIntegrationsGmail(BaseModel):
     enabled: Optional[bool] = None
 
     scopes: Optional[str] = None
 
 
-class ItemConnectorsGoogleConnectorConfigConfigIntegrationsSheets(BaseModel):
+class ConnectorsGoogleConnectorConfigConfigIntegrationsSheets(BaseModel):
     enabled: Optional[bool] = None
 
     scopes: Optional[str] = None
 
 
-class ItemConnectorsGoogleConnectorConfigConfigIntegrationsSlides(BaseModel):
+class ConnectorsGoogleConnectorConfigConfigIntegrationsSlides(BaseModel):
     enabled: Optional[bool] = None
 
     scopes: Optional[str] = None
 
 
-class ItemConnectorsGoogleConnectorConfigConfigIntegrations(BaseModel):
-    calendar: Optional[ItemConnectorsGoogleConnectorConfigConfigIntegrationsCalendar] = None
+class ConnectorsGoogleConnectorConfigConfigIntegrations(BaseModel):
+    calendar: Optional[ConnectorsGoogleConnectorConfigConfigIntegrationsCalendar] = None
 
-    docs: Optional[ItemConnectorsGoogleConnectorConfigConfigIntegrationsDocs] = None
+    docs: Optional[ConnectorsGoogleConnectorConfigConfigIntegrationsDocs] = None
 
-    drive: Optional[ItemConnectorsGoogleConnectorConfigConfigIntegrationsDrive] = None
+    drive: Optional[ConnectorsGoogleConnectorConfigConfigIntegrationsDrive] = None
 
-    gmail: Optional[ItemConnectorsGoogleConnectorConfigConfigIntegrationsGmail] = None
+    gmail: Optional[ConnectorsGoogleConnectorConfigConfigIntegrationsGmail] = None
 
-    sheets: Optional[ItemConnectorsGoogleConnectorConfigConfigIntegrationsSheets] = None
+    sheets: Optional[ConnectorsGoogleConnectorConfigConfigIntegrationsSheets] = None
 
-    slides: Optional[ItemConnectorsGoogleConnectorConfigConfigIntegrationsSlides] = None
+    slides: Optional[ConnectorsGoogleConnectorConfigConfigIntegrationsSlides] = None
 
 
-class ItemConnectorsGoogleConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsGoogleConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -485,14 +484,14 @@ class ItemConnectorsGoogleConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsGoogleConnectorConfigConfig(BaseModel):
-    integrations: ItemConnectorsGoogleConnectorConfigConfigIntegrations
+class ConnectorsGoogleConnectorConfigConfig(BaseModel):
+    integrations: ConnectorsGoogleConnectorConfigConfigIntegrations
 
-    oauth: ItemConnectorsGoogleConnectorConfigConfigOAuth
+    oauth: ConnectorsGoogleConnectorConfigConfigOAuth
 
 
-class ItemConnectorsGoogleConnectorConfig(BaseModel):
-    config: ItemConnectorsGoogleConnectorConfigConfig
+class ConnectorsGoogleConnectorConfig(BaseModel):
+    config: ConnectorsGoogleConnectorConfigConfig
 
     connector_name: Literal["google"]
 
@@ -505,7 +504,7 @@ class ItemConnectorsGoogleConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsGreenhouseConnectorConfig(BaseModel):
+class ConnectorsGreenhouseConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["greenhouse"]
@@ -519,12 +518,12 @@ class ItemConnectorsGreenhouseConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsHeronConnectorConfigConfig(BaseModel):
+class ConnectorsHeronConnectorConfigConfig(BaseModel):
     api_key: str = FieldInfo(alias="apiKey")
 
 
-class ItemConnectorsHeronConnectorConfig(BaseModel):
-    config: ItemConnectorsHeronConnectorConfigConfig
+class ConnectorsHeronConnectorConfig(BaseModel):
+    config: ConnectorsHeronConnectorConfigConfig
 
     connector_name: Literal["heron"]
 
@@ -537,7 +536,7 @@ class ItemConnectorsHeronConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsHubspotConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsHubspotConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -545,12 +544,12 @@ class ItemConnectorsHubspotConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsHubspotConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsHubspotConnectorConfigConfigOAuth
+class ConnectorsHubspotConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsHubspotConnectorConfigConfigOAuth
 
 
-class ItemConnectorsHubspotConnectorConfig(BaseModel):
-    config: ItemConnectorsHubspotConnectorConfigConfig
+class ConnectorsHubspotConnectorConfig(BaseModel):
+    config: ConnectorsHubspotConnectorConfigConfig
 
     connector_name: Literal["hubspot"]
 
@@ -563,7 +562,7 @@ class ItemConnectorsHubspotConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsIntercomConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsIntercomConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -571,12 +570,12 @@ class ItemConnectorsIntercomConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsIntercomConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsIntercomConnectorConfigConfigOAuth
+class ConnectorsIntercomConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsIntercomConnectorConfigConfigOAuth
 
 
-class ItemConnectorsIntercomConnectorConfig(BaseModel):
-    config: ItemConnectorsIntercomConnectorConfigConfig
+class ConnectorsIntercomConnectorConfig(BaseModel):
+    config: ConnectorsIntercomConnectorConfigConfig
 
     connector_name: Literal["intercom"]
 
@@ -589,7 +588,7 @@ class ItemConnectorsIntercomConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsJiraConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsJiraConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -597,12 +596,12 @@ class ItemConnectorsJiraConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsJiraConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsJiraConnectorConfigConfigOAuth
+class ConnectorsJiraConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsJiraConnectorConfigConfigOAuth
 
 
-class ItemConnectorsJiraConnectorConfig(BaseModel):
-    config: ItemConnectorsJiraConnectorConfigConfig
+class ConnectorsJiraConnectorConfig(BaseModel):
+    config: ConnectorsJiraConnectorConfigConfig
 
     connector_name: Literal["jira"]
 
@@ -615,7 +614,7 @@ class ItemConnectorsJiraConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsKustomerConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsKustomerConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -623,12 +622,12 @@ class ItemConnectorsKustomerConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsKustomerConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsKustomerConnectorConfigConfigOAuth
+class ConnectorsKustomerConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsKustomerConnectorConfigConfigOAuth
 
 
-class ItemConnectorsKustomerConnectorConfig(BaseModel):
-    config: ItemConnectorsKustomerConnectorConfigConfig
+class ConnectorsKustomerConnectorConfig(BaseModel):
+    config: ConnectorsKustomerConnectorConfigConfig
 
     connector_name: Literal["kustomer"]
 
@@ -641,7 +640,7 @@ class ItemConnectorsKustomerConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsLeverConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsLeverConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -649,14 +648,14 @@ class ItemConnectorsLeverConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsLeverConnectorConfigConfig(BaseModel):
+class ConnectorsLeverConnectorConfigConfig(BaseModel):
     env_name: Literal["sandbox", "production"] = FieldInfo(alias="envName")
 
-    oauth: ItemConnectorsLeverConnectorConfigConfigOAuth
+    oauth: ConnectorsLeverConnectorConfigConfigOAuth
 
 
-class ItemConnectorsLeverConnectorConfig(BaseModel):
-    config: ItemConnectorsLeverConnectorConfigConfig
+class ConnectorsLeverConnectorConfig(BaseModel):
+    config: ConnectorsLeverConnectorConfigConfig
 
     connector_name: Literal["lever"]
 
@@ -669,7 +668,7 @@ class ItemConnectorsLeverConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsLinearConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsLinearConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -677,12 +676,12 @@ class ItemConnectorsLinearConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsLinearConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsLinearConnectorConfigConfigOAuth
+class ConnectorsLinearConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsLinearConnectorConfigConfigOAuth
 
 
-class ItemConnectorsLinearConnectorConfig(BaseModel):
-    config: ItemConnectorsLinearConnectorConfigConfig
+class ConnectorsLinearConnectorConfig(BaseModel):
+    config: ConnectorsLinearConnectorConfigConfig
 
     connector_name: Literal["linear"]
 
@@ -695,12 +694,12 @@ class ItemConnectorsLinearConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsLunchmoneyConnectorConfigConfig(BaseModel):
+class ConnectorsLunchmoneyConnectorConfigConfig(BaseModel):
     access_token: str = FieldInfo(alias="accessToken")
 
 
-class ItemConnectorsLunchmoneyConnectorConfig(BaseModel):
-    config: ItemConnectorsLunchmoneyConnectorConfigConfig
+class ConnectorsLunchmoneyConnectorConfig(BaseModel):
+    config: ConnectorsLunchmoneyConnectorConfigConfig
 
     connector_name: Literal["lunchmoney"]
 
@@ -713,20 +712,20 @@ class ItemConnectorsLunchmoneyConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsMercuryConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsMercuryConnectorConfigConfigOAuth(BaseModel):
     client_id: str = FieldInfo(alias="clientId")
 
     client_secret: str = FieldInfo(alias="clientSecret")
 
 
-class ItemConnectorsMercuryConnectorConfigConfig(BaseModel):
+class ConnectorsMercuryConnectorConfigConfig(BaseModel):
     apikey_auth: Optional[bool] = FieldInfo(alias="apikeyAuth", default=None)
 
-    oauth: Optional[ItemConnectorsMercuryConnectorConfigConfigOAuth] = None
+    oauth: Optional[ConnectorsMercuryConnectorConfigConfigOAuth] = None
 
 
-class ItemConnectorsMercuryConnectorConfig(BaseModel):
-    config: ItemConnectorsMercuryConnectorConfigConfig
+class ConnectorsMercuryConnectorConfig(BaseModel):
+    config: ConnectorsMercuryConnectorConfigConfig
 
     connector_name: Literal["mercury"]
 
@@ -739,12 +738,12 @@ class ItemConnectorsMercuryConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsMergeConnectorConfigConfig(BaseModel):
+class ConnectorsMergeConnectorConfigConfig(BaseModel):
     api_key: str = FieldInfo(alias="apiKey")
 
 
-class ItemConnectorsMergeConnectorConfig(BaseModel):
-    config: ItemConnectorsMergeConnectorConfigConfig
+class ConnectorsMergeConnectorConfig(BaseModel):
+    config: ConnectorsMergeConnectorConfigConfig
 
     connector_name: Literal["merge"]
 
@@ -757,33 +756,33 @@ class ItemConnectorsMergeConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsMicrosoftConnectorConfigConfigIntegrationsOutlook(BaseModel):
+class ConnectorsMicrosoftConnectorConfigConfigIntegrationsOutlook(BaseModel):
     enabled: Optional[bool] = None
 
     scopes: Optional[str] = None
 
 
-class ItemConnectorsMicrosoftConnectorConfigConfigIntegrationsSharepoint(BaseModel):
+class ConnectorsMicrosoftConnectorConfigConfigIntegrationsSharepoint(BaseModel):
     enabled: Optional[bool] = None
 
     scopes: Optional[str] = None
 
 
-class ItemConnectorsMicrosoftConnectorConfigConfigIntegrationsTeams(BaseModel):
+class ConnectorsMicrosoftConnectorConfigConfigIntegrationsTeams(BaseModel):
     enabled: Optional[bool] = None
 
     scopes: Optional[str] = None
 
 
-class ItemConnectorsMicrosoftConnectorConfigConfigIntegrations(BaseModel):
-    outlook: Optional[ItemConnectorsMicrosoftConnectorConfigConfigIntegrationsOutlook] = None
+class ConnectorsMicrosoftConnectorConfigConfigIntegrations(BaseModel):
+    outlook: Optional[ConnectorsMicrosoftConnectorConfigConfigIntegrationsOutlook] = None
 
-    sharepoint: Optional[ItemConnectorsMicrosoftConnectorConfigConfigIntegrationsSharepoint] = None
+    sharepoint: Optional[ConnectorsMicrosoftConnectorConfigConfigIntegrationsSharepoint] = None
 
-    teams: Optional[ItemConnectorsMicrosoftConnectorConfigConfigIntegrationsTeams] = None
+    teams: Optional[ConnectorsMicrosoftConnectorConfigConfigIntegrationsTeams] = None
 
 
-class ItemConnectorsMicrosoftConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsMicrosoftConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -791,14 +790,14 @@ class ItemConnectorsMicrosoftConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsMicrosoftConnectorConfigConfig(BaseModel):
-    integrations: ItemConnectorsMicrosoftConnectorConfigConfigIntegrations
+class ConnectorsMicrosoftConnectorConfigConfig(BaseModel):
+    integrations: ConnectorsMicrosoftConnectorConfigConfigIntegrations
 
-    oauth: ItemConnectorsMicrosoftConnectorConfigConfigOAuth
+    oauth: ConnectorsMicrosoftConnectorConfigConfigOAuth
 
 
-class ItemConnectorsMicrosoftConnectorConfig(BaseModel):
-    config: ItemConnectorsMicrosoftConnectorConfigConfig
+class ConnectorsMicrosoftConnectorConfig(BaseModel):
+    config: ConnectorsMicrosoftConnectorConfigConfig
 
     connector_name: Literal["microsoft"]
 
@@ -811,7 +810,7 @@ class ItemConnectorsMicrosoftConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsMongoDBConnectorConfig(BaseModel):
+class ConnectorsMongoDBConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["mongodb"]
@@ -825,12 +824,12 @@ class ItemConnectorsMongoDBConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsMootaConnectorConfigConfig(BaseModel):
+class ConnectorsMootaConnectorConfigConfig(BaseModel):
     token: str
 
 
-class ItemConnectorsMootaConnectorConfig(BaseModel):
-    config: ItemConnectorsMootaConnectorConfigConfig
+class ConnectorsMootaConnectorConfig(BaseModel):
+    config: ConnectorsMootaConnectorConfigConfig
 
     connector_name: Literal["moota"]
 
@@ -843,7 +842,7 @@ class ItemConnectorsMootaConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsOnebrickConnectorConfigConfig(BaseModel):
+class ConnectorsOnebrickConnectorConfigConfig(BaseModel):
     client_id: str = FieldInfo(alias="clientId")
 
     client_secret: str = FieldInfo(alias="clientSecret")
@@ -857,8 +856,8 @@ class ItemConnectorsOnebrickConnectorConfigConfig(BaseModel):
     redirect_url: Optional[str] = FieldInfo(alias="redirectUrl", default=None)
 
 
-class ItemConnectorsOnebrickConnectorConfig(BaseModel):
-    config: ItemConnectorsOnebrickConnectorConfigConfig
+class ConnectorsOnebrickConnectorConfig(BaseModel):
+    config: ConnectorsOnebrickConnectorConfigConfig
 
     connector_name: Literal["onebrick"]
 
@@ -871,7 +870,7 @@ class ItemConnectorsOnebrickConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsOutreachConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsOutreachConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -879,12 +878,12 @@ class ItemConnectorsOutreachConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsOutreachConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsOutreachConnectorConfigConfigOAuth
+class ConnectorsOutreachConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsOutreachConnectorConfigConfigOAuth
 
 
-class ItemConnectorsOutreachConnectorConfig(BaseModel):
-    config: ItemConnectorsOutreachConnectorConfigConfig
+class ConnectorsOutreachConnectorConfig(BaseModel):
+    config: ConnectorsOutreachConnectorConfigConfig
 
     connector_name: Literal["outreach"]
 
@@ -897,7 +896,7 @@ class ItemConnectorsOutreachConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsPipedriveConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsPipedriveConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -905,12 +904,12 @@ class ItemConnectorsPipedriveConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsPipedriveConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsPipedriveConnectorConfigConfigOAuth
+class ConnectorsPipedriveConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsPipedriveConnectorConfigConfigOAuth
 
 
-class ItemConnectorsPipedriveConnectorConfig(BaseModel):
-    config: ItemConnectorsPipedriveConnectorConfigConfig
+class ConnectorsPipedriveConnectorConfig(BaseModel):
+    config: ConnectorsPipedriveConnectorConfigConfig
 
     connector_name: Literal["pipedrive"]
 
@@ -923,13 +922,13 @@ class ItemConnectorsPipedriveConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsPlaidConnectorConfigConfigCredentials(BaseModel):
+class ConnectorsPlaidConnectorConfigConfigCredentials(BaseModel):
     client_id: str = FieldInfo(alias="clientId")
 
     client_secret: str = FieldInfo(alias="clientSecret")
 
 
-class ItemConnectorsPlaidConnectorConfigConfig(BaseModel):
+class ConnectorsPlaidConnectorConfigConfig(BaseModel):
     client_name: str = FieldInfo(alias="clientName")
 
     country_codes: List[
@@ -962,11 +961,11 @@ class ItemConnectorsPlaidConnectorConfigConfig(BaseModel):
         ]
     ]
 
-    credentials: Optional[ItemConnectorsPlaidConnectorConfigConfigCredentials] = None
+    credentials: Optional[ConnectorsPlaidConnectorConfigConfigCredentials] = None
 
 
-class ItemConnectorsPlaidConnectorConfig(BaseModel):
-    config: ItemConnectorsPlaidConnectorConfigConfig
+class ConnectorsPlaidConnectorConfig(BaseModel):
+    config: ConnectorsPlaidConnectorConfigConfig
 
     connector_name: Literal["plaid"]
 
@@ -979,7 +978,7 @@ class ItemConnectorsPlaidConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsPostgresConnectorConfig(BaseModel):
+class ConnectorsPostgresConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["postgres"]
@@ -993,7 +992,7 @@ class ItemConnectorsPostgresConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsQboConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsQboConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -1001,18 +1000,18 @@ class ItemConnectorsQboConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsQboConnectorConfigConfig(BaseModel):
+class ConnectorsQboConnectorConfigConfig(BaseModel):
     env_name: Literal["sandbox", "production"] = FieldInfo(alias="envName")
 
-    oauth: ItemConnectorsQboConnectorConfigConfigOAuth
+    oauth: ConnectorsQboConnectorConfigConfigOAuth
 
     url: Optional[str] = None
 
     verifier_token: Optional[str] = FieldInfo(alias="verifierToken", default=None)
 
 
-class ItemConnectorsQboConnectorConfig(BaseModel):
-    config: ItemConnectorsQboConnectorConfigConfig
+class ConnectorsQboConnectorConfig(BaseModel):
+    config: ConnectorsQboConnectorConfigConfig
 
     connector_name: Literal["qbo"]
 
@@ -1025,18 +1024,18 @@ class ItemConnectorsQboConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsRampConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsRampConnectorConfigConfigOAuth(BaseModel):
     client_id: str = FieldInfo(alias="clientId")
 
     client_secret: str = FieldInfo(alias="clientSecret")
 
 
-class ItemConnectorsRampConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsRampConnectorConfigConfigOAuth
+class ConnectorsRampConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsRampConnectorConfigConfigOAuth
 
 
-class ItemConnectorsRampConnectorConfig(BaseModel):
-    config: ItemConnectorsRampConnectorConfigConfig
+class ConnectorsRampConnectorConfig(BaseModel):
+    config: ConnectorsRampConnectorConfigConfig
 
     connector_name: Literal["ramp"]
 
@@ -1049,14 +1048,14 @@ class ItemConnectorsRampConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsRevertConnectorConfigConfig(BaseModel):
+class ConnectorsRevertConnectorConfigConfig(BaseModel):
     api_token: str
 
     api_version: Optional[str] = None
 
 
-class ItemConnectorsRevertConnectorConfig(BaseModel):
-    config: ItemConnectorsRevertConnectorConfigConfig
+class ConnectorsRevertConnectorConfig(BaseModel):
+    config: ConnectorsRevertConnectorConfigConfig
 
     connector_name: Literal["revert"]
 
@@ -1069,7 +1068,7 @@ class ItemConnectorsRevertConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsSalesforceConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsSalesforceConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -1077,12 +1076,12 @@ class ItemConnectorsSalesforceConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsSalesforceConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsSalesforceConnectorConfigConfigOAuth
+class ConnectorsSalesforceConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsSalesforceConnectorConfigConfigOAuth
 
 
-class ItemConnectorsSalesforceConnectorConfig(BaseModel):
-    config: ItemConnectorsSalesforceConnectorConfigConfig
+class ConnectorsSalesforceConnectorConfig(BaseModel):
+    config: ConnectorsSalesforceConnectorConfigConfig
 
     connector_name: Literal["salesforce"]
 
@@ -1095,7 +1094,7 @@ class ItemConnectorsSalesforceConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsSalesloftConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsSalesloftConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -1103,12 +1102,12 @@ class ItemConnectorsSalesloftConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsSalesloftConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsSalesloftConnectorConfigConfigOAuth
+class ConnectorsSalesloftConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsSalesloftConnectorConfigConfigOAuth
 
 
-class ItemConnectorsSalesloftConnectorConfig(BaseModel):
-    config: ItemConnectorsSalesloftConnectorConfigConfig
+class ConnectorsSalesloftConnectorConfig(BaseModel):
+    config: ConnectorsSalesloftConnectorConfigConfig
 
     connector_name: Literal["salesloft"]
 
@@ -1121,7 +1120,7 @@ class ItemConnectorsSalesloftConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsSaltedgeConnectorConfigConfig(BaseModel):
+class ConnectorsSaltedgeConnectorConfigConfig(BaseModel):
     app_id: str = FieldInfo(alias="appId")
 
     secret: str
@@ -1129,8 +1128,8 @@ class ItemConnectorsSaltedgeConnectorConfigConfig(BaseModel):
     url: Optional[str] = None
 
 
-class ItemConnectorsSaltedgeConnectorConfig(BaseModel):
-    config: ItemConnectorsSaltedgeConnectorConfigConfig
+class ConnectorsSaltedgeConnectorConfig(BaseModel):
+    config: ConnectorsSaltedgeConnectorConfigConfig
 
     connector_name: Literal["saltedge"]
 
@@ -1143,7 +1142,7 @@ class ItemConnectorsSaltedgeConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsSlackConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsSlackConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -1151,12 +1150,12 @@ class ItemConnectorsSlackConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsSlackConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsSlackConnectorConfigConfigOAuth
+class ConnectorsSlackConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsSlackConnectorConfigConfigOAuth
 
 
-class ItemConnectorsSlackConnectorConfig(BaseModel):
-    config: ItemConnectorsSlackConnectorConfigConfig
+class ConnectorsSlackConnectorConfig(BaseModel):
+    config: ConnectorsSlackConnectorConfigConfig
 
     connector_name: Literal["slack"]
 
@@ -1169,7 +1168,7 @@ class ItemConnectorsSlackConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsSplitwiseConnectorConfig(BaseModel):
+class ConnectorsSplitwiseConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["splitwise"]
@@ -1183,7 +1182,7 @@ class ItemConnectorsSplitwiseConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsSpreadsheetConnectorConfigConfig(BaseModel):
+class ConnectorsSpreadsheetConnectorConfigConfig(BaseModel):
     enabled_presets: Optional[
         List[
             Literal[
@@ -1207,12 +1206,12 @@ class ItemConnectorsSpreadsheetConnectorConfigConfig(BaseModel):
     source_providers: Optional[List[object]] = FieldInfo(alias="sourceProviders", default=None)
 
 
-class ItemConnectorsSpreadsheetConnectorConfig(BaseModel):
+class ConnectorsSpreadsheetConnectorConfig(BaseModel):
     connector_name: Literal["spreadsheet"]
 
     id: Optional[str] = None
 
-    config: Optional[ItemConnectorsSpreadsheetConnectorConfigConfig] = None
+    config: Optional[ConnectorsSpreadsheetConnectorConfigConfig] = None
 
     created_at: Optional[datetime] = None
 
@@ -1221,20 +1220,20 @@ class ItemConnectorsSpreadsheetConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsStripeConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsStripeConnectorConfigConfigOAuth(BaseModel):
     client_id: str = FieldInfo(alias="clientId")
 
     client_secret: str = FieldInfo(alias="clientSecret")
 
 
-class ItemConnectorsStripeConnectorConfigConfig(BaseModel):
+class ConnectorsStripeConnectorConfigConfig(BaseModel):
     apikey_auth: Optional[bool] = FieldInfo(alias="apikeyAuth", default=None)
 
-    oauth: Optional[ItemConnectorsStripeConnectorConfigConfigOAuth] = None
+    oauth: Optional[ConnectorsStripeConnectorConfigConfigOAuth] = None
 
 
-class ItemConnectorsStripeConnectorConfig(BaseModel):
-    config: ItemConnectorsStripeConnectorConfigConfig
+class ConnectorsStripeConnectorConfig(BaseModel):
+    config: ConnectorsStripeConnectorConfigConfig
 
     connector_name: Literal["stripe"]
 
@@ -1247,14 +1246,14 @@ class ItemConnectorsStripeConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsTellerConnectorConfigConfig(BaseModel):
+class ConnectorsTellerConnectorConfigConfig(BaseModel):
     application_id: str = FieldInfo(alias="applicationId")
 
     token: Optional[str] = None
 
 
-class ItemConnectorsTellerConnectorConfig(BaseModel):
-    config: ItemConnectorsTellerConnectorConfigConfig
+class ConnectorsTellerConnectorConfig(BaseModel):
+    config: ConnectorsTellerConnectorConfigConfig
 
     connector_name: Literal["teller"]
 
@@ -1267,7 +1266,7 @@ class ItemConnectorsTellerConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsTogglConnectorConfig(BaseModel):
+class ConnectorsTogglConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["toggl"]
@@ -1281,7 +1280,7 @@ class ItemConnectorsTogglConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsTwentyConnectorConfig(BaseModel):
+class ConnectorsTwentyConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["twenty"]
@@ -1295,22 +1294,22 @@ class ItemConnectorsTwentyConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsVenmoConnectorConfigConfigProxy(BaseModel):
+class ConnectorsVenmoConnectorConfigConfigProxy(BaseModel):
     cert: str
 
     url: str
 
 
-class ItemConnectorsVenmoConnectorConfigConfig(BaseModel):
-    proxy: Optional[ItemConnectorsVenmoConnectorConfigConfigProxy] = None
+class ConnectorsVenmoConnectorConfigConfig(BaseModel):
+    proxy: Optional[ConnectorsVenmoConnectorConfigConfigProxy] = None
 
     v1_base_url: Optional[str] = FieldInfo(alias="v1BaseURL", default=None)
 
     v5_base_url: Optional[str] = FieldInfo(alias="v5BaseURL", default=None)
 
 
-class ItemConnectorsVenmoConnectorConfig(BaseModel):
-    config: ItemConnectorsVenmoConnectorConfigConfig
+class ConnectorsVenmoConnectorConfig(BaseModel):
+    config: ConnectorsVenmoConnectorConfigConfig
 
     connector_name: Literal["venmo"]
 
@@ -1323,7 +1322,7 @@ class ItemConnectorsVenmoConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsWebhookConnectorConfig(BaseModel):
+class ConnectorsWebhookConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["webhook"]
@@ -1337,7 +1336,7 @@ class ItemConnectorsWebhookConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsWiseConnectorConfig(BaseModel):
+class ConnectorsWiseConnectorConfig(BaseModel):
     config: None
 
     connector_name: Literal["wise"]
@@ -1351,7 +1350,7 @@ class ItemConnectorsWiseConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsXeroConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsXeroConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -1359,12 +1358,12 @@ class ItemConnectorsXeroConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsXeroConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsXeroConnectorConfigConfigOAuth
+class ConnectorsXeroConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsXeroConnectorConfigConfigOAuth
 
 
-class ItemConnectorsXeroConnectorConfig(BaseModel):
-    config: ItemConnectorsXeroConnectorConfigConfig
+class ConnectorsXeroConnectorConfig(BaseModel):
+    config: ConnectorsXeroConnectorConfigConfig
 
     connector_name: Literal["xero"]
 
@@ -1377,13 +1376,13 @@ class ItemConnectorsXeroConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsYodleeConnectorConfigConfigProxy(BaseModel):
+class ConnectorsYodleeConnectorConfigConfigProxy(BaseModel):
     cert: str
 
     url: str
 
 
-class ItemConnectorsYodleeConnectorConfigConfig(BaseModel):
+class ConnectorsYodleeConnectorConfigConfig(BaseModel):
     admin_login_name: str = FieldInfo(alias="adminLoginName")
 
     client_id: str = FieldInfo(alias="clientId")
@@ -1392,13 +1391,13 @@ class ItemConnectorsYodleeConnectorConfigConfig(BaseModel):
 
     env_name: Literal["sandbox", "development", "production"] = FieldInfo(alias="envName")
 
-    proxy: Optional[ItemConnectorsYodleeConnectorConfigConfigProxy] = None
+    proxy: Optional[ConnectorsYodleeConnectorConfigConfigProxy] = None
 
     sandbox_login_name: Optional[str] = FieldInfo(alias="sandboxLoginName", default=None)
 
 
-class ItemConnectorsYodleeConnectorConfig(BaseModel):
-    config: ItemConnectorsYodleeConnectorConfigConfig
+class ConnectorsYodleeConnectorConfig(BaseModel):
+    config: ConnectorsYodleeConnectorConfigConfig
 
     connector_name: Literal["yodlee"]
 
@@ -1411,7 +1410,7 @@ class ItemConnectorsYodleeConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsZohodeskConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsZohodeskConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -1419,12 +1418,12 @@ class ItemConnectorsZohodeskConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
-class ItemConnectorsZohodeskConnectorConfigConfig(BaseModel):
-    oauth: ItemConnectorsZohodeskConnectorConfigConfigOAuth
+class ConnectorsZohodeskConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsZohodeskConnectorConfigConfigOAuth
 
 
-class ItemConnectorsZohodeskConnectorConfig(BaseModel):
-    config: ItemConnectorsZohodeskConnectorConfigConfig
+class ConnectorsZohodeskConnectorConfig(BaseModel):
+    config: ConnectorsZohodeskConnectorConfigConfig
 
     connector_name: Literal["zohodesk"]
 
@@ -1437,7 +1436,7 @@ class ItemConnectorsZohodeskConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-class ItemConnectorsGoogledriveConnectorConfigConfig(BaseModel):
+class ConnectorsGoogledriveConnectorConfigConfig(BaseModel):
     client_id: str
 
     client_secret: str
@@ -1445,8 +1444,8 @@ class ItemConnectorsGoogledriveConnectorConfigConfig(BaseModel):
     scopes: Optional[List[str]] = None
 
 
-class ItemConnectorsGoogledriveConnectorConfig(BaseModel):
-    config: ItemConnectorsGoogledriveConnectorConfigConfig
+class ConnectorsGoogledriveConnectorConfig(BaseModel):
+    config: ConnectorsGoogledriveConnectorConfigConfig
 
     connector_name: Literal["googledrive"]
 
@@ -1459,70 +1458,60 @@ class ItemConnectorsGoogledriveConnectorConfig(BaseModel):
     updated_at: Optional[datetime] = None
 
 
-Item: TypeAlias = Union[
-    ItemConnectorsAircallConnectorConfig,
-    ItemConnectorsAirtableConnectorConfig,
-    ItemConnectorsApolloConnectorConfig,
-    ItemConnectorsBeancountConnectorConfig,
-    ItemConnectorsBrexConnectorConfig,
-    ItemConnectorsCodaConnectorConfig,
-    ItemConnectorsConfluenceConnectorConfig,
-    ItemConnectorsDebugConnectorConfig,
-    ItemConnectorsDiscordConnectorConfig,
-    ItemConnectorsFinchConnectorConfig,
-    ItemConnectorsFirebaseConnectorConfig,
-    ItemConnectorsForeceiptConnectorConfig,
-    ItemConnectorsFsConnectorConfig,
-    ItemConnectorsGitHubConnectorConfig,
-    ItemConnectorsGongConnectorConfig,
-    ItemConnectorsGoogleConnectorConfig,
-    ItemConnectorsGreenhouseConnectorConfig,
-    ItemConnectorsHeronConnectorConfig,
-    ItemConnectorsHubspotConnectorConfig,
-    ItemConnectorsIntercomConnectorConfig,
-    ItemConnectorsJiraConnectorConfig,
-    ItemConnectorsKustomerConnectorConfig,
-    ItemConnectorsLeverConnectorConfig,
-    ItemConnectorsLinearConnectorConfig,
-    ItemConnectorsLunchmoneyConnectorConfig,
-    ItemConnectorsMercuryConnectorConfig,
-    ItemConnectorsMergeConnectorConfig,
-    ItemConnectorsMicrosoftConnectorConfig,
-    ItemConnectorsMongoDBConnectorConfig,
-    ItemConnectorsMootaConnectorConfig,
-    ItemConnectorsOnebrickConnectorConfig,
-    ItemConnectorsOutreachConnectorConfig,
-    ItemConnectorsPipedriveConnectorConfig,
-    ItemConnectorsPlaidConnectorConfig,
-    ItemConnectorsPostgresConnectorConfig,
-    ItemConnectorsQboConnectorConfig,
-    ItemConnectorsRampConnectorConfig,
-    ItemConnectorsRevertConnectorConfig,
-    ItemConnectorsSalesforceConnectorConfig,
-    ItemConnectorsSalesloftConnectorConfig,
-    ItemConnectorsSaltedgeConnectorConfig,
-    ItemConnectorsSlackConnectorConfig,
-    ItemConnectorsSplitwiseConnectorConfig,
-    ItemConnectorsSpreadsheetConnectorConfig,
-    ItemConnectorsStripeConnectorConfig,
-    ItemConnectorsTellerConnectorConfig,
-    ItemConnectorsTogglConnectorConfig,
-    ItemConnectorsTwentyConnectorConfig,
-    ItemConnectorsVenmoConnectorConfig,
-    ItemConnectorsWebhookConnectorConfig,
-    ItemConnectorsWiseConnectorConfig,
-    ItemConnectorsXeroConnectorConfig,
-    ItemConnectorsYodleeConnectorConfig,
-    ItemConnectorsZohodeskConnectorConfig,
-    ItemConnectorsGoogledriveConnectorConfig,
+ListConnectionConfigsResponse: TypeAlias = Union[
+    ConnectorsAircallConnectorConfig,
+    ConnectorsAirtableConnectorConfig,
+    ConnectorsApolloConnectorConfig,
+    ConnectorsBeancountConnectorConfig,
+    ConnectorsBrexConnectorConfig,
+    ConnectorsCodaConnectorConfig,
+    ConnectorsConfluenceConnectorConfig,
+    ConnectorsDebugConnectorConfig,
+    ConnectorsDiscordConnectorConfig,
+    ConnectorsFinchConnectorConfig,
+    ConnectorsFirebaseConnectorConfig,
+    ConnectorsForeceiptConnectorConfig,
+    ConnectorsFsConnectorConfig,
+    ConnectorsGitHubConnectorConfig,
+    ConnectorsGongConnectorConfig,
+    ConnectorsGoogleConnectorConfig,
+    ConnectorsGreenhouseConnectorConfig,
+    ConnectorsHeronConnectorConfig,
+    ConnectorsHubspotConnectorConfig,
+    ConnectorsIntercomConnectorConfig,
+    ConnectorsJiraConnectorConfig,
+    ConnectorsKustomerConnectorConfig,
+    ConnectorsLeverConnectorConfig,
+    ConnectorsLinearConnectorConfig,
+    ConnectorsLunchmoneyConnectorConfig,
+    ConnectorsMercuryConnectorConfig,
+    ConnectorsMergeConnectorConfig,
+    ConnectorsMicrosoftConnectorConfig,
+    ConnectorsMongoDBConnectorConfig,
+    ConnectorsMootaConnectorConfig,
+    ConnectorsOnebrickConnectorConfig,
+    ConnectorsOutreachConnectorConfig,
+    ConnectorsPipedriveConnectorConfig,
+    ConnectorsPlaidConnectorConfig,
+    ConnectorsPostgresConnectorConfig,
+    ConnectorsQboConnectorConfig,
+    ConnectorsRampConnectorConfig,
+    ConnectorsRevertConnectorConfig,
+    ConnectorsSalesforceConnectorConfig,
+    ConnectorsSalesloftConnectorConfig,
+    ConnectorsSaltedgeConnectorConfig,
+    ConnectorsSlackConnectorConfig,
+    ConnectorsSplitwiseConnectorConfig,
+    ConnectorsSpreadsheetConnectorConfig,
+    ConnectorsStripeConnectorConfig,
+    ConnectorsTellerConnectorConfig,
+    ConnectorsTogglConnectorConfig,
+    ConnectorsTwentyConnectorConfig,
+    ConnectorsVenmoConnectorConfig,
+    ConnectorsWebhookConnectorConfig,
+    ConnectorsWiseConnectorConfig,
+    ConnectorsXeroConnectorConfig,
+    ConnectorsYodleeConnectorConfig,
+    ConnectorsZohodeskConnectorConfig,
+    ConnectorsGoogledriveConnectorConfig,
 ]
-
-
-class ListConnectionConfigsResponse(BaseModel):
-    items: List[Item]
-
-    limit: int
-
-    offset: int
-
-    total: float
