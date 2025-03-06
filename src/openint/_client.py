@@ -55,6 +55,7 @@ from ._base_client import (
 from .types.create_token_response import CreateTokenResponse
 from .types.get_connection_response import GetConnectionResponse
 from .types.check_connection_response import CheckConnectionResponse
+from .types.get_current_user_response import GetCurrentUserResponse
 from .types.list_connections_response import ListConnectionsResponse
 from .types.create_magic_link_response import CreateMagicLinkResponse
 from .types.list_connection_configs_response import ListConnectionConfigsResponse
@@ -476,6 +477,30 @@ class Openint(SyncAPIClient):
                 ),
                 cast_to=cast(
                     Any, GetConnectionResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+    def get_current_user(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> GetCurrentUserResponse:
+        """Get information about the current authenticated user"""
+        return cast(
+            GetCurrentUserResponse,
+            self.get(
+                "/viewer",
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, GetCurrentUserResponse
                 ),  # Union types cannot be passed in as arguments in the type system
             ),
         )
@@ -1147,6 +1172,30 @@ class AsyncOpenint(AsyncAPIClient):
             ),
         )
 
+    async def get_current_user(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> GetCurrentUserResponse:
+        """Get information about the current authenticated user"""
+        return cast(
+            GetCurrentUserResponse,
+            await self.get(
+                "/viewer",
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, GetCurrentUserResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
     def list_connection_configs(
         self,
         *,
@@ -1410,6 +1459,9 @@ class OpenintWithRawResponse:
         self.get_connection = to_raw_response_wrapper(
             client.get_connection,
         )
+        self.get_current_user = to_raw_response_wrapper(
+            client.get_current_user,
+        )
         self.list_connection_configs = to_raw_response_wrapper(
             client.list_connection_configs,
         )
@@ -1431,6 +1483,9 @@ class AsyncOpenintWithRawResponse:
         )
         self.get_connection = async_to_raw_response_wrapper(
             client.get_connection,
+        )
+        self.get_current_user = async_to_raw_response_wrapper(
+            client.get_current_user,
         )
         self.list_connection_configs = async_to_raw_response_wrapper(
             client.list_connection_configs,
@@ -1454,6 +1509,9 @@ class OpenintWithStreamedResponse:
         self.get_connection = to_streamed_response_wrapper(
             client.get_connection,
         )
+        self.get_current_user = to_streamed_response_wrapper(
+            client.get_current_user,
+        )
         self.list_connection_configs = to_streamed_response_wrapper(
             client.list_connection_configs,
         )
@@ -1475,6 +1533,9 @@ class AsyncOpenintWithStreamedResponse:
         )
         self.get_connection = async_to_streamed_response_wrapper(
             client.get_connection,
+        )
+        self.get_current_user = async_to_streamed_response_wrapper(
+            client.get_current_user,
         )
         self.list_connection_configs = async_to_streamed_response_wrapper(
             client.list_connection_configs,
