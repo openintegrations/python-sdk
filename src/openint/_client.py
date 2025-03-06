@@ -492,17 +492,12 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> GetCurrentUserResponse:
         """Get information about the current authenticated user"""
-        return cast(
-            GetCurrentUserResponse,
-            self.get(
-                "/viewer",
-                options=make_request_options(
-                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-                ),
-                cast_to=cast(
-                    Any, GetCurrentUserResponse
-                ),  # Union types cannot be passed in as arguments in the type system
+        return self.get(
+            "/viewer",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
+            cast_to=GetCurrentUserResponse,
         )
 
     def list_connection_configs(
@@ -1183,17 +1178,12 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> GetCurrentUserResponse:
         """Get information about the current authenticated user"""
-        return cast(
-            GetCurrentUserResponse,
-            await self.get(
-                "/viewer",
-                options=make_request_options(
-                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-                ),
-                cast_to=cast(
-                    Any, GetCurrentUserResponse
-                ),  # Union types cannot be passed in as arguments in the type system
+        return await self.get(
+            "/viewer",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
+            cast_to=GetCurrentUserResponse,
         )
 
     def list_connection_configs(
