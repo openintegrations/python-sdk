@@ -578,9 +578,7 @@ class Openint(SyncAPIClient):
                     client_list_connection_configs_params.ClientListConnectionConfigsParams,
                 ),
             ),
-            model=cast(
-                Any, ListConnectionConfigsResponse
-            ),  # Union types cannot be passed in as arguments in the type system
+            model=ListConnectionConfigsResponse,
         )
 
     def list_connections(
@@ -1247,9 +1245,7 @@ class AsyncOpenint(AsyncAPIClient):
                     client_list_connection_configs_params.ClientListConnectionConfigsParams,
                 ),
             ),
-            model=cast(
-                Any, ListConnectionConfigsResponse
-            ),  # Union types cannot be passed in as arguments in the type system
+            model=ListConnectionConfigsResponse,
         )
 
     def list_connections(
