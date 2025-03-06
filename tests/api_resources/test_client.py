@@ -12,6 +12,7 @@ from tests.utils import assert_matches_type
 from openint.types import (
     CreateTokenResponse,
     GetConnectionResponse,
+    GetCurrentUserResponse,
     CheckConnectionResponse,
     CreateMagicLinkResponse,
     ListConnectionsResponse,
@@ -226,6 +227,34 @@ class TestClient:
             client.with_raw_response.get_connection(
                 id="",
             )
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_get_current_user(self, client: Openint) -> None:
+        client_ = client.get_current_user()
+        assert_matches_type(GetCurrentUserResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_raw_response_get_current_user(self, client: Openint) -> None:
+        response = client.with_raw_response.get_current_user()
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client_ = response.parse()
+        assert_matches_type(GetCurrentUserResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_streaming_response_get_current_user(self, client: Openint) -> None:
+        with client.with_streaming_response.get_current_user() as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client_ = response.parse()
+            assert_matches_type(GetCurrentUserResponse, client_, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
 
     @pytest.mark.skip()
     @parametrize
@@ -513,6 +542,34 @@ class TestAsyncClient:
             await async_client.with_raw_response.get_connection(
                 id="",
             )
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_get_current_user(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.get_current_user()
+        assert_matches_type(GetCurrentUserResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_raw_response_get_current_user(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.get_current_user()
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client = await response.parse()
+        assert_matches_type(GetCurrentUserResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_streaming_response_get_current_user(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.get_current_user() as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client = await response.parse()
+            assert_matches_type(GetCurrentUserResponse, client, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
 
     @pytest.mark.skip()
     @parametrize
