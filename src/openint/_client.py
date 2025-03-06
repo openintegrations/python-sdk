@@ -143,7 +143,7 @@ class Openint(SyncAPIClient):
         api_key = self.api_key
         if api_key is None:
             return {}
-        return {"authorization": api_key}
+        return {"Authorization": f"Bearer {api_key}"}
 
     @property
     def _customer_token(self) -> dict[str, str]:
@@ -163,9 +163,9 @@ class Openint(SyncAPIClient):
 
     @override
     def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
-        if self.api_key and headers.get("authorization"):
+        if self.api_key and headers.get("Authorization"):
             return
-        if isinstance(custom_headers.get("authorization"), Omit):
+        if isinstance(custom_headers.get("Authorization"), Omit):
             return
 
         if self.customer_token and headers.get("Authorization"):
@@ -174,7 +174,7 @@ class Openint(SyncAPIClient):
             return
 
         raise TypeError(
-            '"Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `authorization` or `Authorization` headers to be explicitly omitted"'
+            '"Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `Authorization` or `Authorization` headers to be explicitly omitted"'
         )
 
     def copy(
@@ -829,7 +829,7 @@ class AsyncOpenint(AsyncAPIClient):
         api_key = self.api_key
         if api_key is None:
             return {}
-        return {"authorization": api_key}
+        return {"Authorization": f"Bearer {api_key}"}
 
     @property
     def _customer_token(self) -> dict[str, str]:
@@ -849,9 +849,9 @@ class AsyncOpenint(AsyncAPIClient):
 
     @override
     def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
-        if self.api_key and headers.get("authorization"):
+        if self.api_key and headers.get("Authorization"):
             return
-        if isinstance(custom_headers.get("authorization"), Omit):
+        if isinstance(custom_headers.get("Authorization"), Omit):
             return
 
         if self.customer_token and headers.get("Authorization"):
@@ -860,7 +860,7 @@ class AsyncOpenint(AsyncAPIClient):
             return
 
         raise TypeError(
-            '"Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `authorization` or `Authorization` headers to be explicitly omitted"'
+            '"Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `Authorization` or `Authorization` headers to be explicitly omitted"'
         )
 
     def copy(

@@ -326,21 +326,21 @@ class TestOpenint:
     def test_validate_headers(self) -> None:
         client = Openint(base_url=base_url, api_key=api_key, _strict_response_validation=True)
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
-        assert request.headers.get("authorization") == api_key
+        assert request.headers.get("Authorization") == f"Bearer {api_key}"
 
         with update_env(**{"OPENINT_API_KEY": Omit()}):
             client2 = Openint(base_url=base_url, api_key=None, _strict_response_validation=True)
 
         with pytest.raises(
             TypeError,
-            match="Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `authorization` or `Authorization` headers to be explicitly omitted",
+            match="Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `Authorization` or `Authorization` headers to be explicitly omitted",
         ):
             client2._build_request(FinalRequestOptions(method="get", url="/foo"))
 
         request2 = client2._build_request(
-            FinalRequestOptions(method="get", url="/foo", headers={"authorization": Omit()})
+            FinalRequestOptions(method="get", url="/foo", headers={"Authorization": Omit()})
         )
-        assert request2.headers.get("authorization") is None
+        assert request2.headers.get("Authorization") is None
 
     def test_default_query_option(self) -> None:
         client = Openint(
@@ -1067,21 +1067,21 @@ class TestAsyncOpenint:
     def test_validate_headers(self) -> None:
         client = AsyncOpenint(base_url=base_url, api_key=api_key, _strict_response_validation=True)
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
-        assert request.headers.get("authorization") == api_key
+        assert request.headers.get("Authorization") == f"Bearer {api_key}"
 
         with update_env(**{"OPENINT_API_KEY": Omit()}):
             client2 = AsyncOpenint(base_url=base_url, api_key=None, _strict_response_validation=True)
 
         with pytest.raises(
             TypeError,
-            match="Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `authorization` or `Authorization` headers to be explicitly omitted",
+            match="Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `Authorization` or `Authorization` headers to be explicitly omitted",
         ):
             client2._build_request(FinalRequestOptions(method="get", url="/foo"))
 
         request2 = client2._build_request(
-            FinalRequestOptions(method="get", url="/foo", headers={"authorization": Omit()})
+            FinalRequestOptions(method="get", url="/foo", headers={"Authorization": Omit()})
         )
-        assert request2.headers.get("authorization") is None
+        assert request2.headers.get("Authorization") is None
 
     def test_default_query_option(self) -> None:
         client = AsyncOpenint(
