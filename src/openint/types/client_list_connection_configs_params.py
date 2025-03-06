@@ -62,5 +62,7 @@ class ClientListConnectionConfigsParams(TypedDict, total=False):
     expand: List[Literal["connector"]]
 
     limit: int
+    """Limit the number of items returned"""
 
     offset: int
+    """Offset the items returned"""
