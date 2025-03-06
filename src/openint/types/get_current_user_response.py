@@ -8,4 +8,4 @@ __all__ = ["GetCurrentUserResponse"]
 
 
 class GetCurrentUserResponse(BaseModel):
-    role: Literal["customer", "org", "anon"]
+    role: Literal["customer", "org", "anon", "user"]
