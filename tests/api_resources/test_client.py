@@ -10,9 +10,10 @@ import pytest
 from openint import Openint, AsyncOpenint
 from tests.utils import assert_matches_type
 from openint.types import (
-    ListEventsResponse,
+    CreateTokenResponse,
     GetConnectionResponse,
     CheckConnectionResponse,
+    CreateMagicLinkResponse,
     ListConnectionsResponse,
     ListConnectionConfigsResponse,
 )
@@ -64,6 +65,113 @@ class TestClient:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             client.with_raw_response.check_connection(
                 "",
+            )
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_create_magic_link(self, client: Openint) -> None:
+        client_ = client.create_magic_link(
+            customer_id="customer_id",
+        )
+        assert_matches_type(CreateMagicLinkResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_create_magic_link_with_all_params(self, client: Openint) -> None:
+        client_ = client.create_magic_link(
+            customer_id="customer_id",
+            connection_id="conn_",
+            connector_names=["aircall"],
+            redirect_url="redirect_url",
+            theme="light",
+            validity_in_seconds=0,
+            view="manage",
+        )
+        assert_matches_type(CreateMagicLinkResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_raw_response_create_magic_link(self, client: Openint) -> None:
+        response = client.with_raw_response.create_magic_link(
+            customer_id="customer_id",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client_ = response.parse()
+        assert_matches_type(CreateMagicLinkResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_streaming_response_create_magic_link(self, client: Openint) -> None:
+        with client.with_streaming_response.create_magic_link(
+            customer_id="customer_id",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client_ = response.parse()
+            assert_matches_type(CreateMagicLinkResponse, client_, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_path_params_create_magic_link(self, client: Openint) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `customer_id` but received ''"):
+            client.with_raw_response.create_magic_link(
+                customer_id="",
+            )
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_create_token(self, client: Openint) -> None:
+        client_ = client.create_token(
+            customer_id="customer_id",
+        )
+        assert_matches_type(CreateTokenResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_create_token_with_all_params(self, client: Openint) -> None:
+        client_ = client.create_token(
+            customer_id="customer_id",
+            validity_in_seconds=1,
+        )
+        assert_matches_type(CreateTokenResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_raw_response_create_token(self, client: Openint) -> None:
+        response = client.with_raw_response.create_token(
+            customer_id="customer_id",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client_ = response.parse()
+        assert_matches_type(CreateTokenResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_streaming_response_create_token(self, client: Openint) -> None:
+        with client.with_streaming_response.create_token(
+            customer_id="customer_id",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client_ = response.parse()
+            assert_matches_type(CreateTokenResponse, client_, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_path_params_create_token(self, client: Openint) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `customer_id` but received ''"):
+            client.with_raw_response.create_token(
+                customer_id="",
             )
 
     @pytest.mark.skip()
@@ -131,7 +239,7 @@ class TestClient:
         client_ = client.list_connection_configs(
             connector_name="aircall",
             expand=["connector"],
-            limit=1,
+            limit=0,
             offset=0,
         )
         assert_matches_type(SyncOffsetPagination[ListConnectionConfigsResponse], client_, path=["response"])
@@ -173,7 +281,7 @@ class TestClient:
             customer_id="customer_id",
             expand=["connector"],
             include_secrets="none",
-            limit=1,
+            limit=0,
             offset=0,
         )
         assert_matches_type(SyncOffsetPagination[ListConnectionsResponse], client_, path=["response"])
@@ -197,43 +305,6 @@ class TestClient:
 
             client_ = response.parse()
             assert_matches_type(SyncOffsetPagination[ListConnectionsResponse], client_, path=["response"])
-
-        assert cast(Any, response.is_closed) is True
-
-    @pytest.mark.skip()
-    @parametrize
-    def test_method_list_events(self, client: Openint) -> None:
-        client_ = client.list_events()
-        assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    def test_method_list_events_with_all_params(self, client: Openint) -> None:
-        client_ = client.list_events(
-            limit=1,
-            offset=0,
-        )
-        assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    def test_raw_response_list_events(self, client: Openint) -> None:
-        response = client.with_raw_response.list_events()
-
-        assert response.is_closed is True
-        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
-        client_ = response.parse()
-        assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    def test_streaming_response_list_events(self, client: Openint) -> None:
-        with client.with_streaming_response.list_events() as response:
-            assert not response.is_closed
-            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
-
-            client_ = response.parse()
-            assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -281,6 +352,113 @@ class TestAsyncClient:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             await async_client.with_raw_response.check_connection(
                 "",
+            )
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_create_magic_link(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.create_magic_link(
+            customer_id="customer_id",
+        )
+        assert_matches_type(CreateMagicLinkResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_create_magic_link_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.create_magic_link(
+            customer_id="customer_id",
+            connection_id="conn_",
+            connector_names=["aircall"],
+            redirect_url="redirect_url",
+            theme="light",
+            validity_in_seconds=0,
+            view="manage",
+        )
+        assert_matches_type(CreateMagicLinkResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_raw_response_create_magic_link(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.create_magic_link(
+            customer_id="customer_id",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client = await response.parse()
+        assert_matches_type(CreateMagicLinkResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_streaming_response_create_magic_link(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.create_magic_link(
+            customer_id="customer_id",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client = await response.parse()
+            assert_matches_type(CreateMagicLinkResponse, client, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_path_params_create_magic_link(self, async_client: AsyncOpenint) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `customer_id` but received ''"):
+            await async_client.with_raw_response.create_magic_link(
+                customer_id="",
+            )
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_create_token(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.create_token(
+            customer_id="customer_id",
+        )
+        assert_matches_type(CreateTokenResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_create_token_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.create_token(
+            customer_id="customer_id",
+            validity_in_seconds=1,
+        )
+        assert_matches_type(CreateTokenResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_raw_response_create_token(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.create_token(
+            customer_id="customer_id",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client = await response.parse()
+        assert_matches_type(CreateTokenResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_streaming_response_create_token(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.create_token(
+            customer_id="customer_id",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client = await response.parse()
+            assert_matches_type(CreateTokenResponse, client, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_path_params_create_token(self, async_client: AsyncOpenint) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `customer_id` but received ''"):
+            await async_client.with_raw_response.create_token(
+                customer_id="",
             )
 
     @pytest.mark.skip()
@@ -348,7 +526,7 @@ class TestAsyncClient:
         client = await async_client.list_connection_configs(
             connector_name="aircall",
             expand=["connector"],
-            limit=1,
+            limit=0,
             offset=0,
         )
         assert_matches_type(AsyncOffsetPagination[ListConnectionConfigsResponse], client, path=["response"])
@@ -390,7 +568,7 @@ class TestAsyncClient:
             customer_id="customer_id",
             expand=["connector"],
             include_secrets="none",
-            limit=1,
+            limit=0,
             offset=0,
         )
         assert_matches_type(AsyncOffsetPagination[ListConnectionsResponse], client, path=["response"])
@@ -414,42 +592,5 @@ class TestAsyncClient:
 
             client = await response.parse()
             assert_matches_type(AsyncOffsetPagination[ListConnectionsResponse], client, path=["response"])
-
-        assert cast(Any, response.is_closed) is True
-
-    @pytest.mark.skip()
-    @parametrize
-    async def test_method_list_events(self, async_client: AsyncOpenint) -> None:
-        client = await async_client.list_events()
-        assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    async def test_method_list_events_with_all_params(self, async_client: AsyncOpenint) -> None:
-        client = await async_client.list_events(
-            limit=1,
-            offset=0,
-        )
-        assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    async def test_raw_response_list_events(self, async_client: AsyncOpenint) -> None:
-        response = await async_client.with_raw_response.list_events()
-
-        assert response.is_closed is True
-        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
-        client = await response.parse()
-        assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    async def test_streaming_response_list_events(self, async_client: AsyncOpenint) -> None:
-        async with async_client.with_streaming_response.list_events() as response:
-            assert not response.is_closed
-            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
-
-            client = await response.parse()
-            assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
 
         assert cast(Any, response.is_closed) is True
