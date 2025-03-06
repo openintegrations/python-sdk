@@ -11,9 +11,10 @@ import httpx
 from . import _exceptions
 from ._qs import Querystring
 from .types import (
-    client_list_events_params,
+    client_create_token_params,
     client_get_connection_params,
     client_list_connections_params,
+    client_create_magic_link_params,
     client_list_connection_configs_params,
 )
 from ._types import (
@@ -51,10 +52,11 @@ from ._base_client import (
     AsyncPaginator,
     make_request_options,
 )
-from .types.list_events_response import ListEventsResponse
+from .types.create_token_response import CreateTokenResponse
 from .types.get_connection_response import GetConnectionResponse
 from .types.check_connection_response import CheckConnectionResponse
 from .types.list_connections_response import ListConnectionsResponse
+from .types.create_magic_link_response import CreateMagicLinkResponse
 from .types.list_connection_configs_response import ListConnectionConfigsResponse
 
 __all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Openint", "AsyncOpenint", "Client", "AsyncClient"]
@@ -242,6 +244,8 @@ class Openint(SyncAPIClient):
         Verify that a connection is healthy
 
         Args:
+          id: The id of the connection, starts with `conn_`
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -258,6 +262,163 @@ class Openint(SyncAPIClient):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=CheckConnectionResponse,
+        )
+
+    def create_magic_link(
+        self,
+        customer_id: str,
+        *,
+        connection_id: str | NotGiven = NOT_GIVEN,
+        connector_names: List[
+            Literal[
+                "aircall",
+                "airtable",
+                "apollo",
+                "beancount",
+                "brex",
+                "coda",
+                "confluence",
+                "discord",
+                "finch",
+                "firebase",
+                "foreceipt",
+                "github",
+                "gong",
+                "google",
+                "greenhouse",
+                "heron",
+                "hubspot",
+                "intercom",
+                "jira",
+                "kustomer",
+                "lever",
+                "linear",
+                "lunchmoney",
+                "merge",
+                "microsoft",
+                "moota",
+                "onebrick",
+                "outreach",
+                "pipedrive",
+                "plaid",
+                "qbo",
+                "ramp",
+                "salesforce",
+                "salesloft",
+                "saltedge",
+                "slack",
+                "splitwise",
+                "stripe",
+                "teller",
+                "toggl",
+                "twenty",
+                "wise",
+                "xero",
+                "yodlee",
+                "zohodesk",
+                "googledrive",
+            ]
+        ]
+        | NotGiven = NOT_GIVEN,
+        redirect_url: str | NotGiven = NOT_GIVEN,
+        theme: Literal["light", "dark"] | NotGiven = NOT_GIVEN,
+        validity_in_seconds: float | NotGiven = NOT_GIVEN,
+        view: Literal["manage", "manage-deeplink", "add", "add-deeplink"] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> CreateMagicLinkResponse:
+        """
+        Create a magic link for connecting integrations
+
+        Args:
+          customer_id: The id of the customer in your application. Ensure it is unique for that
+              customer.
+
+          connection_id: The specific connection id to load
+
+          connector_names: Filter integrations by connector names
+
+          redirect_url: Where to send user to after connect / if they press back button
+
+          theme: Magic Link display theme
+
+          validity_in_seconds: How long the magic link will be valid for (in seconds) before it expires
+
+          view: Magic Link tab view to load in the connect magic link
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not customer_id:
+            raise ValueError(f"Expected a non-empty value for `customer_id` but received {customer_id!r}")
+        return self.post(
+            f"/customer/{customer_id}/magic-link",
+            body=maybe_transform(
+                {
+                    "connection_id": connection_id,
+                    "connector_names": connector_names,
+                    "redirect_url": redirect_url,
+                    "theme": theme,
+                    "validity_in_seconds": validity_in_seconds,
+                    "view": view,
+                },
+                client_create_magic_link_params.ClientCreateMagicLinkParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CreateMagicLinkResponse,
+        )
+
+    def create_token(
+        self,
+        customer_id: str,
+        *,
+        validity_in_seconds: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> CreateTokenResponse:
+        """
+        Create an authentication token for a customer
+
+        Args:
+          customer_id: The id of the customer in your application. Ensure it is unique for that
+              customer.
+
+          validity_in_seconds: How long the token will be valid for (in seconds) before it expires
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not customer_id:
+            raise ValueError(f"Expected a non-empty value for `customer_id` but received {customer_id!r}")
+        return self.post(
+            f"/customer/{customer_id}/token",
+            body=maybe_transform(
+                {"validity_in_seconds": validity_in_seconds}, client_create_token_params.ClientCreateTokenParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CreateTokenResponse,
         )
 
     def get_connection(
@@ -278,6 +439,8 @@ class Openint(SyncAPIClient):
         Get details of a specific connection, including credentials
 
         Args:
+          id: The id of the connection, starts with `conn_`
+
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
           refresh_policy: Controls credential refresh: none (never), force (always), or auto (when
@@ -385,6 +548,10 @@ class Openint(SyncAPIClient):
         Args:
           connector_name: The name of the connector
 
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -485,9 +652,18 @@ class Openint(SyncAPIClient):
         List all connections with optional filtering
 
         Args:
+          connector_config_id: The id of the connector config, starts with `ccfg_`
+
           connector_name: The name of the connector
 
+          customer_id: The id of the customer in your application. Ensure it is unique for that
+              customer.
+
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
+
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
 
           extra_headers: Send extra headers
 
@@ -519,49 +695,6 @@ class Openint(SyncAPIClient):
                 ),
             ),
             model=cast(Any, ListConnectionsResponse),  # Union types cannot be passed in as arguments in the type system
-        )
-
-    def list_events(
-        self,
-        *,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncOffsetPagination[ListEventsResponse]:
-        """
-        List all events for an organization
-
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        return self.get_api_list(
-            "/event",
-            page=SyncOffsetPagination[ListEventsResponse],
-            options=make_request_options(
-                extra_headers=extra_headers,
-                extra_query=extra_query,
-                extra_body=extra_body,
-                timeout=timeout,
-                query=maybe_transform(
-                    {
-                        "limit": limit,
-                        "offset": offset,
-                    },
-                    client_list_events_params.ClientListEventsParams,
-                ),
-            ),
-            model=ListEventsResponse,
         )
 
     @override
@@ -780,6 +913,8 @@ class AsyncOpenint(AsyncAPIClient):
         Verify that a connection is healthy
 
         Args:
+          id: The id of the connection, starts with `conn_`
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -796,6 +931,163 @@ class AsyncOpenint(AsyncAPIClient):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=CheckConnectionResponse,
+        )
+
+    async def create_magic_link(
+        self,
+        customer_id: str,
+        *,
+        connection_id: str | NotGiven = NOT_GIVEN,
+        connector_names: List[
+            Literal[
+                "aircall",
+                "airtable",
+                "apollo",
+                "beancount",
+                "brex",
+                "coda",
+                "confluence",
+                "discord",
+                "finch",
+                "firebase",
+                "foreceipt",
+                "github",
+                "gong",
+                "google",
+                "greenhouse",
+                "heron",
+                "hubspot",
+                "intercom",
+                "jira",
+                "kustomer",
+                "lever",
+                "linear",
+                "lunchmoney",
+                "merge",
+                "microsoft",
+                "moota",
+                "onebrick",
+                "outreach",
+                "pipedrive",
+                "plaid",
+                "qbo",
+                "ramp",
+                "salesforce",
+                "salesloft",
+                "saltedge",
+                "slack",
+                "splitwise",
+                "stripe",
+                "teller",
+                "toggl",
+                "twenty",
+                "wise",
+                "xero",
+                "yodlee",
+                "zohodesk",
+                "googledrive",
+            ]
+        ]
+        | NotGiven = NOT_GIVEN,
+        redirect_url: str | NotGiven = NOT_GIVEN,
+        theme: Literal["light", "dark"] | NotGiven = NOT_GIVEN,
+        validity_in_seconds: float | NotGiven = NOT_GIVEN,
+        view: Literal["manage", "manage-deeplink", "add", "add-deeplink"] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> CreateMagicLinkResponse:
+        """
+        Create a magic link for connecting integrations
+
+        Args:
+          customer_id: The id of the customer in your application. Ensure it is unique for that
+              customer.
+
+          connection_id: The specific connection id to load
+
+          connector_names: Filter integrations by connector names
+
+          redirect_url: Where to send user to after connect / if they press back button
+
+          theme: Magic Link display theme
+
+          validity_in_seconds: How long the magic link will be valid for (in seconds) before it expires
+
+          view: Magic Link tab view to load in the connect magic link
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not customer_id:
+            raise ValueError(f"Expected a non-empty value for `customer_id` but received {customer_id!r}")
+        return await self.post(
+            f"/customer/{customer_id}/magic-link",
+            body=await async_maybe_transform(
+                {
+                    "connection_id": connection_id,
+                    "connector_names": connector_names,
+                    "redirect_url": redirect_url,
+                    "theme": theme,
+                    "validity_in_seconds": validity_in_seconds,
+                    "view": view,
+                },
+                client_create_magic_link_params.ClientCreateMagicLinkParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CreateMagicLinkResponse,
+        )
+
+    async def create_token(
+        self,
+        customer_id: str,
+        *,
+        validity_in_seconds: float | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> CreateTokenResponse:
+        """
+        Create an authentication token for a customer
+
+        Args:
+          customer_id: The id of the customer in your application. Ensure it is unique for that
+              customer.
+
+          validity_in_seconds: How long the token will be valid for (in seconds) before it expires
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not customer_id:
+            raise ValueError(f"Expected a non-empty value for `customer_id` but received {customer_id!r}")
+        return await self.post(
+            f"/customer/{customer_id}/token",
+            body=await async_maybe_transform(
+                {"validity_in_seconds": validity_in_seconds}, client_create_token_params.ClientCreateTokenParams
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=CreateTokenResponse,
         )
 
     async def get_connection(
@@ -816,6 +1108,8 @@ class AsyncOpenint(AsyncAPIClient):
         Get details of a specific connection, including credentials
 
         Args:
+          id: The id of the connection, starts with `conn_`
+
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
           refresh_policy: Controls credential refresh: none (never), force (always), or auto (when
@@ -923,6 +1217,10 @@ class AsyncOpenint(AsyncAPIClient):
         Args:
           connector_name: The name of the connector
 
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1023,9 +1321,18 @@ class AsyncOpenint(AsyncAPIClient):
         List all connections with optional filtering
 
         Args:
+          connector_config_id: The id of the connector config, starts with `ccfg_`
+
           connector_name: The name of the connector
 
+          customer_id: The id of the customer in your application. Ensure it is unique for that
+              customer.
+
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
+
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
 
           extra_headers: Send extra headers
 
@@ -1057,49 +1364,6 @@ class AsyncOpenint(AsyncAPIClient):
                 ),
             ),
             model=cast(Any, ListConnectionsResponse),  # Union types cannot be passed in as arguments in the type system
-        )
-
-    def list_events(
-        self,
-        *,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[ListEventsResponse, AsyncOffsetPagination[ListEventsResponse]]:
-        """
-        List all events for an organization
-
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        return self.get_api_list(
-            "/event",
-            page=AsyncOffsetPagination[ListEventsResponse],
-            options=make_request_options(
-                extra_headers=extra_headers,
-                extra_query=extra_query,
-                extra_body=extra_body,
-                timeout=timeout,
-                query=maybe_transform(
-                    {
-                        "limit": limit,
-                        "offset": offset,
-                    },
-                    client_list_events_params.ClientListEventsParams,
-                ),
-            ),
-            model=ListEventsResponse,
         )
 
     @override
@@ -1141,6 +1405,12 @@ class OpenintWithRawResponse:
         self.check_connection = to_raw_response_wrapper(
             client.check_connection,
         )
+        self.create_magic_link = to_raw_response_wrapper(
+            client.create_magic_link,
+        )
+        self.create_token = to_raw_response_wrapper(
+            client.create_token,
+        )
         self.get_connection = to_raw_response_wrapper(
             client.get_connection,
         )
@@ -1150,15 +1420,18 @@ class OpenintWithRawResponse:
         self.list_connections = to_raw_response_wrapper(
             client.list_connections,
         )
-        self.list_events = to_raw_response_wrapper(
-            client.list_events,
-        )
 
 
 class AsyncOpenintWithRawResponse:
     def __init__(self, client: AsyncOpenint) -> None:
         self.check_connection = async_to_raw_response_wrapper(
             client.check_connection,
+        )
+        self.create_magic_link = async_to_raw_response_wrapper(
+            client.create_magic_link,
+        )
+        self.create_token = async_to_raw_response_wrapper(
+            client.create_token,
         )
         self.get_connection = async_to_raw_response_wrapper(
             client.get_connection,
@@ -1169,15 +1442,18 @@ class AsyncOpenintWithRawResponse:
         self.list_connections = async_to_raw_response_wrapper(
             client.list_connections,
         )
-        self.list_events = async_to_raw_response_wrapper(
-            client.list_events,
-        )
 
 
 class OpenintWithStreamedResponse:
     def __init__(self, client: Openint) -> None:
         self.check_connection = to_streamed_response_wrapper(
             client.check_connection,
+        )
+        self.create_magic_link = to_streamed_response_wrapper(
+            client.create_magic_link,
+        )
+        self.create_token = to_streamed_response_wrapper(
+            client.create_token,
         )
         self.get_connection = to_streamed_response_wrapper(
             client.get_connection,
@@ -1188,15 +1464,18 @@ class OpenintWithStreamedResponse:
         self.list_connections = to_streamed_response_wrapper(
             client.list_connections,
         )
-        self.list_events = to_streamed_response_wrapper(
-            client.list_events,
-        )
 
 
 class AsyncOpenintWithStreamedResponse:
     def __init__(self, client: AsyncOpenint) -> None:
         self.check_connection = async_to_streamed_response_wrapper(
             client.check_connection,
+        )
+        self.create_magic_link = async_to_streamed_response_wrapper(
+            client.create_magic_link,
+        )
+        self.create_token = async_to_streamed_response_wrapper(
+            client.create_token,
         )
         self.get_connection = async_to_streamed_response_wrapper(
             client.get_connection,
@@ -1206,9 +1485,6 @@ class AsyncOpenintWithStreamedResponse:
         )
         self.list_connections = async_to_streamed_response_wrapper(
             client.list_connections,
-        )
-        self.list_events = async_to_streamed_response_wrapper(
-            client.list_events,
         )
 
 
