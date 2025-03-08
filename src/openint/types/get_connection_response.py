@@ -221,6 +221,8 @@ __all__ = [
     "ConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsZohodeskConnectionSettingsSettingsError",
     "ConnectorsGoogledriveConnectionSettings",
+    "ConnectorsGoogledriveConnectionSettingsSettings",
+    "ConnectorsGoogledriveConnectionSettingsSettingsOAuth",
 ]
 
 
@@ -1752,6 +1754,7 @@ class ConnectorsPlaidConnectionSettings(BaseModel):
 
 class ConnectorsPostgresConnectionSettingsSettingsSourceQueries(BaseModel):
     invoice: Optional[str] = None
+    """Should order by lastModifiedAt and id descending"""
 
 
 class ConnectorsPostgresConnectionSettingsSettings(BaseModel):
@@ -2522,10 +2525,20 @@ class ConnectorsZohodeskConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorsGoogledriveConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: object
+
+
+class ConnectorsGoogledriveConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsGoogledriveConnectionSettingsSettingsOAuth
+
+    metadata: Optional[Dict[str, object]] = None
+
+
 class ConnectorsGoogledriveConnectionSettings(BaseModel):
     connector_name: Literal["googledrive"]
 
-    settings: None
+    settings: ConnectorsGoogledriveConnectionSettingsSettings
 
     id: Optional[str] = None
 
