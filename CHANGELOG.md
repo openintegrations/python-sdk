@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.0-alpha.3 (2025-03-08)
+
+Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/openintegrations/python-sdk/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
+
+### Features
+
+* **api:** Adding viewer endpoint ([#21](https://github.com/openintegrations/python-sdk/issues/21)) ([94978b8](https://github.com/openintegrations/python-sdk/commit/94978b8912be1b7aa481c1a256e2253064c34183))
+* **api:** Fixing api key auth ([#22](https://github.com/openintegrations/python-sdk/issues/22)) ([9ab6603](https://github.com/openintegrations/python-sdk/commit/9ab66033155b216c94ed2e72a3fbadce6a5f1982))
+* **api:** manual updates ([#15](https://github.com/openintegrations/python-sdk/issues/15)) ([199f161](https://github.com/openintegrations/python-sdk/commit/199f1610fbc61365c5a4184155b5c99bd72bc116))
+* **api:** manual updates ([#17](https://github.com/openintegrations/python-sdk/issues/17)) ([280560d](https://github.com/openintegrations/python-sdk/commit/280560daa08c6650e3f328eddca4352502b956d2))
+* **api:** manual updates ([#18](https://github.com/openintegrations/python-sdk/issues/18)) ([524d083](https://github.com/openintegrations/python-sdk/commit/524d083ae36025ce93b4b33ac33d2074d7efae74))
+* **api:** manual updates ([#20](https://github.com/openintegrations/python-sdk/issues/20)) ([375e0a4](https://github.com/openintegrations/python-sdk/commit/375e0a47770a2d1b39407c22f3f4bda815ee12cd))
+* **api:** Updating viewer enum ([#23](https://github.com/openintegrations/python-sdk/issues/23)) ([4365bf7](https://github.com/openintegrations/python-sdk/commit/4365bf779458b6ac89af2b665ed1d46072a9cf7b))
+* **docs:** updating documented docs for mintlify ([#19](https://github.com/openintegrations/python-sdk/issues/19)) ([a6f4aae](https://github.com/openintegrations/python-sdk/commit/a6f4aaee848d37d7b1f82d5ba6738db8ee4ca420))
+* **docs:** updating documented docs for mintlify ([#24](https://github.com/openintegrations/python-sdk/issues/24)) ([75a1fcd](https://github.com/openintegrations/python-sdk/commit/75a1fcde743331a0a788aa16992f13ecba2c7365))
+
 ## 0.1.0-alpha.2 (2025-03-05)
 
 Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/openintegrations/python-sdk/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)

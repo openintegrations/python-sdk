@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import os
-from typing import Any, List, Union, Mapping, Optional, cast
+from typing import Any, List, Union, Mapping, cast
 from typing_extensions import Self, Literal, override
 
 import httpx
@@ -11,7 +11,6 @@ import httpx
 from . import _exceptions
 from ._qs import Querystring
 from .types import (
-    client_list_events_params,
     client_create_token_params,
     client_get_connection_params,
     client_list_connections_params,
@@ -53,10 +52,10 @@ from ._base_client import (
     AsyncPaginator,
     make_request_options,
 )
-from .types.list_events_response import ListEventsResponse
 from .types.create_token_response import CreateTokenResponse
 from .types.get_connection_response import GetConnectionResponse
 from .types.check_connection_response import CheckConnectionResponse
+from .types.get_current_user_response import GetCurrentUserResponse
 from .types.list_connections_response import ListConnectionsResponse
 from .types.create_magic_link_response import CreateMagicLinkResponse
 from .types.list_connection_configs_response import ListConnectionConfigsResponse
@@ -133,21 +132,21 @@ class Openint(SyncAPIClient):
     @property
     @override
     def auth_headers(self) -> dict[str, str]:
-        if self._organization_auth:
-            return self._organization_auth
-        if self._customer_auth:
-            return self._customer_auth
+        if self._api_key:
+            return self._api_key
+        if self._customer_token:
+            return self._customer_token
         return {}
 
     @property
-    def _organization_auth(self) -> dict[str, str]:
+    def _api_key(self) -> dict[str, str]:
         api_key = self.api_key
         if api_key is None:
             return {}
-        return {"authorization": api_key}
+        return {"Authorization": f"Bearer {api_key}"}
 
     @property
-    def _customer_auth(self) -> dict[str, str]:
+    def _customer_token(self) -> dict[str, str]:
         customer_token = self.customer_token
         if customer_token is None:
             return {}
@@ -164,9 +163,9 @@ class Openint(SyncAPIClient):
 
     @override
     def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
-        if self.api_key and headers.get("authorization"):
+        if self.api_key and headers.get("Authorization"):
             return
-        if isinstance(custom_headers.get("authorization"), Omit):
+        if isinstance(custom_headers.get("Authorization"), Omit):
             return
 
         if self.customer_token and headers.get("Authorization"):
@@ -175,7 +174,7 @@ class Openint(SyncAPIClient):
             return
 
         raise TypeError(
-            '"Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `authorization` or `Authorization` headers to be explicitly omitted"'
+            '"Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `Authorization` or `Authorization` headers to be explicitly omitted"'
         )
 
     def copy(
@@ -246,6 +245,8 @@ class Openint(SyncAPIClient):
         Verify that a connection is healthy
 
         Args:
+          id: The id of the connection, starts with `conn_`
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -266,10 +267,10 @@ class Openint(SyncAPIClient):
 
     def create_magic_link(
         self,
-        *,
         customer_id: str,
-        connection_id: Optional[str] | NotGiven = NOT_GIVEN,
-        connector_names: Optional[
+        *,
+        connection_id: str | NotGiven = NOT_GIVEN,
+        connector_names: List[
             Literal[
                 "aircall",
                 "airtable",
@@ -278,12 +279,10 @@ class Openint(SyncAPIClient):
                 "brex",
                 "coda",
                 "confluence",
-                "debug",
                 "discord",
                 "finch",
                 "firebase",
                 "foreceipt",
-                "fs",
                 "github",
                 "gong",
                 "google",
@@ -298,27 +297,22 @@ class Openint(SyncAPIClient):
                 "lunchmoney",
                 "merge",
                 "microsoft",
-                "mongodb",
                 "moota",
                 "onebrick",
                 "outreach",
                 "pipedrive",
                 "plaid",
-                "postgres",
                 "qbo",
                 "ramp",
-                "revert",
                 "salesforce",
                 "salesloft",
                 "saltedge",
                 "slack",
                 "splitwise",
-                "spreadsheet",
                 "stripe",
                 "teller",
                 "toggl",
                 "twenty",
-                "webhook",
                 "wise",
                 "xero",
                 "yodlee",
@@ -327,11 +321,10 @@ class Openint(SyncAPIClient):
             ]
         ]
         | NotGiven = NOT_GIVEN,
-        email: str | NotGiven = NOT_GIVEN,
-        redirect_url: Optional[str] | NotGiven = NOT_GIVEN,
-        theme: Optional[Literal["light", "dark"]] | NotGiven = NOT_GIVEN,
+        redirect_url: str | NotGiven = NOT_GIVEN,
+        theme: Literal["light", "dark"] | NotGiven = NOT_GIVEN,
         validity_in_seconds: float | NotGiven = NOT_GIVEN,
-        view: Optional[Literal["manage", "manage-deeplink", "add", "add-deeplink"]] | NotGiven = NOT_GIVEN,
+        view: Literal["manage", "manage-deeplink", "add", "add-deeplink"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -343,9 +336,12 @@ class Openint(SyncAPIClient):
         Create a magic link for connecting integrations
 
         Args:
-          connector_names: Filter integrations by comma separated connector names
+          customer_id: The id of the customer in your application. Ensure it is unique for that
+              customer.
 
-          email: The email address of the customer
+          connection_id: The specific connection id to load
+
+          connector_names: Filter integrations by connector names
 
           redirect_url: Where to send user to after connect / if they press back button
 
@@ -353,7 +349,7 @@ class Openint(SyncAPIClient):
 
           validity_in_seconds: How long the magic link will be valid for (in seconds) before it expires
 
-          view: Magic Link tab view
+          view: Magic Link tab view to load in the connect magic link
 
           extra_headers: Send extra headers
 
@@ -363,14 +359,14 @@ class Openint(SyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
+        if not customer_id:
+            raise ValueError(f"Expected a non-empty value for `customer_id` but received {customer_id!r}")
         return self.post(
-            "/connect/magic-link",
+            f"/customer/{customer_id}/magic-link",
             body=maybe_transform(
                 {
-                    "customer_id": customer_id,
                     "connection_id": connection_id,
                     "connector_names": connector_names,
-                    "email": email,
                     "redirect_url": redirect_url,
                     "theme": theme,
                     "validity_in_seconds": validity_in_seconds,
@@ -386,8 +382,8 @@ class Openint(SyncAPIClient):
 
     def create_token(
         self,
-        *,
         customer_id: str,
+        *,
         validity_in_seconds: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -400,8 +396,8 @@ class Openint(SyncAPIClient):
         Create an authentication token for a customer
 
         Args:
-          customer_id: Anything that uniquely identifies the customer that you will be sending the
-              token to
+          customer_id: The id of the customer in your application. Ensure it is unique for that
+              customer.
 
           validity_in_seconds: How long the token will be valid for (in seconds) before it expires
 
@@ -413,14 +409,12 @@ class Openint(SyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
+        if not customer_id:
+            raise ValueError(f"Expected a non-empty value for `customer_id` but received {customer_id!r}")
         return self.post(
-            "/connect/token",
+            f"/customer/{customer_id}/token",
             body=maybe_transform(
-                {
-                    "customer_id": customer_id,
-                    "validity_in_seconds": validity_in_seconds,
-                },
-                client_create_token_params.ClientCreateTokenParams,
+                {"validity_in_seconds": validity_in_seconds}, client_create_token_params.ClientCreateTokenParams
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
@@ -443,9 +437,11 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> GetConnectionResponse:
         """
-        Get details of a specific connection
+        Get details of a specific connection, including credentials
 
         Args:
+          id: The id of the connection, starts with `conn_`
+
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
           refresh_policy: Controls credential refresh: none (never), force (always), or auto (when
@@ -485,6 +481,25 @@ class Openint(SyncAPIClient):
             ),
         )
 
+    def get_current_user(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> GetCurrentUserResponse:
+        """Get information about the current authenticated user"""
+        return self.get(
+            "/viewer",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=GetCurrentUserResponse,
+        )
+
     def list_connection_configs(
         self,
         *,
@@ -496,12 +511,10 @@ class Openint(SyncAPIClient):
             "brex",
             "coda",
             "confluence",
-            "debug",
             "discord",
             "finch",
             "firebase",
             "foreceipt",
-            "fs",
             "github",
             "gong",
             "google",
@@ -516,27 +529,22 @@ class Openint(SyncAPIClient):
             "lunchmoney",
             "merge",
             "microsoft",
-            "mongodb",
             "moota",
             "onebrick",
             "outreach",
             "pipedrive",
             "plaid",
-            "postgres",
             "qbo",
             "ramp",
-            "revert",
             "salesforce",
             "salesloft",
             "saltedge",
             "slack",
             "splitwise",
-            "spreadsheet",
             "stripe",
             "teller",
             "toggl",
             "twenty",
-            "webhook",
             "wise",
             "xero",
             "yodlee",
@@ -559,6 +567,10 @@ class Openint(SyncAPIClient):
 
         Args:
           connector_name: The name of the connector
+
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
 
           extra_headers: Send extra headers
 
@@ -586,9 +598,7 @@ class Openint(SyncAPIClient):
                     client_list_connection_configs_params.ClientListConnectionConfigsParams,
                 ),
             ),
-            model=cast(
-                Any, ListConnectionConfigsResponse
-            ),  # Union types cannot be passed in as arguments in the type system
+            model=ListConnectionConfigsResponse,
         )
 
     def list_connections(
@@ -603,12 +613,10 @@ class Openint(SyncAPIClient):
             "brex",
             "coda",
             "confluence",
-            "debug",
             "discord",
             "finch",
             "firebase",
             "foreceipt",
-            "fs",
             "github",
             "gong",
             "google",
@@ -623,27 +631,22 @@ class Openint(SyncAPIClient):
             "lunchmoney",
             "merge",
             "microsoft",
-            "mongodb",
             "moota",
             "onebrick",
             "outreach",
             "pipedrive",
             "plaid",
-            "postgres",
             "qbo",
             "ramp",
-            "revert",
             "salesforce",
             "salesloft",
             "saltedge",
             "slack",
             "splitwise",
-            "spreadsheet",
             "stripe",
             "teller",
             "toggl",
             "twenty",
-            "webhook",
             "wise",
             "xero",
             "yodlee",
@@ -667,9 +670,18 @@ class Openint(SyncAPIClient):
         List all connections with optional filtering
 
         Args:
+          connector_config_id: The id of the connector config, starts with `ccfg_`
+
           connector_name: The name of the connector
 
+          customer_id: The id of the customer in your application. Ensure it is unique for that
+              customer.
+
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
+
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
 
           extra_headers: Send extra headers
 
@@ -701,49 +713,6 @@ class Openint(SyncAPIClient):
                 ),
             ),
             model=cast(Any, ListConnectionsResponse),  # Union types cannot be passed in as arguments in the type system
-        )
-
-    def list_events(
-        self,
-        *,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncOffsetPagination[ListEventsResponse]:
-        """
-        List all events for an organization
-
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        return self.get_api_list(
-            "/event",
-            page=SyncOffsetPagination[ListEventsResponse],
-            options=make_request_options(
-                extra_headers=extra_headers,
-                extra_query=extra_query,
-                extra_body=extra_body,
-                timeout=timeout,
-                query=maybe_transform(
-                    {
-                        "limit": limit,
-                        "offset": offset,
-                    },
-                    client_list_events_params.ClientListEventsParams,
-                ),
-            ),
-            model=ListEventsResponse,
         )
 
     @override
@@ -849,21 +818,21 @@ class AsyncOpenint(AsyncAPIClient):
     @property
     @override
     def auth_headers(self) -> dict[str, str]:
-        if self._organization_auth:
-            return self._organization_auth
-        if self._customer_auth:
-            return self._customer_auth
+        if self._api_key:
+            return self._api_key
+        if self._customer_token:
+            return self._customer_token
         return {}
 
     @property
-    def _organization_auth(self) -> dict[str, str]:
+    def _api_key(self) -> dict[str, str]:
         api_key = self.api_key
         if api_key is None:
             return {}
-        return {"authorization": api_key}
+        return {"Authorization": f"Bearer {api_key}"}
 
     @property
-    def _customer_auth(self) -> dict[str, str]:
+    def _customer_token(self) -> dict[str, str]:
         customer_token = self.customer_token
         if customer_token is None:
             return {}
@@ -880,9 +849,9 @@ class AsyncOpenint(AsyncAPIClient):
 
     @override
     def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
-        if self.api_key and headers.get("authorization"):
+        if self.api_key and headers.get("Authorization"):
             return
-        if isinstance(custom_headers.get("authorization"), Omit):
+        if isinstance(custom_headers.get("Authorization"), Omit):
             return
 
         if self.customer_token and headers.get("Authorization"):
@@ -891,7 +860,7 @@ class AsyncOpenint(AsyncAPIClient):
             return
 
         raise TypeError(
-            '"Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `authorization` or `Authorization` headers to be explicitly omitted"'
+            '"Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `Authorization` or `Authorization` headers to be explicitly omitted"'
         )
 
     def copy(
@@ -962,6 +931,8 @@ class AsyncOpenint(AsyncAPIClient):
         Verify that a connection is healthy
 
         Args:
+          id: The id of the connection, starts with `conn_`
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -982,10 +953,10 @@ class AsyncOpenint(AsyncAPIClient):
 
     async def create_magic_link(
         self,
-        *,
         customer_id: str,
-        connection_id: Optional[str] | NotGiven = NOT_GIVEN,
-        connector_names: Optional[
+        *,
+        connection_id: str | NotGiven = NOT_GIVEN,
+        connector_names: List[
             Literal[
                 "aircall",
                 "airtable",
@@ -994,12 +965,10 @@ class AsyncOpenint(AsyncAPIClient):
                 "brex",
                 "coda",
                 "confluence",
-                "debug",
                 "discord",
                 "finch",
                 "firebase",
                 "foreceipt",
-                "fs",
                 "github",
                 "gong",
                 "google",
@@ -1014,27 +983,22 @@ class AsyncOpenint(AsyncAPIClient):
                 "lunchmoney",
                 "merge",
                 "microsoft",
-                "mongodb",
                 "moota",
                 "onebrick",
                 "outreach",
                 "pipedrive",
                 "plaid",
-                "postgres",
                 "qbo",
                 "ramp",
-                "revert",
                 "salesforce",
                 "salesloft",
                 "saltedge",
                 "slack",
                 "splitwise",
-                "spreadsheet",
                 "stripe",
                 "teller",
                 "toggl",
                 "twenty",
-                "webhook",
                 "wise",
                 "xero",
                 "yodlee",
@@ -1043,11 +1007,10 @@ class AsyncOpenint(AsyncAPIClient):
             ]
         ]
         | NotGiven = NOT_GIVEN,
-        email: str | NotGiven = NOT_GIVEN,
-        redirect_url: Optional[str] | NotGiven = NOT_GIVEN,
-        theme: Optional[Literal["light", "dark"]] | NotGiven = NOT_GIVEN,
+        redirect_url: str | NotGiven = NOT_GIVEN,
+        theme: Literal["light", "dark"] | NotGiven = NOT_GIVEN,
         validity_in_seconds: float | NotGiven = NOT_GIVEN,
-        view: Optional[Literal["manage", "manage-deeplink", "add", "add-deeplink"]] | NotGiven = NOT_GIVEN,
+        view: Literal["manage", "manage-deeplink", "add", "add-deeplink"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -1059,9 +1022,12 @@ class AsyncOpenint(AsyncAPIClient):
         Create a magic link for connecting integrations
 
         Args:
-          connector_names: Filter integrations by comma separated connector names
+          customer_id: The id of the customer in your application. Ensure it is unique for that
+              customer.
 
-          email: The email address of the customer
+          connection_id: The specific connection id to load
+
+          connector_names: Filter integrations by connector names
 
           redirect_url: Where to send user to after connect / if they press back button
 
@@ -1069,7 +1035,7 @@ class AsyncOpenint(AsyncAPIClient):
 
           validity_in_seconds: How long the magic link will be valid for (in seconds) before it expires
 
-          view: Magic Link tab view
+          view: Magic Link tab view to load in the connect magic link
 
           extra_headers: Send extra headers
 
@@ -1079,14 +1045,14 @@ class AsyncOpenint(AsyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
+        if not customer_id:
+            raise ValueError(f"Expected a non-empty value for `customer_id` but received {customer_id!r}")
         return await self.post(
-            "/connect/magic-link",
+            f"/customer/{customer_id}/magic-link",
             body=await async_maybe_transform(
                 {
-                    "customer_id": customer_id,
                     "connection_id": connection_id,
                     "connector_names": connector_names,
-                    "email": email,
                     "redirect_url": redirect_url,
                     "theme": theme,
                     "validity_in_seconds": validity_in_seconds,
@@ -1102,8 +1068,8 @@ class AsyncOpenint(AsyncAPIClient):
 
     async def create_token(
         self,
-        *,
         customer_id: str,
+        *,
         validity_in_seconds: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -1116,8 +1082,8 @@ class AsyncOpenint(AsyncAPIClient):
         Create an authentication token for a customer
 
         Args:
-          customer_id: Anything that uniquely identifies the customer that you will be sending the
-              token to
+          customer_id: The id of the customer in your application. Ensure it is unique for that
+              customer.
 
           validity_in_seconds: How long the token will be valid for (in seconds) before it expires
 
@@ -1129,14 +1095,12 @@ class AsyncOpenint(AsyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
+        if not customer_id:
+            raise ValueError(f"Expected a non-empty value for `customer_id` but received {customer_id!r}")
         return await self.post(
-            "/connect/token",
+            f"/customer/{customer_id}/token",
             body=await async_maybe_transform(
-                {
-                    "customer_id": customer_id,
-                    "validity_in_seconds": validity_in_seconds,
-                },
-                client_create_token_params.ClientCreateTokenParams,
+                {"validity_in_seconds": validity_in_seconds}, client_create_token_params.ClientCreateTokenParams
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
@@ -1159,9 +1123,11 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> GetConnectionResponse:
         """
-        Get details of a specific connection
+        Get details of a specific connection, including credentials
 
         Args:
+          id: The id of the connection, starts with `conn_`
+
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
           refresh_policy: Controls credential refresh: none (never), force (always), or auto (when
@@ -1201,6 +1167,25 @@ class AsyncOpenint(AsyncAPIClient):
             ),
         )
 
+    async def get_current_user(
+        self,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> GetCurrentUserResponse:
+        """Get information about the current authenticated user"""
+        return await self.get(
+            "/viewer",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=GetCurrentUserResponse,
+        )
+
     def list_connection_configs(
         self,
         *,
@@ -1212,12 +1197,10 @@ class AsyncOpenint(AsyncAPIClient):
             "brex",
             "coda",
             "confluence",
-            "debug",
             "discord",
             "finch",
             "firebase",
             "foreceipt",
-            "fs",
             "github",
             "gong",
             "google",
@@ -1232,27 +1215,22 @@ class AsyncOpenint(AsyncAPIClient):
             "lunchmoney",
             "merge",
             "microsoft",
-            "mongodb",
             "moota",
             "onebrick",
             "outreach",
             "pipedrive",
             "plaid",
-            "postgres",
             "qbo",
             "ramp",
-            "revert",
             "salesforce",
             "salesloft",
             "saltedge",
             "slack",
             "splitwise",
-            "spreadsheet",
             "stripe",
             "teller",
             "toggl",
             "twenty",
-            "webhook",
             "wise",
             "xero",
             "yodlee",
@@ -1275,6 +1253,10 @@ class AsyncOpenint(AsyncAPIClient):
 
         Args:
           connector_name: The name of the connector
+
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
 
           extra_headers: Send extra headers
 
@@ -1302,9 +1284,7 @@ class AsyncOpenint(AsyncAPIClient):
                     client_list_connection_configs_params.ClientListConnectionConfigsParams,
                 ),
             ),
-            model=cast(
-                Any, ListConnectionConfigsResponse
-            ),  # Union types cannot be passed in as arguments in the type system
+            model=ListConnectionConfigsResponse,
         )
 
     def list_connections(
@@ -1319,12 +1299,10 @@ class AsyncOpenint(AsyncAPIClient):
             "brex",
             "coda",
             "confluence",
-            "debug",
             "discord",
             "finch",
             "firebase",
             "foreceipt",
-            "fs",
             "github",
             "gong",
             "google",
@@ -1339,27 +1317,22 @@ class AsyncOpenint(AsyncAPIClient):
             "lunchmoney",
             "merge",
             "microsoft",
-            "mongodb",
             "moota",
             "onebrick",
             "outreach",
             "pipedrive",
             "plaid",
-            "postgres",
             "qbo",
             "ramp",
-            "revert",
             "salesforce",
             "salesloft",
             "saltedge",
             "slack",
             "splitwise",
-            "spreadsheet",
             "stripe",
             "teller",
             "toggl",
             "twenty",
-            "webhook",
             "wise",
             "xero",
             "yodlee",
@@ -1383,9 +1356,18 @@ class AsyncOpenint(AsyncAPIClient):
         List all connections with optional filtering
 
         Args:
+          connector_config_id: The id of the connector config, starts with `ccfg_`
+
           connector_name: The name of the connector
 
+          customer_id: The id of the customer in your application. Ensure it is unique for that
+              customer.
+
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
+
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
 
           extra_headers: Send extra headers
 
@@ -1417,49 +1399,6 @@ class AsyncOpenint(AsyncAPIClient):
                 ),
             ),
             model=cast(Any, ListConnectionsResponse),  # Union types cannot be passed in as arguments in the type system
-        )
-
-    def list_events(
-        self,
-        *,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[ListEventsResponse, AsyncOffsetPagination[ListEventsResponse]]:
-        """
-        List all events for an organization
-
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        return self.get_api_list(
-            "/event",
-            page=AsyncOffsetPagination[ListEventsResponse],
-            options=make_request_options(
-                extra_headers=extra_headers,
-                extra_query=extra_query,
-                extra_body=extra_body,
-                timeout=timeout,
-                query=maybe_transform(
-                    {
-                        "limit": limit,
-                        "offset": offset,
-                    },
-                    client_list_events_params.ClientListEventsParams,
-                ),
-            ),
-            model=ListEventsResponse,
         )
 
     @override
@@ -1510,14 +1449,14 @@ class OpenintWithRawResponse:
         self.get_connection = to_raw_response_wrapper(
             client.get_connection,
         )
+        self.get_current_user = to_raw_response_wrapper(
+            client.get_current_user,
+        )
         self.list_connection_configs = to_raw_response_wrapper(
             client.list_connection_configs,
         )
         self.list_connections = to_raw_response_wrapper(
             client.list_connections,
-        )
-        self.list_events = to_raw_response_wrapper(
-            client.list_events,
         )
 
 
@@ -1535,14 +1474,14 @@ class AsyncOpenintWithRawResponse:
         self.get_connection = async_to_raw_response_wrapper(
             client.get_connection,
         )
+        self.get_current_user = async_to_raw_response_wrapper(
+            client.get_current_user,
+        )
         self.list_connection_configs = async_to_raw_response_wrapper(
             client.list_connection_configs,
         )
         self.list_connections = async_to_raw_response_wrapper(
             client.list_connections,
-        )
-        self.list_events = async_to_raw_response_wrapper(
-            client.list_events,
         )
 
 
@@ -1560,14 +1499,14 @@ class OpenintWithStreamedResponse:
         self.get_connection = to_streamed_response_wrapper(
             client.get_connection,
         )
+        self.get_current_user = to_streamed_response_wrapper(
+            client.get_current_user,
+        )
         self.list_connection_configs = to_streamed_response_wrapper(
             client.list_connection_configs,
         )
         self.list_connections = to_streamed_response_wrapper(
             client.list_connections,
-        )
-        self.list_events = to_streamed_response_wrapper(
-            client.list_events,
         )
 
 
@@ -1585,14 +1524,14 @@ class AsyncOpenintWithStreamedResponse:
         self.get_connection = async_to_streamed_response_wrapper(
             client.get_connection,
         )
+        self.get_current_user = async_to_streamed_response_wrapper(
+            client.get_current_user,
+        )
         self.list_connection_configs = async_to_streamed_response_wrapper(
             client.list_connection_configs,
         )
         self.list_connections = async_to_streamed_response_wrapper(
             client.list_connections,
-        )
-        self.list_events = async_to_streamed_response_wrapper(
-            client.list_events,
         )
 
 

@@ -10,6 +10,7 @@ __all__ = ["ClientListConnectionsParams"]
 
 class ClientListConnectionsParams(TypedDict, total=False):
     connector_config_id: str
+    """The id of the connector config, starts with `ccfg_`"""
 
     connector_name: Literal[
         "aircall",
@@ -19,12 +20,10 @@ class ClientListConnectionsParams(TypedDict, total=False):
         "brex",
         "coda",
         "confluence",
-        "debug",
         "discord",
         "finch",
         "firebase",
         "foreceipt",
-        "fs",
         "github",
         "gong",
         "google",
@@ -39,27 +38,22 @@ class ClientListConnectionsParams(TypedDict, total=False):
         "lunchmoney",
         "merge",
         "microsoft",
-        "mongodb",
         "moota",
         "onebrick",
         "outreach",
         "pipedrive",
         "plaid",
-        "postgres",
         "qbo",
         "ramp",
-        "revert",
         "salesforce",
         "salesloft",
         "saltedge",
         "slack",
         "splitwise",
-        "spreadsheet",
         "stripe",
         "teller",
         "toggl",
         "twenty",
-        "webhook",
         "wise",
         "xero",
         "yodlee",
@@ -69,6 +63,10 @@ class ClientListConnectionsParams(TypedDict, total=False):
     """The name of the connector"""
 
     customer_id: str
+    """The id of the customer in your application.
+
+    Ensure it is unique for that customer.
+    """
 
     expand: List[Literal["connector"]]
 
@@ -76,5 +74,7 @@ class ClientListConnectionsParams(TypedDict, total=False):
     """Controls secret inclusion: none (default), basic (auth only), or all secrets"""
 
     limit: int
+    """Limit the number of items returned"""
 
     offset: int
+    """Offset the items returned"""

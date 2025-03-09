@@ -2,18 +2,17 @@
 
 from __future__ import annotations
 
-from typing import Optional
-from typing_extensions import Literal, Required, TypedDict
+from typing import List
+from typing_extensions import Literal, TypedDict
 
 __all__ = ["ClientCreateMagicLinkParams"]
 
 
 class ClientCreateMagicLinkParams(TypedDict, total=False):
-    customer_id: Required[str]
+    connection_id: str
+    """The specific connection id to load"""
 
-    connection_id: Optional[str]
-
-    connector_names: Optional[
+    connector_names: List[
         Literal[
             "aircall",
             "airtable",
@@ -22,12 +21,10 @@ class ClientCreateMagicLinkParams(TypedDict, total=False):
             "brex",
             "coda",
             "confluence",
-            "debug",
             "discord",
             "finch",
             "firebase",
             "foreceipt",
-            "fs",
             "github",
             "gong",
             "google",
@@ -42,27 +39,22 @@ class ClientCreateMagicLinkParams(TypedDict, total=False):
             "lunchmoney",
             "merge",
             "microsoft",
-            "mongodb",
             "moota",
             "onebrick",
             "outreach",
             "pipedrive",
             "plaid",
-            "postgres",
             "qbo",
             "ramp",
-            "revert",
             "salesforce",
             "salesloft",
             "saltedge",
             "slack",
             "splitwise",
-            "spreadsheet",
             "stripe",
             "teller",
             "toggl",
             "twenty",
-            "webhook",
             "wise",
             "xero",
             "yodlee",
@@ -70,19 +62,16 @@ class ClientCreateMagicLinkParams(TypedDict, total=False):
             "googledrive",
         ]
     ]
-    """Filter integrations by comma separated connector names"""
+    """Filter integrations by connector names"""
 
-    email: str
-    """The email address of the customer"""
-
-    redirect_url: Optional[str]
+    redirect_url: str
     """Where to send user to after connect / if they press back button"""
 
-    theme: Optional[Literal["light", "dark"]]
+    theme: Literal["light", "dark"]
     """Magic Link display theme"""
 
     validity_in_seconds: float
     """How long the magic link will be valid for (in seconds) before it expires"""
 
-    view: Optional[Literal["manage", "manage-deeplink", "add", "add-deeplink"]]
-    """Magic Link tab view"""
+    view: Literal["manage", "manage-deeplink", "add", "add-deeplink"]
+    """Magic Link tab view to load in the connect magic link"""

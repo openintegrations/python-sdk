@@ -17,12 +17,10 @@ class ClientListConnectionConfigsParams(TypedDict, total=False):
         "brex",
         "coda",
         "confluence",
-        "debug",
         "discord",
         "finch",
         "firebase",
         "foreceipt",
-        "fs",
         "github",
         "gong",
         "google",
@@ -37,27 +35,22 @@ class ClientListConnectionConfigsParams(TypedDict, total=False):
         "lunchmoney",
         "merge",
         "microsoft",
-        "mongodb",
         "moota",
         "onebrick",
         "outreach",
         "pipedrive",
         "plaid",
-        "postgres",
         "qbo",
         "ramp",
-        "revert",
         "salesforce",
         "salesloft",
         "saltedge",
         "slack",
         "splitwise",
-        "spreadsheet",
         "stripe",
         "teller",
         "toggl",
         "twenty",
-        "webhook",
         "wise",
         "xero",
         "yodlee",
@@ -69,5 +62,7 @@ class ClientListConnectionConfigsParams(TypedDict, total=False):
     expand: List[Literal["connector"]]
 
     limit: int
+    """Limit the number of items returned"""
 
     offset: int
+    """Offset the items returned"""

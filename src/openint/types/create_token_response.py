@@ -8,3 +8,4 @@ __all__ = ["CreateTokenResponse"]
 
 class CreateTokenResponse(BaseModel):
     token: str
+    """The authentication token to use for API requests"""

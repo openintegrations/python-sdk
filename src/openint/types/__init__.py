@@ -2,11 +2,10 @@
 
 from __future__ import annotations
 
-from .list_events_response import ListEventsResponse as ListEventsResponse
 from .create_token_response import CreateTokenResponse as CreateTokenResponse
 from .get_connection_response import GetConnectionResponse as GetConnectionResponse
 from .check_connection_response import CheckConnectionResponse as CheckConnectionResponse
-from .client_list_events_params import ClientListEventsParams as ClientListEventsParams
+from .get_current_user_response import GetCurrentUserResponse as GetCurrentUserResponse
 from .list_connections_response import ListConnectionsResponse as ListConnectionsResponse
 from .client_create_token_params import ClientCreateTokenParams as ClientCreateTokenParams
 from .create_magic_link_response import CreateMagicLinkResponse as CreateMagicLinkResponse

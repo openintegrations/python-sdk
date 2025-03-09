@@ -33,7 +33,6 @@ __all__ = [
     "ConnectorsConfluenceConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsConfluenceConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsConfluenceConnectionSettingsSettingsError",
-    "ConnectorsDebugConnectionSettings",
     "ConnectorsDiscordConnectionSettings",
     "ConnectorsDiscordConnectionSettingsSettings",
     "ConnectorsDiscordConnectionSettingsSettingsOAuth",
@@ -56,8 +55,6 @@ __all__ = [
     "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig",
     "ConnectorsForeceiptConnectionSettings",
     "ConnectorsForeceiptConnectionSettingsSettings",
-    "ConnectorsFsConnectionSettings",
-    "ConnectorsFsConnectionSettingsSettings",
     "ConnectorsGitHubConnectionSettings",
     "ConnectorsGitHubConnectionSettingsSettings",
     "ConnectorsGitHubConnectionSettingsSettingsOAuth",
@@ -135,8 +132,6 @@ __all__ = [
     "ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsMicrosoftConnectionSettingsSettingsError",
-    "ConnectorsMongoDBConnectionSettings",
-    "ConnectorsMongoDBConnectionSettingsSettings",
     "ConnectorsMootaConnectionSettings",
     "ConnectorsOnebrickConnectionSettings",
     "ConnectorsOnebrickConnectionSettingsSettings",
@@ -168,8 +163,6 @@ __all__ = [
     "ConnectorsQboConnectionSettingsSettingsError",
     "ConnectorsRampConnectionSettings",
     "ConnectorsRampConnectionSettingsSettings",
-    "ConnectorsRevertConnectionSettings",
-    "ConnectorsRevertConnectionSettingsSettings",
     "ConnectorsSalesforceConnectionSettings",
     "ConnectorsSalesforceConnectionSettingsSettings",
     "ConnectorsSalesforceConnectionSettingsSettingsOAuth",
@@ -197,8 +190,6 @@ __all__ = [
     "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUser",
     "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications",
     "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture",
-    "ConnectorsSpreadsheetConnectionSettings",
-    "ConnectorsSpreadsheetConnectionSettingsSettings",
     "ConnectorsStripeConnectionSettings",
     "ConnectorsStripeConnectionSettingsSettings",
     "ConnectorsTellerConnectionSettings",
@@ -209,8 +200,6 @@ __all__ = [
     "ConnectorsTwentyConnectionSettingsSettings",
     "ConnectorsVenmoConnectionSettings",
     "ConnectorsVenmoConnectionSettingsSettings",
-    "ConnectorsWebhookConnectionSettings",
-    "ConnectorsWebhookConnectionSettingsSettings",
     "ConnectorsWiseConnectionSettings",
     "ConnectorsWiseConnectionSettingsSettings",
     "ConnectorsXeroConnectionSettings",
@@ -232,6 +221,8 @@ __all__ = [
     "ConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsZohodeskConnectionSettingsSettingsError",
     "ConnectorsGoogledriveConnectionSettings",
+    "ConnectorsGoogledriveConnectionSettingsSettings",
+    "ConnectorsGoogledriveConnectionSettingsSettingsOAuth",
 ]
 
 
@@ -250,9 +241,9 @@ class ConnectorsAircallConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsAirtableConnectionSettingsSettings(BaseModel):
@@ -270,9 +261,9 @@ class ConnectorsAirtableConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -346,9 +337,9 @@ class ConnectorsApolloConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsBeancountConnectionSettings(BaseModel):
@@ -360,9 +351,9 @@ class ConnectorsBeancountConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsBrexConnectionSettingsSettings(BaseModel):
@@ -378,9 +369,9 @@ class ConnectorsBrexConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsCodaConnectionSettingsSettings(BaseModel):
@@ -396,9 +387,9 @@ class ConnectorsCodaConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsConfluenceConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -472,23 +463,9 @@ class ConnectorsConfluenceConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
-
-
-class ConnectorsDebugConnectionSettings(BaseModel):
-    connector_name: Literal["debug"]
-
-    id: Optional[str] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[datetime] = None
-
-    settings: Optional[object] = None
-
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsDiscordConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -562,9 +539,9 @@ class ConnectorsDiscordConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsFinchConnectionSettingsSettings(BaseModel):
@@ -580,9 +557,9 @@ class ConnectorsFinchConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccount(BaseModel):
@@ -688,9 +665,9 @@ class ConnectorsFirebaseConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsForeceiptConnectionSettingsSettings(BaseModel):
@@ -712,27 +689,9 @@ class ConnectorsForeceiptConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
-
-
-class ConnectorsFsConnectionSettingsSettings(BaseModel):
-    base_path: str = FieldInfo(alias="basePath")
-
-
-class ConnectorsFsConnectionSettings(BaseModel):
-    connector_name: Literal["fs"]
-
-    settings: ConnectorsFsConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[datetime] = None
-
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsGitHubConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -806,9 +765,9 @@ class ConnectorsGitHubConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsGongConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -882,9 +841,9 @@ class ConnectorsGongConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsGoogleConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -960,9 +919,9 @@ class ConnectorsGoogleConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsGreenhouseConnectionSettingsSettings(BaseModel):
@@ -978,9 +937,9 @@ class ConnectorsGreenhouseConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsHeronConnectionSettings(BaseModel):
@@ -992,9 +951,9 @@ class ConnectorsHeronConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsHubspotConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -1070,9 +1029,9 @@ class ConnectorsHubspotConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -1146,9 +1105,9 @@ class ConnectorsIntercomConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -1222,9 +1181,9 @@ class ConnectorsJiraConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -1298,9 +1257,9 @@ class ConnectorsKustomerConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -1374,9 +1333,9 @@ class ConnectorsLeverConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsLinearConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -1450,9 +1409,9 @@ class ConnectorsLinearConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsLunchmoneyConnectionSettings(BaseModel):
@@ -1464,9 +1423,9 @@ class ConnectorsLunchmoneyConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsMercuryConnectionSettings(BaseModel):
@@ -1478,9 +1437,9 @@ class ConnectorsMercuryConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsMergeConnectionSettingsSettings(BaseModel):
@@ -1498,9 +1457,9 @@ class ConnectorsMergeConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -1576,29 +1535,9 @@ class ConnectorsMicrosoftConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
-
-
-class ConnectorsMongoDBConnectionSettingsSettings(BaseModel):
-    database_name: str = FieldInfo(alias="databaseName")
-
-    database_url: str = FieldInfo(alias="databaseUrl")
-
-
-class ConnectorsMongoDBConnectionSettings(BaseModel):
-    connector_name: Literal["mongodb"]
-
-    settings: ConnectorsMongoDBConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[datetime] = None
-
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsMootaConnectionSettings(BaseModel):
@@ -1610,9 +1549,9 @@ class ConnectorsMootaConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsOnebrickConnectionSettingsSettings(BaseModel):
@@ -1628,9 +1567,9 @@ class ConnectorsOnebrickConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -1704,9 +1643,9 @@ class ConnectorsOutreachConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -1780,9 +1719,9 @@ class ConnectorsPipedriveConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsPlaidConnectionSettingsSettings(BaseModel):
@@ -1808,13 +1747,14 @@ class ConnectorsPlaidConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsPostgresConnectionSettingsSettingsSourceQueries(BaseModel):
     invoice: Optional[str] = None
+    """Should order by lastModifiedAt and id descending"""
 
 
 class ConnectorsPostgresConnectionSettingsSettings(BaseModel):
@@ -1836,9 +1776,9 @@ class ConnectorsPostgresConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsQboConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
@@ -1904,9 +1844,9 @@ class ConnectorsQboConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsRampConnectionSettingsSettings(BaseModel):
@@ -1924,27 +1864,9 @@ class ConnectorsRampConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
-
-
-class ConnectorsRevertConnectionSettingsSettings(BaseModel):
-    tenant_id: str
-
-
-class ConnectorsRevertConnectionSettings(BaseModel):
-    connector_name: Literal["revert"]
-
-    settings: ConnectorsRevertConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[datetime] = None
-
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsSalesforceConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -2018,9 +1940,9 @@ class ConnectorsSalesforceConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -2094,9 +2016,9 @@ class ConnectorsSalesloftConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsSaltedgeConnectionSettings(BaseModel):
@@ -2106,11 +2028,11 @@ class ConnectorsSaltedgeConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
     settings: Optional[object] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsSlackConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -2184,9 +2106,9 @@ class ConnectorsSlackConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications(BaseModel):
@@ -2272,43 +2194,9 @@ class ConnectorsSplitwiseConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
-
-
-class ConnectorsSpreadsheetConnectionSettingsSettings(BaseModel):
-    account_external_id: str = FieldInfo(alias="accountExternalId")
-
-    preset: Literal[
-        "ramp",
-        "apple-card",
-        "alliant-credit-union",
-        "bbva-mexico",
-        "brex-cash",
-        "brex",
-        "capitalone-bank",
-        "capitalone",
-        "coinbase",
-        "coinkeeper",
-        "etrade",
-        "first-republic",
-        "wise",
-    ]
-
-
-class ConnectorsSpreadsheetConnectionSettings(BaseModel):
-    connector_name: Literal["spreadsheet"]
-
-    settings: ConnectorsSpreadsheetConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[datetime] = None
-
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsStripeConnectionSettingsSettings(BaseModel):
@@ -2324,9 +2212,9 @@ class ConnectorsStripeConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsTellerConnectionSettingsSettings(BaseModel):
@@ -2342,9 +2230,9 @@ class ConnectorsTellerConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsTogglConnectionSettingsSettings(BaseModel):
@@ -2364,9 +2252,9 @@ class ConnectorsTogglConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsTwentyConnectionSettingsSettings(BaseModel):
@@ -2382,9 +2270,9 @@ class ConnectorsTwentyConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsVenmoConnectionSettingsSettings(BaseModel):
@@ -2402,27 +2290,9 @@ class ConnectorsVenmoConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
-
-
-class ConnectorsWebhookConnectionSettingsSettings(BaseModel):
-    destination_url: str = FieldInfo(alias="destinationUrl")
-
-
-class ConnectorsWebhookConnectionSettings(BaseModel):
-    connector_name: Literal["webhook"]
-
-    settings: ConnectorsWebhookConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[datetime] = None
-
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsWiseConnectionSettingsSettings(BaseModel):
@@ -2440,9 +2310,9 @@ class ConnectorsWiseConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -2516,9 +2386,9 @@ class ConnectorsXeroConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsYodleeConnectionSettingsSettingsAccessToken(BaseModel):
@@ -2574,9 +2444,9 @@ class ConnectorsYodleeConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 class ConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
@@ -2650,23 +2520,33 @@ class ConnectorsZohodeskConnectionSettings(BaseModel):
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
+
+
+class ConnectorsGoogledriveConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: object
+
+
+class ConnectorsGoogledriveConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorsGoogledriveConnectionSettingsSettingsOAuth
+
+    metadata: Optional[Dict[str, object]] = None
 
 
 class ConnectorsGoogledriveConnectionSettings(BaseModel):
     connector_name: Literal["googledrive"]
 
-    settings: None
+    settings: ConnectorsGoogledriveConnectionSettingsSettings
 
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
 
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None
 
-    updated_at: Optional[datetime] = None
+    updated_at: Optional[str] = None
 
 
 ListConnectionsResponse: TypeAlias = Union[
@@ -2677,12 +2557,10 @@ ListConnectionsResponse: TypeAlias = Union[
     ConnectorsBrexConnectionSettings,
     ConnectorsCodaConnectionSettings,
     ConnectorsConfluenceConnectionSettings,
-    ConnectorsDebugConnectionSettings,
     ConnectorsDiscordConnectionSettings,
     ConnectorsFinchConnectionSettings,
     ConnectorsFirebaseConnectionSettings,
     ConnectorsForeceiptConnectionSettings,
-    ConnectorsFsConnectionSettings,
     ConnectorsGitHubConnectionSettings,
     ConnectorsGongConnectionSettings,
     ConnectorsGoogleConnectionSettings,
@@ -2698,7 +2576,6 @@ ListConnectionsResponse: TypeAlias = Union[
     ConnectorsMercuryConnectionSettings,
     ConnectorsMergeConnectionSettings,
     ConnectorsMicrosoftConnectionSettings,
-    ConnectorsMongoDBConnectionSettings,
     ConnectorsMootaConnectionSettings,
     ConnectorsOnebrickConnectionSettings,
     ConnectorsOutreachConnectionSettings,
@@ -2707,19 +2584,16 @@ ListConnectionsResponse: TypeAlias = Union[
     ConnectorsPostgresConnectionSettings,
     ConnectorsQboConnectionSettings,
     ConnectorsRampConnectionSettings,
-    ConnectorsRevertConnectionSettings,
     ConnectorsSalesforceConnectionSettings,
     ConnectorsSalesloftConnectionSettings,
     ConnectorsSaltedgeConnectionSettings,
     ConnectorsSlackConnectionSettings,
     ConnectorsSplitwiseConnectionSettings,
-    ConnectorsSpreadsheetConnectionSettings,
     ConnectorsStripeConnectionSettings,
     ConnectorsTellerConnectionSettings,
     ConnectorsTogglConnectionSettings,
     ConnectorsTwentyConnectionSettings,
     ConnectorsVenmoConnectionSettings,
-    ConnectorsWebhookConnectionSettings,
     ConnectorsWiseConnectionSettings,
     ConnectorsXeroConnectionSettings,
     ConnectorsYodleeConnectionSettings,

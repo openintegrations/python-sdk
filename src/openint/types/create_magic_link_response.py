@@ -7,4 +7,5 @@ __all__ = ["CreateMagicLinkResponse"]
 
 
 class CreateMagicLinkResponse(BaseModel):
-    url: str
+    magic_link_url: str
+    """The Connect magic link url to share with the user."""
