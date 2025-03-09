@@ -68,7 +68,7 @@ class ClientListConnectionsParams(TypedDict, total=False):
     Ensure it is unique for that customer.
     """
 
-    expand: List[Literal["connector"]]
+    expand: List[Literal["connector", "enabled_integrations"]]
 
     include_secrets: Literal["none", "basic", "all"]
     """Controls secret inclusion: none (default), basic (auth only), or all secrets"""
