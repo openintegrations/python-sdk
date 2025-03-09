@@ -59,7 +59,7 @@ class ClientListConnectionConfigsParams(TypedDict, total=False):
     ]
     """The name of the connector"""
 
-    expand: List[Literal["connector"]]
+    expand: List[Literal["connector", "enabled_integrations"]]
 
     limit: int
     """Limit the number of items returned"""
