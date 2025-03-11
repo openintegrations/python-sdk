@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from typing import List
 from typing_extensions import Literal, TypedDict
 
 __all__ = ["ClientListConnectionConfigsParams"]
@@ -59,7 +58,7 @@ class ClientListConnectionConfigsParams(TypedDict, total=False):
     ]
     """The name of the connector"""
 
-    expand: List[Literal["connector", "enabled_integrations"]]
+    expand: str
 
     limit: int
     """Limit the number of items returned"""

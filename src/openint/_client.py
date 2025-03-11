@@ -552,7 +552,7 @@ class Openint(SyncAPIClient):
             "googledrive",
         ]
         | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector", "enabled_integrations"]] | NotGiven = NOT_GIVEN,
+        expand: str | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -1240,7 +1240,7 @@ class AsyncOpenint(AsyncAPIClient):
             "googledrive",
         ]
         | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector", "enabled_integrations"]] | NotGiven = NOT_GIVEN,
+        expand: str | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
