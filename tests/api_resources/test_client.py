@@ -267,7 +267,7 @@ class TestClient:
     def test_method_list_connection_configs_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connection_configs(
             connector_name="aircall",
-            expand=["connector"],
+            expand="expand",
             limit=0,
             offset=0,
         )
@@ -582,7 +582,7 @@ class TestAsyncClient:
     async def test_method_list_connection_configs_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connection_configs(
             connector_name="aircall",
-            expand=["connector"],
+            expand="expand",
             limit=0,
             offset=0,
         )
