@@ -426,7 +426,7 @@ class Openint(SyncAPIClient):
         self,
         id: str,
         *,
-        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector", "enabled_integrations"]] | NotGiven = NOT_GIVEN,
         include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
         refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -552,7 +552,7 @@ class Openint(SyncAPIClient):
             "googledrive",
         ]
         | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
+        expand: str | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -563,7 +563,7 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> SyncOffsetPagination[ListConnectionConfigsResponse]:
         """
-        List all connector configurations with optional filtering
+        List all connector configurations
 
         Args:
           connector_name: The name of the connector
@@ -598,7 +598,9 @@ class Openint(SyncAPIClient):
                     client_list_connection_configs_params.ClientListConnectionConfigsParams,
                 ),
             ),
-            model=ListConnectionConfigsResponse,
+            model=cast(
+                Any, ListConnectionConfigsResponse
+            ),  # Union types cannot be passed in as arguments in the type system
         )
 
     def list_connections(
@@ -655,7 +657,7 @@ class Openint(SyncAPIClient):
         ]
         | NotGiven = NOT_GIVEN,
         customer_id: str | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector", "enabled_integrations"]] | NotGiven = NOT_GIVEN,
         include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
@@ -1112,7 +1114,7 @@ class AsyncOpenint(AsyncAPIClient):
         self,
         id: str,
         *,
-        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector", "enabled_integrations"]] | NotGiven = NOT_GIVEN,
         include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
         refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -1238,7 +1240,7 @@ class AsyncOpenint(AsyncAPIClient):
             "googledrive",
         ]
         | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
+        expand: str | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -1249,7 +1251,7 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AsyncPaginator[ListConnectionConfigsResponse, AsyncOffsetPagination[ListConnectionConfigsResponse]]:
         """
-        List all connector configurations with optional filtering
+        List all connector configurations
 
         Args:
           connector_name: The name of the connector
@@ -1284,7 +1286,9 @@ class AsyncOpenint(AsyncAPIClient):
                     client_list_connection_configs_params.ClientListConnectionConfigsParams,
                 ),
             ),
-            model=ListConnectionConfigsResponse,
+            model=cast(
+                Any, ListConnectionConfigsResponse
+            ),  # Union types cannot be passed in as arguments in the type system
         )
 
     def list_connections(
@@ -1341,7 +1345,7 @@ class AsyncOpenint(AsyncAPIClient):
         ]
         | NotGiven = NOT_GIVEN,
         customer_id: str | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector", "enabled_integrations"]] | NotGiven = NOT_GIVEN,
         include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,

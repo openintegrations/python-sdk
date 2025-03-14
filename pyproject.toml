@@ -1,6 +1,6 @@
 [project]
 name = "openint"
-version = "0.1.0-alpha.3"
+version = "0.1.0-alpha.4"
 description = "The official Python library for the Openint API"
 dynamic = ["readme"]
 license = "Apache-2.0"
@@ -36,7 +36,6 @@ classifiers = [
 [project.urls]
 Homepage = "https://github.com/openintegrations/python-sdk"
 Repository = "https://github.com/openintegrations/python-sdk"
-
 
 
 [tool.rye]
@@ -151,7 +150,6 @@ reportImplicitOverride = true
 
 reportImportCycles = false
 reportPrivateUsage = false
-
 
 [tool.ruff]
 line-length = 120
