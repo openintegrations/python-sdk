@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.4 (2025-03-14)
+
+Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/openintegrations/python-sdk/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
+
+### Features
+
+* **docs:** updating documented docs for stainless ([#26](https://github.com/openintegrations/python-sdk/issues/26)) ([ee7e8f9](https://github.com/openintegrations/python-sdk/commit/ee7e8f91e5ba13b06e959d9f5745ec691aa5987a))
+* **docs:** updating documented docs for stainless ([#29](https://github.com/openintegrations/python-sdk/issues/29)) ([749df66](https://github.com/openintegrations/python-sdk/commit/749df664aaaacda0de8b781fdcd4d7e379e2ae5d))
+
+
+### Chores
+
+* **internal:** remove extra empty newlines ([#30](https://github.com/openintegrations/python-sdk/issues/30)) ([5d7bfbb](https://github.com/openintegrations/python-sdk/commit/5d7bfbb11557c7e1ca3e1e45fe105f565f6a041b))
+
 ## 0.1.0-alpha.3 (2025-03-08)
 
 Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/openintegrations/python-sdk/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
