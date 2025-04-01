@@ -1,6 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import Dict, List, Union, Optional
+from typing import TYPE_CHECKING, Dict, List, Union, Optional
 from typing_extensions import Literal, TypeAlias
 
 from pydantic import Field as FieldInfo
@@ -10,92 +10,175 @@ from .._models import BaseModel
 __all__ = [
     "ListConnectionConfigsResponse",
     "ConnectorsAircallConnectorConfig",
+    "ConnectorsAircallConnectorConfigConfig",
+    "ConnectorsAircallConnectorConfigConfigOAuth",
     "ConnectorsAircallConnectorConfigConnector",
+    "ConnectorsAircallConnectorConfigConnectorSchemas",
+    "ConnectorsAircallConnectorConfigIntegrations",
     "ConnectorsAirtableConnectorConfig",
     "ConnectorsAirtableConnectorConfigConnector",
+    "ConnectorsAirtableConnectorConfigConnectorSchemas",
+    "ConnectorsAirtableConnectorConfigIntegrations",
     "ConnectorsApolloConnectorConfig",
     "ConnectorsApolloConnectorConfigConnector",
-    "ConnectorsBeancountConnectorConfig",
-    "ConnectorsBeancountConnectorConfigConnector",
+    "ConnectorsApolloConnectorConfigConnectorSchemas",
+    "ConnectorsApolloConnectorConfigIntegrations",
     "ConnectorsBrexConnectorConfig",
     "ConnectorsBrexConnectorConfigConfig",
     "ConnectorsBrexConnectorConfigConfigOAuth",
     "ConnectorsBrexConnectorConfigConnector",
+    "ConnectorsBrexConnectorConfigConnectorSchemas",
+    "ConnectorsBrexConnectorConfigIntegrations",
     "ConnectorsCodaConnectorConfig",
     "ConnectorsCodaConnectorConfigConnector",
+    "ConnectorsCodaConnectorConfigConnectorSchemas",
+    "ConnectorsCodaConnectorConfigIntegrations",
     "ConnectorsConfluenceConnectorConfig",
     "ConnectorsConfluenceConnectorConfigConfig",
     "ConnectorsConfluenceConnectorConfigConfigOAuth",
     "ConnectorsConfluenceConnectorConfigConnector",
+    "ConnectorsConfluenceConnectorConfigConnectorSchemas",
+    "ConnectorsConfluenceConnectorConfigIntegrations",
     "ConnectorsDiscordConnectorConfig",
     "ConnectorsDiscordConnectorConfigConfig",
     "ConnectorsDiscordConnectorConfigConfigOAuth",
     "ConnectorsDiscordConnectorConfigConnector",
+    "ConnectorsDiscordConnectorConfigConnectorSchemas",
+    "ConnectorsDiscordConnectorConfigIntegrations",
+    "ConnectorsFacebookConnectorConfig",
+    "ConnectorsFacebookConnectorConfigConfig",
+    "ConnectorsFacebookConnectorConfigConfigOAuth",
+    "ConnectorsFacebookConnectorConfigConnector",
+    "ConnectorsFacebookConnectorConfigConnectorSchemas",
+    "ConnectorsFacebookConnectorConfigIntegrations",
     "ConnectorsFinchConnectorConfig",
     "ConnectorsFinchConnectorConfigConfig",
     "ConnectorsFinchConnectorConfigConnector",
+    "ConnectorsFinchConnectorConfigConnectorSchemas",
+    "ConnectorsFinchConnectorConfigIntegrations",
     "ConnectorsFirebaseConnectorConfig",
     "ConnectorsFirebaseConnectorConfigConnector",
+    "ConnectorsFirebaseConnectorConfigConnectorSchemas",
+    "ConnectorsFirebaseConnectorConfigIntegrations",
     "ConnectorsForeceiptConnectorConfig",
     "ConnectorsForeceiptConnectorConfigConnector",
+    "ConnectorsForeceiptConnectorConfigConnectorSchemas",
+    "ConnectorsForeceiptConnectorConfigIntegrations",
     "ConnectorsGitHubConnectorConfig",
     "ConnectorsGitHubConnectorConfigConfig",
     "ConnectorsGitHubConnectorConfigConfigOAuth",
     "ConnectorsGitHubConnectorConfigConnector",
+    "ConnectorsGitHubConnectorConfigConnectorSchemas",
+    "ConnectorsGitHubConnectorConfigIntegrations",
     "ConnectorsGongConnectorConfig",
     "ConnectorsGongConnectorConfigConfig",
     "ConnectorsGongConnectorConfigConfigOAuth",
     "ConnectorsGongConnectorConfigConnector",
-    "ConnectorsGoogleConnectorConfig",
-    "ConnectorsGoogleConnectorConfigConfig",
-    "ConnectorsGoogleConnectorConfigConfigIntegrations",
-    "ConnectorsGoogleConnectorConfigConfigIntegrationsCalendar",
-    "ConnectorsGoogleConnectorConfigConfigIntegrationsDocs",
-    "ConnectorsGoogleConnectorConfigConfigIntegrationsDrive",
-    "ConnectorsGoogleConnectorConfigConfigIntegrationsGmail",
-    "ConnectorsGoogleConnectorConfigConfigIntegrationsSheets",
-    "ConnectorsGoogleConnectorConfigConfigIntegrationsSlides",
-    "ConnectorsGoogleConnectorConfigConfigOAuth",
-    "ConnectorsGoogleConnectorConfigConnector",
+    "ConnectorsGongConnectorConfigConnectorSchemas",
+    "ConnectorsGongConnectorConfigIntegrations",
+    "ConnectorsGooglecalendarConnectorConfig",
+    "ConnectorsGooglecalendarConnectorConfigConfig",
+    "ConnectorsGooglecalendarConnectorConfigConfigOAuth",
+    "ConnectorsGooglecalendarConnectorConfigConnector",
+    "ConnectorsGooglecalendarConnectorConfigConnectorSchemas",
+    "ConnectorsGooglecalendarConnectorConfigIntegrations",
+    "ConnectorsGoogledocsConnectorConfig",
+    "ConnectorsGoogledocsConnectorConfigConfig",
+    "ConnectorsGoogledocsConnectorConfigConfigOAuth",
+    "ConnectorsGoogledocsConnectorConfigConnector",
+    "ConnectorsGoogledocsConnectorConfigConnectorSchemas",
+    "ConnectorsGoogledocsConnectorConfigIntegrations",
+    "ConnectorsGoogledriveConnectorConfig",
+    "ConnectorsGoogledriveConnectorConfigConfig",
+    "ConnectorsGoogledriveConnectorConfigConfigOAuth",
+    "ConnectorsGoogledriveConnectorConfigConnector",
+    "ConnectorsGoogledriveConnectorConfigConnectorSchemas",
+    "ConnectorsGoogledriveConnectorConfigIntegrations",
+    "ConnectorsGooglemailConnectorConfig",
+    "ConnectorsGooglemailConnectorConfigConfig",
+    "ConnectorsGooglemailConnectorConfigConfigOAuth",
+    "ConnectorsGooglemailConnectorConfigConnector",
+    "ConnectorsGooglemailConnectorConfigConnectorSchemas",
+    "ConnectorsGooglemailConnectorConfigIntegrations",
+    "ConnectorsGooglesheetConnectorConfig",
+    "ConnectorsGooglesheetConnectorConfigConfig",
+    "ConnectorsGooglesheetConnectorConfigConfigOAuth",
+    "ConnectorsGooglesheetConnectorConfigConnector",
+    "ConnectorsGooglesheetConnectorConfigConnectorSchemas",
+    "ConnectorsGooglesheetConnectorConfigIntegrations",
     "ConnectorsGreenhouseConnectorConfig",
     "ConnectorsGreenhouseConnectorConfigConnector",
+    "ConnectorsGreenhouseConnectorConfigConnectorSchemas",
+    "ConnectorsGreenhouseConnectorConfigIntegrations",
     "ConnectorsHeronConnectorConfig",
     "ConnectorsHeronConnectorConfigConfig",
     "ConnectorsHeronConnectorConfigConnector",
+    "ConnectorsHeronConnectorConfigConnectorSchemas",
+    "ConnectorsHeronConnectorConfigIntegrations",
     "ConnectorsHubspotConnectorConfig",
     "ConnectorsHubspotConnectorConfigConfig",
     "ConnectorsHubspotConnectorConfigConfigOAuth",
     "ConnectorsHubspotConnectorConfigConnector",
+    "ConnectorsHubspotConnectorConfigConnectorSchemas",
+    "ConnectorsHubspotConnectorConfigIntegrations",
+    "ConnectorsInstagramConnectorConfig",
+    "ConnectorsInstagramConnectorConfigConfig",
+    "ConnectorsInstagramConnectorConfigConfigOAuth",
+    "ConnectorsInstagramConnectorConfigConnector",
+    "ConnectorsInstagramConnectorConfigConnectorSchemas",
+    "ConnectorsInstagramConnectorConfigIntegrations",
     "ConnectorsIntercomConnectorConfig",
     "ConnectorsIntercomConnectorConfigConfig",
     "ConnectorsIntercomConnectorConfigConfigOAuth",
     "ConnectorsIntercomConnectorConfigConnector",
+    "ConnectorsIntercomConnectorConfigConnectorSchemas",
+    "ConnectorsIntercomConnectorConfigIntegrations",
     "ConnectorsJiraConnectorConfig",
     "ConnectorsJiraConnectorConfigConfig",
     "ConnectorsJiraConnectorConfigConfigOAuth",
     "ConnectorsJiraConnectorConfigConnector",
+    "ConnectorsJiraConnectorConfigConnectorSchemas",
+    "ConnectorsJiraConnectorConfigIntegrations",
     "ConnectorsKustomerConnectorConfig",
     "ConnectorsKustomerConnectorConfigConfig",
     "ConnectorsKustomerConnectorConfigConfigOAuth",
     "ConnectorsKustomerConnectorConfigConnector",
+    "ConnectorsKustomerConnectorConfigConnectorSchemas",
+    "ConnectorsKustomerConnectorConfigIntegrations",
     "ConnectorsLeverConnectorConfig",
     "ConnectorsLeverConnectorConfigConfig",
     "ConnectorsLeverConnectorConfigConfigOAuth",
     "ConnectorsLeverConnectorConfigConnector",
+    "ConnectorsLeverConnectorConfigConnectorSchemas",
+    "ConnectorsLeverConnectorConfigIntegrations",
     "ConnectorsLinearConnectorConfig",
     "ConnectorsLinearConnectorConfigConfig",
     "ConnectorsLinearConnectorConfigConfigOAuth",
     "ConnectorsLinearConnectorConfigConnector",
+    "ConnectorsLinearConnectorConfigConnectorSchemas",
+    "ConnectorsLinearConnectorConfigIntegrations",
+    "ConnectorsLinkedinConnectorConfig",
+    "ConnectorsLinkedinConnectorConfigConfig",
+    "ConnectorsLinkedinConnectorConfigConfigOAuth",
+    "ConnectorsLinkedinConnectorConfigConnector",
+    "ConnectorsLinkedinConnectorConfigConnectorSchemas",
+    "ConnectorsLinkedinConnectorConfigIntegrations",
     "ConnectorsLunchmoneyConnectorConfig",
     "ConnectorsLunchmoneyConnectorConfigConfig",
     "ConnectorsLunchmoneyConnectorConfigConnector",
+    "ConnectorsLunchmoneyConnectorConfigConnectorSchemas",
+    "ConnectorsLunchmoneyConnectorConfigIntegrations",
     "ConnectorsMercuryConnectorConfig",
     "ConnectorsMercuryConnectorConfigConfig",
     "ConnectorsMercuryConnectorConfigConfigOAuth",
     "ConnectorsMercuryConnectorConfigConnector",
+    "ConnectorsMercuryConnectorConfigConnectorSchemas",
+    "ConnectorsMercuryConnectorConfigIntegrations",
     "ConnectorsMergeConnectorConfig",
     "ConnectorsMergeConnectorConfigConfig",
     "ConnectorsMergeConnectorConfigConnector",
+    "ConnectorsMergeConnectorConfigConnectorSchemas",
+    "ConnectorsMergeConnectorConfigIntegrations",
     "ConnectorsMicrosoftConnectorConfig",
     "ConnectorsMicrosoftConnectorConfigConfig",
     "ConnectorsMicrosoftConnectorConfigConfigIntegrations",
@@ -104,84 +187,180 @@ __all__ = [
     "ConnectorsMicrosoftConnectorConfigConfigIntegrationsTeams",
     "ConnectorsMicrosoftConnectorConfigConfigOAuth",
     "ConnectorsMicrosoftConnectorConfigConnector",
+    "ConnectorsMicrosoftConnectorConfigConnectorSchemas",
+    "ConnectorsMicrosoftConnectorConfigIntegrations",
     "ConnectorsMootaConnectorConfig",
     "ConnectorsMootaConnectorConfigConfig",
     "ConnectorsMootaConnectorConfigConnector",
+    "ConnectorsMootaConnectorConfigConnectorSchemas",
+    "ConnectorsMootaConnectorConfigIntegrations",
+    "ConnectorsNotionConnectorConfig",
+    "ConnectorsNotionConnectorConfigConfig",
+    "ConnectorsNotionConnectorConfigConfigOAuth",
+    "ConnectorsNotionConnectorConfigConnector",
+    "ConnectorsNotionConnectorConfigConnectorSchemas",
+    "ConnectorsNotionConnectorConfigIntegrations",
     "ConnectorsOnebrickConnectorConfig",
     "ConnectorsOnebrickConnectorConfigConfig",
     "ConnectorsOnebrickConnectorConfigConnector",
+    "ConnectorsOnebrickConnectorConfigConnectorSchemas",
+    "ConnectorsOnebrickConnectorConfigIntegrations",
     "ConnectorsOutreachConnectorConfig",
     "ConnectorsOutreachConnectorConfigConfig",
     "ConnectorsOutreachConnectorConfigConfigOAuth",
     "ConnectorsOutreachConnectorConfigConnector",
+    "ConnectorsOutreachConnectorConfigConnectorSchemas",
+    "ConnectorsOutreachConnectorConfigIntegrations",
     "ConnectorsPipedriveConnectorConfig",
     "ConnectorsPipedriveConnectorConfigConfig",
     "ConnectorsPipedriveConnectorConfigConfigOAuth",
     "ConnectorsPipedriveConnectorConfigConnector",
+    "ConnectorsPipedriveConnectorConfigConnectorSchemas",
+    "ConnectorsPipedriveConnectorConfigIntegrations",
     "ConnectorsPlaidConnectorConfig",
     "ConnectorsPlaidConnectorConfigConfig",
     "ConnectorsPlaidConnectorConfigConfigCredentials",
     "ConnectorsPlaidConnectorConfigConnector",
+    "ConnectorsPlaidConnectorConfigConnectorSchemas",
+    "ConnectorsPlaidConnectorConfigIntegrations",
     "ConnectorsPostgresConnectorConfig",
     "ConnectorsPostgresConnectorConfigConnector",
-    "ConnectorsQboConnectorConfig",
-    "ConnectorsQboConnectorConfigConfig",
-    "ConnectorsQboConnectorConfigConfigOAuth",
-    "ConnectorsQboConnectorConfigConnector",
+    "ConnectorsPostgresConnectorConfigConnectorSchemas",
+    "ConnectorsPostgresConnectorConfigIntegrations",
+    "ConnectorsQuickbooksConnectorConfig",
+    "ConnectorsQuickbooksConnectorConfigConfig",
+    "ConnectorsQuickbooksConnectorConfigConfigOAuth",
+    "ConnectorsQuickbooksConnectorConfigConnector",
+    "ConnectorsQuickbooksConnectorConfigConnectorSchemas",
+    "ConnectorsQuickbooksConnectorConfigIntegrations",
     "ConnectorsRampConnectorConfig",
     "ConnectorsRampConnectorConfigConfig",
     "ConnectorsRampConnectorConfigConfigOAuth",
     "ConnectorsRampConnectorConfigConnector",
+    "ConnectorsRampConnectorConfigConnectorSchemas",
+    "ConnectorsRampConnectorConfigIntegrations",
+    "ConnectorsRedditConnectorConfig",
+    "ConnectorsRedditConnectorConfigConfig",
+    "ConnectorsRedditConnectorConfigConfigOAuth",
+    "ConnectorsRedditConnectorConfigConnector",
+    "ConnectorsRedditConnectorConfigConnectorSchemas",
+    "ConnectorsRedditConnectorConfigIntegrations",
     "ConnectorsSalesforceConnectorConfig",
     "ConnectorsSalesforceConnectorConfigConfig",
     "ConnectorsSalesforceConnectorConfigConfigOAuth",
     "ConnectorsSalesforceConnectorConfigConnector",
+    "ConnectorsSalesforceConnectorConfigConnectorSchemas",
+    "ConnectorsSalesforceConnectorConfigIntegrations",
     "ConnectorsSalesloftConnectorConfig",
     "ConnectorsSalesloftConnectorConfigConfig",
     "ConnectorsSalesloftConnectorConfigConfigOAuth",
     "ConnectorsSalesloftConnectorConfigConnector",
+    "ConnectorsSalesloftConnectorConfigConnectorSchemas",
+    "ConnectorsSalesloftConnectorConfigIntegrations",
     "ConnectorsSaltedgeConnectorConfig",
     "ConnectorsSaltedgeConnectorConfigConfig",
     "ConnectorsSaltedgeConnectorConfigConnector",
+    "ConnectorsSaltedgeConnectorConfigConnectorSchemas",
+    "ConnectorsSaltedgeConnectorConfigIntegrations",
+    "ConnectorsSharepointonlineConnectorConfig",
+    "ConnectorsSharepointonlineConnectorConfigConfig",
+    "ConnectorsSharepointonlineConnectorConfigConfigOAuth",
+    "ConnectorsSharepointonlineConnectorConfigConnector",
+    "ConnectorsSharepointonlineConnectorConfigConnectorSchemas",
+    "ConnectorsSharepointonlineConnectorConfigIntegrations",
     "ConnectorsSlackConnectorConfig",
     "ConnectorsSlackConnectorConfigConfig",
     "ConnectorsSlackConnectorConfigConfigOAuth",
     "ConnectorsSlackConnectorConfigConnector",
+    "ConnectorsSlackConnectorConfigConnectorSchemas",
+    "ConnectorsSlackConnectorConfigIntegrations",
     "ConnectorsSplitwiseConnectorConfig",
     "ConnectorsSplitwiseConnectorConfigConnector",
+    "ConnectorsSplitwiseConnectorConfigConnectorSchemas",
+    "ConnectorsSplitwiseConnectorConfigIntegrations",
     "ConnectorsStripeConnectorConfig",
     "ConnectorsStripeConnectorConfigConfig",
     "ConnectorsStripeConnectorConfigConfigOAuth",
     "ConnectorsStripeConnectorConfigConnector",
+    "ConnectorsStripeConnectorConfigConnectorSchemas",
+    "ConnectorsStripeConnectorConfigIntegrations",
     "ConnectorsTellerConnectorConfig",
     "ConnectorsTellerConnectorConfigConfig",
     "ConnectorsTellerConnectorConfigConnector",
+    "ConnectorsTellerConnectorConfigConnectorSchemas",
+    "ConnectorsTellerConnectorConfigIntegrations",
     "ConnectorsTogglConnectorConfig",
     "ConnectorsTogglConnectorConfigConnector",
+    "ConnectorsTogglConnectorConfigConnectorSchemas",
+    "ConnectorsTogglConnectorConfigIntegrations",
     "ConnectorsTwentyConnectorConfig",
     "ConnectorsTwentyConnectorConfigConnector",
+    "ConnectorsTwentyConnectorConfigConnectorSchemas",
+    "ConnectorsTwentyConnectorConfigIntegrations",
+    "ConnectorsTwitterConnectorConfig",
+    "ConnectorsTwitterConnectorConfigConfig",
+    "ConnectorsTwitterConnectorConfigConfigOAuth",
+    "ConnectorsTwitterConnectorConfigConnector",
+    "ConnectorsTwitterConnectorConfigConnectorSchemas",
+    "ConnectorsTwitterConnectorConfigIntegrations",
     "ConnectorsVenmoConnectorConfig",
     "ConnectorsVenmoConnectorConfigConfig",
     "ConnectorsVenmoConnectorConfigConfigProxy",
     "ConnectorsVenmoConnectorConfigConnector",
+    "ConnectorsVenmoConnectorConfigConnectorSchemas",
+    "ConnectorsVenmoConnectorConfigIntegrations",
     "ConnectorsWiseConnectorConfig",
     "ConnectorsWiseConnectorConfigConnector",
+    "ConnectorsWiseConnectorConfigConnectorSchemas",
+    "ConnectorsWiseConnectorConfigIntegrations",
     "ConnectorsXeroConnectorConfig",
     "ConnectorsXeroConnectorConfigConfig",
     "ConnectorsXeroConnectorConfigConfigOAuth",
     "ConnectorsXeroConnectorConfigConnector",
+    "ConnectorsXeroConnectorConfigConnectorSchemas",
+    "ConnectorsXeroConnectorConfigIntegrations",
     "ConnectorsYodleeConnectorConfig",
     "ConnectorsYodleeConnectorConfigConfig",
     "ConnectorsYodleeConnectorConfigConfigProxy",
     "ConnectorsYodleeConnectorConfigConnector",
+    "ConnectorsYodleeConnectorConfigConnectorSchemas",
+    "ConnectorsYodleeConnectorConfigIntegrations",
     "ConnectorsZohodeskConnectorConfig",
     "ConnectorsZohodeskConnectorConfigConfig",
     "ConnectorsZohodeskConnectorConfigConfigOAuth",
     "ConnectorsZohodeskConnectorConfigConnector",
-    "ConnectorsGoogledriveConnectorConfig",
-    "ConnectorsGoogledriveConnectorConfigConfig",
-    "ConnectorsGoogledriveConnectorConfigConnector",
+    "ConnectorsZohodeskConnectorConfigConnectorSchemas",
+    "ConnectorsZohodeskConnectorConfigIntegrations",
 ]
+
+
+class ConnectorsAircallConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorsAircallConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorsAircallConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorsAircallConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsAircallConnectorConfigConnector(BaseModel):
@@ -191,27 +370,75 @@ class ConnectorsAircallConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsAircallConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsAircallConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsAircallConnectorConfig(BaseModel):
-    config: None
+    config: ConnectorsAircallConnectorConfigConfig
 
     connector_name: Literal["aircall"]
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsAircallConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsAircallConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
     updated_at: Optional[str] = None
+
+
+class ConnectorsAirtableConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsAirtableConnectorConfigConnector(BaseModel):
@@ -221,9 +448,35 @@ class ConnectorsAirtableConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsAirtableConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsAirtableConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsAirtableConnectorConfig(BaseModel):
@@ -233,15 +486,37 @@ class ConnectorsAirtableConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsAirtableConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsAirtableConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
     updated_at: Optional[str] = None
+
+
+class ConnectorsApolloConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsApolloConnectorConfigConnector(BaseModel):
@@ -251,9 +526,35 @@ class ConnectorsApolloConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsApolloConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsApolloConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsApolloConnectorConfig(BaseModel):
@@ -263,41 +564,17 @@ class ConnectorsApolloConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsApolloConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsBeancountConnectorConfigConnector(BaseModel):
-    name: str
+    disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
 
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[str]] = None
-
-    stage: Optional[str] = None
-
-
-class ConnectorsBeancountConnectorConfig(BaseModel):
-    config: None
-
-    connector_name: Literal["beancount"]
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsBeancountConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    integrations: Optional[Dict[str, ConnectorsApolloConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -318,6 +595,22 @@ class ConnectorsBrexConnectorConfigConfig(BaseModel):
     """Configure oauth"""
 
 
+class ConnectorsBrexConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsBrexConnectorConfigConnector(BaseModel):
     name: str
 
@@ -325,9 +618,35 @@ class ConnectorsBrexConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsBrexConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsBrexConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsBrexConnectorConfig(BaseModel):
@@ -337,15 +656,37 @@ class ConnectorsBrexConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsBrexConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsBrexConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
     updated_at: Optional[str] = None
+
+
+class ConnectorsCodaConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsCodaConnectorConfigConnector(BaseModel):
@@ -355,9 +696,35 @@ class ConnectorsCodaConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsCodaConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsCodaConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsCodaConnectorConfig(BaseModel):
@@ -367,11 +734,17 @@ class ConnectorsCodaConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsCodaConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsCodaConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -379,15 +752,32 @@ class ConnectorsCodaConnectorConfig(BaseModel):
 
 
 class ConnectorsConfluenceConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
+    client_id: Optional[str] = None
 
-    client_secret: str
+    client_secret: Optional[str] = None
 
-    scopes: Optional[str] = None
+    scopes: Optional[List[str]] = None
 
 
 class ConnectorsConfluenceConnectorConfigConfig(BaseModel):
-    oauth: ConnectorsConfluenceConnectorConfigConfigOAuth
+    oauth: Optional[ConnectorsConfluenceConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorsConfluenceConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsConfluenceConnectorConfigConnector(BaseModel):
@@ -397,9 +787,35 @@ class ConnectorsConfluenceConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsConfluenceConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsConfluenceConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsConfluenceConnectorConfig(BaseModel):
@@ -409,11 +825,17 @@ class ConnectorsConfluenceConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsConfluenceConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsConfluenceConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -421,15 +843,32 @@ class ConnectorsConfluenceConnectorConfig(BaseModel):
 
 
 class ConnectorsDiscordConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
+    client_id: Optional[str] = None
 
-    client_secret: str
+    client_secret: Optional[str] = None
 
-    scopes: Optional[str] = None
+    scopes: Optional[List[str]] = None
 
 
 class ConnectorsDiscordConnectorConfigConfig(BaseModel):
-    oauth: ConnectorsDiscordConnectorConfigConfigOAuth
+    oauth: Optional[ConnectorsDiscordConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorsDiscordConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsDiscordConnectorConfigConnector(BaseModel):
@@ -439,9 +878,35 @@ class ConnectorsDiscordConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsDiscordConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsDiscordConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsDiscordConnectorConfig(BaseModel):
@@ -451,11 +916,107 @@ class ConnectorsDiscordConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsDiscordConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsDiscordConnectorConfigIntegrations]] = None
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorsFacebookConnectorConfigConfigOAuth(BaseModel):
+    client_id: str
+
+    client_secret: str
+
+    scopes: Optional[str] = None
+
+
+class ConnectorsFacebookConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsFacebookConnectorConfigConfigOAuth
+
+
+class ConnectorsFacebookConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorsFacebookConnectorConfigConnector(BaseModel):
+    name: str
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorsFacebookConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsFacebookConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
+
+
+class ConnectorsFacebookConnectorConfig(BaseModel):
+    config: ConnectorsFacebookConnectorConfigConfig
+
+    connector_name: Literal["facebook"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorsFacebookConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsFacebookConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -479,6 +1040,22 @@ class ConnectorsFinchConnectorConfigConfig(BaseModel):
     """Finch API version"""
 
 
+class ConnectorsFinchConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsFinchConnectorConfigConnector(BaseModel):
     name: str
 
@@ -486,9 +1063,35 @@ class ConnectorsFinchConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsFinchConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsFinchConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsFinchConnectorConfig(BaseModel):
@@ -498,15 +1101,37 @@ class ConnectorsFinchConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsFinchConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsFinchConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
     updated_at: Optional[str] = None
+
+
+class ConnectorsFirebaseConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsFirebaseConnectorConfigConnector(BaseModel):
@@ -516,9 +1141,35 @@ class ConnectorsFirebaseConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsFirebaseConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsFirebaseConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsFirebaseConnectorConfig(BaseModel):
@@ -528,15 +1179,37 @@ class ConnectorsFirebaseConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsFirebaseConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsFirebaseConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
     updated_at: Optional[str] = None
+
+
+class ConnectorsForeceiptConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsForeceiptConnectorConfigConnector(BaseModel):
@@ -546,9 +1219,35 @@ class ConnectorsForeceiptConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsForeceiptConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsForeceiptConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsForeceiptConnectorConfig(BaseModel):
@@ -558,11 +1257,17 @@ class ConnectorsForeceiptConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsForeceiptConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsForeceiptConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -570,15 +1275,32 @@ class ConnectorsForeceiptConnectorConfig(BaseModel):
 
 
 class ConnectorsGitHubConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
+    client_id: Optional[str] = None
 
-    client_secret: str
+    client_secret: Optional[str] = None
 
-    scopes: Optional[str] = None
+    scopes: Optional[List[str]] = None
 
 
 class ConnectorsGitHubConnectorConfigConfig(BaseModel):
-    oauth: ConnectorsGitHubConnectorConfigConfigOAuth
+    oauth: Optional[ConnectorsGitHubConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorsGitHubConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsGitHubConnectorConfigConnector(BaseModel):
@@ -588,9 +1310,35 @@ class ConnectorsGitHubConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsGitHubConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsGitHubConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsGitHubConnectorConfig(BaseModel):
@@ -600,11 +1348,17 @@ class ConnectorsGitHubConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsGitHubConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsGitHubConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -623,6 +1377,22 @@ class ConnectorsGongConnectorConfigConfig(BaseModel):
     oauth: ConnectorsGongConnectorConfigConfigOAuth
 
 
+class ConnectorsGongConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsGongConnectorConfigConnector(BaseModel):
     name: str
 
@@ -630,9 +1400,35 @@ class ConnectorsGongConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsGongConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsGongConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsGongConnectorConfig(BaseModel):
@@ -642,116 +1438,492 @@ class ConnectorsGongConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsGongConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsGongConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsGoogleConnectorConfigConfigIntegrationsCalendar(BaseModel):
-    enabled: Optional[bool] = None
+class ConnectorsGooglecalendarConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
 
-    scopes: Optional[str] = None
-    """calendar specific space separated scopes"""
+    client_secret: Optional[str] = None
 
-
-class ConnectorsGoogleConnectorConfigConfigIntegrationsDocs(BaseModel):
-    enabled: Optional[bool] = None
-
-    scopes: Optional[str] = None
-    """docs specific space separated scopes"""
+    scopes: Optional[List[str]] = None
 
 
-class ConnectorsGoogleConnectorConfigConfigIntegrationsDrive(BaseModel):
-    enabled: Optional[bool] = None
-
-    scopes: Optional[str] = None
-    """drive specific space separated scopes"""
+class ConnectorsGooglecalendarConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorsGooglecalendarConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
 
 
-class ConnectorsGoogleConnectorConfigConfigIntegrationsGmail(BaseModel):
-    enabled: Optional[bool] = None
+class ConnectorsGooglecalendarConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
 
-    scopes: Optional[str] = None
-    """gmail specific space separated scopes"""
+    connect_output: Optional[object] = None
 
+    connection_settings: Optional[object] = None
 
-class ConnectorsGoogleConnectorConfigConfigIntegrationsSheets(BaseModel):
-    enabled: Optional[bool] = None
+    connector_config: Optional[object] = None
 
-    scopes: Optional[str] = None
-    """sheets specific space separated scopes"""
+    integration_data: Optional[object] = None
 
+    pre_connect_input: Optional[object] = None
 
-class ConnectorsGoogleConnectorConfigConfigIntegrationsSlides(BaseModel):
-    enabled: Optional[bool] = None
-
-    scopes: Optional[str] = None
-    """slides specific space separated scopes"""
+    webhook_input: Optional[object] = None
 
 
-class ConnectorsGoogleConnectorConfigConfigIntegrations(BaseModel):
-    calendar: Optional[ConnectorsGoogleConnectorConfigConfigIntegrationsCalendar] = None
-
-    docs: Optional[ConnectorsGoogleConnectorConfigConfigIntegrationsDocs] = None
-
-    drive: Optional[ConnectorsGoogleConnectorConfigConfigIntegrationsDrive] = None
-
-    gmail: Optional[ConnectorsGoogleConnectorConfigConfigIntegrationsGmail] = None
-
-    sheets: Optional[ConnectorsGoogleConnectorConfigConfigIntegrationsSheets] = None
-
-    slides: Optional[ConnectorsGoogleConnectorConfigConfigIntegrationsSlides] = None
-
-
-class ConnectorsGoogleConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[str] = None
-    """global google connector space separated scopes"""
-
-
-class ConnectorsGoogleConnectorConfigConfig(BaseModel):
-    integrations: ConnectorsGoogleConnectorConfigConfigIntegrations
-
-    oauth: ConnectorsGoogleConnectorConfigConfigOAuth
-
-
-class ConnectorsGoogleConnectorConfigConnector(BaseModel):
+class ConnectorsGooglecalendarConnectorConfigConnector(BaseModel):
     name: str
 
     display_name: Optional[str] = None
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsGooglecalendarConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
 
 
-class ConnectorsGoogleConnectorConfig(BaseModel):
-    config: ConnectorsGoogleConnectorConfigConfig
+class ConnectorsGooglecalendarConnectorConfigIntegrations(BaseModel):
+    connector_name: str
 
-    connector_name: Literal["google"]
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
+
+
+class ConnectorsGooglecalendarConnectorConfig(BaseModel):
+    config: ConnectorsGooglecalendarConnectorConfigConfig
+
+    connector_name: Literal["googlecalendar"]
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsGoogleConnectorConfigConnector] = None
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorsGooglecalendarConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsGooglecalendarConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
     updated_at: Optional[str] = None
+
+
+class ConnectorsGoogledocsConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorsGoogledocsConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorsGoogledocsConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorsGoogledocsConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorsGoogledocsConnectorConfigConnector(BaseModel):
+    name: str
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorsGoogledocsConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsGoogledocsConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
+
+
+class ConnectorsGoogledocsConnectorConfig(BaseModel):
+    config: ConnectorsGoogledocsConnectorConfigConfig
+
+    connector_name: Literal["googledocs"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorsGoogledocsConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsGoogledocsConnectorConfigIntegrations]] = None
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorsGoogledriveConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorsGoogledriveConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorsGoogledriveConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorsGoogledriveConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorsGoogledriveConnectorConfigConnector(BaseModel):
+    name: str
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorsGoogledriveConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsGoogledriveConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
+
+
+class ConnectorsGoogledriveConnectorConfig(BaseModel):
+    config: ConnectorsGoogledriveConnectorConfigConfig
+
+    connector_name: Literal["googledrive"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorsGoogledriveConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsGoogledriveConnectorConfigIntegrations]] = None
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorsGooglemailConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorsGooglemailConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorsGooglemailConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorsGooglemailConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorsGooglemailConnectorConfigConnector(BaseModel):
+    name: str
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorsGooglemailConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsGooglemailConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
+
+
+class ConnectorsGooglemailConnectorConfig(BaseModel):
+    config: ConnectorsGooglemailConnectorConfigConfig
+
+    connector_name: Literal["googlemail"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorsGooglemailConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsGooglemailConnectorConfigIntegrations]] = None
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorsGooglesheetConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorsGooglesheetConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorsGooglesheetConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorsGooglesheetConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorsGooglesheetConnectorConfigConnector(BaseModel):
+    name: str
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorsGooglesheetConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsGooglesheetConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
+
+
+class ConnectorsGooglesheetConnectorConfig(BaseModel):
+    config: ConnectorsGooglesheetConnectorConfigConfig
+
+    connector_name: Literal["googlesheet"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorsGooglesheetConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsGooglesheetConnectorConfigIntegrations]] = None
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorsGreenhouseConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsGreenhouseConnectorConfigConnector(BaseModel):
@@ -761,9 +1933,35 @@ class ConnectorsGreenhouseConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsGreenhouseConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsGreenhouseConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsGreenhouseConnectorConfig(BaseModel):
@@ -773,11 +1971,17 @@ class ConnectorsGreenhouseConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsGreenhouseConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsGreenhouseConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -788,6 +1992,22 @@ class ConnectorsHeronConnectorConfigConfig(BaseModel):
     api_key: str = FieldInfo(alias="apiKey")
 
 
+class ConnectorsHeronConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsHeronConnectorConfigConnector(BaseModel):
     name: str
 
@@ -795,9 +2015,35 @@ class ConnectorsHeronConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsHeronConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsHeronConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsHeronConnectorConfig(BaseModel):
@@ -807,11 +2053,17 @@ class ConnectorsHeronConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsHeronConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsHeronConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -819,15 +2071,32 @@ class ConnectorsHeronConnectorConfig(BaseModel):
 
 
 class ConnectorsHubspotConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
+    client_id: Optional[str] = None
 
-    client_secret: str
+    client_secret: Optional[str] = None
 
-    scopes: Optional[str] = None
+    scopes: Optional[List[str]] = None
 
 
 class ConnectorsHubspotConnectorConfigConfig(BaseModel):
-    oauth: ConnectorsHubspotConnectorConfigConfigOAuth
+    oauth: Optional[ConnectorsHubspotConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorsHubspotConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsHubspotConnectorConfigConnector(BaseModel):
@@ -837,9 +2106,35 @@ class ConnectorsHubspotConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsHubspotConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsHubspotConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsHubspotConnectorConfig(BaseModel):
@@ -849,11 +2144,107 @@ class ConnectorsHubspotConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsHubspotConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsHubspotConnectorConfigIntegrations]] = None
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorsInstagramConnectorConfigConfigOAuth(BaseModel):
+    client_id: str
+
+    client_secret: str
+
+    scopes: Optional[str] = None
+
+
+class ConnectorsInstagramConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsInstagramConnectorConfigConfigOAuth
+
+
+class ConnectorsInstagramConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorsInstagramConnectorConfigConnector(BaseModel):
+    name: str
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorsInstagramConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsInstagramConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
+
+
+class ConnectorsInstagramConnectorConfig(BaseModel):
+    config: ConnectorsInstagramConnectorConfigConfig
+
+    connector_name: Literal["instagram"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorsInstagramConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsInstagramConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -872,6 +2263,22 @@ class ConnectorsIntercomConnectorConfigConfig(BaseModel):
     oauth: ConnectorsIntercomConnectorConfigConfigOAuth
 
 
+class ConnectorsIntercomConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsIntercomConnectorConfigConnector(BaseModel):
     name: str
 
@@ -879,9 +2286,35 @@ class ConnectorsIntercomConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsIntercomConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsIntercomConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsIntercomConnectorConfig(BaseModel):
@@ -891,11 +2324,17 @@ class ConnectorsIntercomConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsIntercomConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsIntercomConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -914,6 +2353,22 @@ class ConnectorsJiraConnectorConfigConfig(BaseModel):
     oauth: ConnectorsJiraConnectorConfigConfigOAuth
 
 
+class ConnectorsJiraConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsJiraConnectorConfigConnector(BaseModel):
     name: str
 
@@ -921,9 +2376,35 @@ class ConnectorsJiraConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsJiraConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsJiraConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsJiraConnectorConfig(BaseModel):
@@ -933,11 +2414,17 @@ class ConnectorsJiraConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsJiraConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsJiraConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -956,6 +2443,22 @@ class ConnectorsKustomerConnectorConfigConfig(BaseModel):
     oauth: ConnectorsKustomerConnectorConfigConfigOAuth
 
 
+class ConnectorsKustomerConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsKustomerConnectorConfigConnector(BaseModel):
     name: str
 
@@ -963,9 +2466,35 @@ class ConnectorsKustomerConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsKustomerConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsKustomerConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsKustomerConnectorConfig(BaseModel):
@@ -975,11 +2504,17 @@ class ConnectorsKustomerConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsKustomerConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsKustomerConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1000,6 +2535,22 @@ class ConnectorsLeverConnectorConfigConfig(BaseModel):
     oauth: ConnectorsLeverConnectorConfigConfigOAuth
 
 
+class ConnectorsLeverConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsLeverConnectorConfigConnector(BaseModel):
     name: str
 
@@ -1007,9 +2558,35 @@ class ConnectorsLeverConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsLeverConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsLeverConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsLeverConnectorConfig(BaseModel):
@@ -1019,11 +2596,17 @@ class ConnectorsLeverConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsLeverConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsLeverConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1031,15 +2614,32 @@ class ConnectorsLeverConnectorConfig(BaseModel):
 
 
 class ConnectorsLinearConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
+    client_id: Optional[str] = None
 
-    client_secret: str
+    client_secret: Optional[str] = None
 
-    scopes: Optional[str] = None
+    scopes: Optional[List[str]] = None
 
 
 class ConnectorsLinearConnectorConfigConfig(BaseModel):
-    oauth: ConnectorsLinearConnectorConfigConfigOAuth
+    oauth: Optional[ConnectorsLinearConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorsLinearConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsLinearConnectorConfigConnector(BaseModel):
@@ -1049,9 +2649,35 @@ class ConnectorsLinearConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsLinearConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsLinearConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsLinearConnectorConfig(BaseModel):
@@ -1061,11 +2687,108 @@ class ConnectorsLinearConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsLinearConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsLinearConnectorConfigIntegrations]] = None
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorsLinkedinConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorsLinkedinConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorsLinkedinConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorsLinkedinConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorsLinkedinConnectorConfigConnector(BaseModel):
+    name: str
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorsLinkedinConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsLinkedinConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
+
+
+class ConnectorsLinkedinConnectorConfig(BaseModel):
+    config: ConnectorsLinkedinConnectorConfigConfig
+
+    connector_name: Literal["linkedin"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorsLinkedinConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsLinkedinConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1076,6 +2799,22 @@ class ConnectorsLunchmoneyConnectorConfigConfig(BaseModel):
     access_token: str = FieldInfo(alias="accessToken")
 
 
+class ConnectorsLunchmoneyConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsLunchmoneyConnectorConfigConnector(BaseModel):
     name: str
 
@@ -1083,9 +2822,35 @@ class ConnectorsLunchmoneyConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsLunchmoneyConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsLunchmoneyConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsLunchmoneyConnectorConfig(BaseModel):
@@ -1095,11 +2860,17 @@ class ConnectorsLunchmoneyConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsLunchmoneyConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsLunchmoneyConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1120,6 +2891,22 @@ class ConnectorsMercuryConnectorConfigConfig(BaseModel):
     """Configure oauth"""
 
 
+class ConnectorsMercuryConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsMercuryConnectorConfigConnector(BaseModel):
     name: str
 
@@ -1127,9 +2914,35 @@ class ConnectorsMercuryConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsMercuryConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsMercuryConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsMercuryConnectorConfig(BaseModel):
@@ -1139,11 +2952,17 @@ class ConnectorsMercuryConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsMercuryConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsMercuryConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1154,6 +2973,22 @@ class ConnectorsMergeConnectorConfigConfig(BaseModel):
     api_key: str = FieldInfo(alias="apiKey")
 
 
+class ConnectorsMergeConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsMergeConnectorConfigConnector(BaseModel):
     name: str
 
@@ -1161,9 +2996,35 @@ class ConnectorsMergeConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsMergeConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsMergeConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsMergeConnectorConfig(BaseModel):
@@ -1173,11 +3034,17 @@ class ConnectorsMergeConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsMergeConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsMergeConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1228,6 +3095,22 @@ class ConnectorsMicrosoftConnectorConfigConfig(BaseModel):
     oauth: ConnectorsMicrosoftConnectorConfigConfigOAuth
 
 
+class ConnectorsMicrosoftConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsMicrosoftConnectorConfigConnector(BaseModel):
     name: str
 
@@ -1235,9 +3118,35 @@ class ConnectorsMicrosoftConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsMicrosoftConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsMicrosoftConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsMicrosoftConnectorConfig(BaseModel):
@@ -1247,11 +3156,17 @@ class ConnectorsMicrosoftConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsMicrosoftConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsMicrosoftConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1262,6 +3177,22 @@ class ConnectorsMootaConnectorConfigConfig(BaseModel):
     token: str
 
 
+class ConnectorsMootaConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsMootaConnectorConfigConnector(BaseModel):
     name: str
 
@@ -1269,9 +3200,35 @@ class ConnectorsMootaConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsMootaConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsMootaConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsMootaConnectorConfig(BaseModel):
@@ -1281,11 +3238,108 @@ class ConnectorsMootaConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsMootaConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsMootaConnectorConfigIntegrations]] = None
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorsNotionConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorsNotionConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorsNotionConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorsNotionConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorsNotionConnectorConfigConnector(BaseModel):
+    name: str
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorsNotionConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsNotionConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
+
+
+class ConnectorsNotionConnectorConfig(BaseModel):
+    config: ConnectorsNotionConnectorConfigConfig
+
+    connector_name: Literal["notion"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorsNotionConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsNotionConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1306,6 +3360,22 @@ class ConnectorsOnebrickConnectorConfigConfig(BaseModel):
     redirect_url: Optional[str] = FieldInfo(alias="redirectUrl", default=None)
 
 
+class ConnectorsOnebrickConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsOnebrickConnectorConfigConnector(BaseModel):
     name: str
 
@@ -1313,9 +3383,35 @@ class ConnectorsOnebrickConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsOnebrickConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsOnebrickConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsOnebrickConnectorConfig(BaseModel):
@@ -1325,11 +3421,17 @@ class ConnectorsOnebrickConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsOnebrickConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsOnebrickConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1348,6 +3450,22 @@ class ConnectorsOutreachConnectorConfigConfig(BaseModel):
     oauth: ConnectorsOutreachConnectorConfigConfigOAuth
 
 
+class ConnectorsOutreachConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsOutreachConnectorConfigConnector(BaseModel):
     name: str
 
@@ -1355,9 +3473,35 @@ class ConnectorsOutreachConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsOutreachConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsOutreachConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsOutreachConnectorConfig(BaseModel):
@@ -1367,11 +3511,17 @@ class ConnectorsOutreachConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsOutreachConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsOutreachConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1390,6 +3540,22 @@ class ConnectorsPipedriveConnectorConfigConfig(BaseModel):
     oauth: ConnectorsPipedriveConnectorConfigConfigOAuth
 
 
+class ConnectorsPipedriveConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsPipedriveConnectorConfigConnector(BaseModel):
     name: str
 
@@ -1397,9 +3563,35 @@ class ConnectorsPipedriveConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsPipedriveConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsPipedriveConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsPipedriveConnectorConfig(BaseModel):
@@ -1409,11 +3601,17 @@ class ConnectorsPipedriveConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsPipedriveConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsPipedriveConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1467,6 +3665,22 @@ class ConnectorsPlaidConnectorConfigConfig(BaseModel):
     credentials: Optional[ConnectorsPlaidConnectorConfigConfigCredentials] = None
 
 
+class ConnectorsPlaidConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsPlaidConnectorConfigConnector(BaseModel):
     name: str
 
@@ -1474,9 +3688,35 @@ class ConnectorsPlaidConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsPlaidConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsPlaidConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsPlaidConnectorConfig(BaseModel):
@@ -1486,15 +3726,37 @@ class ConnectorsPlaidConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsPlaidConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsPlaidConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
     updated_at: Optional[str] = None
+
+
+class ConnectorsPostgresConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsPostgresConnectorConfigConnector(BaseModel):
@@ -1504,9 +3766,35 @@ class ConnectorsPostgresConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsPostgresConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsPostgresConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsPostgresConnectorConfig(BaseModel):
@@ -1516,61 +3804,108 @@ class ConnectorsPostgresConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsPostgresConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsPostgresConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsQboConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
+class ConnectorsQuickbooksConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
 
-    client_secret: str
+    client_secret: Optional[str] = None
 
-    scopes: Optional[str] = None
-
-
-class ConnectorsQboConnectorConfigConfig(BaseModel):
-    env_name: Literal["sandbox", "production"] = FieldInfo(alias="envName")
-
-    oauth: ConnectorsQboConnectorConfigConfigOAuth
-
-    url: Optional[str] = None
-    """For proxies, not typically needed"""
-
-    verifier_token: Optional[str] = FieldInfo(alias="verifierToken", default=None)
-    """For webhooks"""
+    scopes: Optional[List[str]] = None
 
 
-class ConnectorsQboConnectorConfigConnector(BaseModel):
+class ConnectorsQuickbooksConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorsQuickbooksConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorsQuickbooksConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorsQuickbooksConnectorConfigConnector(BaseModel):
     name: str
 
     display_name: Optional[str] = None
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsQuickbooksConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
 
 
-class ConnectorsQboConnectorConfig(BaseModel):
-    config: ConnectorsQboConnectorConfigConfig
+class ConnectorsQuickbooksConnectorConfigIntegrations(BaseModel):
+    connector_name: str
 
-    connector_name: Literal["qbo"]
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
+
+
+class ConnectorsQuickbooksConnectorConfig(BaseModel):
+    config: ConnectorsQuickbooksConnectorConfigConfig
+
+    connector_name: Literal["quickbooks"]
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsQboConnectorConfigConnector] = None
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorsQuickbooksConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsQuickbooksConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1587,6 +3922,22 @@ class ConnectorsRampConnectorConfigConfig(BaseModel):
     oauth: ConnectorsRampConnectorConfigConfigOAuth
 
 
+class ConnectorsRampConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsRampConnectorConfigConnector(BaseModel):
     name: str
 
@@ -1594,9 +3945,35 @@ class ConnectorsRampConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsRampConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsRampConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsRampConnectorConfig(BaseModel):
@@ -1606,18 +3983,24 @@ class ConnectorsRampConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsRampConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsRampConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsSalesforceConnectorConfigConfigOAuth(BaseModel):
+class ConnectorsRedditConnectorConfigConfigOAuth(BaseModel):
     client_id: str
 
     client_secret: str
@@ -1625,8 +4008,115 @@ class ConnectorsSalesforceConnectorConfigConfigOAuth(BaseModel):
     scopes: Optional[str] = None
 
 
+class ConnectorsRedditConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsRedditConnectorConfigConfigOAuth
+
+
+class ConnectorsRedditConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorsRedditConnectorConfigConnector(BaseModel):
+    name: str
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorsRedditConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsRedditConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
+
+
+class ConnectorsRedditConnectorConfig(BaseModel):
+    config: ConnectorsRedditConnectorConfigConfig
+
+    connector_name: Literal["reddit"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorsRedditConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsRedditConnectorConfigIntegrations]] = None
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorsSalesforceConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    scopes: Optional[List[str]] = None
+
+
 class ConnectorsSalesforceConnectorConfigConfig(BaseModel):
-    oauth: ConnectorsSalesforceConnectorConfigConfigOAuth
+    oauth: Optional[ConnectorsSalesforceConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorsSalesforceConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsSalesforceConnectorConfigConnector(BaseModel):
@@ -1636,9 +4126,35 @@ class ConnectorsSalesforceConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsSalesforceConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsSalesforceConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsSalesforceConnectorConfig(BaseModel):
@@ -1648,11 +4164,17 @@ class ConnectorsSalesforceConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsSalesforceConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsSalesforceConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1671,6 +4193,22 @@ class ConnectorsSalesloftConnectorConfigConfig(BaseModel):
     oauth: ConnectorsSalesloftConnectorConfigConfigOAuth
 
 
+class ConnectorsSalesloftConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsSalesloftConnectorConfigConnector(BaseModel):
     name: str
 
@@ -1678,9 +4216,35 @@ class ConnectorsSalesloftConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsSalesloftConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsSalesloftConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsSalesloftConnectorConfig(BaseModel):
@@ -1690,11 +4254,17 @@ class ConnectorsSalesloftConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsSalesloftConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsSalesloftConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1709,6 +4279,22 @@ class ConnectorsSaltedgeConnectorConfigConfig(BaseModel):
     url: Optional[str] = None
 
 
+class ConnectorsSaltedgeConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsSaltedgeConnectorConfigConnector(BaseModel):
     name: str
 
@@ -1716,9 +4302,35 @@ class ConnectorsSaltedgeConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsSaltedgeConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsSaltedgeConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsSaltedgeConnectorConfig(BaseModel):
@@ -1728,11 +4340,108 @@ class ConnectorsSaltedgeConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsSaltedgeConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsSaltedgeConnectorConfigIntegrations]] = None
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorsSharepointonlineConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorsSharepointonlineConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorsSharepointonlineConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorsSharepointonlineConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorsSharepointonlineConnectorConfigConnector(BaseModel):
+    name: str
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorsSharepointonlineConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsSharepointonlineConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
+
+
+class ConnectorsSharepointonlineConnectorConfig(BaseModel):
+    config: ConnectorsSharepointonlineConnectorConfigConfig
+
+    connector_name: Literal["sharepointonline"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorsSharepointonlineConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsSharepointonlineConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1740,15 +4449,32 @@ class ConnectorsSaltedgeConnectorConfig(BaseModel):
 
 
 class ConnectorsSlackConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
+    client_id: Optional[str] = None
 
-    client_secret: str
+    client_secret: Optional[str] = None
 
-    scopes: Optional[str] = None
+    scopes: Optional[List[str]] = None
 
 
 class ConnectorsSlackConnectorConfigConfig(BaseModel):
-    oauth: ConnectorsSlackConnectorConfigConfigOAuth
+    oauth: Optional[ConnectorsSlackConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorsSlackConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsSlackConnectorConfigConnector(BaseModel):
@@ -1758,9 +4484,35 @@ class ConnectorsSlackConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsSlackConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsSlackConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsSlackConnectorConfig(BaseModel):
@@ -1770,15 +4522,37 @@ class ConnectorsSlackConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsSlackConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsSlackConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
     updated_at: Optional[str] = None
+
+
+class ConnectorsSplitwiseConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsSplitwiseConnectorConfigConnector(BaseModel):
@@ -1788,9 +4562,35 @@ class ConnectorsSplitwiseConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsSplitwiseConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsSplitwiseConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsSplitwiseConnectorConfig(BaseModel):
@@ -1800,11 +4600,17 @@ class ConnectorsSplitwiseConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsSplitwiseConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsSplitwiseConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1825,6 +4631,22 @@ class ConnectorsStripeConnectorConfigConfig(BaseModel):
     """Configure oauth"""
 
 
+class ConnectorsStripeConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsStripeConnectorConfigConnector(BaseModel):
     name: str
 
@@ -1832,9 +4654,35 @@ class ConnectorsStripeConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsStripeConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsStripeConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsStripeConnectorConfig(BaseModel):
@@ -1844,11 +4692,17 @@ class ConnectorsStripeConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsStripeConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsStripeConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1861,6 +4715,22 @@ class ConnectorsTellerConnectorConfigConfig(BaseModel):
     token: Optional[str] = None
 
 
+class ConnectorsTellerConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsTellerConnectorConfigConnector(BaseModel):
     name: str
 
@@ -1868,9 +4738,35 @@ class ConnectorsTellerConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsTellerConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsTellerConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsTellerConnectorConfig(BaseModel):
@@ -1880,15 +4776,37 @@ class ConnectorsTellerConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsTellerConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsTellerConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
     updated_at: Optional[str] = None
+
+
+class ConnectorsTogglConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsTogglConnectorConfigConnector(BaseModel):
@@ -1898,9 +4816,35 @@ class ConnectorsTogglConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsTogglConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsTogglConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsTogglConnectorConfig(BaseModel):
@@ -1910,15 +4854,37 @@ class ConnectorsTogglConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsTogglConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsTogglConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
     updated_at: Optional[str] = None
+
+
+class ConnectorsTwentyConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsTwentyConnectorConfigConnector(BaseModel):
@@ -1928,9 +4894,35 @@ class ConnectorsTwentyConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsTwentyConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsTwentyConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsTwentyConnectorConfig(BaseModel):
@@ -1940,11 +4932,107 @@ class ConnectorsTwentyConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsTwentyConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsTwentyConnectorConfigIntegrations]] = None
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorsTwitterConnectorConfigConfigOAuth(BaseModel):
+    client_id: str
+
+    client_secret: str
+
+    scopes: Optional[str] = None
+
+
+class ConnectorsTwitterConnectorConfigConfig(BaseModel):
+    oauth: ConnectorsTwitterConnectorConfigConfigOAuth
+
+
+class ConnectorsTwitterConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorsTwitterConnectorConfigConnector(BaseModel):
+    name: str
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorsTwitterConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsTwitterConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
+
+
+class ConnectorsTwitterConnectorConfig(BaseModel):
+    config: ConnectorsTwitterConnectorConfigConfig
+
+    connector_name: Literal["twitter"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorsTwitterConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsTwitterConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -1965,6 +5053,22 @@ class ConnectorsVenmoConnectorConfigConfig(BaseModel):
     v5_base_url: Optional[str] = FieldInfo(alias="v5BaseURL", default=None)
 
 
+class ConnectorsVenmoConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsVenmoConnectorConfigConnector(BaseModel):
     name: str
 
@@ -1972,9 +5076,35 @@ class ConnectorsVenmoConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsVenmoConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsVenmoConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsVenmoConnectorConfig(BaseModel):
@@ -1984,15 +5114,37 @@ class ConnectorsVenmoConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsVenmoConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsVenmoConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
     updated_at: Optional[str] = None
+
+
+class ConnectorsWiseConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
 
 
 class ConnectorsWiseConnectorConfigConnector(BaseModel):
@@ -2002,9 +5154,35 @@ class ConnectorsWiseConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsWiseConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsWiseConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsWiseConnectorConfig(BaseModel):
@@ -2014,11 +5192,17 @@ class ConnectorsWiseConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsWiseConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsWiseConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -2037,6 +5221,22 @@ class ConnectorsXeroConnectorConfigConfig(BaseModel):
     oauth: ConnectorsXeroConnectorConfigConfigOAuth
 
 
+class ConnectorsXeroConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsXeroConnectorConfigConnector(BaseModel):
     name: str
 
@@ -2044,9 +5244,35 @@ class ConnectorsXeroConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsXeroConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsXeroConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsXeroConnectorConfig(BaseModel):
@@ -2056,11 +5282,17 @@ class ConnectorsXeroConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsXeroConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsXeroConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -2087,6 +5319,22 @@ class ConnectorsYodleeConnectorConfigConfig(BaseModel):
     sandbox_login_name: Optional[str] = FieldInfo(alias="sandboxLoginName", default=None)
 
 
+class ConnectorsYodleeConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsYodleeConnectorConfigConnector(BaseModel):
     name: str
 
@@ -2094,9 +5342,35 @@ class ConnectorsYodleeConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsYodleeConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsYodleeConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsYodleeConnectorConfig(BaseModel):
@@ -2106,11 +5380,17 @@ class ConnectorsYodleeConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsYodleeConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorsYodleeConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -2129,6 +5409,22 @@ class ConnectorsZohodeskConnectorConfigConfig(BaseModel):
     oauth: ConnectorsZohodeskConnectorConfigConfigOAuth
 
 
+class ConnectorsZohodeskConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
 class ConnectorsZohodeskConnectorConfigConnector(BaseModel):
     name: str
 
@@ -2136,9 +5432,35 @@ class ConnectorsZohodeskConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    platforms: Optional[List[str]] = None
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    stage: Optional[str] = None
+    schemas: Optional[ConnectorsZohodeskConnectorConfigConnectorSchemas] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+
+class ConnectorsZohodeskConnectorConfigIntegrations(BaseModel):
+    connector_name: str
+
+    name: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+    if TYPE_CHECKING:
+        # Stub to indicate that arbitrary properties are accepted.
+        # To access properties that are not valid identifiers you can use `getattr`, e.g.
+        # `getattr(obj, '$type')`
+        def __getattr__(self, attr: str) -> object: ...
 
 
 class ConnectorsZohodeskConnectorConfig(BaseModel):
@@ -2148,49 +5470,17 @@ class ConnectorsZohodeskConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
+    connection_count: Optional[float] = None
+
     connector: Optional[ConnectorsZohodeskConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsGoogledriveConnectorConfigConfig(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[List[str]] = None
-
-
-class ConnectorsGoogledriveConnectorConfigConnector(BaseModel):
-    name: str
+    disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
 
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[str]] = None
-
-    stage: Optional[str] = None
-
-
-class ConnectorsGoogledriveConnectorConfig(BaseModel):
-    config: ConnectorsGoogledriveConnectorConfigConfig
-
-    connector_name: Literal["googledrive"]
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsGoogledriveConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    integrations: Optional[Dict[str, Dict[str, object]]] = None
+    integrations: Optional[Dict[str, ConnectorsZohodeskConnectorConfigIntegrations]] = None
 
     org_id: Optional[str] = None
 
@@ -2201,50 +5491,59 @@ ListConnectionConfigsResponse: TypeAlias = Union[
     ConnectorsAircallConnectorConfig,
     ConnectorsAirtableConnectorConfig,
     ConnectorsApolloConnectorConfig,
-    ConnectorsBeancountConnectorConfig,
     ConnectorsBrexConnectorConfig,
     ConnectorsCodaConnectorConfig,
     ConnectorsConfluenceConnectorConfig,
     ConnectorsDiscordConnectorConfig,
+    ConnectorsFacebookConnectorConfig,
     ConnectorsFinchConnectorConfig,
     ConnectorsFirebaseConnectorConfig,
     ConnectorsForeceiptConnectorConfig,
     ConnectorsGitHubConnectorConfig,
     ConnectorsGongConnectorConfig,
-    ConnectorsGoogleConnectorConfig,
+    ConnectorsGooglecalendarConnectorConfig,
+    ConnectorsGoogledocsConnectorConfig,
+    ConnectorsGoogledriveConnectorConfig,
+    ConnectorsGooglemailConnectorConfig,
+    ConnectorsGooglesheetConnectorConfig,
     ConnectorsGreenhouseConnectorConfig,
     ConnectorsHeronConnectorConfig,
     ConnectorsHubspotConnectorConfig,
+    ConnectorsInstagramConnectorConfig,
     ConnectorsIntercomConnectorConfig,
     ConnectorsJiraConnectorConfig,
     ConnectorsKustomerConnectorConfig,
     ConnectorsLeverConnectorConfig,
     ConnectorsLinearConnectorConfig,
+    ConnectorsLinkedinConnectorConfig,
     ConnectorsLunchmoneyConnectorConfig,
     ConnectorsMercuryConnectorConfig,
     ConnectorsMergeConnectorConfig,
     ConnectorsMicrosoftConnectorConfig,
     ConnectorsMootaConnectorConfig,
+    ConnectorsNotionConnectorConfig,
     ConnectorsOnebrickConnectorConfig,
     ConnectorsOutreachConnectorConfig,
     ConnectorsPipedriveConnectorConfig,
     ConnectorsPlaidConnectorConfig,
     ConnectorsPostgresConnectorConfig,
-    ConnectorsQboConnectorConfig,
+    ConnectorsQuickbooksConnectorConfig,
     ConnectorsRampConnectorConfig,
+    ConnectorsRedditConnectorConfig,
     ConnectorsSalesforceConnectorConfig,
     ConnectorsSalesloftConnectorConfig,
     ConnectorsSaltedgeConnectorConfig,
+    ConnectorsSharepointonlineConnectorConfig,
     ConnectorsSlackConnectorConfig,
     ConnectorsSplitwiseConnectorConfig,
     ConnectorsStripeConnectorConfig,
     ConnectorsTellerConnectorConfig,
     ConnectorsTogglConnectorConfig,
     ConnectorsTwentyConnectorConfig,
+    ConnectorsTwitterConnectorConfig,
     ConnectorsVenmoConnectorConfig,
     ConnectorsWiseConnectorConfig,
     ConnectorsXeroConnectorConfig,
     ConnectorsYodleeConnectorConfig,
     ConnectorsZohodeskConnectorConfig,
-    ConnectorsGoogledriveConnectorConfig,
 ]
