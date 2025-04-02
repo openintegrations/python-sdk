@@ -501,6 +501,8 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> DeleteConnectionResponse:
         """
+        Delete a connection
+
         Args:
           id: The id of the connection, starts with `conn_`
 
@@ -1308,6 +1310,8 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> DeleteConnectionResponse:
         """
+        Delete a connection
+
         Args:
           id: The id of the connection, starts with `conn_`
 
