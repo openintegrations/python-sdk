@@ -16,7 +16,7 @@ The REST API documentation can be found on [docs.openint.dev](https://docs.openi
 
 ```sh
 # install from PyPI
-pip install --pre openint
+pip install openint
 ```
 
 ## Usage
