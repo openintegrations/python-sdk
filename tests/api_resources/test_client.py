@@ -17,6 +17,7 @@ from openint.types import (
     CreateMagicLinkResponse,
     ListConnectionsResponse,
     CreateConnectionResponse,
+    DeleteConnectionResponse,
     ListConnectionConfigsResponse,
 )
 from openint.pagination import SyncOffsetPagination, AsyncOffsetPagination
@@ -275,6 +276,48 @@ class TestClient:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `customer_id` but received ''"):
             client.with_raw_response.create_token(
                 customer_id="",
+            )
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_delete_connection(self, client: Openint) -> None:
+        client_ = client.delete_connection(
+            "conn_",
+        )
+        assert_matches_type(DeleteConnectionResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_raw_response_delete_connection(self, client: Openint) -> None:
+        response = client.with_raw_response.delete_connection(
+            "conn_",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client_ = response.parse()
+        assert_matches_type(DeleteConnectionResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_streaming_response_delete_connection(self, client: Openint) -> None:
+        with client.with_streaming_response.delete_connection(
+            "conn_",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client_ = response.parse()
+            assert_matches_type(DeleteConnectionResponse, client_, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_path_params_delete_connection(self, client: Openint) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            client.with_raw_response.delete_connection(
+                "",
             )
 
     @pytest.mark.skip()
@@ -691,6 +734,48 @@ class TestAsyncClient:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `customer_id` but received ''"):
             await async_client.with_raw_response.create_token(
                 customer_id="",
+            )
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_delete_connection(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.delete_connection(
+            "conn_",
+        )
+        assert_matches_type(DeleteConnectionResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_raw_response_delete_connection(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.delete_connection(
+            "conn_",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client = await response.parse()
+        assert_matches_type(DeleteConnectionResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_streaming_response_delete_connection(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.delete_connection(
+            "conn_",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client = await response.parse()
+            assert_matches_type(DeleteConnectionResponse, client, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_path_params_delete_connection(self, async_client: AsyncOpenint) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            await async_client.with_raw_response.delete_connection(
+                "",
             )
 
     @pytest.mark.skip()
