@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.0.0 (2025-04-02)
+
+Full Changelog: [v0.1.0-alpha.5...v1.0.0](https://github.com/openintegrations/python-sdk/compare/v0.1.0-alpha.5...v1.0.0)
+
+### Features
+
+* **api:** fix delete ([#45](https://github.com/openintegrations/python-sdk/issues/45)) ([9a774ff](https://github.com/openintegrations/python-sdk/commit/9a774ff69ef220b1eca5111ee96583f2616c86d7))
+
+
+### Chores
+
+* remove custom code ([0f8c34c](https://github.com/openintegrations/python-sdk/commit/0f8c34cebf0ded97645adcf3cf65bc742c5bf897))
+
 ## 0.1.0-alpha.5 (2025-03-17)
 
 Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/openintegrations/python-sdk/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
