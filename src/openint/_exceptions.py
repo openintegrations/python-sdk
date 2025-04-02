@@ -18,11 +18,11 @@ __all__ = [
 ]
 
 
-class OpenIntError(Exception):
+class OpenintError(Exception):
     pass
 
 
-class APIError(OpenIntError):
+class APIError(OpenintError):
     message: str
     request: httpx.Request
 
