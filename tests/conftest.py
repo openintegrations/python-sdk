@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING, Iterator, AsyncIterator
 import pytest
 from pytest_asyncio import is_async_test
 
-from openint import Openint, AsyncOpenint
+from openint import OpenInt, AsyncOpenInt
 
 if TYPE_CHECKING:
     from _pytest.fixtures import FixtureRequest
@@ -32,20 +32,20 @@ api_key = "My API Key"
 
 
 @pytest.fixture(scope="session")
-def client(request: FixtureRequest) -> Iterator[Openint]:
+def client(request: FixtureRequest) -> Iterator[OpenInt]:
     strict = getattr(request, "param", True)
     if not isinstance(strict, bool):
         raise TypeError(f"Unexpected fixture parameter type {type(strict)}, expected {bool}")
 
-    with Openint(base_url=base_url, api_key=api_key, _strict_response_validation=strict) as client:
+    with OpenInt(base_url=base_url, api_key=api_key, _strict_response_validation=strict) as client:
         yield client
 
 
 @pytest.fixture(scope="session")
-async def async_client(request: FixtureRequest) -> AsyncIterator[AsyncOpenint]:
+async def async_client(request: FixtureRequest) -> AsyncIterator[AsyncOpenInt]:
     strict = getattr(request, "param", True)
     if not isinstance(strict, bool):
         raise TypeError(f"Unexpected fixture parameter type {type(strict)}, expected {bool}")
 
-    async with AsyncOpenint(base_url=base_url, api_key=api_key, _strict_response_validation=strict) as client:
+    async with AsyncOpenInt(base_url=base_url, api_key=api_key, _strict_response_validation=strict) as client:
         yield client
