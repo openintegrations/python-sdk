@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import os
-from typing import Any, List, Union, Mapping, cast
+from typing import Any, Dict, List, Union, Mapping, cast
 from typing_extensions import Self, Literal, override
 
 import httpx
@@ -14,6 +14,7 @@ from .types import (
     client_create_token_params,
     client_get_connection_params,
     client_list_connections_params,
+    client_create_connection_params,
     client_create_magic_link_params,
     client_list_connection_configs_params,
 )
@@ -57,7 +58,9 @@ from .types.get_connection_response import GetConnectionResponse
 from .types.check_connection_response import CheckConnectionResponse
 from .types.get_current_user_response import GetCurrentUserResponse
 from .types.list_connections_response import ListConnectionsResponse
+from .types.create_connection_response import CreateConnectionResponse
 from .types.create_magic_link_response import CreateMagicLinkResponse
+from .types.delete_connection_response import DeleteConnectionResponse
 from .types.list_connection_configs_response import ListConnectionConfigsResponse
 
 __all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Openint", "AsyncOpenint", "Client", "AsyncClient"]
@@ -265,6 +268,61 @@ class Openint(SyncAPIClient):
             cast_to=CheckConnectionResponse,
         )
 
+    def create_connection(
+        self,
+        *,
+        connector_config_id: str,
+        customer_id: str,
+        data: client_create_connection_params.Data,
+        metadata: Dict[str, object] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> CreateConnectionResponse:
+        """
+        Import an existing connection after validation
+
+        Args:
+          connector_config_id: The id of the connector config, starts with `ccfg_`
+
+          customer_id: The id of the customer in your application. Ensure it is unique for that
+              customer.
+
+          data: Connector specific data
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return cast(
+            CreateConnectionResponse,
+            self.post(
+                "/connection",
+                body=maybe_transform(
+                    {
+                        "connector_config_id": connector_config_id,
+                        "customer_id": customer_id,
+                        "data": data,
+                        "metadata": metadata,
+                    },
+                    client_create_connection_params.ClientCreateConnectionParams,
+                ),
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, CreateConnectionResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
     def create_magic_link(
         self,
         customer_id: str,
@@ -275,49 +333,58 @@ class Openint(SyncAPIClient):
                 "aircall",
                 "airtable",
                 "apollo",
-                "beancount",
                 "brex",
                 "coda",
                 "confluence",
                 "discord",
+                "facebook",
                 "finch",
                 "firebase",
                 "foreceipt",
                 "github",
                 "gong",
-                "google",
+                "googlecalendar",
+                "googledocs",
+                "googledrive",
+                "googlemail",
+                "googlesheet",
                 "greenhouse",
                 "heron",
                 "hubspot",
+                "instagram",
                 "intercom",
                 "jira",
                 "kustomer",
                 "lever",
                 "linear",
+                "linkedin",
                 "lunchmoney",
                 "merge",
                 "microsoft",
                 "moota",
+                "notion",
                 "onebrick",
                 "outreach",
                 "pipedrive",
                 "plaid",
-                "qbo",
+                "quickbooks",
                 "ramp",
+                "reddit",
                 "salesforce",
                 "salesloft",
                 "saltedge",
+                "sharepointonline",
                 "slack",
                 "splitwise",
                 "stripe",
                 "teller",
                 "toggl",
                 "twenty",
+                "twitter",
                 "wise",
                 "xero",
                 "yodlee",
                 "zohodesk",
-                "googledrive",
             ]
         ]
         | NotGiven = NOT_GIVEN,
@@ -422,11 +489,44 @@ class Openint(SyncAPIClient):
             cast_to=CreateTokenResponse,
         )
 
+    def delete_connection(
+        self,
+        id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> DeleteConnectionResponse:
+        """
+        Args:
+          id: The id of the connection, starts with `conn_`
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        return self.delete(
+            f"/connection/{id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=DeleteConnectionResponse,
+        )
+
     def get_connection(
         self,
         id: str,
         *,
-        expand: List[Literal["connector", "enabled_integrations"]] | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
         include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
         refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -507,49 +607,58 @@ class Openint(SyncAPIClient):
             "aircall",
             "airtable",
             "apollo",
-            "beancount",
             "brex",
             "coda",
             "confluence",
             "discord",
+            "facebook",
             "finch",
             "firebase",
             "foreceipt",
             "github",
             "gong",
-            "google",
+            "googlecalendar",
+            "googledocs",
+            "googledrive",
+            "googlemail",
+            "googlesheet",
             "greenhouse",
             "heron",
             "hubspot",
+            "instagram",
             "intercom",
             "jira",
             "kustomer",
             "lever",
             "linear",
+            "linkedin",
             "lunchmoney",
             "merge",
             "microsoft",
             "moota",
+            "notion",
             "onebrick",
             "outreach",
             "pipedrive",
             "plaid",
-            "qbo",
+            "quickbooks",
             "ramp",
+            "reddit",
             "salesforce",
             "salesloft",
             "saltedge",
+            "sharepointonline",
             "slack",
             "splitwise",
             "stripe",
             "teller",
             "toggl",
             "twenty",
+            "twitter",
             "wise",
             "xero",
             "yodlee",
             "zohodesk",
-            "googledrive",
         ]
         | NotGiven = NOT_GIVEN,
         expand: str | NotGiven = NOT_GIVEN,
@@ -567,6 +676,10 @@ class Openint(SyncAPIClient):
 
         Args:
           connector_name: The name of the connector
+
+          expand: Comma separated list of fields to optionally expand.
+
+              Available Options: `connector`, `enabled_integrations`
 
           limit: Limit the number of items returned
 
@@ -611,53 +724,62 @@ class Openint(SyncAPIClient):
             "aircall",
             "airtable",
             "apollo",
-            "beancount",
             "brex",
             "coda",
             "confluence",
             "discord",
+            "facebook",
             "finch",
             "firebase",
             "foreceipt",
             "github",
             "gong",
-            "google",
+            "googlecalendar",
+            "googledocs",
+            "googledrive",
+            "googlemail",
+            "googlesheet",
             "greenhouse",
             "heron",
             "hubspot",
+            "instagram",
             "intercom",
             "jira",
             "kustomer",
             "lever",
             "linear",
+            "linkedin",
             "lunchmoney",
             "merge",
             "microsoft",
             "moota",
+            "notion",
             "onebrick",
             "outreach",
             "pipedrive",
             "plaid",
-            "qbo",
+            "quickbooks",
             "ramp",
+            "reddit",
             "salesforce",
             "salesloft",
             "saltedge",
+            "sharepointonline",
             "slack",
             "splitwise",
             "stripe",
             "teller",
             "toggl",
             "twenty",
+            "twitter",
             "wise",
             "xero",
             "yodlee",
             "zohodesk",
-            "googledrive",
         ]
         | NotGiven = NOT_GIVEN,
         customer_id: str | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector", "enabled_integrations"]] | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
         include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
@@ -953,6 +1075,61 @@ class AsyncOpenint(AsyncAPIClient):
             cast_to=CheckConnectionResponse,
         )
 
+    async def create_connection(
+        self,
+        *,
+        connector_config_id: str,
+        customer_id: str,
+        data: client_create_connection_params.Data,
+        metadata: Dict[str, object] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> CreateConnectionResponse:
+        """
+        Import an existing connection after validation
+
+        Args:
+          connector_config_id: The id of the connector config, starts with `ccfg_`
+
+          customer_id: The id of the customer in your application. Ensure it is unique for that
+              customer.
+
+          data: Connector specific data
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return cast(
+            CreateConnectionResponse,
+            await self.post(
+                "/connection",
+                body=await async_maybe_transform(
+                    {
+                        "connector_config_id": connector_config_id,
+                        "customer_id": customer_id,
+                        "data": data,
+                        "metadata": metadata,
+                    },
+                    client_create_connection_params.ClientCreateConnectionParams,
+                ),
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, CreateConnectionResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
     async def create_magic_link(
         self,
         customer_id: str,
@@ -963,49 +1140,58 @@ class AsyncOpenint(AsyncAPIClient):
                 "aircall",
                 "airtable",
                 "apollo",
-                "beancount",
                 "brex",
                 "coda",
                 "confluence",
                 "discord",
+                "facebook",
                 "finch",
                 "firebase",
                 "foreceipt",
                 "github",
                 "gong",
-                "google",
+                "googlecalendar",
+                "googledocs",
+                "googledrive",
+                "googlemail",
+                "googlesheet",
                 "greenhouse",
                 "heron",
                 "hubspot",
+                "instagram",
                 "intercom",
                 "jira",
                 "kustomer",
                 "lever",
                 "linear",
+                "linkedin",
                 "lunchmoney",
                 "merge",
                 "microsoft",
                 "moota",
+                "notion",
                 "onebrick",
                 "outreach",
                 "pipedrive",
                 "plaid",
-                "qbo",
+                "quickbooks",
                 "ramp",
+                "reddit",
                 "salesforce",
                 "salesloft",
                 "saltedge",
+                "sharepointonline",
                 "slack",
                 "splitwise",
                 "stripe",
                 "teller",
                 "toggl",
                 "twenty",
+                "twitter",
                 "wise",
                 "xero",
                 "yodlee",
                 "zohodesk",
-                "googledrive",
             ]
         ]
         | NotGiven = NOT_GIVEN,
@@ -1110,11 +1296,44 @@ class AsyncOpenint(AsyncAPIClient):
             cast_to=CreateTokenResponse,
         )
 
+    async def delete_connection(
+        self,
+        id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> DeleteConnectionResponse:
+        """
+        Args:
+          id: The id of the connection, starts with `conn_`
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        return await self.delete(
+            f"/connection/{id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=DeleteConnectionResponse,
+        )
+
     async def get_connection(
         self,
         id: str,
         *,
-        expand: List[Literal["connector", "enabled_integrations"]] | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
         include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
         refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -1195,49 +1414,58 @@ class AsyncOpenint(AsyncAPIClient):
             "aircall",
             "airtable",
             "apollo",
-            "beancount",
             "brex",
             "coda",
             "confluence",
             "discord",
+            "facebook",
             "finch",
             "firebase",
             "foreceipt",
             "github",
             "gong",
-            "google",
+            "googlecalendar",
+            "googledocs",
+            "googledrive",
+            "googlemail",
+            "googlesheet",
             "greenhouse",
             "heron",
             "hubspot",
+            "instagram",
             "intercom",
             "jira",
             "kustomer",
             "lever",
             "linear",
+            "linkedin",
             "lunchmoney",
             "merge",
             "microsoft",
             "moota",
+            "notion",
             "onebrick",
             "outreach",
             "pipedrive",
             "plaid",
-            "qbo",
+            "quickbooks",
             "ramp",
+            "reddit",
             "salesforce",
             "salesloft",
             "saltedge",
+            "sharepointonline",
             "slack",
             "splitwise",
             "stripe",
             "teller",
             "toggl",
             "twenty",
+            "twitter",
             "wise",
             "xero",
             "yodlee",
             "zohodesk",
-            "googledrive",
         ]
         | NotGiven = NOT_GIVEN,
         expand: str | NotGiven = NOT_GIVEN,
@@ -1255,6 +1483,10 @@ class AsyncOpenint(AsyncAPIClient):
 
         Args:
           connector_name: The name of the connector
+
+          expand: Comma separated list of fields to optionally expand.
+
+              Available Options: `connector`, `enabled_integrations`
 
           limit: Limit the number of items returned
 
@@ -1299,53 +1531,62 @@ class AsyncOpenint(AsyncAPIClient):
             "aircall",
             "airtable",
             "apollo",
-            "beancount",
             "brex",
             "coda",
             "confluence",
             "discord",
+            "facebook",
             "finch",
             "firebase",
             "foreceipt",
             "github",
             "gong",
-            "google",
+            "googlecalendar",
+            "googledocs",
+            "googledrive",
+            "googlemail",
+            "googlesheet",
             "greenhouse",
             "heron",
             "hubspot",
+            "instagram",
             "intercom",
             "jira",
             "kustomer",
             "lever",
             "linear",
+            "linkedin",
             "lunchmoney",
             "merge",
             "microsoft",
             "moota",
+            "notion",
             "onebrick",
             "outreach",
             "pipedrive",
             "plaid",
-            "qbo",
+            "quickbooks",
             "ramp",
+            "reddit",
             "salesforce",
             "salesloft",
             "saltedge",
+            "sharepointonline",
             "slack",
             "splitwise",
             "stripe",
             "teller",
             "toggl",
             "twenty",
+            "twitter",
             "wise",
             "xero",
             "yodlee",
             "zohodesk",
-            "googledrive",
         ]
         | NotGiven = NOT_GIVEN,
         customer_id: str | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector", "enabled_integrations"]] | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
         include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
@@ -1444,11 +1685,17 @@ class OpenintWithRawResponse:
         self.check_connection = to_raw_response_wrapper(
             client.check_connection,
         )
+        self.create_connection = to_raw_response_wrapper(
+            client.create_connection,
+        )
         self.create_magic_link = to_raw_response_wrapper(
             client.create_magic_link,
         )
         self.create_token = to_raw_response_wrapper(
             client.create_token,
+        )
+        self.delete_connection = to_raw_response_wrapper(
+            client.delete_connection,
         )
         self.get_connection = to_raw_response_wrapper(
             client.get_connection,
@@ -1469,11 +1716,17 @@ class AsyncOpenintWithRawResponse:
         self.check_connection = async_to_raw_response_wrapper(
             client.check_connection,
         )
+        self.create_connection = async_to_raw_response_wrapper(
+            client.create_connection,
+        )
         self.create_magic_link = async_to_raw_response_wrapper(
             client.create_magic_link,
         )
         self.create_token = async_to_raw_response_wrapper(
             client.create_token,
+        )
+        self.delete_connection = async_to_raw_response_wrapper(
+            client.delete_connection,
         )
         self.get_connection = async_to_raw_response_wrapper(
             client.get_connection,
@@ -1494,11 +1747,17 @@ class OpenintWithStreamedResponse:
         self.check_connection = to_streamed_response_wrapper(
             client.check_connection,
         )
+        self.create_connection = to_streamed_response_wrapper(
+            client.create_connection,
+        )
         self.create_magic_link = to_streamed_response_wrapper(
             client.create_magic_link,
         )
         self.create_token = to_streamed_response_wrapper(
             client.create_token,
+        )
+        self.delete_connection = to_streamed_response_wrapper(
+            client.delete_connection,
         )
         self.get_connection = to_streamed_response_wrapper(
             client.get_connection,
@@ -1519,11 +1778,17 @@ class AsyncOpenintWithStreamedResponse:
         self.check_connection = async_to_streamed_response_wrapper(
             client.check_connection,
         )
+        self.create_connection = async_to_streamed_response_wrapper(
+            client.create_connection,
+        )
         self.create_magic_link = async_to_streamed_response_wrapper(
             client.create_magic_link,
         )
         self.create_token = async_to_streamed_response_wrapper(
             client.create_token,
+        )
+        self.delete_connection = async_to_streamed_response_wrapper(
+            client.delete_connection,
         )
         self.get_connection = async_to_streamed_response_wrapper(
             client.get_connection,
