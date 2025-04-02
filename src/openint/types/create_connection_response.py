@@ -9,17 +9,13 @@ from pydantic import Field as FieldInfo
 from .._models import BaseModel
 
 __all__ = [
-    "GetConnectionResponse",
+    "CreateConnectionResponse",
     "ConnectorsAircallConnectionSettings",
     "ConnectorsAircallConnectionSettingsSettings",
     "ConnectorsAircallConnectionSettingsSettingsOAuth",
     "ConnectorsAircallConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsAircallConnectionSettingsConnector",
-    "ConnectorsAircallConnectionSettingsConnectorSchemas",
     "ConnectorsAirtableConnectionSettings",
     "ConnectorsAirtableConnectionSettingsSettings",
-    "ConnectorsAirtableConnectionSettingsConnector",
-    "ConnectorsAirtableConnectionSettingsConnectorSchemas",
     "ConnectorsApolloConnectionSettings",
     "ConnectorsApolloConnectionSettingsSettings",
     "ConnectorsApolloConnectionSettingsSettingsOAuth",
@@ -27,28 +23,18 @@ __all__ = [
     "ConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsApolloConnectionSettingsSettingsError",
-    "ConnectorsApolloConnectionSettingsConnector",
-    "ConnectorsApolloConnectionSettingsConnectorSchemas",
     "ConnectorsBrexConnectionSettings",
     "ConnectorsBrexConnectionSettingsSettings",
-    "ConnectorsBrexConnectionSettingsConnector",
-    "ConnectorsBrexConnectionSettingsConnectorSchemas",
     "ConnectorsCodaConnectionSettings",
     "ConnectorsCodaConnectionSettingsSettings",
-    "ConnectorsCodaConnectionSettingsConnector",
-    "ConnectorsCodaConnectionSettingsConnectorSchemas",
     "ConnectorsConfluenceConnectionSettings",
     "ConnectorsConfluenceConnectionSettingsSettings",
     "ConnectorsConfluenceConnectionSettingsSettingsOAuth",
     "ConnectorsConfluenceConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsConfluenceConnectionSettingsConnector",
-    "ConnectorsConfluenceConnectionSettingsConnectorSchemas",
     "ConnectorsDiscordConnectionSettings",
     "ConnectorsDiscordConnectionSettingsSettings",
     "ConnectorsDiscordConnectionSettingsSettingsOAuth",
     "ConnectorsDiscordConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsDiscordConnectionSettingsConnector",
-    "ConnectorsDiscordConnectionSettingsConnectorSchemas",
     "ConnectorsFacebookConnectionSettings",
     "ConnectorsFacebookConnectionSettingsSettings",
     "ConnectorsFacebookConnectionSettingsSettingsOAuth",
@@ -56,12 +42,8 @@ __all__ = [
     "ConnectorsFacebookConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsFacebookConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsFacebookConnectionSettingsSettingsError",
-    "ConnectorsFacebookConnectionSettingsConnector",
-    "ConnectorsFacebookConnectionSettingsConnectorSchemas",
     "ConnectorsFinchConnectionSettings",
     "ConnectorsFinchConnectionSettingsSettings",
-    "ConnectorsFinchConnectionSettingsConnector",
-    "ConnectorsFinchConnectionSettingsConnectorSchemas",
     "ConnectorsFirebaseConnectionSettings",
     "ConnectorsFirebaseConnectionSettingsSettings",
     "ConnectorsFirebaseConnectionSettingsSettingsUnionMember0",
@@ -73,18 +55,12 @@ __all__ = [
     "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember1",
     "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember2",
     "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig",
-    "ConnectorsFirebaseConnectionSettingsConnector",
-    "ConnectorsFirebaseConnectionSettingsConnectorSchemas",
     "ConnectorsForeceiptConnectionSettings",
     "ConnectorsForeceiptConnectionSettingsSettings",
-    "ConnectorsForeceiptConnectionSettingsConnector",
-    "ConnectorsForeceiptConnectionSettingsConnectorSchemas",
     "ConnectorsGitHubConnectionSettings",
     "ConnectorsGitHubConnectionSettingsSettings",
     "ConnectorsGitHubConnectionSettingsSettingsOAuth",
     "ConnectorsGitHubConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsGitHubConnectionSettingsConnector",
-    "ConnectorsGitHubConnectionSettingsConnectorSchemas",
     "ConnectorsGongConnectionSettings",
     "ConnectorsGongConnectionSettingsSettings",
     "ConnectorsGongConnectionSettingsSettingsOAuth",
@@ -92,51 +68,33 @@ __all__ = [
     "ConnectorsGongConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsGongConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsGongConnectionSettingsSettingsError",
-    "ConnectorsGongConnectionSettingsConnector",
-    "ConnectorsGongConnectionSettingsConnectorSchemas",
     "ConnectorsGooglecalendarConnectionSettings",
     "ConnectorsGooglecalendarConnectionSettingsSettings",
     "ConnectorsGooglecalendarConnectionSettingsSettingsOAuth",
     "ConnectorsGooglecalendarConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsGooglecalendarConnectionSettingsConnector",
-    "ConnectorsGooglecalendarConnectionSettingsConnectorSchemas",
     "ConnectorsGoogledocsConnectionSettings",
     "ConnectorsGoogledocsConnectionSettingsSettings",
     "ConnectorsGoogledocsConnectionSettingsSettingsOAuth",
     "ConnectorsGoogledocsConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsGoogledocsConnectionSettingsConnector",
-    "ConnectorsGoogledocsConnectionSettingsConnectorSchemas",
     "ConnectorsGoogledriveConnectionSettings",
     "ConnectorsGoogledriveConnectionSettingsSettings",
     "ConnectorsGoogledriveConnectionSettingsSettingsOAuth",
     "ConnectorsGoogledriveConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsGoogledriveConnectionSettingsConnector",
-    "ConnectorsGoogledriveConnectionSettingsConnectorSchemas",
     "ConnectorsGooglemailConnectionSettings",
     "ConnectorsGooglemailConnectionSettingsSettings",
     "ConnectorsGooglemailConnectionSettingsSettingsOAuth",
     "ConnectorsGooglemailConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsGooglemailConnectionSettingsConnector",
-    "ConnectorsGooglemailConnectionSettingsConnectorSchemas",
     "ConnectorsGooglesheetConnectionSettings",
     "ConnectorsGooglesheetConnectionSettingsSettings",
     "ConnectorsGooglesheetConnectionSettingsSettingsOAuth",
     "ConnectorsGooglesheetConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsGooglesheetConnectionSettingsConnector",
-    "ConnectorsGooglesheetConnectionSettingsConnectorSchemas",
     "ConnectorsGreenhouseConnectionSettings",
     "ConnectorsGreenhouseConnectionSettingsSettings",
-    "ConnectorsGreenhouseConnectionSettingsConnector",
-    "ConnectorsGreenhouseConnectionSettingsConnectorSchemas",
     "ConnectorsHeronConnectionSettings",
-    "ConnectorsHeronConnectionSettingsConnector",
-    "ConnectorsHeronConnectionSettingsConnectorSchemas",
     "ConnectorsHubspotConnectionSettings",
     "ConnectorsHubspotConnectionSettingsSettings",
     "ConnectorsHubspotConnectionSettingsSettingsOAuth",
     "ConnectorsHubspotConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsHubspotConnectionSettingsConnector",
-    "ConnectorsHubspotConnectionSettingsConnectorSchemas",
     "ConnectorsInstagramConnectionSettings",
     "ConnectorsInstagramConnectionSettingsSettings",
     "ConnectorsInstagramConnectionSettingsSettingsOAuth",
@@ -144,8 +102,6 @@ __all__ = [
     "ConnectorsInstagramConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsInstagramConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsInstagramConnectionSettingsSettingsError",
-    "ConnectorsInstagramConnectionSettingsConnector",
-    "ConnectorsInstagramConnectionSettingsConnectorSchemas",
     "ConnectorsIntercomConnectionSettings",
     "ConnectorsIntercomConnectionSettingsSettings",
     "ConnectorsIntercomConnectionSettingsSettingsOAuth",
@@ -153,8 +109,6 @@ __all__ = [
     "ConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsIntercomConnectionSettingsSettingsError",
-    "ConnectorsIntercomConnectionSettingsConnector",
-    "ConnectorsIntercomConnectionSettingsConnectorSchemas",
     "ConnectorsJiraConnectionSettings",
     "ConnectorsJiraConnectionSettingsSettings",
     "ConnectorsJiraConnectionSettingsSettingsOAuth",
@@ -162,8 +116,6 @@ __all__ = [
     "ConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsJiraConnectionSettingsSettingsError",
-    "ConnectorsJiraConnectionSettingsConnector",
-    "ConnectorsJiraConnectionSettingsConnectorSchemas",
     "ConnectorsKustomerConnectionSettings",
     "ConnectorsKustomerConnectionSettingsSettings",
     "ConnectorsKustomerConnectionSettingsSettingsOAuth",
@@ -171,8 +123,6 @@ __all__ = [
     "ConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsKustomerConnectionSettingsSettingsError",
-    "ConnectorsKustomerConnectionSettingsConnector",
-    "ConnectorsKustomerConnectionSettingsConnectorSchemas",
     "ConnectorsLeverConnectionSettings",
     "ConnectorsLeverConnectionSettingsSettings",
     "ConnectorsLeverConnectionSettingsSettingsOAuth",
@@ -180,30 +130,18 @@ __all__ = [
     "ConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsLeverConnectionSettingsSettingsError",
-    "ConnectorsLeverConnectionSettingsConnector",
-    "ConnectorsLeverConnectionSettingsConnectorSchemas",
     "ConnectorsLinearConnectionSettings",
     "ConnectorsLinearConnectionSettingsSettings",
     "ConnectorsLinearConnectionSettingsSettingsOAuth",
     "ConnectorsLinearConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsLinearConnectionSettingsConnector",
-    "ConnectorsLinearConnectionSettingsConnectorSchemas",
     "ConnectorsLinkedinConnectionSettings",
     "ConnectorsLinkedinConnectionSettingsSettings",
     "ConnectorsLinkedinConnectionSettingsSettingsOAuth",
     "ConnectorsLinkedinConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsLinkedinConnectionSettingsConnector",
-    "ConnectorsLinkedinConnectionSettingsConnectorSchemas",
     "ConnectorsLunchmoneyConnectionSettings",
-    "ConnectorsLunchmoneyConnectionSettingsConnector",
-    "ConnectorsLunchmoneyConnectionSettingsConnectorSchemas",
     "ConnectorsMercuryConnectionSettings",
-    "ConnectorsMercuryConnectionSettingsConnector",
-    "ConnectorsMercuryConnectionSettingsConnectorSchemas",
     "ConnectorsMergeConnectionSettings",
     "ConnectorsMergeConnectionSettingsSettings",
-    "ConnectorsMergeConnectionSettingsConnector",
-    "ConnectorsMergeConnectionSettingsConnectorSchemas",
     "ConnectorsMicrosoftConnectionSettings",
     "ConnectorsMicrosoftConnectionSettingsSettings",
     "ConnectorsMicrosoftConnectionSettingsSettingsOAuth",
@@ -211,21 +149,13 @@ __all__ = [
     "ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsMicrosoftConnectionSettingsSettingsError",
-    "ConnectorsMicrosoftConnectionSettingsConnector",
-    "ConnectorsMicrosoftConnectionSettingsConnectorSchemas",
     "ConnectorsMootaConnectionSettings",
-    "ConnectorsMootaConnectionSettingsConnector",
-    "ConnectorsMootaConnectionSettingsConnectorSchemas",
     "ConnectorsNotionConnectionSettings",
     "ConnectorsNotionConnectionSettingsSettings",
     "ConnectorsNotionConnectionSettingsSettingsOAuth",
     "ConnectorsNotionConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsNotionConnectionSettingsConnector",
-    "ConnectorsNotionConnectionSettingsConnectorSchemas",
     "ConnectorsOnebrickConnectionSettings",
     "ConnectorsOnebrickConnectionSettingsSettings",
-    "ConnectorsOnebrickConnectionSettingsConnector",
-    "ConnectorsOnebrickConnectionSettingsConnectorSchemas",
     "ConnectorsOutreachConnectionSettings",
     "ConnectorsOutreachConnectionSettingsSettings",
     "ConnectorsOutreachConnectionSettingsSettingsOAuth",
@@ -233,8 +163,6 @@ __all__ = [
     "ConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsOutreachConnectionSettingsSettingsError",
-    "ConnectorsOutreachConnectionSettingsConnector",
-    "ConnectorsOutreachConnectionSettingsConnectorSchemas",
     "ConnectorsPipedriveConnectionSettings",
     "ConnectorsPipedriveConnectionSettingsSettings",
     "ConnectorsPipedriveConnectionSettingsSettingsOAuth",
@@ -242,27 +170,17 @@ __all__ = [
     "ConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsPipedriveConnectionSettingsSettingsError",
-    "ConnectorsPipedriveConnectionSettingsConnector",
-    "ConnectorsPipedriveConnectionSettingsConnectorSchemas",
     "ConnectorsPlaidConnectionSettings",
     "ConnectorsPlaidConnectionSettingsSettings",
-    "ConnectorsPlaidConnectionSettingsConnector",
-    "ConnectorsPlaidConnectionSettingsConnectorSchemas",
     "ConnectorsPostgresConnectionSettings",
     "ConnectorsPostgresConnectionSettingsSettings",
     "ConnectorsPostgresConnectionSettingsSettingsSourceQueries",
-    "ConnectorsPostgresConnectionSettingsConnector",
-    "ConnectorsPostgresConnectionSettingsConnectorSchemas",
     "ConnectorsQuickbooksConnectionSettings",
     "ConnectorsQuickbooksConnectionSettingsSettings",
     "ConnectorsQuickbooksConnectionSettingsSettingsOAuth",
     "ConnectorsQuickbooksConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsQuickbooksConnectionSettingsConnector",
-    "ConnectorsQuickbooksConnectionSettingsConnectorSchemas",
     "ConnectorsRampConnectionSettings",
     "ConnectorsRampConnectionSettingsSettings",
-    "ConnectorsRampConnectionSettingsConnector",
-    "ConnectorsRampConnectionSettingsConnectorSchemas",
     "ConnectorsRedditConnectionSettings",
     "ConnectorsRedditConnectionSettingsSettings",
     "ConnectorsRedditConnectionSettingsSettingsOAuth",
@@ -270,14 +188,10 @@ __all__ = [
     "ConnectorsRedditConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsRedditConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsRedditConnectionSettingsSettingsError",
-    "ConnectorsRedditConnectionSettingsConnector",
-    "ConnectorsRedditConnectionSettingsConnectorSchemas",
     "ConnectorsSalesforceConnectionSettings",
     "ConnectorsSalesforceConnectionSettingsSettings",
     "ConnectorsSalesforceConnectionSettingsSettingsOAuth",
     "ConnectorsSalesforceConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsSalesforceConnectionSettingsConnector",
-    "ConnectorsSalesforceConnectionSettingsConnectorSchemas",
     "ConnectorsSalesloftConnectionSettings",
     "ConnectorsSalesloftConnectionSettingsSettings",
     "ConnectorsSalesloftConnectionSettingsSettingsOAuth",
@@ -285,46 +199,28 @@ __all__ = [
     "ConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsSalesloftConnectionSettingsSettingsError",
-    "ConnectorsSalesloftConnectionSettingsConnector",
-    "ConnectorsSalesloftConnectionSettingsConnectorSchemas",
     "ConnectorsSaltedgeConnectionSettings",
-    "ConnectorsSaltedgeConnectionSettingsConnector",
-    "ConnectorsSaltedgeConnectionSettingsConnectorSchemas",
     "ConnectorsSharepointonlineConnectionSettings",
     "ConnectorsSharepointonlineConnectionSettingsSettings",
     "ConnectorsSharepointonlineConnectionSettingsSettingsOAuth",
     "ConnectorsSharepointonlineConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsSharepointonlineConnectionSettingsConnector",
-    "ConnectorsSharepointonlineConnectionSettingsConnectorSchemas",
     "ConnectorsSlackConnectionSettings",
     "ConnectorsSlackConnectionSettingsSettings",
     "ConnectorsSlackConnectionSettingsSettingsOAuth",
     "ConnectorsSlackConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsSlackConnectionSettingsConnector",
-    "ConnectorsSlackConnectionSettingsConnectorSchemas",
     "ConnectorsSplitwiseConnectionSettings",
     "ConnectorsSplitwiseConnectionSettingsSettings",
     "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUser",
     "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications",
     "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture",
-    "ConnectorsSplitwiseConnectionSettingsConnector",
-    "ConnectorsSplitwiseConnectionSettingsConnectorSchemas",
     "ConnectorsStripeConnectionSettings",
     "ConnectorsStripeConnectionSettingsSettings",
-    "ConnectorsStripeConnectionSettingsConnector",
-    "ConnectorsStripeConnectionSettingsConnectorSchemas",
     "ConnectorsTellerConnectionSettings",
     "ConnectorsTellerConnectionSettingsSettings",
-    "ConnectorsTellerConnectionSettingsConnector",
-    "ConnectorsTellerConnectionSettingsConnectorSchemas",
     "ConnectorsTogglConnectionSettings",
     "ConnectorsTogglConnectionSettingsSettings",
-    "ConnectorsTogglConnectionSettingsConnector",
-    "ConnectorsTogglConnectionSettingsConnectorSchemas",
     "ConnectorsTwentyConnectionSettings",
     "ConnectorsTwentyConnectionSettingsSettings",
-    "ConnectorsTwentyConnectionSettingsConnector",
-    "ConnectorsTwentyConnectionSettingsConnectorSchemas",
     "ConnectorsTwitterConnectionSettings",
     "ConnectorsTwitterConnectionSettingsSettings",
     "ConnectorsTwitterConnectionSettingsSettingsOAuth",
@@ -332,16 +228,10 @@ __all__ = [
     "ConnectorsTwitterConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsTwitterConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsTwitterConnectionSettingsSettingsError",
-    "ConnectorsTwitterConnectionSettingsConnector",
-    "ConnectorsTwitterConnectionSettingsConnectorSchemas",
     "ConnectorsVenmoConnectionSettings",
     "ConnectorsVenmoConnectionSettingsSettings",
-    "ConnectorsVenmoConnectionSettingsConnector",
-    "ConnectorsVenmoConnectionSettingsConnectorSchemas",
     "ConnectorsWiseConnectionSettings",
     "ConnectorsWiseConnectionSettingsSettings",
-    "ConnectorsWiseConnectionSettingsConnector",
-    "ConnectorsWiseConnectionSettingsConnectorSchemas",
     "ConnectorsXeroConnectionSettings",
     "ConnectorsXeroConnectionSettingsSettings",
     "ConnectorsXeroConnectionSettingsSettingsOAuth",
@@ -349,14 +239,10 @@ __all__ = [
     "ConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsXeroConnectionSettingsSettingsError",
-    "ConnectorsXeroConnectionSettingsConnector",
-    "ConnectorsXeroConnectionSettingsConnectorSchemas",
     "ConnectorsYodleeConnectionSettings",
     "ConnectorsYodleeConnectionSettingsSettings",
     "ConnectorsYodleeConnectionSettingsSettingsAccessToken",
     "ConnectorsYodleeConnectionSettingsSettingsProviderAccount",
-    "ConnectorsYodleeConnectionSettingsConnector",
-    "ConnectorsYodleeConnectionSettingsConnectorSchemas",
     "ConnectorsZohodeskConnectionSettings",
     "ConnectorsZohodeskConnectionSettingsSettings",
     "ConnectorsZohodeskConnectionSettingsSettingsOAuth",
@@ -364,8 +250,6 @@ __all__ = [
     "ConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRaw",
     "ConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig",
     "ConnectorsZohodeskConnectionSettingsSettingsError",
-    "ConnectorsZohodeskConnectionSettingsConnector",
-    "ConnectorsZohodeskConnectionSettingsConnectorSchemas",
 ]
 
 
@@ -404,44 +288,12 @@ class ConnectorsAircallConnectionSettingsSettings(BaseModel):
     oauth: ConnectorsAircallConnectionSettingsSettingsOAuth
 
 
-class ConnectorsAircallConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsAircallConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsAircallConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsAircallConnectionSettings(BaseModel):
     connector_name: Literal["aircall"]
 
     settings: ConnectorsAircallConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsAircallConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -462,44 +314,12 @@ class ConnectorsAirtableConnectionSettingsSettings(BaseModel):
     api_key: str = FieldInfo(alias="apiKey")
 
 
-class ConnectorsAirtableConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsAirtableConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsAirtableConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsAirtableConnectionSettings(BaseModel):
     connector_name: Literal["airtable"]
 
     settings: ConnectorsAirtableConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsAirtableConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -582,44 +402,12 @@ class ConnectorsApolloConnectionSettingsSettings(BaseModel):
     error: Optional[ConnectorsApolloConnectionSettingsSettingsError] = None
 
 
-class ConnectorsApolloConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsApolloConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsApolloConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsApolloConnectionSettings(BaseModel):
     connector_name: Literal["apollo"]
 
     settings: ConnectorsApolloConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsApolloConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -638,44 +426,12 @@ class ConnectorsBrexConnectionSettingsSettings(BaseModel):
     access_token: str = FieldInfo(alias="accessToken")
 
 
-class ConnectorsBrexConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsBrexConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsBrexConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsBrexConnectionSettings(BaseModel):
     connector_name: Literal["brex"]
 
     settings: ConnectorsBrexConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsBrexConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -694,44 +450,12 @@ class ConnectorsCodaConnectionSettingsSettings(BaseModel):
     api_key: str = FieldInfo(alias="apiKey")
 
 
-class ConnectorsCodaConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsCodaConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsCodaConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsCodaConnectionSettings(BaseModel):
     connector_name: Literal["coda"]
 
     settings: ConnectorsCodaConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsCodaConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -781,44 +505,12 @@ class ConnectorsConfluenceConnectionSettingsSettings(BaseModel):
     oauth: ConnectorsConfluenceConnectionSettingsSettingsOAuth
 
 
-class ConnectorsConfluenceConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsConfluenceConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsConfluenceConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsConfluenceConnectionSettings(BaseModel):
     connector_name: Literal["confluence"]
 
     settings: ConnectorsConfluenceConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsConfluenceConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -868,44 +560,12 @@ class ConnectorsDiscordConnectionSettingsSettings(BaseModel):
     oauth: ConnectorsDiscordConnectionSettingsSettingsOAuth
 
 
-class ConnectorsDiscordConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsDiscordConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsDiscordConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsDiscordConnectionSettings(BaseModel):
     connector_name: Literal["discord"]
 
     settings: ConnectorsDiscordConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsDiscordConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -988,44 +648,12 @@ class ConnectorsFacebookConnectionSettingsSettings(BaseModel):
     error: Optional[ConnectorsFacebookConnectionSettingsSettingsError] = None
 
 
-class ConnectorsFacebookConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsFacebookConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsFacebookConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsFacebookConnectionSettings(BaseModel):
     connector_name: Literal["facebook"]
 
     settings: ConnectorsFacebookConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsFacebookConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -1044,44 +672,12 @@ class ConnectorsFinchConnectionSettingsSettings(BaseModel):
     access_token: str
 
 
-class ConnectorsFinchConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsFinchConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsFinchConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsFinchConnectionSettings(BaseModel):
     connector_name: Literal["finch"]
 
     settings: ConnectorsFinchConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsFinchConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -1190,44 +786,12 @@ ConnectorsFirebaseConnectionSettingsSettings: TypeAlias = Union[
 ]
 
 
-class ConnectorsFirebaseConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsFirebaseConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsFirebaseConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsFirebaseConnectionSettings(BaseModel):
     connector_name: Literal["firebase"]
 
     settings: ConnectorsFirebaseConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsFirebaseConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -1250,44 +814,12 @@ class ConnectorsForeceiptConnectionSettingsSettings(BaseModel):
     credentials: Optional[object] = None
 
 
-class ConnectorsForeceiptConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsForeceiptConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsForeceiptConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsForeceiptConnectionSettings(BaseModel):
     connector_name: Literal["foreceipt"]
 
     settings: ConnectorsForeceiptConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsForeceiptConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -1337,44 +869,12 @@ class ConnectorsGitHubConnectionSettingsSettings(BaseModel):
     oauth: ConnectorsGitHubConnectionSettingsSettingsOAuth
 
 
-class ConnectorsGitHubConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsGitHubConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsGitHubConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsGitHubConnectionSettings(BaseModel):
     connector_name: Literal["github"]
 
     settings: ConnectorsGitHubConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsGitHubConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -1457,44 +957,12 @@ class ConnectorsGongConnectionSettingsSettings(BaseModel):
     error: Optional[ConnectorsGongConnectionSettingsSettingsError] = None
 
 
-class ConnectorsGongConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsGongConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsGongConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsGongConnectionSettings(BaseModel):
     connector_name: Literal["gong"]
 
     settings: ConnectorsGongConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsGongConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -1544,44 +1012,12 @@ class ConnectorsGooglecalendarConnectionSettingsSettings(BaseModel):
     oauth: ConnectorsGooglecalendarConnectionSettingsSettingsOAuth
 
 
-class ConnectorsGooglecalendarConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsGooglecalendarConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsGooglecalendarConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsGooglecalendarConnectionSettings(BaseModel):
     connector_name: Literal["googlecalendar"]
 
     settings: ConnectorsGooglecalendarConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsGooglecalendarConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -1631,44 +1067,12 @@ class ConnectorsGoogledocsConnectionSettingsSettings(BaseModel):
     oauth: ConnectorsGoogledocsConnectionSettingsSettingsOAuth
 
 
-class ConnectorsGoogledocsConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsGoogledocsConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsGoogledocsConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsGoogledocsConnectionSettings(BaseModel):
     connector_name: Literal["googledocs"]
 
     settings: ConnectorsGoogledocsConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsGoogledocsConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -1718,44 +1122,12 @@ class ConnectorsGoogledriveConnectionSettingsSettings(BaseModel):
     oauth: ConnectorsGoogledriveConnectionSettingsSettingsOAuth
 
 
-class ConnectorsGoogledriveConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsGoogledriveConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsGoogledriveConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsGoogledriveConnectionSettings(BaseModel):
     connector_name: Literal["googledrive"]
 
     settings: ConnectorsGoogledriveConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsGoogledriveConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -1805,44 +1177,12 @@ class ConnectorsGooglemailConnectionSettingsSettings(BaseModel):
     oauth: ConnectorsGooglemailConnectionSettingsSettingsOAuth
 
 
-class ConnectorsGooglemailConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsGooglemailConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsGooglemailConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsGooglemailConnectionSettings(BaseModel):
     connector_name: Literal["googlemail"]
 
     settings: ConnectorsGooglemailConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsGooglemailConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -1892,44 +1232,12 @@ class ConnectorsGooglesheetConnectionSettingsSettings(BaseModel):
     oauth: ConnectorsGooglesheetConnectionSettingsSettingsOAuth
 
 
-class ConnectorsGooglesheetConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsGooglesheetConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsGooglesheetConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsGooglesheetConnectionSettings(BaseModel):
     connector_name: Literal["googlesheet"]
 
     settings: ConnectorsGooglesheetConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsGooglesheetConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -1948,44 +1256,12 @@ class ConnectorsGreenhouseConnectionSettingsSettings(BaseModel):
     api_key: str = FieldInfo(alias="apiKey")
 
 
-class ConnectorsGreenhouseConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsGreenhouseConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsGreenhouseConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsGreenhouseConnectionSettings(BaseModel):
     connector_name: Literal["greenhouse"]
 
     settings: ConnectorsGreenhouseConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsGreenhouseConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -2000,44 +1276,12 @@ class ConnectorsGreenhouseConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorsHeronConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsHeronConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsHeronConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsHeronConnectionSettings(BaseModel):
     connector_name: Literal["heron"]
 
     settings: None
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsHeronConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -2087,44 +1331,12 @@ class ConnectorsHubspotConnectionSettingsSettings(BaseModel):
     oauth: ConnectorsHubspotConnectionSettingsSettingsOAuth
 
 
-class ConnectorsHubspotConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsHubspotConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsHubspotConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsHubspotConnectionSettings(BaseModel):
     connector_name: Literal["hubspot"]
 
     settings: ConnectorsHubspotConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsHubspotConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -2207,44 +1419,12 @@ class ConnectorsInstagramConnectionSettingsSettings(BaseModel):
     error: Optional[ConnectorsInstagramConnectionSettingsSettingsError] = None
 
 
-class ConnectorsInstagramConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsInstagramConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsInstagramConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsInstagramConnectionSettings(BaseModel):
     connector_name: Literal["instagram"]
 
     settings: ConnectorsInstagramConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsInstagramConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -2327,44 +1507,12 @@ class ConnectorsIntercomConnectionSettingsSettings(BaseModel):
     error: Optional[ConnectorsIntercomConnectionSettingsSettingsError] = None
 
 
-class ConnectorsIntercomConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsIntercomConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsIntercomConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsIntercomConnectionSettings(BaseModel):
     connector_name: Literal["intercom"]
 
     settings: ConnectorsIntercomConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsIntercomConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -2447,44 +1595,12 @@ class ConnectorsJiraConnectionSettingsSettings(BaseModel):
     error: Optional[ConnectorsJiraConnectionSettingsSettingsError] = None
 
 
-class ConnectorsJiraConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsJiraConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsJiraConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsJiraConnectionSettings(BaseModel):
     connector_name: Literal["jira"]
 
     settings: ConnectorsJiraConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsJiraConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -2567,44 +1683,12 @@ class ConnectorsKustomerConnectionSettingsSettings(BaseModel):
     error: Optional[ConnectorsKustomerConnectionSettingsSettingsError] = None
 
 
-class ConnectorsKustomerConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsKustomerConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsKustomerConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsKustomerConnectionSettings(BaseModel):
     connector_name: Literal["kustomer"]
 
     settings: ConnectorsKustomerConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsKustomerConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -2687,44 +1771,12 @@ class ConnectorsLeverConnectionSettingsSettings(BaseModel):
     error: Optional[ConnectorsLeverConnectionSettingsSettingsError] = None
 
 
-class ConnectorsLeverConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsLeverConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsLeverConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsLeverConnectionSettings(BaseModel):
     connector_name: Literal["lever"]
 
     settings: ConnectorsLeverConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsLeverConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -2774,44 +1826,12 @@ class ConnectorsLinearConnectionSettingsSettings(BaseModel):
     oauth: ConnectorsLinearConnectionSettingsSettingsOAuth
 
 
-class ConnectorsLinearConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsLinearConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsLinearConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsLinearConnectionSettings(BaseModel):
     connector_name: Literal["linear"]
 
     settings: ConnectorsLinearConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsLinearConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -2861,44 +1881,12 @@ class ConnectorsLinkedinConnectionSettingsSettings(BaseModel):
     oauth: ConnectorsLinkedinConnectionSettingsSettingsOAuth
 
 
-class ConnectorsLinkedinConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsLinkedinConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsLinkedinConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsLinkedinConnectionSettings(BaseModel):
     connector_name: Literal["linkedin"]
 
     settings: ConnectorsLinkedinConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsLinkedinConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -2911,36 +1899,6 @@ class ConnectorsLinkedinConnectionSettings(BaseModel):
     metadata: Optional[Dict[str, object]] = None
 
     updated_at: Optional[str] = None
-
-
-class ConnectorsLunchmoneyConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsLunchmoneyConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsLunchmoneyConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
 
 
 class ConnectorsLunchmoneyConnectionSettings(BaseModel):
@@ -2950,8 +1908,6 @@ class ConnectorsLunchmoneyConnectionSettings(BaseModel):
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsLunchmoneyConnectionSettingsConnector] = None
-
     connector_config_id: Optional[str] = None
 
     created_at: Optional[str] = None
@@ -2965,44 +1921,12 @@ class ConnectorsLunchmoneyConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorsMercuryConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsMercuryConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsMercuryConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsMercuryConnectionSettings(BaseModel):
     connector_name: Literal["mercury"]
 
     settings: None
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsMercuryConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3023,44 +1947,12 @@ class ConnectorsMergeConnectionSettingsSettings(BaseModel):
     account_details: Optional[object] = FieldInfo(alias="accountDetails", default=None)
 
 
-class ConnectorsMergeConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsMergeConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsMergeConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsMergeConnectionSettings(BaseModel):
     connector_name: Literal["merge"]
 
     settings: ConnectorsMergeConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsMergeConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3145,44 +2037,12 @@ class ConnectorsMicrosoftConnectionSettingsSettings(BaseModel):
     error: Optional[ConnectorsMicrosoftConnectionSettingsSettingsError] = None
 
 
-class ConnectorsMicrosoftConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsMicrosoftConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsMicrosoftConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsMicrosoftConnectionSettings(BaseModel):
     connector_name: Literal["microsoft"]
 
     settings: ConnectorsMicrosoftConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsMicrosoftConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3197,44 +2057,12 @@ class ConnectorsMicrosoftConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorsMootaConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsMootaConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsMootaConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsMootaConnectionSettings(BaseModel):
     connector_name: Literal["moota"]
 
     settings: None
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsMootaConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3284,44 +2112,12 @@ class ConnectorsNotionConnectionSettingsSettings(BaseModel):
     oauth: ConnectorsNotionConnectionSettingsSettingsOAuth
 
 
-class ConnectorsNotionConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsNotionConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsNotionConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsNotionConnectionSettings(BaseModel):
     connector_name: Literal["notion"]
 
     settings: ConnectorsNotionConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsNotionConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3340,44 +2136,12 @@ class ConnectorsOnebrickConnectionSettingsSettings(BaseModel):
     access_token: str = FieldInfo(alias="accessToken")
 
 
-class ConnectorsOnebrickConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsOnebrickConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsOnebrickConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsOnebrickConnectionSettings(BaseModel):
     connector_name: Literal["onebrick"]
 
     settings: ConnectorsOnebrickConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsOnebrickConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3460,44 +2224,12 @@ class ConnectorsOutreachConnectionSettingsSettings(BaseModel):
     error: Optional[ConnectorsOutreachConnectionSettingsSettingsError] = None
 
 
-class ConnectorsOutreachConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsOutreachConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsOutreachConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsOutreachConnectionSettings(BaseModel):
     connector_name: Literal["outreach"]
 
     settings: ConnectorsOutreachConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsOutreachConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3580,44 +2312,12 @@ class ConnectorsPipedriveConnectionSettingsSettings(BaseModel):
     error: Optional[ConnectorsPipedriveConnectionSettingsSettingsError] = None
 
 
-class ConnectorsPipedriveConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsPipedriveConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsPipedriveConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsPipedriveConnectionSettings(BaseModel):
     connector_name: Literal["pipedrive"]
 
     settings: ConnectorsPipedriveConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsPipedriveConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3646,44 +2346,12 @@ class ConnectorsPlaidConnectionSettingsSettings(BaseModel):
     webhook_item_error: None = FieldInfo(alias="webhookItemError", default=None)
 
 
-class ConnectorsPlaidConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsPlaidConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsPlaidConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsPlaidConnectionSettings(BaseModel):
     connector_name: Literal["plaid"]
 
     settings: ConnectorsPlaidConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsPlaidConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3711,44 +2379,12 @@ class ConnectorsPostgresConnectionSettingsSettings(BaseModel):
     )
 
 
-class ConnectorsPostgresConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsPostgresConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsPostgresConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsPostgresConnectionSettings(BaseModel):
     connector_name: Literal["postgres"]
 
     settings: ConnectorsPostgresConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsPostgresConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3801,44 +2437,12 @@ class ConnectorsQuickbooksConnectionSettingsSettings(BaseModel):
     """The realmId of your quickbooks company (e.g., 9341453474484455)"""
 
 
-class ConnectorsQuickbooksConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsQuickbooksConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsQuickbooksConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsQuickbooksConnectionSettings(BaseModel):
     connector_name: Literal["quickbooks"]
 
     settings: ConnectorsQuickbooksConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsQuickbooksConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3859,44 +2463,12 @@ class ConnectorsRampConnectionSettingsSettings(BaseModel):
     start_after_transaction_id: Optional[str] = FieldInfo(alias="startAfterTransactionId", default=None)
 
 
-class ConnectorsRampConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsRampConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsRampConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsRampConnectionSettings(BaseModel):
     connector_name: Literal["ramp"]
 
     settings: ConnectorsRampConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsRampConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3979,44 +2551,12 @@ class ConnectorsRedditConnectionSettingsSettings(BaseModel):
     error: Optional[ConnectorsRedditConnectionSettingsSettingsError] = None
 
 
-class ConnectorsRedditConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsRedditConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsRedditConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsRedditConnectionSettings(BaseModel):
     connector_name: Literal["reddit"]
 
     settings: ConnectorsRedditConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsRedditConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4069,44 +2609,12 @@ class ConnectorsSalesforceConnectionSettingsSettings(BaseModel):
     oauth: ConnectorsSalesforceConnectionSettingsSettingsOAuth
 
 
-class ConnectorsSalesforceConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsSalesforceConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsSalesforceConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsSalesforceConnectionSettings(BaseModel):
     connector_name: Literal["salesforce"]
 
     settings: ConnectorsSalesforceConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsSalesforceConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4189,44 +2697,12 @@ class ConnectorsSalesloftConnectionSettingsSettings(BaseModel):
     error: Optional[ConnectorsSalesloftConnectionSettingsSettingsError] = None
 
 
-class ConnectorsSalesloftConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsSalesloftConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsSalesloftConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsSalesloftConnectionSettings(BaseModel):
     connector_name: Literal["salesloft"]
 
     settings: ConnectorsSalesloftConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsSalesloftConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4241,42 +2717,10 @@ class ConnectorsSalesloftConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorsSaltedgeConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsSaltedgeConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsSaltedgeConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsSaltedgeConnectionSettings(BaseModel):
     connector_name: Literal["saltedge"]
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsSaltedgeConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4328,44 +2772,12 @@ class ConnectorsSharepointonlineConnectionSettingsSettings(BaseModel):
     oauth: ConnectorsSharepointonlineConnectionSettingsSettingsOAuth
 
 
-class ConnectorsSharepointonlineConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsSharepointonlineConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsSharepointonlineConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsSharepointonlineConnectionSettings(BaseModel):
     connector_name: Literal["sharepointonline"]
 
     settings: ConnectorsSharepointonlineConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsSharepointonlineConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4415,44 +2827,12 @@ class ConnectorsSlackConnectionSettingsSettings(BaseModel):
     oauth: ConnectorsSlackConnectionSettingsSettingsOAuth
 
 
-class ConnectorsSlackConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsSlackConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsSlackConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsSlackConnectionSettings(BaseModel):
     connector_name: Literal["slack"]
 
     settings: ConnectorsSlackConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsSlackConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4541,44 +2921,12 @@ class ConnectorsSplitwiseConnectionSettingsSettings(BaseModel):
     )
 
 
-class ConnectorsSplitwiseConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsSplitwiseConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsSplitwiseConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsSplitwiseConnectionSettings(BaseModel):
     connector_name: Literal["splitwise"]
 
     settings: ConnectorsSplitwiseConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsSplitwiseConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4597,44 +2945,12 @@ class ConnectorsStripeConnectionSettingsSettings(BaseModel):
     secret_key: str = FieldInfo(alias="secretKey")
 
 
-class ConnectorsStripeConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsStripeConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsStripeConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsStripeConnectionSettings(BaseModel):
     connector_name: Literal["stripe"]
 
     settings: ConnectorsStripeConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsStripeConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4653,44 +2969,12 @@ class ConnectorsTellerConnectionSettingsSettings(BaseModel):
     token: str
 
 
-class ConnectorsTellerConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsTellerConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsTellerConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsTellerConnectionSettings(BaseModel):
     connector_name: Literal["teller"]
 
     settings: ConnectorsTellerConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsTellerConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4713,44 +2997,12 @@ class ConnectorsTogglConnectionSettingsSettings(BaseModel):
     password: Optional[str] = None
 
 
-class ConnectorsTogglConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsTogglConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsTogglConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsTogglConnectionSettings(BaseModel):
     connector_name: Literal["toggl"]
 
     settings: ConnectorsTogglConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsTogglConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4769,44 +3021,12 @@ class ConnectorsTwentyConnectionSettingsSettings(BaseModel):
     access_token: str
 
 
-class ConnectorsTwentyConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsTwentyConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsTwentyConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsTwentyConnectionSettings(BaseModel):
     connector_name: Literal["twenty"]
 
     settings: ConnectorsTwentyConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsTwentyConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4889,44 +3109,12 @@ class ConnectorsTwitterConnectionSettingsSettings(BaseModel):
     error: Optional[ConnectorsTwitterConnectionSettingsSettingsError] = None
 
 
-class ConnectorsTwitterConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsTwitterConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsTwitterConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsTwitterConnectionSettings(BaseModel):
     connector_name: Literal["twitter"]
 
     settings: ConnectorsTwitterConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsTwitterConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4947,44 +3135,12 @@ class ConnectorsVenmoConnectionSettingsSettings(BaseModel):
     me: Optional[object] = None
 
 
-class ConnectorsVenmoConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsVenmoConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsVenmoConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsVenmoConnectionSettings(BaseModel):
     connector_name: Literal["venmo"]
 
     settings: ConnectorsVenmoConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsVenmoConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -5005,44 +3161,12 @@ class ConnectorsWiseConnectionSettingsSettings(BaseModel):
     api_token: Optional[str] = FieldInfo(alias="apiToken", default=None)
 
 
-class ConnectorsWiseConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsWiseConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsWiseConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsWiseConnectionSettings(BaseModel):
     connector_name: Literal["wise"]
 
     settings: ConnectorsWiseConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsWiseConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -5125,44 +3249,12 @@ class ConnectorsXeroConnectionSettingsSettings(BaseModel):
     error: Optional[ConnectorsXeroConnectionSettingsSettingsError] = None
 
 
-class ConnectorsXeroConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsXeroConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsXeroConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsXeroConnectionSettings(BaseModel):
     connector_name: Literal["xero"]
 
     settings: ConnectorsXeroConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsXeroConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -5221,44 +3313,12 @@ class ConnectorsYodleeConnectionSettingsSettings(BaseModel):
     user: None = None
 
 
-class ConnectorsYodleeConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsYodleeConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsYodleeConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsYodleeConnectionSettings(BaseModel):
     connector_name: Literal["yodlee"]
 
     settings: ConnectorsYodleeConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsYodleeConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -5341,44 +3401,12 @@ class ConnectorsZohodeskConnectionSettingsSettings(BaseModel):
     error: Optional[ConnectorsZohodeskConnectionSettingsSettingsError] = None
 
 
-class ConnectorsZohodeskConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsZohodeskConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsZohodeskConnectionSettingsConnectorSchemas] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-
 class ConnectorsZohodeskConnectionSettings(BaseModel):
     connector_name: Literal["zohodesk"]
 
     settings: ConnectorsZohodeskConnectionSettingsSettings
 
     id: Optional[str] = None
-
-    connector: Optional[ConnectorsZohodeskConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -5393,7 +3421,7 @@ class ConnectorsZohodeskConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
-GetConnectionResponse: TypeAlias = Union[
+CreateConnectionResponse: TypeAlias = Union[
     ConnectorsAircallConnectionSettings,
     ConnectorsAirtableConnectionSettings,
     ConnectorsApolloConnectionSettings,

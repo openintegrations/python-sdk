@@ -16,6 +16,7 @@ from openint.types import (
     CheckConnectionResponse,
     CreateMagicLinkResponse,
     ListConnectionsResponse,
+    CreateConnectionResponse,
     ListConnectionConfigsResponse,
 )
 from openint.pagination import SyncOffsetPagination, AsyncOffsetPagination
@@ -67,6 +68,107 @@ class TestClient:
             client.with_raw_response.check_connection(
                 "",
             )
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_create_connection(self, client: Openint) -> None:
+        client_ = client.create_connection(
+            connector_config_id="ccfg_",
+            customer_id="customer_id",
+            data={
+                "connector_name": "aircall",
+                "settings": {
+                    "oauth": {
+                        "created_at": "created_at",
+                        "last_fetched_at": "last_fetched_at",
+                        "metadata": {"foo": "bar"},
+                        "updated_at": "updated_at",
+                    }
+                },
+            },
+        )
+        assert_matches_type(CreateConnectionResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_create_connection_with_all_params(self, client: Openint) -> None:
+        client_ = client.create_connection(
+            connector_config_id="ccfg_",
+            customer_id="customer_id",
+            data={
+                "connector_name": "aircall",
+                "settings": {
+                    "oauth": {
+                        "created_at": "created_at",
+                        "last_fetched_at": "last_fetched_at",
+                        "metadata": {"foo": "bar"},
+                        "updated_at": "updated_at",
+                        "credentials": {
+                            "access_token": "access_token",
+                            "client_id": "client_id",
+                            "raw": {"foo": "bar"},
+                            "scope": "scope",
+                            "expires_at": "expires_at",
+                            "expires_in": 0,
+                            "refresh_token": "refresh_token",
+                            "token_type": "token_type",
+                        },
+                    }
+                },
+            },
+            metadata={"foo": "bar"},
+        )
+        assert_matches_type(CreateConnectionResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_raw_response_create_connection(self, client: Openint) -> None:
+        response = client.with_raw_response.create_connection(
+            connector_config_id="ccfg_",
+            customer_id="customer_id",
+            data={
+                "connector_name": "aircall",
+                "settings": {
+                    "oauth": {
+                        "created_at": "created_at",
+                        "last_fetched_at": "last_fetched_at",
+                        "metadata": {"foo": "bar"},
+                        "updated_at": "updated_at",
+                    }
+                },
+            },
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client_ = response.parse()
+        assert_matches_type(CreateConnectionResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_streaming_response_create_connection(self, client: Openint) -> None:
+        with client.with_streaming_response.create_connection(
+            connector_config_id="ccfg_",
+            customer_id="customer_id",
+            data={
+                "connector_name": "aircall",
+                "settings": {
+                    "oauth": {
+                        "created_at": "created_at",
+                        "last_fetched_at": "last_fetched_at",
+                        "metadata": {"foo": "bar"},
+                        "updated_at": "updated_at",
+                    }
+                },
+            },
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client_ = response.parse()
+            assert_matches_type(CreateConnectionResponse, client_, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
 
     @pytest.mark.skip()
     @parametrize
@@ -382,6 +484,107 @@ class TestAsyncClient:
             await async_client.with_raw_response.check_connection(
                 "",
             )
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_create_connection(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.create_connection(
+            connector_config_id="ccfg_",
+            customer_id="customer_id",
+            data={
+                "connector_name": "aircall",
+                "settings": {
+                    "oauth": {
+                        "created_at": "created_at",
+                        "last_fetched_at": "last_fetched_at",
+                        "metadata": {"foo": "bar"},
+                        "updated_at": "updated_at",
+                    }
+                },
+            },
+        )
+        assert_matches_type(CreateConnectionResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_create_connection_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.create_connection(
+            connector_config_id="ccfg_",
+            customer_id="customer_id",
+            data={
+                "connector_name": "aircall",
+                "settings": {
+                    "oauth": {
+                        "created_at": "created_at",
+                        "last_fetched_at": "last_fetched_at",
+                        "metadata": {"foo": "bar"},
+                        "updated_at": "updated_at",
+                        "credentials": {
+                            "access_token": "access_token",
+                            "client_id": "client_id",
+                            "raw": {"foo": "bar"},
+                            "scope": "scope",
+                            "expires_at": "expires_at",
+                            "expires_in": 0,
+                            "refresh_token": "refresh_token",
+                            "token_type": "token_type",
+                        },
+                    }
+                },
+            },
+            metadata={"foo": "bar"},
+        )
+        assert_matches_type(CreateConnectionResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_raw_response_create_connection(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.create_connection(
+            connector_config_id="ccfg_",
+            customer_id="customer_id",
+            data={
+                "connector_name": "aircall",
+                "settings": {
+                    "oauth": {
+                        "created_at": "created_at",
+                        "last_fetched_at": "last_fetched_at",
+                        "metadata": {"foo": "bar"},
+                        "updated_at": "updated_at",
+                    }
+                },
+            },
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client = await response.parse()
+        assert_matches_type(CreateConnectionResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_streaming_response_create_connection(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.create_connection(
+            connector_config_id="ccfg_",
+            customer_id="customer_id",
+            data={
+                "connector_name": "aircall",
+                "settings": {
+                    "oauth": {
+                        "created_at": "created_at",
+                        "last_fetched_at": "last_fetched_at",
+                        "metadata": {"foo": "bar"},
+                        "updated_at": "updated_at",
+                    }
+                },
+            },
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client = await response.parse()
+            assert_matches_type(CreateConnectionResponse, client, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
 
     @pytest.mark.skip()
     @parametrize
