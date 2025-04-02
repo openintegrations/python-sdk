@@ -3,14 +3,14 @@
 from . import types
 from ._types import NOT_GIVEN, Omit, NoneType, NotGiven, Transport, ProxiesTypes
 from ._utils import file_from_path
-from ._client import Client, Stream, OpenInt, Timeout, Transport, AsyncClient, AsyncStream, AsyncOpenInt, RequestOptions
+from ._client import Client, Stream, Openint, Timeout, Transport, AsyncClient, AsyncStream, AsyncOpenint, RequestOptions
 from ._models import BaseModel
 from ._version import __title__, __version__
 from ._response import APIResponse as APIResponse, AsyncAPIResponse as AsyncAPIResponse
 from ._constants import DEFAULT_TIMEOUT, DEFAULT_MAX_RETRIES, DEFAULT_CONNECTION_LIMITS
 from ._exceptions import (
     APIError,
-    OpenIntError,
+    OpenintError,
     ConflictError,
     NotFoundError,
     APIStatusError,
@@ -37,7 +37,7 @@ __all__ = [
     "NotGiven",
     "NOT_GIVEN",
     "Omit",
-    "OpenIntError",
+    "OpenintError",
     "APIError",
     "APIStatusError",
     "APITimeoutError",
@@ -57,8 +57,8 @@ __all__ = [
     "AsyncClient",
     "Stream",
     "AsyncStream",
-    "OpenInt",
-    "AsyncOpenInt",
+    "Openint",
+    "AsyncOpenint",
     "file_from_path",
     "BaseModel",
     "DEFAULT_TIMEOUT",

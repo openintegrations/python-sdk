@@ -63,12 +63,12 @@ from .types.create_magic_link_response import CreateMagicLinkResponse
 from .types.delete_connection_response import DeleteConnectionResponse
 from .types.list_connection_configs_response import ListConnectionConfigsResponse
 
-__all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "OpenInt", "AsyncOpenInt", "Client", "AsyncClient"]
+__all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Openint", "AsyncOpenint", "Client", "AsyncClient"]
 
 
-class OpenInt(SyncAPIClient):
-    with_raw_response: OpenIntWithRawResponse
-    with_streaming_response: OpenIntWithStreamedResponse
+class Openint(SyncAPIClient):
+    with_raw_response: OpenintWithRawResponse
+    with_streaming_response: OpenintWithStreamedResponse
 
     # client options
     api_key: str | None
@@ -98,7 +98,7 @@ class OpenInt(SyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new synchronous OpenInt client instance.
+        """Construct a new synchronous Openint client instance.
 
         This automatically infers the `api_key` argument from the `OPENINT_API_KEY` environment variable if it is not provided.
         """
@@ -109,7 +109,7 @@ class OpenInt(SyncAPIClient):
         self.customer_token = customer_token
 
         if base_url is None:
-            base_url = os.environ.get("OPEN_INT_BASE_URL")
+            base_url = os.environ.get("OPENINT_BASE_URL")
         if base_url is None:
             base_url = f"https://api.openint.dev/v1"
 
@@ -124,8 +124,8 @@ class OpenInt(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.with_raw_response = OpenIntWithRawResponse(self)
-        self.with_streaming_response = OpenIntWithStreamedResponse(self)
+        self.with_raw_response = OpenintWithRawResponse(self)
+        self.with_streaming_response = OpenintWithStreamedResponse(self)
 
     @property
     @override
@@ -873,9 +873,9 @@ class OpenInt(SyncAPIClient):
         return APIStatusError(err_msg, response=response, body=body)
 
 
-class AsyncOpenInt(AsyncAPIClient):
-    with_raw_response: AsyncOpenIntWithRawResponse
-    with_streaming_response: AsyncOpenIntWithStreamedResponse
+class AsyncOpenint(AsyncAPIClient):
+    with_raw_response: AsyncOpenintWithRawResponse
+    with_streaming_response: AsyncOpenintWithStreamedResponse
 
     # client options
     api_key: str | None
@@ -905,7 +905,7 @@ class AsyncOpenInt(AsyncAPIClient):
         # part of our public interface in the future.
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new async AsyncOpenInt client instance.
+        """Construct a new async AsyncOpenint client instance.
 
         This automatically infers the `api_key` argument from the `OPENINT_API_KEY` environment variable if it is not provided.
         """
@@ -916,7 +916,7 @@ class AsyncOpenInt(AsyncAPIClient):
         self.customer_token = customer_token
 
         if base_url is None:
-            base_url = os.environ.get("OPEN_INT_BASE_URL")
+            base_url = os.environ.get("OPENINT_BASE_URL")
         if base_url is None:
             base_url = f"https://api.openint.dev/v1"
 
@@ -931,8 +931,8 @@ class AsyncOpenInt(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.with_raw_response = AsyncOpenIntWithRawResponse(self)
-        self.with_streaming_response = AsyncOpenIntWithStreamedResponse(self)
+        self.with_raw_response = AsyncOpenintWithRawResponse(self)
+        self.with_streaming_response = AsyncOpenintWithStreamedResponse(self)
 
     @property
     @override
@@ -1680,8 +1680,8 @@ class AsyncOpenInt(AsyncAPIClient):
         return APIStatusError(err_msg, response=response, body=body)
 
 
-class OpenIntWithRawResponse:
-    def __init__(self, client: OpenInt) -> None:
+class OpenintWithRawResponse:
+    def __init__(self, client: Openint) -> None:
         self.check_connection = to_raw_response_wrapper(
             client.check_connection,
         )
@@ -1711,8 +1711,8 @@ class OpenIntWithRawResponse:
         )
 
 
-class AsyncOpenIntWithRawResponse:
-    def __init__(self, client: AsyncOpenInt) -> None:
+class AsyncOpenintWithRawResponse:
+    def __init__(self, client: AsyncOpenint) -> None:
         self.check_connection = async_to_raw_response_wrapper(
             client.check_connection,
         )
@@ -1742,8 +1742,8 @@ class AsyncOpenIntWithRawResponse:
         )
 
 
-class OpenIntWithStreamedResponse:
-    def __init__(self, client: OpenInt) -> None:
+class OpenintWithStreamedResponse:
+    def __init__(self, client: Openint) -> None:
         self.check_connection = to_streamed_response_wrapper(
             client.check_connection,
         )
@@ -1773,8 +1773,8 @@ class OpenIntWithStreamedResponse:
         )
 
 
-class AsyncOpenIntWithStreamedResponse:
-    def __init__(self, client: AsyncOpenInt) -> None:
+class AsyncOpenintWithStreamedResponse:
+    def __init__(self, client: AsyncOpenint) -> None:
         self.check_connection = async_to_streamed_response_wrapper(
             client.check_connection,
         )
@@ -1804,6 +1804,6 @@ class AsyncOpenIntWithStreamedResponse:
         )
 
 
-Client = OpenInt
+Client = Openint
 
-AsyncClient = AsyncOpenInt
+AsyncClient = AsyncOpenint
