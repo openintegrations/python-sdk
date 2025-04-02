@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.1.0 (2025-04-02)
+
+Full Changelog: [v1.0.0...v1.1.0](https://github.com/openintegrations/python-sdk/compare/v1.0.0...v1.1.0)
+
+### Features
+
+* **api:** Reverting name update ([#49](https://github.com/openintegrations/python-sdk/issues/49)) ([45042ce](https://github.com/openintegrations/python-sdk/commit/45042ce8f3da602d96fdbef99318e353374fc98e))
+* **api:** Updating Name ([#47](https://github.com/openintegrations/python-sdk/issues/47)) ([8cd1dc1](https://github.com/openintegrations/python-sdk/commit/8cd1dc1d841abd0c0685626d0c3d621064e80df4))
+
 ## 1.0.0 (2025-04-02)
 
 Full Changelog: [v0.1.0-alpha.5...v1.0.0](https://github.com/openintegrations/python-sdk/compare/v0.1.0-alpha.5...v1.0.0)
