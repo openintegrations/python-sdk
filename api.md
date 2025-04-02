@@ -5,6 +5,7 @@ Types:
 ```python
 from openint.types import (
     CheckConnectionResponse,
+    CreateConnectionResponse,
     CreateMagicLinkResponse,
     CreateTokenResponse,
     GetConnectionResponse,
@@ -17,6 +18,7 @@ from openint.types import (
 Methods:
 
 - <code title="post /connection/{id}/check">client.<a href="./src/openint/_client.py">check_connection</a>(id) -> <a href="./src/openint/types/check_connection_response.py">CheckConnectionResponse</a></code>
+- <code title="post /connection">client.<a href="./src/openint/_client.py">create_connection</a>(\*\*<a href="src/openint/types/client_create_connection_params.py">params</a>) -> <a href="./src/openint/types/create_connection_response.py">CreateConnectionResponse</a></code>
 - <code title="post /customer/{customer_id}/magic-link">client.<a href="./src/openint/_client.py">create_magic_link</a>(customer_id, \*\*<a href="src/openint/types/client_create_magic_link_params.py">params</a>) -> <a href="./src/openint/types/create_magic_link_response.py">CreateMagicLinkResponse</a></code>
 - <code title="post /customer/{customer_id}/token">client.<a href="./src/openint/_client.py">create_token</a>(customer_id, \*\*<a href="src/openint/types/client_create_token_params.py">params</a>) -> <a href="./src/openint/types/create_token_response.py">CreateTokenResponse</a></code>
 - <code title="get /connection/{id}">client.<a href="./src/openint/_client.py">get_connection</a>(id, \*\*<a href="src/openint/types/client_get_connection_params.py">params</a>) -> <a href="./src/openint/types/get_connection_response.py">GetConnectionResponse</a></code>
