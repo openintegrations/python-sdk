@@ -175,7 +175,7 @@ class TestClient:
     @parametrize
     def test_method_create_magic_link(self, client: Openint) -> None:
         client_ = client.create_magic_link(
-            customer_id="customer_id",
+            customer_id="x",
         )
         assert_matches_type(CreateMagicLinkResponse, client_, path=["response"])
 
@@ -183,13 +183,18 @@ class TestClient:
     @parametrize
     def test_method_create_magic_link_with_all_params(self, client: Openint) -> None:
         client_ = client.create_magic_link(
-            customer_id="customer_id",
-            connection_id="conn_",
-            connector_names=["aircall"],
-            redirect_url="redirect_url",
-            theme="light",
+            customer_id="x",
+            client_options={
+                "minus_background": "--background",
+                "minus_card": "--card",
+                "minus_card_foreground": "--card-foreground",
+                "minus_foreground": "--foreground",
+                "minus_primary": "--primary",
+                "connector_name": "plaid",
+                "debug": True,
+                "tab": "my-connections",
+            },
             validity_in_seconds=0,
-            view="manage",
         )
         assert_matches_type(CreateMagicLinkResponse, client_, path=["response"])
 
@@ -197,7 +202,7 @@ class TestClient:
     @parametrize
     def test_raw_response_create_magic_link(self, client: Openint) -> None:
         response = client.with_raw_response.create_magic_link(
-            customer_id="customer_id",
+            customer_id="x",
         )
 
         assert response.is_closed is True
@@ -209,7 +214,7 @@ class TestClient:
     @parametrize
     def test_streaming_response_create_magic_link(self, client: Openint) -> None:
         with client.with_streaming_response.create_magic_link(
-            customer_id="customer_id",
+            customer_id="x",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -633,7 +638,7 @@ class TestAsyncClient:
     @parametrize
     async def test_method_create_magic_link(self, async_client: AsyncOpenint) -> None:
         client = await async_client.create_magic_link(
-            customer_id="customer_id",
+            customer_id="x",
         )
         assert_matches_type(CreateMagicLinkResponse, client, path=["response"])
 
@@ -641,13 +646,18 @@ class TestAsyncClient:
     @parametrize
     async def test_method_create_magic_link_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.create_magic_link(
-            customer_id="customer_id",
-            connection_id="conn_",
-            connector_names=["aircall"],
-            redirect_url="redirect_url",
-            theme="light",
+            customer_id="x",
+            client_options={
+                "minus_background": "--background",
+                "minus_card": "--card",
+                "minus_card_foreground": "--card-foreground",
+                "minus_foreground": "--foreground",
+                "minus_primary": "--primary",
+                "connector_name": "plaid",
+                "debug": True,
+                "tab": "my-connections",
+            },
             validity_in_seconds=0,
-            view="manage",
         )
         assert_matches_type(CreateMagicLinkResponse, client, path=["response"])
 
@@ -655,7 +665,7 @@ class TestAsyncClient:
     @parametrize
     async def test_raw_response_create_magic_link(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.create_magic_link(
-            customer_id="customer_id",
+            customer_id="x",
         )
 
         assert response.is_closed is True
@@ -667,7 +677,7 @@ class TestAsyncClient:
     @parametrize
     async def test_streaming_response_create_magic_link(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.create_magic_link(
-            customer_id="customer_id",
+            customer_id="x",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
