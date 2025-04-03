@@ -193,7 +193,7 @@ class TestClient:
                 "minus_primary": "--primary",
                 "connector_name": "plaid",
                 "debug": True,
-                "tab": "my-connections",
+                "view": "add",
             },
             validity_in_seconds=0,
         )
@@ -692,7 +692,7 @@ class TestAsyncClient:
                 "minus_primary": "--primary",
                 "connector_name": "plaid",
                 "debug": True,
-                "tab": "my-connections",
+                "view": "add",
             },
             validity_in_seconds=0,
         )
