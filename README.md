@@ -92,7 +92,7 @@ response = client.create_magic_link(
         "minus_primary": "--primary",
         "connector_name": "plaid",
         "debug": True,
-        "tab": "my-connections",
+        "view": "add",
     },
 )
 print(response.client_options)

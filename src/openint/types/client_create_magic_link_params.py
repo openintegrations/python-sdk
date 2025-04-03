@@ -37,8 +37,5 @@ class ClientOptions(TypedDict, total=False):
     debug: bool
     """Whether to enable debug mode"""
 
-    tab: Literal["my-connections", "add-connection"]
-    """The default tab to show when the magic link is opened.
-
-    Defaults to "my-connections"
-    """
+    view: Literal["add", "manage"]
+    """The default view to show when the magic link is opened. Defaults to "add" """
