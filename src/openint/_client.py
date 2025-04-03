@@ -327,71 +327,8 @@ class Openint(SyncAPIClient):
         self,
         customer_id: str,
         *,
-        connection_id: str | NotGiven = NOT_GIVEN,
-        connector_names: List[
-            Literal[
-                "aircall",
-                "airtable",
-                "apollo",
-                "brex",
-                "coda",
-                "confluence",
-                "discord",
-                "facebook",
-                "finch",
-                "firebase",
-                "foreceipt",
-                "github",
-                "gong",
-                "googlecalendar",
-                "googledocs",
-                "googledrive",
-                "googlemail",
-                "googlesheet",
-                "greenhouse",
-                "heron",
-                "hubspot",
-                "instagram",
-                "intercom",
-                "jira",
-                "kustomer",
-                "lever",
-                "linear",
-                "linkedin",
-                "lunchmoney",
-                "merge",
-                "microsoft",
-                "moota",
-                "notion",
-                "onebrick",
-                "outreach",
-                "pipedrive",
-                "plaid",
-                "quickbooks",
-                "ramp",
-                "reddit",
-                "salesforce",
-                "salesloft",
-                "saltedge",
-                "sharepointonline",
-                "slack",
-                "splitwise",
-                "stripe",
-                "teller",
-                "toggl",
-                "twenty",
-                "twitter",
-                "wise",
-                "xero",
-                "yodlee",
-                "zohodesk",
-            ]
-        ]
-        | NotGiven = NOT_GIVEN,
-        redirect_url: str | NotGiven = NOT_GIVEN,
-        theme: Literal["light", "dark"] | NotGiven = NOT_GIVEN,
+        client_options: client_create_magic_link_params.ClientOptions | NotGiven = NOT_GIVEN,
         validity_in_seconds: float | NotGiven = NOT_GIVEN,
-        view: Literal["manage", "manage-deeplink", "add", "add-deeplink"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -400,23 +337,14 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> CreateMagicLinkResponse:
         """
-        Create a magic link for connecting integrations
+        Create a magic link that is ready to be shared with customers who want to use
+        Connect
 
         Args:
-          customer_id: The id of the customer in your application. Ensure it is unique for that
-              customer.
-
-          connection_id: The specific connection id to load
-
-          connector_names: Filter integrations by connector names
-
-          redirect_url: Where to send user to after connect / if they press back button
-
-          theme: Magic Link display theme
+          client_options: Search params to configure the connect page. Not signed as part of JWT and
+              therefore can be modified by client
 
           validity_in_seconds: How long the magic link will be valid for (in seconds) before it expires
-
-          view: Magic Link tab view to load in the connect magic link
 
           extra_headers: Send extra headers
 
@@ -432,12 +360,8 @@ class Openint(SyncAPIClient):
             f"/customer/{customer_id}/magic-link",
             body=maybe_transform(
                 {
-                    "connection_id": connection_id,
-                    "connector_names": connector_names,
-                    "redirect_url": redirect_url,
-                    "theme": theme,
+                    "client_options": client_options,
                     "validity_in_seconds": validity_in_seconds,
-                    "view": view,
                 },
                 client_create_magic_link_params.ClientCreateMagicLinkParams,
             ),
@@ -459,8 +383,10 @@ class Openint(SyncAPIClient):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> CreateTokenResponse:
-        """
-        Create an authentication token for a customer
+        """Create a @Connect authentication token for a customer.
+
+        This token can be used to
+        embed @Connect in your application via the `@openint/connect` npm package.
 
         Args:
           customer_id: The id of the customer in your application. Ensure it is unique for that
@@ -674,7 +600,8 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> SyncOffsetPagination[ListConnectionConfigsResponse]:
         """
-        List all connector configurations
+        List the connectors that are configured in your account and available for your
+        customers
 
         Args:
           connector_name: The name of the connector
@@ -792,8 +719,11 @@ class Openint(SyncAPIClient):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> SyncOffsetPagination[ListConnectionsResponse]:
-        """
-        List all connections with optional filtering
+        """List all connections with optional filtering.
+
+        Does not retrieve secrets or
+        perform any connection healthcheck. For that use `getConnection` or
+        `checkConnectionHealth`.
 
         Args:
           connector_config_id: The id of the connector config, starts with `ccfg_`
@@ -1136,71 +1066,8 @@ class AsyncOpenint(AsyncAPIClient):
         self,
         customer_id: str,
         *,
-        connection_id: str | NotGiven = NOT_GIVEN,
-        connector_names: List[
-            Literal[
-                "aircall",
-                "airtable",
-                "apollo",
-                "brex",
-                "coda",
-                "confluence",
-                "discord",
-                "facebook",
-                "finch",
-                "firebase",
-                "foreceipt",
-                "github",
-                "gong",
-                "googlecalendar",
-                "googledocs",
-                "googledrive",
-                "googlemail",
-                "googlesheet",
-                "greenhouse",
-                "heron",
-                "hubspot",
-                "instagram",
-                "intercom",
-                "jira",
-                "kustomer",
-                "lever",
-                "linear",
-                "linkedin",
-                "lunchmoney",
-                "merge",
-                "microsoft",
-                "moota",
-                "notion",
-                "onebrick",
-                "outreach",
-                "pipedrive",
-                "plaid",
-                "quickbooks",
-                "ramp",
-                "reddit",
-                "salesforce",
-                "salesloft",
-                "saltedge",
-                "sharepointonline",
-                "slack",
-                "splitwise",
-                "stripe",
-                "teller",
-                "toggl",
-                "twenty",
-                "twitter",
-                "wise",
-                "xero",
-                "yodlee",
-                "zohodesk",
-            ]
-        ]
-        | NotGiven = NOT_GIVEN,
-        redirect_url: str | NotGiven = NOT_GIVEN,
-        theme: Literal["light", "dark"] | NotGiven = NOT_GIVEN,
+        client_options: client_create_magic_link_params.ClientOptions | NotGiven = NOT_GIVEN,
         validity_in_seconds: float | NotGiven = NOT_GIVEN,
-        view: Literal["manage", "manage-deeplink", "add", "add-deeplink"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -1209,23 +1076,14 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> CreateMagicLinkResponse:
         """
-        Create a magic link for connecting integrations
+        Create a magic link that is ready to be shared with customers who want to use
+        Connect
 
         Args:
-          customer_id: The id of the customer in your application. Ensure it is unique for that
-              customer.
-
-          connection_id: The specific connection id to load
-
-          connector_names: Filter integrations by connector names
-
-          redirect_url: Where to send user to after connect / if they press back button
-
-          theme: Magic Link display theme
+          client_options: Search params to configure the connect page. Not signed as part of JWT and
+              therefore can be modified by client
 
           validity_in_seconds: How long the magic link will be valid for (in seconds) before it expires
-
-          view: Magic Link tab view to load in the connect magic link
 
           extra_headers: Send extra headers
 
@@ -1241,12 +1099,8 @@ class AsyncOpenint(AsyncAPIClient):
             f"/customer/{customer_id}/magic-link",
             body=await async_maybe_transform(
                 {
-                    "connection_id": connection_id,
-                    "connector_names": connector_names,
-                    "redirect_url": redirect_url,
-                    "theme": theme,
+                    "client_options": client_options,
                     "validity_in_seconds": validity_in_seconds,
-                    "view": view,
                 },
                 client_create_magic_link_params.ClientCreateMagicLinkParams,
             ),
@@ -1268,8 +1122,10 @@ class AsyncOpenint(AsyncAPIClient):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> CreateTokenResponse:
-        """
-        Create an authentication token for a customer
+        """Create a @Connect authentication token for a customer.
+
+        This token can be used to
+        embed @Connect in your application via the `@openint/connect` npm package.
 
         Args:
           customer_id: The id of the customer in your application. Ensure it is unique for that
@@ -1483,7 +1339,8 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AsyncPaginator[ListConnectionConfigsResponse, AsyncOffsetPagination[ListConnectionConfigsResponse]]:
         """
-        List all connector configurations
+        List the connectors that are configured in your account and available for your
+        customers
 
         Args:
           connector_name: The name of the connector
@@ -1601,8 +1458,11 @@ class AsyncOpenint(AsyncAPIClient):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AsyncPaginator[ListConnectionsResponse, AsyncOffsetPagination[ListConnectionsResponse]]:
-        """
-        List all connections with optional filtering
+        """List all connections with optional filtering.
+
+        Does not retrieve secrets or
+        perform any connection healthcheck. For that use `getConnection` or
+        `checkConnectionHealth`.
 
         Args:
           connector_config_id: The id of the connector config, starts with `ccfg_`
