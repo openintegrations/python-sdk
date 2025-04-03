@@ -2,85 +2,43 @@
 
 from __future__ import annotations
 
-from typing import List
-from typing_extensions import Literal, TypedDict
+from typing_extensions import Literal, Annotated, TypedDict
 
-__all__ = ["ClientCreateMagicLinkParams"]
+from .._utils import PropertyInfo
+
+__all__ = ["ClientCreateMagicLinkParams", "ClientOptions"]
 
 
 class ClientCreateMagicLinkParams(TypedDict, total=False):
-    connection_id: str
-    """The specific connection id to load"""
+    client_options: ClientOptions
+    """Search params to configure the connect page.
 
-    connector_names: List[
-        Literal[
-            "aircall",
-            "airtable",
-            "apollo",
-            "brex",
-            "coda",
-            "confluence",
-            "discord",
-            "facebook",
-            "finch",
-            "firebase",
-            "foreceipt",
-            "github",
-            "gong",
-            "googlecalendar",
-            "googledocs",
-            "googledrive",
-            "googlemail",
-            "googlesheet",
-            "greenhouse",
-            "heron",
-            "hubspot",
-            "instagram",
-            "intercom",
-            "jira",
-            "kustomer",
-            "lever",
-            "linear",
-            "linkedin",
-            "lunchmoney",
-            "merge",
-            "microsoft",
-            "moota",
-            "notion",
-            "onebrick",
-            "outreach",
-            "pipedrive",
-            "plaid",
-            "quickbooks",
-            "ramp",
-            "reddit",
-            "salesforce",
-            "salesloft",
-            "saltedge",
-            "sharepointonline",
-            "slack",
-            "splitwise",
-            "stripe",
-            "teller",
-            "toggl",
-            "twenty",
-            "twitter",
-            "wise",
-            "xero",
-            "yodlee",
-            "zohodesk",
-        ]
-    ]
-    """Filter integrations by connector names"""
-
-    redirect_url: str
-    """Where to send user to after connect / if they press back button"""
-
-    theme: Literal["light", "dark"]
-    """Magic Link display theme"""
+    Not signed as part of JWT and therefore can be modified by client
+    """
 
     validity_in_seconds: float
     """How long the magic link will be valid for (in seconds) before it expires"""
 
-    view: Literal["manage", "manage-deeplink", "add", "add-deeplink"]
-    """Magic Link tab view to load in the connect magic link"""
+
+class ClientOptions(TypedDict, total=False):
+    minus_background: Annotated[str, PropertyInfo(alias="--background")]
+
+    minus_card: Annotated[str, PropertyInfo(alias="--card")]
+
+    minus_card_foreground: Annotated[str, PropertyInfo(alias="--card-foreground")]
+
+    minus_foreground: Annotated[str, PropertyInfo(alias="--foreground")]
+
+    minus_primary: Annotated[str, PropertyInfo(alias="--primary")]
+
+    connector_name: Literal["plaid", "greenhouse"]
+    """The name of the connector to limit connection to. Default to all otherwise"""
+
+    debug: bool
+    """Whether to enable debug mode"""
+
+    tab: Literal["my-connections", "add-connection"]
+    """The default tab to show when the magic link is opened.
+
+    Defaults to "my-connections"
+    """

@@ -73,6 +73,31 @@ Nested request parameters are [TypedDicts](https://docs.python.org/3/library/typ
 
 Typed requests and responses provide autocomplete and documentation within your editor. If you would like to see type errors in VS Code to help catch bugs earlier, set `python.analysis.typeCheckingMode` to `basic`.
 
+## Nested params
+
+Nested parameters are dictionaries, typed using `TypedDict`, for example:
+
+```python
+from openint import Openint
+
+client = Openint()
+
+response = client.create_magic_link(
+    customer_id="x",
+    client_options={
+        "minus_background": "--background",
+        "minus_card": "--card",
+        "minus_card_foreground": "--card-foreground",
+        "minus_foreground": "--foreground",
+        "minus_primary": "--primary",
+        "connector_name": "plaid",
+        "debug": True,
+        "tab": "my-connections",
+    },
+)
+print(response.client_options)
+```
+
 ## Handling errors
 
 When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `openint.APIConnectionError` is raised.
