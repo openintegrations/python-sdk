@@ -1554,7 +1554,7 @@ class TestAsyncOpenint:
         import threading
 
         from openint._utils import asyncify
-        from openint._base_client import get_platform 
+        from openint._base_client import get_platform
 
         async def test_main() -> None:
             result = await asyncify(get_platform)()

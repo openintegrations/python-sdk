@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.4.0 (2025-04-04)
+
+Full Changelog: [v1.3.0...v1.4.0](https://github.com/openintegrations/python-sdk/compare/v1.3.0...v1.4.0)
+
+### Features
+
+* **docs:** updating documented docs for stainless ([#59](https://github.com/openintegrations/python-sdk/issues/59)) ([67d2b1a](https://github.com/openintegrations/python-sdk/commit/67d2b1afd93f7c03ec0cf4b9efca10955e67b0a2))
+* **docs:** updating documented docs for stainless ([#60](https://github.com/openintegrations/python-sdk/issues/60)) ([3198217](https://github.com/openintegrations/python-sdk/commit/3198217a87b4905bccd2a2aa8b73d1d7078c64dd))
+
+
+### Bug Fixes
+
+* **api:** adding list connectors ([#57](https://github.com/openintegrations/python-sdk/issues/57)) ([4346d9f](https://github.com/openintegrations/python-sdk/commit/4346d9f25c93a12cc9d053a875f7ddd8713ad8b2))
+* **client:** add missing `None` default ([#62](https://github.com/openintegrations/python-sdk/issues/62)) ([c485bed](https://github.com/openintegrations/python-sdk/commit/c485bed766abe22f064cbe35e565dd46a7c65153))
+
+
+### Chores
+
+* **internal:** remove trailing character ([#61](https://github.com/openintegrations/python-sdk/issues/61)) ([b5d7c1c](https://github.com/openintegrations/python-sdk/commit/b5d7c1ca8c2180df9c831996e0253415e0b0571b))
+
 ## 1.3.0 (2025-04-03)
 
 Full Changelog: [v1.2.0...v1.3.0](https://github.com/openintegrations/python-sdk/compare/v1.2.0...v1.3.0)
