@@ -562,7 +562,7 @@ class ConnectorsAirtableConnectorConfigIntegrations(BaseModel):
 
 
 class ConnectorsAirtableConnectorConfig(BaseModel):
-    config: None
+    config: None = None
 
     connector_name: Literal["airtable"]
 
@@ -652,7 +652,7 @@ class ConnectorsApolloConnectorConfigIntegrations(BaseModel):
 
 
 class ConnectorsApolloConnectorConfig(BaseModel):
-    config: None
+    config: None = None
 
     connector_name: Literal["apollo"]
 
@@ -846,7 +846,7 @@ class ConnectorsCodaConnectorConfigIntegrations(BaseModel):
 
 
 class ConnectorsCodaConnectorConfig(BaseModel):
-    config: None
+    config: None = None
 
     connector_name: Literal["coda"]
 
@@ -1351,7 +1351,7 @@ class ConnectorsFirebaseConnectorConfigIntegrations(BaseModel):
 
 
 class ConnectorsFirebaseConnectorConfig(BaseModel):
-    config: None
+    config: None = None
 
     connector_name: Literal["firebase"]
 
@@ -1441,7 +1441,7 @@ class ConnectorsForeceiptConnectorConfigIntegrations(BaseModel):
 
 
 class ConnectorsForeceiptConnectorConfig(BaseModel):
-    config: None
+    config: None = None
 
     connector_name: Literal["foreceipt"]
 
@@ -2251,7 +2251,7 @@ class ConnectorsGreenhouseConnectorConfigIntegrations(BaseModel):
 
 
 class ConnectorsGreenhouseConnectorConfig(BaseModel):
-    config: None
+    config: None = None
 
     connector_name: Literal["greenhouse"]
 
@@ -4324,7 +4324,7 @@ class ConnectorsPostgresConnectorConfigIntegrations(BaseModel):
 
 
 class ConnectorsPostgresConnectorConfig(BaseModel):
-    config: None
+    config: None = None
 
     connector_name: Literal["postgres"]
 
@@ -5228,7 +5228,7 @@ class ConnectorsSplitwiseConnectorConfigIntegrations(BaseModel):
 
 
 class ConnectorsSplitwiseConnectorConfig(BaseModel):
-    config: None
+    config: None = None
 
     connector_name: Literal["splitwise"]
 
@@ -5518,7 +5518,7 @@ class ConnectorsTogglConnectorConfigIntegrations(BaseModel):
 
 
 class ConnectorsTogglConnectorConfig(BaseModel):
-    config: None
+    config: None = None
 
     connector_name: Literal["toggl"]
 
@@ -5608,7 +5608,7 @@ class ConnectorsTwentyConnectorConfigIntegrations(BaseModel):
 
 
 class ConnectorsTwentyConnectorConfig(BaseModel):
-    config: None
+    config: None = None
 
     connector_name: Literal["twenty"]
 
@@ -5904,7 +5904,7 @@ class ConnectorsWiseConnectorConfigIntegrations(BaseModel):
 
 
 class ConnectorsWiseConnectorConfig(BaseModel):
-    config: None
+    config: None = None
 
     connector_name: Literal["wise"]
 
