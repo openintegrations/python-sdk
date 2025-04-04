@@ -16,10 +16,12 @@ __all__ = [
     "ConnectorsAircallConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsAircallConnectionSettingsConnector",
     "ConnectorsAircallConnectionSettingsConnectorSchemas",
+    "ConnectorsAircallConnectionSettingsConnectorScope",
     "ConnectorsAirtableConnectionSettings",
     "ConnectorsAirtableConnectionSettingsSettings",
     "ConnectorsAirtableConnectionSettingsConnector",
     "ConnectorsAirtableConnectionSettingsConnectorSchemas",
+    "ConnectorsAirtableConnectionSettingsConnectorScope",
     "ConnectorsApolloConnectionSettings",
     "ConnectorsApolloConnectionSettingsSettings",
     "ConnectorsApolloConnectionSettingsSettingsOAuth",
@@ -29,26 +31,31 @@ __all__ = [
     "ConnectorsApolloConnectionSettingsSettingsError",
     "ConnectorsApolloConnectionSettingsConnector",
     "ConnectorsApolloConnectionSettingsConnectorSchemas",
+    "ConnectorsApolloConnectionSettingsConnectorScope",
     "ConnectorsBrexConnectionSettings",
     "ConnectorsBrexConnectionSettingsSettings",
     "ConnectorsBrexConnectionSettingsConnector",
     "ConnectorsBrexConnectionSettingsConnectorSchemas",
+    "ConnectorsBrexConnectionSettingsConnectorScope",
     "ConnectorsCodaConnectionSettings",
     "ConnectorsCodaConnectionSettingsSettings",
     "ConnectorsCodaConnectionSettingsConnector",
     "ConnectorsCodaConnectionSettingsConnectorSchemas",
+    "ConnectorsCodaConnectionSettingsConnectorScope",
     "ConnectorsConfluenceConnectionSettings",
     "ConnectorsConfluenceConnectionSettingsSettings",
     "ConnectorsConfluenceConnectionSettingsSettingsOAuth",
     "ConnectorsConfluenceConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsConfluenceConnectionSettingsConnector",
     "ConnectorsConfluenceConnectionSettingsConnectorSchemas",
+    "ConnectorsConfluenceConnectionSettingsConnectorScope",
     "ConnectorsDiscordConnectionSettings",
     "ConnectorsDiscordConnectionSettingsSettings",
     "ConnectorsDiscordConnectionSettingsSettingsOAuth",
     "ConnectorsDiscordConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsDiscordConnectionSettingsConnector",
     "ConnectorsDiscordConnectionSettingsConnectorSchemas",
+    "ConnectorsDiscordConnectionSettingsConnectorScope",
     "ConnectorsFacebookConnectionSettings",
     "ConnectorsFacebookConnectionSettingsSettings",
     "ConnectorsFacebookConnectionSettingsSettingsOAuth",
@@ -58,10 +65,12 @@ __all__ = [
     "ConnectorsFacebookConnectionSettingsSettingsError",
     "ConnectorsFacebookConnectionSettingsConnector",
     "ConnectorsFacebookConnectionSettingsConnectorSchemas",
+    "ConnectorsFacebookConnectionSettingsConnectorScope",
     "ConnectorsFinchConnectionSettings",
     "ConnectorsFinchConnectionSettingsSettings",
     "ConnectorsFinchConnectionSettingsConnector",
     "ConnectorsFinchConnectionSettingsConnectorSchemas",
+    "ConnectorsFinchConnectionSettingsConnectorScope",
     "ConnectorsFirebaseConnectionSettings",
     "ConnectorsFirebaseConnectionSettingsSettings",
     "ConnectorsFirebaseConnectionSettingsSettingsUnionMember0",
@@ -75,16 +84,19 @@ __all__ = [
     "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig",
     "ConnectorsFirebaseConnectionSettingsConnector",
     "ConnectorsFirebaseConnectionSettingsConnectorSchemas",
+    "ConnectorsFirebaseConnectionSettingsConnectorScope",
     "ConnectorsForeceiptConnectionSettings",
     "ConnectorsForeceiptConnectionSettingsSettings",
     "ConnectorsForeceiptConnectionSettingsConnector",
     "ConnectorsForeceiptConnectionSettingsConnectorSchemas",
+    "ConnectorsForeceiptConnectionSettingsConnectorScope",
     "ConnectorsGitHubConnectionSettings",
     "ConnectorsGitHubConnectionSettingsSettings",
     "ConnectorsGitHubConnectionSettingsSettingsOAuth",
     "ConnectorsGitHubConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsGitHubConnectionSettingsConnector",
     "ConnectorsGitHubConnectionSettingsConnectorSchemas",
+    "ConnectorsGitHubConnectionSettingsConnectorScope",
     "ConnectorsGongConnectionSettings",
     "ConnectorsGongConnectionSettingsSettings",
     "ConnectorsGongConnectionSettingsSettingsOAuth",
@@ -94,49 +106,58 @@ __all__ = [
     "ConnectorsGongConnectionSettingsSettingsError",
     "ConnectorsGongConnectionSettingsConnector",
     "ConnectorsGongConnectionSettingsConnectorSchemas",
+    "ConnectorsGongConnectionSettingsConnectorScope",
     "ConnectorsGooglecalendarConnectionSettings",
     "ConnectorsGooglecalendarConnectionSettingsSettings",
     "ConnectorsGooglecalendarConnectionSettingsSettingsOAuth",
     "ConnectorsGooglecalendarConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsGooglecalendarConnectionSettingsConnector",
     "ConnectorsGooglecalendarConnectionSettingsConnectorSchemas",
+    "ConnectorsGooglecalendarConnectionSettingsConnectorScope",
     "ConnectorsGoogledocsConnectionSettings",
     "ConnectorsGoogledocsConnectionSettingsSettings",
     "ConnectorsGoogledocsConnectionSettingsSettingsOAuth",
     "ConnectorsGoogledocsConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsGoogledocsConnectionSettingsConnector",
     "ConnectorsGoogledocsConnectionSettingsConnectorSchemas",
+    "ConnectorsGoogledocsConnectionSettingsConnectorScope",
     "ConnectorsGoogledriveConnectionSettings",
     "ConnectorsGoogledriveConnectionSettingsSettings",
     "ConnectorsGoogledriveConnectionSettingsSettingsOAuth",
     "ConnectorsGoogledriveConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsGoogledriveConnectionSettingsConnector",
     "ConnectorsGoogledriveConnectionSettingsConnectorSchemas",
+    "ConnectorsGoogledriveConnectionSettingsConnectorScope",
     "ConnectorsGooglemailConnectionSettings",
     "ConnectorsGooglemailConnectionSettingsSettings",
     "ConnectorsGooglemailConnectionSettingsSettingsOAuth",
     "ConnectorsGooglemailConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsGooglemailConnectionSettingsConnector",
     "ConnectorsGooglemailConnectionSettingsConnectorSchemas",
+    "ConnectorsGooglemailConnectionSettingsConnectorScope",
     "ConnectorsGooglesheetConnectionSettings",
     "ConnectorsGooglesheetConnectionSettingsSettings",
     "ConnectorsGooglesheetConnectionSettingsSettingsOAuth",
     "ConnectorsGooglesheetConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsGooglesheetConnectionSettingsConnector",
     "ConnectorsGooglesheetConnectionSettingsConnectorSchemas",
+    "ConnectorsGooglesheetConnectionSettingsConnectorScope",
     "ConnectorsGreenhouseConnectionSettings",
     "ConnectorsGreenhouseConnectionSettingsSettings",
     "ConnectorsGreenhouseConnectionSettingsConnector",
     "ConnectorsGreenhouseConnectionSettingsConnectorSchemas",
+    "ConnectorsGreenhouseConnectionSettingsConnectorScope",
     "ConnectorsHeronConnectionSettings",
     "ConnectorsHeronConnectionSettingsConnector",
     "ConnectorsHeronConnectionSettingsConnectorSchemas",
+    "ConnectorsHeronConnectionSettingsConnectorScope",
     "ConnectorsHubspotConnectionSettings",
     "ConnectorsHubspotConnectionSettingsSettings",
     "ConnectorsHubspotConnectionSettingsSettingsOAuth",
     "ConnectorsHubspotConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsHubspotConnectionSettingsConnector",
     "ConnectorsHubspotConnectionSettingsConnectorSchemas",
+    "ConnectorsHubspotConnectionSettingsConnectorScope",
     "ConnectorsInstagramConnectionSettings",
     "ConnectorsInstagramConnectionSettingsSettings",
     "ConnectorsInstagramConnectionSettingsSettingsOAuth",
@@ -146,6 +167,7 @@ __all__ = [
     "ConnectorsInstagramConnectionSettingsSettingsError",
     "ConnectorsInstagramConnectionSettingsConnector",
     "ConnectorsInstagramConnectionSettingsConnectorSchemas",
+    "ConnectorsInstagramConnectionSettingsConnectorScope",
     "ConnectorsIntercomConnectionSettings",
     "ConnectorsIntercomConnectionSettingsSettings",
     "ConnectorsIntercomConnectionSettingsSettingsOAuth",
@@ -155,6 +177,7 @@ __all__ = [
     "ConnectorsIntercomConnectionSettingsSettingsError",
     "ConnectorsIntercomConnectionSettingsConnector",
     "ConnectorsIntercomConnectionSettingsConnectorSchemas",
+    "ConnectorsIntercomConnectionSettingsConnectorScope",
     "ConnectorsJiraConnectionSettings",
     "ConnectorsJiraConnectionSettingsSettings",
     "ConnectorsJiraConnectionSettingsSettingsOAuth",
@@ -164,6 +187,7 @@ __all__ = [
     "ConnectorsJiraConnectionSettingsSettingsError",
     "ConnectorsJiraConnectionSettingsConnector",
     "ConnectorsJiraConnectionSettingsConnectorSchemas",
+    "ConnectorsJiraConnectionSettingsConnectorScope",
     "ConnectorsKustomerConnectionSettings",
     "ConnectorsKustomerConnectionSettingsSettings",
     "ConnectorsKustomerConnectionSettingsSettingsOAuth",
@@ -173,6 +197,7 @@ __all__ = [
     "ConnectorsKustomerConnectionSettingsSettingsError",
     "ConnectorsKustomerConnectionSettingsConnector",
     "ConnectorsKustomerConnectionSettingsConnectorSchemas",
+    "ConnectorsKustomerConnectionSettingsConnectorScope",
     "ConnectorsLeverConnectionSettings",
     "ConnectorsLeverConnectionSettingsSettings",
     "ConnectorsLeverConnectionSettingsSettingsOAuth",
@@ -182,28 +207,34 @@ __all__ = [
     "ConnectorsLeverConnectionSettingsSettingsError",
     "ConnectorsLeverConnectionSettingsConnector",
     "ConnectorsLeverConnectionSettingsConnectorSchemas",
+    "ConnectorsLeverConnectionSettingsConnectorScope",
     "ConnectorsLinearConnectionSettings",
     "ConnectorsLinearConnectionSettingsSettings",
     "ConnectorsLinearConnectionSettingsSettingsOAuth",
     "ConnectorsLinearConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsLinearConnectionSettingsConnector",
     "ConnectorsLinearConnectionSettingsConnectorSchemas",
+    "ConnectorsLinearConnectionSettingsConnectorScope",
     "ConnectorsLinkedinConnectionSettings",
     "ConnectorsLinkedinConnectionSettingsSettings",
     "ConnectorsLinkedinConnectionSettingsSettingsOAuth",
     "ConnectorsLinkedinConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsLinkedinConnectionSettingsConnector",
     "ConnectorsLinkedinConnectionSettingsConnectorSchemas",
+    "ConnectorsLinkedinConnectionSettingsConnectorScope",
     "ConnectorsLunchmoneyConnectionSettings",
     "ConnectorsLunchmoneyConnectionSettingsConnector",
     "ConnectorsLunchmoneyConnectionSettingsConnectorSchemas",
+    "ConnectorsLunchmoneyConnectionSettingsConnectorScope",
     "ConnectorsMercuryConnectionSettings",
     "ConnectorsMercuryConnectionSettingsConnector",
     "ConnectorsMercuryConnectionSettingsConnectorSchemas",
+    "ConnectorsMercuryConnectionSettingsConnectorScope",
     "ConnectorsMergeConnectionSettings",
     "ConnectorsMergeConnectionSettingsSettings",
     "ConnectorsMergeConnectionSettingsConnector",
     "ConnectorsMergeConnectionSettingsConnectorSchemas",
+    "ConnectorsMergeConnectionSettingsConnectorScope",
     "ConnectorsMicrosoftConnectionSettings",
     "ConnectorsMicrosoftConnectionSettingsSettings",
     "ConnectorsMicrosoftConnectionSettingsSettingsOAuth",
@@ -213,19 +244,23 @@ __all__ = [
     "ConnectorsMicrosoftConnectionSettingsSettingsError",
     "ConnectorsMicrosoftConnectionSettingsConnector",
     "ConnectorsMicrosoftConnectionSettingsConnectorSchemas",
+    "ConnectorsMicrosoftConnectionSettingsConnectorScope",
     "ConnectorsMootaConnectionSettings",
     "ConnectorsMootaConnectionSettingsConnector",
     "ConnectorsMootaConnectionSettingsConnectorSchemas",
+    "ConnectorsMootaConnectionSettingsConnectorScope",
     "ConnectorsNotionConnectionSettings",
     "ConnectorsNotionConnectionSettingsSettings",
     "ConnectorsNotionConnectionSettingsSettingsOAuth",
     "ConnectorsNotionConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsNotionConnectionSettingsConnector",
     "ConnectorsNotionConnectionSettingsConnectorSchemas",
+    "ConnectorsNotionConnectionSettingsConnectorScope",
     "ConnectorsOnebrickConnectionSettings",
     "ConnectorsOnebrickConnectionSettingsSettings",
     "ConnectorsOnebrickConnectionSettingsConnector",
     "ConnectorsOnebrickConnectionSettingsConnectorSchemas",
+    "ConnectorsOnebrickConnectionSettingsConnectorScope",
     "ConnectorsOutreachConnectionSettings",
     "ConnectorsOutreachConnectionSettingsSettings",
     "ConnectorsOutreachConnectionSettingsSettingsOAuth",
@@ -235,6 +270,7 @@ __all__ = [
     "ConnectorsOutreachConnectionSettingsSettingsError",
     "ConnectorsOutreachConnectionSettingsConnector",
     "ConnectorsOutreachConnectionSettingsConnectorSchemas",
+    "ConnectorsOutreachConnectionSettingsConnectorScope",
     "ConnectorsPipedriveConnectionSettings",
     "ConnectorsPipedriveConnectionSettingsSettings",
     "ConnectorsPipedriveConnectionSettingsSettingsOAuth",
@@ -244,25 +280,30 @@ __all__ = [
     "ConnectorsPipedriveConnectionSettingsSettingsError",
     "ConnectorsPipedriveConnectionSettingsConnector",
     "ConnectorsPipedriveConnectionSettingsConnectorSchemas",
+    "ConnectorsPipedriveConnectionSettingsConnectorScope",
     "ConnectorsPlaidConnectionSettings",
     "ConnectorsPlaidConnectionSettingsSettings",
     "ConnectorsPlaidConnectionSettingsConnector",
     "ConnectorsPlaidConnectionSettingsConnectorSchemas",
+    "ConnectorsPlaidConnectionSettingsConnectorScope",
     "ConnectorsPostgresConnectionSettings",
     "ConnectorsPostgresConnectionSettingsSettings",
     "ConnectorsPostgresConnectionSettingsSettingsSourceQueries",
     "ConnectorsPostgresConnectionSettingsConnector",
     "ConnectorsPostgresConnectionSettingsConnectorSchemas",
+    "ConnectorsPostgresConnectionSettingsConnectorScope",
     "ConnectorsQuickbooksConnectionSettings",
     "ConnectorsQuickbooksConnectionSettingsSettings",
     "ConnectorsQuickbooksConnectionSettingsSettingsOAuth",
     "ConnectorsQuickbooksConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsQuickbooksConnectionSettingsConnector",
     "ConnectorsQuickbooksConnectionSettingsConnectorSchemas",
+    "ConnectorsQuickbooksConnectionSettingsConnectorScope",
     "ConnectorsRampConnectionSettings",
     "ConnectorsRampConnectionSettingsSettings",
     "ConnectorsRampConnectionSettingsConnector",
     "ConnectorsRampConnectionSettingsConnectorSchemas",
+    "ConnectorsRampConnectionSettingsConnectorScope",
     "ConnectorsRedditConnectionSettings",
     "ConnectorsRedditConnectionSettingsSettings",
     "ConnectorsRedditConnectionSettingsSettingsOAuth",
@@ -272,12 +313,14 @@ __all__ = [
     "ConnectorsRedditConnectionSettingsSettingsError",
     "ConnectorsRedditConnectionSettingsConnector",
     "ConnectorsRedditConnectionSettingsConnectorSchemas",
+    "ConnectorsRedditConnectionSettingsConnectorScope",
     "ConnectorsSalesforceConnectionSettings",
     "ConnectorsSalesforceConnectionSettingsSettings",
     "ConnectorsSalesforceConnectionSettingsSettingsOAuth",
     "ConnectorsSalesforceConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsSalesforceConnectionSettingsConnector",
     "ConnectorsSalesforceConnectionSettingsConnectorSchemas",
+    "ConnectorsSalesforceConnectionSettingsConnectorScope",
     "ConnectorsSalesloftConnectionSettings",
     "ConnectorsSalesloftConnectionSettingsSettings",
     "ConnectorsSalesloftConnectionSettingsSettingsOAuth",
@@ -287,21 +330,25 @@ __all__ = [
     "ConnectorsSalesloftConnectionSettingsSettingsError",
     "ConnectorsSalesloftConnectionSettingsConnector",
     "ConnectorsSalesloftConnectionSettingsConnectorSchemas",
+    "ConnectorsSalesloftConnectionSettingsConnectorScope",
     "ConnectorsSaltedgeConnectionSettings",
     "ConnectorsSaltedgeConnectionSettingsConnector",
     "ConnectorsSaltedgeConnectionSettingsConnectorSchemas",
+    "ConnectorsSaltedgeConnectionSettingsConnectorScope",
     "ConnectorsSharepointonlineConnectionSettings",
     "ConnectorsSharepointonlineConnectionSettingsSettings",
     "ConnectorsSharepointonlineConnectionSettingsSettingsOAuth",
     "ConnectorsSharepointonlineConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsSharepointonlineConnectionSettingsConnector",
     "ConnectorsSharepointonlineConnectionSettingsConnectorSchemas",
+    "ConnectorsSharepointonlineConnectionSettingsConnectorScope",
     "ConnectorsSlackConnectionSettings",
     "ConnectorsSlackConnectionSettingsSettings",
     "ConnectorsSlackConnectionSettingsSettingsOAuth",
     "ConnectorsSlackConnectionSettingsSettingsOAuthCredentials",
     "ConnectorsSlackConnectionSettingsConnector",
     "ConnectorsSlackConnectionSettingsConnectorSchemas",
+    "ConnectorsSlackConnectionSettingsConnectorScope",
     "ConnectorsSplitwiseConnectionSettings",
     "ConnectorsSplitwiseConnectionSettingsSettings",
     "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUser",
@@ -309,22 +356,27 @@ __all__ = [
     "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture",
     "ConnectorsSplitwiseConnectionSettingsConnector",
     "ConnectorsSplitwiseConnectionSettingsConnectorSchemas",
+    "ConnectorsSplitwiseConnectionSettingsConnectorScope",
     "ConnectorsStripeConnectionSettings",
     "ConnectorsStripeConnectionSettingsSettings",
     "ConnectorsStripeConnectionSettingsConnector",
     "ConnectorsStripeConnectionSettingsConnectorSchemas",
+    "ConnectorsStripeConnectionSettingsConnectorScope",
     "ConnectorsTellerConnectionSettings",
     "ConnectorsTellerConnectionSettingsSettings",
     "ConnectorsTellerConnectionSettingsConnector",
     "ConnectorsTellerConnectionSettingsConnectorSchemas",
+    "ConnectorsTellerConnectionSettingsConnectorScope",
     "ConnectorsTogglConnectionSettings",
     "ConnectorsTogglConnectionSettingsSettings",
     "ConnectorsTogglConnectionSettingsConnector",
     "ConnectorsTogglConnectionSettingsConnectorSchemas",
+    "ConnectorsTogglConnectionSettingsConnectorScope",
     "ConnectorsTwentyConnectionSettings",
     "ConnectorsTwentyConnectionSettingsSettings",
     "ConnectorsTwentyConnectionSettingsConnector",
     "ConnectorsTwentyConnectionSettingsConnectorSchemas",
+    "ConnectorsTwentyConnectionSettingsConnectorScope",
     "ConnectorsTwitterConnectionSettings",
     "ConnectorsTwitterConnectionSettingsSettings",
     "ConnectorsTwitterConnectionSettingsSettingsOAuth",
@@ -334,14 +386,17 @@ __all__ = [
     "ConnectorsTwitterConnectionSettingsSettingsError",
     "ConnectorsTwitterConnectionSettingsConnector",
     "ConnectorsTwitterConnectionSettingsConnectorSchemas",
+    "ConnectorsTwitterConnectionSettingsConnectorScope",
     "ConnectorsVenmoConnectionSettings",
     "ConnectorsVenmoConnectionSettingsSettings",
     "ConnectorsVenmoConnectionSettingsConnector",
     "ConnectorsVenmoConnectionSettingsConnectorSchemas",
+    "ConnectorsVenmoConnectionSettingsConnectorScope",
     "ConnectorsWiseConnectionSettings",
     "ConnectorsWiseConnectionSettingsSettings",
     "ConnectorsWiseConnectionSettingsConnector",
     "ConnectorsWiseConnectionSettingsConnectorSchemas",
+    "ConnectorsWiseConnectionSettingsConnectorScope",
     "ConnectorsXeroConnectionSettings",
     "ConnectorsXeroConnectionSettingsSettings",
     "ConnectorsXeroConnectionSettingsSettingsOAuth",
@@ -351,12 +406,14 @@ __all__ = [
     "ConnectorsXeroConnectionSettingsSettingsError",
     "ConnectorsXeroConnectionSettingsConnector",
     "ConnectorsXeroConnectionSettingsConnectorSchemas",
+    "ConnectorsXeroConnectionSettingsConnectorScope",
     "ConnectorsYodleeConnectionSettings",
     "ConnectorsYodleeConnectionSettingsSettings",
     "ConnectorsYodleeConnectionSettingsSettingsAccessToken",
     "ConnectorsYodleeConnectionSettingsSettingsProviderAccount",
     "ConnectorsYodleeConnectionSettingsConnector",
     "ConnectorsYodleeConnectionSettingsConnectorSchemas",
+    "ConnectorsYodleeConnectionSettingsConnectorScope",
     "ConnectorsZohodeskConnectionSettings",
     "ConnectorsZohodeskConnectionSettingsSettings",
     "ConnectorsZohodeskConnectionSettingsSettingsOAuth",
@@ -366,6 +423,7 @@ __all__ = [
     "ConnectorsZohodeskConnectionSettingsSettingsError",
     "ConnectorsZohodeskConnectionSettingsConnector",
     "ConnectorsZohodeskConnectionSettingsConnectorSchemas",
+    "ConnectorsZohodeskConnectionSettingsConnectorScope",
 ]
 
 
@@ -420,6 +478,14 @@ class ConnectorsAircallConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsAircallConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsAircallConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -427,11 +493,15 @@ class ConnectorsAircallConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsAircallConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsAircallConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsAircallConnectionSettings(BaseModel):
@@ -478,6 +548,14 @@ class ConnectorsAirtableConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsAirtableConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsAirtableConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -485,11 +563,15 @@ class ConnectorsAirtableConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsAirtableConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsAirtableConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsAirtableConnectionSettings(BaseModel):
@@ -598,6 +680,14 @@ class ConnectorsApolloConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsApolloConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsApolloConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -605,11 +695,15 @@ class ConnectorsApolloConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsApolloConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsApolloConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsApolloConnectionSettings(BaseModel):
@@ -654,6 +748,14 @@ class ConnectorsBrexConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsBrexConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsBrexConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -661,11 +763,15 @@ class ConnectorsBrexConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsBrexConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsBrexConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsBrexConnectionSettings(BaseModel):
@@ -710,6 +816,14 @@ class ConnectorsCodaConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsCodaConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsCodaConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -717,11 +831,15 @@ class ConnectorsCodaConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsCodaConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsCodaConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsCodaConnectionSettings(BaseModel):
@@ -797,6 +915,14 @@ class ConnectorsConfluenceConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsConfluenceConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsConfluenceConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -804,11 +930,15 @@ class ConnectorsConfluenceConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsConfluenceConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsConfluenceConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsConfluenceConnectionSettings(BaseModel):
@@ -884,6 +1014,14 @@ class ConnectorsDiscordConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsDiscordConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsDiscordConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -891,11 +1029,15 @@ class ConnectorsDiscordConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsDiscordConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsDiscordConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsDiscordConnectionSettings(BaseModel):
@@ -1004,6 +1146,14 @@ class ConnectorsFacebookConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsFacebookConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsFacebookConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -1011,11 +1161,15 @@ class ConnectorsFacebookConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsFacebookConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsFacebookConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsFacebookConnectionSettings(BaseModel):
@@ -1060,6 +1214,14 @@ class ConnectorsFinchConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsFinchConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsFinchConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -1067,11 +1229,15 @@ class ConnectorsFinchConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsFinchConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsFinchConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsFinchConnectionSettings(BaseModel):
@@ -1206,6 +1372,14 @@ class ConnectorsFirebaseConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsFirebaseConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsFirebaseConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -1213,11 +1387,15 @@ class ConnectorsFirebaseConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsFirebaseConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsFirebaseConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsFirebaseConnectionSettings(BaseModel):
@@ -1266,6 +1444,14 @@ class ConnectorsForeceiptConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsForeceiptConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsForeceiptConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -1273,11 +1459,15 @@ class ConnectorsForeceiptConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsForeceiptConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsForeceiptConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsForeceiptConnectionSettings(BaseModel):
@@ -1353,6 +1543,14 @@ class ConnectorsGitHubConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsGitHubConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsGitHubConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -1360,11 +1558,15 @@ class ConnectorsGitHubConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsGitHubConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsGitHubConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsGitHubConnectionSettings(BaseModel):
@@ -1473,6 +1675,14 @@ class ConnectorsGongConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsGongConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsGongConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -1480,11 +1690,15 @@ class ConnectorsGongConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsGongConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsGongConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsGongConnectionSettings(BaseModel):
@@ -1560,6 +1774,14 @@ class ConnectorsGooglecalendarConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsGooglecalendarConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsGooglecalendarConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -1567,11 +1789,15 @@ class ConnectorsGooglecalendarConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsGooglecalendarConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsGooglecalendarConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsGooglecalendarConnectionSettings(BaseModel):
@@ -1647,6 +1873,14 @@ class ConnectorsGoogledocsConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsGoogledocsConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsGoogledocsConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -1654,11 +1888,15 @@ class ConnectorsGoogledocsConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsGoogledocsConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsGoogledocsConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsGoogledocsConnectionSettings(BaseModel):
@@ -1734,6 +1972,14 @@ class ConnectorsGoogledriveConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsGoogledriveConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsGoogledriveConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -1741,11 +1987,15 @@ class ConnectorsGoogledriveConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsGoogledriveConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsGoogledriveConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsGoogledriveConnectionSettings(BaseModel):
@@ -1821,6 +2071,14 @@ class ConnectorsGooglemailConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsGooglemailConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsGooglemailConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -1828,11 +2086,15 @@ class ConnectorsGooglemailConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsGooglemailConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsGooglemailConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsGooglemailConnectionSettings(BaseModel):
@@ -1908,6 +2170,14 @@ class ConnectorsGooglesheetConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsGooglesheetConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsGooglesheetConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -1915,11 +2185,15 @@ class ConnectorsGooglesheetConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsGooglesheetConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsGooglesheetConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsGooglesheetConnectionSettings(BaseModel):
@@ -1964,6 +2238,14 @@ class ConnectorsGreenhouseConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsGreenhouseConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsGreenhouseConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -1971,11 +2253,15 @@ class ConnectorsGreenhouseConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsGreenhouseConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsGreenhouseConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsGreenhouseConnectionSettings(BaseModel):
@@ -2016,6 +2302,14 @@ class ConnectorsHeronConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsHeronConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsHeronConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -2023,11 +2317,15 @@ class ConnectorsHeronConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsHeronConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsHeronConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsHeronConnectionSettings(BaseModel):
@@ -2103,6 +2401,14 @@ class ConnectorsHubspotConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsHubspotConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsHubspotConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -2110,11 +2416,15 @@ class ConnectorsHubspotConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsHubspotConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsHubspotConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsHubspotConnectionSettings(BaseModel):
@@ -2223,6 +2533,14 @@ class ConnectorsInstagramConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsInstagramConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsInstagramConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -2230,11 +2548,15 @@ class ConnectorsInstagramConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsInstagramConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsInstagramConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsInstagramConnectionSettings(BaseModel):
@@ -2343,6 +2665,14 @@ class ConnectorsIntercomConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsIntercomConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsIntercomConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -2350,11 +2680,15 @@ class ConnectorsIntercomConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsIntercomConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsIntercomConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsIntercomConnectionSettings(BaseModel):
@@ -2463,6 +2797,14 @@ class ConnectorsJiraConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsJiraConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsJiraConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -2470,11 +2812,15 @@ class ConnectorsJiraConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsJiraConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsJiraConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsJiraConnectionSettings(BaseModel):
@@ -2583,6 +2929,14 @@ class ConnectorsKustomerConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsKustomerConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsKustomerConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -2590,11 +2944,15 @@ class ConnectorsKustomerConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsKustomerConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsKustomerConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsKustomerConnectionSettings(BaseModel):
@@ -2703,6 +3061,14 @@ class ConnectorsLeverConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsLeverConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsLeverConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -2710,11 +3076,15 @@ class ConnectorsLeverConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsLeverConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsLeverConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsLeverConnectionSettings(BaseModel):
@@ -2790,6 +3160,14 @@ class ConnectorsLinearConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsLinearConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsLinearConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -2797,11 +3175,15 @@ class ConnectorsLinearConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsLinearConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsLinearConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsLinearConnectionSettings(BaseModel):
@@ -2877,6 +3259,14 @@ class ConnectorsLinkedinConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsLinkedinConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsLinkedinConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -2884,11 +3274,15 @@ class ConnectorsLinkedinConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsLinkedinConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsLinkedinConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsLinkedinConnectionSettings(BaseModel):
@@ -2929,6 +3323,14 @@ class ConnectorsLunchmoneyConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsLunchmoneyConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsLunchmoneyConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -2936,11 +3338,15 @@ class ConnectorsLunchmoneyConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsLunchmoneyConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsLunchmoneyConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsLunchmoneyConnectionSettings(BaseModel):
@@ -2981,6 +3387,14 @@ class ConnectorsMercuryConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsMercuryConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsMercuryConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -2988,11 +3402,15 @@ class ConnectorsMercuryConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsMercuryConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsMercuryConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsMercuryConnectionSettings(BaseModel):
@@ -3039,6 +3457,14 @@ class ConnectorsMergeConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsMergeConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsMergeConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -3046,11 +3472,15 @@ class ConnectorsMergeConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsMergeConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsMergeConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsMergeConnectionSettings(BaseModel):
@@ -3161,6 +3591,14 @@ class ConnectorsMicrosoftConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsMicrosoftConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsMicrosoftConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -3168,11 +3606,15 @@ class ConnectorsMicrosoftConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsMicrosoftConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsMicrosoftConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsMicrosoftConnectionSettings(BaseModel):
@@ -3213,6 +3655,14 @@ class ConnectorsMootaConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsMootaConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsMootaConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -3220,11 +3670,15 @@ class ConnectorsMootaConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsMootaConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsMootaConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsMootaConnectionSettings(BaseModel):
@@ -3300,6 +3754,14 @@ class ConnectorsNotionConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsNotionConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsNotionConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -3307,11 +3769,15 @@ class ConnectorsNotionConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsNotionConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsNotionConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsNotionConnectionSettings(BaseModel):
@@ -3356,6 +3822,14 @@ class ConnectorsOnebrickConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsOnebrickConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsOnebrickConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -3363,11 +3837,15 @@ class ConnectorsOnebrickConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsOnebrickConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsOnebrickConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsOnebrickConnectionSettings(BaseModel):
@@ -3476,6 +3954,14 @@ class ConnectorsOutreachConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsOutreachConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsOutreachConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -3483,11 +3969,15 @@ class ConnectorsOutreachConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsOutreachConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsOutreachConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsOutreachConnectionSettings(BaseModel):
@@ -3596,6 +4086,14 @@ class ConnectorsPipedriveConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsPipedriveConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsPipedriveConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -3603,11 +4101,15 @@ class ConnectorsPipedriveConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsPipedriveConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsPipedriveConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsPipedriveConnectionSettings(BaseModel):
@@ -3662,6 +4164,14 @@ class ConnectorsPlaidConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsPlaidConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsPlaidConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -3669,11 +4179,15 @@ class ConnectorsPlaidConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsPlaidConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsPlaidConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsPlaidConnectionSettings(BaseModel):
@@ -3727,6 +4241,14 @@ class ConnectorsPostgresConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsPostgresConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsPostgresConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -3734,11 +4256,15 @@ class ConnectorsPostgresConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsPostgresConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsPostgresConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsPostgresConnectionSettings(BaseModel):
@@ -3817,6 +4343,14 @@ class ConnectorsQuickbooksConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsQuickbooksConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsQuickbooksConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -3824,11 +4358,15 @@ class ConnectorsQuickbooksConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsQuickbooksConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsQuickbooksConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsQuickbooksConnectionSettings(BaseModel):
@@ -3875,6 +4413,14 @@ class ConnectorsRampConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsRampConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsRampConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -3882,11 +4428,15 @@ class ConnectorsRampConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsRampConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsRampConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsRampConnectionSettings(BaseModel):
@@ -3995,6 +4545,14 @@ class ConnectorsRedditConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsRedditConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsRedditConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -4002,11 +4560,15 @@ class ConnectorsRedditConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsRedditConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsRedditConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsRedditConnectionSettings(BaseModel):
@@ -4085,6 +4647,14 @@ class ConnectorsSalesforceConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsSalesforceConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsSalesforceConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -4092,11 +4662,15 @@ class ConnectorsSalesforceConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsSalesforceConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsSalesforceConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsSalesforceConnectionSettings(BaseModel):
@@ -4205,6 +4779,14 @@ class ConnectorsSalesloftConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsSalesloftConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsSalesloftConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -4212,11 +4794,15 @@ class ConnectorsSalesloftConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsSalesloftConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsSalesloftConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsSalesloftConnectionSettings(BaseModel):
@@ -4257,6 +4843,14 @@ class ConnectorsSaltedgeConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsSaltedgeConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsSaltedgeConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -4264,11 +4858,15 @@ class ConnectorsSaltedgeConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsSaltedgeConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsSaltedgeConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsSaltedgeConnectionSettings(BaseModel):
@@ -4344,6 +4942,14 @@ class ConnectorsSharepointonlineConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsSharepointonlineConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsSharepointonlineConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -4351,11 +4957,15 @@ class ConnectorsSharepointonlineConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsSharepointonlineConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsSharepointonlineConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsSharepointonlineConnectionSettings(BaseModel):
@@ -4431,6 +5041,14 @@ class ConnectorsSlackConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsSlackConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsSlackConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -4438,11 +5056,15 @@ class ConnectorsSlackConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsSlackConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsSlackConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsSlackConnectionSettings(BaseModel):
@@ -4557,6 +5179,14 @@ class ConnectorsSplitwiseConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsSplitwiseConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsSplitwiseConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -4564,11 +5194,15 @@ class ConnectorsSplitwiseConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsSplitwiseConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsSplitwiseConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsSplitwiseConnectionSettings(BaseModel):
@@ -4613,6 +5247,14 @@ class ConnectorsStripeConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsStripeConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsStripeConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -4620,11 +5262,15 @@ class ConnectorsStripeConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsStripeConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsStripeConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsStripeConnectionSettings(BaseModel):
@@ -4669,6 +5315,14 @@ class ConnectorsTellerConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsTellerConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsTellerConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -4676,11 +5330,15 @@ class ConnectorsTellerConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsTellerConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsTellerConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsTellerConnectionSettings(BaseModel):
@@ -4729,6 +5387,14 @@ class ConnectorsTogglConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsTogglConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsTogglConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -4736,11 +5402,15 @@ class ConnectorsTogglConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsTogglConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsTogglConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsTogglConnectionSettings(BaseModel):
@@ -4785,6 +5455,14 @@ class ConnectorsTwentyConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsTwentyConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsTwentyConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -4792,11 +5470,15 @@ class ConnectorsTwentyConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsTwentyConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsTwentyConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsTwentyConnectionSettings(BaseModel):
@@ -4905,6 +5587,14 @@ class ConnectorsTwitterConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsTwitterConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsTwitterConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -4912,11 +5602,15 @@ class ConnectorsTwitterConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsTwitterConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsTwitterConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsTwitterConnectionSettings(BaseModel):
@@ -4963,6 +5657,14 @@ class ConnectorsVenmoConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsVenmoConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsVenmoConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -4970,11 +5672,15 @@ class ConnectorsVenmoConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsVenmoConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsVenmoConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsVenmoConnectionSettings(BaseModel):
@@ -5021,6 +5727,14 @@ class ConnectorsWiseConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsWiseConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsWiseConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -5028,11 +5742,15 @@ class ConnectorsWiseConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsWiseConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsWiseConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsWiseConnectionSettings(BaseModel):
@@ -5141,6 +5859,14 @@ class ConnectorsXeroConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsXeroConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsXeroConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -5148,11 +5874,15 @@ class ConnectorsXeroConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsXeroConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsXeroConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsXeroConnectionSettings(BaseModel):
@@ -5237,6 +5967,14 @@ class ConnectorsYodleeConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsYodleeConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsYodleeConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -5244,11 +5982,15 @@ class ConnectorsYodleeConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsYodleeConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsYodleeConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsYodleeConnectionSettings(BaseModel):
@@ -5357,6 +6099,14 @@ class ConnectorsZohodeskConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ConnectorsZohodeskConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ConnectorsZohodeskConnectionSettingsConnector(BaseModel):
     name: str
 
@@ -5364,11 +6114,15 @@ class ConnectorsZohodeskConnectionSettingsConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ConnectorsZohodeskConnectionSettingsConnectorSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ConnectorsZohodeskConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 class ConnectorsZohodeskConnectionSettings(BaseModel):

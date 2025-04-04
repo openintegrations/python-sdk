@@ -10,6 +10,7 @@ __all__ = [
     "ListConnectorsResponseItem",
     "ListConnectorsResponseItemIntegration",
     "ListConnectorsResponseItemSchemas",
+    "ListConnectorsResponseItemScope",
 ]
 
 
@@ -53,6 +54,14 @@ class ListConnectorsResponseItemSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
+class ListConnectorsResponseItemScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
 class ListConnectorsResponseItem(BaseModel):
     name: str
 
@@ -62,11 +71,15 @@ class ListConnectorsResponseItem(BaseModel):
 
     logo_url: Optional[str] = None
 
+    openint_scopes: Optional[List[str]] = None
+
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
     schemas: Optional[ListConnectorsResponseItemSchemas] = None
 
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+    scopes: Optional[List[ListConnectorsResponseItemScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
 ListConnectorsResponse: TypeAlias = List[ListConnectorsResponseItem]
