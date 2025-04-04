@@ -2331,7 +2331,7 @@ class ConnectorsHeronConnectionSettingsConnector(BaseModel):
 class ConnectorsHeronConnectionSettings(BaseModel):
     connector_name: Literal["heron"]
 
-    settings: None
+    settings: None = None
 
     id: Optional[str] = None
 
@@ -3352,7 +3352,7 @@ class ConnectorsLunchmoneyConnectionSettingsConnector(BaseModel):
 class ConnectorsLunchmoneyConnectionSettings(BaseModel):
     connector_name: Literal["lunchmoney"]
 
-    settings: None
+    settings: None = None
 
     id: Optional[str] = None
 
@@ -3416,7 +3416,7 @@ class ConnectorsMercuryConnectionSettingsConnector(BaseModel):
 class ConnectorsMercuryConnectionSettings(BaseModel):
     connector_name: Literal["mercury"]
 
-    settings: None
+    settings: None = None
 
     id: Optional[str] = None
 
@@ -3684,7 +3684,7 @@ class ConnectorsMootaConnectionSettingsConnector(BaseModel):
 class ConnectorsMootaConnectionSettings(BaseModel):
     connector_name: Literal["moota"]
 
-    settings: None
+    settings: None = None
 
     id: Optional[str] = None
 
