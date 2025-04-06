@@ -1,23 +1,89 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import TYPE_CHECKING, List, Optional
-from typing_extensions import Literal, TypeAlias
+from typing import Dict, List, Union, Optional
+from typing_extensions import Literal
+
+from pydantic import Field as FieldInfo
 
 from .._models import BaseModel
 
-__all__ = [
-    "ListConnectorsResponse",
-    "ListConnectorsResponseItem",
-    "ListConnectorsResponseItemIntegration",
-    "ListConnectorsResponseItemSchemas",
-    "ListConnectorsResponseItemScope",
-]
+__all__ = ["ListConnectorsResponse", "Item", "ItemIntegration", "ItemSchemas", "ItemScope"]
 
 
-class ListConnectorsResponseItemIntegration(BaseModel):
-    connector_name: str
+class ItemIntegration(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "dummy-oauth2",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "googlecalendar",
+        "googledocs",
+        "googledrive",
+        "googlemail",
+        "googlesheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "kustomer",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "microsoft",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesforce",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zohodesk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
 
     name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
 
     auth_type: Optional[str] = None
 
@@ -31,14 +97,8 @@ class ListConnectorsResponseItemIntegration(BaseModel):
 
     version: Optional[str] = None
 
-    if TYPE_CHECKING:
-        # Stub to indicate that arbitrary properties are accepted.
-        # To access properties that are not valid identifiers you can use `getattr`, e.g.
-        # `getattr(obj, '$type')`
-        def __getattr__(self, attr: str) -> object: ...
 
-
-class ListConnectorsResponseItemSchemas(BaseModel):
+class ItemSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -54,7 +114,7 @@ class ListConnectorsResponseItemSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ListConnectorsResponseItemScope(BaseModel):
+class ItemScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -62,12 +122,16 @@ class ListConnectorsResponseItemScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ListConnectorsResponseItem(BaseModel):
+class Item(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
-    integrations: Optional[List[ListConnectorsResponseItemIntegration]] = None
+    integrations: Optional[List[ItemIntegration]] = None
 
     logo_url: Optional[str] = None
 
@@ -75,11 +139,21 @@ class ListConnectorsResponseItem(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ListConnectorsResponseItemSchemas] = None
+    schemas: Optional[ItemSchemas] = None
 
-    scopes: Optional[List[ListConnectorsResponseItemScope]] = None
+    scopes: Optional[List[ItemScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-ListConnectorsResponse: TypeAlias = List[ListConnectorsResponseItem]
+class ListConnectorsResponse(BaseModel):
+    items: List[Item]
+
+    limit: int
+    """Limit the number of items returned"""
+
+    offset: int
+    """Offset the items returned"""
+
+    total: int
+    """Total number of items in the database for the organization"""

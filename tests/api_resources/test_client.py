@@ -78,15 +78,8 @@ class TestClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "aircall",
-                "settings": {
-                    "oauth": {
-                        "created_at": "created_at",
-                        "last_fetched_at": "last_fetched_at",
-                        "metadata": {"foo": "bar"},
-                        "updated_at": "updated_at",
-                    }
-                },
+                "connector_name": "dummy-oauth2",
+                "settings": {"oauth": {}},
             },
         )
         assert_matches_type(CreateConnectionResponse, client_, path=["response"])
@@ -98,13 +91,10 @@ class TestClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "aircall",
+                "connector_name": "dummy-oauth2",
                 "settings": {
                     "oauth": {
                         "created_at": "created_at",
-                        "last_fetched_at": "last_fetched_at",
-                        "metadata": {"foo": "bar"},
-                        "updated_at": "updated_at",
                         "credentials": {
                             "access_token": "access_token",
                             "client_id": "client_id",
@@ -115,6 +105,9 @@ class TestClient:
                             "refresh_token": "refresh_token",
                             "token_type": "token_type",
                         },
+                        "last_fetched_at": "last_fetched_at",
+                        "metadata": {"foo": "bar"},
+                        "updated_at": "updated_at",
                     }
                 },
             },
@@ -129,15 +122,8 @@ class TestClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "aircall",
-                "settings": {
-                    "oauth": {
-                        "created_at": "created_at",
-                        "last_fetched_at": "last_fetched_at",
-                        "metadata": {"foo": "bar"},
-                        "updated_at": "updated_at",
-                    }
-                },
+                "connector_name": "dummy-oauth2",
+                "settings": {"oauth": {}},
             },
         )
 
@@ -153,15 +139,8 @@ class TestClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "aircall",
-                "settings": {
-                    "oauth": {
-                        "created_at": "created_at",
-                        "last_fetched_at": "last_fetched_at",
-                        "metadata": {"foo": "bar"},
-                        "updated_at": "updated_at",
-                    }
-                },
+                "connector_name": "dummy-oauth2",
+                "settings": {"oauth": {}},
             },
         ) as response:
             assert not response.is_closed
@@ -418,7 +397,7 @@ class TestClient:
     def test_method_list_connection_configs_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connection_configs(
             connector_name="aircall",
-            expand="expand",
+            expand=["connector"],
             limit=0,
             offset=0,
         )
@@ -498,7 +477,7 @@ class TestClient:
     @parametrize
     def test_method_list_connectors_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connectors(
-            expand="expand",
+            expand=["schemas"],
         )
         assert_matches_type(ListConnectorsResponse, client_, path=["response"])
 
@@ -577,15 +556,8 @@ class TestAsyncClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "aircall",
-                "settings": {
-                    "oauth": {
-                        "created_at": "created_at",
-                        "last_fetched_at": "last_fetched_at",
-                        "metadata": {"foo": "bar"},
-                        "updated_at": "updated_at",
-                    }
-                },
+                "connector_name": "dummy-oauth2",
+                "settings": {"oauth": {}},
             },
         )
         assert_matches_type(CreateConnectionResponse, client, path=["response"])
@@ -597,13 +569,10 @@ class TestAsyncClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "aircall",
+                "connector_name": "dummy-oauth2",
                 "settings": {
                     "oauth": {
                         "created_at": "created_at",
-                        "last_fetched_at": "last_fetched_at",
-                        "metadata": {"foo": "bar"},
-                        "updated_at": "updated_at",
                         "credentials": {
                             "access_token": "access_token",
                             "client_id": "client_id",
@@ -614,6 +583,9 @@ class TestAsyncClient:
                             "refresh_token": "refresh_token",
                             "token_type": "token_type",
                         },
+                        "last_fetched_at": "last_fetched_at",
+                        "metadata": {"foo": "bar"},
+                        "updated_at": "updated_at",
                     }
                 },
             },
@@ -628,15 +600,8 @@ class TestAsyncClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "aircall",
-                "settings": {
-                    "oauth": {
-                        "created_at": "created_at",
-                        "last_fetched_at": "last_fetched_at",
-                        "metadata": {"foo": "bar"},
-                        "updated_at": "updated_at",
-                    }
-                },
+                "connector_name": "dummy-oauth2",
+                "settings": {"oauth": {}},
             },
         )
 
@@ -652,15 +617,8 @@ class TestAsyncClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "aircall",
-                "settings": {
-                    "oauth": {
-                        "created_at": "created_at",
-                        "last_fetched_at": "last_fetched_at",
-                        "metadata": {"foo": "bar"},
-                        "updated_at": "updated_at",
-                    }
-                },
+                "connector_name": "dummy-oauth2",
+                "settings": {"oauth": {}},
             },
         ) as response:
             assert not response.is_closed
@@ -917,7 +875,7 @@ class TestAsyncClient:
     async def test_method_list_connection_configs_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connection_configs(
             connector_name="aircall",
-            expand="expand",
+            expand=["connector"],
             limit=0,
             offset=0,
         )
@@ -997,7 +955,7 @@ class TestAsyncClient:
     @parametrize
     async def test_method_list_connectors_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connectors(
-            expand="expand",
+            expand=["schemas"],
         )
         assert_matches_type(ListConnectorsResponse, client, path=["response"])
 

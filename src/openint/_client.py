@@ -541,6 +541,7 @@ class Openint(SyncAPIClient):
             "coda",
             "confluence",
             "discord",
+            "dummy-oauth2",
             "facebook",
             "finch",
             "firebase",
@@ -594,7 +595,7 @@ class Openint(SyncAPIClient):
             "zohodesk",
         ]
         | NotGiven = NOT_GIVEN,
-        expand: str | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -609,16 +610,6 @@ class Openint(SyncAPIClient):
         customers
 
         Args:
-          connector_name: The name of the connector
-
-          expand: Comma separated list of fields to optionally expand.
-
-              Available Options: `connector`, `enabled_integrations`
-
-          limit: Limit the number of items returned
-
-          offset: Offset the items returned
-
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -662,6 +653,7 @@ class Openint(SyncAPIClient):
             "coda",
             "confluence",
             "discord",
+            "dummy-oauth2",
             "facebook",
             "finch",
             "firebase",
@@ -736,16 +728,10 @@ class Openint(SyncAPIClient):
         Args:
           connector_config_id: The id of the connector config, starts with `ccfg_`
 
-          connector_name: The name of the connector
-
           customer_id: The id of the customer in your application. Ensure it is unique for that
               customer.
 
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
-
-          limit: Limit the number of items returned
-
-          offset: Offset the items returned
 
           extra_headers: Send extra headers
 
@@ -782,7 +768,7 @@ class Openint(SyncAPIClient):
     def list_connectors(
         self,
         *,
-        expand: str | NotGiven = NOT_GIVEN,
+        expand: List[Literal["schemas"]] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -794,10 +780,6 @@ class Openint(SyncAPIClient):
         List all connectors to understand what integrations are available to configure
 
         Args:
-          expand: Comma separated list of fields to optionally expand.
-
-              Available Options: `integrations`
-
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1325,6 +1307,7 @@ class AsyncOpenint(AsyncAPIClient):
             "coda",
             "confluence",
             "discord",
+            "dummy-oauth2",
             "facebook",
             "finch",
             "firebase",
@@ -1378,7 +1361,7 @@ class AsyncOpenint(AsyncAPIClient):
             "zohodesk",
         ]
         | NotGiven = NOT_GIVEN,
-        expand: str | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -1393,16 +1376,6 @@ class AsyncOpenint(AsyncAPIClient):
         customers
 
         Args:
-          connector_name: The name of the connector
-
-          expand: Comma separated list of fields to optionally expand.
-
-              Available Options: `connector`, `enabled_integrations`
-
-          limit: Limit the number of items returned
-
-          offset: Offset the items returned
-
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1446,6 +1419,7 @@ class AsyncOpenint(AsyncAPIClient):
             "coda",
             "confluence",
             "discord",
+            "dummy-oauth2",
             "facebook",
             "finch",
             "firebase",
@@ -1520,16 +1494,10 @@ class AsyncOpenint(AsyncAPIClient):
         Args:
           connector_config_id: The id of the connector config, starts with `ccfg_`
 
-          connector_name: The name of the connector
-
           customer_id: The id of the customer in your application. Ensure it is unique for that
               customer.
 
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
-
-          limit: Limit the number of items returned
-
-          offset: Offset the items returned
 
           extra_headers: Send extra headers
 
@@ -1566,7 +1534,7 @@ class AsyncOpenint(AsyncAPIClient):
     async def list_connectors(
         self,
         *,
-        expand: str | NotGiven = NOT_GIVEN,
+        expand: List[Literal["schemas"]] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -1578,10 +1546,6 @@ class AsyncOpenint(AsyncAPIClient):
         List all connectors to understand what integrations are available to configure
 
         Args:
-          expand: Comma separated list of fields to optionally expand.
-
-              Available Options: `integrations`
-
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
