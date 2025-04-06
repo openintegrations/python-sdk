@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from typing import List
 from typing_extensions import Literal, TypedDict
 
 __all__ = ["ClientListConnectionConfigsParams"]
@@ -16,6 +17,7 @@ class ClientListConnectionConfigsParams(TypedDict, total=False):
         "coda",
         "confluence",
         "discord",
+        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
@@ -68,16 +70,9 @@ class ClientListConnectionConfigsParams(TypedDict, total=False):
         "yodlee",
         "zohodesk",
     ]
-    """The name of the connector"""
 
-    expand: str
-    """Comma separated list of fields to optionally expand.
-
-    Available Options: `connector`, `enabled_integrations`
-    """
+    expand: List[Literal["connector", "connector.schemas", "connection_count"]]
 
     limit: int
-    """Limit the number of items returned"""
 
     offset: int
-    """Offset the items returned"""
