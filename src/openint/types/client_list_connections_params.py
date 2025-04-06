@@ -20,6 +20,7 @@ class ClientListConnectionsParams(TypedDict, total=False):
         "coda",
         "confluence",
         "discord",
+        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
@@ -72,7 +73,6 @@ class ClientListConnectionsParams(TypedDict, total=False):
         "yodlee",
         "zohodesk",
     ]
-    """The name of the connector"""
 
     customer_id: str
     """The id of the customer in your application.
@@ -86,7 +86,5 @@ class ClientListConnectionsParams(TypedDict, total=False):
     """Controls secret inclusion: none (default), basic (auth only), or all secrets"""
 
     limit: int
-    """Limit the number of items returned"""
 
     offset: int
-    """Offset the items returned"""

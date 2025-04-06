@@ -39,6 +39,7 @@ class ClientOptions(TypedDict, total=False):
         "coda",
         "confluence",
         "discord",
+        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",

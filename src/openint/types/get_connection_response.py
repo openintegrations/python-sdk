@@ -10,427 +10,435 @@ from .._models import BaseModel
 
 __all__ = [
     "GetConnectionResponse",
-    "ConnectorsAircallConnectionSettings",
-    "ConnectorsAircallConnectionSettingsSettings",
-    "ConnectorsAircallConnectionSettingsSettingsOAuth",
-    "ConnectorsAircallConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsAircallConnectionSettingsConnector",
-    "ConnectorsAircallConnectionSettingsConnectorSchemas",
-    "ConnectorsAircallConnectionSettingsConnectorScope",
-    "ConnectorsAirtableConnectionSettings",
-    "ConnectorsAirtableConnectionSettingsSettings",
-    "ConnectorsAirtableConnectionSettingsConnector",
-    "ConnectorsAirtableConnectionSettingsConnectorSchemas",
-    "ConnectorsAirtableConnectionSettingsConnectorScope",
-    "ConnectorsApolloConnectionSettings",
-    "ConnectorsApolloConnectionSettingsSettings",
-    "ConnectorsApolloConnectionSettingsSettingsOAuth",
-    "ConnectorsApolloConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfig",
-    "ConnectorsApolloConnectionSettingsSettingsError",
-    "ConnectorsApolloConnectionSettingsConnector",
-    "ConnectorsApolloConnectionSettingsConnectorSchemas",
-    "ConnectorsApolloConnectionSettingsConnectorScope",
-    "ConnectorsBrexConnectionSettings",
-    "ConnectorsBrexConnectionSettingsSettings",
-    "ConnectorsBrexConnectionSettingsConnector",
-    "ConnectorsBrexConnectionSettingsConnectorSchemas",
-    "ConnectorsBrexConnectionSettingsConnectorScope",
-    "ConnectorsCodaConnectionSettings",
-    "ConnectorsCodaConnectionSettingsSettings",
-    "ConnectorsCodaConnectionSettingsConnector",
-    "ConnectorsCodaConnectionSettingsConnectorSchemas",
-    "ConnectorsCodaConnectionSettingsConnectorScope",
-    "ConnectorsConfluenceConnectionSettings",
-    "ConnectorsConfluenceConnectionSettingsSettings",
-    "ConnectorsConfluenceConnectionSettingsSettingsOAuth",
-    "ConnectorsConfluenceConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsConfluenceConnectionSettingsConnector",
-    "ConnectorsConfluenceConnectionSettingsConnectorSchemas",
-    "ConnectorsConfluenceConnectionSettingsConnectorScope",
-    "ConnectorsDiscordConnectionSettings",
-    "ConnectorsDiscordConnectionSettingsSettings",
-    "ConnectorsDiscordConnectionSettingsSettingsOAuth",
-    "ConnectorsDiscordConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsDiscordConnectionSettingsConnector",
-    "ConnectorsDiscordConnectionSettingsConnectorSchemas",
-    "ConnectorsDiscordConnectionSettingsConnectorScope",
-    "ConnectorsFacebookConnectionSettings",
-    "ConnectorsFacebookConnectionSettingsSettings",
-    "ConnectorsFacebookConnectionSettingsSettingsOAuth",
-    "ConnectorsFacebookConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsFacebookConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ConnectorsFacebookConnectionSettingsSettingsOAuthConnectionConfig",
-    "ConnectorsFacebookConnectionSettingsSettingsError",
-    "ConnectorsFacebookConnectionSettingsConnector",
-    "ConnectorsFacebookConnectionSettingsConnectorSchemas",
-    "ConnectorsFacebookConnectionSettingsConnectorScope",
-    "ConnectorsFinchConnectionSettings",
-    "ConnectorsFinchConnectionSettingsSettings",
-    "ConnectorsFinchConnectionSettingsConnector",
-    "ConnectorsFinchConnectionSettingsConnectorSchemas",
-    "ConnectorsFinchConnectionSettingsConnectorScope",
-    "ConnectorsFirebaseConnectionSettings",
-    "ConnectorsFirebaseConnectionSettingsSettings",
-    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember0",
-    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccount",
-    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1",
-    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthData",
-    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0",
-    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson",
-    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember1",
-    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember2",
-    "ConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig",
-    "ConnectorsFirebaseConnectionSettingsConnector",
-    "ConnectorsFirebaseConnectionSettingsConnectorSchemas",
-    "ConnectorsFirebaseConnectionSettingsConnectorScope",
-    "ConnectorsForeceiptConnectionSettings",
-    "ConnectorsForeceiptConnectionSettingsSettings",
-    "ConnectorsForeceiptConnectionSettingsConnector",
-    "ConnectorsForeceiptConnectionSettingsConnectorSchemas",
-    "ConnectorsForeceiptConnectionSettingsConnectorScope",
-    "ConnectorsGitHubConnectionSettings",
-    "ConnectorsGitHubConnectionSettingsSettings",
-    "ConnectorsGitHubConnectionSettingsSettingsOAuth",
-    "ConnectorsGitHubConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsGitHubConnectionSettingsConnector",
-    "ConnectorsGitHubConnectionSettingsConnectorSchemas",
-    "ConnectorsGitHubConnectionSettingsConnectorScope",
-    "ConnectorsGongConnectionSettings",
-    "ConnectorsGongConnectionSettingsSettings",
-    "ConnectorsGongConnectionSettingsSettingsOAuth",
-    "ConnectorsGongConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsGongConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ConnectorsGongConnectionSettingsSettingsOAuthConnectionConfig",
-    "ConnectorsGongConnectionSettingsSettingsError",
-    "ConnectorsGongConnectionSettingsConnector",
-    "ConnectorsGongConnectionSettingsConnectorSchemas",
-    "ConnectorsGongConnectionSettingsConnectorScope",
-    "ConnectorsGooglecalendarConnectionSettings",
-    "ConnectorsGooglecalendarConnectionSettingsSettings",
-    "ConnectorsGooglecalendarConnectionSettingsSettingsOAuth",
-    "ConnectorsGooglecalendarConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsGooglecalendarConnectionSettingsConnector",
-    "ConnectorsGooglecalendarConnectionSettingsConnectorSchemas",
-    "ConnectorsGooglecalendarConnectionSettingsConnectorScope",
-    "ConnectorsGoogledocsConnectionSettings",
-    "ConnectorsGoogledocsConnectionSettingsSettings",
-    "ConnectorsGoogledocsConnectionSettingsSettingsOAuth",
-    "ConnectorsGoogledocsConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsGoogledocsConnectionSettingsConnector",
-    "ConnectorsGoogledocsConnectionSettingsConnectorSchemas",
-    "ConnectorsGoogledocsConnectionSettingsConnectorScope",
-    "ConnectorsGoogledriveConnectionSettings",
-    "ConnectorsGoogledriveConnectionSettingsSettings",
-    "ConnectorsGoogledriveConnectionSettingsSettingsOAuth",
-    "ConnectorsGoogledriveConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsGoogledriveConnectionSettingsConnector",
-    "ConnectorsGoogledriveConnectionSettingsConnectorSchemas",
-    "ConnectorsGoogledriveConnectionSettingsConnectorScope",
-    "ConnectorsGooglemailConnectionSettings",
-    "ConnectorsGooglemailConnectionSettingsSettings",
-    "ConnectorsGooglemailConnectionSettingsSettingsOAuth",
-    "ConnectorsGooglemailConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsGooglemailConnectionSettingsConnector",
-    "ConnectorsGooglemailConnectionSettingsConnectorSchemas",
-    "ConnectorsGooglemailConnectionSettingsConnectorScope",
-    "ConnectorsGooglesheetConnectionSettings",
-    "ConnectorsGooglesheetConnectionSettingsSettings",
-    "ConnectorsGooglesheetConnectionSettingsSettingsOAuth",
-    "ConnectorsGooglesheetConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsGooglesheetConnectionSettingsConnector",
-    "ConnectorsGooglesheetConnectionSettingsConnectorSchemas",
-    "ConnectorsGooglesheetConnectionSettingsConnectorScope",
-    "ConnectorsGreenhouseConnectionSettings",
-    "ConnectorsGreenhouseConnectionSettingsSettings",
-    "ConnectorsGreenhouseConnectionSettingsConnector",
-    "ConnectorsGreenhouseConnectionSettingsConnectorSchemas",
-    "ConnectorsGreenhouseConnectionSettingsConnectorScope",
-    "ConnectorsHeronConnectionSettings",
-    "ConnectorsHeronConnectionSettingsConnector",
-    "ConnectorsHeronConnectionSettingsConnectorSchemas",
-    "ConnectorsHeronConnectionSettingsConnectorScope",
-    "ConnectorsHubspotConnectionSettings",
-    "ConnectorsHubspotConnectionSettingsSettings",
-    "ConnectorsHubspotConnectionSettingsSettingsOAuth",
-    "ConnectorsHubspotConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsHubspotConnectionSettingsConnector",
-    "ConnectorsHubspotConnectionSettingsConnectorSchemas",
-    "ConnectorsHubspotConnectionSettingsConnectorScope",
-    "ConnectorsInstagramConnectionSettings",
-    "ConnectorsInstagramConnectionSettingsSettings",
-    "ConnectorsInstagramConnectionSettingsSettingsOAuth",
-    "ConnectorsInstagramConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsInstagramConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ConnectorsInstagramConnectionSettingsSettingsOAuthConnectionConfig",
-    "ConnectorsInstagramConnectionSettingsSettingsError",
-    "ConnectorsInstagramConnectionSettingsConnector",
-    "ConnectorsInstagramConnectionSettingsConnectorSchemas",
-    "ConnectorsInstagramConnectionSettingsConnectorScope",
-    "ConnectorsIntercomConnectionSettings",
-    "ConnectorsIntercomConnectionSettingsSettings",
-    "ConnectorsIntercomConnectionSettingsSettingsOAuth",
-    "ConnectorsIntercomConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfig",
-    "ConnectorsIntercomConnectionSettingsSettingsError",
-    "ConnectorsIntercomConnectionSettingsConnector",
-    "ConnectorsIntercomConnectionSettingsConnectorSchemas",
-    "ConnectorsIntercomConnectionSettingsConnectorScope",
-    "ConnectorsJiraConnectionSettings",
-    "ConnectorsJiraConnectionSettingsSettings",
-    "ConnectorsJiraConnectionSettingsSettingsOAuth",
-    "ConnectorsJiraConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfig",
-    "ConnectorsJiraConnectionSettingsSettingsError",
-    "ConnectorsJiraConnectionSettingsConnector",
-    "ConnectorsJiraConnectionSettingsConnectorSchemas",
-    "ConnectorsJiraConnectionSettingsConnectorScope",
-    "ConnectorsKustomerConnectionSettings",
-    "ConnectorsKustomerConnectionSettingsSettings",
-    "ConnectorsKustomerConnectionSettingsSettingsOAuth",
-    "ConnectorsKustomerConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfig",
-    "ConnectorsKustomerConnectionSettingsSettingsError",
-    "ConnectorsKustomerConnectionSettingsConnector",
-    "ConnectorsKustomerConnectionSettingsConnectorSchemas",
-    "ConnectorsKustomerConnectionSettingsConnectorScope",
-    "ConnectorsLeverConnectionSettings",
-    "ConnectorsLeverConnectionSettingsSettings",
-    "ConnectorsLeverConnectionSettingsSettingsOAuth",
-    "ConnectorsLeverConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfig",
-    "ConnectorsLeverConnectionSettingsSettingsError",
-    "ConnectorsLeverConnectionSettingsConnector",
-    "ConnectorsLeverConnectionSettingsConnectorSchemas",
-    "ConnectorsLeverConnectionSettingsConnectorScope",
-    "ConnectorsLinearConnectionSettings",
-    "ConnectorsLinearConnectionSettingsSettings",
-    "ConnectorsLinearConnectionSettingsSettingsOAuth",
-    "ConnectorsLinearConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsLinearConnectionSettingsConnector",
-    "ConnectorsLinearConnectionSettingsConnectorSchemas",
-    "ConnectorsLinearConnectionSettingsConnectorScope",
-    "ConnectorsLinkedinConnectionSettings",
-    "ConnectorsLinkedinConnectionSettingsSettings",
-    "ConnectorsLinkedinConnectionSettingsSettingsOAuth",
-    "ConnectorsLinkedinConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsLinkedinConnectionSettingsConnector",
-    "ConnectorsLinkedinConnectionSettingsConnectorSchemas",
-    "ConnectorsLinkedinConnectionSettingsConnectorScope",
-    "ConnectorsLunchmoneyConnectionSettings",
-    "ConnectorsLunchmoneyConnectionSettingsConnector",
-    "ConnectorsLunchmoneyConnectionSettingsConnectorSchemas",
-    "ConnectorsLunchmoneyConnectionSettingsConnectorScope",
-    "ConnectorsMercuryConnectionSettings",
-    "ConnectorsMercuryConnectionSettingsConnector",
-    "ConnectorsMercuryConnectionSettingsConnectorSchemas",
-    "ConnectorsMercuryConnectionSettingsConnectorScope",
-    "ConnectorsMergeConnectionSettings",
-    "ConnectorsMergeConnectionSettingsSettings",
-    "ConnectorsMergeConnectionSettingsConnector",
-    "ConnectorsMergeConnectionSettingsConnectorSchemas",
-    "ConnectorsMergeConnectionSettingsConnectorScope",
-    "ConnectorsMicrosoftConnectionSettings",
-    "ConnectorsMicrosoftConnectionSettingsSettings",
-    "ConnectorsMicrosoftConnectionSettingsSettingsOAuth",
-    "ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig",
-    "ConnectorsMicrosoftConnectionSettingsSettingsError",
-    "ConnectorsMicrosoftConnectionSettingsConnector",
-    "ConnectorsMicrosoftConnectionSettingsConnectorSchemas",
-    "ConnectorsMicrosoftConnectionSettingsConnectorScope",
-    "ConnectorsMootaConnectionSettings",
-    "ConnectorsMootaConnectionSettingsConnector",
-    "ConnectorsMootaConnectionSettingsConnectorSchemas",
-    "ConnectorsMootaConnectionSettingsConnectorScope",
-    "ConnectorsNotionConnectionSettings",
-    "ConnectorsNotionConnectionSettingsSettings",
-    "ConnectorsNotionConnectionSettingsSettingsOAuth",
-    "ConnectorsNotionConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsNotionConnectionSettingsConnector",
-    "ConnectorsNotionConnectionSettingsConnectorSchemas",
-    "ConnectorsNotionConnectionSettingsConnectorScope",
-    "ConnectorsOnebrickConnectionSettings",
-    "ConnectorsOnebrickConnectionSettingsSettings",
-    "ConnectorsOnebrickConnectionSettingsConnector",
-    "ConnectorsOnebrickConnectionSettingsConnectorSchemas",
-    "ConnectorsOnebrickConnectionSettingsConnectorScope",
-    "ConnectorsOutreachConnectionSettings",
-    "ConnectorsOutreachConnectionSettingsSettings",
-    "ConnectorsOutreachConnectionSettingsSettingsOAuth",
-    "ConnectorsOutreachConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfig",
-    "ConnectorsOutreachConnectionSettingsSettingsError",
-    "ConnectorsOutreachConnectionSettingsConnector",
-    "ConnectorsOutreachConnectionSettingsConnectorSchemas",
-    "ConnectorsOutreachConnectionSettingsConnectorScope",
-    "ConnectorsPipedriveConnectionSettings",
-    "ConnectorsPipedriveConnectionSettingsSettings",
-    "ConnectorsPipedriveConnectionSettingsSettingsOAuth",
-    "ConnectorsPipedriveConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfig",
-    "ConnectorsPipedriveConnectionSettingsSettingsError",
-    "ConnectorsPipedriveConnectionSettingsConnector",
-    "ConnectorsPipedriveConnectionSettingsConnectorSchemas",
-    "ConnectorsPipedriveConnectionSettingsConnectorScope",
-    "ConnectorsPlaidConnectionSettings",
-    "ConnectorsPlaidConnectionSettingsSettings",
-    "ConnectorsPlaidConnectionSettingsConnector",
-    "ConnectorsPlaidConnectionSettingsConnectorSchemas",
-    "ConnectorsPlaidConnectionSettingsConnectorScope",
-    "ConnectorsPostgresConnectionSettings",
-    "ConnectorsPostgresConnectionSettingsSettings",
-    "ConnectorsPostgresConnectionSettingsSettingsSourceQueries",
-    "ConnectorsPostgresConnectionSettingsConnector",
-    "ConnectorsPostgresConnectionSettingsConnectorSchemas",
-    "ConnectorsPostgresConnectionSettingsConnectorScope",
-    "ConnectorsQuickbooksConnectionSettings",
-    "ConnectorsQuickbooksConnectionSettingsSettings",
-    "ConnectorsQuickbooksConnectionSettingsSettingsOAuth",
-    "ConnectorsQuickbooksConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsQuickbooksConnectionSettingsConnector",
-    "ConnectorsQuickbooksConnectionSettingsConnectorSchemas",
-    "ConnectorsQuickbooksConnectionSettingsConnectorScope",
-    "ConnectorsRampConnectionSettings",
-    "ConnectorsRampConnectionSettingsSettings",
-    "ConnectorsRampConnectionSettingsConnector",
-    "ConnectorsRampConnectionSettingsConnectorSchemas",
-    "ConnectorsRampConnectionSettingsConnectorScope",
-    "ConnectorsRedditConnectionSettings",
-    "ConnectorsRedditConnectionSettingsSettings",
-    "ConnectorsRedditConnectionSettingsSettingsOAuth",
-    "ConnectorsRedditConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsRedditConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ConnectorsRedditConnectionSettingsSettingsOAuthConnectionConfig",
-    "ConnectorsRedditConnectionSettingsSettingsError",
-    "ConnectorsRedditConnectionSettingsConnector",
-    "ConnectorsRedditConnectionSettingsConnectorSchemas",
-    "ConnectorsRedditConnectionSettingsConnectorScope",
-    "ConnectorsSalesforceConnectionSettings",
-    "ConnectorsSalesforceConnectionSettingsSettings",
-    "ConnectorsSalesforceConnectionSettingsSettingsOAuth",
-    "ConnectorsSalesforceConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsSalesforceConnectionSettingsConnector",
-    "ConnectorsSalesforceConnectionSettingsConnectorSchemas",
-    "ConnectorsSalesforceConnectionSettingsConnectorScope",
-    "ConnectorsSalesloftConnectionSettings",
-    "ConnectorsSalesloftConnectionSettingsSettings",
-    "ConnectorsSalesloftConnectionSettingsSettingsOAuth",
-    "ConnectorsSalesloftConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfig",
-    "ConnectorsSalesloftConnectionSettingsSettingsError",
-    "ConnectorsSalesloftConnectionSettingsConnector",
-    "ConnectorsSalesloftConnectionSettingsConnectorSchemas",
-    "ConnectorsSalesloftConnectionSettingsConnectorScope",
-    "ConnectorsSaltedgeConnectionSettings",
-    "ConnectorsSaltedgeConnectionSettingsConnector",
-    "ConnectorsSaltedgeConnectionSettingsConnectorSchemas",
-    "ConnectorsSaltedgeConnectionSettingsConnectorScope",
-    "ConnectorsSharepointonlineConnectionSettings",
-    "ConnectorsSharepointonlineConnectionSettingsSettings",
-    "ConnectorsSharepointonlineConnectionSettingsSettingsOAuth",
-    "ConnectorsSharepointonlineConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsSharepointonlineConnectionSettingsConnector",
-    "ConnectorsSharepointonlineConnectionSettingsConnectorSchemas",
-    "ConnectorsSharepointonlineConnectionSettingsConnectorScope",
-    "ConnectorsSlackConnectionSettings",
-    "ConnectorsSlackConnectionSettingsSettings",
-    "ConnectorsSlackConnectionSettingsSettingsOAuth",
-    "ConnectorsSlackConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsSlackConnectionSettingsConnector",
-    "ConnectorsSlackConnectionSettingsConnectorSchemas",
-    "ConnectorsSlackConnectionSettingsConnectorScope",
-    "ConnectorsSplitwiseConnectionSettings",
-    "ConnectorsSplitwiseConnectionSettingsSettings",
-    "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUser",
-    "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications",
-    "ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture",
-    "ConnectorsSplitwiseConnectionSettingsConnector",
-    "ConnectorsSplitwiseConnectionSettingsConnectorSchemas",
-    "ConnectorsSplitwiseConnectionSettingsConnectorScope",
-    "ConnectorsStripeConnectionSettings",
-    "ConnectorsStripeConnectionSettingsSettings",
-    "ConnectorsStripeConnectionSettingsConnector",
-    "ConnectorsStripeConnectionSettingsConnectorSchemas",
-    "ConnectorsStripeConnectionSettingsConnectorScope",
-    "ConnectorsTellerConnectionSettings",
-    "ConnectorsTellerConnectionSettingsSettings",
-    "ConnectorsTellerConnectionSettingsConnector",
-    "ConnectorsTellerConnectionSettingsConnectorSchemas",
-    "ConnectorsTellerConnectionSettingsConnectorScope",
-    "ConnectorsTogglConnectionSettings",
-    "ConnectorsTogglConnectionSettingsSettings",
-    "ConnectorsTogglConnectionSettingsConnector",
-    "ConnectorsTogglConnectionSettingsConnectorSchemas",
-    "ConnectorsTogglConnectionSettingsConnectorScope",
-    "ConnectorsTwentyConnectionSettings",
-    "ConnectorsTwentyConnectionSettingsSettings",
-    "ConnectorsTwentyConnectionSettingsConnector",
-    "ConnectorsTwentyConnectionSettingsConnectorSchemas",
-    "ConnectorsTwentyConnectionSettingsConnectorScope",
-    "ConnectorsTwitterConnectionSettings",
-    "ConnectorsTwitterConnectionSettingsSettings",
-    "ConnectorsTwitterConnectionSettingsSettingsOAuth",
-    "ConnectorsTwitterConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsTwitterConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ConnectorsTwitterConnectionSettingsSettingsOAuthConnectionConfig",
-    "ConnectorsTwitterConnectionSettingsSettingsError",
-    "ConnectorsTwitterConnectionSettingsConnector",
-    "ConnectorsTwitterConnectionSettingsConnectorSchemas",
-    "ConnectorsTwitterConnectionSettingsConnectorScope",
-    "ConnectorsVenmoConnectionSettings",
-    "ConnectorsVenmoConnectionSettingsSettings",
-    "ConnectorsVenmoConnectionSettingsConnector",
-    "ConnectorsVenmoConnectionSettingsConnectorSchemas",
-    "ConnectorsVenmoConnectionSettingsConnectorScope",
-    "ConnectorsWiseConnectionSettings",
-    "ConnectorsWiseConnectionSettingsSettings",
-    "ConnectorsWiseConnectionSettingsConnector",
-    "ConnectorsWiseConnectionSettingsConnectorSchemas",
-    "ConnectorsWiseConnectionSettingsConnectorScope",
-    "ConnectorsXeroConnectionSettings",
-    "ConnectorsXeroConnectionSettingsSettings",
-    "ConnectorsXeroConnectionSettingsSettingsOAuth",
-    "ConnectorsXeroConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfig",
-    "ConnectorsXeroConnectionSettingsSettingsError",
-    "ConnectorsXeroConnectionSettingsConnector",
-    "ConnectorsXeroConnectionSettingsConnectorSchemas",
-    "ConnectorsXeroConnectionSettingsConnectorScope",
-    "ConnectorsYodleeConnectionSettings",
-    "ConnectorsYodleeConnectionSettingsSettings",
-    "ConnectorsYodleeConnectionSettingsSettingsAccessToken",
-    "ConnectorsYodleeConnectionSettingsSettingsProviderAccount",
-    "ConnectorsYodleeConnectionSettingsConnector",
-    "ConnectorsYodleeConnectionSettingsConnectorSchemas",
-    "ConnectorsYodleeConnectionSettingsConnectorScope",
-    "ConnectorsZohodeskConnectionSettings",
-    "ConnectorsZohodeskConnectionSettingsSettings",
-    "ConnectorsZohodeskConnectionSettingsSettingsOAuth",
-    "ConnectorsZohodeskConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRaw",
-    "ConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig",
-    "ConnectorsZohodeskConnectionSettingsSettingsError",
-    "ConnectorsZohodeskConnectionSettingsConnector",
-    "ConnectorsZohodeskConnectionSettingsConnectorSchemas",
-    "ConnectorsZohodeskConnectionSettingsConnectorScope",
+    "ConnectorDummyOauth2DiscriminatedConnectionSettings",
+    "ConnectorDummyOauth2DiscriminatedConnectionSettingsSettings",
+    "ConnectorDummyOauth2DiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorDummyOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorDummyOauth2DiscriminatedConnectionSettingsConnector",
+    "ConnectorDummyOauth2DiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorDummyOauth2DiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorSharepointonlineDiscriminatedConnectionSettings",
+    "ConnectorSharepointonlineDiscriminatedConnectionSettingsSettings",
+    "ConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorSharepointonlineDiscriminatedConnectionSettingsConnector",
+    "ConnectorSharepointonlineDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorSharepointonlineDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorSlackDiscriminatedConnectionSettings",
+    "ConnectorSlackDiscriminatedConnectionSettingsSettings",
+    "ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorSlackDiscriminatedConnectionSettingsConnector",
+    "ConnectorSlackDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorSlackDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorGitHubDiscriminatedConnectionSettings",
+    "ConnectorGitHubDiscriminatedConnectionSettingsSettings",
+    "ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorGitHubDiscriminatedConnectionSettingsConnector",
+    "ConnectorGitHubDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorGitHubDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorQuickbooksDiscriminatedConnectionSettings",
+    "ConnectorQuickbooksDiscriminatedConnectionSettingsSettings",
+    "ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorQuickbooksDiscriminatedConnectionSettingsConnector",
+    "ConnectorQuickbooksDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorQuickbooksDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorGooglemailDiscriminatedConnectionSettings",
+    "ConnectorGooglemailDiscriminatedConnectionSettingsSettings",
+    "ConnectorGooglemailDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGooglemailDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorGooglemailDiscriminatedConnectionSettingsConnector",
+    "ConnectorGooglemailDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorGooglemailDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorNotionDiscriminatedConnectionSettings",
+    "ConnectorNotionDiscriminatedConnectionSettingsSettings",
+    "ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorNotionDiscriminatedConnectionSettingsConnector",
+    "ConnectorNotionDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorNotionDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorLinkedinDiscriminatedConnectionSettings",
+    "ConnectorLinkedinDiscriminatedConnectionSettingsSettings",
+    "ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorLinkedinDiscriminatedConnectionSettingsConnector",
+    "ConnectorLinkedinDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorLinkedinDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorGoogledocsDiscriminatedConnectionSettings",
+    "ConnectorGoogledocsDiscriminatedConnectionSettingsSettings",
+    "ConnectorGoogledocsDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGoogledocsDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorGoogledocsDiscriminatedConnectionSettingsConnector",
+    "ConnectorGoogledocsDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorGoogledocsDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorAircallDiscriminatedConnectionSettings",
+    "ConnectorAircallDiscriminatedConnectionSettingsSettings",
+    "ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorAircallDiscriminatedConnectionSettingsConnector",
+    "ConnectorAircallDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorAircallDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorGooglecalendarDiscriminatedConnectionSettings",
+    "ConnectorGooglecalendarDiscriminatedConnectionSettingsSettings",
+    "ConnectorGooglecalendarDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGooglecalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorGooglecalendarDiscriminatedConnectionSettingsConnector",
+    "ConnectorGooglecalendarDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorGooglecalendarDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorGooglesheetDiscriminatedConnectionSettings",
+    "ConnectorGooglesheetDiscriminatedConnectionSettingsSettings",
+    "ConnectorGooglesheetDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGooglesheetDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorGooglesheetDiscriminatedConnectionSettingsConnector",
+    "ConnectorGooglesheetDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorGooglesheetDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorDiscordDiscriminatedConnectionSettings",
+    "ConnectorDiscordDiscriminatedConnectionSettingsSettings",
+    "ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorDiscordDiscriminatedConnectionSettingsConnector",
+    "ConnectorDiscordDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorDiscordDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorHubspotDiscriminatedConnectionSettings",
+    "ConnectorHubspotDiscriminatedConnectionSettingsSettings",
+    "ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorHubspotDiscriminatedConnectionSettingsConnector",
+    "ConnectorHubspotDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorHubspotDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorSalesforceDiscriminatedConnectionSettings",
+    "ConnectorSalesforceDiscriminatedConnectionSettingsSettings",
+    "ConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorSalesforceDiscriminatedConnectionSettingsConnector",
+    "ConnectorSalesforceDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorSalesforceDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorLinearDiscriminatedConnectionSettings",
+    "ConnectorLinearDiscriminatedConnectionSettingsSettings",
+    "ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorLinearDiscriminatedConnectionSettingsConnector",
+    "ConnectorLinearDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorLinearDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorConfluenceDiscriminatedConnectionSettings",
+    "ConnectorConfluenceDiscriminatedConnectionSettingsSettings",
+    "ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorConfluenceDiscriminatedConnectionSettingsConnector",
+    "ConnectorConfluenceDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorConfluenceDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorGoogledriveDiscriminatedConnectionSettings",
+    "ConnectorGoogledriveDiscriminatedConnectionSettingsSettings",
+    "ConnectorGoogledriveDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGoogledriveDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorGoogledriveDiscriminatedConnectionSettingsConnector",
+    "ConnectorGoogledriveDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorGoogledriveDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorAirtableDiscriminatedConnectionSettings",
+    "ConnectorAirtableDiscriminatedConnectionSettingsSettings",
+    "ConnectorAirtableDiscriminatedConnectionSettingsConnector",
+    "ConnectorAirtableDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorAirtableDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorApolloDiscriminatedConnectionSettings",
+    "ConnectorApolloDiscriminatedConnectionSettingsSettings",
+    "ConnectorApolloDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorApolloDiscriminatedConnectionSettingsSettingsError",
+    "ConnectorApolloDiscriminatedConnectionSettingsConnector",
+    "ConnectorApolloDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorApolloDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorBrexDiscriminatedConnectionSettings",
+    "ConnectorBrexDiscriminatedConnectionSettingsSettings",
+    "ConnectorBrexDiscriminatedConnectionSettingsConnector",
+    "ConnectorBrexDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorBrexDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorCodaDiscriminatedConnectionSettings",
+    "ConnectorCodaDiscriminatedConnectionSettingsSettings",
+    "ConnectorCodaDiscriminatedConnectionSettingsConnector",
+    "ConnectorCodaDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorCodaDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorFacebookDiscriminatedConnectionSettings",
+    "ConnectorFacebookDiscriminatedConnectionSettingsSettings",
+    "ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorFacebookDiscriminatedConnectionSettingsSettingsError",
+    "ConnectorFacebookDiscriminatedConnectionSettingsConnector",
+    "ConnectorFacebookDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorFacebookDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorFinchDiscriminatedConnectionSettings",
+    "ConnectorFinchDiscriminatedConnectionSettingsSettings",
+    "ConnectorFinchDiscriminatedConnectionSettingsConnector",
+    "ConnectorFinchDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorFinchDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorFirebaseDiscriminatedConnectionSettings",
+    "ConnectorFirebaseDiscriminatedConnectionSettingsSettings",
+    "ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember0",
+    "ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember0ServiceAccount",
+    "ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1",
+    "ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthData",
+    "ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember0",
+    "ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson",
+    "ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember1",
+    "ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember2",
+    "ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1FirebaseConfig",
+    "ConnectorFirebaseDiscriminatedConnectionSettingsConnector",
+    "ConnectorFirebaseDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorFirebaseDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorForeceiptDiscriminatedConnectionSettings",
+    "ConnectorForeceiptDiscriminatedConnectionSettingsSettings",
+    "ConnectorForeceiptDiscriminatedConnectionSettingsConnector",
+    "ConnectorForeceiptDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorForeceiptDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorGongDiscriminatedConnectionSettings",
+    "ConnectorGongDiscriminatedConnectionSettingsSettings",
+    "ConnectorGongDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorGongDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorGongDiscriminatedConnectionSettingsSettingsError",
+    "ConnectorGongDiscriminatedConnectionSettingsConnector",
+    "ConnectorGongDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorGongDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorGreenhouseDiscriminatedConnectionSettings",
+    "ConnectorGreenhouseDiscriminatedConnectionSettingsSettings",
+    "ConnectorGreenhouseDiscriminatedConnectionSettingsConnector",
+    "ConnectorGreenhouseDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorGreenhouseDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorHeronDiscriminatedConnectionSettings",
+    "ConnectorHeronDiscriminatedConnectionSettingsConnector",
+    "ConnectorHeronDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorHeronDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorInstagramDiscriminatedConnectionSettings",
+    "ConnectorInstagramDiscriminatedConnectionSettingsSettings",
+    "ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorInstagramDiscriminatedConnectionSettingsSettingsError",
+    "ConnectorInstagramDiscriminatedConnectionSettingsConnector",
+    "ConnectorInstagramDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorInstagramDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorIntercomDiscriminatedConnectionSettings",
+    "ConnectorIntercomDiscriminatedConnectionSettingsSettings",
+    "ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorIntercomDiscriminatedConnectionSettingsSettingsError",
+    "ConnectorIntercomDiscriminatedConnectionSettingsConnector",
+    "ConnectorIntercomDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorIntercomDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorJiraDiscriminatedConnectionSettings",
+    "ConnectorJiraDiscriminatedConnectionSettingsSettings",
+    "ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorJiraDiscriminatedConnectionSettingsSettingsError",
+    "ConnectorJiraDiscriminatedConnectionSettingsConnector",
+    "ConnectorJiraDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorJiraDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorKustomerDiscriminatedConnectionSettings",
+    "ConnectorKustomerDiscriminatedConnectionSettingsSettings",
+    "ConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorKustomerDiscriminatedConnectionSettingsSettingsError",
+    "ConnectorKustomerDiscriminatedConnectionSettingsConnector",
+    "ConnectorKustomerDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorKustomerDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorLeverDiscriminatedConnectionSettings",
+    "ConnectorLeverDiscriminatedConnectionSettingsSettings",
+    "ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorLeverDiscriminatedConnectionSettingsSettingsError",
+    "ConnectorLeverDiscriminatedConnectionSettingsConnector",
+    "ConnectorLeverDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorLeverDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorLunchmoneyDiscriminatedConnectionSettings",
+    "ConnectorLunchmoneyDiscriminatedConnectionSettingsConnector",
+    "ConnectorLunchmoneyDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorLunchmoneyDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorMercuryDiscriminatedConnectionSettings",
+    "ConnectorMercuryDiscriminatedConnectionSettingsConnector",
+    "ConnectorMercuryDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorMercuryDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorMergeDiscriminatedConnectionSettings",
+    "ConnectorMergeDiscriminatedConnectionSettingsSettings",
+    "ConnectorMergeDiscriminatedConnectionSettingsConnector",
+    "ConnectorMergeDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorMergeDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorMicrosoftDiscriminatedConnectionSettings",
+    "ConnectorMicrosoftDiscriminatedConnectionSettingsSettings",
+    "ConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorMicrosoftDiscriminatedConnectionSettingsSettingsError",
+    "ConnectorMicrosoftDiscriminatedConnectionSettingsConnector",
+    "ConnectorMicrosoftDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorMicrosoftDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorMootaDiscriminatedConnectionSettings",
+    "ConnectorMootaDiscriminatedConnectionSettingsConnector",
+    "ConnectorMootaDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorMootaDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorOnebrickDiscriminatedConnectionSettings",
+    "ConnectorOnebrickDiscriminatedConnectionSettingsSettings",
+    "ConnectorOnebrickDiscriminatedConnectionSettingsConnector",
+    "ConnectorOnebrickDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorOnebrickDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorOutreachDiscriminatedConnectionSettings",
+    "ConnectorOutreachDiscriminatedConnectionSettingsSettings",
+    "ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorOutreachDiscriminatedConnectionSettingsSettingsError",
+    "ConnectorOutreachDiscriminatedConnectionSettingsConnector",
+    "ConnectorOutreachDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorOutreachDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorPipedriveDiscriminatedConnectionSettings",
+    "ConnectorPipedriveDiscriminatedConnectionSettingsSettings",
+    "ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorPipedriveDiscriminatedConnectionSettingsSettingsError",
+    "ConnectorPipedriveDiscriminatedConnectionSettingsConnector",
+    "ConnectorPipedriveDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorPipedriveDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorPlaidDiscriminatedConnectionSettings",
+    "ConnectorPlaidDiscriminatedConnectionSettingsSettings",
+    "ConnectorPlaidDiscriminatedConnectionSettingsConnector",
+    "ConnectorPlaidDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorPlaidDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorPostgresDiscriminatedConnectionSettings",
+    "ConnectorPostgresDiscriminatedConnectionSettingsSettings",
+    "ConnectorPostgresDiscriminatedConnectionSettingsSettingsSourceQueries",
+    "ConnectorPostgresDiscriminatedConnectionSettingsConnector",
+    "ConnectorPostgresDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorPostgresDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorRampDiscriminatedConnectionSettings",
+    "ConnectorRampDiscriminatedConnectionSettingsSettings",
+    "ConnectorRampDiscriminatedConnectionSettingsConnector",
+    "ConnectorRampDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorRampDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorRedditDiscriminatedConnectionSettings",
+    "ConnectorRedditDiscriminatedConnectionSettingsSettings",
+    "ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorRedditDiscriminatedConnectionSettingsSettingsError",
+    "ConnectorRedditDiscriminatedConnectionSettingsConnector",
+    "ConnectorRedditDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorRedditDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorSalesloftDiscriminatedConnectionSettings",
+    "ConnectorSalesloftDiscriminatedConnectionSettingsSettings",
+    "ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorSalesloftDiscriminatedConnectionSettingsSettingsError",
+    "ConnectorSalesloftDiscriminatedConnectionSettingsConnector",
+    "ConnectorSalesloftDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorSalesloftDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorSaltedgeDiscriminatedConnectionSettings",
+    "ConnectorSaltedgeDiscriminatedConnectionSettingsConnector",
+    "ConnectorSaltedgeDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorSaltedgeDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorSplitwiseDiscriminatedConnectionSettings",
+    "ConnectorSplitwiseDiscriminatedConnectionSettingsSettings",
+    "ConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUser",
+    "ConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUserNotifications",
+    "ConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUserPicture",
+    "ConnectorSplitwiseDiscriminatedConnectionSettingsConnector",
+    "ConnectorSplitwiseDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorSplitwiseDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorStripeDiscriminatedConnectionSettings",
+    "ConnectorStripeDiscriminatedConnectionSettingsSettings",
+    "ConnectorStripeDiscriminatedConnectionSettingsConnector",
+    "ConnectorStripeDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorStripeDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorTellerDiscriminatedConnectionSettings",
+    "ConnectorTellerDiscriminatedConnectionSettingsSettings",
+    "ConnectorTellerDiscriminatedConnectionSettingsConnector",
+    "ConnectorTellerDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorTellerDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorTogglDiscriminatedConnectionSettings",
+    "ConnectorTogglDiscriminatedConnectionSettingsSettings",
+    "ConnectorTogglDiscriminatedConnectionSettingsConnector",
+    "ConnectorTogglDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorTogglDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorTwentyDiscriminatedConnectionSettings",
+    "ConnectorTwentyDiscriminatedConnectionSettingsSettings",
+    "ConnectorTwentyDiscriminatedConnectionSettingsConnector",
+    "ConnectorTwentyDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorTwentyDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorTwitterDiscriminatedConnectionSettings",
+    "ConnectorTwitterDiscriminatedConnectionSettingsSettings",
+    "ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorTwitterDiscriminatedConnectionSettingsSettingsError",
+    "ConnectorTwitterDiscriminatedConnectionSettingsConnector",
+    "ConnectorTwitterDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorTwitterDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorVenmoDiscriminatedConnectionSettings",
+    "ConnectorVenmoDiscriminatedConnectionSettingsSettings",
+    "ConnectorVenmoDiscriminatedConnectionSettingsConnector",
+    "ConnectorVenmoDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorVenmoDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorWiseDiscriminatedConnectionSettings",
+    "ConnectorWiseDiscriminatedConnectionSettingsSettings",
+    "ConnectorWiseDiscriminatedConnectionSettingsConnector",
+    "ConnectorWiseDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorWiseDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorXeroDiscriminatedConnectionSettings",
+    "ConnectorXeroDiscriminatedConnectionSettingsSettings",
+    "ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorXeroDiscriminatedConnectionSettingsSettingsError",
+    "ConnectorXeroDiscriminatedConnectionSettingsConnector",
+    "ConnectorXeroDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorXeroDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorYodleeDiscriminatedConnectionSettings",
+    "ConnectorYodleeDiscriminatedConnectionSettingsSettings",
+    "ConnectorYodleeDiscriminatedConnectionSettingsSettingsAccessToken",
+    "ConnectorYodleeDiscriminatedConnectionSettingsSettingsProviderAccount",
+    "ConnectorYodleeDiscriminatedConnectionSettingsConnector",
+    "ConnectorYodleeDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorYodleeDiscriminatedConnectionSettingsConnectorScope",
+    "ConnectorZohodeskDiscriminatedConnectionSettings",
+    "ConnectorZohodeskDiscriminatedConnectionSettingsSettings",
+    "ConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "ConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "ConnectorZohodeskDiscriminatedConnectionSettingsSettingsError",
+    "ConnectorZohodeskDiscriminatedConnectionSettingsConnector",
+    "ConnectorZohodeskDiscriminatedConnectionSettingsConnectorSchemas",
+    "ConnectorZohodeskDiscriminatedConnectionSettingsConnectorScope",
 ]
 
 
-class ConnectorsAircallConnectionSettingsSettingsOAuthCredentials(BaseModel):
+class ConnectorDummyOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
     client_id: str
+    """Client ID used for the connection"""
 
     raw: Dict[str, object]
 
@@ -445,24 +453,24 @@ class ConnectorsAircallConnectionSettingsSettingsOAuthCredentials(BaseModel):
     token_type: Optional[str] = None
 
 
-class ConnectorsAircallConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
+class ConnectorDummyOauth2DiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
 
-    last_fetched_at: str
+    credentials: Optional[ConnectorDummyOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
 
-    updated_at: str
-
-    credentials: Optional[ConnectorsAircallConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
+    updated_at: Optional[str] = None
 
 
-class ConnectorsAircallConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsAircallConnectionSettingsSettingsOAuth
+class ConnectorDummyOauth2DiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorDummyOauth2DiscriminatedConnectionSettingsSettingsOAuth
 
 
-class ConnectorsAircallConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorDummyOauth2DiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -478,7 +486,7 @@ class ConnectorsAircallConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsAircallConnectionSettingsConnectorScope(BaseModel):
+class ConnectorDummyOauth2DiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -486,8 +494,12 @@ class ConnectorsAircallConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsAircallConnectionSettingsConnector(BaseModel):
+class ConnectorDummyOauth2DiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -497,21 +509,21 @@ class ConnectorsAircallConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsAircallConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorDummyOauth2DiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsAircallConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorDummyOauth2DiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsAircallConnectionSettings(BaseModel):
-    connector_name: Literal["aircall"]
+class ConnectorDummyOauth2DiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["dummy-oauth2"]
 
-    settings: ConnectorsAircallConnectionSettingsSettings
+    settings: ConnectorDummyOauth2DiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsAircallConnectionSettingsConnector] = None
+    connector: Optional[ConnectorDummyOauth2DiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -519,20 +531,1956 @@ class ConnectorsAircallConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsAirtableConnectionSettingsSettings(BaseModel):
+class ConnectorSharepointonlineDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuth
+
+
+class ConnectorSharepointonlineDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorSharepointonlineDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorSharepointonlineDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorSharepointonlineDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorSharepointonlineDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorSharepointonlineDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["sharepointonline"]
+
+    settings: ConnectorSharepointonlineDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorSharepointonlineDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorSlackDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth
+
+
+class ConnectorSlackDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorSlackDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorSlackDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorSlackDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorSlackDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorSlackDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["slack"]
+
+    settings: ConnectorSlackDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorSlackDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGitHubDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuth
+
+
+class ConnectorGitHubDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorGitHubDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorGitHubDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorGitHubDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorGitHubDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorGitHubDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["github"]
+
+    settings: ConnectorGitHubDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorGitHubDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorQuickbooksDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth
+
+    realm_id: str = FieldInfo(alias="realmId")
+    """The realmId of your quickbooks company (e.g., 9341453474484455)"""
+
+
+class ConnectorQuickbooksDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorQuickbooksDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorQuickbooksDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorQuickbooksDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorQuickbooksDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorQuickbooksDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["quickbooks"]
+
+    settings: ConnectorQuickbooksDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorQuickbooksDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGooglemailDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGooglemailDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGooglemailDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGooglemailDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorGooglemailDiscriminatedConnectionSettingsSettingsOAuth
+
+
+class ConnectorGooglemailDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorGooglemailDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorGooglemailDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorGooglemailDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorGooglemailDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorGooglemailDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["googlemail"]
+
+    settings: ConnectorGooglemailDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorGooglemailDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorNotionDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuth
+
+
+class ConnectorNotionDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorNotionDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorNotionDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorNotionDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorNotionDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorNotionDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["notion"]
+
+    settings: ConnectorNotionDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorNotionDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorLinkedinDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuth
+
+
+class ConnectorLinkedinDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorLinkedinDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorLinkedinDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorLinkedinDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorLinkedinDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorLinkedinDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["linkedin"]
+
+    settings: ConnectorLinkedinDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorLinkedinDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGoogledocsDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGoogledocsDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGoogledocsDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGoogledocsDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorGoogledocsDiscriminatedConnectionSettingsSettingsOAuth
+
+
+class ConnectorGoogledocsDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorGoogledocsDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorGoogledocsDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorGoogledocsDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorGoogledocsDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorGoogledocsDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["googledocs"]
+
+    settings: ConnectorGoogledocsDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorGoogledocsDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorAircallDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth
+
+
+class ConnectorAircallDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorAircallDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorAircallDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorAircallDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorAircallDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorAircallDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["aircall"]
+
+    settings: ConnectorAircallDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorAircallDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGooglecalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGooglecalendarDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGooglecalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGooglecalendarDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorGooglecalendarDiscriminatedConnectionSettingsSettingsOAuth
+
+
+class ConnectorGooglecalendarDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorGooglecalendarDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorGooglecalendarDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorGooglecalendarDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorGooglecalendarDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorGooglecalendarDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["googlecalendar"]
+
+    settings: ConnectorGooglecalendarDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorGooglecalendarDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGooglesheetDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGooglesheetDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGooglesheetDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGooglesheetDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorGooglesheetDiscriminatedConnectionSettingsSettingsOAuth
+
+
+class ConnectorGooglesheetDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorGooglesheetDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorGooglesheetDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorGooglesheetDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorGooglesheetDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorGooglesheetDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["googlesheet"]
+
+    settings: ConnectorGooglesheetDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorGooglesheetDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorDiscordDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuth
+
+
+class ConnectorDiscordDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorDiscordDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorDiscordDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorDiscordDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorDiscordDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorDiscordDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["discord"]
+
+    settings: ConnectorDiscordDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorDiscordDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorHubspotDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuth
+
+
+class ConnectorHubspotDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorHubspotDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorHubspotDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorHubspotDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorHubspotDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorHubspotDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["hubspot"]
+
+    settings: ConnectorHubspotDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorHubspotDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorSalesforceDiscriminatedConnectionSettingsSettings(BaseModel):
+    instance_url: str
+    """The instance URL of your Salesforce account (e.g., example)"""
+
+    oauth: ConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuth
+
+
+class ConnectorSalesforceDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorSalesforceDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorSalesforceDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorSalesforceDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorSalesforceDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorSalesforceDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["salesforce"]
+
+    settings: ConnectorSalesforceDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorSalesforceDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorLinearDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuth
+
+
+class ConnectorLinearDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorLinearDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorLinearDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorLinearDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorLinearDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorLinearDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["linear"]
+
+    settings: ConnectorLinearDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorLinearDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorConfluenceDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuth
+
+
+class ConnectorConfluenceDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorConfluenceDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorConfluenceDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorConfluenceDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorConfluenceDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorConfluenceDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["confluence"]
+
+    settings: ConnectorConfluenceDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorConfluenceDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGoogledriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    raw: Dict[str, object]
+
+    scope: str
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    refresh_token: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGoogledriveDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGoogledriveDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGoogledriveDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorGoogledriveDiscriminatedConnectionSettingsSettingsOAuth
+
+
+class ConnectorGoogledriveDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorGoogledriveDiscriminatedConnectionSettingsConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorGoogledriveDiscriminatedConnectionSettingsConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorGoogledriveDiscriminatedConnectionSettingsConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorGoogledriveDiscriminatedConnectionSettingsConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorGoogledriveDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["googledrive"]
+
+    settings: ConnectorGoogledriveDiscriminatedConnectionSettingsSettings
+
+    id: Optional[str] = None
+
+    connector: Optional[ConnectorGoogledriveDiscriminatedConnectionSettingsConnector] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorAirtableDiscriminatedConnectionSettingsSettings(BaseModel):
     airtable_base: str = FieldInfo(alias="airtableBase")
 
     api_key: str = FieldInfo(alias="apiKey")
 
 
-class ConnectorsAirtableConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorAirtableDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -548,7 +2496,7 @@ class ConnectorsAirtableConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsAirtableConnectionSettingsConnectorScope(BaseModel):
+class ConnectorAirtableDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -556,8 +2504,12 @@ class ConnectorsAirtableConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsAirtableConnectionSettingsConnector(BaseModel):
+class ConnectorAirtableDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -567,21 +2519,21 @@ class ConnectorsAirtableConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsAirtableConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorAirtableDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsAirtableConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorAirtableDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsAirtableConnectionSettings(BaseModel):
+class ConnectorAirtableDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["airtable"]
 
-    settings: ConnectorsAirtableConnectionSettingsSettings
+    settings: ConnectorAirtableDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsAirtableConnectionSettingsConnector] = None
+    connector: Optional[ConnectorAirtableDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -589,14 +2541,23 @@ class ConnectorsAirtableConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     expires_at: Optional[datetime] = None
@@ -618,8 +2579,8 @@ class ConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsApolloConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -632,7 +2593,7 @@ class ConnectorsApolloConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -644,27 +2605,27 @@ class ConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfig(BaseModel)
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsApolloConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ConnectorsApolloConnectionSettingsSettingsOAuthCredentials
+class ConnectorApolloDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ConnectorsApolloConnectionSettingsSettingsError(BaseModel):
+class ConnectorApolloDiscriminatedConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ConnectorsApolloConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsApolloConnectionSettingsSettingsOAuth
+class ConnectorApolloDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorApolloDiscriminatedConnectionSettingsSettingsOAuth
 
-    error: Optional[ConnectorsApolloConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorApolloDiscriminatedConnectionSettingsSettingsError] = None
 
 
-class ConnectorsApolloConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorApolloDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -680,7 +2641,7 @@ class ConnectorsApolloConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsApolloConnectionSettingsConnectorScope(BaseModel):
+class ConnectorApolloDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -688,8 +2649,12 @@ class ConnectorsApolloConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsApolloConnectionSettingsConnector(BaseModel):
+class ConnectorApolloDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -699,21 +2664,21 @@ class ConnectorsApolloConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsApolloConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorApolloDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsApolloConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorApolloDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsApolloConnectionSettings(BaseModel):
+class ConnectorApolloDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["apollo"]
 
-    settings: ConnectorsApolloConnectionSettingsSettings
+    settings: ConnectorApolloDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsApolloConnectionSettingsConnector] = None
+    connector: Optional[ConnectorApolloDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -721,18 +2686,27 @@ class ConnectorsApolloConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsBrexConnectionSettingsSettings(BaseModel):
+class ConnectorBrexDiscriminatedConnectionSettingsSettings(BaseModel):
     access_token: str = FieldInfo(alias="accessToken")
 
 
-class ConnectorsBrexConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorBrexDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -748,7 +2722,7 @@ class ConnectorsBrexConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsBrexConnectionSettingsConnectorScope(BaseModel):
+class ConnectorBrexDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -756,8 +2730,12 @@ class ConnectorsBrexConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsBrexConnectionSettingsConnector(BaseModel):
+class ConnectorBrexDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -767,21 +2745,21 @@ class ConnectorsBrexConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsBrexConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorBrexDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsBrexConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorBrexDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsBrexConnectionSettings(BaseModel):
+class ConnectorBrexDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["brex"]
 
-    settings: ConnectorsBrexConnectionSettingsSettings
+    settings: ConnectorBrexDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsBrexConnectionSettingsConnector] = None
+    connector: Optional[ConnectorBrexDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -789,18 +2767,27 @@ class ConnectorsBrexConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsCodaConnectionSettingsSettings(BaseModel):
+class ConnectorCodaDiscriminatedConnectionSettingsSettings(BaseModel):
     api_key: str = FieldInfo(alias="apiKey")
 
 
-class ConnectorsCodaConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorCodaDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -816,7 +2803,7 @@ class ConnectorsCodaConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsCodaConnectionSettingsConnectorScope(BaseModel):
+class ConnectorCodaDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -824,8 +2811,12 @@ class ConnectorsCodaConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsCodaConnectionSettingsConnector(BaseModel):
+class ConnectorCodaDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -835,21 +2826,21 @@ class ConnectorsCodaConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsCodaConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorCodaDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsCodaConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorCodaDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsCodaConnectionSettings(BaseModel):
+class ConnectorCodaDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["coda"]
 
-    settings: ConnectorsCodaConnectionSettingsSettings
+    settings: ConnectorCodaDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsCodaConnectionSettingsConnector] = None
+    connector: Optional[ConnectorCodaDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -857,212 +2848,23 @@ class ConnectorsCodaConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
-    integration_id: Optional[str] = None
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsConfluenceConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    access_token: str
-
-    client_id: str
-
-    raw: Dict[str, object]
-
-    scope: str
-
-    expires_at: Optional[str] = None
-
-    expires_in: Optional[float] = None
-
-    refresh_token: Optional[str] = None
-
-    token_type: Optional[str] = None
-
-
-class ConnectorsConfluenceConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: str
-
-    credentials: Optional[ConnectorsConfluenceConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class ConnectorsConfluenceConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsConfluenceConnectionSettingsSettingsOAuth
-
-
-class ConnectorsConfluenceConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsConfluenceConnectionSettingsConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
+    disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-
-class ConnectorsConfluenceConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsConfluenceConnectionSettingsConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorsConfluenceConnectionSettingsConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorsConfluenceConnectionSettings(BaseModel):
-    connector_name: Literal["confluence"]
-
-    settings: ConnectorsConfluenceConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsConfluenceConnectionSettingsConnector] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[str] = None
-
-    customer_id: Optional[str] = None
 
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsDiscordConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    access_token: str
-
-    client_id: str
-
-    raw: Dict[str, object]
-
-    scope: str
-
-    expires_at: Optional[str] = None
-
-    expires_in: Optional[float] = None
-
-    refresh_token: Optional[str] = None
-
-    token_type: Optional[str] = None
-
-
-class ConnectorsDiscordConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: str
-
-    credentials: Optional[ConnectorsDiscordConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class ConnectorsDiscordConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsDiscordConnectionSettingsSettingsOAuth
-
-
-class ConnectorsDiscordConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsDiscordConnectionSettingsConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorsDiscordConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsDiscordConnectionSettingsConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorsDiscordConnectionSettingsConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorsDiscordConnectionSettings(BaseModel):
-    connector_name: Literal["discord"]
-
-    settings: ConnectorsDiscordConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsDiscordConnectionSettingsConnector] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[str] = None
-
-    customer_id: Optional[str] = None
-
-    integration_id: Optional[str] = None
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsFacebookConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     expires_at: Optional[datetime] = None
@@ -1084,8 +2886,8 @@ class ConnectorsFacebookConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel)
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsFacebookConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ConnectorsFacebookConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -1098,7 +2900,7 @@ class ConnectorsFacebookConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ConnectorsFacebookConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -1110,27 +2912,27 @@ class ConnectorsFacebookConnectionSettingsSettingsOAuthConnectionConfig(BaseMode
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsFacebookConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ConnectorsFacebookConnectionSettingsSettingsOAuthCredentials
+class ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ConnectorsFacebookConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ConnectorsFacebookConnectionSettingsSettingsError(BaseModel):
+class ConnectorFacebookDiscriminatedConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ConnectorsFacebookConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsFacebookConnectionSettingsSettingsOAuth
+class ConnectorFacebookDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuth
 
-    error: Optional[ConnectorsFacebookConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorFacebookDiscriminatedConnectionSettingsSettingsError] = None
 
 
-class ConnectorsFacebookConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorFacebookDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -1146,7 +2948,7 @@ class ConnectorsFacebookConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsFacebookConnectionSettingsConnectorScope(BaseModel):
+class ConnectorFacebookDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -1154,8 +2956,12 @@ class ConnectorsFacebookConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsFacebookConnectionSettingsConnector(BaseModel):
+class ConnectorFacebookDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -1165,21 +2971,21 @@ class ConnectorsFacebookConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsFacebookConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorFacebookDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsFacebookConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorFacebookDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsFacebookConnectionSettings(BaseModel):
+class ConnectorFacebookDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["facebook"]
 
-    settings: ConnectorsFacebookConnectionSettingsSettings
+    settings: ConnectorFacebookDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsFacebookConnectionSettingsConnector] = None
+    connector: Optional[ConnectorFacebookDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -1187,18 +2993,27 @@ class ConnectorsFacebookConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsFinchConnectionSettingsSettings(BaseModel):
+class ConnectorFinchDiscriminatedConnectionSettingsSettings(BaseModel):
     access_token: str
 
 
-class ConnectorsFinchConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorFinchDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -1214,7 +3029,7 @@ class ConnectorsFinchConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsFinchConnectionSettingsConnectorScope(BaseModel):
+class ConnectorFinchDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -1222,8 +3037,12 @@ class ConnectorsFinchConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsFinchConnectionSettingsConnector(BaseModel):
+class ConnectorFinchDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -1233,21 +3052,21 @@ class ConnectorsFinchConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsFinchConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorFinchDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsFinchConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorFinchDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsFinchConnectionSettings(BaseModel):
+class ConnectorFinchDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["finch"]
 
-    settings: ConnectorsFinchConnectionSettingsSettings
+    settings: ConnectorFinchDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsFinchConnectionSettingsConnector] = None
+    connector: Optional[ConnectorFinchDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -1255,14 +3074,23 @@ class ConnectorsFinchConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccount(BaseModel):
+class ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember0ServiceAccount(BaseModel):
     project_id: str
 
     if TYPE_CHECKING:
@@ -1272,15 +3100,15 @@ class ConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccount(Bas
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsFirebaseConnectionSettingsSettingsUnionMember0(BaseModel):
+class ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember0(BaseModel):
     role: Literal["admin"]
 
-    service_account: ConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccount = FieldInfo(
+    service_account: ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember0ServiceAccount = FieldInfo(
         alias="serviceAccount"
     )
 
 
-class ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson(BaseModel):
+class ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson(BaseModel):
     app_name: str = FieldInfo(alias="appName")
 
     sts_token_manager: Dict[str, object] = FieldInfo(alias="stsTokenManager")
@@ -1294,21 +3122,21 @@ class ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMembe
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0(BaseModel):
+class ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember0(BaseModel):
     method: Literal["userJson"]
 
-    user_json: ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson = FieldInfo(
-        alias="userJson"
+    user_json: ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson = (
+        FieldInfo(alias="userJson")
     )
 
 
-class ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember1(BaseModel):
+class ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember1(BaseModel):
     custom_token: str = FieldInfo(alias="customToken")
 
     method: Literal["customToken"]
 
 
-class ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember2(BaseModel):
+class ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember2(BaseModel):
     email: str
 
     method: Literal["emailPassword"]
@@ -1316,14 +3144,14 @@ class ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMembe
     password: str
 
 
-ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthData: TypeAlias = Union[
-    ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0,
-    ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember1,
-    ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember2,
+ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthData: TypeAlias = Union[
+    ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember0,
+    ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember1,
+    ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember2,
 ]
 
 
-class ConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig(BaseModel):
+class ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1FirebaseConfig(BaseModel):
     api_key: str = FieldInfo(alias="apiKey")
 
     app_id: str = FieldInfo(alias="appId")
@@ -1341,22 +3169,25 @@ class ConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig(Bas
     storage_bucket: Optional[str] = FieldInfo(alias="storageBucket", default=None)
 
 
-class ConnectorsFirebaseConnectionSettingsSettingsUnionMember1(BaseModel):
-    auth_data: ConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthData = FieldInfo(alias="authData")
+class ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1(BaseModel):
+    auth_data: ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthData = FieldInfo(
+        alias="authData"
+    )
 
-    firebase_config: ConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig = FieldInfo(
+    firebase_config: ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1FirebaseConfig = FieldInfo(
         alias="firebaseConfig"
     )
 
     role: Literal["user"]
 
 
-ConnectorsFirebaseConnectionSettingsSettings: TypeAlias = Union[
-    ConnectorsFirebaseConnectionSettingsSettingsUnionMember0, ConnectorsFirebaseConnectionSettingsSettingsUnionMember1
+ConnectorFirebaseDiscriminatedConnectionSettingsSettings: TypeAlias = Union[
+    ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember0,
+    ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1,
 ]
 
 
-class ConnectorsFirebaseConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorFirebaseDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -1372,7 +3203,7 @@ class ConnectorsFirebaseConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsFirebaseConnectionSettingsConnectorScope(BaseModel):
+class ConnectorFirebaseDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -1380,8 +3211,12 @@ class ConnectorsFirebaseConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsFirebaseConnectionSettingsConnector(BaseModel):
+class ConnectorFirebaseDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -1391,21 +3226,21 @@ class ConnectorsFirebaseConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsFirebaseConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorFirebaseDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsFirebaseConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorFirebaseDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsFirebaseConnectionSettings(BaseModel):
+class ConnectorFirebaseDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["firebase"]
 
-    settings: ConnectorsFirebaseConnectionSettingsSettings
+    settings: ConnectorFirebaseDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsFirebaseConnectionSettingsConnector] = None
+    connector: Optional[ConnectorFirebaseDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -1413,14 +3248,23 @@ class ConnectorsFirebaseConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsForeceiptConnectionSettingsSettings(BaseModel):
+class ConnectorForeceiptDiscriminatedConnectionSettingsSettings(BaseModel):
     env_name: Literal["staging", "production"] = FieldInfo(alias="envName")
 
     api_id: Optional[object] = FieldInfo(alias="_id", default=None)
@@ -1428,7 +3272,7 @@ class ConnectorsForeceiptConnectionSettingsSettings(BaseModel):
     credentials: Optional[object] = None
 
 
-class ConnectorsForeceiptConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorForeceiptDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -1444,7 +3288,7 @@ class ConnectorsForeceiptConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsForeceiptConnectionSettingsConnectorScope(BaseModel):
+class ConnectorForeceiptDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -1452,8 +3296,12 @@ class ConnectorsForeceiptConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsForeceiptConnectionSettingsConnector(BaseModel):
+class ConnectorForeceiptDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -1463,21 +3311,21 @@ class ConnectorsForeceiptConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsForeceiptConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorForeceiptDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsForeceiptConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorForeceiptDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsForeceiptConnectionSettings(BaseModel):
+class ConnectorForeceiptDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["foreceipt"]
 
-    settings: ConnectorsForeceiptConnectionSettingsSettings
+    settings: ConnectorForeceiptDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsForeceiptConnectionSettingsConnector] = None
+    connector: Optional[ConnectorForeceiptDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -1485,113 +3333,23 @@ class ConnectorsForeceiptConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
-    integration_id: Optional[str] = None
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsGitHubConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    access_token: str
-
-    client_id: str
-
-    raw: Dict[str, object]
-
-    scope: str
-
-    expires_at: Optional[str] = None
-
-    expires_in: Optional[float] = None
-
-    refresh_token: Optional[str] = None
-
-    token_type: Optional[str] = None
-
-
-class ConnectorsGitHubConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: str
-
-    credentials: Optional[ConnectorsGitHubConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class ConnectorsGitHubConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsGitHubConnectionSettingsSettingsOAuth
-
-
-class ConnectorsGitHubConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsGitHubConnectionSettingsConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
+    disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-
-class ConnectorsGitHubConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsGitHubConnectionSettingsConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorsGitHubConnectionSettingsConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorsGitHubConnectionSettings(BaseModel):
-    connector_name: Literal["github"]
-
-    settings: ConnectorsGitHubConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsGitHubConnectionSettingsConnector] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[str] = None
-
-    customer_id: Optional[str] = None
 
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsGongConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     expires_at: Optional[datetime] = None
@@ -1613,8 +3371,8 @@ class ConnectorsGongConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsGongConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ConnectorsGongConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -1627,7 +3385,7 @@ class ConnectorsGongConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ConnectorsGongConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorGongDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -1639,27 +3397,27 @@ class ConnectorsGongConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsGongConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ConnectorsGongConnectionSettingsSettingsOAuthCredentials
+class ConnectorGongDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ConnectorsGongConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorGongDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ConnectorsGongConnectionSettingsSettingsError(BaseModel):
+class ConnectorGongDiscriminatedConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ConnectorsGongConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsGongConnectionSettingsSettingsOAuth
+class ConnectorGongDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorGongDiscriminatedConnectionSettingsSettingsOAuth
 
-    error: Optional[ConnectorsGongConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorGongDiscriminatedConnectionSettingsSettingsError] = None
 
 
-class ConnectorsGongConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorGongDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -1675,7 +3433,7 @@ class ConnectorsGongConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsGongConnectionSettingsConnectorScope(BaseModel):
+class ConnectorGongDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -1683,8 +3441,12 @@ class ConnectorsGongConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsGongConnectionSettingsConnector(BaseModel):
+class ConnectorGongDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -1694,21 +3456,21 @@ class ConnectorsGongConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsGongConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorGongDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsGongConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorGongDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsGongConnectionSettings(BaseModel):
+class ConnectorGongDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["gong"]
 
-    settings: ConnectorsGongConnectionSettingsSettings
+    settings: ConnectorGongDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsGongConnectionSettingsConnector] = None
+    connector: Optional[ConnectorGongDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -1716,513 +3478,27 @@ class ConnectorsGongConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
-    integration_id: Optional[str] = None
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsGooglecalendarConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    access_token: str
-
-    client_id: str
-
-    raw: Dict[str, object]
-
-    scope: str
-
-    expires_at: Optional[str] = None
-
-    expires_in: Optional[float] = None
-
-    refresh_token: Optional[str] = None
-
-    token_type: Optional[str] = None
-
-
-class ConnectorsGooglecalendarConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: str
-
-    credentials: Optional[ConnectorsGooglecalendarConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class ConnectorsGooglecalendarConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsGooglecalendarConnectionSettingsSettingsOAuth
-
-
-class ConnectorsGooglecalendarConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsGooglecalendarConnectionSettingsConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
+    disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-
-class ConnectorsGooglecalendarConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsGooglecalendarConnectionSettingsConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorsGooglecalendarConnectionSettingsConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorsGooglecalendarConnectionSettings(BaseModel):
-    connector_name: Literal["googlecalendar"]
-
-    settings: ConnectorsGooglecalendarConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsGooglecalendarConnectionSettingsConnector] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[str] = None
-
-    customer_id: Optional[str] = None
 
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsGoogledocsConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    access_token: str
-
-    client_id: str
-
-    raw: Dict[str, object]
-
-    scope: str
-
-    expires_at: Optional[str] = None
-
-    expires_in: Optional[float] = None
-
-    refresh_token: Optional[str] = None
-
-    token_type: Optional[str] = None
-
-
-class ConnectorsGoogledocsConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: str
-
-    credentials: Optional[ConnectorsGoogledocsConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class ConnectorsGoogledocsConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsGoogledocsConnectionSettingsSettingsOAuth
-
-
-class ConnectorsGoogledocsConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsGoogledocsConnectionSettingsConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorsGoogledocsConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsGoogledocsConnectionSettingsConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorsGoogledocsConnectionSettingsConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorsGoogledocsConnectionSettings(BaseModel):
-    connector_name: Literal["googledocs"]
-
-    settings: ConnectorsGoogledocsConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsGoogledocsConnectionSettingsConnector] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[str] = None
-
-    customer_id: Optional[str] = None
-
-    integration_id: Optional[str] = None
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsGoogledriveConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    access_token: str
-
-    client_id: str
-
-    raw: Dict[str, object]
-
-    scope: str
-
-    expires_at: Optional[str] = None
-
-    expires_in: Optional[float] = None
-
-    refresh_token: Optional[str] = None
-
-    token_type: Optional[str] = None
-
-
-class ConnectorsGoogledriveConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: str
-
-    credentials: Optional[ConnectorsGoogledriveConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class ConnectorsGoogledriveConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsGoogledriveConnectionSettingsSettingsOAuth
-
-
-class ConnectorsGoogledriveConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsGoogledriveConnectionSettingsConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorsGoogledriveConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsGoogledriveConnectionSettingsConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorsGoogledriveConnectionSettingsConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorsGoogledriveConnectionSettings(BaseModel):
-    connector_name: Literal["googledrive"]
-
-    settings: ConnectorsGoogledriveConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsGoogledriveConnectionSettingsConnector] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[str] = None
-
-    customer_id: Optional[str] = None
-
-    integration_id: Optional[str] = None
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsGooglemailConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    access_token: str
-
-    client_id: str
-
-    raw: Dict[str, object]
-
-    scope: str
-
-    expires_at: Optional[str] = None
-
-    expires_in: Optional[float] = None
-
-    refresh_token: Optional[str] = None
-
-    token_type: Optional[str] = None
-
-
-class ConnectorsGooglemailConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: str
-
-    credentials: Optional[ConnectorsGooglemailConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class ConnectorsGooglemailConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsGooglemailConnectionSettingsSettingsOAuth
-
-
-class ConnectorsGooglemailConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsGooglemailConnectionSettingsConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorsGooglemailConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsGooglemailConnectionSettingsConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorsGooglemailConnectionSettingsConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorsGooglemailConnectionSettings(BaseModel):
-    connector_name: Literal["googlemail"]
-
-    settings: ConnectorsGooglemailConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsGooglemailConnectionSettingsConnector] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[str] = None
-
-    customer_id: Optional[str] = None
-
-    integration_id: Optional[str] = None
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsGooglesheetConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    access_token: str
-
-    client_id: str
-
-    raw: Dict[str, object]
-
-    scope: str
-
-    expires_at: Optional[str] = None
-
-    expires_in: Optional[float] = None
-
-    refresh_token: Optional[str] = None
-
-    token_type: Optional[str] = None
-
-
-class ConnectorsGooglesheetConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: str
-
-    credentials: Optional[ConnectorsGooglesheetConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class ConnectorsGooglesheetConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsGooglesheetConnectionSettingsSettingsOAuth
-
-
-class ConnectorsGooglesheetConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsGooglesheetConnectionSettingsConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorsGooglesheetConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsGooglesheetConnectionSettingsConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorsGooglesheetConnectionSettingsConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorsGooglesheetConnectionSettings(BaseModel):
-    connector_name: Literal["googlesheet"]
-
-    settings: ConnectorsGooglesheetConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsGooglesheetConnectionSettingsConnector] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[str] = None
-
-    customer_id: Optional[str] = None
-
-    integration_id: Optional[str] = None
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsGreenhouseConnectionSettingsSettings(BaseModel):
+class ConnectorGreenhouseDiscriminatedConnectionSettingsSettings(BaseModel):
     api_key: str = FieldInfo(alias="apiKey")
 
 
-class ConnectorsGreenhouseConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorGreenhouseDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -2238,7 +3514,7 @@ class ConnectorsGreenhouseConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsGreenhouseConnectionSettingsConnectorScope(BaseModel):
+class ConnectorGreenhouseDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -2246,8 +3522,12 @@ class ConnectorsGreenhouseConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsGreenhouseConnectionSettingsConnector(BaseModel):
+class ConnectorGreenhouseDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -2257,21 +3537,21 @@ class ConnectorsGreenhouseConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsGreenhouseConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorGreenhouseDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsGreenhouseConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorGreenhouseDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsGreenhouseConnectionSettings(BaseModel):
+class ConnectorGreenhouseDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["greenhouse"]
 
-    settings: ConnectorsGreenhouseConnectionSettingsSettings
+    settings: ConnectorGreenhouseDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsGreenhouseConnectionSettingsConnector] = None
+    connector: Optional[ConnectorGreenhouseDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -2279,14 +3559,23 @@ class ConnectorsGreenhouseConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsHeronConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorHeronDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -2302,7 +3591,7 @@ class ConnectorsHeronConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsHeronConnectionSettingsConnectorScope(BaseModel):
+class ConnectorHeronDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -2310,8 +3599,12 @@ class ConnectorsHeronConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsHeronConnectionSettingsConnector(BaseModel):
+class ConnectorHeronDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -2321,21 +3614,21 @@ class ConnectorsHeronConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsHeronConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorHeronDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsHeronConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorHeronDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsHeronConnectionSettings(BaseModel):
+class ConnectorHeronDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["heron"]
 
-    settings: None = None
+    settings: object
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsHeronConnectionSettingsConnector] = None
+    connector: Optional[ConnectorHeronDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -2343,113 +3636,23 @@ class ConnectorsHeronConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
-    integration_id: Optional[str] = None
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsHubspotConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    access_token: str
-
-    client_id: str
-
-    raw: Dict[str, object]
-
-    scope: str
-
-    expires_at: Optional[str] = None
-
-    expires_in: Optional[float] = None
-
-    refresh_token: Optional[str] = None
-
-    token_type: Optional[str] = None
-
-
-class ConnectorsHubspotConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: str
-
-    credentials: Optional[ConnectorsHubspotConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class ConnectorsHubspotConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsHubspotConnectionSettingsSettingsOAuth
-
-
-class ConnectorsHubspotConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsHubspotConnectionSettingsConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
+    disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-
-class ConnectorsHubspotConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsHubspotConnectionSettingsConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorsHubspotConnectionSettingsConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorsHubspotConnectionSettings(BaseModel):
-    connector_name: Literal["hubspot"]
-
-    settings: ConnectorsHubspotConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsHubspotConnectionSettingsConnector] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[str] = None
-
-    customer_id: Optional[str] = None
 
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsInstagramConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     expires_at: Optional[datetime] = None
@@ -2471,8 +3674,8 @@ class ConnectorsInstagramConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsInstagramConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ConnectorsInstagramConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -2485,7 +3688,7 @@ class ConnectorsInstagramConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ConnectorsInstagramConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -2497,27 +3700,27 @@ class ConnectorsInstagramConnectionSettingsSettingsOAuthConnectionConfig(BaseMod
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsInstagramConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ConnectorsInstagramConnectionSettingsSettingsOAuthCredentials
+class ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ConnectorsInstagramConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ConnectorsInstagramConnectionSettingsSettingsError(BaseModel):
+class ConnectorInstagramDiscriminatedConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ConnectorsInstagramConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsInstagramConnectionSettingsSettingsOAuth
+class ConnectorInstagramDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuth
 
-    error: Optional[ConnectorsInstagramConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorInstagramDiscriminatedConnectionSettingsSettingsError] = None
 
 
-class ConnectorsInstagramConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorInstagramDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -2533,7 +3736,7 @@ class ConnectorsInstagramConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsInstagramConnectionSettingsConnectorScope(BaseModel):
+class ConnectorInstagramDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -2541,8 +3744,12 @@ class ConnectorsInstagramConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsInstagramConnectionSettingsConnector(BaseModel):
+class ConnectorInstagramDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -2552,21 +3759,21 @@ class ConnectorsInstagramConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsInstagramConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorInstagramDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsInstagramConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorInstagramDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsInstagramConnectionSettings(BaseModel):
+class ConnectorInstagramDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["instagram"]
 
-    settings: ConnectorsInstagramConnectionSettingsSettings
+    settings: ConnectorInstagramDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsInstagramConnectionSettingsConnector] = None
+    connector: Optional[ConnectorInstagramDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -2574,14 +3781,23 @@ class ConnectorsInstagramConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     expires_at: Optional[datetime] = None
@@ -2603,8 +3819,8 @@ class ConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel)
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsIntercomConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -2617,7 +3833,7 @@ class ConnectorsIntercomConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -2629,27 +3845,27 @@ class ConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfig(BaseMode
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsIntercomConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ConnectorsIntercomConnectionSettingsSettingsOAuthCredentials
+class ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ConnectorsIntercomConnectionSettingsSettingsError(BaseModel):
+class ConnectorIntercomDiscriminatedConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ConnectorsIntercomConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsIntercomConnectionSettingsSettingsOAuth
+class ConnectorIntercomDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuth
 
-    error: Optional[ConnectorsIntercomConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorIntercomDiscriminatedConnectionSettingsSettingsError] = None
 
 
-class ConnectorsIntercomConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorIntercomDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -2665,7 +3881,7 @@ class ConnectorsIntercomConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsIntercomConnectionSettingsConnectorScope(BaseModel):
+class ConnectorIntercomDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -2673,8 +3889,12 @@ class ConnectorsIntercomConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsIntercomConnectionSettingsConnector(BaseModel):
+class ConnectorIntercomDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -2684,21 +3904,21 @@ class ConnectorsIntercomConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsIntercomConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorIntercomDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsIntercomConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorIntercomDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsIntercomConnectionSettings(BaseModel):
+class ConnectorIntercomDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["intercom"]
 
-    settings: ConnectorsIntercomConnectionSettingsSettings
+    settings: ConnectorIntercomDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsIntercomConnectionSettingsConnector] = None
+    connector: Optional[ConnectorIntercomDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -2706,14 +3926,23 @@ class ConnectorsIntercomConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     expires_at: Optional[datetime] = None
@@ -2735,8 +3964,8 @@ class ConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsJiraConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -2749,7 +3978,7 @@ class ConnectorsJiraConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -2761,27 +3990,27 @@ class ConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsJiraConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ConnectorsJiraConnectionSettingsSettingsOAuthCredentials
+class ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ConnectorsJiraConnectionSettingsSettingsError(BaseModel):
+class ConnectorJiraDiscriminatedConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ConnectorsJiraConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsJiraConnectionSettingsSettingsOAuth
+class ConnectorJiraDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuth
 
-    error: Optional[ConnectorsJiraConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorJiraDiscriminatedConnectionSettingsSettingsError] = None
 
 
-class ConnectorsJiraConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorJiraDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -2797,7 +4026,7 @@ class ConnectorsJiraConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsJiraConnectionSettingsConnectorScope(BaseModel):
+class ConnectorJiraDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -2805,8 +4034,12 @@ class ConnectorsJiraConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsJiraConnectionSettingsConnector(BaseModel):
+class ConnectorJiraDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -2816,21 +4049,21 @@ class ConnectorsJiraConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsJiraConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorJiraDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsJiraConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorJiraDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsJiraConnectionSettings(BaseModel):
+class ConnectorJiraDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["jira"]
 
-    settings: ConnectorsJiraConnectionSettingsSettings
+    settings: ConnectorJiraDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsJiraConnectionSettingsConnector] = None
+    connector: Optional[ConnectorJiraDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -2838,14 +4071,23 @@ class ConnectorsJiraConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     expires_at: Optional[datetime] = None
@@ -2867,8 +4109,8 @@ class ConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel)
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsKustomerConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -2881,7 +4123,7 @@ class ConnectorsKustomerConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -2893,27 +4135,27 @@ class ConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfig(BaseMode
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsKustomerConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ConnectorsKustomerConnectionSettingsSettingsOAuthCredentials
+class ConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ConnectorsKustomerConnectionSettingsSettingsError(BaseModel):
+class ConnectorKustomerDiscriminatedConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ConnectorsKustomerConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsKustomerConnectionSettingsSettingsOAuth
+class ConnectorKustomerDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuth
 
-    error: Optional[ConnectorsKustomerConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorKustomerDiscriminatedConnectionSettingsSettingsError] = None
 
 
-class ConnectorsKustomerConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorKustomerDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -2929,7 +4171,7 @@ class ConnectorsKustomerConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsKustomerConnectionSettingsConnectorScope(BaseModel):
+class ConnectorKustomerDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -2937,8 +4179,12 @@ class ConnectorsKustomerConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsKustomerConnectionSettingsConnector(BaseModel):
+class ConnectorKustomerDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -2948,21 +4194,21 @@ class ConnectorsKustomerConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsKustomerConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorKustomerDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsKustomerConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorKustomerDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsKustomerConnectionSettings(BaseModel):
+class ConnectorKustomerDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["kustomer"]
 
-    settings: ConnectorsKustomerConnectionSettingsSettings
+    settings: ConnectorKustomerDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsKustomerConnectionSettingsConnector] = None
+    connector: Optional[ConnectorKustomerDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -2970,14 +4216,23 @@ class ConnectorsKustomerConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     expires_at: Optional[datetime] = None
@@ -2999,8 +4254,8 @@ class ConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsLeverConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -3013,7 +4268,7 @@ class ConnectorsLeverConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -3025,27 +4280,27 @@ class ConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsLeverConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ConnectorsLeverConnectionSettingsSettingsOAuthCredentials
+class ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ConnectorsLeverConnectionSettingsSettingsError(BaseModel):
+class ConnectorLeverDiscriminatedConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ConnectorsLeverConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsLeverConnectionSettingsSettingsOAuth
+class ConnectorLeverDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuth
 
-    error: Optional[ConnectorsLeverConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorLeverDiscriminatedConnectionSettingsSettingsError] = None
 
 
-class ConnectorsLeverConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorLeverDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -3061,7 +4316,7 @@ class ConnectorsLeverConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsLeverConnectionSettingsConnectorScope(BaseModel):
+class ConnectorLeverDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -3069,8 +4324,12 @@ class ConnectorsLeverConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsLeverConnectionSettingsConnector(BaseModel):
+class ConnectorLeverDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -3080,21 +4339,21 @@ class ConnectorsLeverConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsLeverConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorLeverDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsLeverConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorLeverDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsLeverConnectionSettings(BaseModel):
+class ConnectorLeverDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["lever"]
 
-    settings: ConnectorsLeverConnectionSettingsSettings
+    settings: ConnectorLeverDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsLeverConnectionSettingsConnector] = None
+    connector: Optional[ConnectorLeverDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3102,49 +4361,23 @@ class ConnectorsLeverConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsLinearConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    access_token: str
-
-    client_id: str
-
-    raw: Dict[str, object]
-
-    scope: str
-
-    expires_at: Optional[str] = None
-
-    expires_in: Optional[float] = None
-
-    refresh_token: Optional[str] = None
-
-    token_type: Optional[str] = None
-
-
-class ConnectorsLinearConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: str
-
-    credentials: Optional[ConnectorsLinearConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class ConnectorsLinearConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsLinearConnectionSettingsSettingsOAuth
-
-
-class ConnectorsLinearConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorLunchmoneyDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -3160,7 +4393,7 @@ class ConnectorsLinearConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsLinearConnectionSettingsConnectorScope(BaseModel):
+class ConnectorLunchmoneyDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -3168,8 +4401,12 @@ class ConnectorsLinearConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsLinearConnectionSettingsConnector(BaseModel):
+class ConnectorLunchmoneyDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -3179,184 +4416,21 @@ class ConnectorsLinearConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsLinearConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorLunchmoneyDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsLinearConnectionSettingsConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorsLinearConnectionSettings(BaseModel):
-    connector_name: Literal["linear"]
-
-    settings: ConnectorsLinearConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsLinearConnectionSettingsConnector] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[str] = None
-
-    customer_id: Optional[str] = None
-
-    integration_id: Optional[str] = None
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsLinkedinConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    access_token: str
-
-    client_id: str
-
-    raw: Dict[str, object]
-
-    scope: str
-
-    expires_at: Optional[str] = None
-
-    expires_in: Optional[float] = None
-
-    refresh_token: Optional[str] = None
-
-    token_type: Optional[str] = None
-
-
-class ConnectorsLinkedinConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: str
-
-    credentials: Optional[ConnectorsLinkedinConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class ConnectorsLinkedinConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsLinkedinConnectionSettingsSettingsOAuth
-
-
-class ConnectorsLinkedinConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsLinkedinConnectionSettingsConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorsLinkedinConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsLinkedinConnectionSettingsConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorsLinkedinConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorLunchmoneyDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsLinkedinConnectionSettings(BaseModel):
-    connector_name: Literal["linkedin"]
-
-    settings: ConnectorsLinkedinConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsLinkedinConnectionSettingsConnector] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[str] = None
-
-    customer_id: Optional[str] = None
-
-    integration_id: Optional[str] = None
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsLunchmoneyConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsLunchmoneyConnectionSettingsConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorsLunchmoneyConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsLunchmoneyConnectionSettingsConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorsLunchmoneyConnectionSettingsConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorsLunchmoneyConnectionSettings(BaseModel):
+class ConnectorLunchmoneyDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["lunchmoney"]
 
-    settings: None = None
+    settings: object
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsLunchmoneyConnectionSettingsConnector] = None
+    connector: Optional[ConnectorLunchmoneyDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3364,14 +4438,23 @@ class ConnectorsLunchmoneyConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsMercuryConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorMercuryDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -3387,7 +4470,7 @@ class ConnectorsMercuryConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsMercuryConnectionSettingsConnectorScope(BaseModel):
+class ConnectorMercuryDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -3395,8 +4478,12 @@ class ConnectorsMercuryConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsMercuryConnectionSettingsConnector(BaseModel):
+class ConnectorMercuryDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -3406,21 +4493,21 @@ class ConnectorsMercuryConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsMercuryConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorMercuryDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsMercuryConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorMercuryDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsMercuryConnectionSettings(BaseModel):
+class ConnectorMercuryDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["mercury"]
 
-    settings: None = None
+    settings: object
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsMercuryConnectionSettingsConnector] = None
+    connector: Optional[ConnectorMercuryDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3428,20 +4515,29 @@ class ConnectorsMercuryConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsMergeConnectionSettingsSettings(BaseModel):
+class ConnectorMergeDiscriminatedConnectionSettingsSettings(BaseModel):
     account_token: str = FieldInfo(alias="accountToken")
 
     account_details: Optional[object] = FieldInfo(alias="accountDetails", default=None)
 
 
-class ConnectorsMergeConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorMergeDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -3457,7 +4553,7 @@ class ConnectorsMergeConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsMergeConnectionSettingsConnectorScope(BaseModel):
+class ConnectorMergeDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -3465,8 +4561,12 @@ class ConnectorsMergeConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsMergeConnectionSettingsConnector(BaseModel):
+class ConnectorMergeDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -3476,21 +4576,21 @@ class ConnectorsMergeConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsMergeConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorMergeDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsMergeConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorMergeDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsMergeConnectionSettings(BaseModel):
+class ConnectorMergeDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["merge"]
 
-    settings: ConnectorsMergeConnectionSettingsSettings
+    settings: ConnectorMergeDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsMergeConnectionSettingsConnector] = None
+    connector: Optional[ConnectorMergeDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3498,14 +4598,23 @@ class ConnectorsMergeConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     expires_at: Optional[datetime] = None
@@ -3527,8 +4636,8 @@ class ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -3541,7 +4650,7 @@ class ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -3553,29 +4662,29 @@ class ConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig(BaseMod
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsMicrosoftConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentials
+class ConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ConnectorsMicrosoftConnectionSettingsSettingsError(BaseModel):
+class ConnectorMicrosoftDiscriminatedConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ConnectorsMicrosoftConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsMicrosoftConnectionSettingsSettingsOAuth
+class ConnectorMicrosoftDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuth
 
     client_id: Optional[str] = None
 
-    error: Optional[ConnectorsMicrosoftConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorMicrosoftDiscriminatedConnectionSettingsSettingsError] = None
 
 
-class ConnectorsMicrosoftConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorMicrosoftDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -3591,7 +4700,7 @@ class ConnectorsMicrosoftConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsMicrosoftConnectionSettingsConnectorScope(BaseModel):
+class ConnectorMicrosoftDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -3599,8 +4708,12 @@ class ConnectorsMicrosoftConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsMicrosoftConnectionSettingsConnector(BaseModel):
+class ConnectorMicrosoftDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -3610,21 +4723,21 @@ class ConnectorsMicrosoftConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsMicrosoftConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorMicrosoftDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsMicrosoftConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorMicrosoftDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsMicrosoftConnectionSettings(BaseModel):
+class ConnectorMicrosoftDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["microsoft"]
 
-    settings: ConnectorsMicrosoftConnectionSettingsSettings
+    settings: ConnectorMicrosoftDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsMicrosoftConnectionSettingsConnector] = None
+    connector: Optional[ConnectorMicrosoftDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3632,14 +4745,23 @@ class ConnectorsMicrosoftConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsMootaConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorMootaDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -3655,7 +4777,7 @@ class ConnectorsMootaConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsMootaConnectionSettingsConnectorScope(BaseModel):
+class ConnectorMootaDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -3663,8 +4785,12 @@ class ConnectorsMootaConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsMootaConnectionSettingsConnector(BaseModel):
+class ConnectorMootaDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -3674,21 +4800,21 @@ class ConnectorsMootaConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsMootaConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorMootaDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsMootaConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorMootaDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsMootaConnectionSettings(BaseModel):
+class ConnectorMootaDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["moota"]
 
-    settings: None = None
+    settings: object
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsMootaConnectionSettingsConnector] = None
+    connector: Optional[ConnectorMootaDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3696,117 +4822,27 @@ class ConnectorsMootaConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
-    integration_id: Optional[str] = None
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsNotionConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    access_token: str
-
-    client_id: str
-
-    raw: Dict[str, object]
-
-    scope: str
-
-    expires_at: Optional[str] = None
-
-    expires_in: Optional[float] = None
-
-    refresh_token: Optional[str] = None
-
-    token_type: Optional[str] = None
-
-
-class ConnectorsNotionConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: str
-
-    credentials: Optional[ConnectorsNotionConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class ConnectorsNotionConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsNotionConnectionSettingsSettingsOAuth
-
-
-class ConnectorsNotionConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsNotionConnectionSettingsConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
+    disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-
-class ConnectorsNotionConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsNotionConnectionSettingsConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorsNotionConnectionSettingsConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorsNotionConnectionSettings(BaseModel):
-    connector_name: Literal["notion"]
-
-    settings: ConnectorsNotionConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsNotionConnectionSettingsConnector] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[str] = None
-
-    customer_id: Optional[str] = None
 
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsOnebrickConnectionSettingsSettings(BaseModel):
+class ConnectorOnebrickDiscriminatedConnectionSettingsSettings(BaseModel):
     access_token: str = FieldInfo(alias="accessToken")
 
 
-class ConnectorsOnebrickConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorOnebrickDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -3822,7 +4858,7 @@ class ConnectorsOnebrickConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsOnebrickConnectionSettingsConnectorScope(BaseModel):
+class ConnectorOnebrickDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -3830,8 +4866,12 @@ class ConnectorsOnebrickConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsOnebrickConnectionSettingsConnector(BaseModel):
+class ConnectorOnebrickDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -3841,21 +4881,21 @@ class ConnectorsOnebrickConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsOnebrickConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorOnebrickDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsOnebrickConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorOnebrickDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsOnebrickConnectionSettings(BaseModel):
+class ConnectorOnebrickDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["onebrick"]
 
-    settings: ConnectorsOnebrickConnectionSettingsSettings
+    settings: ConnectorOnebrickDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsOnebrickConnectionSettingsConnector] = None
+    connector: Optional[ConnectorOnebrickDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3863,14 +4903,23 @@ class ConnectorsOnebrickConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     expires_at: Optional[datetime] = None
@@ -3892,8 +4941,8 @@ class ConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel)
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsOutreachConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -3906,7 +4955,7 @@ class ConnectorsOutreachConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -3918,27 +4967,27 @@ class ConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfig(BaseMode
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsOutreachConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ConnectorsOutreachConnectionSettingsSettingsOAuthCredentials
+class ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ConnectorsOutreachConnectionSettingsSettingsError(BaseModel):
+class ConnectorOutreachDiscriminatedConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ConnectorsOutreachConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsOutreachConnectionSettingsSettingsOAuth
+class ConnectorOutreachDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuth
 
-    error: Optional[ConnectorsOutreachConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorOutreachDiscriminatedConnectionSettingsSettingsError] = None
 
 
-class ConnectorsOutreachConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorOutreachDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -3954,7 +5003,7 @@ class ConnectorsOutreachConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsOutreachConnectionSettingsConnectorScope(BaseModel):
+class ConnectorOutreachDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -3962,8 +5011,12 @@ class ConnectorsOutreachConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsOutreachConnectionSettingsConnector(BaseModel):
+class ConnectorOutreachDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -3973,21 +5026,21 @@ class ConnectorsOutreachConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsOutreachConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorOutreachDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsOutreachConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorOutreachDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsOutreachConnectionSettings(BaseModel):
+class ConnectorOutreachDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["outreach"]
 
-    settings: ConnectorsOutreachConnectionSettingsSettings
+    settings: ConnectorOutreachDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsOutreachConnectionSettingsConnector] = None
+    connector: Optional[ConnectorOutreachDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -3995,14 +5048,23 @@ class ConnectorsOutreachConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     expires_at: Optional[datetime] = None
@@ -4024,8 +5086,8 @@ class ConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsPipedriveConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -4038,7 +5100,7 @@ class ConnectorsPipedriveConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -4050,27 +5112,27 @@ class ConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfig(BaseMod
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsPipedriveConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ConnectorsPipedriveConnectionSettingsSettingsOAuthCredentials
+class ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ConnectorsPipedriveConnectionSettingsSettingsError(BaseModel):
+class ConnectorPipedriveDiscriminatedConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ConnectorsPipedriveConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsPipedriveConnectionSettingsSettingsOAuth
+class ConnectorPipedriveDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuth
 
-    error: Optional[ConnectorsPipedriveConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorPipedriveDiscriminatedConnectionSettingsSettingsError] = None
 
 
-class ConnectorsPipedriveConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorPipedriveDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -4086,7 +5148,7 @@ class ConnectorsPipedriveConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsPipedriveConnectionSettingsConnectorScope(BaseModel):
+class ConnectorPipedriveDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -4094,8 +5156,12 @@ class ConnectorsPipedriveConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsPipedriveConnectionSettingsConnector(BaseModel):
+class ConnectorPipedriveDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -4105,21 +5171,21 @@ class ConnectorsPipedriveConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsPipedriveConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorPipedriveDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsPipedriveConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorPipedriveDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsPipedriveConnectionSettings(BaseModel):
+class ConnectorPipedriveDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["pipedrive"]
 
-    settings: ConnectorsPipedriveConnectionSettingsSettings
+    settings: ConnectorPipedriveDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsPipedriveConnectionSettingsConnector] = None
+    connector: Optional[ConnectorPipedriveDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4127,14 +5193,23 @@ class ConnectorsPipedriveConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsPlaidConnectionSettingsSettings(BaseModel):
+class ConnectorPlaidDiscriminatedConnectionSettingsSettings(BaseModel):
     access_token: str = FieldInfo(alias="accessToken")
 
     institution: Optional[object] = None
@@ -4148,7 +5223,7 @@ class ConnectorsPlaidConnectionSettingsSettings(BaseModel):
     webhook_item_error: None = FieldInfo(alias="webhookItemError", default=None)
 
 
-class ConnectorsPlaidConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorPlaidDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -4164,7 +5239,7 @@ class ConnectorsPlaidConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsPlaidConnectionSettingsConnectorScope(BaseModel):
+class ConnectorPlaidDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -4172,8 +5247,12 @@ class ConnectorsPlaidConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsPlaidConnectionSettingsConnector(BaseModel):
+class ConnectorPlaidDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -4183,21 +5262,21 @@ class ConnectorsPlaidConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsPlaidConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorPlaidDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsPlaidConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorPlaidDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsPlaidConnectionSettings(BaseModel):
+class ConnectorPlaidDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["plaid"]
 
-    settings: ConnectorsPlaidConnectionSettingsSettings
+    settings: ConnectorPlaidDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsPlaidConnectionSettingsConnector] = None
+    connector: Optional[ConnectorPlaidDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4205,27 +5284,36 @@ class ConnectorsPlaidConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsPostgresConnectionSettingsSettingsSourceQueries(BaseModel):
+class ConnectorPostgresDiscriminatedConnectionSettingsSettingsSourceQueries(BaseModel):
     invoice: Optional[str] = None
     """Should order by lastModifiedAt and id descending"""
 
 
-class ConnectorsPostgresConnectionSettingsSettings(BaseModel):
+class ConnectorPostgresDiscriminatedConnectionSettingsSettings(BaseModel):
     database_url: str = FieldInfo(alias="databaseUrl")
 
-    source_queries: Optional[ConnectorsPostgresConnectionSettingsSettingsSourceQueries] = FieldInfo(
+    source_queries: Optional[ConnectorPostgresDiscriminatedConnectionSettingsSettingsSourceQueries] = FieldInfo(
         alias="sourceQueries", default=None
     )
 
 
-class ConnectorsPostgresConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorPostgresDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -4241,7 +5329,7 @@ class ConnectorsPostgresConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsPostgresConnectionSettingsConnectorScope(BaseModel):
+class ConnectorPostgresDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -4249,8 +5337,12 @@ class ConnectorsPostgresConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsPostgresConnectionSettingsConnector(BaseModel):
+class ConnectorPostgresDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -4260,21 +5352,21 @@ class ConnectorsPostgresConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsPostgresConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorPostgresDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsPostgresConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorPostgresDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsPostgresConnectionSettings(BaseModel):
+class ConnectorPostgresDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["postgres"]
 
-    settings: ConnectorsPostgresConnectionSettingsSettings
+    settings: ConnectorPostgresDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsPostgresConnectionSettingsConnector] = None
+    connector: Optional[ConnectorPostgresDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4282,122 +5374,29 @@ class ConnectorsPostgresConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
-    integration_id: Optional[str] = None
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsQuickbooksConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    access_token: str
-
-    client_id: str
-
-    raw: Dict[str, object]
-
-    scope: str
-
-    expires_at: Optional[str] = None
-
-    expires_in: Optional[float] = None
-
-    refresh_token: Optional[str] = None
-
-    token_type: Optional[str] = None
-
-
-class ConnectorsQuickbooksConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: str
-
-    credentials: Optional[ConnectorsQuickbooksConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class ConnectorsQuickbooksConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsQuickbooksConnectionSettingsSettingsOAuth
-
-    realm_id: str = FieldInfo(alias="realmId")
-    """The realmId of your quickbooks company (e.g., 9341453474484455)"""
-
-
-class ConnectorsQuickbooksConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsQuickbooksConnectionSettingsConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
+    disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-
-class ConnectorsQuickbooksConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsQuickbooksConnectionSettingsConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorsQuickbooksConnectionSettingsConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorsQuickbooksConnectionSettings(BaseModel):
-    connector_name: Literal["quickbooks"]
-
-    settings: ConnectorsQuickbooksConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsQuickbooksConnectionSettingsConnector] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[str] = None
-
-    customer_id: Optional[str] = None
 
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsRampConnectionSettingsSettings(BaseModel):
+class ConnectorRampDiscriminatedConnectionSettingsSettings(BaseModel):
     access_token: Optional[str] = FieldInfo(alias="accessToken", default=None)
 
     start_after_transaction_id: Optional[str] = FieldInfo(alias="startAfterTransactionId", default=None)
 
 
-class ConnectorsRampConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorRampDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -4413,7 +5412,7 @@ class ConnectorsRampConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsRampConnectionSettingsConnectorScope(BaseModel):
+class ConnectorRampDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -4421,8 +5420,12 @@ class ConnectorsRampConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsRampConnectionSettingsConnector(BaseModel):
+class ConnectorRampDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -4432,21 +5435,21 @@ class ConnectorsRampConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsRampConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorRampDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsRampConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorRampDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsRampConnectionSettings(BaseModel):
+class ConnectorRampDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["ramp"]
 
-    settings: ConnectorsRampConnectionSettingsSettings
+    settings: ConnectorRampDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsRampConnectionSettingsConnector] = None
+    connector: Optional[ConnectorRampDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4454,14 +5457,23 @@ class ConnectorsRampConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsRedditConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     expires_at: Optional[datetime] = None
@@ -4483,8 +5495,8 @@ class ConnectorsRedditConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsRedditConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ConnectorsRedditConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -4497,7 +5509,7 @@ class ConnectorsRedditConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ConnectorsRedditConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -4509,27 +5521,27 @@ class ConnectorsRedditConnectionSettingsSettingsOAuthConnectionConfig(BaseModel)
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsRedditConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ConnectorsRedditConnectionSettingsSettingsOAuthCredentials
+class ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ConnectorsRedditConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ConnectorsRedditConnectionSettingsSettingsError(BaseModel):
+class ConnectorRedditDiscriminatedConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ConnectorsRedditConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsRedditConnectionSettingsSettingsOAuth
+class ConnectorRedditDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuth
 
-    error: Optional[ConnectorsRedditConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorRedditDiscriminatedConnectionSettingsSettingsError] = None
 
 
-class ConnectorsRedditConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorRedditDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -4545,7 +5557,7 @@ class ConnectorsRedditConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsRedditConnectionSettingsConnectorScope(BaseModel):
+class ConnectorRedditDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -4553,8 +5565,12 @@ class ConnectorsRedditConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsRedditConnectionSettingsConnector(BaseModel):
+class ConnectorRedditDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -4564,21 +5580,21 @@ class ConnectorsRedditConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsRedditConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorRedditDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsRedditConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorRedditDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsRedditConnectionSettings(BaseModel):
+class ConnectorRedditDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["reddit"]
 
-    settings: ConnectorsRedditConnectionSettingsSettings
+    settings: ConnectorRedditDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsRedditConnectionSettingsConnector] = None
+    connector: Optional[ConnectorRedditDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4586,116 +5602,23 @@ class ConnectorsRedditConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
-    integration_id: Optional[str] = None
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsSalesforceConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    access_token: str
-
-    client_id: str
-
-    raw: Dict[str, object]
-
-    scope: str
-
-    expires_at: Optional[str] = None
-
-    expires_in: Optional[float] = None
-
-    refresh_token: Optional[str] = None
-
-    token_type: Optional[str] = None
-
-
-class ConnectorsSalesforceConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: str
-
-    credentials: Optional[ConnectorsSalesforceConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class ConnectorsSalesforceConnectionSettingsSettings(BaseModel):
-    instance_url: str
-    """The instance URL of your Salesforce account (e.g., example)"""
-
-    oauth: ConnectorsSalesforceConnectionSettingsSettingsOAuth
-
-
-class ConnectorsSalesforceConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsSalesforceConnectionSettingsConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
+    disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-
-class ConnectorsSalesforceConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsSalesforceConnectionSettingsConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorsSalesforceConnectionSettingsConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorsSalesforceConnectionSettings(BaseModel):
-    connector_name: Literal["salesforce"]
-
-    settings: ConnectorsSalesforceConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsSalesforceConnectionSettingsConnector] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[str] = None
-
-    customer_id: Optional[str] = None
 
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     expires_at: Optional[datetime] = None
@@ -4717,8 +5640,8 @@ class ConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsSalesloftConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -4731,7 +5654,7 @@ class ConnectorsSalesloftConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -4743,27 +5666,27 @@ class ConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfig(BaseMod
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsSalesloftConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ConnectorsSalesloftConnectionSettingsSettingsOAuthCredentials
+class ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ConnectorsSalesloftConnectionSettingsSettingsError(BaseModel):
+class ConnectorSalesloftDiscriminatedConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ConnectorsSalesloftConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsSalesloftConnectionSettingsSettingsOAuth
+class ConnectorSalesloftDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth
 
-    error: Optional[ConnectorsSalesloftConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorSalesloftDiscriminatedConnectionSettingsSettingsError] = None
 
 
-class ConnectorsSalesloftConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorSalesloftDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -4779,7 +5702,7 @@ class ConnectorsSalesloftConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsSalesloftConnectionSettingsConnectorScope(BaseModel):
+class ConnectorSalesloftDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -4787,8 +5710,12 @@ class ConnectorsSalesloftConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsSalesloftConnectionSettingsConnector(BaseModel):
+class ConnectorSalesloftDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -4798,21 +5725,21 @@ class ConnectorsSalesloftConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsSalesloftConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorSalesloftDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsSalesloftConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorSalesloftDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsSalesloftConnectionSettings(BaseModel):
+class ConnectorSalesloftDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["salesloft"]
 
-    settings: ConnectorsSalesloftConnectionSettingsSettings
+    settings: ConnectorSalesloftDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsSalesloftConnectionSettingsConnector] = None
+    connector: Optional[ConnectorSalesloftDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4820,14 +5747,23 @@ class ConnectorsSalesloftConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsSaltedgeConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorSaltedgeDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -4843,7 +5779,7 @@ class ConnectorsSaltedgeConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsSaltedgeConnectionSettingsConnectorScope(BaseModel):
+class ConnectorSaltedgeDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -4851,8 +5787,12 @@ class ConnectorsSaltedgeConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsSaltedgeConnectionSettingsConnector(BaseModel):
+class ConnectorSaltedgeDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -4862,19 +5802,19 @@ class ConnectorsSaltedgeConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsSaltedgeConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorSaltedgeDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsSaltedgeConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorSaltedgeDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsSaltedgeConnectionSettings(BaseModel):
+class ConnectorSaltedgeDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["saltedge"]
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsSaltedgeConnectionSettingsConnector] = None
+    connector: Optional[ConnectorSaltedgeDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -4882,214 +5822,25 @@ class ConnectorsSaltedgeConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     settings: Optional[object] = None
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsSharepointonlineConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    access_token: str
-
-    client_id: str
-
-    raw: Dict[str, object]
-
-    scope: str
-
-    expires_at: Optional[str] = None
-
-    expires_in: Optional[float] = None
-
-    refresh_token: Optional[str] = None
-
-    token_type: Optional[str] = None
-
-
-class ConnectorsSharepointonlineConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: str
-
-    credentials: Optional[ConnectorsSharepointonlineConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class ConnectorsSharepointonlineConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsSharepointonlineConnectionSettingsSettingsOAuth
-
-
-class ConnectorsSharepointonlineConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsSharepointonlineConnectionSettingsConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorsSharepointonlineConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsSharepointonlineConnectionSettingsConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorsSharepointonlineConnectionSettingsConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorsSharepointonlineConnectionSettings(BaseModel):
-    connector_name: Literal["sharepointonline"]
-
-    settings: ConnectorsSharepointonlineConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsSharepointonlineConnectionSettingsConnector] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[str] = None
-
-    customer_id: Optional[str] = None
-
-    integration_id: Optional[str] = None
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsSlackConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    access_token: str
-
-    client_id: str
-
-    raw: Dict[str, object]
-
-    scope: str
-
-    expires_at: Optional[str] = None
-
-    expires_in: Optional[float] = None
-
-    refresh_token: Optional[str] = None
-
-    token_type: Optional[str] = None
-
-
-class ConnectorsSlackConnectionSettingsSettingsOAuth(BaseModel):
-    created_at: str
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: str
-
-    credentials: Optional[ConnectorsSlackConnectionSettingsSettingsOAuthCredentials] = None
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class ConnectorsSlackConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsSlackConnectionSettingsSettingsOAuth
-
-
-class ConnectorsSlackConnectionSettingsConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorsSlackConnectionSettingsConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorsSlackConnectionSettingsConnector(BaseModel):
-    name: str
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorsSlackConnectionSettingsConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorsSlackConnectionSettingsConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorsSlackConnectionSettings(BaseModel):
-    connector_name: Literal["slack"]
-
-    settings: ConnectorsSlackConnectionSettingsSettings
-
-    id: Optional[str] = None
-
-    connector: Optional[ConnectorsSlackConnectionSettingsConnector] = None
-
-    connector_config_id: Optional[str] = None
-
-    created_at: Optional[str] = None
-
-    customer_id: Optional[str] = None
-
-    integration_id: Optional[str] = None
-
-    metadata: Optional[Dict[str, object]] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications(BaseModel):
+class ConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUserNotifications(BaseModel):
     added_as_friend: bool
 
     added_to_group: bool
@@ -5107,7 +5858,7 @@ class ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications(Base
     payments: bool
 
 
-class ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture(BaseModel):
+class ConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUserPicture(BaseModel):
     large: Optional[str] = None
 
     medium: Optional[str] = None
@@ -5121,7 +5872,7 @@ class ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture(BaseModel)
     xxlarge: Optional[str] = None
 
 
-class ConnectorsSplitwiseConnectionSettingsSettingsCurrentUser(BaseModel):
+class ConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUser(BaseModel):
     id: float
 
     country_code: str
@@ -5144,26 +5895,26 @@ class ConnectorsSplitwiseConnectionSettingsSettingsCurrentUser(BaseModel):
 
     locale: str
 
-    notifications: ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications
+    notifications: ConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUserNotifications
 
     notifications_count: float
 
     notifications_read: str
 
-    picture: ConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture
+    picture: ConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUserPicture
 
     registration_status: str
 
 
-class ConnectorsSplitwiseConnectionSettingsSettings(BaseModel):
+class ConnectorSplitwiseDiscriminatedConnectionSettingsSettings(BaseModel):
     access_token: str = FieldInfo(alias="accessToken")
 
-    current_user: Optional[ConnectorsSplitwiseConnectionSettingsSettingsCurrentUser] = FieldInfo(
+    current_user: Optional[ConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUser] = FieldInfo(
         alias="currentUser", default=None
     )
 
 
-class ConnectorsSplitwiseConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorSplitwiseDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -5179,7 +5930,7 @@ class ConnectorsSplitwiseConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsSplitwiseConnectionSettingsConnectorScope(BaseModel):
+class ConnectorSplitwiseDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -5187,8 +5938,12 @@ class ConnectorsSplitwiseConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsSplitwiseConnectionSettingsConnector(BaseModel):
+class ConnectorSplitwiseDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -5198,21 +5953,21 @@ class ConnectorsSplitwiseConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsSplitwiseConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorSplitwiseDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsSplitwiseConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorSplitwiseDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsSplitwiseConnectionSettings(BaseModel):
+class ConnectorSplitwiseDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["splitwise"]
 
-    settings: ConnectorsSplitwiseConnectionSettingsSettings
+    settings: ConnectorSplitwiseDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsSplitwiseConnectionSettingsConnector] = None
+    connector: Optional[ConnectorSplitwiseDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -5220,18 +5975,27 @@ class ConnectorsSplitwiseConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsStripeConnectionSettingsSettings(BaseModel):
+class ConnectorStripeDiscriminatedConnectionSettingsSettings(BaseModel):
     secret_key: str = FieldInfo(alias="secretKey")
 
 
-class ConnectorsStripeConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorStripeDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -5247,7 +6011,7 @@ class ConnectorsStripeConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsStripeConnectionSettingsConnectorScope(BaseModel):
+class ConnectorStripeDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -5255,8 +6019,12 @@ class ConnectorsStripeConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsStripeConnectionSettingsConnector(BaseModel):
+class ConnectorStripeDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -5266,21 +6034,21 @@ class ConnectorsStripeConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsStripeConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorStripeDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsStripeConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorStripeDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsStripeConnectionSettings(BaseModel):
+class ConnectorStripeDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["stripe"]
 
-    settings: ConnectorsStripeConnectionSettingsSettings
+    settings: ConnectorStripeDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsStripeConnectionSettingsConnector] = None
+    connector: Optional[ConnectorStripeDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -5288,18 +6056,27 @@ class ConnectorsStripeConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsTellerConnectionSettingsSettings(BaseModel):
+class ConnectorTellerDiscriminatedConnectionSettingsSettings(BaseModel):
     token: str
 
 
-class ConnectorsTellerConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorTellerDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -5315,7 +6092,7 @@ class ConnectorsTellerConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsTellerConnectionSettingsConnectorScope(BaseModel):
+class ConnectorTellerDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -5323,8 +6100,12 @@ class ConnectorsTellerConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsTellerConnectionSettingsConnector(BaseModel):
+class ConnectorTellerDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -5334,21 +6115,21 @@ class ConnectorsTellerConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsTellerConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorTellerDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsTellerConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorTellerDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsTellerConnectionSettings(BaseModel):
+class ConnectorTellerDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["teller"]
 
-    settings: ConnectorsTellerConnectionSettingsSettings
+    settings: ConnectorTellerDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsTellerConnectionSettingsConnector] = None
+    connector: Optional[ConnectorTellerDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -5356,14 +6137,23 @@ class ConnectorsTellerConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsTogglConnectionSettingsSettings(BaseModel):
+class ConnectorTogglDiscriminatedConnectionSettingsSettings(BaseModel):
     api_token: str = FieldInfo(alias="apiToken")
 
     email: Optional[str] = None
@@ -5371,7 +6161,7 @@ class ConnectorsTogglConnectionSettingsSettings(BaseModel):
     password: Optional[str] = None
 
 
-class ConnectorsTogglConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorTogglDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -5387,7 +6177,7 @@ class ConnectorsTogglConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsTogglConnectionSettingsConnectorScope(BaseModel):
+class ConnectorTogglDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -5395,8 +6185,12 @@ class ConnectorsTogglConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsTogglConnectionSettingsConnector(BaseModel):
+class ConnectorTogglDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -5406,21 +6200,21 @@ class ConnectorsTogglConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsTogglConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorTogglDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsTogglConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorTogglDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsTogglConnectionSettings(BaseModel):
+class ConnectorTogglDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["toggl"]
 
-    settings: ConnectorsTogglConnectionSettingsSettings
+    settings: ConnectorTogglDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsTogglConnectionSettingsConnector] = None
+    connector: Optional[ConnectorTogglDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -5428,18 +6222,27 @@ class ConnectorsTogglConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsTwentyConnectionSettingsSettings(BaseModel):
+class ConnectorTwentyDiscriminatedConnectionSettingsSettings(BaseModel):
     access_token: str
 
 
-class ConnectorsTwentyConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorTwentyDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -5455,7 +6258,7 @@ class ConnectorsTwentyConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsTwentyConnectionSettingsConnectorScope(BaseModel):
+class ConnectorTwentyDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -5463,8 +6266,12 @@ class ConnectorsTwentyConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsTwentyConnectionSettingsConnector(BaseModel):
+class ConnectorTwentyDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -5474,21 +6281,21 @@ class ConnectorsTwentyConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsTwentyConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorTwentyDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsTwentyConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorTwentyDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsTwentyConnectionSettings(BaseModel):
+class ConnectorTwentyDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["twenty"]
 
-    settings: ConnectorsTwentyConnectionSettingsSettings
+    settings: ConnectorTwentyDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsTwentyConnectionSettingsConnector] = None
+    connector: Optional[ConnectorTwentyDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -5496,14 +6303,23 @@ class ConnectorsTwentyConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsTwitterConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     expires_at: Optional[datetime] = None
@@ -5525,8 +6341,8 @@ class ConnectorsTwitterConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsTwitterConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ConnectorsTwitterConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -5539,7 +6355,7 @@ class ConnectorsTwitterConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ConnectorsTwitterConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -5551,27 +6367,27 @@ class ConnectorsTwitterConnectionSettingsSettingsOAuthConnectionConfig(BaseModel
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsTwitterConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ConnectorsTwitterConnectionSettingsSettingsOAuthCredentials
+class ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ConnectorsTwitterConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ConnectorsTwitterConnectionSettingsSettingsError(BaseModel):
+class ConnectorTwitterDiscriminatedConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ConnectorsTwitterConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsTwitterConnectionSettingsSettingsOAuth
+class ConnectorTwitterDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuth
 
-    error: Optional[ConnectorsTwitterConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorTwitterDiscriminatedConnectionSettingsSettingsError] = None
 
 
-class ConnectorsTwitterConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorTwitterDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -5587,7 +6403,7 @@ class ConnectorsTwitterConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsTwitterConnectionSettingsConnectorScope(BaseModel):
+class ConnectorTwitterDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -5595,8 +6411,12 @@ class ConnectorsTwitterConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsTwitterConnectionSettingsConnector(BaseModel):
+class ConnectorTwitterDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -5606,21 +6426,21 @@ class ConnectorsTwitterConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsTwitterConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorTwitterDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsTwitterConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorTwitterDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsTwitterConnectionSettings(BaseModel):
+class ConnectorTwitterDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["twitter"]
 
-    settings: ConnectorsTwitterConnectionSettingsSettings
+    settings: ConnectorTwitterDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsTwitterConnectionSettingsConnector] = None
+    connector: Optional[ConnectorTwitterDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -5628,20 +6448,29 @@ class ConnectorsTwitterConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsVenmoConnectionSettingsSettings(BaseModel):
+class ConnectorVenmoDiscriminatedConnectionSettingsSettings(BaseModel):
     credentials: Optional[object] = None
 
     me: Optional[object] = None
 
 
-class ConnectorsVenmoConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorVenmoDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -5657,7 +6486,7 @@ class ConnectorsVenmoConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsVenmoConnectionSettingsConnectorScope(BaseModel):
+class ConnectorVenmoDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -5665,8 +6494,12 @@ class ConnectorsVenmoConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsVenmoConnectionSettingsConnector(BaseModel):
+class ConnectorVenmoDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -5676,21 +6509,21 @@ class ConnectorsVenmoConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsVenmoConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorVenmoDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsVenmoConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorVenmoDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsVenmoConnectionSettings(BaseModel):
+class ConnectorVenmoDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["venmo"]
 
-    settings: ConnectorsVenmoConnectionSettingsSettings
+    settings: ConnectorVenmoDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsVenmoConnectionSettingsConnector] = None
+    connector: Optional[ConnectorVenmoDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -5698,20 +6531,29 @@ class ConnectorsVenmoConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsWiseConnectionSettingsSettings(BaseModel):
+class ConnectorWiseDiscriminatedConnectionSettingsSettings(BaseModel):
     env_name: Literal["sandbox", "live"] = FieldInfo(alias="envName")
 
     api_token: Optional[str] = FieldInfo(alias="apiToken", default=None)
 
 
-class ConnectorsWiseConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorWiseDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -5727,7 +6569,7 @@ class ConnectorsWiseConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsWiseConnectionSettingsConnectorScope(BaseModel):
+class ConnectorWiseDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -5735,8 +6577,12 @@ class ConnectorsWiseConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsWiseConnectionSettingsConnector(BaseModel):
+class ConnectorWiseDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -5746,21 +6592,21 @@ class ConnectorsWiseConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsWiseConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorWiseDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsWiseConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorWiseDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsWiseConnectionSettings(BaseModel):
+class ConnectorWiseDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["wise"]
 
-    settings: ConnectorsWiseConnectionSettingsSettings
+    settings: ConnectorWiseDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsWiseConnectionSettingsConnector] = None
+    connector: Optional[ConnectorWiseDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -5768,14 +6614,23 @@ class ConnectorsWiseConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     expires_at: Optional[datetime] = None
@@ -5797,8 +6652,8 @@ class ConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsXeroConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -5811,7 +6666,7 @@ class ConnectorsXeroConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -5823,27 +6678,27 @@ class ConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsXeroConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ConnectorsXeroConnectionSettingsSettingsOAuthCredentials
+class ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ConnectorsXeroConnectionSettingsSettingsError(BaseModel):
+class ConnectorXeroDiscriminatedConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ConnectorsXeroConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsXeroConnectionSettingsSettingsOAuth
+class ConnectorXeroDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuth
 
-    error: Optional[ConnectorsXeroConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorXeroDiscriminatedConnectionSettingsSettingsError] = None
 
 
-class ConnectorsXeroConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorXeroDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -5859,7 +6714,7 @@ class ConnectorsXeroConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsXeroConnectionSettingsConnectorScope(BaseModel):
+class ConnectorXeroDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -5867,8 +6722,12 @@ class ConnectorsXeroConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsXeroConnectionSettingsConnector(BaseModel):
+class ConnectorXeroDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -5878,21 +6737,21 @@ class ConnectorsXeroConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsXeroConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorXeroDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsXeroConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorXeroDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsXeroConnectionSettings(BaseModel):
+class ConnectorXeroDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["xero"]
 
-    settings: ConnectorsXeroConnectionSettingsSettings
+    settings: ConnectorXeroDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsXeroConnectionSettingsConnector] = None
+    connector: Optional[ConnectorXeroDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -5900,14 +6759,23 @@ class ConnectorsXeroConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsYodleeConnectionSettingsSettingsAccessToken(BaseModel):
+class ConnectorYodleeDiscriminatedConnectionSettingsSettingsAccessToken(BaseModel):
     access_token: str = FieldInfo(alias="accessToken")
 
     expires_in: float = FieldInfo(alias="expiresIn")
@@ -5915,7 +6783,7 @@ class ConnectorsYodleeConnectionSettingsSettingsAccessToken(BaseModel):
     issued_at: str = FieldInfo(alias="issuedAt")
 
 
-class ConnectorsYodleeConnectionSettingsSettingsProviderAccount(BaseModel):
+class ConnectorYodleeDiscriminatedConnectionSettingsSettingsProviderAccount(BaseModel):
     id: float
 
     aggregation_source: str = FieldInfo(alias="aggregationSource")
@@ -5933,25 +6801,25 @@ class ConnectorsYodleeConnectionSettingsSettingsProviderAccount(BaseModel):
     is_deleted: Optional[bool] = FieldInfo(alias="isDeleted", default=None)
 
 
-class ConnectorsYodleeConnectionSettingsSettings(BaseModel):
+class ConnectorYodleeDiscriminatedConnectionSettingsSettings(BaseModel):
     login_name: str = FieldInfo(alias="loginName")
 
     provider_account_id: Union[float, str] = FieldInfo(alias="providerAccountId")
 
-    access_token: Optional[ConnectorsYodleeConnectionSettingsSettingsAccessToken] = FieldInfo(
+    access_token: Optional[ConnectorYodleeDiscriminatedConnectionSettingsSettingsAccessToken] = FieldInfo(
         alias="accessToken", default=None
     )
 
     provider: None = None
 
-    provider_account: Optional[ConnectorsYodleeConnectionSettingsSettingsProviderAccount] = FieldInfo(
+    provider_account: Optional[ConnectorYodleeDiscriminatedConnectionSettingsSettingsProviderAccount] = FieldInfo(
         alias="providerAccount", default=None
     )
 
     user: None = None
 
 
-class ConnectorsYodleeConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorYodleeDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -5967,7 +6835,7 @@ class ConnectorsYodleeConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsYodleeConnectionSettingsConnectorScope(BaseModel):
+class ConnectorYodleeDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -5975,8 +6843,12 @@ class ConnectorsYodleeConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsYodleeConnectionSettingsConnector(BaseModel):
+class ConnectorYodleeDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -5986,21 +6858,21 @@ class ConnectorsYodleeConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsYodleeConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorYodleeDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsYodleeConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorYodleeDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsYodleeConnectionSettings(BaseModel):
+class ConnectorYodleeDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["yodlee"]
 
-    settings: ConnectorsYodleeConnectionSettingsSettings
+    settings: ConnectorYodleeDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsYodleeConnectionSettingsConnector] = None
+    connector: Optional[ConnectorYodleeDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -6008,14 +6880,23 @@ class ConnectorsYodleeConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
-class ConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
+class ConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel):
     access_token: str
 
     expires_at: Optional[datetime] = None
@@ -6037,8 +6918,8 @@ class ConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRaw(BaseModel)
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsZohodeskConnectionSettingsSettingsOAuthCredentials(BaseModel):
-    raw: ConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRaw
+class ConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    raw: ConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw
 
     type: Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]
 
@@ -6051,7 +6932,7 @@ class ConnectorsZohodeskConnectionSettingsSettingsOAuthCredentials(BaseModel):
     refresh_token: Optional[str] = None
 
 
-class ConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
+class ConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig(BaseModel):
     instance_url: Optional[str] = None
 
     portal_id: Optional[float] = FieldInfo(alias="portalId", default=None)
@@ -6063,27 +6944,27 @@ class ConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig(BaseMode
         def __getattr__(self, attr: str) -> object: ...
 
 
-class ConnectorsZohodeskConnectionSettingsSettingsOAuth(BaseModel):
-    credentials: ConnectorsZohodeskConnectionSettingsSettingsOAuthCredentials
+class ConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    credentials: ConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     metadata: Optional[Dict[str, object]] = None
 
-    connection_config: Optional[ConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig] = None
+    connection_config: Optional[ConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig] = None
 
 
-class ConnectorsZohodeskConnectionSettingsSettingsError(BaseModel):
+class ConnectorZohodeskDiscriminatedConnectionSettingsSettingsError(BaseModel):
     code: Union[Literal["refresh_token_external_error"], str]
 
     message: Optional[str] = None
 
 
-class ConnectorsZohodeskConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorsZohodeskConnectionSettingsSettingsOAuth
+class ConnectorZohodeskDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuth
 
-    error: Optional[ConnectorsZohodeskConnectionSettingsSettingsError] = None
+    error: Optional[ConnectorZohodeskDiscriminatedConnectionSettingsSettingsError] = None
 
 
-class ConnectorsZohodeskConnectionSettingsConnectorSchemas(BaseModel):
+class ConnectorZohodeskDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -6099,7 +6980,7 @@ class ConnectorsZohodeskConnectionSettingsConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorsZohodeskConnectionSettingsConnectorScope(BaseModel):
+class ConnectorZohodeskDiscriminatedConnectionSettingsConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -6107,8 +6988,12 @@ class ConnectorsZohodeskConnectionSettingsConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorsZohodeskConnectionSettingsConnector(BaseModel):
+class ConnectorZohodeskDiscriminatedConnectionSettingsConnector(BaseModel):
     name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
 
     display_name: Optional[str] = None
 
@@ -6118,21 +7003,21 @@ class ConnectorsZohodeskConnectionSettingsConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorsZohodeskConnectionSettingsConnectorSchemas] = None
+    schemas: Optional[ConnectorZohodeskDiscriminatedConnectionSettingsConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorsZohodeskConnectionSettingsConnectorScope]] = None
+    scopes: Optional[List[ConnectorZohodeskDiscriminatedConnectionSettingsConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorsZohodeskConnectionSettings(BaseModel):
+class ConnectorZohodeskDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["zohodesk"]
 
-    settings: ConnectorsZohodeskConnectionSettingsSettings
+    settings: ConnectorZohodeskDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
-    connector: Optional[ConnectorsZohodeskConnectionSettingsConnector] = None
+    connector: Optional[ConnectorZohodeskDiscriminatedConnectionSettingsConnector] = None
 
     connector_config_id: Optional[str] = None
 
@@ -6140,70 +7025,80 @@ class ConnectorsZohodeskConnectionSettings(BaseModel):
 
     customer_id: Optional[str] = None
 
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
     integration_id: Optional[str] = None
 
     metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
 
     updated_at: Optional[str] = None
 
 
 GetConnectionResponse: TypeAlias = Union[
-    ConnectorsAircallConnectionSettings,
-    ConnectorsAirtableConnectionSettings,
-    ConnectorsApolloConnectionSettings,
-    ConnectorsBrexConnectionSettings,
-    ConnectorsCodaConnectionSettings,
-    ConnectorsConfluenceConnectionSettings,
-    ConnectorsDiscordConnectionSettings,
-    ConnectorsFacebookConnectionSettings,
-    ConnectorsFinchConnectionSettings,
-    ConnectorsFirebaseConnectionSettings,
-    ConnectorsForeceiptConnectionSettings,
-    ConnectorsGitHubConnectionSettings,
-    ConnectorsGongConnectionSettings,
-    ConnectorsGooglecalendarConnectionSettings,
-    ConnectorsGoogledocsConnectionSettings,
-    ConnectorsGoogledriveConnectionSettings,
-    ConnectorsGooglemailConnectionSettings,
-    ConnectorsGooglesheetConnectionSettings,
-    ConnectorsGreenhouseConnectionSettings,
-    ConnectorsHeronConnectionSettings,
-    ConnectorsHubspotConnectionSettings,
-    ConnectorsInstagramConnectionSettings,
-    ConnectorsIntercomConnectionSettings,
-    ConnectorsJiraConnectionSettings,
-    ConnectorsKustomerConnectionSettings,
-    ConnectorsLeverConnectionSettings,
-    ConnectorsLinearConnectionSettings,
-    ConnectorsLinkedinConnectionSettings,
-    ConnectorsLunchmoneyConnectionSettings,
-    ConnectorsMercuryConnectionSettings,
-    ConnectorsMergeConnectionSettings,
-    ConnectorsMicrosoftConnectionSettings,
-    ConnectorsMootaConnectionSettings,
-    ConnectorsNotionConnectionSettings,
-    ConnectorsOnebrickConnectionSettings,
-    ConnectorsOutreachConnectionSettings,
-    ConnectorsPipedriveConnectionSettings,
-    ConnectorsPlaidConnectionSettings,
-    ConnectorsPostgresConnectionSettings,
-    ConnectorsQuickbooksConnectionSettings,
-    ConnectorsRampConnectionSettings,
-    ConnectorsRedditConnectionSettings,
-    ConnectorsSalesforceConnectionSettings,
-    ConnectorsSalesloftConnectionSettings,
-    ConnectorsSaltedgeConnectionSettings,
-    ConnectorsSharepointonlineConnectionSettings,
-    ConnectorsSlackConnectionSettings,
-    ConnectorsSplitwiseConnectionSettings,
-    ConnectorsStripeConnectionSettings,
-    ConnectorsTellerConnectionSettings,
-    ConnectorsTogglConnectionSettings,
-    ConnectorsTwentyConnectionSettings,
-    ConnectorsTwitterConnectionSettings,
-    ConnectorsVenmoConnectionSettings,
-    ConnectorsWiseConnectionSettings,
-    ConnectorsXeroConnectionSettings,
-    ConnectorsYodleeConnectionSettings,
-    ConnectorsZohodeskConnectionSettings,
+    ConnectorDummyOauth2DiscriminatedConnectionSettings,
+    ConnectorSharepointonlineDiscriminatedConnectionSettings,
+    ConnectorSlackDiscriminatedConnectionSettings,
+    ConnectorGitHubDiscriminatedConnectionSettings,
+    ConnectorQuickbooksDiscriminatedConnectionSettings,
+    ConnectorGooglemailDiscriminatedConnectionSettings,
+    ConnectorNotionDiscriminatedConnectionSettings,
+    ConnectorLinkedinDiscriminatedConnectionSettings,
+    ConnectorGoogledocsDiscriminatedConnectionSettings,
+    ConnectorAircallDiscriminatedConnectionSettings,
+    ConnectorGooglecalendarDiscriminatedConnectionSettings,
+    ConnectorGooglesheetDiscriminatedConnectionSettings,
+    ConnectorDiscordDiscriminatedConnectionSettings,
+    ConnectorHubspotDiscriminatedConnectionSettings,
+    ConnectorSalesforceDiscriminatedConnectionSettings,
+    ConnectorLinearDiscriminatedConnectionSettings,
+    ConnectorConfluenceDiscriminatedConnectionSettings,
+    ConnectorGoogledriveDiscriminatedConnectionSettings,
+    ConnectorAirtableDiscriminatedConnectionSettings,
+    ConnectorApolloDiscriminatedConnectionSettings,
+    ConnectorBrexDiscriminatedConnectionSettings,
+    ConnectorCodaDiscriminatedConnectionSettings,
+    ConnectorFacebookDiscriminatedConnectionSettings,
+    ConnectorFinchDiscriminatedConnectionSettings,
+    ConnectorFirebaseDiscriminatedConnectionSettings,
+    ConnectorForeceiptDiscriminatedConnectionSettings,
+    ConnectorGongDiscriminatedConnectionSettings,
+    ConnectorGreenhouseDiscriminatedConnectionSettings,
+    ConnectorHeronDiscriminatedConnectionSettings,
+    ConnectorInstagramDiscriminatedConnectionSettings,
+    ConnectorIntercomDiscriminatedConnectionSettings,
+    ConnectorJiraDiscriminatedConnectionSettings,
+    ConnectorKustomerDiscriminatedConnectionSettings,
+    ConnectorLeverDiscriminatedConnectionSettings,
+    ConnectorLunchmoneyDiscriminatedConnectionSettings,
+    ConnectorMercuryDiscriminatedConnectionSettings,
+    ConnectorMergeDiscriminatedConnectionSettings,
+    ConnectorMicrosoftDiscriminatedConnectionSettings,
+    ConnectorMootaDiscriminatedConnectionSettings,
+    ConnectorOnebrickDiscriminatedConnectionSettings,
+    ConnectorOutreachDiscriminatedConnectionSettings,
+    ConnectorPipedriveDiscriminatedConnectionSettings,
+    ConnectorPlaidDiscriminatedConnectionSettings,
+    ConnectorPostgresDiscriminatedConnectionSettings,
+    ConnectorRampDiscriminatedConnectionSettings,
+    ConnectorRedditDiscriminatedConnectionSettings,
+    ConnectorSalesloftDiscriminatedConnectionSettings,
+    ConnectorSaltedgeDiscriminatedConnectionSettings,
+    ConnectorSplitwiseDiscriminatedConnectionSettings,
+    ConnectorStripeDiscriminatedConnectionSettings,
+    ConnectorTellerDiscriminatedConnectionSettings,
+    ConnectorTogglDiscriminatedConnectionSettings,
+    ConnectorTwentyDiscriminatedConnectionSettings,
+    ConnectorTwitterDiscriminatedConnectionSettings,
+    ConnectorVenmoDiscriminatedConnectionSettings,
+    ConnectorWiseDiscriminatedConnectionSettings,
+    ConnectorXeroDiscriminatedConnectionSettings,
+    ConnectorYodleeDiscriminatedConnectionSettings,
+    ConnectorZohodeskDiscriminatedConnectionSettings,
 ]
