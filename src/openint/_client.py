@@ -137,11 +137,7 @@ class Openint(SyncAPIClient):
     @property
     @override
     def auth_headers(self) -> dict[str, str]:
-        if self._api_key:
-            return self._api_key
-        if self._customer_token:
-            return self._customer_token
-        return {}
+        return {**self._api_key, **self._customer_token}
 
     @property
     def _api_key(self) -> dict[str, str]:
@@ -903,11 +899,7 @@ class AsyncOpenint(AsyncAPIClient):
     @property
     @override
     def auth_headers(self) -> dict[str, str]:
-        if self._api_key:
-            return self._api_key
-        if self._customer_token:
-            return self._customer_token
-        return {}
+        return {**self._api_key, **self._customer_token}
 
     @property
     def _api_key(self) -> dict[str, str]:
