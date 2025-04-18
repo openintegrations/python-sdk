@@ -20,6 +20,7 @@ class ClientListConnectionsParams(TypedDict, total=False):
         "coda",
         "confluence",
         "discord",
+        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
@@ -42,6 +43,7 @@ class ClientListConnectionsParams(TypedDict, total=False):
         "linear",
         "linkedin",
         "lunchmoney",
+        "mercury",
         "merge",
         "microsoft",
         "moota",
@@ -50,6 +52,7 @@ class ClientListConnectionsParams(TypedDict, total=False):
         "outreach",
         "pipedrive",
         "plaid",
+        "postgres",
         "quickbooks",
         "ramp",
         "reddit",
@@ -64,12 +67,12 @@ class ClientListConnectionsParams(TypedDict, total=False):
         "toggl",
         "twenty",
         "twitter",
+        "venmo",
         "wise",
         "xero",
         "yodlee",
         "zohodesk",
     ]
-    """The name of the connector"""
 
     customer_id: str
     """The id of the customer in your application.
@@ -83,7 +86,5 @@ class ClientListConnectionsParams(TypedDict, total=False):
     """Controls secret inclusion: none (default), basic (auth only), or all secrets"""
 
     limit: int
-    """Limit the number of items returned"""
 
     offset: int
-    """Offset the items returned"""

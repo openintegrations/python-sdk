@@ -11,246 +11,250 @@ from .._utils import PropertyInfo
 __all__ = [
     "ClientCreateConnectionParams",
     "Data",
-    "DataConnectorsAircallConnectionSettings",
-    "DataConnectorsAircallConnectionSettingsSettings",
-    "DataConnectorsAircallConnectionSettingsSettingsOAuth",
-    "DataConnectorsAircallConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsAirtableConnectionSettings",
-    "DataConnectorsAirtableConnectionSettingsSettings",
-    "DataConnectorsApolloConnectionSettings",
-    "DataConnectorsApolloConnectionSettingsSettings",
-    "DataConnectorsApolloConnectionSettingsSettingsOAuth",
-    "DataConnectorsApolloConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRaw",
-    "DataConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfig",
-    "DataConnectorsApolloConnectionSettingsSettingsError",
-    "DataConnectorsBrexConnectionSettings",
-    "DataConnectorsBrexConnectionSettingsSettings",
-    "DataConnectorsCodaConnectionSettings",
-    "DataConnectorsCodaConnectionSettingsSettings",
-    "DataConnectorsConfluenceConnectionSettings",
-    "DataConnectorsConfluenceConnectionSettingsSettings",
-    "DataConnectorsConfluenceConnectionSettingsSettingsOAuth",
-    "DataConnectorsConfluenceConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsDiscordConnectionSettings",
-    "DataConnectorsDiscordConnectionSettingsSettings",
-    "DataConnectorsDiscordConnectionSettingsSettingsOAuth",
-    "DataConnectorsDiscordConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsFacebookConnectionSettings",
-    "DataConnectorsFacebookConnectionSettingsSettings",
-    "DataConnectorsFacebookConnectionSettingsSettingsOAuth",
-    "DataConnectorsFacebookConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsFacebookConnectionSettingsSettingsOAuthCredentialsRaw",
-    "DataConnectorsFacebookConnectionSettingsSettingsOAuthConnectionConfig",
-    "DataConnectorsFacebookConnectionSettingsSettingsError",
-    "DataConnectorsFinchConnectionSettings",
-    "DataConnectorsFinchConnectionSettingsSettings",
-    "DataConnectorsFirebaseConnectionSettings",
-    "DataConnectorsFirebaseConnectionSettingsSettings",
-    "DataConnectorsFirebaseConnectionSettingsSettingsUnionMember0",
-    "DataConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccount",
-    "DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1",
-    "DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthData",
-    "DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0",
-    "DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson",
-    "DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember1",
-    "DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember2",
-    "DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig",
-    "DataConnectorsForeceiptConnectionSettings",
-    "DataConnectorsForeceiptConnectionSettingsSettings",
-    "DataConnectorsGitHubConnectionSettings",
-    "DataConnectorsGitHubConnectionSettingsSettings",
-    "DataConnectorsGitHubConnectionSettingsSettingsOAuth",
-    "DataConnectorsGitHubConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsGongConnectionSettings",
-    "DataConnectorsGongConnectionSettingsSettings",
-    "DataConnectorsGongConnectionSettingsSettingsOAuth",
-    "DataConnectorsGongConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsGongConnectionSettingsSettingsOAuthCredentialsRaw",
-    "DataConnectorsGongConnectionSettingsSettingsOAuthConnectionConfig",
-    "DataConnectorsGongConnectionSettingsSettingsError",
-    "DataConnectorsGooglecalendarConnectionSettings",
-    "DataConnectorsGooglecalendarConnectionSettingsSettings",
-    "DataConnectorsGooglecalendarConnectionSettingsSettingsOAuth",
-    "DataConnectorsGooglecalendarConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsGoogledocsConnectionSettings",
-    "DataConnectorsGoogledocsConnectionSettingsSettings",
-    "DataConnectorsGoogledocsConnectionSettingsSettingsOAuth",
-    "DataConnectorsGoogledocsConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsGoogledriveConnectionSettings",
-    "DataConnectorsGoogledriveConnectionSettingsSettings",
-    "DataConnectorsGoogledriveConnectionSettingsSettingsOAuth",
-    "DataConnectorsGoogledriveConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsGooglemailConnectionSettings",
-    "DataConnectorsGooglemailConnectionSettingsSettings",
-    "DataConnectorsGooglemailConnectionSettingsSettingsOAuth",
-    "DataConnectorsGooglemailConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsGooglesheetConnectionSettings",
-    "DataConnectorsGooglesheetConnectionSettingsSettings",
-    "DataConnectorsGooglesheetConnectionSettingsSettingsOAuth",
-    "DataConnectorsGooglesheetConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsGreenhouseConnectionSettings",
-    "DataConnectorsGreenhouseConnectionSettingsSettings",
-    "DataConnectorsHeronConnectionSettings",
-    "DataConnectorsHubspotConnectionSettings",
-    "DataConnectorsHubspotConnectionSettingsSettings",
-    "DataConnectorsHubspotConnectionSettingsSettingsOAuth",
-    "DataConnectorsHubspotConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsInstagramConnectionSettings",
-    "DataConnectorsInstagramConnectionSettingsSettings",
-    "DataConnectorsInstagramConnectionSettingsSettingsOAuth",
-    "DataConnectorsInstagramConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsInstagramConnectionSettingsSettingsOAuthCredentialsRaw",
-    "DataConnectorsInstagramConnectionSettingsSettingsOAuthConnectionConfig",
-    "DataConnectorsInstagramConnectionSettingsSettingsError",
-    "DataConnectorsIntercomConnectionSettings",
-    "DataConnectorsIntercomConnectionSettingsSettings",
-    "DataConnectorsIntercomConnectionSettingsSettingsOAuth",
-    "DataConnectorsIntercomConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRaw",
-    "DataConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfig",
-    "DataConnectorsIntercomConnectionSettingsSettingsError",
-    "DataConnectorsJiraConnectionSettings",
-    "DataConnectorsJiraConnectionSettingsSettings",
-    "DataConnectorsJiraConnectionSettingsSettingsOAuth",
-    "DataConnectorsJiraConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRaw",
-    "DataConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfig",
-    "DataConnectorsJiraConnectionSettingsSettingsError",
-    "DataConnectorsKustomerConnectionSettings",
-    "DataConnectorsKustomerConnectionSettingsSettings",
-    "DataConnectorsKustomerConnectionSettingsSettingsOAuth",
-    "DataConnectorsKustomerConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRaw",
-    "DataConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfig",
-    "DataConnectorsKustomerConnectionSettingsSettingsError",
-    "DataConnectorsLeverConnectionSettings",
-    "DataConnectorsLeverConnectionSettingsSettings",
-    "DataConnectorsLeverConnectionSettingsSettingsOAuth",
-    "DataConnectorsLeverConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRaw",
-    "DataConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfig",
-    "DataConnectorsLeverConnectionSettingsSettingsError",
-    "DataConnectorsLinearConnectionSettings",
-    "DataConnectorsLinearConnectionSettingsSettings",
-    "DataConnectorsLinearConnectionSettingsSettingsOAuth",
-    "DataConnectorsLinearConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsLinkedinConnectionSettings",
-    "DataConnectorsLinkedinConnectionSettingsSettings",
-    "DataConnectorsLinkedinConnectionSettingsSettingsOAuth",
-    "DataConnectorsLinkedinConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsLunchmoneyConnectionSettings",
-    "DataConnectorsMercuryConnectionSettings",
-    "DataConnectorsMergeConnectionSettings",
-    "DataConnectorsMergeConnectionSettingsSettings",
-    "DataConnectorsMicrosoftConnectionSettings",
-    "DataConnectorsMicrosoftConnectionSettingsSettings",
-    "DataConnectorsMicrosoftConnectionSettingsSettingsOAuth",
-    "DataConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw",
-    "DataConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig",
-    "DataConnectorsMicrosoftConnectionSettingsSettingsError",
-    "DataConnectorsMootaConnectionSettings",
-    "DataConnectorsNotionConnectionSettings",
-    "DataConnectorsNotionConnectionSettingsSettings",
-    "DataConnectorsNotionConnectionSettingsSettingsOAuth",
-    "DataConnectorsNotionConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsOnebrickConnectionSettings",
-    "DataConnectorsOnebrickConnectionSettingsSettings",
-    "DataConnectorsOutreachConnectionSettings",
-    "DataConnectorsOutreachConnectionSettingsSettings",
-    "DataConnectorsOutreachConnectionSettingsSettingsOAuth",
-    "DataConnectorsOutreachConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRaw",
-    "DataConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfig",
-    "DataConnectorsOutreachConnectionSettingsSettingsError",
-    "DataConnectorsPipedriveConnectionSettings",
-    "DataConnectorsPipedriveConnectionSettingsSettings",
-    "DataConnectorsPipedriveConnectionSettingsSettingsOAuth",
-    "DataConnectorsPipedriveConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRaw",
-    "DataConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfig",
-    "DataConnectorsPipedriveConnectionSettingsSettingsError",
-    "DataConnectorsPlaidConnectionSettings",
-    "DataConnectorsPlaidConnectionSettingsSettings",
-    "DataConnectorsPostgresConnectionSettings",
-    "DataConnectorsPostgresConnectionSettingsSettings",
-    "DataConnectorsPostgresConnectionSettingsSettingsSourceQueries",
-    "DataConnectorsQuickbooksConnectionSettings",
-    "DataConnectorsQuickbooksConnectionSettingsSettings",
-    "DataConnectorsQuickbooksConnectionSettingsSettingsOAuth",
-    "DataConnectorsQuickbooksConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsRampConnectionSettings",
-    "DataConnectorsRampConnectionSettingsSettings",
-    "DataConnectorsRedditConnectionSettings",
-    "DataConnectorsRedditConnectionSettingsSettings",
-    "DataConnectorsRedditConnectionSettingsSettingsOAuth",
-    "DataConnectorsRedditConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsRedditConnectionSettingsSettingsOAuthCredentialsRaw",
-    "DataConnectorsRedditConnectionSettingsSettingsOAuthConnectionConfig",
-    "DataConnectorsRedditConnectionSettingsSettingsError",
-    "DataConnectorsSalesforceConnectionSettings",
-    "DataConnectorsSalesforceConnectionSettingsSettings",
-    "DataConnectorsSalesforceConnectionSettingsSettingsOAuth",
-    "DataConnectorsSalesforceConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsSalesloftConnectionSettings",
-    "DataConnectorsSalesloftConnectionSettingsSettings",
-    "DataConnectorsSalesloftConnectionSettingsSettingsOAuth",
-    "DataConnectorsSalesloftConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRaw",
-    "DataConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfig",
-    "DataConnectorsSalesloftConnectionSettingsSettingsError",
-    "DataConnectorsSaltedgeConnectionSettings",
-    "DataConnectorsSharepointonlineConnectionSettings",
-    "DataConnectorsSharepointonlineConnectionSettingsSettings",
-    "DataConnectorsSharepointonlineConnectionSettingsSettingsOAuth",
-    "DataConnectorsSharepointonlineConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsSlackConnectionSettings",
-    "DataConnectorsSlackConnectionSettingsSettings",
-    "DataConnectorsSlackConnectionSettingsSettingsOAuth",
-    "DataConnectorsSlackConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsSplitwiseConnectionSettings",
-    "DataConnectorsSplitwiseConnectionSettingsSettings",
-    "DataConnectorsSplitwiseConnectionSettingsSettingsCurrentUser",
-    "DataConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications",
-    "DataConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture",
-    "DataConnectorsStripeConnectionSettings",
-    "DataConnectorsStripeConnectionSettingsSettings",
-    "DataConnectorsTellerConnectionSettings",
-    "DataConnectorsTellerConnectionSettingsSettings",
-    "DataConnectorsTogglConnectionSettings",
-    "DataConnectorsTogglConnectionSettingsSettings",
-    "DataConnectorsTwentyConnectionSettings",
-    "DataConnectorsTwentyConnectionSettingsSettings",
-    "DataConnectorsTwitterConnectionSettings",
-    "DataConnectorsTwitterConnectionSettingsSettings",
-    "DataConnectorsTwitterConnectionSettingsSettingsOAuth",
-    "DataConnectorsTwitterConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsTwitterConnectionSettingsSettingsOAuthCredentialsRaw",
-    "DataConnectorsTwitterConnectionSettingsSettingsOAuthConnectionConfig",
-    "DataConnectorsTwitterConnectionSettingsSettingsError",
-    "DataConnectorsVenmoConnectionSettings",
-    "DataConnectorsVenmoConnectionSettingsSettings",
-    "DataConnectorsWiseConnectionSettings",
-    "DataConnectorsWiseConnectionSettingsSettings",
-    "DataConnectorsXeroConnectionSettings",
-    "DataConnectorsXeroConnectionSettingsSettings",
-    "DataConnectorsXeroConnectionSettingsSettingsOAuth",
-    "DataConnectorsXeroConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRaw",
-    "DataConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfig",
-    "DataConnectorsXeroConnectionSettingsSettingsError",
-    "DataConnectorsYodleeConnectionSettings",
-    "DataConnectorsYodleeConnectionSettingsSettings",
-    "DataConnectorsYodleeConnectionSettingsSettingsAccessToken",
-    "DataConnectorsYodleeConnectionSettingsSettingsProviderAccount",
-    "DataConnectorsZohodeskConnectionSettings",
-    "DataConnectorsZohodeskConnectionSettingsSettings",
-    "DataConnectorsZohodeskConnectionSettingsSettingsOAuth",
-    "DataConnectorsZohodeskConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRaw",
-    "DataConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig",
-    "DataConnectorsZohodeskConnectionSettingsSettingsError",
+    "DataConnectorDummyOauth2DiscriminatedConnectionSettings",
+    "DataConnectorDummyOauth2DiscriminatedConnectionSettingsSettings",
+    "DataConnectorDummyOauth2DiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorDummyOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorSharepointonlineDiscriminatedConnectionSettings",
+    "DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettings",
+    "DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorSlackDiscriminatedConnectionSettings",
+    "DataConnectorSlackDiscriminatedConnectionSettingsSettings",
+    "DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorGitHubDiscriminatedConnectionSettings",
+    "DataConnectorGitHubDiscriminatedConnectionSettingsSettings",
+    "DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorQuickbooksDiscriminatedConnectionSettings",
+    "DataConnectorQuickbooksDiscriminatedConnectionSettingsSettings",
+    "DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorGooglemailDiscriminatedConnectionSettings",
+    "DataConnectorGooglemailDiscriminatedConnectionSettingsSettings",
+    "DataConnectorGooglemailDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorGooglemailDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorNotionDiscriminatedConnectionSettings",
+    "DataConnectorNotionDiscriminatedConnectionSettingsSettings",
+    "DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorLinkedinDiscriminatedConnectionSettings",
+    "DataConnectorLinkedinDiscriminatedConnectionSettingsSettings",
+    "DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorGoogledocsDiscriminatedConnectionSettings",
+    "DataConnectorGoogledocsDiscriminatedConnectionSettingsSettings",
+    "DataConnectorGoogledocsDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorGoogledocsDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorAircallDiscriminatedConnectionSettings",
+    "DataConnectorAircallDiscriminatedConnectionSettingsSettings",
+    "DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorGooglecalendarDiscriminatedConnectionSettings",
+    "DataConnectorGooglecalendarDiscriminatedConnectionSettingsSettings",
+    "DataConnectorGooglecalendarDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorGooglecalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorGooglesheetDiscriminatedConnectionSettings",
+    "DataConnectorGooglesheetDiscriminatedConnectionSettingsSettings",
+    "DataConnectorGooglesheetDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorGooglesheetDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorDiscordDiscriminatedConnectionSettings",
+    "DataConnectorDiscordDiscriminatedConnectionSettingsSettings",
+    "DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorHubspotDiscriminatedConnectionSettings",
+    "DataConnectorHubspotDiscriminatedConnectionSettingsSettings",
+    "DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorSalesforceDiscriminatedConnectionSettings",
+    "DataConnectorSalesforceDiscriminatedConnectionSettingsSettings",
+    "DataConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorLinearDiscriminatedConnectionSettings",
+    "DataConnectorLinearDiscriminatedConnectionSettingsSettings",
+    "DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorConfluenceDiscriminatedConnectionSettings",
+    "DataConnectorConfluenceDiscriminatedConnectionSettingsSettings",
+    "DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorGoogledriveDiscriminatedConnectionSettings",
+    "DataConnectorGoogledriveDiscriminatedConnectionSettingsSettings",
+    "DataConnectorGoogledriveDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorGoogledriveDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorAirtableDiscriminatedConnectionSettings",
+    "DataConnectorAirtableDiscriminatedConnectionSettingsSettings",
+    "DataConnectorApolloDiscriminatedConnectionSettings",
+    "DataConnectorApolloDiscriminatedConnectionSettingsSettings",
+    "DataConnectorApolloDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "DataConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "DataConnectorApolloDiscriminatedConnectionSettingsSettingsError",
+    "DataConnectorBrexDiscriminatedConnectionSettings",
+    "DataConnectorBrexDiscriminatedConnectionSettingsSettings",
+    "DataConnectorCodaDiscriminatedConnectionSettings",
+    "DataConnectorCodaDiscriminatedConnectionSettingsSettings",
+    "DataConnectorFacebookDiscriminatedConnectionSettings",
+    "DataConnectorFacebookDiscriminatedConnectionSettingsSettings",
+    "DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "DataConnectorFacebookDiscriminatedConnectionSettingsSettingsError",
+    "DataConnectorFinchDiscriminatedConnectionSettings",
+    "DataConnectorFinchDiscriminatedConnectionSettingsSettings",
+    "DataConnectorFirebaseDiscriminatedConnectionSettings",
+    "DataConnectorFirebaseDiscriminatedConnectionSettingsSettings",
+    "DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember0",
+    "DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember0ServiceAccount",
+    "DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1",
+    "DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthData",
+    "DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember0",
+    "DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson",
+    "DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember1",
+    "DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember2",
+    "DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1FirebaseConfig",
+    "DataConnectorForeceiptDiscriminatedConnectionSettings",
+    "DataConnectorForeceiptDiscriminatedConnectionSettingsSettings",
+    "DataConnectorGongDiscriminatedConnectionSettings",
+    "DataConnectorGongDiscriminatedConnectionSettingsSettings",
+    "DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "DataConnectorGongDiscriminatedConnectionSettingsSettingsError",
+    "DataConnectorGreenhouseDiscriminatedConnectionSettings",
+    "DataConnectorGreenhouseDiscriminatedConnectionSettingsSettings",
+    "DataConnectorHeronDiscriminatedConnectionSettings",
+    "DataConnectorInstagramDiscriminatedConnectionSettings",
+    "DataConnectorInstagramDiscriminatedConnectionSettingsSettings",
+    "DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "DataConnectorInstagramDiscriminatedConnectionSettingsSettingsError",
+    "DataConnectorIntercomDiscriminatedConnectionSettings",
+    "DataConnectorIntercomDiscriminatedConnectionSettingsSettings",
+    "DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "DataConnectorIntercomDiscriminatedConnectionSettingsSettingsError",
+    "DataConnectorJiraDiscriminatedConnectionSettings",
+    "DataConnectorJiraDiscriminatedConnectionSettingsSettings",
+    "DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "DataConnectorJiraDiscriminatedConnectionSettingsSettingsError",
+    "DataConnectorKustomerDiscriminatedConnectionSettings",
+    "DataConnectorKustomerDiscriminatedConnectionSettingsSettings",
+    "DataConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "DataConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "DataConnectorKustomerDiscriminatedConnectionSettingsSettingsError",
+    "DataConnectorLeverDiscriminatedConnectionSettings",
+    "DataConnectorLeverDiscriminatedConnectionSettingsSettings",
+    "DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "DataConnectorLeverDiscriminatedConnectionSettingsSettingsError",
+    "DataConnectorLunchmoneyDiscriminatedConnectionSettings",
+    "DataConnectorMercuryDiscriminatedConnectionSettings",
+    "DataConnectorMergeDiscriminatedConnectionSettings",
+    "DataConnectorMergeDiscriminatedConnectionSettingsSettings",
+    "DataConnectorMicrosoftDiscriminatedConnectionSettings",
+    "DataConnectorMicrosoftDiscriminatedConnectionSettingsSettings",
+    "DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsError",
+    "DataConnectorMootaDiscriminatedConnectionSettings",
+    "DataConnectorOnebrickDiscriminatedConnectionSettings",
+    "DataConnectorOnebrickDiscriminatedConnectionSettingsSettings",
+    "DataConnectorOutreachDiscriminatedConnectionSettings",
+    "DataConnectorOutreachDiscriminatedConnectionSettingsSettings",
+    "DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "DataConnectorOutreachDiscriminatedConnectionSettingsSettingsError",
+    "DataConnectorPipedriveDiscriminatedConnectionSettings",
+    "DataConnectorPipedriveDiscriminatedConnectionSettingsSettings",
+    "DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsError",
+    "DataConnectorPlaidDiscriminatedConnectionSettings",
+    "DataConnectorPlaidDiscriminatedConnectionSettingsSettings",
+    "DataConnectorPostgresDiscriminatedConnectionSettings",
+    "DataConnectorPostgresDiscriminatedConnectionSettingsSettings",
+    "DataConnectorPostgresDiscriminatedConnectionSettingsSettingsSourceQueries",
+    "DataConnectorRampDiscriminatedConnectionSettings",
+    "DataConnectorRampDiscriminatedConnectionSettingsSettings",
+    "DataConnectorRedditDiscriminatedConnectionSettings",
+    "DataConnectorRedditDiscriminatedConnectionSettingsSettings",
+    "DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "DataConnectorRedditDiscriminatedConnectionSettingsSettingsError",
+    "DataConnectorSalesloftDiscriminatedConnectionSettings",
+    "DataConnectorSalesloftDiscriminatedConnectionSettingsSettings",
+    "DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsError",
+    "DataConnectorSaltedgeDiscriminatedConnectionSettings",
+    "DataConnectorSplitwiseDiscriminatedConnectionSettings",
+    "DataConnectorSplitwiseDiscriminatedConnectionSettingsSettings",
+    "DataConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUser",
+    "DataConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUserNotifications",
+    "DataConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUserPicture",
+    "DataConnectorStripeDiscriminatedConnectionSettings",
+    "DataConnectorStripeDiscriminatedConnectionSettingsSettings",
+    "DataConnectorTellerDiscriminatedConnectionSettings",
+    "DataConnectorTellerDiscriminatedConnectionSettingsSettings",
+    "DataConnectorTogglDiscriminatedConnectionSettings",
+    "DataConnectorTogglDiscriminatedConnectionSettingsSettings",
+    "DataConnectorTwentyDiscriminatedConnectionSettings",
+    "DataConnectorTwentyDiscriminatedConnectionSettingsSettings",
+    "DataConnectorTwitterDiscriminatedConnectionSettings",
+    "DataConnectorTwitterDiscriminatedConnectionSettingsSettings",
+    "DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "DataConnectorTwitterDiscriminatedConnectionSettingsSettingsError",
+    "DataConnectorVenmoDiscriminatedConnectionSettings",
+    "DataConnectorVenmoDiscriminatedConnectionSettingsSettings",
+    "DataConnectorWiseDiscriminatedConnectionSettings",
+    "DataConnectorWiseDiscriminatedConnectionSettingsSettings",
+    "DataConnectorXeroDiscriminatedConnectionSettings",
+    "DataConnectorXeroDiscriminatedConnectionSettingsSettings",
+    "DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "DataConnectorXeroDiscriminatedConnectionSettingsSettingsError",
+    "DataConnectorYodleeDiscriminatedConnectionSettings",
+    "DataConnectorYodleeDiscriminatedConnectionSettingsSettings",
+    "DataConnectorYodleeDiscriminatedConnectionSettingsSettingsAccessToken",
+    "DataConnectorYodleeDiscriminatedConnectionSettingsSettingsProviderAccount",
+    "DataConnectorZohodeskDiscriminatedConnectionSettings",
+    "DataConnectorZohodeskDiscriminatedConnectionSettingsSettings",
+    "DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw",
+    "DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig",
+    "DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsError",
 ]
 
 
@@ -270,10 +274,11 @@ class ClientCreateConnectionParams(TypedDict, total=False):
     metadata: Dict[str, object]
 
 
-class DataConnectorsAircallConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+class DataConnectorDummyOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
     client_id: Required[str]
+    """Client ID used for the connection"""
 
     raw: Required[Dict[str, object]]
 
@@ -288,42 +293,762 @@ class DataConnectorsAircallConnectionSettingsSettingsOAuthCredentials(TypedDict,
     token_type: str
 
 
-class DataConnectorsAircallConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
+class DataConnectorDummyOauth2DiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
 
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsAircallConnectionSettingsSettingsOAuthCredentials
+    credentials: DataConnectorDummyOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials
     """Output of the postConnect hook for oauth2 connectors"""
 
+    last_fetched_at: str
 
-class DataConnectorsAircallConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsAircallConnectionSettingsSettingsOAuth]
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
 
 
-class DataConnectorsAircallConnectionSettings(TypedDict, total=False):
+class DataConnectorDummyOauth2DiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorDummyOauth2DiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorDummyOauth2DiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["dummy-oauth2"]]
+
+    settings: Required[DataConnectorDummyOauth2DiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorSharepointonlineDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["sharepointonline"]]
+
+    settings: Required[DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorSlackDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorSlackDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["slack"]]
+
+    settings: Required[DataConnectorSlackDiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorGitHubDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorGitHubDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["github"]]
+
+    settings: Required[DataConnectorGitHubDiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorQuickbooksDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth]
+
+    realm_id: Required[Annotated[str, PropertyInfo(alias="realmId")]]
+    """The realmId of your quickbooks company (e.g., 9341453474484455)"""
+
+
+class DataConnectorQuickbooksDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["quickbooks"]]
+
+    settings: Required[DataConnectorQuickbooksDiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorGooglemailDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorGooglemailDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorGooglemailDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorGooglemailDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorGooglemailDiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorGooglemailDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["googlemail"]]
+
+    settings: Required[DataConnectorGooglemailDiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorNotionDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorNotionDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["notion"]]
+
+    settings: Required[DataConnectorNotionDiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorLinkedinDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorLinkedinDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["linkedin"]]
+
+    settings: Required[DataConnectorLinkedinDiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorGoogledocsDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorGoogledocsDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorGoogledocsDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorGoogledocsDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorGoogledocsDiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorGoogledocsDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["googledocs"]]
+
+    settings: Required[DataConnectorGoogledocsDiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorAircallDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorAircallDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["aircall"]]
 
-    settings: Required[DataConnectorsAircallConnectionSettingsSettings]
+    settings: Required[DataConnectorAircallDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsAirtableConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorGooglecalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorGooglecalendarDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorGooglecalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorGooglecalendarDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorGooglecalendarDiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorGooglecalendarDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["googlecalendar"]]
+
+    settings: Required[DataConnectorGooglecalendarDiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorGooglesheetDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorGooglesheetDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorGooglesheetDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorGooglesheetDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorGooglesheetDiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorGooglesheetDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["googlesheet"]]
+
+    settings: Required[DataConnectorGooglesheetDiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorDiscordDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorDiscordDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["discord"]]
+
+    settings: Required[DataConnectorDiscordDiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorHubspotDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorHubspotDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["hubspot"]]
+
+    settings: Required[DataConnectorHubspotDiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorSalesforceDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    instance_url: Required[str]
+    """The instance URL of your Salesforce account (e.g., example)"""
+
+    oauth: Required[DataConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorSalesforceDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["salesforce"]]
+
+    settings: Required[DataConnectorSalesforceDiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorLinearDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorLinearDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["linear"]]
+
+    settings: Required[DataConnectorLinearDiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorConfluenceDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorConfluenceDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["confluence"]]
+
+    settings: Required[DataConnectorConfluenceDiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorGoogledriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: Required[str]
+    """Client ID used for the connection"""
+
+    raw: Required[Dict[str, object]]
+
+    scope: Required[str]
+
+    expires_at: str
+
+    expires_in: float
+
+    refresh_token: str
+
+    token_type: str
+
+
+class DataConnectorGoogledriveDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorGoogledriveDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorGoogledriveDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorGoogledriveDiscriminatedConnectionSettingsSettingsOAuth]
+
+
+class DataConnectorGoogledriveDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["googledrive"]]
+
+    settings: Required[DataConnectorGoogledriveDiscriminatedConnectionSettingsSettings]
+
+
+class DataConnectorAirtableDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     airtable_base: Required[Annotated[str, PropertyInfo(alias="airtableBase")]]
 
     api_key: Required[Annotated[str, PropertyInfo(alias="apiKey")]]
 
 
-class DataConnectorsAirtableConnectionSettings(TypedDict, total=False):
+class DataConnectorAirtableDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["airtable"]]
 
-    settings: Required[DataConnectorsAirtableConnectionSettingsSettings]
+    settings: Required[DataConnectorAirtableDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
+class DataConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
     access_token: Required[str]
 
     expires_at: Annotated[Union[str, datetime], PropertyInfo(format="iso8601")]
@@ -339,13 +1064,13 @@ class DataConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRawTyped(Typ
     token_type: Optional[str]
 
 
-DataConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
-    DataConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
+DataConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
+    DataConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsApolloConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    raw: Required[DataConnectorsApolloConnectionSettingsSettingsOAuthCredentialsRaw]
+class DataConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    raw: Required[DataConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw]
 
     type: Required[Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]]
 
@@ -358,146 +1083,64 @@ class DataConnectorsApolloConnectionSettingsSettingsOAuthCredentials(TypedDict, 
     refresh_token: str
 
 
-class DataConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
+class DataConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
     instance_url: Optional[str]
 
     portal_id: Annotated[Optional[float], PropertyInfo(alias="portalId")]
 
 
-DataConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
-    DataConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
+DataConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
+    DataConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsApolloConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    credentials: Required[DataConnectorsApolloConnectionSettingsSettingsOAuthCredentials]
+class DataConnectorApolloDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    credentials: Required[DataConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthCredentials]
 
     metadata: Required[Optional[Dict[str, object]]]
 
-    connection_config: Optional[DataConnectorsApolloConnectionSettingsSettingsOAuthConnectionConfig]
+    connection_config: Optional[DataConnectorApolloDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig]
 
 
-class DataConnectorsApolloConnectionSettingsSettingsError(TypedDict, total=False):
+class DataConnectorApolloDiscriminatedConnectionSettingsSettingsError(TypedDict, total=False):
     code: Required[Union[Literal["refresh_token_external_error"], str]]
 
     message: Optional[str]
 
 
-class DataConnectorsApolloConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsApolloConnectionSettingsSettingsOAuth]
+class DataConnectorApolloDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorApolloDiscriminatedConnectionSettingsSettingsOAuth]
 
-    error: Optional[DataConnectorsApolloConnectionSettingsSettingsError]
+    error: Optional[DataConnectorApolloDiscriminatedConnectionSettingsSettingsError]
 
 
-class DataConnectorsApolloConnectionSettings(TypedDict, total=False):
+class DataConnectorApolloDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["apollo"]]
 
-    settings: Required[DataConnectorsApolloConnectionSettingsSettings]
+    settings: Required[DataConnectorApolloDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsBrexConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorBrexDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     access_token: Required[Annotated[str, PropertyInfo(alias="accessToken")]]
 
 
-class DataConnectorsBrexConnectionSettings(TypedDict, total=False):
+class DataConnectorBrexDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["brex"]]
 
-    settings: Required[DataConnectorsBrexConnectionSettingsSettings]
+    settings: Required[DataConnectorBrexDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsCodaConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorCodaDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     api_key: Required[Annotated[str, PropertyInfo(alias="apiKey")]]
 
 
-class DataConnectorsCodaConnectionSettings(TypedDict, total=False):
+class DataConnectorCodaDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["coda"]]
 
-    settings: Required[DataConnectorsCodaConnectionSettingsSettings]
+    settings: Required[DataConnectorCodaDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsConfluenceConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: Required[str]
-
-    raw: Required[Dict[str, object]]
-
-    scope: Required[str]
-
-    expires_at: str
-
-    expires_in: float
-
-    refresh_token: str
-
-    token_type: str
-
-
-class DataConnectorsConfluenceConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
-
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsConfluenceConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class DataConnectorsConfluenceConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsConfluenceConnectionSettingsSettingsOAuth]
-
-
-class DataConnectorsConfluenceConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["confluence"]]
-
-    settings: Required[DataConnectorsConfluenceConnectionSettingsSettings]
-
-
-class DataConnectorsDiscordConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: Required[str]
-
-    raw: Required[Dict[str, object]]
-
-    scope: Required[str]
-
-    expires_at: str
-
-    expires_in: float
-
-    refresh_token: str
-
-    token_type: str
-
-
-class DataConnectorsDiscordConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
-
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsDiscordConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class DataConnectorsDiscordConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsDiscordConnectionSettingsSettingsOAuth]
-
-
-class DataConnectorsDiscordConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["discord"]]
-
-    settings: Required[DataConnectorsDiscordConnectionSettingsSettings]
-
-
-class DataConnectorsFacebookConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
+class DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
     access_token: Required[str]
 
     expires_at: Annotated[Union[str, datetime], PropertyInfo(format="iso8601")]
@@ -513,13 +1156,13 @@ class DataConnectorsFacebookConnectionSettingsSettingsOAuthCredentialsRawTyped(T
     token_type: Optional[str]
 
 
-DataConnectorsFacebookConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
-    DataConnectorsFacebookConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
+DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
+    DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsFacebookConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    raw: Required[DataConnectorsFacebookConnectionSettingsSettingsOAuthCredentialsRaw]
+class DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    raw: Required[DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw]
 
     type: Required[Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]]
 
@@ -532,74 +1175,76 @@ class DataConnectorsFacebookConnectionSettingsSettingsOAuthCredentials(TypedDict
     refresh_token: str
 
 
-class DataConnectorsFacebookConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
+class DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
     instance_url: Optional[str]
 
     portal_id: Annotated[Optional[float], PropertyInfo(alias="portalId")]
 
 
-DataConnectorsFacebookConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
-    DataConnectorsFacebookConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
+DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
+    DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsFacebookConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    credentials: Required[DataConnectorsFacebookConnectionSettingsSettingsOAuthCredentials]
+class DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    credentials: Required[DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials]
 
     metadata: Required[Optional[Dict[str, object]]]
 
-    connection_config: Optional[DataConnectorsFacebookConnectionSettingsSettingsOAuthConnectionConfig]
+    connection_config: Optional[DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig]
 
 
-class DataConnectorsFacebookConnectionSettingsSettingsError(TypedDict, total=False):
+class DataConnectorFacebookDiscriminatedConnectionSettingsSettingsError(TypedDict, total=False):
     code: Required[Union[Literal["refresh_token_external_error"], str]]
 
     message: Optional[str]
 
 
-class DataConnectorsFacebookConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsFacebookConnectionSettingsSettingsOAuth]
+class DataConnectorFacebookDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuth]
 
-    error: Optional[DataConnectorsFacebookConnectionSettingsSettingsError]
+    error: Optional[DataConnectorFacebookDiscriminatedConnectionSettingsSettingsError]
 
 
-class DataConnectorsFacebookConnectionSettings(TypedDict, total=False):
+class DataConnectorFacebookDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["facebook"]]
 
-    settings: Required[DataConnectorsFacebookConnectionSettingsSettings]
+    settings: Required[DataConnectorFacebookDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsFinchConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorFinchDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     access_token: Required[str]
 
 
-class DataConnectorsFinchConnectionSettings(TypedDict, total=False):
+class DataConnectorFinchDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["finch"]]
 
-    settings: Required[DataConnectorsFinchConnectionSettingsSettings]
+    settings: Required[DataConnectorFinchDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccountTyped(TypedDict, total=False):
+class DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember0ServiceAccountTyped(
+    TypedDict, total=False
+):
     project_id: Required[str]
 
 
-DataConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccount: TypeAlias = Union[
-    DataConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccountTyped, Dict[str, object]
+DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember0ServiceAccount: TypeAlias = Union[
+    DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember0ServiceAccountTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsFirebaseConnectionSettingsSettingsUnionMember0(TypedDict, total=False):
+class DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember0(TypedDict, total=False):
     role: Required[Literal["admin"]]
 
     service_account: Required[
         Annotated[
-            DataConnectorsFirebaseConnectionSettingsSettingsUnionMember0ServiceAccount,
+            DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember0ServiceAccount,
             PropertyInfo(alias="serviceAccount"),
         ]
     ]
 
 
-class DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJsonTyped(
+class DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJsonTyped(
     TypedDict, total=False
 ):
     app_name: Required[Annotated[str, PropertyInfo(alias="appName")]]
@@ -609,29 +1254,36 @@ class DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionM
     uid: Required[str]
 
 
-DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson: TypeAlias = Union[
-    DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJsonTyped, Dict[str, object]
+DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson: TypeAlias = Union[
+    DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJsonTyped,
+    Dict[str, object],
 ]
 
 
-class DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0(TypedDict, total=False):
+class DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember0(
+    TypedDict, total=False
+):
     method: Required[Literal["userJson"]]
 
     user_json: Required[
         Annotated[
-            DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson,
+            DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember0UserJson,
             PropertyInfo(alias="userJson"),
         ]
     ]
 
 
-class DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember1(TypedDict, total=False):
+class DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember1(
+    TypedDict, total=False
+):
     custom_token: Required[Annotated[str, PropertyInfo(alias="customToken")]]
 
     method: Required[Literal["customToken"]]
 
 
-class DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember2(TypedDict, total=False):
+class DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember2(
+    TypedDict, total=False
+):
     email: Required[str]
 
     method: Required[Literal["emailPassword"]]
@@ -639,14 +1291,14 @@ class DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionM
     password: Required[str]
 
 
-DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthData: TypeAlias = Union[
-    DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember0,
-    DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember1,
-    DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthDataUnionMember2,
+DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthData: TypeAlias = Union[
+    DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember0,
+    DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember1,
+    DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDataUnionMember2,
 ]
 
 
-class DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig(TypedDict, total=False):
+class DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1FirebaseConfig(TypedDict, total=False):
     api_key: Required[Annotated[str, PropertyInfo(alias="apiKey")]]
 
     app_id: Required[Annotated[str, PropertyInfo(alias="appId")]]
@@ -664,14 +1316,17 @@ class DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig
     storage_bucket: Annotated[str, PropertyInfo(alias="storageBucket")]
 
 
-class DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1(TypedDict, total=False):
+class DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1(TypedDict, total=False):
     auth_data: Required[
-        Annotated[DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1AuthData, PropertyInfo(alias="authData")]
+        Annotated[
+            DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthData,
+            PropertyInfo(alias="authData"),
+        ]
     ]
 
     firebase_config: Required[
         Annotated[
-            DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1FirebaseConfig,
+            DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1FirebaseConfig,
             PropertyInfo(alias="firebaseConfig"),
         ]
     ]
@@ -679,19 +1334,19 @@ class DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1(TypedDict, to
     role: Required[Literal["user"]]
 
 
-DataConnectorsFirebaseConnectionSettingsSettings: TypeAlias = Union[
-    DataConnectorsFirebaseConnectionSettingsSettingsUnionMember0,
-    DataConnectorsFirebaseConnectionSettingsSettingsUnionMember1,
+DataConnectorFirebaseDiscriminatedConnectionSettingsSettings: TypeAlias = Union[
+    DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember0,
+    DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1,
 ]
 
 
-class DataConnectorsFirebaseConnectionSettings(TypedDict, total=False):
+class DataConnectorFirebaseDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["firebase"]]
 
-    settings: Required[DataConnectorsFirebaseConnectionSettingsSettings]
+    settings: Required[DataConnectorFirebaseDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsForeceiptConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorForeceiptDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     env_name: Required[Annotated[Literal["staging", "production"], PropertyInfo(alias="envName")]]
 
     _id: object
@@ -699,54 +1354,13 @@ class DataConnectorsForeceiptConnectionSettingsSettings(TypedDict, total=False):
     credentials: object
 
 
-class DataConnectorsForeceiptConnectionSettings(TypedDict, total=False):
+class DataConnectorForeceiptDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["foreceipt"]]
 
-    settings: Required[DataConnectorsForeceiptConnectionSettingsSettings]
+    settings: Required[DataConnectorForeceiptDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsGitHubConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: Required[str]
-
-    raw: Required[Dict[str, object]]
-
-    scope: Required[str]
-
-    expires_at: str
-
-    expires_in: float
-
-    refresh_token: str
-
-    token_type: str
-
-
-class DataConnectorsGitHubConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
-
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsGitHubConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class DataConnectorsGitHubConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsGitHubConnectionSettingsSettingsOAuth]
-
-
-class DataConnectorsGitHubConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["github"]]
-
-    settings: Required[DataConnectorsGitHubConnectionSettingsSettings]
-
-
-class DataConnectorsGongConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
+class DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
     access_token: Required[str]
 
     expires_at: Annotated[Union[str, datetime], PropertyInfo(format="iso8601")]
@@ -762,13 +1376,13 @@ class DataConnectorsGongConnectionSettingsSettingsOAuthCredentialsRawTyped(Typed
     token_type: Optional[str]
 
 
-DataConnectorsGongConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
-    DataConnectorsGongConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
+DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
+    DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsGongConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    raw: Required[DataConnectorsGongConnectionSettingsSettingsOAuthCredentialsRaw]
+class DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    raw: Required[DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw]
 
     type: Required[Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]]
 
@@ -781,306 +1395,60 @@ class DataConnectorsGongConnectionSettingsSettingsOAuthCredentials(TypedDict, to
     refresh_token: str
 
 
-class DataConnectorsGongConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
+class DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
     instance_url: Optional[str]
 
     portal_id: Annotated[Optional[float], PropertyInfo(alias="portalId")]
 
 
-DataConnectorsGongConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
-    DataConnectorsGongConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
+DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
+    DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsGongConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    credentials: Required[DataConnectorsGongConnectionSettingsSettingsOAuthCredentials]
+class DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    credentials: Required[DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials]
 
     metadata: Required[Optional[Dict[str, object]]]
 
-    connection_config: Optional[DataConnectorsGongConnectionSettingsSettingsOAuthConnectionConfig]
+    connection_config: Optional[DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig]
 
 
-class DataConnectorsGongConnectionSettingsSettingsError(TypedDict, total=False):
+class DataConnectorGongDiscriminatedConnectionSettingsSettingsError(TypedDict, total=False):
     code: Required[Union[Literal["refresh_token_external_error"], str]]
 
     message: Optional[str]
 
 
-class DataConnectorsGongConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsGongConnectionSettingsSettingsOAuth]
+class DataConnectorGongDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuth]
 
-    error: Optional[DataConnectorsGongConnectionSettingsSettingsError]
+    error: Optional[DataConnectorGongDiscriminatedConnectionSettingsSettingsError]
 
 
-class DataConnectorsGongConnectionSettings(TypedDict, total=False):
+class DataConnectorGongDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["gong"]]
 
-    settings: Required[DataConnectorsGongConnectionSettingsSettings]
+    settings: Required[DataConnectorGongDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsGooglecalendarConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: Required[str]
-
-    raw: Required[Dict[str, object]]
-
-    scope: Required[str]
-
-    expires_at: str
-
-    expires_in: float
-
-    refresh_token: str
-
-    token_type: str
-
-
-class DataConnectorsGooglecalendarConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
-
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsGooglecalendarConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class DataConnectorsGooglecalendarConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsGooglecalendarConnectionSettingsSettingsOAuth]
-
-
-class DataConnectorsGooglecalendarConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["googlecalendar"]]
-
-    settings: Required[DataConnectorsGooglecalendarConnectionSettingsSettings]
-
-
-class DataConnectorsGoogledocsConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: Required[str]
-
-    raw: Required[Dict[str, object]]
-
-    scope: Required[str]
-
-    expires_at: str
-
-    expires_in: float
-
-    refresh_token: str
-
-    token_type: str
-
-
-class DataConnectorsGoogledocsConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
-
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsGoogledocsConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class DataConnectorsGoogledocsConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsGoogledocsConnectionSettingsSettingsOAuth]
-
-
-class DataConnectorsGoogledocsConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["googledocs"]]
-
-    settings: Required[DataConnectorsGoogledocsConnectionSettingsSettings]
-
-
-class DataConnectorsGoogledriveConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: Required[str]
-
-    raw: Required[Dict[str, object]]
-
-    scope: Required[str]
-
-    expires_at: str
-
-    expires_in: float
-
-    refresh_token: str
-
-    token_type: str
-
-
-class DataConnectorsGoogledriveConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
-
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsGoogledriveConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class DataConnectorsGoogledriveConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsGoogledriveConnectionSettingsSettingsOAuth]
-
-
-class DataConnectorsGoogledriveConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["googledrive"]]
-
-    settings: Required[DataConnectorsGoogledriveConnectionSettingsSettings]
-
-
-class DataConnectorsGooglemailConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: Required[str]
-
-    raw: Required[Dict[str, object]]
-
-    scope: Required[str]
-
-    expires_at: str
-
-    expires_in: float
-
-    refresh_token: str
-
-    token_type: str
-
-
-class DataConnectorsGooglemailConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
-
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsGooglemailConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class DataConnectorsGooglemailConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsGooglemailConnectionSettingsSettingsOAuth]
-
-
-class DataConnectorsGooglemailConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["googlemail"]]
-
-    settings: Required[DataConnectorsGooglemailConnectionSettingsSettings]
-
-
-class DataConnectorsGooglesheetConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: Required[str]
-
-    raw: Required[Dict[str, object]]
-
-    scope: Required[str]
-
-    expires_at: str
-
-    expires_in: float
-
-    refresh_token: str
-
-    token_type: str
-
-
-class DataConnectorsGooglesheetConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
-
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsGooglesheetConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class DataConnectorsGooglesheetConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsGooglesheetConnectionSettingsSettingsOAuth]
-
-
-class DataConnectorsGooglesheetConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["googlesheet"]]
-
-    settings: Required[DataConnectorsGooglesheetConnectionSettingsSettings]
-
-
-class DataConnectorsGreenhouseConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorGreenhouseDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     api_key: Required[Annotated[str, PropertyInfo(alias="apiKey")]]
 
 
-class DataConnectorsGreenhouseConnectionSettings(TypedDict, total=False):
+class DataConnectorGreenhouseDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["greenhouse"]]
 
-    settings: Required[DataConnectorsGreenhouseConnectionSettingsSettings]
+    settings: Required[DataConnectorGreenhouseDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsHeronConnectionSettings(TypedDict, total=False):
+class DataConnectorHeronDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["heron"]]
 
-    settings: Required[None]
+    settings: Required[object]
 
 
-class DataConnectorsHubspotConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: Required[str]
-
-    raw: Required[Dict[str, object]]
-
-    scope: Required[str]
-
-    expires_at: str
-
-    expires_in: float
-
-    refresh_token: str
-
-    token_type: str
-
-
-class DataConnectorsHubspotConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
-
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsHubspotConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class DataConnectorsHubspotConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsHubspotConnectionSettingsSettingsOAuth]
-
-
-class DataConnectorsHubspotConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["hubspot"]]
-
-    settings: Required[DataConnectorsHubspotConnectionSettingsSettings]
-
-
-class DataConnectorsInstagramConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
+class DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
     access_token: Required[str]
 
     expires_at: Annotated[Union[str, datetime], PropertyInfo(format="iso8601")]
@@ -1096,13 +1464,13 @@ class DataConnectorsInstagramConnectionSettingsSettingsOAuthCredentialsRawTyped(
     token_type: Optional[str]
 
 
-DataConnectorsInstagramConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
-    DataConnectorsInstagramConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
+DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
+    DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsInstagramConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    raw: Required[DataConnectorsInstagramConnectionSettingsSettingsOAuthCredentialsRaw]
+class DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    raw: Required[DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw]
 
     type: Required[Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]]
 
@@ -1115,44 +1483,44 @@ class DataConnectorsInstagramConnectionSettingsSettingsOAuthCredentials(TypedDic
     refresh_token: str
 
 
-class DataConnectorsInstagramConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
+class DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
     instance_url: Optional[str]
 
     portal_id: Annotated[Optional[float], PropertyInfo(alias="portalId")]
 
 
-DataConnectorsInstagramConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
-    DataConnectorsInstagramConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
+DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
+    DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsInstagramConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    credentials: Required[DataConnectorsInstagramConnectionSettingsSettingsOAuthCredentials]
+class DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    credentials: Required[DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials]
 
     metadata: Required[Optional[Dict[str, object]]]
 
-    connection_config: Optional[DataConnectorsInstagramConnectionSettingsSettingsOAuthConnectionConfig]
+    connection_config: Optional[DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig]
 
 
-class DataConnectorsInstagramConnectionSettingsSettingsError(TypedDict, total=False):
+class DataConnectorInstagramDiscriminatedConnectionSettingsSettingsError(TypedDict, total=False):
     code: Required[Union[Literal["refresh_token_external_error"], str]]
 
     message: Optional[str]
 
 
-class DataConnectorsInstagramConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsInstagramConnectionSettingsSettingsOAuth]
+class DataConnectorInstagramDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuth]
 
-    error: Optional[DataConnectorsInstagramConnectionSettingsSettingsError]
+    error: Optional[DataConnectorInstagramDiscriminatedConnectionSettingsSettingsError]
 
 
-class DataConnectorsInstagramConnectionSettings(TypedDict, total=False):
+class DataConnectorInstagramDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["instagram"]]
 
-    settings: Required[DataConnectorsInstagramConnectionSettingsSettings]
+    settings: Required[DataConnectorInstagramDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
+class DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
     access_token: Required[str]
 
     expires_at: Annotated[Union[str, datetime], PropertyInfo(format="iso8601")]
@@ -1168,13 +1536,13 @@ class DataConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRawTyped(T
     token_type: Optional[str]
 
 
-DataConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
-    DataConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
+DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
+    DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsIntercomConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    raw: Required[DataConnectorsIntercomConnectionSettingsSettingsOAuthCredentialsRaw]
+class DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    raw: Required[DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw]
 
     type: Required[Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]]
 
@@ -1187,44 +1555,44 @@ class DataConnectorsIntercomConnectionSettingsSettingsOAuthCredentials(TypedDict
     refresh_token: str
 
 
-class DataConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
+class DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
     instance_url: Optional[str]
 
     portal_id: Annotated[Optional[float], PropertyInfo(alias="portalId")]
 
 
-DataConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
-    DataConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
+DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
+    DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsIntercomConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    credentials: Required[DataConnectorsIntercomConnectionSettingsSettingsOAuthCredentials]
+class DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    credentials: Required[DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials]
 
     metadata: Required[Optional[Dict[str, object]]]
 
-    connection_config: Optional[DataConnectorsIntercomConnectionSettingsSettingsOAuthConnectionConfig]
+    connection_config: Optional[DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig]
 
 
-class DataConnectorsIntercomConnectionSettingsSettingsError(TypedDict, total=False):
+class DataConnectorIntercomDiscriminatedConnectionSettingsSettingsError(TypedDict, total=False):
     code: Required[Union[Literal["refresh_token_external_error"], str]]
 
     message: Optional[str]
 
 
-class DataConnectorsIntercomConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsIntercomConnectionSettingsSettingsOAuth]
+class DataConnectorIntercomDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuth]
 
-    error: Optional[DataConnectorsIntercomConnectionSettingsSettingsError]
+    error: Optional[DataConnectorIntercomDiscriminatedConnectionSettingsSettingsError]
 
 
-class DataConnectorsIntercomConnectionSettings(TypedDict, total=False):
+class DataConnectorIntercomDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["intercom"]]
 
-    settings: Required[DataConnectorsIntercomConnectionSettingsSettings]
+    settings: Required[DataConnectorIntercomDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
+class DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
     access_token: Required[str]
 
     expires_at: Annotated[Union[str, datetime], PropertyInfo(format="iso8601")]
@@ -1240,13 +1608,13 @@ class DataConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRawTyped(Typed
     token_type: Optional[str]
 
 
-DataConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
-    DataConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
+DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
+    DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsJiraConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    raw: Required[DataConnectorsJiraConnectionSettingsSettingsOAuthCredentialsRaw]
+class DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    raw: Required[DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw]
 
     type: Required[Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]]
 
@@ -1259,44 +1627,44 @@ class DataConnectorsJiraConnectionSettingsSettingsOAuthCredentials(TypedDict, to
     refresh_token: str
 
 
-class DataConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
+class DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
     instance_url: Optional[str]
 
     portal_id: Annotated[Optional[float], PropertyInfo(alias="portalId")]
 
 
-DataConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
-    DataConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
+DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
+    DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsJiraConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    credentials: Required[DataConnectorsJiraConnectionSettingsSettingsOAuthCredentials]
+class DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    credentials: Required[DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials]
 
     metadata: Required[Optional[Dict[str, object]]]
 
-    connection_config: Optional[DataConnectorsJiraConnectionSettingsSettingsOAuthConnectionConfig]
+    connection_config: Optional[DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig]
 
 
-class DataConnectorsJiraConnectionSettingsSettingsError(TypedDict, total=False):
+class DataConnectorJiraDiscriminatedConnectionSettingsSettingsError(TypedDict, total=False):
     code: Required[Union[Literal["refresh_token_external_error"], str]]
 
     message: Optional[str]
 
 
-class DataConnectorsJiraConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsJiraConnectionSettingsSettingsOAuth]
+class DataConnectorJiraDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuth]
 
-    error: Optional[DataConnectorsJiraConnectionSettingsSettingsError]
+    error: Optional[DataConnectorJiraDiscriminatedConnectionSettingsSettingsError]
 
 
-class DataConnectorsJiraConnectionSettings(TypedDict, total=False):
+class DataConnectorJiraDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["jira"]]
 
-    settings: Required[DataConnectorsJiraConnectionSettingsSettings]
+    settings: Required[DataConnectorJiraDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
+class DataConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
     access_token: Required[str]
 
     expires_at: Annotated[Union[str, datetime], PropertyInfo(format="iso8601")]
@@ -1312,13 +1680,13 @@ class DataConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRawTyped(T
     token_type: Optional[str]
 
 
-DataConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
-    DataConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
+DataConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
+    DataConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsKustomerConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    raw: Required[DataConnectorsKustomerConnectionSettingsSettingsOAuthCredentialsRaw]
+class DataConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    raw: Required[DataConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw]
 
     type: Required[Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]]
 
@@ -1331,44 +1699,44 @@ class DataConnectorsKustomerConnectionSettingsSettingsOAuthCredentials(TypedDict
     refresh_token: str
 
 
-class DataConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
+class DataConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
     instance_url: Optional[str]
 
     portal_id: Annotated[Optional[float], PropertyInfo(alias="portalId")]
 
 
-DataConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
-    DataConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
+DataConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
+    DataConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsKustomerConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    credentials: Required[DataConnectorsKustomerConnectionSettingsSettingsOAuthCredentials]
+class DataConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    credentials: Required[DataConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthCredentials]
 
     metadata: Required[Optional[Dict[str, object]]]
 
-    connection_config: Optional[DataConnectorsKustomerConnectionSettingsSettingsOAuthConnectionConfig]
+    connection_config: Optional[DataConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig]
 
 
-class DataConnectorsKustomerConnectionSettingsSettingsError(TypedDict, total=False):
+class DataConnectorKustomerDiscriminatedConnectionSettingsSettingsError(TypedDict, total=False):
     code: Required[Union[Literal["refresh_token_external_error"], str]]
 
     message: Optional[str]
 
 
-class DataConnectorsKustomerConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsKustomerConnectionSettingsSettingsOAuth]
+class DataConnectorKustomerDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorKustomerDiscriminatedConnectionSettingsSettingsOAuth]
 
-    error: Optional[DataConnectorsKustomerConnectionSettingsSettingsError]
+    error: Optional[DataConnectorKustomerDiscriminatedConnectionSettingsSettingsError]
 
 
-class DataConnectorsKustomerConnectionSettings(TypedDict, total=False):
+class DataConnectorKustomerDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["kustomer"]]
 
-    settings: Required[DataConnectorsKustomerConnectionSettingsSettings]
+    settings: Required[DataConnectorKustomerDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
+class DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
     access_token: Required[str]
 
     expires_at: Annotated[Union[str, datetime], PropertyInfo(format="iso8601")]
@@ -1384,13 +1752,13 @@ class DataConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRawTyped(Type
     token_type: Optional[str]
 
 
-DataConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
-    DataConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
+DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
+    DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsLeverConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    raw: Required[DataConnectorsLeverConnectionSettingsSettingsOAuthCredentialsRaw]
+class DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    raw: Required[DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw]
 
     type: Required[Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]]
 
@@ -1403,150 +1771,68 @@ class DataConnectorsLeverConnectionSettingsSettingsOAuthCredentials(TypedDict, t
     refresh_token: str
 
 
-class DataConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
+class DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
     instance_url: Optional[str]
 
     portal_id: Annotated[Optional[float], PropertyInfo(alias="portalId")]
 
 
-DataConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
-    DataConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
+DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
+    DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsLeverConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    credentials: Required[DataConnectorsLeverConnectionSettingsSettingsOAuthCredentials]
+class DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    credentials: Required[DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials]
 
     metadata: Required[Optional[Dict[str, object]]]
 
-    connection_config: Optional[DataConnectorsLeverConnectionSettingsSettingsOAuthConnectionConfig]
+    connection_config: Optional[DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig]
 
 
-class DataConnectorsLeverConnectionSettingsSettingsError(TypedDict, total=False):
+class DataConnectorLeverDiscriminatedConnectionSettingsSettingsError(TypedDict, total=False):
     code: Required[Union[Literal["refresh_token_external_error"], str]]
 
     message: Optional[str]
 
 
-class DataConnectorsLeverConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsLeverConnectionSettingsSettingsOAuth]
+class DataConnectorLeverDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuth]
 
-    error: Optional[DataConnectorsLeverConnectionSettingsSettingsError]
+    error: Optional[DataConnectorLeverDiscriminatedConnectionSettingsSettingsError]
 
 
-class DataConnectorsLeverConnectionSettings(TypedDict, total=False):
+class DataConnectorLeverDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["lever"]]
 
-    settings: Required[DataConnectorsLeverConnectionSettingsSettings]
+    settings: Required[DataConnectorLeverDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsLinearConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: Required[str]
-
-    raw: Required[Dict[str, object]]
-
-    scope: Required[str]
-
-    expires_at: str
-
-    expires_in: float
-
-    refresh_token: str
-
-    token_type: str
-
-
-class DataConnectorsLinearConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
-
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsLinearConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class DataConnectorsLinearConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsLinearConnectionSettingsSettingsOAuth]
-
-
-class DataConnectorsLinearConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["linear"]]
-
-    settings: Required[DataConnectorsLinearConnectionSettingsSettings]
-
-
-class DataConnectorsLinkedinConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: Required[str]
-
-    raw: Required[Dict[str, object]]
-
-    scope: Required[str]
-
-    expires_at: str
-
-    expires_in: float
-
-    refresh_token: str
-
-    token_type: str
-
-
-class DataConnectorsLinkedinConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
-
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsLinkedinConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class DataConnectorsLinkedinConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsLinkedinConnectionSettingsSettingsOAuth]
-
-
-class DataConnectorsLinkedinConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["linkedin"]]
-
-    settings: Required[DataConnectorsLinkedinConnectionSettingsSettings]
-
-
-class DataConnectorsLunchmoneyConnectionSettings(TypedDict, total=False):
+class DataConnectorLunchmoneyDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["lunchmoney"]]
 
-    settings: Required[None]
+    settings: Required[object]
 
 
-class DataConnectorsMercuryConnectionSettings(TypedDict, total=False):
+class DataConnectorMercuryDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["mercury"]]
 
-    settings: Required[None]
+    settings: Required[object]
 
 
-class DataConnectorsMergeConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorMergeDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     account_token: Required[Annotated[str, PropertyInfo(alias="accountToken")]]
 
     account_details: Annotated[object, PropertyInfo(alias="accountDetails")]
 
 
-class DataConnectorsMergeConnectionSettings(TypedDict, total=False):
+class DataConnectorMergeDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["merge"]]
 
-    settings: Required[DataConnectorsMergeConnectionSettingsSettings]
+    settings: Required[DataConnectorMergeDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
+class DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
     access_token: Required[str]
 
     expires_at: Annotated[Union[str, datetime], PropertyInfo(format="iso8601")]
@@ -1562,13 +1848,13 @@ class DataConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRawTyped(
     token_type: Optional[str]
 
 
-DataConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
-    DataConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
+DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
+    DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    raw: Required[DataConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentialsRaw]
+class DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    raw: Required[DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw]
 
     type: Required[Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]]
 
@@ -1581,103 +1867,62 @@ class DataConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentials(TypedDic
     refresh_token: str
 
 
-class DataConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
+class DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
     instance_url: Optional[str]
 
     portal_id: Annotated[Optional[float], PropertyInfo(alias="portalId")]
 
 
-DataConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
-    DataConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
+DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
+    DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsMicrosoftConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    credentials: Required[DataConnectorsMicrosoftConnectionSettingsSettingsOAuthCredentials]
+class DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    credentials: Required[DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthCredentials]
 
     metadata: Required[Optional[Dict[str, object]]]
 
-    connection_config: Optional[DataConnectorsMicrosoftConnectionSettingsSettingsOAuthConnectionConfig]
+    connection_config: Optional[DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig]
 
 
-class DataConnectorsMicrosoftConnectionSettingsSettingsError(TypedDict, total=False):
+class DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsError(TypedDict, total=False):
     code: Required[Union[Literal["refresh_token_external_error"], str]]
 
     message: Optional[str]
 
 
-class DataConnectorsMicrosoftConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsMicrosoftConnectionSettingsSettingsOAuth]
+class DataConnectorMicrosoftDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsOAuth]
 
     client_id: str
 
-    error: Optional[DataConnectorsMicrosoftConnectionSettingsSettingsError]
+    error: Optional[DataConnectorMicrosoftDiscriminatedConnectionSettingsSettingsError]
 
 
-class DataConnectorsMicrosoftConnectionSettings(TypedDict, total=False):
+class DataConnectorMicrosoftDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["microsoft"]]
 
-    settings: Required[DataConnectorsMicrosoftConnectionSettingsSettings]
+    settings: Required[DataConnectorMicrosoftDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsMootaConnectionSettings(TypedDict, total=False):
+class DataConnectorMootaDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["moota"]]
 
-    settings: Required[None]
+    settings: Required[object]
 
 
-class DataConnectorsNotionConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: Required[str]
-
-    raw: Required[Dict[str, object]]
-
-    scope: Required[str]
-
-    expires_at: str
-
-    expires_in: float
-
-    refresh_token: str
-
-    token_type: str
-
-
-class DataConnectorsNotionConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
-
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsNotionConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class DataConnectorsNotionConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsNotionConnectionSettingsSettingsOAuth]
-
-
-class DataConnectorsNotionConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["notion"]]
-
-    settings: Required[DataConnectorsNotionConnectionSettingsSettings]
-
-
-class DataConnectorsOnebrickConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorOnebrickDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     access_token: Required[Annotated[str, PropertyInfo(alias="accessToken")]]
 
 
-class DataConnectorsOnebrickConnectionSettings(TypedDict, total=False):
+class DataConnectorOnebrickDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["onebrick"]]
 
-    settings: Required[DataConnectorsOnebrickConnectionSettingsSettings]
+    settings: Required[DataConnectorOnebrickDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
+class DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
     access_token: Required[str]
 
     expires_at: Annotated[Union[str, datetime], PropertyInfo(format="iso8601")]
@@ -1693,13 +1938,13 @@ class DataConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRawTyped(T
     token_type: Optional[str]
 
 
-DataConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
-    DataConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
+DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
+    DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsOutreachConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    raw: Required[DataConnectorsOutreachConnectionSettingsSettingsOAuthCredentialsRaw]
+class DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    raw: Required[DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw]
 
     type: Required[Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]]
 
@@ -1712,44 +1957,44 @@ class DataConnectorsOutreachConnectionSettingsSettingsOAuthCredentials(TypedDict
     refresh_token: str
 
 
-class DataConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
+class DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
     instance_url: Optional[str]
 
     portal_id: Annotated[Optional[float], PropertyInfo(alias="portalId")]
 
 
-DataConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
-    DataConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
+DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
+    DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsOutreachConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    credentials: Required[DataConnectorsOutreachConnectionSettingsSettingsOAuthCredentials]
+class DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    credentials: Required[DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials]
 
     metadata: Required[Optional[Dict[str, object]]]
 
-    connection_config: Optional[DataConnectorsOutreachConnectionSettingsSettingsOAuthConnectionConfig]
+    connection_config: Optional[DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig]
 
 
-class DataConnectorsOutreachConnectionSettingsSettingsError(TypedDict, total=False):
+class DataConnectorOutreachDiscriminatedConnectionSettingsSettingsError(TypedDict, total=False):
     code: Required[Union[Literal["refresh_token_external_error"], str]]
 
     message: Optional[str]
 
 
-class DataConnectorsOutreachConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsOutreachConnectionSettingsSettingsOAuth]
+class DataConnectorOutreachDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuth]
 
-    error: Optional[DataConnectorsOutreachConnectionSettingsSettingsError]
+    error: Optional[DataConnectorOutreachDiscriminatedConnectionSettingsSettingsError]
 
 
-class DataConnectorsOutreachConnectionSettings(TypedDict, total=False):
+class DataConnectorOutreachDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["outreach"]]
 
-    settings: Required[DataConnectorsOutreachConnectionSettingsSettings]
+    settings: Required[DataConnectorOutreachDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
+class DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
     access_token: Required[str]
 
     expires_at: Annotated[Union[str, datetime], PropertyInfo(format="iso8601")]
@@ -1765,13 +2010,13 @@ class DataConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRawTyped(
     token_type: Optional[str]
 
 
-DataConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
-    DataConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
+DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
+    DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsPipedriveConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    raw: Required[DataConnectorsPipedriveConnectionSettingsSettingsOAuthCredentialsRaw]
+class DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    raw: Required[DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw]
 
     type: Required[Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]]
 
@@ -1784,44 +2029,44 @@ class DataConnectorsPipedriveConnectionSettingsSettingsOAuthCredentials(TypedDic
     refresh_token: str
 
 
-class DataConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
+class DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
     instance_url: Optional[str]
 
     portal_id: Annotated[Optional[float], PropertyInfo(alias="portalId")]
 
 
-DataConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
-    DataConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
+DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
+    DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsPipedriveConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    credentials: Required[DataConnectorsPipedriveConnectionSettingsSettingsOAuthCredentials]
+class DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    credentials: Required[DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials]
 
     metadata: Required[Optional[Dict[str, object]]]
 
-    connection_config: Optional[DataConnectorsPipedriveConnectionSettingsSettingsOAuthConnectionConfig]
+    connection_config: Optional[DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig]
 
 
-class DataConnectorsPipedriveConnectionSettingsSettingsError(TypedDict, total=False):
+class DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsError(TypedDict, total=False):
     code: Required[Union[Literal["refresh_token_external_error"], str]]
 
     message: Optional[str]
 
 
-class DataConnectorsPipedriveConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsPipedriveConnectionSettingsSettingsOAuth]
+class DataConnectorPipedriveDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuth]
 
-    error: Optional[DataConnectorsPipedriveConnectionSettingsSettingsError]
+    error: Optional[DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsError]
 
 
-class DataConnectorsPipedriveConnectionSettings(TypedDict, total=False):
+class DataConnectorPipedriveDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["pipedrive"]]
 
-    settings: Required[DataConnectorsPipedriveConnectionSettingsSettings]
+    settings: Required[DataConnectorPipedriveDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsPlaidConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorPlaidDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     access_token: Required[Annotated[str, PropertyInfo(alias="accessToken")]]
 
     institution: object
@@ -1835,88 +2080,44 @@ class DataConnectorsPlaidConnectionSettingsSettings(TypedDict, total=False):
     webhook_item_error: Annotated[None, PropertyInfo(alias="webhookItemError")]
 
 
-class DataConnectorsPlaidConnectionSettings(TypedDict, total=False):
+class DataConnectorPlaidDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["plaid"]]
 
-    settings: Required[DataConnectorsPlaidConnectionSettingsSettings]
+    settings: Required[DataConnectorPlaidDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsPostgresConnectionSettingsSettingsSourceQueries(TypedDict, total=False):
+class DataConnectorPostgresDiscriminatedConnectionSettingsSettingsSourceQueries(TypedDict, total=False):
     invoice: Optional[str]
     """Should order by lastModifiedAt and id descending"""
 
 
-class DataConnectorsPostgresConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorPostgresDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     database_url: Required[Annotated[str, PropertyInfo(alias="databaseUrl")]]
 
     source_queries: Annotated[
-        DataConnectorsPostgresConnectionSettingsSettingsSourceQueries, PropertyInfo(alias="sourceQueries")
+        DataConnectorPostgresDiscriminatedConnectionSettingsSettingsSourceQueries, PropertyInfo(alias="sourceQueries")
     ]
 
 
-class DataConnectorsPostgresConnectionSettings(TypedDict, total=False):
+class DataConnectorPostgresDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["postgres"]]
 
-    settings: Required[DataConnectorsPostgresConnectionSettingsSettings]
+    settings: Required[DataConnectorPostgresDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsQuickbooksConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: Required[str]
-
-    raw: Required[Dict[str, object]]
-
-    scope: Required[str]
-
-    expires_at: str
-
-    expires_in: float
-
-    refresh_token: str
-
-    token_type: str
-
-
-class DataConnectorsQuickbooksConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
-
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsQuickbooksConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class DataConnectorsQuickbooksConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsQuickbooksConnectionSettingsSettingsOAuth]
-
-    realm_id: Required[Annotated[str, PropertyInfo(alias="realmId")]]
-    """The realmId of your quickbooks company (e.g., 9341453474484455)"""
-
-
-class DataConnectorsQuickbooksConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["quickbooks"]]
-
-    settings: Required[DataConnectorsQuickbooksConnectionSettingsSettings]
-
-
-class DataConnectorsRampConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorRampDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     access_token: Annotated[Optional[str], PropertyInfo(alias="accessToken")]
 
     start_after_transaction_id: Annotated[Optional[str], PropertyInfo(alias="startAfterTransactionId")]
 
 
-class DataConnectorsRampConnectionSettings(TypedDict, total=False):
+class DataConnectorRampDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["ramp"]]
 
-    settings: Required[DataConnectorsRampConnectionSettingsSettings]
+    settings: Required[DataConnectorRampDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsRedditConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
+class DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
     access_token: Required[str]
 
     expires_at: Annotated[Union[str, datetime], PropertyInfo(format="iso8601")]
@@ -1932,13 +2133,13 @@ class DataConnectorsRedditConnectionSettingsSettingsOAuthCredentialsRawTyped(Typ
     token_type: Optional[str]
 
 
-DataConnectorsRedditConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
-    DataConnectorsRedditConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
+DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
+    DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsRedditConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    raw: Required[DataConnectorsRedditConnectionSettingsSettingsOAuthCredentialsRaw]
+class DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    raw: Required[DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw]
 
     type: Required[Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]]
 
@@ -1951,88 +2152,44 @@ class DataConnectorsRedditConnectionSettingsSettingsOAuthCredentials(TypedDict, 
     refresh_token: str
 
 
-class DataConnectorsRedditConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
+class DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
     instance_url: Optional[str]
 
     portal_id: Annotated[Optional[float], PropertyInfo(alias="portalId")]
 
 
-DataConnectorsRedditConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
-    DataConnectorsRedditConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
+DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
+    DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsRedditConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    credentials: Required[DataConnectorsRedditConnectionSettingsSettingsOAuthCredentials]
+class DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    credentials: Required[DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials]
 
     metadata: Required[Optional[Dict[str, object]]]
 
-    connection_config: Optional[DataConnectorsRedditConnectionSettingsSettingsOAuthConnectionConfig]
+    connection_config: Optional[DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig]
 
 
-class DataConnectorsRedditConnectionSettingsSettingsError(TypedDict, total=False):
+class DataConnectorRedditDiscriminatedConnectionSettingsSettingsError(TypedDict, total=False):
     code: Required[Union[Literal["refresh_token_external_error"], str]]
 
     message: Optional[str]
 
 
-class DataConnectorsRedditConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsRedditConnectionSettingsSettingsOAuth]
+class DataConnectorRedditDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuth]
 
-    error: Optional[DataConnectorsRedditConnectionSettingsSettingsError]
+    error: Optional[DataConnectorRedditDiscriminatedConnectionSettingsSettingsError]
 
 
-class DataConnectorsRedditConnectionSettings(TypedDict, total=False):
+class DataConnectorRedditDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["reddit"]]
 
-    settings: Required[DataConnectorsRedditConnectionSettingsSettings]
+    settings: Required[DataConnectorRedditDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsSalesforceConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: Required[str]
-
-    raw: Required[Dict[str, object]]
-
-    scope: Required[str]
-
-    expires_at: str
-
-    expires_in: float
-
-    refresh_token: str
-
-    token_type: str
-
-
-class DataConnectorsSalesforceConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
-
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsSalesforceConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class DataConnectorsSalesforceConnectionSettingsSettings(TypedDict, total=False):
-    instance_url: Required[str]
-    """The instance URL of your Salesforce account (e.g., example)"""
-
-    oauth: Required[DataConnectorsSalesforceConnectionSettingsSettingsOAuth]
-
-
-class DataConnectorsSalesforceConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["salesforce"]]
-
-    settings: Required[DataConnectorsSalesforceConnectionSettingsSettings]
-
-
-class DataConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
+class DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
     access_token: Required[str]
 
     expires_at: Annotated[Union[str, datetime], PropertyInfo(format="iso8601")]
@@ -2048,13 +2205,13 @@ class DataConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRawTyped(
     token_type: Optional[str]
 
 
-DataConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
-    DataConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
+DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
+    DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsSalesloftConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    raw: Required[DataConnectorsSalesloftConnectionSettingsSettingsOAuthCredentialsRaw]
+class DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    raw: Required[DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw]
 
     type: Required[Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]]
 
@@ -2067,132 +2224,50 @@ class DataConnectorsSalesloftConnectionSettingsSettingsOAuthCredentials(TypedDic
     refresh_token: str
 
 
-class DataConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
+class DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
     instance_url: Optional[str]
 
     portal_id: Annotated[Optional[float], PropertyInfo(alias="portalId")]
 
 
-DataConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
-    DataConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
+DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
+    DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsSalesloftConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    credentials: Required[DataConnectorsSalesloftConnectionSettingsSettingsOAuthCredentials]
+class DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    credentials: Required[DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials]
 
     metadata: Required[Optional[Dict[str, object]]]
 
-    connection_config: Optional[DataConnectorsSalesloftConnectionSettingsSettingsOAuthConnectionConfig]
+    connection_config: Optional[DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig]
 
 
-class DataConnectorsSalesloftConnectionSettingsSettingsError(TypedDict, total=False):
+class DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsError(TypedDict, total=False):
     code: Required[Union[Literal["refresh_token_external_error"], str]]
 
     message: Optional[str]
 
 
-class DataConnectorsSalesloftConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsSalesloftConnectionSettingsSettingsOAuth]
+class DataConnectorSalesloftDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth]
 
-    error: Optional[DataConnectorsSalesloftConnectionSettingsSettingsError]
+    error: Optional[DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsError]
 
 
-class DataConnectorsSalesloftConnectionSettings(TypedDict, total=False):
+class DataConnectorSalesloftDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["salesloft"]]
 
-    settings: Required[DataConnectorsSalesloftConnectionSettingsSettings]
+    settings: Required[DataConnectorSalesloftDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsSaltedgeConnectionSettings(TypedDict, total=False):
+class DataConnectorSaltedgeDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["saltedge"]]
 
     settings: object
 
 
-class DataConnectorsSharepointonlineConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: Required[str]
-
-    raw: Required[Dict[str, object]]
-
-    scope: Required[str]
-
-    expires_at: str
-
-    expires_in: float
-
-    refresh_token: str
-
-    token_type: str
-
-
-class DataConnectorsSharepointonlineConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
-
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsSharepointonlineConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class DataConnectorsSharepointonlineConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsSharepointonlineConnectionSettingsSettingsOAuth]
-
-
-class DataConnectorsSharepointonlineConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["sharepointonline"]]
-
-    settings: Required[DataConnectorsSharepointonlineConnectionSettingsSettings]
-
-
-class DataConnectorsSlackConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: Required[str]
-
-    raw: Required[Dict[str, object]]
-
-    scope: Required[str]
-
-    expires_at: str
-
-    expires_in: float
-
-    refresh_token: str
-
-    token_type: str
-
-
-class DataConnectorsSlackConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: Required[str]
-
-    last_fetched_at: Required[str]
-
-    metadata: Required[Optional[Dict[str, object]]]
-
-    updated_at: Required[str]
-
-    credentials: DataConnectorsSlackConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-
-class DataConnectorsSlackConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsSlackConnectionSettingsSettingsOAuth]
-
-
-class DataConnectorsSlackConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["slack"]]
-
-    settings: Required[DataConnectorsSlackConnectionSettingsSettings]
-
-
-class DataConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications(TypedDict, total=False):
+class DataConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUserNotifications(TypedDict, total=False):
     added_as_friend: Required[bool]
 
     added_to_group: Required[bool]
@@ -2210,7 +2285,7 @@ class DataConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications(
     payments: Required[bool]
 
 
-class DataConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture(TypedDict, total=False):
+class DataConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUserPicture(TypedDict, total=False):
     large: Optional[str]
 
     medium: Optional[str]
@@ -2224,7 +2299,7 @@ class DataConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture(TypedD
     xxlarge: Optional[str]
 
 
-class DataConnectorsSplitwiseConnectionSettingsSettingsCurrentUser(TypedDict, total=False):
+class DataConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUser(TypedDict, total=False):
     id: Required[float]
 
     country_code: Required[str]
@@ -2247,52 +2322,53 @@ class DataConnectorsSplitwiseConnectionSettingsSettingsCurrentUser(TypedDict, to
 
     locale: Required[str]
 
-    notifications: Required[DataConnectorsSplitwiseConnectionSettingsSettingsCurrentUserNotifications]
+    notifications: Required[DataConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUserNotifications]
 
     notifications_count: Required[float]
 
     notifications_read: Required[str]
 
-    picture: Required[DataConnectorsSplitwiseConnectionSettingsSettingsCurrentUserPicture]
+    picture: Required[DataConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUserPicture]
 
     registration_status: Required[str]
 
 
-class DataConnectorsSplitwiseConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorSplitwiseDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     access_token: Required[Annotated[str, PropertyInfo(alias="accessToken")]]
 
     current_user: Annotated[
-        Optional[DataConnectorsSplitwiseConnectionSettingsSettingsCurrentUser], PropertyInfo(alias="currentUser")
+        Optional[DataConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUser],
+        PropertyInfo(alias="currentUser"),
     ]
 
 
-class DataConnectorsSplitwiseConnectionSettings(TypedDict, total=False):
+class DataConnectorSplitwiseDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["splitwise"]]
 
-    settings: Required[DataConnectorsSplitwiseConnectionSettingsSettings]
+    settings: Required[DataConnectorSplitwiseDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsStripeConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorStripeDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     secret_key: Required[Annotated[str, PropertyInfo(alias="secretKey")]]
 
 
-class DataConnectorsStripeConnectionSettings(TypedDict, total=False):
+class DataConnectorStripeDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["stripe"]]
 
-    settings: Required[DataConnectorsStripeConnectionSettingsSettings]
+    settings: Required[DataConnectorStripeDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsTellerConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorTellerDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     token: Required[str]
 
 
-class DataConnectorsTellerConnectionSettings(TypedDict, total=False):
+class DataConnectorTellerDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["teller"]]
 
-    settings: Required[DataConnectorsTellerConnectionSettingsSettings]
+    settings: Required[DataConnectorTellerDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsTogglConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorTogglDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     api_token: Required[Annotated[str, PropertyInfo(alias="apiToken")]]
 
     email: Optional[str]
@@ -2300,23 +2376,23 @@ class DataConnectorsTogglConnectionSettingsSettings(TypedDict, total=False):
     password: Optional[str]
 
 
-class DataConnectorsTogglConnectionSettings(TypedDict, total=False):
+class DataConnectorTogglDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["toggl"]]
 
-    settings: Required[DataConnectorsTogglConnectionSettingsSettings]
+    settings: Required[DataConnectorTogglDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsTwentyConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorTwentyDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     access_token: Required[str]
 
 
-class DataConnectorsTwentyConnectionSettings(TypedDict, total=False):
+class DataConnectorTwentyDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["twenty"]]
 
-    settings: Required[DataConnectorsTwentyConnectionSettingsSettings]
+    settings: Required[DataConnectorTwentyDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsTwitterConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
+class DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
     access_token: Required[str]
 
     expires_at: Annotated[Union[str, datetime], PropertyInfo(format="iso8601")]
@@ -2332,13 +2408,13 @@ class DataConnectorsTwitterConnectionSettingsSettingsOAuthCredentialsRawTyped(Ty
     token_type: Optional[str]
 
 
-DataConnectorsTwitterConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
-    DataConnectorsTwitterConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
+DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
+    DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsTwitterConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    raw: Required[DataConnectorsTwitterConnectionSettingsSettingsOAuthCredentialsRaw]
+class DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    raw: Required[DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw]
 
     type: Required[Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]]
 
@@ -2351,68 +2427,68 @@ class DataConnectorsTwitterConnectionSettingsSettingsOAuthCredentials(TypedDict,
     refresh_token: str
 
 
-class DataConnectorsTwitterConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
+class DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
     instance_url: Optional[str]
 
     portal_id: Annotated[Optional[float], PropertyInfo(alias="portalId")]
 
 
-DataConnectorsTwitterConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
-    DataConnectorsTwitterConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
+DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
+    DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsTwitterConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    credentials: Required[DataConnectorsTwitterConnectionSettingsSettingsOAuthCredentials]
+class DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    credentials: Required[DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials]
 
     metadata: Required[Optional[Dict[str, object]]]
 
-    connection_config: Optional[DataConnectorsTwitterConnectionSettingsSettingsOAuthConnectionConfig]
+    connection_config: Optional[DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig]
 
 
-class DataConnectorsTwitterConnectionSettingsSettingsError(TypedDict, total=False):
+class DataConnectorTwitterDiscriminatedConnectionSettingsSettingsError(TypedDict, total=False):
     code: Required[Union[Literal["refresh_token_external_error"], str]]
 
     message: Optional[str]
 
 
-class DataConnectorsTwitterConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsTwitterConnectionSettingsSettingsOAuth]
+class DataConnectorTwitterDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuth]
 
-    error: Optional[DataConnectorsTwitterConnectionSettingsSettingsError]
+    error: Optional[DataConnectorTwitterDiscriminatedConnectionSettingsSettingsError]
 
 
-class DataConnectorsTwitterConnectionSettings(TypedDict, total=False):
+class DataConnectorTwitterDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["twitter"]]
 
-    settings: Required[DataConnectorsTwitterConnectionSettingsSettings]
+    settings: Required[DataConnectorTwitterDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsVenmoConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorVenmoDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     credentials: object
 
     me: object
 
 
-class DataConnectorsVenmoConnectionSettings(TypedDict, total=False):
+class DataConnectorVenmoDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["venmo"]]
 
-    settings: Required[DataConnectorsVenmoConnectionSettingsSettings]
+    settings: Required[DataConnectorVenmoDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsWiseConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorWiseDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     env_name: Required[Annotated[Literal["sandbox", "live"], PropertyInfo(alias="envName")]]
 
     api_token: Annotated[Optional[str], PropertyInfo(alias="apiToken")]
 
 
-class DataConnectorsWiseConnectionSettings(TypedDict, total=False):
+class DataConnectorWiseDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["wise"]]
 
-    settings: Required[DataConnectorsWiseConnectionSettingsSettings]
+    settings: Required[DataConnectorWiseDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
+class DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
     access_token: Required[str]
 
     expires_at: Annotated[Union[str, datetime], PropertyInfo(format="iso8601")]
@@ -2428,13 +2504,13 @@ class DataConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRawTyped(Typed
     token_type: Optional[str]
 
 
-DataConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
-    DataConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
+DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
+    DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsXeroConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    raw: Required[DataConnectorsXeroConnectionSettingsSettingsOAuthCredentialsRaw]
+class DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    raw: Required[DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw]
 
     type: Required[Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]]
 
@@ -2447,44 +2523,44 @@ class DataConnectorsXeroConnectionSettingsSettingsOAuthCredentials(TypedDict, to
     refresh_token: str
 
 
-class DataConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
+class DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
     instance_url: Optional[str]
 
     portal_id: Annotated[Optional[float], PropertyInfo(alias="portalId")]
 
 
-DataConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
-    DataConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
+DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
+    DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsXeroConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    credentials: Required[DataConnectorsXeroConnectionSettingsSettingsOAuthCredentials]
+class DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    credentials: Required[DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials]
 
     metadata: Required[Optional[Dict[str, object]]]
 
-    connection_config: Optional[DataConnectorsXeroConnectionSettingsSettingsOAuthConnectionConfig]
+    connection_config: Optional[DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig]
 
 
-class DataConnectorsXeroConnectionSettingsSettingsError(TypedDict, total=False):
+class DataConnectorXeroDiscriminatedConnectionSettingsSettingsError(TypedDict, total=False):
     code: Required[Union[Literal["refresh_token_external_error"], str]]
 
     message: Optional[str]
 
 
-class DataConnectorsXeroConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsXeroConnectionSettingsSettingsOAuth]
+class DataConnectorXeroDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuth]
 
-    error: Optional[DataConnectorsXeroConnectionSettingsSettingsError]
+    error: Optional[DataConnectorXeroDiscriminatedConnectionSettingsSettingsError]
 
 
-class DataConnectorsXeroConnectionSettings(TypedDict, total=False):
+class DataConnectorXeroDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["xero"]]
 
-    settings: Required[DataConnectorsXeroConnectionSettingsSettings]
+    settings: Required[DataConnectorXeroDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsYodleeConnectionSettingsSettingsAccessToken(TypedDict, total=False):
+class DataConnectorYodleeDiscriminatedConnectionSettingsSettingsAccessToken(TypedDict, total=False):
     access_token: Required[Annotated[str, PropertyInfo(alias="accessToken")]]
 
     expires_in: Required[Annotated[float, PropertyInfo(alias="expiresIn")]]
@@ -2492,7 +2568,7 @@ class DataConnectorsYodleeConnectionSettingsSettingsAccessToken(TypedDict, total
     issued_at: Required[Annotated[str, PropertyInfo(alias="issuedAt")]]
 
 
-class DataConnectorsYodleeConnectionSettingsSettingsProviderAccount(TypedDict, total=False):
+class DataConnectorYodleeDiscriminatedConnectionSettingsSettingsProviderAccount(TypedDict, total=False):
     id: Required[float]
 
     aggregation_source: Required[Annotated[str, PropertyInfo(alias="aggregationSource")]]
@@ -2512,31 +2588,33 @@ class DataConnectorsYodleeConnectionSettingsSettingsProviderAccount(TypedDict, t
     is_deleted: Annotated[Optional[bool], PropertyInfo(alias="isDeleted")]
 
 
-class DataConnectorsYodleeConnectionSettingsSettings(TypedDict, total=False):
+class DataConnectorYodleeDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     login_name: Required[Annotated[str, PropertyInfo(alias="loginName")]]
 
     provider_account_id: Required[Annotated[Union[float, str], PropertyInfo(alias="providerAccountId")]]
 
     access_token: Annotated[
-        Optional[DataConnectorsYodleeConnectionSettingsSettingsAccessToken], PropertyInfo(alias="accessToken")
+        Optional[DataConnectorYodleeDiscriminatedConnectionSettingsSettingsAccessToken],
+        PropertyInfo(alias="accessToken"),
     ]
 
     provider: None
 
     provider_account: Annotated[
-        Optional[DataConnectorsYodleeConnectionSettingsSettingsProviderAccount], PropertyInfo(alias="providerAccount")
+        Optional[DataConnectorYodleeDiscriminatedConnectionSettingsSettingsProviderAccount],
+        PropertyInfo(alias="providerAccount"),
     ]
 
     user: None
 
 
-class DataConnectorsYodleeConnectionSettings(TypedDict, total=False):
+class DataConnectorYodleeDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["yodlee"]]
 
-    settings: Required[DataConnectorsYodleeConnectionSettingsSettings]
+    settings: Required[DataConnectorYodleeDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
+class DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped(TypedDict, total=False):
     access_token: Required[str]
 
     expires_at: Annotated[Union[str, datetime], PropertyInfo(format="iso8601")]
@@ -2552,13 +2630,13 @@ class DataConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRawTyped(T
     token_type: Optional[str]
 
 
-DataConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
-    DataConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
+DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw: TypeAlias = Union[
+    DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthCredentialsRawTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsZohodeskConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    raw: Required[DataConnectorsZohodeskConnectionSettingsSettingsOAuthCredentialsRaw]
+class DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    raw: Required[DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthCredentialsRaw]
 
     type: Required[Literal["OAUTH2", "OAUTH1", "BASIC", "API_KEY"]]
 
@@ -2571,100 +2649,101 @@ class DataConnectorsZohodeskConnectionSettingsSettingsOAuthCredentials(TypedDict
     refresh_token: str
 
 
-class DataConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
+class DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped(TypedDict, total=False):
     instance_url: Optional[str]
 
     portal_id: Annotated[Optional[float], PropertyInfo(alias="portalId")]
 
 
-DataConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
-    DataConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
+DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig: TypeAlias = Union[
+    DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthConnectionConfigTyped, Dict[str, object]
 ]
 
 
-class DataConnectorsZohodeskConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    credentials: Required[DataConnectorsZohodeskConnectionSettingsSettingsOAuthCredentials]
+class DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    credentials: Required[DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthCredentials]
 
     metadata: Required[Optional[Dict[str, object]]]
 
-    connection_config: Optional[DataConnectorsZohodeskConnectionSettingsSettingsOAuthConnectionConfig]
+    connection_config: Optional[DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuthConnectionConfig]
 
 
-class DataConnectorsZohodeskConnectionSettingsSettingsError(TypedDict, total=False):
+class DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsError(TypedDict, total=False):
     code: Required[Union[Literal["refresh_token_external_error"], str]]
 
     message: Optional[str]
 
 
-class DataConnectorsZohodeskConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorsZohodeskConnectionSettingsSettingsOAuth]
+class DataConnectorZohodeskDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsOAuth]
 
-    error: Optional[DataConnectorsZohodeskConnectionSettingsSettingsError]
+    error: Optional[DataConnectorZohodeskDiscriminatedConnectionSettingsSettingsError]
 
 
-class DataConnectorsZohodeskConnectionSettings(TypedDict, total=False):
+class DataConnectorZohodeskDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["zohodesk"]]
 
-    settings: Required[DataConnectorsZohodeskConnectionSettingsSettings]
+    settings: Required[DataConnectorZohodeskDiscriminatedConnectionSettingsSettings]
 
 
 Data: TypeAlias = Union[
-    DataConnectorsAircallConnectionSettings,
-    DataConnectorsAirtableConnectionSettings,
-    DataConnectorsApolloConnectionSettings,
-    DataConnectorsBrexConnectionSettings,
-    DataConnectorsCodaConnectionSettings,
-    DataConnectorsConfluenceConnectionSettings,
-    DataConnectorsDiscordConnectionSettings,
-    DataConnectorsFacebookConnectionSettings,
-    DataConnectorsFinchConnectionSettings,
-    DataConnectorsFirebaseConnectionSettings,
-    DataConnectorsForeceiptConnectionSettings,
-    DataConnectorsGitHubConnectionSettings,
-    DataConnectorsGongConnectionSettings,
-    DataConnectorsGooglecalendarConnectionSettings,
-    DataConnectorsGoogledocsConnectionSettings,
-    DataConnectorsGoogledriveConnectionSettings,
-    DataConnectorsGooglemailConnectionSettings,
-    DataConnectorsGooglesheetConnectionSettings,
-    DataConnectorsGreenhouseConnectionSettings,
-    DataConnectorsHeronConnectionSettings,
-    DataConnectorsHubspotConnectionSettings,
-    DataConnectorsInstagramConnectionSettings,
-    DataConnectorsIntercomConnectionSettings,
-    DataConnectorsJiraConnectionSettings,
-    DataConnectorsKustomerConnectionSettings,
-    DataConnectorsLeverConnectionSettings,
-    DataConnectorsLinearConnectionSettings,
-    DataConnectorsLinkedinConnectionSettings,
-    DataConnectorsLunchmoneyConnectionSettings,
-    DataConnectorsMercuryConnectionSettings,
-    DataConnectorsMergeConnectionSettings,
-    DataConnectorsMicrosoftConnectionSettings,
-    DataConnectorsMootaConnectionSettings,
-    DataConnectorsNotionConnectionSettings,
-    DataConnectorsOnebrickConnectionSettings,
-    DataConnectorsOutreachConnectionSettings,
-    DataConnectorsPipedriveConnectionSettings,
-    DataConnectorsPlaidConnectionSettings,
-    DataConnectorsPostgresConnectionSettings,
-    DataConnectorsQuickbooksConnectionSettings,
-    DataConnectorsRampConnectionSettings,
-    DataConnectorsRedditConnectionSettings,
-    DataConnectorsSalesforceConnectionSettings,
-    DataConnectorsSalesloftConnectionSettings,
-    DataConnectorsSaltedgeConnectionSettings,
-    DataConnectorsSharepointonlineConnectionSettings,
-    DataConnectorsSlackConnectionSettings,
-    DataConnectorsSplitwiseConnectionSettings,
-    DataConnectorsStripeConnectionSettings,
-    DataConnectorsTellerConnectionSettings,
-    DataConnectorsTogglConnectionSettings,
-    DataConnectorsTwentyConnectionSettings,
-    DataConnectorsTwitterConnectionSettings,
-    DataConnectorsVenmoConnectionSettings,
-    DataConnectorsWiseConnectionSettings,
-    DataConnectorsXeroConnectionSettings,
-    DataConnectorsYodleeConnectionSettings,
-    DataConnectorsZohodeskConnectionSettings,
+    DataConnectorDummyOauth2DiscriminatedConnectionSettings,
+    DataConnectorSharepointonlineDiscriminatedConnectionSettings,
+    DataConnectorSlackDiscriminatedConnectionSettings,
+    DataConnectorGitHubDiscriminatedConnectionSettings,
+    DataConnectorQuickbooksDiscriminatedConnectionSettings,
+    DataConnectorGooglemailDiscriminatedConnectionSettings,
+    DataConnectorNotionDiscriminatedConnectionSettings,
+    DataConnectorLinkedinDiscriminatedConnectionSettings,
+    DataConnectorGoogledocsDiscriminatedConnectionSettings,
+    DataConnectorAircallDiscriminatedConnectionSettings,
+    DataConnectorGooglecalendarDiscriminatedConnectionSettings,
+    DataConnectorGooglesheetDiscriminatedConnectionSettings,
+    DataConnectorDiscordDiscriminatedConnectionSettings,
+    DataConnectorHubspotDiscriminatedConnectionSettings,
+    DataConnectorSalesforceDiscriminatedConnectionSettings,
+    DataConnectorLinearDiscriminatedConnectionSettings,
+    DataConnectorConfluenceDiscriminatedConnectionSettings,
+    DataConnectorGoogledriveDiscriminatedConnectionSettings,
+    DataConnectorAirtableDiscriminatedConnectionSettings,
+    DataConnectorApolloDiscriminatedConnectionSettings,
+    DataConnectorBrexDiscriminatedConnectionSettings,
+    DataConnectorCodaDiscriminatedConnectionSettings,
+    DataConnectorFacebookDiscriminatedConnectionSettings,
+    DataConnectorFinchDiscriminatedConnectionSettings,
+    DataConnectorFirebaseDiscriminatedConnectionSettings,
+    DataConnectorForeceiptDiscriminatedConnectionSettings,
+    DataConnectorGongDiscriminatedConnectionSettings,
+    DataConnectorGreenhouseDiscriminatedConnectionSettings,
+    DataConnectorHeronDiscriminatedConnectionSettings,
+    DataConnectorInstagramDiscriminatedConnectionSettings,
+    DataConnectorIntercomDiscriminatedConnectionSettings,
+    DataConnectorJiraDiscriminatedConnectionSettings,
+    DataConnectorKustomerDiscriminatedConnectionSettings,
+    DataConnectorLeverDiscriminatedConnectionSettings,
+    DataConnectorLunchmoneyDiscriminatedConnectionSettings,
+    DataConnectorMercuryDiscriminatedConnectionSettings,
+    DataConnectorMergeDiscriminatedConnectionSettings,
+    DataConnectorMicrosoftDiscriminatedConnectionSettings,
+    DataConnectorMootaDiscriminatedConnectionSettings,
+    DataConnectorOnebrickDiscriminatedConnectionSettings,
+    DataConnectorOutreachDiscriminatedConnectionSettings,
+    DataConnectorPipedriveDiscriminatedConnectionSettings,
+    DataConnectorPlaidDiscriminatedConnectionSettings,
+    DataConnectorPostgresDiscriminatedConnectionSettings,
+    DataConnectorRampDiscriminatedConnectionSettings,
+    DataConnectorRedditDiscriminatedConnectionSettings,
+    DataConnectorSalesloftDiscriminatedConnectionSettings,
+    DataConnectorSaltedgeDiscriminatedConnectionSettings,
+    DataConnectorSplitwiseDiscriminatedConnectionSettings,
+    DataConnectorStripeDiscriminatedConnectionSettings,
+    DataConnectorTellerDiscriminatedConnectionSettings,
+    DataConnectorTogglDiscriminatedConnectionSettings,
+    DataConnectorTwentyDiscriminatedConnectionSettings,
+    DataConnectorTwitterDiscriminatedConnectionSettings,
+    DataConnectorVenmoDiscriminatedConnectionSettings,
+    DataConnectorWiseDiscriminatedConnectionSettings,
+    DataConnectorXeroDiscriminatedConnectionSettings,
+    DataConnectorYodleeDiscriminatedConnectionSettings,
+    DataConnectorZohodeskDiscriminatedConnectionSettings,
 ]

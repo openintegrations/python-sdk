@@ -13,6 +13,7 @@ from ._qs import Querystring
 from .types import (
     client_create_token_params,
     client_get_connection_params,
+    client_list_connectors_params,
     client_list_connections_params,
     client_create_connection_params,
     client_create_magic_link_params,
@@ -55,6 +56,7 @@ from ._base_client import (
 )
 from .types.create_token_response import CreateTokenResponse
 from .types.get_connection_response import GetConnectionResponse
+from .types.list_connectors_response import ListConnectorsResponse
 from .types.check_connection_response import CheckConnectionResponse
 from .types.get_current_user_response import GetCurrentUserResponse
 from .types.list_connections_response import ListConnectionsResponse
@@ -135,11 +137,7 @@ class Openint(SyncAPIClient):
     @property
     @override
     def auth_headers(self) -> dict[str, str]:
-        if self._api_key:
-            return self._api_key
-        if self._customer_token:
-            return self._customer_token
-        return {}
+        return {**self._api_key, **self._customer_token}
 
     @property
     def _api_key(self) -> dict[str, str]:
@@ -539,6 +537,7 @@ class Openint(SyncAPIClient):
             "coda",
             "confluence",
             "discord",
+            "dummy-oauth2",
             "facebook",
             "finch",
             "firebase",
@@ -561,6 +560,7 @@ class Openint(SyncAPIClient):
             "linear",
             "linkedin",
             "lunchmoney",
+            "mercury",
             "merge",
             "microsoft",
             "moota",
@@ -569,6 +569,7 @@ class Openint(SyncAPIClient):
             "outreach",
             "pipedrive",
             "plaid",
+            "postgres",
             "quickbooks",
             "ramp",
             "reddit",
@@ -583,13 +584,14 @@ class Openint(SyncAPIClient):
             "toggl",
             "twenty",
             "twitter",
+            "venmo",
             "wise",
             "xero",
             "yodlee",
             "zohodesk",
         ]
         | NotGiven = NOT_GIVEN,
-        expand: str | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -604,16 +606,6 @@ class Openint(SyncAPIClient):
         customers
 
         Args:
-          connector_name: The name of the connector
-
-          expand: Comma separated list of fields to optionally expand.
-
-              Available Options: `connector`, `enabled_integrations`
-
-          limit: Limit the number of items returned
-
-          offset: Offset the items returned
-
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -657,6 +649,7 @@ class Openint(SyncAPIClient):
             "coda",
             "confluence",
             "discord",
+            "dummy-oauth2",
             "facebook",
             "finch",
             "firebase",
@@ -679,6 +672,7 @@ class Openint(SyncAPIClient):
             "linear",
             "linkedin",
             "lunchmoney",
+            "mercury",
             "merge",
             "microsoft",
             "moota",
@@ -687,6 +681,7 @@ class Openint(SyncAPIClient):
             "outreach",
             "pipedrive",
             "plaid",
+            "postgres",
             "quickbooks",
             "ramp",
             "reddit",
@@ -701,6 +696,7 @@ class Openint(SyncAPIClient):
             "toggl",
             "twenty",
             "twitter",
+            "venmo",
             "wise",
             "xero",
             "yodlee",
@@ -728,16 +724,10 @@ class Openint(SyncAPIClient):
         Args:
           connector_config_id: The id of the connector config, starts with `ccfg_`
 
-          connector_name: The name of the connector
-
           customer_id: The id of the customer in your application. Ensure it is unique for that
               customer.
 
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
-
-          limit: Limit the number of items returned
-
-          offset: Offset the items returned
 
           extra_headers: Send extra headers
 
@@ -769,6 +759,41 @@ class Openint(SyncAPIClient):
                 ),
             ),
             model=cast(Any, ListConnectionsResponse),  # Union types cannot be passed in as arguments in the type system
+        )
+
+    def list_connectors(
+        self,
+        *,
+        expand: List[Literal["schemas"]] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> ListConnectorsResponse:
+        """
+        List all connectors to understand what integrations are available to configure
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self.get(
+            "/connector",
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform({"expand": expand}, client_list_connectors_params.ClientListConnectorsParams),
+            ),
+            cast_to=ListConnectorsResponse,
         )
 
     @override
@@ -874,11 +899,7 @@ class AsyncOpenint(AsyncAPIClient):
     @property
     @override
     def auth_headers(self) -> dict[str, str]:
-        if self._api_key:
-            return self._api_key
-        if self._customer_token:
-            return self._customer_token
-        return {}
+        return {**self._api_key, **self._customer_token}
 
     @property
     def _api_key(self) -> dict[str, str]:
@@ -1278,6 +1299,7 @@ class AsyncOpenint(AsyncAPIClient):
             "coda",
             "confluence",
             "discord",
+            "dummy-oauth2",
             "facebook",
             "finch",
             "firebase",
@@ -1300,6 +1322,7 @@ class AsyncOpenint(AsyncAPIClient):
             "linear",
             "linkedin",
             "lunchmoney",
+            "mercury",
             "merge",
             "microsoft",
             "moota",
@@ -1308,6 +1331,7 @@ class AsyncOpenint(AsyncAPIClient):
             "outreach",
             "pipedrive",
             "plaid",
+            "postgres",
             "quickbooks",
             "ramp",
             "reddit",
@@ -1322,13 +1346,14 @@ class AsyncOpenint(AsyncAPIClient):
             "toggl",
             "twenty",
             "twitter",
+            "venmo",
             "wise",
             "xero",
             "yodlee",
             "zohodesk",
         ]
         | NotGiven = NOT_GIVEN,
-        expand: str | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -1343,16 +1368,6 @@ class AsyncOpenint(AsyncAPIClient):
         customers
 
         Args:
-          connector_name: The name of the connector
-
-          expand: Comma separated list of fields to optionally expand.
-
-              Available Options: `connector`, `enabled_integrations`
-
-          limit: Limit the number of items returned
-
-          offset: Offset the items returned
-
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1396,6 +1411,7 @@ class AsyncOpenint(AsyncAPIClient):
             "coda",
             "confluence",
             "discord",
+            "dummy-oauth2",
             "facebook",
             "finch",
             "firebase",
@@ -1418,6 +1434,7 @@ class AsyncOpenint(AsyncAPIClient):
             "linear",
             "linkedin",
             "lunchmoney",
+            "mercury",
             "merge",
             "microsoft",
             "moota",
@@ -1426,6 +1443,7 @@ class AsyncOpenint(AsyncAPIClient):
             "outreach",
             "pipedrive",
             "plaid",
+            "postgres",
             "quickbooks",
             "ramp",
             "reddit",
@@ -1440,6 +1458,7 @@ class AsyncOpenint(AsyncAPIClient):
             "toggl",
             "twenty",
             "twitter",
+            "venmo",
             "wise",
             "xero",
             "yodlee",
@@ -1467,16 +1486,10 @@ class AsyncOpenint(AsyncAPIClient):
         Args:
           connector_config_id: The id of the connector config, starts with `ccfg_`
 
-          connector_name: The name of the connector
-
           customer_id: The id of the customer in your application. Ensure it is unique for that
               customer.
 
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
-
-          limit: Limit the number of items returned
-
-          offset: Offset the items returned
 
           extra_headers: Send extra headers
 
@@ -1508,6 +1521,43 @@ class AsyncOpenint(AsyncAPIClient):
                 ),
             ),
             model=cast(Any, ListConnectionsResponse),  # Union types cannot be passed in as arguments in the type system
+        )
+
+    async def list_connectors(
+        self,
+        *,
+        expand: List[Literal["schemas"]] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> ListConnectorsResponse:
+        """
+        List all connectors to understand what integrations are available to configure
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return await self.get(
+            "/connector",
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"expand": expand}, client_list_connectors_params.ClientListConnectorsParams
+                ),
+            ),
+            cast_to=ListConnectorsResponse,
         )
 
     @override
@@ -1573,6 +1623,9 @@ class OpenintWithRawResponse:
         self.list_connections = to_raw_response_wrapper(
             client.list_connections,
         )
+        self.list_connectors = to_raw_response_wrapper(
+            client.list_connectors,
+        )
 
 
 class AsyncOpenintWithRawResponse:
@@ -1603,6 +1656,9 @@ class AsyncOpenintWithRawResponse:
         )
         self.list_connections = async_to_raw_response_wrapper(
             client.list_connections,
+        )
+        self.list_connectors = async_to_raw_response_wrapper(
+            client.list_connectors,
         )
 
 
@@ -1635,6 +1691,9 @@ class OpenintWithStreamedResponse:
         self.list_connections = to_streamed_response_wrapper(
             client.list_connections,
         )
+        self.list_connectors = to_streamed_response_wrapper(
+            client.list_connectors,
+        )
 
 
 class AsyncOpenintWithStreamedResponse:
@@ -1665,6 +1724,9 @@ class AsyncOpenintWithStreamedResponse:
         )
         self.list_connections = async_to_streamed_response_wrapper(
             client.list_connections,
+        )
+        self.list_connectors = async_to_streamed_response_wrapper(
+            client.list_connectors,
         )
 
 

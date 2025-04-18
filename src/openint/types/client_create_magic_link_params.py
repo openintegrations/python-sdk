@@ -31,14 +31,71 @@ class ClientOptions(TypedDict, total=False):
 
     minus_primary: Annotated[str, PropertyInfo(alias="--primary")]
 
-    connector_name: Literal["plaid", "greenhouse"]
+    connector_name: Literal[
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "dummy-oauth2",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "googlecalendar",
+        "googledocs",
+        "googledrive",
+        "googlemail",
+        "googlesheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "kustomer",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "microsoft",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesforce",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zohodesk",
+    ]
     """The name of the connector to limit connection to. Default to all otherwise"""
 
     debug: bool
     """Whether to enable debug mode"""
 
-    tab: Literal["my-connections", "add-connection"]
-    """The default tab to show when the magic link is opened.
-
-    Defaults to "my-connections"
-    """
+    view: Literal["add", "manage"]
+    """The default view to show when the magic link is opened. Defaults to "add" """

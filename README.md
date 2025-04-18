@@ -90,9 +90,9 @@ response = client.create_magic_link(
         "minus_card_foreground": "--card-foreground",
         "minus_foreground": "--foreground",
         "minus_primary": "--primary",
-        "connector_name": "plaid",
+        "connector_name": "aircall",
         "debug": True,
-        "tab": "my-connections",
+        "view": "add",
     },
 )
 print(response.client_options)

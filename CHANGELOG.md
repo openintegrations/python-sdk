@@ -1,5 +1,36 @@
 # Changelog
 
+## 1.4.0 (2025-04-17)
+
+Full Changelog: [v1.3.0...v1.4.0](https://github.com/openintegrations/python-sdk/compare/v1.3.0...v1.4.0)
+
+### Features
+
+* **docs:** updating documented docs for stainless ([#59](https://github.com/openintegrations/python-sdk/issues/59)) ([67d2b1a](https://github.com/openintegrations/python-sdk/commit/67d2b1afd93f7c03ec0cf4b9efca10955e67b0a2))
+* **docs:** updating documented docs for stainless ([#60](https://github.com/openintegrations/python-sdk/issues/60)) ([3198217](https://github.com/openintegrations/python-sdk/commit/3198217a87b4905bccd2a2aa8b73d1d7078c64dd))
+* **docs:** updating documented docs for stainless ([#63](https://github.com/openintegrations/python-sdk/issues/63)) ([c58d10f](https://github.com/openintegrations/python-sdk/commit/c58d10f974edc4e5b0a4b773e491ac15dc0a6a1a))
+
+
+### Bug Fixes
+
+* **api:** adding list connectors ([#57](https://github.com/openintegrations/python-sdk/issues/57)) ([4346d9f](https://github.com/openintegrations/python-sdk/commit/4346d9f25c93a12cc9d053a875f7ddd8713ad8b2))
+* **client:** add missing `None` default ([#62](https://github.com/openintegrations/python-sdk/issues/62)) ([c485bed](https://github.com/openintegrations/python-sdk/commit/c485bed766abe22f064cbe35e565dd46a7c65153))
+* **client:** send all configured auth headers ([#64](https://github.com/openintegrations/python-sdk/issues/64)) ([d275e08](https://github.com/openintegrations/python-sdk/commit/d275e08a1ad94ceb314199a05ac77f4fe3fa42c5))
+* **perf:** optimize some hot paths ([0cfd3e8](https://github.com/openintegrations/python-sdk/commit/0cfd3e84986aab3170fe95d03914fca2cf4a6de1))
+* **perf:** skip traversing types for NotGiven values ([8701b67](https://github.com/openintegrations/python-sdk/commit/8701b673ba7330a950b8b01ced03e7f932aafc1c))
+
+
+### Chores
+
+* **client:** minor internal fixes ([51521a0](https://github.com/openintegrations/python-sdk/commit/51521a02d06ba4735c88b2a2c4a8e5cbc1a73fc4))
+* **internal:** base client updates ([b363862](https://github.com/openintegrations/python-sdk/commit/b363862cbc085488312f80981f866bf116e49b42))
+* **internal:** bump pyright version ([218ab17](https://github.com/openintegrations/python-sdk/commit/218ab17be07865cca836d851809edf2e1aa11943))
+* **internal:** expand CI branch coverage ([2fd500b](https://github.com/openintegrations/python-sdk/commit/2fd500bff96581dad3331a0a89e2a02d0a00f872))
+* **internal:** reduce CI branch coverage ([763f501](https://github.com/openintegrations/python-sdk/commit/763f501a41880cfff017f4469863d0d5e2e3789d))
+* **internal:** remove trailing character ([#61](https://github.com/openintegrations/python-sdk/issues/61)) ([b5d7c1c](https://github.com/openintegrations/python-sdk/commit/b5d7c1ca8c2180df9c831996e0253415e0b0571b))
+* **internal:** slight transform perf improvement ([#65](https://github.com/openintegrations/python-sdk/issues/65)) ([8ec7112](https://github.com/openintegrations/python-sdk/commit/8ec71120f3f140b0998e561bb738b7de6bb0c489))
+* **internal:** update pyright settings ([075ff3f](https://github.com/openintegrations/python-sdk/commit/075ff3f61e5dcfc11e68df7db663e5611f1c064a))
+
 ## 1.3.0 (2025-04-03)
 
 Full Changelog: [v1.2.0...v1.3.0](https://github.com/openintegrations/python-sdk/compare/v1.2.0...v1.3.0)
