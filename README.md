@@ -84,18 +84,14 @@ client = Openint()
 
 response = client.create_magic_link(
     customer_id="x",
-    client_options={
-        "minus_background": "--background",
-        "minus_card": "--card",
-        "minus_card_foreground": "--card-foreground",
-        "minus_foreground": "--foreground",
-        "minus_primary": "--primary",
-        "connector_name": "aircall",
+    connect_options={
+        "connector_names": ["acme-oauth2"],
         "debug": True,
+        "return_url": "return_url",
         "view": "add",
     },
 )
-print(response.client_options)
+print(response.connect_options)
 ```
 
 ## Handling errors
