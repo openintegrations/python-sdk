@@ -2,100 +2,97 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Annotated, TypedDict
+from typing import List
+from typing_extensions import Literal, TypedDict
 
-from .._utils import PropertyInfo
-
-__all__ = ["ClientCreateMagicLinkParams", "ClientOptions"]
+__all__ = ["ClientCreateMagicLinkParams", "ConnectOptions"]
 
 
 class ClientCreateMagicLinkParams(TypedDict, total=False):
-    client_options: ClientOptions
-    """Search params to configure the connect page.
-
-    Not signed as part of JWT and therefore can be modified by client
-    """
+    connect_options: ConnectOptions
 
     validity_in_seconds: float
     """How long the magic link will be valid for (in seconds) before it expires"""
 
 
-class ClientOptions(TypedDict, total=False):
-    minus_background: Annotated[str, PropertyInfo(alias="--background")]
-
-    minus_card: Annotated[str, PropertyInfo(alias="--card")]
-
-    minus_card_foreground: Annotated[str, PropertyInfo(alias="--card-foreground")]
-
-    minus_foreground: Annotated[str, PropertyInfo(alias="--foreground")]
-
-    minus_primary: Annotated[str, PropertyInfo(alias="--primary")]
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
+class ConnectOptions(TypedDict, total=False):
+    connector_names: List[
+        Literal[
+            "acme-oauth2",
+            "aircall",
+            "airtable",
+            "apollo",
+            "brex",
+            "coda",
+            "confluence",
+            "discord",
+            "facebook",
+            "finch",
+            "firebase",
+            "foreceipt",
+            "github",
+            "gong",
+            "google-calendar",
+            "google-docs",
+            "google-drive",
+            "google-mail",
+            "google-sheet",
+            "greenhouse",
+            "heron",
+            "hubspot",
+            "instagram",
+            "intercom",
+            "jira",
+            "lever",
+            "linear",
+            "linkedin",
+            "lunchmoney",
+            "mercury",
+            "merge",
+            "moota",
+            "notion",
+            "onebrick",
+            "outreach",
+            "pipedrive",
+            "plaid",
+            "postgres",
+            "quickbooks",
+            "ramp",
+            "reddit",
+            "salesloft",
+            "saltedge",
+            "sharepointonline",
+            "slack",
+            "splitwise",
+            "stripe",
+            "teller",
+            "toggl",
+            "twenty",
+            "twitter",
+            "venmo",
+            "wise",
+            "xero",
+            "yodlee",
+            "zoho-desk",
+        ]
     ]
-    """The name of the connector to limit connection to. Default to all otherwise"""
+    """The names of the connectors to show in the connect page.
+
+    If not provided, all connectors will be shown
+    """
 
     debug: bool
     """Whether to enable debug mode"""
 
+    return_url: str
+    """
+    Optional URL to return customers after adding a connection or if they press the
+    Return To Organization button
+    """
+
     view: Literal["add", "manage"]
-    """The default view to show when the magic link is opened. Defaults to "add" """
+    """The default view to show when the magic link is opened.
+
+    If omitted, by default it will smartly load the right view based on whether the
+    user has connections or not
+    """

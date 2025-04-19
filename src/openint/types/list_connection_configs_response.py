@@ -9,13 +9,181 @@ from .._models import BaseModel
 
 __all__ = [
     "ListConnectionConfigsResponse",
-    "ConnectorDummyOauth2DiscriminatedConnectorConfig",
-    "ConnectorDummyOauth2DiscriminatedConnectorConfigConfig",
-    "ConnectorDummyOauth2DiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorDummyOauth2DiscriminatedConnectorConfigConnector",
-    "ConnectorDummyOauth2DiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorDummyOauth2DiscriminatedConnectorConfigConnectorScope",
-    "ConnectorDummyOauth2DiscriminatedConnectorConfigIntegrations",
+    "ConnectorAcmeOauth2DiscriminatedConnectorConfig",
+    "ConnectorAcmeOauth2DiscriminatedConnectorConfigConfig",
+    "ConnectorAcmeOauth2DiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorAcmeOauth2DiscriminatedConnectorConfigConnector",
+    "ConnectorAcmeOauth2DiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorAcmeOauth2DiscriminatedConnectorConfigConnectorScope",
+    "ConnectorAcmeOauth2DiscriminatedConnectorConfigIntegrations",
+    "ConnectorAircallDiscriminatedConnectorConfig",
+    "ConnectorAircallDiscriminatedConnectorConfigConfig",
+    "ConnectorAircallDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorAircallDiscriminatedConnectorConfigConnector",
+    "ConnectorAircallDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorAircallDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorAircallDiscriminatedConnectorConfigIntegrations",
+    "ConnectorConfluenceDiscriminatedConnectorConfig",
+    "ConnectorConfluenceDiscriminatedConnectorConfigConfig",
+    "ConnectorConfluenceDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorConfluenceDiscriminatedConnectorConfigConnector",
+    "ConnectorConfluenceDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorConfluenceDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorConfluenceDiscriminatedConnectorConfigIntegrations",
+    "ConnectorDiscordDiscriminatedConnectorConfig",
+    "ConnectorDiscordDiscriminatedConnectorConfigConfig",
+    "ConnectorDiscordDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorDiscordDiscriminatedConnectorConfigConnector",
+    "ConnectorDiscordDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorDiscordDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorDiscordDiscriminatedConnectorConfigIntegrations",
+    "ConnectorFacebookDiscriminatedConnectorConfig",
+    "ConnectorFacebookDiscriminatedConnectorConfigConfig",
+    "ConnectorFacebookDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorFacebookDiscriminatedConnectorConfigConnector",
+    "ConnectorFacebookDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorFacebookDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorFacebookDiscriminatedConnectorConfigIntegrations",
+    "ConnectorGitHubDiscriminatedConnectorConfig",
+    "ConnectorGitHubDiscriminatedConnectorConfigConfig",
+    "ConnectorGitHubDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorGitHubDiscriminatedConnectorConfigConnector",
+    "ConnectorGitHubDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorGitHubDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorGitHubDiscriminatedConnectorConfigIntegrations",
+    "ConnectorGongDiscriminatedConnectorConfig",
+    "ConnectorGongDiscriminatedConnectorConfigConfig",
+    "ConnectorGongDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorGongDiscriminatedConnectorConfigConnector",
+    "ConnectorGongDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorGongDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorGongDiscriminatedConnectorConfigIntegrations",
+    "ConnectorGoogleCalendarDiscriminatedConnectorConfig",
+    "ConnectorGoogleCalendarDiscriminatedConnectorConfigConfig",
+    "ConnectorGoogleCalendarDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorGoogleCalendarDiscriminatedConnectorConfigConnector",
+    "ConnectorGoogleCalendarDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorGoogleCalendarDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorGoogleCalendarDiscriminatedConnectorConfigIntegrations",
+    "ConnectorGoogleDocsDiscriminatedConnectorConfig",
+    "ConnectorGoogleDocsDiscriminatedConnectorConfigConfig",
+    "ConnectorGoogleDocsDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorGoogleDocsDiscriminatedConnectorConfigConnector",
+    "ConnectorGoogleDocsDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorGoogleDocsDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorGoogleDocsDiscriminatedConnectorConfigIntegrations",
+    "ConnectorGoogleDriveDiscriminatedConnectorConfig",
+    "ConnectorGoogleDriveDiscriminatedConnectorConfigConfig",
+    "ConnectorGoogleDriveDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorGoogleDriveDiscriminatedConnectorConfigConnector",
+    "ConnectorGoogleDriveDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorGoogleDriveDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorGoogleDriveDiscriminatedConnectorConfigIntegrations",
+    "ConnectorGoogleMailDiscriminatedConnectorConfig",
+    "ConnectorGoogleMailDiscriminatedConnectorConfigConfig",
+    "ConnectorGoogleMailDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorGoogleMailDiscriminatedConnectorConfigConnector",
+    "ConnectorGoogleMailDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorGoogleMailDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorGoogleMailDiscriminatedConnectorConfigIntegrations",
+    "ConnectorGoogleSheetDiscriminatedConnectorConfig",
+    "ConnectorGoogleSheetDiscriminatedConnectorConfigConfig",
+    "ConnectorGoogleSheetDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorGoogleSheetDiscriminatedConnectorConfigConnector",
+    "ConnectorGoogleSheetDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorGoogleSheetDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorGoogleSheetDiscriminatedConnectorConfigIntegrations",
+    "ConnectorHubspotDiscriminatedConnectorConfig",
+    "ConnectorHubspotDiscriminatedConnectorConfigConfig",
+    "ConnectorHubspotDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorHubspotDiscriminatedConnectorConfigConnector",
+    "ConnectorHubspotDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorHubspotDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorHubspotDiscriminatedConnectorConfigIntegrations",
+    "ConnectorInstagramDiscriminatedConnectorConfig",
+    "ConnectorInstagramDiscriminatedConnectorConfigConfig",
+    "ConnectorInstagramDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorInstagramDiscriminatedConnectorConfigConnector",
+    "ConnectorInstagramDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorInstagramDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorInstagramDiscriminatedConnectorConfigIntegrations",
+    "ConnectorIntercomDiscriminatedConnectorConfig",
+    "ConnectorIntercomDiscriminatedConnectorConfigConfig",
+    "ConnectorIntercomDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorIntercomDiscriminatedConnectorConfigConnector",
+    "ConnectorIntercomDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorIntercomDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorIntercomDiscriminatedConnectorConfigIntegrations",
+    "ConnectorJiraDiscriminatedConnectorConfig",
+    "ConnectorJiraDiscriminatedConnectorConfigConfig",
+    "ConnectorJiraDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorJiraDiscriminatedConnectorConfigConnector",
+    "ConnectorJiraDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorJiraDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorJiraDiscriminatedConnectorConfigIntegrations",
+    "ConnectorLeverDiscriminatedConnectorConfig",
+    "ConnectorLeverDiscriminatedConnectorConfigConfig",
+    "ConnectorLeverDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorLeverDiscriminatedConnectorConfigConnector",
+    "ConnectorLeverDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorLeverDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorLeverDiscriminatedConnectorConfigIntegrations",
+    "ConnectorLinearDiscriminatedConnectorConfig",
+    "ConnectorLinearDiscriminatedConnectorConfigConfig",
+    "ConnectorLinearDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorLinearDiscriminatedConnectorConfigConnector",
+    "ConnectorLinearDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorLinearDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorLinearDiscriminatedConnectorConfigIntegrations",
+    "ConnectorLinkedinDiscriminatedConnectorConfig",
+    "ConnectorLinkedinDiscriminatedConnectorConfigConfig",
+    "ConnectorLinkedinDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorLinkedinDiscriminatedConnectorConfigConnector",
+    "ConnectorLinkedinDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorLinkedinDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorLinkedinDiscriminatedConnectorConfigIntegrations",
+    "ConnectorNotionDiscriminatedConnectorConfig",
+    "ConnectorNotionDiscriminatedConnectorConfigConfig",
+    "ConnectorNotionDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorNotionDiscriminatedConnectorConfigConnector",
+    "ConnectorNotionDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorNotionDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorNotionDiscriminatedConnectorConfigIntegrations",
+    "ConnectorOutreachDiscriminatedConnectorConfig",
+    "ConnectorOutreachDiscriminatedConnectorConfigConfig",
+    "ConnectorOutreachDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorOutreachDiscriminatedConnectorConfigConnector",
+    "ConnectorOutreachDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorOutreachDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorOutreachDiscriminatedConnectorConfigIntegrations",
+    "ConnectorPipedriveDiscriminatedConnectorConfig",
+    "ConnectorPipedriveDiscriminatedConnectorConfigConfig",
+    "ConnectorPipedriveDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorPipedriveDiscriminatedConnectorConfigConnector",
+    "ConnectorPipedriveDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorPipedriveDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorPipedriveDiscriminatedConnectorConfigIntegrations",
+    "ConnectorQuickbooksDiscriminatedConnectorConfig",
+    "ConnectorQuickbooksDiscriminatedConnectorConfigConfig",
+    "ConnectorQuickbooksDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorQuickbooksDiscriminatedConnectorConfigConnector",
+    "ConnectorQuickbooksDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorQuickbooksDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorQuickbooksDiscriminatedConnectorConfigIntegrations",
+    "ConnectorRedditDiscriminatedConnectorConfig",
+    "ConnectorRedditDiscriminatedConnectorConfigConfig",
+    "ConnectorRedditDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorRedditDiscriminatedConnectorConfigConnector",
+    "ConnectorRedditDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorRedditDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorRedditDiscriminatedConnectorConfigIntegrations",
+    "ConnectorSalesloftDiscriminatedConnectorConfig",
+    "ConnectorSalesloftDiscriminatedConnectorConfigConfig",
+    "ConnectorSalesloftDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorSalesloftDiscriminatedConnectorConfigConnector",
+    "ConnectorSalesloftDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorSalesloftDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorSalesloftDiscriminatedConnectorConfigIntegrations",
     "ConnectorSharepointonlineDiscriminatedConnectorConfig",
     "ConnectorSharepointonlineDiscriminatedConnectorConfigConfig",
     "ConnectorSharepointonlineDiscriminatedConnectorConfigConfigOAuth",
@@ -30,111 +198,27 @@ __all__ = [
     "ConnectorSlackDiscriminatedConnectorConfigConnectorSchemas",
     "ConnectorSlackDiscriminatedConnectorConfigConnectorScope",
     "ConnectorSlackDiscriminatedConnectorConfigIntegrations",
-    "ConnectorGitHubDiscriminatedConnectorConfig",
-    "ConnectorGitHubDiscriminatedConnectorConfigConfig",
-    "ConnectorGitHubDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorGitHubDiscriminatedConnectorConfigConnector",
-    "ConnectorGitHubDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorGitHubDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorGitHubDiscriminatedConnectorConfigIntegrations",
-    "ConnectorQuickbooksDiscriminatedConnectorConfig",
-    "ConnectorQuickbooksDiscriminatedConnectorConfigConfig",
-    "ConnectorQuickbooksDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorQuickbooksDiscriminatedConnectorConfigConnector",
-    "ConnectorQuickbooksDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorQuickbooksDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorQuickbooksDiscriminatedConnectorConfigIntegrations",
-    "ConnectorGooglemailDiscriminatedConnectorConfig",
-    "ConnectorGooglemailDiscriminatedConnectorConfigConfig",
-    "ConnectorGooglemailDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorGooglemailDiscriminatedConnectorConfigConnector",
-    "ConnectorGooglemailDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorGooglemailDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorGooglemailDiscriminatedConnectorConfigIntegrations",
-    "ConnectorNotionDiscriminatedConnectorConfig",
-    "ConnectorNotionDiscriminatedConnectorConfigConfig",
-    "ConnectorNotionDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorNotionDiscriminatedConnectorConfigConnector",
-    "ConnectorNotionDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorNotionDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorNotionDiscriminatedConnectorConfigIntegrations",
-    "ConnectorLinkedinDiscriminatedConnectorConfig",
-    "ConnectorLinkedinDiscriminatedConnectorConfigConfig",
-    "ConnectorLinkedinDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorLinkedinDiscriminatedConnectorConfigConnector",
-    "ConnectorLinkedinDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorLinkedinDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorLinkedinDiscriminatedConnectorConfigIntegrations",
-    "ConnectorGoogledocsDiscriminatedConnectorConfig",
-    "ConnectorGoogledocsDiscriminatedConnectorConfigConfig",
-    "ConnectorGoogledocsDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorGoogledocsDiscriminatedConnectorConfigConnector",
-    "ConnectorGoogledocsDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorGoogledocsDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorGoogledocsDiscriminatedConnectorConfigIntegrations",
-    "ConnectorAircallDiscriminatedConnectorConfig",
-    "ConnectorAircallDiscriminatedConnectorConfigConfig",
-    "ConnectorAircallDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorAircallDiscriminatedConnectorConfigConnector",
-    "ConnectorAircallDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorAircallDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorAircallDiscriminatedConnectorConfigIntegrations",
-    "ConnectorGooglecalendarDiscriminatedConnectorConfig",
-    "ConnectorGooglecalendarDiscriminatedConnectorConfigConfig",
-    "ConnectorGooglecalendarDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorGooglecalendarDiscriminatedConnectorConfigConnector",
-    "ConnectorGooglecalendarDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorGooglecalendarDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorGooglecalendarDiscriminatedConnectorConfigIntegrations",
-    "ConnectorGooglesheetDiscriminatedConnectorConfig",
-    "ConnectorGooglesheetDiscriminatedConnectorConfigConfig",
-    "ConnectorGooglesheetDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorGooglesheetDiscriminatedConnectorConfigConnector",
-    "ConnectorGooglesheetDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorGooglesheetDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorGooglesheetDiscriminatedConnectorConfigIntegrations",
-    "ConnectorDiscordDiscriminatedConnectorConfig",
-    "ConnectorDiscordDiscriminatedConnectorConfigConfig",
-    "ConnectorDiscordDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorDiscordDiscriminatedConnectorConfigConnector",
-    "ConnectorDiscordDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorDiscordDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorDiscordDiscriminatedConnectorConfigIntegrations",
-    "ConnectorHubspotDiscriminatedConnectorConfig",
-    "ConnectorHubspotDiscriminatedConnectorConfigConfig",
-    "ConnectorHubspotDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorHubspotDiscriminatedConnectorConfigConnector",
-    "ConnectorHubspotDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorHubspotDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorHubspotDiscriminatedConnectorConfigIntegrations",
-    "ConnectorSalesforceDiscriminatedConnectorConfig",
-    "ConnectorSalesforceDiscriminatedConnectorConfigConfig",
-    "ConnectorSalesforceDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorSalesforceDiscriminatedConnectorConfigConnector",
-    "ConnectorSalesforceDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorSalesforceDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorSalesforceDiscriminatedConnectorConfigIntegrations",
-    "ConnectorLinearDiscriminatedConnectorConfig",
-    "ConnectorLinearDiscriminatedConnectorConfigConfig",
-    "ConnectorLinearDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorLinearDiscriminatedConnectorConfigConnector",
-    "ConnectorLinearDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorLinearDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorLinearDiscriminatedConnectorConfigIntegrations",
-    "ConnectorConfluenceDiscriminatedConnectorConfig",
-    "ConnectorConfluenceDiscriminatedConnectorConfigConfig",
-    "ConnectorConfluenceDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorConfluenceDiscriminatedConnectorConfigConnector",
-    "ConnectorConfluenceDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorConfluenceDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorConfluenceDiscriminatedConnectorConfigIntegrations",
-    "ConnectorGoogledriveDiscriminatedConnectorConfig",
-    "ConnectorGoogledriveDiscriminatedConnectorConfigConfig",
-    "ConnectorGoogledriveDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorGoogledriveDiscriminatedConnectorConfigConnector",
-    "ConnectorGoogledriveDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorGoogledriveDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorGoogledriveDiscriminatedConnectorConfigIntegrations",
+    "ConnectorTwitterDiscriminatedConnectorConfig",
+    "ConnectorTwitterDiscriminatedConnectorConfigConfig",
+    "ConnectorTwitterDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorTwitterDiscriminatedConnectorConfigConnector",
+    "ConnectorTwitterDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorTwitterDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorTwitterDiscriminatedConnectorConfigIntegrations",
+    "ConnectorXeroDiscriminatedConnectorConfig",
+    "ConnectorXeroDiscriminatedConnectorConfigConfig",
+    "ConnectorXeroDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorXeroDiscriminatedConnectorConfigConnector",
+    "ConnectorXeroDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorXeroDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorXeroDiscriminatedConnectorConfigIntegrations",
+    "ConnectorZohoDeskDiscriminatedConnectorConfig",
+    "ConnectorZohoDeskDiscriminatedConnectorConfigConfig",
+    "ConnectorZohoDeskDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorZohoDeskDiscriminatedConnectorConfigConnector",
+    "ConnectorZohoDeskDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorZohoDeskDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorZohoDeskDiscriminatedConnectorConfigIntegrations",
     "ConnectorAirtableDiscriminatedConnectorConfig",
     "ConnectorAirtableDiscriminatedConnectorConfigConnector",
     "ConnectorAirtableDiscriminatedConnectorConfigConnectorSchemas",
@@ -157,13 +241,6 @@ __all__ = [
     "ConnectorCodaDiscriminatedConnectorConfigConnectorSchemas",
     "ConnectorCodaDiscriminatedConnectorConfigConnectorScope",
     "ConnectorCodaDiscriminatedConnectorConfigIntegrations",
-    "ConnectorFacebookDiscriminatedConnectorConfig",
-    "ConnectorFacebookDiscriminatedConnectorConfigConfig",
-    "ConnectorFacebookDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorFacebookDiscriminatedConnectorConfigConnector",
-    "ConnectorFacebookDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorFacebookDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorFacebookDiscriminatedConnectorConfigIntegrations",
     "ConnectorFinchDiscriminatedConnectorConfig",
     "ConnectorFinchDiscriminatedConnectorConfigConfig",
     "ConnectorFinchDiscriminatedConnectorConfigConnector",
@@ -180,13 +257,6 @@ __all__ = [
     "ConnectorForeceiptDiscriminatedConnectorConfigConnectorSchemas",
     "ConnectorForeceiptDiscriminatedConnectorConfigConnectorScope",
     "ConnectorForeceiptDiscriminatedConnectorConfigIntegrations",
-    "ConnectorGongDiscriminatedConnectorConfig",
-    "ConnectorGongDiscriminatedConnectorConfigConfig",
-    "ConnectorGongDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorGongDiscriminatedConnectorConfigConnector",
-    "ConnectorGongDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorGongDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorGongDiscriminatedConnectorConfigIntegrations",
     "ConnectorGreenhouseDiscriminatedConnectorConfig",
     "ConnectorGreenhouseDiscriminatedConnectorConfigConnector",
     "ConnectorGreenhouseDiscriminatedConnectorConfigConnectorSchemas",
@@ -198,41 +268,6 @@ __all__ = [
     "ConnectorHeronDiscriminatedConnectorConfigConnectorSchemas",
     "ConnectorHeronDiscriminatedConnectorConfigConnectorScope",
     "ConnectorHeronDiscriminatedConnectorConfigIntegrations",
-    "ConnectorInstagramDiscriminatedConnectorConfig",
-    "ConnectorInstagramDiscriminatedConnectorConfigConfig",
-    "ConnectorInstagramDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorInstagramDiscriminatedConnectorConfigConnector",
-    "ConnectorInstagramDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorInstagramDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorInstagramDiscriminatedConnectorConfigIntegrations",
-    "ConnectorIntercomDiscriminatedConnectorConfig",
-    "ConnectorIntercomDiscriminatedConnectorConfigConfig",
-    "ConnectorIntercomDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorIntercomDiscriminatedConnectorConfigConnector",
-    "ConnectorIntercomDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorIntercomDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorIntercomDiscriminatedConnectorConfigIntegrations",
-    "ConnectorJiraDiscriminatedConnectorConfig",
-    "ConnectorJiraDiscriminatedConnectorConfigConfig",
-    "ConnectorJiraDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorJiraDiscriminatedConnectorConfigConnector",
-    "ConnectorJiraDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorJiraDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorJiraDiscriminatedConnectorConfigIntegrations",
-    "ConnectorKustomerDiscriminatedConnectorConfig",
-    "ConnectorKustomerDiscriminatedConnectorConfigConfig",
-    "ConnectorKustomerDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorKustomerDiscriminatedConnectorConfigConnector",
-    "ConnectorKustomerDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorKustomerDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorKustomerDiscriminatedConnectorConfigIntegrations",
-    "ConnectorLeverDiscriminatedConnectorConfig",
-    "ConnectorLeverDiscriminatedConnectorConfigConfig",
-    "ConnectorLeverDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorLeverDiscriminatedConnectorConfigConnector",
-    "ConnectorLeverDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorLeverDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorLeverDiscriminatedConnectorConfigIntegrations",
     "ConnectorLunchmoneyDiscriminatedConnectorConfig",
     "ConnectorLunchmoneyDiscriminatedConnectorConfigConfig",
     "ConnectorLunchmoneyDiscriminatedConnectorConfigConnector",
@@ -252,17 +287,6 @@ __all__ = [
     "ConnectorMergeDiscriminatedConnectorConfigConnectorSchemas",
     "ConnectorMergeDiscriminatedConnectorConfigConnectorScope",
     "ConnectorMergeDiscriminatedConnectorConfigIntegrations",
-    "ConnectorMicrosoftDiscriminatedConnectorConfig",
-    "ConnectorMicrosoftDiscriminatedConnectorConfigConfig",
-    "ConnectorMicrosoftDiscriminatedConnectorConfigConfigIntegrations",
-    "ConnectorMicrosoftDiscriminatedConnectorConfigConfigIntegrationsOutlook",
-    "ConnectorMicrosoftDiscriminatedConnectorConfigConfigIntegrationsSharepoint",
-    "ConnectorMicrosoftDiscriminatedConnectorConfigConfigIntegrationsTeams",
-    "ConnectorMicrosoftDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorMicrosoftDiscriminatedConnectorConfigConnector",
-    "ConnectorMicrosoftDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorMicrosoftDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorMicrosoftDiscriminatedConnectorConfigIntegrations",
     "ConnectorMootaDiscriminatedConnectorConfig",
     "ConnectorMootaDiscriminatedConnectorConfigConfig",
     "ConnectorMootaDiscriminatedConnectorConfigConnector",
@@ -275,20 +299,6 @@ __all__ = [
     "ConnectorOnebrickDiscriminatedConnectorConfigConnectorSchemas",
     "ConnectorOnebrickDiscriminatedConnectorConfigConnectorScope",
     "ConnectorOnebrickDiscriminatedConnectorConfigIntegrations",
-    "ConnectorOutreachDiscriminatedConnectorConfig",
-    "ConnectorOutreachDiscriminatedConnectorConfigConfig",
-    "ConnectorOutreachDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorOutreachDiscriminatedConnectorConfigConnector",
-    "ConnectorOutreachDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorOutreachDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorOutreachDiscriminatedConnectorConfigIntegrations",
-    "ConnectorPipedriveDiscriminatedConnectorConfig",
-    "ConnectorPipedriveDiscriminatedConnectorConfigConfig",
-    "ConnectorPipedriveDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorPipedriveDiscriminatedConnectorConfigConnector",
-    "ConnectorPipedriveDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorPipedriveDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorPipedriveDiscriminatedConnectorConfigIntegrations",
     "ConnectorPlaidDiscriminatedConnectorConfig",
     "ConnectorPlaidDiscriminatedConnectorConfigConfig",
     "ConnectorPlaidDiscriminatedConnectorConfigConfigCredentials",
@@ -308,20 +318,6 @@ __all__ = [
     "ConnectorRampDiscriminatedConnectorConfigConnectorSchemas",
     "ConnectorRampDiscriminatedConnectorConfigConnectorScope",
     "ConnectorRampDiscriminatedConnectorConfigIntegrations",
-    "ConnectorRedditDiscriminatedConnectorConfig",
-    "ConnectorRedditDiscriminatedConnectorConfigConfig",
-    "ConnectorRedditDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorRedditDiscriminatedConnectorConfigConnector",
-    "ConnectorRedditDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorRedditDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorRedditDiscriminatedConnectorConfigIntegrations",
-    "ConnectorSalesloftDiscriminatedConnectorConfig",
-    "ConnectorSalesloftDiscriminatedConnectorConfigConfig",
-    "ConnectorSalesloftDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorSalesloftDiscriminatedConnectorConfigConnector",
-    "ConnectorSalesloftDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorSalesloftDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorSalesloftDiscriminatedConnectorConfigIntegrations",
     "ConnectorSaltedgeDiscriminatedConnectorConfig",
     "ConnectorSaltedgeDiscriminatedConnectorConfigConfig",
     "ConnectorSaltedgeDiscriminatedConnectorConfigConnector",
@@ -356,13 +352,6 @@ __all__ = [
     "ConnectorTwentyDiscriminatedConnectorConfigConnectorSchemas",
     "ConnectorTwentyDiscriminatedConnectorConfigConnectorScope",
     "ConnectorTwentyDiscriminatedConnectorConfigIntegrations",
-    "ConnectorTwitterDiscriminatedConnectorConfig",
-    "ConnectorTwitterDiscriminatedConnectorConfigConfig",
-    "ConnectorTwitterDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorTwitterDiscriminatedConnectorConfigConnector",
-    "ConnectorTwitterDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorTwitterDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorTwitterDiscriminatedConnectorConfigIntegrations",
     "ConnectorVenmoDiscriminatedConnectorConfig",
     "ConnectorVenmoDiscriminatedConnectorConfigConfig",
     "ConnectorVenmoDiscriminatedConnectorConfigConfigProxy",
@@ -375,13 +364,6 @@ __all__ = [
     "ConnectorWiseDiscriminatedConnectorConfigConnectorSchemas",
     "ConnectorWiseDiscriminatedConnectorConfigConnectorScope",
     "ConnectorWiseDiscriminatedConnectorConfigIntegrations",
-    "ConnectorXeroDiscriminatedConnectorConfig",
-    "ConnectorXeroDiscriminatedConnectorConfigConfig",
-    "ConnectorXeroDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorXeroDiscriminatedConnectorConfigConnector",
-    "ConnectorXeroDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorXeroDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorXeroDiscriminatedConnectorConfigIntegrations",
     "ConnectorYodleeDiscriminatedConnectorConfig",
     "ConnectorYodleeDiscriminatedConnectorConfigConfig",
     "ConnectorYodleeDiscriminatedConnectorConfigConfigProxy",
@@ -389,32 +371,26 @@ __all__ = [
     "ConnectorYodleeDiscriminatedConnectorConfigConnectorSchemas",
     "ConnectorYodleeDiscriminatedConnectorConfigConnectorScope",
     "ConnectorYodleeDiscriminatedConnectorConfigIntegrations",
-    "ConnectorZohodeskDiscriminatedConnectorConfig",
-    "ConnectorZohodeskDiscriminatedConnectorConfigConfig",
-    "ConnectorZohodeskDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorZohodeskDiscriminatedConnectorConfigConnector",
-    "ConnectorZohodeskDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorZohodeskDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorZohodeskDiscriminatedConnectorConfigIntegrations",
 ]
 
 
-class ConnectorDummyOauth2DiscriminatedConnectorConfigConfigOAuth(BaseModel):
+class ConnectorAcmeOauth2DiscriminatedConnectorConfigConfigOAuth(BaseModel):
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
 
     redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
 
     scopes: Optional[List[str]] = None
 
 
-class ConnectorDummyOauth2DiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorDummyOauth2DiscriminatedConnectorConfigConfigOAuth] = None
+class ConnectorAcmeOauth2DiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorAcmeOauth2DiscriminatedConnectorConfigConfigOAuth] = None
     """Base oauth configuration for the connector"""
 
 
-class ConnectorDummyOauth2DiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+class ConnectorAcmeOauth2DiscriminatedConnectorConfigConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -430,7 +406,7 @@ class ConnectorDummyOauth2DiscriminatedConnectorConfigConnectorSchemas(BaseModel
     webhook_input: Optional[object] = None
 
 
-class ConnectorDummyOauth2DiscriminatedConnectorConfigConnectorScope(BaseModel):
+class ConnectorAcmeOauth2DiscriminatedConnectorConfigConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -438,7 +414,7 @@ class ConnectorDummyOauth2DiscriminatedConnectorConfigConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorDummyOauth2DiscriminatedConnectorConfigConnector(BaseModel):
+class ConnectorAcmeOauth2DiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
     auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
@@ -453,17 +429,18 @@ class ConnectorDummyOauth2DiscriminatedConnectorConfigConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorDummyOauth2DiscriminatedConnectorConfigConnectorSchemas] = None
+    schemas: Optional[ConnectorAcmeOauth2DiscriminatedConnectorConfigConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorDummyOauth2DiscriminatedConnectorConfigConnectorScope]] = None
+    scopes: Optional[List[ConnectorAcmeOauth2DiscriminatedConnectorConfigConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorDummyOauth2DiscriminatedConnectorConfigIntegrations(BaseModel):
+class ConnectorAcmeOauth2DiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -471,32 +448,29 @@ class ConnectorDummyOauth2DiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -507,7 +481,6 @@ class ConnectorDummyOauth2DiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -522,7 +495,7 @@ class ConnectorDummyOauth2DiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -548,16 +521,16 @@ class ConnectorDummyOauth2DiscriminatedConnectorConfigIntegrations(BaseModel):
     version: Optional[str] = None
 
 
-class ConnectorDummyOauth2DiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorDummyOauth2DiscriminatedConnectorConfigConfig
+class ConnectorAcmeOauth2DiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorAcmeOauth2DiscriminatedConnectorConfigConfig
 
-    connector_name: Literal["dummy-oauth2"]
+    connector_name: Literal["acme-oauth2"]
 
     id: Optional[str] = None
 
     connection_count: Optional[float] = None
 
-    connector: Optional[ConnectorDummyOauth2DiscriminatedConnectorConfigConnector] = None
+    connector: Optional[ConnectorAcmeOauth2DiscriminatedConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
@@ -565,7 +538,4281 @@ class ConnectorDummyOauth2DiscriminatedConnectorConfig(BaseModel):
 
     display_name: Optional[str] = None
 
-    integrations: Optional[Dict[str, ConnectorDummyOauth2DiscriminatedConnectorConfigIntegrations]] = None
+    integrations: Optional[Dict[str, ConnectorAcmeOauth2DiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorAircallDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorAircallDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorAircallDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorAircallDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorAircallDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorAircallDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorAircallDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorAircallDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorAircallDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorAircallDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorAircallDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["aircall"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorAircallDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorAircallDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorConfluenceDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorConfluenceDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorConfluenceDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorConfluenceDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorConfluenceDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorConfluenceDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorConfluenceDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorConfluenceDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorConfluenceDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorConfluenceDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorConfluenceDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["confluence"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorConfluenceDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorConfluenceDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorDiscordDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorDiscordDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorDiscordDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorDiscordDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorDiscordDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorDiscordDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorDiscordDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorDiscordDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorDiscordDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorDiscordDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorDiscordDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["discord"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorDiscordDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorDiscordDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorFacebookDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorFacebookDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorFacebookDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorFacebookDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorFacebookDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorFacebookDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorFacebookDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorFacebookDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorFacebookDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorFacebookDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorFacebookDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["facebook"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorFacebookDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorFacebookDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGitHubDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorGitHubDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorGitHubDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorGitHubDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorGitHubDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorGitHubDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorGitHubDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorGitHubDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorGitHubDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorGitHubDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorGitHubDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["github"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorGitHubDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorGitHubDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGongDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorGongDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorGongDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorGongDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorGongDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorGongDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorGongDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorGongDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorGongDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorGongDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorGongDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["gong"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorGongDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorGongDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGoogleCalendarDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorGoogleCalendarDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorGoogleCalendarDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorGoogleCalendarDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorGoogleCalendarDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorGoogleCalendarDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorGoogleCalendarDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorGoogleCalendarDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorGoogleCalendarDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorGoogleCalendarDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorGoogleCalendarDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["google-calendar"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorGoogleCalendarDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorGoogleCalendarDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGoogleDocsDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorGoogleDocsDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorGoogleDocsDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorGoogleDocsDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorGoogleDocsDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorGoogleDocsDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorGoogleDocsDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorGoogleDocsDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorGoogleDocsDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorGoogleDocsDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorGoogleDocsDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["google-docs"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorGoogleDocsDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorGoogleDocsDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGoogleDriveDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorGoogleDriveDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorGoogleDriveDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorGoogleDriveDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorGoogleDriveDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorGoogleDriveDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorGoogleDriveDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorGoogleDriveDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorGoogleDriveDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorGoogleDriveDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorGoogleDriveDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["google-drive"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorGoogleDriveDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorGoogleDriveDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGoogleMailDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorGoogleMailDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorGoogleMailDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorGoogleMailDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorGoogleMailDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorGoogleMailDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorGoogleMailDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorGoogleMailDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorGoogleMailDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorGoogleMailDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorGoogleMailDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["google-mail"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorGoogleMailDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorGoogleMailDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorGoogleSheetDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorGoogleSheetDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorGoogleSheetDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorGoogleSheetDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorGoogleSheetDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorGoogleSheetDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorGoogleSheetDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorGoogleSheetDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorGoogleSheetDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorGoogleSheetDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorGoogleSheetDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["google-sheet"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorGoogleSheetDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorGoogleSheetDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorHubspotDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorHubspotDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorHubspotDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorHubspotDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorHubspotDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorHubspotDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorHubspotDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorHubspotDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorHubspotDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorHubspotDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorHubspotDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["hubspot"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorHubspotDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorHubspotDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorInstagramDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorInstagramDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorInstagramDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorInstagramDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorInstagramDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorInstagramDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorInstagramDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorInstagramDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorInstagramDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorInstagramDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorInstagramDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["instagram"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorInstagramDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorInstagramDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorIntercomDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorIntercomDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorIntercomDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorIntercomDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorIntercomDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorIntercomDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorIntercomDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorIntercomDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorIntercomDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorIntercomDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorIntercomDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["intercom"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorIntercomDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorIntercomDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorJiraDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorJiraDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorJiraDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorJiraDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorJiraDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorJiraDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorJiraDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorJiraDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorJiraDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorJiraDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorJiraDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["jira"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorJiraDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorJiraDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorLeverDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorLeverDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorLeverDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorLeverDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorLeverDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorLeverDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorLeverDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorLeverDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorLeverDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorLeverDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorLeverDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["lever"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorLeverDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorLeverDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorLinearDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorLinearDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorLinearDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorLinearDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorLinearDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorLinearDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorLinearDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorLinearDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorLinearDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorLinearDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorLinearDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["linear"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorLinearDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorLinearDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorLinkedinDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorLinkedinDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorLinkedinDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorLinkedinDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorLinkedinDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorLinkedinDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorLinkedinDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorLinkedinDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorLinkedinDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorLinkedinDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorLinkedinDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["linkedin"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorLinkedinDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorLinkedinDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorNotionDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorNotionDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorNotionDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorNotionDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorNotionDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorNotionDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorNotionDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorNotionDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorNotionDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorNotionDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorNotionDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["notion"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorNotionDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorNotionDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorOutreachDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorOutreachDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorOutreachDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorOutreachDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorOutreachDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorOutreachDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorOutreachDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorOutreachDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorOutreachDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorOutreachDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorOutreachDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["outreach"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorOutreachDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorOutreachDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorPipedriveDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorPipedriveDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorPipedriveDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorPipedriveDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorPipedriveDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorPipedriveDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorPipedriveDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorPipedriveDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorPipedriveDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorPipedriveDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorPipedriveDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["pipedrive"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorPipedriveDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorPipedriveDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorQuickbooksDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorQuickbooksDiscriminatedConnectorConfigConfig(BaseModel):
+    env_name: Literal["sandbox", "production"] = FieldInfo(alias="envName")
+
+    oauth: Optional[ConnectorQuickbooksDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorQuickbooksDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorQuickbooksDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorQuickbooksDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorQuickbooksDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorQuickbooksDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorQuickbooksDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorQuickbooksDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorQuickbooksDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["quickbooks"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorQuickbooksDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorQuickbooksDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorRedditDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorRedditDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorRedditDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorRedditDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorRedditDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorRedditDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorRedditDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorRedditDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorRedditDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorRedditDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorRedditDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["reddit"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorRedditDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorRedditDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorSalesloftDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorSalesloftDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorSalesloftDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorSalesloftDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorSalesloftDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorSalesloftDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
+        alias="authType", default=None
+    )
+
+    display_name: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorSalesloftDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorSalesloftDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorSalesloftDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepointonline",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorSalesloftDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorSalesloftDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["salesloft"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorSalesloftDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorSalesloftDiscriminatedConnectorConfigIntegrations]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -585,6 +4832,7 @@ class ConnectorSharepointonlineDiscriminatedConnectorConfigConfigOAuth(BaseModel
     client_secret: Optional[str] = None
 
     redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
 
     scopes: Optional[List[str]] = None
 
@@ -644,6 +4892,7 @@ class ConnectorSharepointonlineDiscriminatedConnectorConfigIntegrations(BaseMode
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -651,32 +4900,29 @@ class ConnectorSharepointonlineDiscriminatedConnectorConfigIntegrations(BaseMode
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -687,7 +4933,6 @@ class ConnectorSharepointonlineDiscriminatedConnectorConfigIntegrations(BaseMode
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -702,7 +4947,7 @@ class ConnectorSharepointonlineDiscriminatedConnectorConfigIntegrations(BaseMode
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -765,6 +5010,7 @@ class ConnectorSlackDiscriminatedConnectorConfigConfigOAuth(BaseModel):
     client_secret: Optional[str] = None
 
     redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
 
     scopes: Optional[List[str]] = None
 
@@ -824,6 +5070,7 @@ class ConnectorSlackDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -831,32 +5078,29 @@ class ConnectorSlackDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -867,7 +5111,6 @@ class ConnectorSlackDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -882,7 +5125,7 @@ class ConnectorSlackDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -939,22 +5182,23 @@ class ConnectorSlackDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorGitHubDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+class ConnectorTwitterDiscriminatedConnectorConfigConfigOAuth(BaseModel):
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
 
     redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
 
     scopes: Optional[List[str]] = None
 
 
-class ConnectorGitHubDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGitHubDiscriminatedConnectorConfigConfigOAuth] = None
+class ConnectorTwitterDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorTwitterDiscriminatedConnectorConfigConfigOAuth] = None
     """Base oauth configuration for the connector"""
 
 
-class ConnectorGitHubDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+class ConnectorTwitterDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -970,7 +5214,7 @@ class ConnectorGitHubDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ConnectorGitHubDiscriminatedConnectorConfigConnectorScope(BaseModel):
+class ConnectorTwitterDiscriminatedConnectorConfigConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -978,7 +5222,7 @@ class ConnectorGitHubDiscriminatedConnectorConfigConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorGitHubDiscriminatedConnectorConfigConnector(BaseModel):
+class ConnectorTwitterDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
     auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
@@ -993,17 +5237,18 @@ class ConnectorGitHubDiscriminatedConnectorConfigConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorGitHubDiscriminatedConnectorConfigConnectorSchemas] = None
+    schemas: Optional[ConnectorTwitterDiscriminatedConnectorConfigConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorGitHubDiscriminatedConnectorConfigConnectorScope]] = None
+    scopes: Optional[List[ConnectorTwitterDiscriminatedConnectorConfigConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorGitHubDiscriminatedConnectorConfigIntegrations(BaseModel):
+class ConnectorTwitterDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -1011,32 +5256,29 @@ class ConnectorGitHubDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -1047,7 +5289,6 @@ class ConnectorGitHubDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -1062,7 +5303,7 @@ class ConnectorGitHubDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -1088,16 +5329,16 @@ class ConnectorGitHubDiscriminatedConnectorConfigIntegrations(BaseModel):
     version: Optional[str] = None
 
 
-class ConnectorGitHubDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorGitHubDiscriminatedConnectorConfigConfig
+class ConnectorTwitterDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorTwitterDiscriminatedConnectorConfigConfig
 
-    connector_name: Literal["github"]
+    connector_name: Literal["twitter"]
 
     id: Optional[str] = None
 
     connection_count: Optional[float] = None
 
-    connector: Optional[ConnectorGitHubDiscriminatedConnectorConfigConnector] = None
+    connector: Optional[ConnectorTwitterDiscriminatedConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
@@ -1105,7 +5346,7 @@ class ConnectorGitHubDiscriminatedConnectorConfig(BaseModel):
 
     display_name: Optional[str] = None
 
-    integrations: Optional[Dict[str, ConnectorGitHubDiscriminatedConnectorConfigIntegrations]] = None
+    integrations: Optional[Dict[str, ConnectorTwitterDiscriminatedConnectorConfigIntegrations]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1119,24 +5360,23 @@ class ConnectorGitHubDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorQuickbooksDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+class ConnectorXeroDiscriminatedConnectorConfigConfigOAuth(BaseModel):
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
 
     redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
 
     scopes: Optional[List[str]] = None
 
 
-class ConnectorQuickbooksDiscriminatedConnectorConfigConfig(BaseModel):
-    env_name: Literal["sandbox", "production"] = FieldInfo(alias="envName")
-
-    oauth: Optional[ConnectorQuickbooksDiscriminatedConnectorConfigConfigOAuth] = None
+class ConnectorXeroDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorXeroDiscriminatedConnectorConfigConfigOAuth] = None
     """Base oauth configuration for the connector"""
 
 
-class ConnectorQuickbooksDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+class ConnectorXeroDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -1152,7 +5392,7 @@ class ConnectorQuickbooksDiscriminatedConnectorConfigConnectorSchemas(BaseModel)
     webhook_input: Optional[object] = None
 
 
-class ConnectorQuickbooksDiscriminatedConnectorConfigConnectorScope(BaseModel):
+class ConnectorXeroDiscriminatedConnectorConfigConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -1160,7 +5400,7 @@ class ConnectorQuickbooksDiscriminatedConnectorConfigConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorQuickbooksDiscriminatedConnectorConfigConnector(BaseModel):
+class ConnectorXeroDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
     auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
@@ -1175,17 +5415,18 @@ class ConnectorQuickbooksDiscriminatedConnectorConfigConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorQuickbooksDiscriminatedConnectorConfigConnectorSchemas] = None
+    schemas: Optional[ConnectorXeroDiscriminatedConnectorConfigConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorQuickbooksDiscriminatedConnectorConfigConnectorScope]] = None
+    scopes: Optional[List[ConnectorXeroDiscriminatedConnectorConfigConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorQuickbooksDiscriminatedConnectorConfigIntegrations(BaseModel):
+class ConnectorXeroDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -1193,32 +5434,29 @@ class ConnectorQuickbooksDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -1229,7 +5467,6 @@ class ConnectorQuickbooksDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -1244,7 +5481,7 @@ class ConnectorQuickbooksDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -1270,16 +5507,16 @@ class ConnectorQuickbooksDiscriminatedConnectorConfigIntegrations(BaseModel):
     version: Optional[str] = None
 
 
-class ConnectorQuickbooksDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorQuickbooksDiscriminatedConnectorConfigConfig
+class ConnectorXeroDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorXeroDiscriminatedConnectorConfigConfig
 
-    connector_name: Literal["quickbooks"]
+    connector_name: Literal["xero"]
 
     id: Optional[str] = None
 
     connection_count: Optional[float] = None
 
-    connector: Optional[ConnectorQuickbooksDiscriminatedConnectorConfigConnector] = None
+    connector: Optional[ConnectorXeroDiscriminatedConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
@@ -1287,7 +5524,7 @@ class ConnectorQuickbooksDiscriminatedConnectorConfig(BaseModel):
 
     display_name: Optional[str] = None
 
-    integrations: Optional[Dict[str, ConnectorQuickbooksDiscriminatedConnectorConfigIntegrations]] = None
+    integrations: Optional[Dict[str, ConnectorXeroDiscriminatedConnectorConfigIntegrations]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1301,22 +5538,23 @@ class ConnectorQuickbooksDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorGooglemailDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+class ConnectorZohoDeskDiscriminatedConnectorConfigConfigOAuth(BaseModel):
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
 
     redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
 
     scopes: Optional[List[str]] = None
 
 
-class ConnectorGooglemailDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGooglemailDiscriminatedConnectorConfigConfigOAuth] = None
+class ConnectorZohoDeskDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorZohoDeskDiscriminatedConnectorConfigConfigOAuth] = None
     """Base oauth configuration for the connector"""
 
 
-class ConnectorGooglemailDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+class ConnectorZohoDeskDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -1332,7 +5570,7 @@ class ConnectorGooglemailDiscriminatedConnectorConfigConnectorSchemas(BaseModel)
     webhook_input: Optional[object] = None
 
 
-class ConnectorGooglemailDiscriminatedConnectorConfigConnectorScope(BaseModel):
+class ConnectorZohoDeskDiscriminatedConnectorConfigConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -1340,7 +5578,7 @@ class ConnectorGooglemailDiscriminatedConnectorConfigConnectorScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class ConnectorGooglemailDiscriminatedConnectorConfigConnector(BaseModel):
+class ConnectorZohoDeskDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
     auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
@@ -1355,17 +5593,18 @@ class ConnectorGooglemailDiscriminatedConnectorConfigConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorGooglemailDiscriminatedConnectorConfigConnectorSchemas] = None
+    schemas: Optional[ConnectorZohoDeskDiscriminatedConnectorConfigConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorGooglemailDiscriminatedConnectorConfigConnectorScope]] = None
+    scopes: Optional[List[ConnectorZohoDeskDiscriminatedConnectorConfigConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorGooglemailDiscriminatedConnectorConfigIntegrations(BaseModel):
+class ConnectorZohoDeskDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -1373,32 +5612,29 @@ class ConnectorGooglemailDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -1409,7 +5645,6 @@ class ConnectorGooglemailDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -1424,7 +5659,7 @@ class ConnectorGooglemailDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -1450,16 +5685,16 @@ class ConnectorGooglemailDiscriminatedConnectorConfigIntegrations(BaseModel):
     version: Optional[str] = None
 
 
-class ConnectorGooglemailDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorGooglemailDiscriminatedConnectorConfigConfig
+class ConnectorZohoDeskDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorZohoDeskDiscriminatedConnectorConfigConfig
 
-    connector_name: Literal["googlemail"]
+    connector_name: Literal["zoho-desk"]
 
     id: Optional[str] = None
 
     connection_count: Optional[float] = None
 
-    connector: Optional[ConnectorGooglemailDiscriminatedConnectorConfigConnector] = None
+    connector: Optional[ConnectorZohoDeskDiscriminatedConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
@@ -1467,2167 +5702,7 @@ class ConnectorGooglemailDiscriminatedConnectorConfig(BaseModel):
 
     display_name: Optional[str] = None
 
-    integrations: Optional[Dict[str, ConnectorGooglemailDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorNotionDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-
-    scopes: Optional[List[str]] = None
-
-
-class ConnectorNotionDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorNotionDiscriminatedConnectorConfigConfigOAuth] = None
-    """Base oauth configuration for the connector"""
-
-
-class ConnectorNotionDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorNotionDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorNotionDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorNotionDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorNotionDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorNotionDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorNotionDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorNotionDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["notion"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorNotionDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorNotionDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorLinkedinDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-
-    scopes: Optional[List[str]] = None
-
-
-class ConnectorLinkedinDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorLinkedinDiscriminatedConnectorConfigConfigOAuth] = None
-    """Base oauth configuration for the connector"""
-
-
-class ConnectorLinkedinDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorLinkedinDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorLinkedinDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorLinkedinDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorLinkedinDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorLinkedinDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorLinkedinDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorLinkedinDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["linkedin"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorLinkedinDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorLinkedinDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorGoogledocsDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-
-    scopes: Optional[List[str]] = None
-
-
-class ConnectorGoogledocsDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGoogledocsDiscriminatedConnectorConfigConfigOAuth] = None
-    """Base oauth configuration for the connector"""
-
-
-class ConnectorGoogledocsDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorGoogledocsDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorGoogledocsDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorGoogledocsDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorGoogledocsDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorGoogledocsDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorGoogledocsDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorGoogledocsDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["googledocs"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorGoogledocsDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorGoogledocsDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorAircallDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-
-    scopes: Optional[List[str]] = None
-
-
-class ConnectorAircallDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorAircallDiscriminatedConnectorConfigConfigOAuth] = None
-    """Base oauth configuration for the connector"""
-
-
-class ConnectorAircallDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorAircallDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorAircallDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorAircallDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorAircallDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorAircallDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorAircallDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorAircallDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["aircall"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorAircallDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorAircallDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorGooglecalendarDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-
-    scopes: Optional[List[str]] = None
-
-
-class ConnectorGooglecalendarDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGooglecalendarDiscriminatedConnectorConfigConfigOAuth] = None
-    """Base oauth configuration for the connector"""
-
-
-class ConnectorGooglecalendarDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorGooglecalendarDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorGooglecalendarDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorGooglecalendarDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorGooglecalendarDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorGooglecalendarDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorGooglecalendarDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorGooglecalendarDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["googlecalendar"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorGooglecalendarDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorGooglecalendarDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorGooglesheetDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-
-    scopes: Optional[List[str]] = None
-
-
-class ConnectorGooglesheetDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGooglesheetDiscriminatedConnectorConfigConfigOAuth] = None
-    """Base oauth configuration for the connector"""
-
-
-class ConnectorGooglesheetDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorGooglesheetDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorGooglesheetDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorGooglesheetDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorGooglesheetDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorGooglesheetDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorGooglesheetDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorGooglesheetDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["googlesheet"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorGooglesheetDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorGooglesheetDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorDiscordDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-
-    scopes: Optional[List[str]] = None
-
-
-class ConnectorDiscordDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorDiscordDiscriminatedConnectorConfigConfigOAuth] = None
-    """Base oauth configuration for the connector"""
-
-
-class ConnectorDiscordDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorDiscordDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorDiscordDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorDiscordDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorDiscordDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorDiscordDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorDiscordDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorDiscordDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["discord"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorDiscordDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorDiscordDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorHubspotDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-
-    scopes: Optional[List[str]] = None
-
-
-class ConnectorHubspotDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorHubspotDiscriminatedConnectorConfigConfigOAuth] = None
-    """Base oauth configuration for the connector"""
-
-
-class ConnectorHubspotDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorHubspotDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorHubspotDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorHubspotDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorHubspotDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorHubspotDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorHubspotDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorHubspotDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["hubspot"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorHubspotDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorHubspotDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorSalesforceDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-
-    scopes: Optional[List[str]] = None
-
-
-class ConnectorSalesforceDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorSalesforceDiscriminatedConnectorConfigConfigOAuth] = None
-    """Base oauth configuration for the connector"""
-
-
-class ConnectorSalesforceDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorSalesforceDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorSalesforceDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorSalesforceDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorSalesforceDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorSalesforceDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorSalesforceDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorSalesforceDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["salesforce"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorSalesforceDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorSalesforceDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorLinearDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-
-    scopes: Optional[List[str]] = None
-
-
-class ConnectorLinearDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorLinearDiscriminatedConnectorConfigConfigOAuth] = None
-    """Base oauth configuration for the connector"""
-
-
-class ConnectorLinearDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorLinearDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorLinearDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorLinearDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorLinearDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorLinearDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorLinearDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorLinearDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["linear"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorLinearDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorLinearDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorConfluenceDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-
-    scopes: Optional[List[str]] = None
-
-
-class ConnectorConfluenceDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorConfluenceDiscriminatedConnectorConfigConfigOAuth] = None
-    """Base oauth configuration for the connector"""
-
-
-class ConnectorConfluenceDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorConfluenceDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorConfluenceDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorConfluenceDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorConfluenceDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorConfluenceDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorConfluenceDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorConfluenceDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["confluence"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorConfluenceDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorConfluenceDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorGoogledriveDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-
-    scopes: Optional[List[str]] = None
-
-
-class ConnectorGoogledriveDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGoogledriveDiscriminatedConnectorConfigConfigOAuth] = None
-    """Base oauth configuration for the connector"""
-
-
-class ConnectorGoogledriveDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorGoogledriveDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorGoogledriveDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorGoogledriveDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorGoogledriveDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorGoogledriveDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorGoogledriveDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorGoogledriveDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["googledrive"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorGoogledriveDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorGoogledriveDiscriminatedConnectorConfigIntegrations]] = None
+    integrations: Optional[Dict[str, ConnectorZohoDeskDiscriminatedConnectorConfigIntegrations]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3691,6 +5766,7 @@ class ConnectorAirtableDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -3698,32 +5774,29 @@ class ConnectorAirtableDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -3734,7 +5807,6 @@ class ConnectorAirtableDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -3749,7 +5821,7 @@ class ConnectorAirtableDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -3856,6 +5928,7 @@ class ConnectorApolloDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -3863,32 +5936,29 @@ class ConnectorApolloDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -3899,7 +5969,6 @@ class ConnectorApolloDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -3914,7 +5983,7 @@ class ConnectorApolloDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -4035,6 +6104,7 @@ class ConnectorBrexDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -4042,32 +6112,29 @@ class ConnectorBrexDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -4078,7 +6145,6 @@ class ConnectorBrexDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -4093,7 +6159,7 @@ class ConnectorBrexDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -4200,6 +6266,7 @@ class ConnectorCodaDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -4207,32 +6274,29 @@ class ConnectorCodaDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -4243,7 +6307,6 @@ class ConnectorCodaDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -4258,7 +6321,7 @@ class ConnectorCodaDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -4302,183 +6365,6 @@ class ConnectorCodaDiscriminatedConnectorConfig(BaseModel):
     display_name: Optional[str] = None
 
     integrations: Optional[Dict[str, ConnectorCodaDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorFacebookDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[str] = None
-
-
-class ConnectorFacebookDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: ConnectorFacebookDiscriminatedConnectorConfigConfigOAuth
-
-
-class ConnectorFacebookDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorFacebookDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorFacebookDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorFacebookDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorFacebookDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorFacebookDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorFacebookDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorFacebookDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["facebook"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorFacebookDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorFacebookDiscriminatedConnectorConfigIntegrations]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4559,6 +6445,7 @@ class ConnectorFinchDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -4566,32 +6453,29 @@ class ConnectorFinchDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -4602,7 +6486,6 @@ class ConnectorFinchDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -4617,7 +6500,7 @@ class ConnectorFinchDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -4724,6 +6607,7 @@ class ConnectorFirebaseDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -4731,32 +6615,29 @@ class ConnectorFirebaseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -4767,7 +6648,6 @@ class ConnectorFirebaseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -4782,7 +6662,7 @@ class ConnectorFirebaseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -4889,6 +6769,7 @@ class ConnectorForeceiptDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -4896,32 +6777,29 @@ class ConnectorForeceiptDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -4932,7 +6810,6 @@ class ConnectorForeceiptDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -4947,7 +6824,7 @@ class ConnectorForeceiptDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -4991,183 +6868,6 @@ class ConnectorForeceiptDiscriminatedConnectorConfig(BaseModel):
     display_name: Optional[str] = None
 
     integrations: Optional[Dict[str, ConnectorForeceiptDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorGongDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[str] = None
-
-
-class ConnectorGongDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: ConnectorGongDiscriminatedConnectorConfigConfigOAuth
-
-
-class ConnectorGongDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorGongDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorGongDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorGongDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorGongDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorGongDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorGongDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorGongDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["gong"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorGongDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorGongDiscriminatedConnectorConfigIntegrations]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5231,6 +6931,7 @@ class ConnectorGreenhouseDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -5238,32 +6939,29 @@ class ConnectorGreenhouseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -5274,7 +6972,6 @@ class ConnectorGreenhouseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -5289,7 +6986,7 @@ class ConnectorGreenhouseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -5400,6 +7097,7 @@ class ConnectorHeronDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -5407,32 +7105,29 @@ class ConnectorHeronDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -5443,7 +7138,6 @@ class ConnectorHeronDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -5458,7 +7152,7 @@ class ConnectorHeronDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -5502,893 +7196,6 @@ class ConnectorHeronDiscriminatedConnectorConfig(BaseModel):
     display_name: Optional[str] = None
 
     integrations: Optional[Dict[str, ConnectorHeronDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorInstagramDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[str] = None
-
-
-class ConnectorInstagramDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: ConnectorInstagramDiscriminatedConnectorConfigConfigOAuth
-
-
-class ConnectorInstagramDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorInstagramDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorInstagramDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorInstagramDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorInstagramDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorInstagramDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorInstagramDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorInstagramDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["instagram"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorInstagramDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorInstagramDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorIntercomDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[str] = None
-
-
-class ConnectorIntercomDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: ConnectorIntercomDiscriminatedConnectorConfigConfigOAuth
-
-
-class ConnectorIntercomDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorIntercomDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorIntercomDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorIntercomDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorIntercomDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorIntercomDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorIntercomDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorIntercomDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["intercom"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorIntercomDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorIntercomDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorJiraDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[str] = None
-
-
-class ConnectorJiraDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: ConnectorJiraDiscriminatedConnectorConfigConfigOAuth
-
-
-class ConnectorJiraDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorJiraDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorJiraDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorJiraDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorJiraDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorJiraDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorJiraDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorJiraDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["jira"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorJiraDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorJiraDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorKustomerDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[str] = None
-
-
-class ConnectorKustomerDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: ConnectorKustomerDiscriminatedConnectorConfigConfigOAuth
-
-
-class ConnectorKustomerDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorKustomerDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorKustomerDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorKustomerDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorKustomerDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorKustomerDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorKustomerDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorKustomerDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["kustomer"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorKustomerDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorKustomerDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorLeverDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[str] = None
-
-
-class ConnectorLeverDiscriminatedConnectorConfigConfig(BaseModel):
-    env_name: Literal["sandbox", "production"] = FieldInfo(alias="envName")
-
-    oauth: ConnectorLeverDiscriminatedConnectorConfigConfigOAuth
-
-
-class ConnectorLeverDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorLeverDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorLeverDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorLeverDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorLeverDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorLeverDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorLeverDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorLeverDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["lever"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorLeverDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorLeverDiscriminatedConnectorConfigIntegrations]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6456,6 +7263,7 @@ class ConnectorLunchmoneyDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -6463,32 +7271,29 @@ class ConnectorLunchmoneyDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -6499,7 +7304,6 @@ class ConnectorLunchmoneyDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -6514,7 +7318,7 @@ class ConnectorLunchmoneyDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -6635,6 +7439,7 @@ class ConnectorMercuryDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -6642,32 +7447,29 @@ class ConnectorMercuryDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -6678,7 +7480,6 @@ class ConnectorMercuryDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -6693,7 +7494,7 @@ class ConnectorMercuryDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -6804,6 +7605,7 @@ class ConnectorMergeDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -6811,32 +7613,29 @@ class ConnectorMergeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -6847,7 +7646,6 @@ class ConnectorMergeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -6862,7 +7660,7 @@ class ConnectorMergeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -6906,215 +7704,6 @@ class ConnectorMergeDiscriminatedConnectorConfig(BaseModel):
     display_name: Optional[str] = None
 
     integrations: Optional[Dict[str, ConnectorMergeDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorMicrosoftDiscriminatedConnectorConfigConfigIntegrationsOutlook(BaseModel):
-    enabled: Optional[bool] = None
-
-    scopes: Optional[str] = None
-    """outlook specific space separated scopes"""
-
-
-class ConnectorMicrosoftDiscriminatedConnectorConfigConfigIntegrationsSharepoint(BaseModel):
-    enabled: Optional[bool] = None
-
-    scopes: Optional[str] = None
-    """sharepoint specific space separated scopes"""
-
-
-class ConnectorMicrosoftDiscriminatedConnectorConfigConfigIntegrationsTeams(BaseModel):
-    enabled: Optional[bool] = None
-
-    scopes: Optional[str] = None
-    """teams specific space separated scopes"""
-
-
-class ConnectorMicrosoftDiscriminatedConnectorConfigConfigIntegrations(BaseModel):
-    outlook: Optional[ConnectorMicrosoftDiscriminatedConnectorConfigConfigIntegrationsOutlook] = None
-
-    sharepoint: Optional[ConnectorMicrosoftDiscriminatedConnectorConfigConfigIntegrationsSharepoint] = None
-
-    teams: Optional[ConnectorMicrosoftDiscriminatedConnectorConfigConfigIntegrationsTeams] = None
-
-
-class ConnectorMicrosoftDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[str] = None
-    """global microsoft connector space separated scopes"""
-
-
-class ConnectorMicrosoftDiscriminatedConnectorConfigConfig(BaseModel):
-    integrations: ConnectorMicrosoftDiscriminatedConnectorConfigConfigIntegrations
-
-    oauth: ConnectorMicrosoftDiscriminatedConnectorConfigConfigOAuth
-
-
-class ConnectorMicrosoftDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorMicrosoftDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorMicrosoftDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorMicrosoftDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorMicrosoftDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorMicrosoftDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorMicrosoftDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorMicrosoftDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["microsoft"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorMicrosoftDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorMicrosoftDiscriminatedConnectorConfigIntegrations]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7182,6 +7771,7 @@ class ConnectorMootaDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -7189,32 +7779,29 @@ class ConnectorMootaDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -7225,7 +7812,6 @@ class ConnectorMootaDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -7240,7 +7826,7 @@ class ConnectorMootaDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -7361,6 +7947,7 @@ class ConnectorOnebrickDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -7368,32 +7955,29 @@ class ConnectorOnebrickDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -7404,7 +7988,6 @@ class ConnectorOnebrickDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -7419,7 +8002,7 @@ class ConnectorOnebrickDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -7463,360 +8046,6 @@ class ConnectorOnebrickDiscriminatedConnectorConfig(BaseModel):
     display_name: Optional[str] = None
 
     integrations: Optional[Dict[str, ConnectorOnebrickDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorOutreachDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[str] = None
-
-
-class ConnectorOutreachDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: ConnectorOutreachDiscriminatedConnectorConfigConfigOAuth
-
-
-class ConnectorOutreachDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorOutreachDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorOutreachDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorOutreachDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorOutreachDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorOutreachDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorOutreachDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorOutreachDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["outreach"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorOutreachDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorOutreachDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorPipedriveDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[str] = None
-
-
-class ConnectorPipedriveDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: ConnectorPipedriveDiscriminatedConnectorConfigConfigOAuth
-
-
-class ConnectorPipedriveDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorPipedriveDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorPipedriveDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorPipedriveDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorPipedriveDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorPipedriveDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorPipedriveDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorPipedriveDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["pipedrive"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorPipedriveDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorPipedriveDiscriminatedConnectorConfigIntegrations]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7927,6 +8156,7 @@ class ConnectorPlaidDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -7934,32 +8164,29 @@ class ConnectorPlaidDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -7970,7 +8197,6 @@ class ConnectorPlaidDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -7985,7 +8211,7 @@ class ConnectorPlaidDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -8092,6 +8318,7 @@ class ConnectorPostgresDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -8099,32 +8326,29 @@ class ConnectorPostgresDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -8135,7 +8359,6 @@ class ConnectorPostgresDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -8150,7 +8373,7 @@ class ConnectorPostgresDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -8267,6 +8490,7 @@ class ConnectorRampDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -8274,32 +8498,29 @@ class ConnectorRampDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -8310,7 +8531,6 @@ class ConnectorRampDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -8325,7 +8545,7 @@ class ConnectorRampDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -8369,360 +8589,6 @@ class ConnectorRampDiscriminatedConnectorConfig(BaseModel):
     display_name: Optional[str] = None
 
     integrations: Optional[Dict[str, ConnectorRampDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorRedditDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[str] = None
-
-
-class ConnectorRedditDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: ConnectorRedditDiscriminatedConnectorConfigConfigOAuth
-
-
-class ConnectorRedditDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorRedditDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorRedditDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorRedditDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorRedditDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorRedditDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorRedditDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorRedditDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["reddit"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorRedditDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorRedditDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorSalesloftDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[str] = None
-
-
-class ConnectorSalesloftDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: ConnectorSalesloftDiscriminatedConnectorConfigConfigOAuth
-
-
-class ConnectorSalesloftDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorSalesloftDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorSalesloftDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorSalesloftDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorSalesloftDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorSalesloftDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorSalesloftDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorSalesloftDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["salesloft"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorSalesloftDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorSalesloftDiscriminatedConnectorConfigIntegrations]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -8794,6 +8660,7 @@ class ConnectorSaltedgeDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -8801,32 +8668,29 @@ class ConnectorSaltedgeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -8837,7 +8701,6 @@ class ConnectorSaltedgeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -8852,7 +8715,7 @@ class ConnectorSaltedgeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -8959,6 +8822,7 @@ class ConnectorSplitwiseDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -8966,32 +8830,29 @@ class ConnectorSplitwiseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -9002,7 +8863,6 @@ class ConnectorSplitwiseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -9017,7 +8877,7 @@ class ConnectorSplitwiseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -9138,6 +8998,7 @@ class ConnectorStripeDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -9145,32 +9006,29 @@ class ConnectorStripeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -9181,7 +9039,6 @@ class ConnectorStripeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -9196,7 +9053,7 @@ class ConnectorStripeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -9309,6 +9166,7 @@ class ConnectorTellerDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -9316,32 +9174,29 @@ class ConnectorTellerDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -9352,7 +9207,6 @@ class ConnectorTellerDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -9367,7 +9221,7 @@ class ConnectorTellerDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -9474,6 +9328,7 @@ class ConnectorTogglDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -9481,32 +9336,29 @@ class ConnectorTogglDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -9517,7 +9369,6 @@ class ConnectorTogglDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -9532,7 +9383,7 @@ class ConnectorTogglDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -9639,6 +9490,7 @@ class ConnectorTwentyDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -9646,32 +9498,29 @@ class ConnectorTwentyDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -9682,7 +9531,6 @@ class ConnectorTwentyDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -9697,7 +9545,7 @@ class ConnectorTwentyDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -9741,183 +9589,6 @@ class ConnectorTwentyDiscriminatedConnectorConfig(BaseModel):
     display_name: Optional[str] = None
 
     integrations: Optional[Dict[str, ConnectorTwentyDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorTwitterDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[str] = None
-
-
-class ConnectorTwitterDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: ConnectorTwitterDiscriminatedConnectorConfigConfigOAuth
-
-
-class ConnectorTwitterDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorTwitterDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorTwitterDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorTwitterDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorTwitterDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorTwitterDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorTwitterDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorTwitterDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["twitter"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorTwitterDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorTwitterDiscriminatedConnectorConfigIntegrations]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -9995,6 +9666,7 @@ class ConnectorVenmoDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -10002,32 +9674,29 @@ class ConnectorVenmoDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -10038,7 +9707,6 @@ class ConnectorVenmoDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -10053,7 +9721,7 @@ class ConnectorVenmoDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -10160,6 +9828,7 @@ class ConnectorWiseDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -10167,32 +9836,29 @@ class ConnectorWiseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -10203,7 +9869,6 @@ class ConnectorWiseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -10218,7 +9883,7 @@ class ConnectorWiseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -10262,183 +9927,6 @@ class ConnectorWiseDiscriminatedConnectorConfig(BaseModel):
     display_name: Optional[str] = None
 
     integrations: Optional[Dict[str, ConnectorWiseDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
-class ConnectorXeroDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[str] = None
-
-
-class ConnectorXeroDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: ConnectorXeroDiscriminatedConnectorConfigConfigOAuth
-
-
-class ConnectorXeroDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorXeroDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorXeroDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorXeroDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorXeroDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorXeroDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorXeroDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorXeroDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["xero"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorXeroDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorXeroDiscriminatedConnectorConfigIntegrations]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -10522,6 +10010,7 @@ class ConnectorYodleeDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
+        "acme-oauth2",
         "aircall",
         "airtable",
         "apollo",
@@ -10529,32 +10018,29 @@ class ConnectorYodleeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "coda",
         "confluence",
         "discord",
-        "dummy-oauth2",
         "facebook",
         "finch",
         "firebase",
         "foreceipt",
         "github",
         "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
         "greenhouse",
         "heron",
         "hubspot",
         "instagram",
         "intercom",
         "jira",
-        "kustomer",
         "lever",
         "linear",
         "linkedin",
         "lunchmoney",
         "mercury",
         "merge",
-        "microsoft",
         "moota",
         "notion",
         "onebrick",
@@ -10565,7 +10051,6 @@ class ConnectorYodleeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "quickbooks",
         "ramp",
         "reddit",
-        "salesforce",
         "salesloft",
         "saltedge",
         "sharepointonline",
@@ -10580,7 +10065,7 @@ class ConnectorYodleeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "wise",
         "xero",
         "yodlee",
-        "zohodesk",
+        "zoho-desk",
     ]
 
     created_at: str
@@ -10637,241 +10122,61 @@ class ConnectorYodleeDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorZohodeskDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: str
-
-    client_secret: str
-
-    scopes: Optional[str] = None
-
-
-class ConnectorZohodeskDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: ConnectorZohodeskDiscriminatedConnectorConfigConfigOAuth
-
-
-class ConnectorZohodeskDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
-    connect_input: Optional[object] = None
-
-    connect_output: Optional[object] = None
-
-    connection_settings: Optional[object] = None
-
-    connector_config: Optional[object] = None
-
-    integration_data: Optional[object] = None
-
-    pre_connect_input: Optional[object] = None
-
-    webhook_input: Optional[object] = None
-
-
-class ConnectorZohodeskDiscriminatedConnectorConfigConnectorScope(BaseModel):
-    scope: str
-
-    description: Optional[str] = None
-
-    display_name: Optional[str] = None
-
-
-class ConnectorZohodeskDiscriminatedConnectorConfigConnector(BaseModel):
-    name: str
-
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
-
-    display_name: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    openint_scopes: Optional[List[str]] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
-
-    schemas: Optional[ConnectorZohodeskDiscriminatedConnectorConfigConnectorSchemas] = None
-
-    scopes: Optional[List[ConnectorZohodeskDiscriminatedConnectorConfigConnectorScope]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ConnectorZohodeskDiscriminatedConnectorConfigIntegrations(BaseModel):
-    id: str
-
-    connector_name: Literal[
-        "aircall",
-        "airtable",
-        "apollo",
-        "brex",
-        "coda",
-        "confluence",
-        "discord",
-        "dummy-oauth2",
-        "facebook",
-        "finch",
-        "firebase",
-        "foreceipt",
-        "github",
-        "gong",
-        "googlecalendar",
-        "googledocs",
-        "googledrive",
-        "googlemail",
-        "googlesheet",
-        "greenhouse",
-        "heron",
-        "hubspot",
-        "instagram",
-        "intercom",
-        "jira",
-        "kustomer",
-        "lever",
-        "linear",
-        "linkedin",
-        "lunchmoney",
-        "mercury",
-        "merge",
-        "microsoft",
-        "moota",
-        "notion",
-        "onebrick",
-        "outreach",
-        "pipedrive",
-        "plaid",
-        "postgres",
-        "quickbooks",
-        "ramp",
-        "reddit",
-        "salesforce",
-        "salesloft",
-        "saltedge",
-        "sharepointonline",
-        "slack",
-        "splitwise",
-        "stripe",
-        "teller",
-        "toggl",
-        "twenty",
-        "twitter",
-        "venmo",
-        "wise",
-        "xero",
-        "yodlee",
-        "zohodesk",
-    ]
-
-    created_at: str
-
-    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    name: str
-
-    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
-
-    updated_at: str
-
-    auth_type: Optional[str] = None
-
-    category: Optional[str] = None
-
-    logo_url: Optional[str] = None
-
-    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
-
-    stage: Optional[Literal["alpha", "beta", "ga"]] = None
-
-    version: Optional[str] = None
-
-
-class ConnectorZohodeskDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorZohodeskDiscriminatedConnectorConfigConfig
-
-    connector_name: Literal["zohodesk"]
-
-    id: Optional[str] = None
-
-    connection_count: Optional[float] = None
-
-    connector: Optional[ConnectorZohodeskDiscriminatedConnectorConfigConnector] = None
-
-    created_at: Optional[str] = None
-
-    disabled: Optional[bool] = None
-
-    display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, ConnectorZohodeskDiscriminatedConnectorConfigIntegrations]] = None
-
-    metadata: Optional[Dict[str, object]] = None
-    """
-    JSON object can can be used to associate arbitrary metadata to avoid needing a
-    separate 1-1 table just for simple key values in your application. During
-    updates this object will be shallowly merged
-    """
-
-    org_id: Optional[str] = None
-
-    updated_at: Optional[str] = None
-
-
 ListConnectionConfigsResponse: TypeAlias = Union[
-    ConnectorDummyOauth2DiscriminatedConnectorConfig,
+    ConnectorAcmeOauth2DiscriminatedConnectorConfig,
+    ConnectorAircallDiscriminatedConnectorConfig,
+    ConnectorConfluenceDiscriminatedConnectorConfig,
+    ConnectorDiscordDiscriminatedConnectorConfig,
+    ConnectorFacebookDiscriminatedConnectorConfig,
+    ConnectorGitHubDiscriminatedConnectorConfig,
+    ConnectorGongDiscriminatedConnectorConfig,
+    ConnectorGoogleCalendarDiscriminatedConnectorConfig,
+    ConnectorGoogleDocsDiscriminatedConnectorConfig,
+    ConnectorGoogleDriveDiscriminatedConnectorConfig,
+    ConnectorGoogleMailDiscriminatedConnectorConfig,
+    ConnectorGoogleSheetDiscriminatedConnectorConfig,
+    ConnectorHubspotDiscriminatedConnectorConfig,
+    ConnectorInstagramDiscriminatedConnectorConfig,
+    ConnectorIntercomDiscriminatedConnectorConfig,
+    ConnectorJiraDiscriminatedConnectorConfig,
+    ConnectorLeverDiscriminatedConnectorConfig,
+    ConnectorLinearDiscriminatedConnectorConfig,
+    ConnectorLinkedinDiscriminatedConnectorConfig,
+    ConnectorNotionDiscriminatedConnectorConfig,
+    ConnectorOutreachDiscriminatedConnectorConfig,
+    ConnectorPipedriveDiscriminatedConnectorConfig,
+    ConnectorQuickbooksDiscriminatedConnectorConfig,
+    ConnectorRedditDiscriminatedConnectorConfig,
+    ConnectorSalesloftDiscriminatedConnectorConfig,
     ConnectorSharepointonlineDiscriminatedConnectorConfig,
     ConnectorSlackDiscriminatedConnectorConfig,
-    ConnectorGitHubDiscriminatedConnectorConfig,
-    ConnectorQuickbooksDiscriminatedConnectorConfig,
-    ConnectorGooglemailDiscriminatedConnectorConfig,
-    ConnectorNotionDiscriminatedConnectorConfig,
-    ConnectorLinkedinDiscriminatedConnectorConfig,
-    ConnectorGoogledocsDiscriminatedConnectorConfig,
-    ConnectorAircallDiscriminatedConnectorConfig,
-    ConnectorGooglecalendarDiscriminatedConnectorConfig,
-    ConnectorGooglesheetDiscriminatedConnectorConfig,
-    ConnectorDiscordDiscriminatedConnectorConfig,
-    ConnectorHubspotDiscriminatedConnectorConfig,
-    ConnectorSalesforceDiscriminatedConnectorConfig,
-    ConnectorLinearDiscriminatedConnectorConfig,
-    ConnectorConfluenceDiscriminatedConnectorConfig,
-    ConnectorGoogledriveDiscriminatedConnectorConfig,
+    ConnectorTwitterDiscriminatedConnectorConfig,
+    ConnectorXeroDiscriminatedConnectorConfig,
+    ConnectorZohoDeskDiscriminatedConnectorConfig,
     ConnectorAirtableDiscriminatedConnectorConfig,
     ConnectorApolloDiscriminatedConnectorConfig,
     ConnectorBrexDiscriminatedConnectorConfig,
     ConnectorCodaDiscriminatedConnectorConfig,
-    ConnectorFacebookDiscriminatedConnectorConfig,
     ConnectorFinchDiscriminatedConnectorConfig,
     ConnectorFirebaseDiscriminatedConnectorConfig,
     ConnectorForeceiptDiscriminatedConnectorConfig,
-    ConnectorGongDiscriminatedConnectorConfig,
     ConnectorGreenhouseDiscriminatedConnectorConfig,
     ConnectorHeronDiscriminatedConnectorConfig,
-    ConnectorInstagramDiscriminatedConnectorConfig,
-    ConnectorIntercomDiscriminatedConnectorConfig,
-    ConnectorJiraDiscriminatedConnectorConfig,
-    ConnectorKustomerDiscriminatedConnectorConfig,
-    ConnectorLeverDiscriminatedConnectorConfig,
     ConnectorLunchmoneyDiscriminatedConnectorConfig,
     ConnectorMercuryDiscriminatedConnectorConfig,
     ConnectorMergeDiscriminatedConnectorConfig,
-    ConnectorMicrosoftDiscriminatedConnectorConfig,
     ConnectorMootaDiscriminatedConnectorConfig,
     ConnectorOnebrickDiscriminatedConnectorConfig,
-    ConnectorOutreachDiscriminatedConnectorConfig,
-    ConnectorPipedriveDiscriminatedConnectorConfig,
     ConnectorPlaidDiscriminatedConnectorConfig,
     ConnectorPostgresDiscriminatedConnectorConfig,
     ConnectorRampDiscriminatedConnectorConfig,
-    ConnectorRedditDiscriminatedConnectorConfig,
-    ConnectorSalesloftDiscriminatedConnectorConfig,
     ConnectorSaltedgeDiscriminatedConnectorConfig,
     ConnectorSplitwiseDiscriminatedConnectorConfig,
     ConnectorStripeDiscriminatedConnectorConfig,
     ConnectorTellerDiscriminatedConnectorConfig,
     ConnectorTogglDiscriminatedConnectorConfig,
     ConnectorTwentyDiscriminatedConnectorConfig,
-    ConnectorTwitterDiscriminatedConnectorConfig,
     ConnectorVenmoDiscriminatedConnectorConfig,
     ConnectorWiseDiscriminatedConnectorConfig,
-    ConnectorXeroDiscriminatedConnectorConfig,
     ConnectorYodleeDiscriminatedConnectorConfig,
-    ConnectorZohodeskDiscriminatedConnectorConfig,
 ]
