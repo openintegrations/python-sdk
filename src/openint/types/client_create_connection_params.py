@@ -110,10 +110,10 @@ __all__ = [
     "DataConnectorSalesloftDiscriminatedConnectionSettingsSettings",
     "DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth",
     "DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials",
-    "DataConnectorSharepointonlineDiscriminatedConnectionSettings",
-    "DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettings",
-    "DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorSharepointDiscriminatedConnectionSettings",
+    "DataConnectorSharepointDiscriminatedConnectionSettingsSettings",
+    "DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorSlackDiscriminatedConnectionSettings",
     "DataConnectorSlackDiscriminatedConnectionSettingsSettings",
     "DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth",
@@ -1270,7 +1270,7 @@ class DataConnectorSalesloftDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: Required[DataConnectorSalesloftDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+class DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
     raw: Required[Dict[str, object]]
@@ -1289,10 +1289,10 @@ class DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuthC
     token_type: str
 
 
-class DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+class DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
     created_at: str
 
-    credentials: DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    credentials: DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials
     """Output of the postConnect hook for oauth2 connectors"""
 
     last_fetched_at: str
@@ -1302,14 +1302,14 @@ class DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuth(
     updated_at: str
 
 
-class DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuth]
+class DataConnectorSharepointDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuth]
 
 
-class DataConnectorSharepointonlineDiscriminatedConnectionSettings(TypedDict, total=False):
-    connector_name: Required[Literal["sharepointonline"]]
+class DataConnectorSharepointDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["sharepoint"]]
 
-    settings: Required[DataConnectorSharepointonlineDiscriminatedConnectionSettingsSettings]
+    settings: Required[DataConnectorSharepointDiscriminatedConnectionSettingsSettings]
 
 
 class DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -2015,7 +2015,7 @@ Data: TypeAlias = Union[
     DataConnectorQuickbooksDiscriminatedConnectionSettings,
     DataConnectorRedditDiscriminatedConnectionSettings,
     DataConnectorSalesloftDiscriminatedConnectionSettings,
-    DataConnectorSharepointonlineDiscriminatedConnectionSettings,
+    DataConnectorSharepointDiscriminatedConnectionSettings,
     DataConnectorSlackDiscriminatedConnectionSettings,
     DataConnectorTwitterDiscriminatedConnectionSettings,
     DataConnectorXeroDiscriminatedConnectionSettings,

@@ -57,7 +57,7 @@ class ItemIntegration(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",

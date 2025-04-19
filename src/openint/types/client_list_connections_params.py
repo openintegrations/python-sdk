@@ -57,7 +57,7 @@ class ClientListConnectionsParams(TypedDict, total=False):
             "reddit",
             "salesloft",
             "saltedge",
-            "sharepointonline",
+            "sharepoint",
             "slack",
             "splitwise",
             "stripe",
