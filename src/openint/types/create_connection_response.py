@@ -109,10 +109,10 @@ __all__ = [
     "ConnectorSalesloftDiscriminatedConnectionSettingsSettings",
     "ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth",
     "ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials",
-    "ConnectorSharepointonlineDiscriminatedConnectionSettings",
-    "ConnectorSharepointonlineDiscriminatedConnectionSettingsSettings",
-    "ConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuth",
-    "ConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorSharepointDiscriminatedConnectionSettings",
+    "ConnectorSharepointDiscriminatedConnectionSettingsSettings",
+    "ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorSlackDiscriminatedConnectionSettings",
     "ConnectorSlackDiscriminatedConnectionSettingsSettings",
     "ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth",
@@ -1928,7 +1928,7 @@ class ConnectorSalesloftDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+class ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
     raw: Dict[str, object]
@@ -1947,10 +1947,10 @@ class ConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuthCrede
     token_type: Optional[str] = None
 
 
-class ConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+class ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
     created_at: Optional[str] = None
 
-    credentials: Optional[ConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    credentials: Optional[ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
     """Output of the postConnect hook for oauth2 connectors"""
 
     last_fetched_at: Optional[str] = None
@@ -1960,14 +1960,14 @@ class ConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuth(Base
     updated_at: Optional[str] = None
 
 
-class ConnectorSharepointonlineDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: ConnectorSharepointonlineDiscriminatedConnectionSettingsSettingsOAuth
+class ConnectorSharepointDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuth
 
 
-class ConnectorSharepointonlineDiscriminatedConnectionSettings(BaseModel):
-    connector_name: Literal["sharepointonline"]
+class ConnectorSharepointDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["sharepoint"]
 
-    settings: ConnectorSharepointonlineDiscriminatedConnectionSettingsSettings
+    settings: ConnectorSharepointDiscriminatedConnectionSettingsSettings
 
     id: Optional[str] = None
 
@@ -3484,7 +3484,7 @@ CreateConnectionResponse: TypeAlias = Union[
     ConnectorQuickbooksDiscriminatedConnectionSettings,
     ConnectorRedditDiscriminatedConnectionSettings,
     ConnectorSalesloftDiscriminatedConnectionSettings,
-    ConnectorSharepointonlineDiscriminatedConnectionSettings,
+    ConnectorSharepointDiscriminatedConnectionSettings,
     ConnectorSlackDiscriminatedConnectionSettings,
     ConnectorTwitterDiscriminatedConnectionSettings,
     ConnectorXeroDiscriminatedConnectionSettings,

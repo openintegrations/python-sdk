@@ -184,13 +184,13 @@ __all__ = [
     "ConnectorSalesloftDiscriminatedConnectorConfigConnectorSchemas",
     "ConnectorSalesloftDiscriminatedConnectorConfigConnectorScope",
     "ConnectorSalesloftDiscriminatedConnectorConfigIntegrations",
-    "ConnectorSharepointonlineDiscriminatedConnectorConfig",
-    "ConnectorSharepointonlineDiscriminatedConnectorConfigConfig",
-    "ConnectorSharepointonlineDiscriminatedConnectorConfigConfigOAuth",
-    "ConnectorSharepointonlineDiscriminatedConnectorConfigConnector",
-    "ConnectorSharepointonlineDiscriminatedConnectorConfigConnectorSchemas",
-    "ConnectorSharepointonlineDiscriminatedConnectorConfigConnectorScope",
-    "ConnectorSharepointonlineDiscriminatedConnectorConfigIntegrations",
+    "ConnectorSharepointDiscriminatedConnectorConfig",
+    "ConnectorSharepointDiscriminatedConnectorConfigConfig",
+    "ConnectorSharepointDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorSharepointDiscriminatedConnectorConfigConnector",
+    "ConnectorSharepointDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorSharepointDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorSharepointDiscriminatedConnectorConfigIntegrations",
     "ConnectorSlackDiscriminatedConnectorConfig",
     "ConnectorSlackDiscriminatedConnectorConfigConfig",
     "ConnectorSlackDiscriminatedConnectorConfigConfigOAuth",
@@ -483,7 +483,7 @@ class ConnectorAcmeOauth2DiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -661,7 +661,7 @@ class ConnectorAircallDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -839,7 +839,7 @@ class ConnectorConfluenceDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -1017,7 +1017,7 @@ class ConnectorDiscordDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -1195,7 +1195,7 @@ class ConnectorFacebookDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -1373,7 +1373,7 @@ class ConnectorGitHubDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -1551,7 +1551,7 @@ class ConnectorGongDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -1729,7 +1729,7 @@ class ConnectorGoogleCalendarDiscriminatedConnectorConfigIntegrations(BaseModel)
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -1907,7 +1907,7 @@ class ConnectorGoogleDocsDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -2085,7 +2085,7 @@ class ConnectorGoogleDriveDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -2263,7 +2263,7 @@ class ConnectorGoogleMailDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -2441,7 +2441,7 @@ class ConnectorGoogleSheetDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -2619,7 +2619,7 @@ class ConnectorHubspotDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -2797,7 +2797,7 @@ class ConnectorInstagramDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -2975,7 +2975,7 @@ class ConnectorIntercomDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -3153,7 +3153,7 @@ class ConnectorJiraDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -3331,7 +3331,7 @@ class ConnectorLeverDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -3509,7 +3509,7 @@ class ConnectorLinearDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -3687,7 +3687,7 @@ class ConnectorLinkedinDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -3865,7 +3865,7 @@ class ConnectorNotionDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -4043,7 +4043,7 @@ class ConnectorOutreachDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -4221,7 +4221,7 @@ class ConnectorPipedriveDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -4401,7 +4401,7 @@ class ConnectorQuickbooksDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -4579,7 +4579,7 @@ class ConnectorRedditDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -4757,7 +4757,7 @@ class ConnectorSalesloftDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -4826,7 +4826,7 @@ class ConnectorSalesloftDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorSharepointonlineDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+class ConnectorSharepointDiscriminatedConnectorConfigConfigOAuth(BaseModel):
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -4837,12 +4837,12 @@ class ConnectorSharepointonlineDiscriminatedConnectorConfigConfigOAuth(BaseModel
     scopes: Optional[List[str]] = None
 
 
-class ConnectorSharepointonlineDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorSharepointonlineDiscriminatedConnectorConfigConfigOAuth] = None
+class ConnectorSharepointDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorSharepointDiscriminatedConnectorConfigConfigOAuth] = None
     """Base oauth configuration for the connector"""
 
 
-class ConnectorSharepointonlineDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+class ConnectorSharepointDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -4858,7 +4858,7 @@ class ConnectorSharepointonlineDiscriminatedConnectorConfigConnectorSchemas(Base
     webhook_input: Optional[object] = None
 
 
-class ConnectorSharepointonlineDiscriminatedConnectorConfigConnectorScope(BaseModel):
+class ConnectorSharepointDiscriminatedConnectorConfigConnectorScope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -4866,7 +4866,7 @@ class ConnectorSharepointonlineDiscriminatedConnectorConfigConnectorScope(BaseMo
     display_name: Optional[str] = None
 
 
-class ConnectorSharepointonlineDiscriminatedConnectorConfigConnector(BaseModel):
+class ConnectorSharepointDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
     auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
@@ -4881,14 +4881,14 @@ class ConnectorSharepointonlineDiscriminatedConnectorConfigConnector(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ConnectorSharepointonlineDiscriminatedConnectorConfigConnectorSchemas] = None
+    schemas: Optional[ConnectorSharepointDiscriminatedConnectorConfigConnectorSchemas] = None
 
-    scopes: Optional[List[ConnectorSharepointonlineDiscriminatedConnectorConfigConnectorScope]] = None
+    scopes: Optional[List[ConnectorSharepointDiscriminatedConnectorConfigConnectorScope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
 
 
-class ConnectorSharepointonlineDiscriminatedConnectorConfigIntegrations(BaseModel):
+class ConnectorSharepointDiscriminatedConnectorConfigIntegrations(BaseModel):
     id: str
 
     connector_name: Literal[
@@ -4935,7 +4935,7 @@ class ConnectorSharepointonlineDiscriminatedConnectorConfigIntegrations(BaseMode
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -4973,16 +4973,16 @@ class ConnectorSharepointonlineDiscriminatedConnectorConfigIntegrations(BaseMode
     version: Optional[str] = None
 
 
-class ConnectorSharepointonlineDiscriminatedConnectorConfig(BaseModel):
-    config: ConnectorSharepointonlineDiscriminatedConnectorConfigConfig
+class ConnectorSharepointDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorSharepointDiscriminatedConnectorConfigConfig
 
-    connector_name: Literal["sharepointonline"]
+    connector_name: Literal["sharepoint"]
 
     id: Optional[str] = None
 
     connection_count: Optional[float] = None
 
-    connector: Optional[ConnectorSharepointonlineDiscriminatedConnectorConfigConnector] = None
+    connector: Optional[ConnectorSharepointDiscriminatedConnectorConfigConnector] = None
 
     created_at: Optional[str] = None
 
@@ -4990,7 +4990,7 @@ class ConnectorSharepointonlineDiscriminatedConnectorConfig(BaseModel):
 
     display_name: Optional[str] = None
 
-    integrations: Optional[Dict[str, ConnectorSharepointonlineDiscriminatedConnectorConfigIntegrations]] = None
+    integrations: Optional[Dict[str, ConnectorSharepointDiscriminatedConnectorConfigIntegrations]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5113,7 +5113,7 @@ class ConnectorSlackDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -5291,7 +5291,7 @@ class ConnectorTwitterDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -5469,7 +5469,7 @@ class ConnectorXeroDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -5647,7 +5647,7 @@ class ConnectorZohoDeskDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -5809,7 +5809,7 @@ class ConnectorAirtableDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -5971,7 +5971,7 @@ class ConnectorApolloDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -6147,7 +6147,7 @@ class ConnectorBrexDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -6309,7 +6309,7 @@ class ConnectorCodaDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -6488,7 +6488,7 @@ class ConnectorFinchDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -6650,7 +6650,7 @@ class ConnectorFirebaseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -6812,7 +6812,7 @@ class ConnectorForeceiptDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -6974,7 +6974,7 @@ class ConnectorGreenhouseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -7140,7 +7140,7 @@ class ConnectorHeronDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -7306,7 +7306,7 @@ class ConnectorLunchmoneyDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -7482,7 +7482,7 @@ class ConnectorMercuryDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -7648,7 +7648,7 @@ class ConnectorMergeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -7814,7 +7814,7 @@ class ConnectorMootaDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -7990,7 +7990,7 @@ class ConnectorOnebrickDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -8199,7 +8199,7 @@ class ConnectorPlaidDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -8361,7 +8361,7 @@ class ConnectorPostgresDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -8533,7 +8533,7 @@ class ConnectorRampDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -8703,7 +8703,7 @@ class ConnectorSaltedgeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -8865,7 +8865,7 @@ class ConnectorSplitwiseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -9041,7 +9041,7 @@ class ConnectorStripeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -9209,7 +9209,7 @@ class ConnectorTellerDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -9371,7 +9371,7 @@ class ConnectorTogglDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -9533,7 +9533,7 @@ class ConnectorTwentyDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -9709,7 +9709,7 @@ class ConnectorVenmoDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -9871,7 +9871,7 @@ class ConnectorWiseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -10053,7 +10053,7 @@ class ConnectorYodleeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "reddit",
         "salesloft",
         "saltedge",
-        "sharepointonline",
+        "sharepoint",
         "slack",
         "splitwise",
         "stripe",
@@ -10148,7 +10148,7 @@ ListConnectionConfigsResponse: TypeAlias = Union[
     ConnectorQuickbooksDiscriminatedConnectorConfig,
     ConnectorRedditDiscriminatedConnectorConfig,
     ConnectorSalesloftDiscriminatedConnectorConfig,
-    ConnectorSharepointonlineDiscriminatedConnectorConfig,
+    ConnectorSharepointDiscriminatedConnectorConfig,
     ConnectorSlackDiscriminatedConnectorConfig,
     ConnectorTwitterDiscriminatedConnectorConfig,
     ConnectorXeroDiscriminatedConnectorConfig,
