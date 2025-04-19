@@ -78,7 +78,7 @@ class TestClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "dummy-oauth2",
+                "connector_name": "acme-oauth2",
                 "settings": {"oauth": {}},
             },
         )
@@ -91,15 +91,15 @@ class TestClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "dummy-oauth2",
+                "connector_name": "acme-oauth2",
                 "settings": {
                     "oauth": {
                         "created_at": "created_at",
                         "credentials": {
                             "access_token": "access_token",
-                            "client_id": "client_id",
                             "raw": {"foo": "bar"},
                             "scope": "scope",
+                            "client_id": "client_id",
                             "expires_at": "expires_at",
                             "expires_in": 0,
                             "refresh_token": "refresh_token",
@@ -122,7 +122,7 @@ class TestClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "dummy-oauth2",
+                "connector_name": "acme-oauth2",
                 "settings": {"oauth": {}},
             },
         )
@@ -139,7 +139,7 @@ class TestClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "dummy-oauth2",
+                "connector_name": "acme-oauth2",
                 "settings": {"oauth": {}},
             },
         ) as response:
@@ -164,14 +164,10 @@ class TestClient:
     def test_method_create_magic_link_with_all_params(self, client: Openint) -> None:
         client_ = client.create_magic_link(
             customer_id="x",
-            client_options={
-                "minus_background": "--background",
-                "minus_card": "--card",
-                "minus_card_foreground": "--card-foreground",
-                "minus_foreground": "--foreground",
-                "minus_primary": "--primary",
-                "connector_name": "aircall",
+            connect_options={
+                "connector_names": ["acme-oauth2"],
                 "debug": True,
+                "return_url": "return_url",
                 "view": "add",
             },
             validity_in_seconds=0,
@@ -216,7 +212,7 @@ class TestClient:
     @parametrize
     def test_method_create_token(self, client: Openint) -> None:
         client_ = client.create_token(
-            customer_id="customer_id",
+            customer_id="x",
         )
         assert_matches_type(CreateTokenResponse, client_, path=["response"])
 
@@ -224,8 +220,14 @@ class TestClient:
     @parametrize
     def test_method_create_token_with_all_params(self, client: Openint) -> None:
         client_ = client.create_token(
-            customer_id="customer_id",
-            validity_in_seconds=1,
+            customer_id="x",
+            connect_options={
+                "connector_names": ["acme-oauth2"],
+                "debug": True,
+                "return_url": "return_url",
+                "view": "add",
+            },
+            validity_in_seconds=0,
         )
         assert_matches_type(CreateTokenResponse, client_, path=["response"])
 
@@ -233,7 +235,7 @@ class TestClient:
     @parametrize
     def test_raw_response_create_token(self, client: Openint) -> None:
         response = client.with_raw_response.create_token(
-            customer_id="customer_id",
+            customer_id="x",
         )
 
         assert response.is_closed is True
@@ -245,7 +247,7 @@ class TestClient:
     @parametrize
     def test_streaming_response_create_token(self, client: Openint) -> None:
         with client.with_streaming_response.create_token(
-            customer_id="customer_id",
+            customer_id="x",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -396,7 +398,7 @@ class TestClient:
     @parametrize
     def test_method_list_connection_configs_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connection_configs(
-            connector_name="aircall",
+            connector_names=["acme-oauth2"],
             expand=["connector"],
             limit=0,
             offset=0,
@@ -436,7 +438,7 @@ class TestClient:
     def test_method_list_connections_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connections(
             connector_config_id="ccfg_",
-            connector_name="aircall",
+            connector_names=["acme-oauth2"],
             customer_id="customer_id",
             expand=["connector"],
             include_secrets="none",
@@ -556,7 +558,7 @@ class TestAsyncClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "dummy-oauth2",
+                "connector_name": "acme-oauth2",
                 "settings": {"oauth": {}},
             },
         )
@@ -569,15 +571,15 @@ class TestAsyncClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "dummy-oauth2",
+                "connector_name": "acme-oauth2",
                 "settings": {
                     "oauth": {
                         "created_at": "created_at",
                         "credentials": {
                             "access_token": "access_token",
-                            "client_id": "client_id",
                             "raw": {"foo": "bar"},
                             "scope": "scope",
+                            "client_id": "client_id",
                             "expires_at": "expires_at",
                             "expires_in": 0,
                             "refresh_token": "refresh_token",
@@ -600,7 +602,7 @@ class TestAsyncClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "dummy-oauth2",
+                "connector_name": "acme-oauth2",
                 "settings": {"oauth": {}},
             },
         )
@@ -617,7 +619,7 @@ class TestAsyncClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "dummy-oauth2",
+                "connector_name": "acme-oauth2",
                 "settings": {"oauth": {}},
             },
         ) as response:
@@ -642,14 +644,10 @@ class TestAsyncClient:
     async def test_method_create_magic_link_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.create_magic_link(
             customer_id="x",
-            client_options={
-                "minus_background": "--background",
-                "minus_card": "--card",
-                "minus_card_foreground": "--card-foreground",
-                "minus_foreground": "--foreground",
-                "minus_primary": "--primary",
-                "connector_name": "aircall",
+            connect_options={
+                "connector_names": ["acme-oauth2"],
                 "debug": True,
+                "return_url": "return_url",
                 "view": "add",
             },
             validity_in_seconds=0,
@@ -694,7 +692,7 @@ class TestAsyncClient:
     @parametrize
     async def test_method_create_token(self, async_client: AsyncOpenint) -> None:
         client = await async_client.create_token(
-            customer_id="customer_id",
+            customer_id="x",
         )
         assert_matches_type(CreateTokenResponse, client, path=["response"])
 
@@ -702,8 +700,14 @@ class TestAsyncClient:
     @parametrize
     async def test_method_create_token_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.create_token(
-            customer_id="customer_id",
-            validity_in_seconds=1,
+            customer_id="x",
+            connect_options={
+                "connector_names": ["acme-oauth2"],
+                "debug": True,
+                "return_url": "return_url",
+                "view": "add",
+            },
+            validity_in_seconds=0,
         )
         assert_matches_type(CreateTokenResponse, client, path=["response"])
 
@@ -711,7 +715,7 @@ class TestAsyncClient:
     @parametrize
     async def test_raw_response_create_token(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.create_token(
-            customer_id="customer_id",
+            customer_id="x",
         )
 
         assert response.is_closed is True
@@ -723,7 +727,7 @@ class TestAsyncClient:
     @parametrize
     async def test_streaming_response_create_token(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.create_token(
-            customer_id="customer_id",
+            customer_id="x",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -874,7 +878,7 @@ class TestAsyncClient:
     @parametrize
     async def test_method_list_connection_configs_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connection_configs(
-            connector_name="aircall",
+            connector_names=["acme-oauth2"],
             expand=["connector"],
             limit=0,
             offset=0,
@@ -914,7 +918,7 @@ class TestAsyncClient:
     async def test_method_list_connections_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connections(
             connector_config_id="ccfg_",
-            connector_name="aircall",
+            connector_names=["acme-oauth2"],
             customer_id="customer_id",
             expand=["connector"],
             include_secrets="none",
