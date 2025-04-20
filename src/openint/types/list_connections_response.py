@@ -420,14 +420,14 @@ __all__ = [
 class ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -624,14 +624,14 @@ class ConnectorAcmeOauth2DiscriminatedConnectionSettings(BaseModel):
 class ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -828,14 +828,14 @@ class ConnectorAircallDiscriminatedConnectionSettings(BaseModel):
 class ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -1032,14 +1032,14 @@ class ConnectorConfluenceDiscriminatedConnectionSettings(BaseModel):
 class ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -1236,14 +1236,14 @@ class ConnectorDiscordDiscriminatedConnectionSettings(BaseModel):
 class ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -1440,14 +1440,14 @@ class ConnectorFacebookDiscriminatedConnectionSettings(BaseModel):
 class ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -1644,14 +1644,14 @@ class ConnectorGitHubDiscriminatedConnectionSettings(BaseModel):
 class ConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -1851,14 +1851,14 @@ class ConnectorGongDiscriminatedConnectionSettings(BaseModel):
 class ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -2055,14 +2055,14 @@ class ConnectorGoogleCalendarDiscriminatedConnectionSettings(BaseModel):
 class ConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -2259,14 +2259,14 @@ class ConnectorGoogleDocsDiscriminatedConnectionSettings(BaseModel):
 class ConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -2463,14 +2463,14 @@ class ConnectorGoogleDriveDiscriminatedConnectionSettings(BaseModel):
 class ConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -2667,14 +2667,14 @@ class ConnectorGoogleMailDiscriminatedConnectionSettings(BaseModel):
 class ConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -2871,14 +2871,14 @@ class ConnectorGoogleSheetDiscriminatedConnectionSettings(BaseModel):
 class ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -3075,14 +3075,14 @@ class ConnectorHubspotDiscriminatedConnectionSettings(BaseModel):
 class ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -3279,14 +3279,14 @@ class ConnectorInstagramDiscriminatedConnectionSettings(BaseModel):
 class ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -3483,14 +3483,14 @@ class ConnectorIntercomDiscriminatedConnectionSettings(BaseModel):
 class ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -3687,14 +3687,14 @@ class ConnectorJiraDiscriminatedConnectionSettings(BaseModel):
 class ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -3891,14 +3891,14 @@ class ConnectorLeverDiscriminatedConnectionSettings(BaseModel):
 class ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -4095,14 +4095,14 @@ class ConnectorLinearDiscriminatedConnectionSettings(BaseModel):
 class ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -4299,14 +4299,14 @@ class ConnectorLinkedinDiscriminatedConnectionSettings(BaseModel):
 class ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -4503,14 +4503,14 @@ class ConnectorNotionDiscriminatedConnectionSettings(BaseModel):
 class ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -4707,14 +4707,14 @@ class ConnectorOutreachDiscriminatedConnectionSettings(BaseModel):
 class ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -4914,14 +4914,14 @@ class ConnectorPipedriveDiscriminatedConnectionSettings(BaseModel):
 class ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -5121,14 +5121,14 @@ class ConnectorQuickbooksDiscriminatedConnectionSettings(BaseModel):
 class ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -5325,14 +5325,14 @@ class ConnectorRedditDiscriminatedConnectionSettings(BaseModel):
 class ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -5529,14 +5529,14 @@ class ConnectorSalesloftDiscriminatedConnectionSettings(BaseModel):
 class ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -5733,14 +5733,14 @@ class ConnectorSharepointDiscriminatedConnectionSettings(BaseModel):
 class ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -5937,14 +5937,14 @@ class ConnectorSlackDiscriminatedConnectionSettings(BaseModel):
 class ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -6141,14 +6141,14 @@ class ConnectorTwitterDiscriminatedConnectionSettings(BaseModel):
 class ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
@@ -6345,14 +6345,14 @@ class ConnectorXeroDiscriminatedConnectionSettings(BaseModel):
 class ConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
     access_token: str
 
-    raw: Dict[str, object]
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
     expires_at: Optional[str] = None
 
     expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
 
     refresh_token: Optional[str] = None
 
