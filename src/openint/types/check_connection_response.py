@@ -11,6 +11,6 @@ __all__ = ["CheckConnectionResponse"]
 class CheckConnectionResponse(BaseModel):
     id: str
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None

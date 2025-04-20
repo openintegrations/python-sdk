@@ -272,6 +272,7 @@ class Openint(SyncAPIClient):
         connector_config_id: str,
         customer_id: str,
         data: client_create_connection_params.Data,
+        check_connection: bool | NotGiven = NOT_GIVEN,
         metadata: Dict[str, object] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -291,6 +292,8 @@ class Openint(SyncAPIClient):
 
           data: Connector specific data
 
+          check_connection: Perform a synchronous connection check before creating it.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -308,6 +311,7 @@ class Openint(SyncAPIClient):
                         "connector_config_id": connector_config_id,
                         "customer_id": customer_id,
                         "data": data,
+                        "check_connection": check_connection,
                         "metadata": metadata,
                     },
                     client_create_connection_params.ClientCreateConnectionParams,
@@ -1035,6 +1039,7 @@ class AsyncOpenint(AsyncAPIClient):
         connector_config_id: str,
         customer_id: str,
         data: client_create_connection_params.Data,
+        check_connection: bool | NotGiven = NOT_GIVEN,
         metadata: Dict[str, object] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -1054,6 +1059,8 @@ class AsyncOpenint(AsyncAPIClient):
 
           data: Connector specific data
 
+          check_connection: Perform a synchronous connection check before creating it.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1071,6 +1078,7 @@ class AsyncOpenint(AsyncAPIClient):
                         "connector_config_id": connector_config_id,
                         "customer_id": customer_id,
                         "data": data,
+                        "check_connection": check_connection,
                         "metadata": metadata,
                     },
                     client_create_connection_params.ClientCreateConnectionParams,

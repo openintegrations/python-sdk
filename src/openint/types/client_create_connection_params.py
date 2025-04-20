@@ -167,7 +167,6 @@ __all__ = [
     "DataConnectorPlaidDiscriminatedConnectionSettingsSettings",
     "DataConnectorPostgresDiscriminatedConnectionSettings",
     "DataConnectorPostgresDiscriminatedConnectionSettingsSettings",
-    "DataConnectorPostgresDiscriminatedConnectionSettingsSettingsSourceQueries",
     "DataConnectorRampDiscriminatedConnectionSettings",
     "DataConnectorRampDiscriminatedConnectionSettingsSettings",
     "DataConnectorSaltedgeDiscriminatedConnectionSettings",
@@ -208,6 +207,9 @@ class ClientCreateConnectionParams(TypedDict, total=False):
     data: Required[Data]
     """Connector specific data"""
 
+    check_connection: bool
+    """Perform a synchronous connection check before creating it."""
+
     metadata: Dict[str, object]
 
 
@@ -215,8 +217,6 @@ class DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuthCredent
     access_token: Required[str]
 
     raw: Required[Dict[str, object]]
-
-    scope: Required[str]
 
     client_id: str
     """Client ID used for the connection"""
@@ -226,6 +226,8 @@ class DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuthCredent
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -258,8 +260,6 @@ class DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredential
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -268,6 +268,8 @@ class DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredential
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -300,8 +302,6 @@ class DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredent
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -310,6 +310,8 @@ class DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredent
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -342,8 +344,6 @@ class DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredential
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -352,6 +352,8 @@ class DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredential
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -384,8 +386,6 @@ class DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentia
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -394,6 +394,8 @@ class DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentia
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -426,8 +428,6 @@ class DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -436,6 +436,8 @@ class DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -468,8 +470,6 @@ class DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials(T
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -478,6 +478,8 @@ class DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials(T
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -513,8 +515,6 @@ class DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuthCre
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -523,6 +523,8 @@ class DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuthCre
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -555,8 +557,6 @@ class DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuthCredent
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -565,6 +565,8 @@ class DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuthCredent
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -597,8 +599,6 @@ class DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuthCreden
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -607,6 +607,8 @@ class DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuthCreden
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -639,8 +641,6 @@ class DataConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuthCredent
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -649,6 +649,8 @@ class DataConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuthCredent
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -681,8 +683,6 @@ class DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuthCreden
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -691,6 +691,8 @@ class DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuthCreden
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -723,8 +725,6 @@ class DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredential
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -733,6 +733,8 @@ class DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredential
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -765,8 +767,6 @@ class DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredenti
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -775,6 +775,8 @@ class DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredenti
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -807,8 +809,6 @@ class DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentia
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -817,6 +817,8 @@ class DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentia
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -849,8 +851,6 @@ class DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials(T
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -859,6 +859,8 @@ class DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials(T
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -891,8 +893,6 @@ class DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials(
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -901,6 +901,8 @@ class DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials(
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -933,8 +935,6 @@ class DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -943,6 +943,8 @@ class DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -975,8 +977,6 @@ class DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentia
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -985,6 +985,8 @@ class DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentia
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -1017,8 +1019,6 @@ class DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -1027,6 +1027,8 @@ class DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -1059,8 +1061,6 @@ class DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentia
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -1069,6 +1069,8 @@ class DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentia
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -1101,8 +1103,6 @@ class DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredenti
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -1111,6 +1111,8 @@ class DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredenti
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -1146,8 +1148,6 @@ class DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredent
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -1156,6 +1156,8 @@ class DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredent
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -1191,8 +1193,6 @@ class DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -1201,6 +1201,8 @@ class DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -1233,8 +1235,6 @@ class DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredenti
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -1243,6 +1243,8 @@ class DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredenti
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -1275,8 +1277,6 @@ class DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredent
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -1285,6 +1285,8 @@ class DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredent
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -1317,8 +1319,6 @@ class DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials(
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -1327,6 +1327,8 @@ class DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials(
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -1359,8 +1361,6 @@ class DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredential
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -1369,6 +1369,8 @@ class DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredential
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -1401,8 +1403,6 @@ class DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials(T
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -1411,6 +1411,8 @@ class DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials(T
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -1443,8 +1445,6 @@ class DataConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuthCredentia
 
     raw: Required[Dict[str, object]]
 
-    scope: Required[str]
-
     client_id: str
     """Client ID used for the connection"""
 
@@ -1453,6 +1453,8 @@ class DataConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuthCredentia
     expires_in: float
 
     refresh_token: str
+
+    scope: str
 
     token_type: str
 
@@ -1749,17 +1751,8 @@ class DataConnectorPlaidDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: Required[DataConnectorPlaidDiscriminatedConnectionSettingsSettings]
 
 
-class DataConnectorPostgresDiscriminatedConnectionSettingsSettingsSourceQueries(TypedDict, total=False):
-    invoice: Optional[str]
-    """Should order by lastModifiedAt and id descending"""
-
-
 class DataConnectorPostgresDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    database_url: Required[Annotated[str, PropertyInfo(alias="databaseURL")]]
-
-    source_queries: Annotated[
-        DataConnectorPostgresDiscriminatedConnectionSettingsSettingsSourceQueries, PropertyInfo(alias="sourceQueries")
-    ]
+    database_url: Annotated[str, PropertyInfo(alias="databaseURL")]
 
 
 class DataConnectorPostgresDiscriminatedConnectionSettings(TypedDict, total=False):

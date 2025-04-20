@@ -346,7 +346,6 @@ __all__ = [
     "ConnectorPlaidDiscriminatedConnectionSettingsIntegration",
     "ConnectorPostgresDiscriminatedConnectionSettings",
     "ConnectorPostgresDiscriminatedConnectionSettingsSettings",
-    "ConnectorPostgresDiscriminatedConnectionSettingsSettingsSourceQueries",
     "ConnectorPostgresDiscriminatedConnectionSettingsConnector",
     "ConnectorPostgresDiscriminatedConnectionSettingsConnectorSchemas",
     "ConnectorPostgresDiscriminatedConnectionSettingsConnectorScope",
@@ -423,8 +422,6 @@ class ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -433,6 +430,8 @@ class ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -615,7 +614,7 @@ class ConnectorAcmeOauth2DiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -627,8 +626,6 @@ class ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials(Ba
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -637,6 +634,8 @@ class ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials(Ba
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -819,7 +818,7 @@ class ConnectorAircallDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -831,8 +830,6 @@ class ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -841,6 +838,8 @@ class ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -1023,7 +1022,7 @@ class ConnectorConfluenceDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -1035,8 +1034,6 @@ class ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials(Ba
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -1045,6 +1042,8 @@ class ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials(Ba
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -1227,7 +1226,7 @@ class ConnectorDiscordDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -1239,8 +1238,6 @@ class ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials(B
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -1249,6 +1246,8 @@ class ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials(B
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -1431,7 +1430,7 @@ class ConnectorFacebookDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -1443,8 +1442,6 @@ class ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials(Bas
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -1453,6 +1450,8 @@ class ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials(Bas
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -1635,7 +1634,7 @@ class ConnectorGitHubDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -1647,8 +1646,6 @@ class ConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseM
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -1657,6 +1654,8 @@ class ConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseM
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -1842,7 +1841,7 @@ class ConnectorGongDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -1854,8 +1853,6 @@ class ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuthCredent
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -1864,6 +1861,8 @@ class ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuthCredent
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -2046,7 +2045,7 @@ class ConnectorGoogleCalendarDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -2058,8 +2057,6 @@ class ConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -2068,6 +2065,8 @@ class ConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuthCredentials
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -2250,7 +2249,7 @@ class ConnectorGoogleDocsDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -2262,8 +2261,6 @@ class ConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuthCredential
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -2272,6 +2269,8 @@ class ConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuthCredential
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -2454,7 +2453,7 @@ class ConnectorGoogleDriveDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -2466,8 +2465,6 @@ class ConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -2476,6 +2473,8 @@ class ConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuthCredentials
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -2658,7 +2657,7 @@ class ConnectorGoogleMailDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -2670,8 +2669,6 @@ class ConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuthCredential
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -2680,6 +2677,8 @@ class ConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuthCredential
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -2862,7 +2861,7 @@ class ConnectorGoogleSheetDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -2874,8 +2873,6 @@ class ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials(Ba
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -2884,6 +2881,8 @@ class ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials(Ba
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -3066,7 +3065,7 @@ class ConnectorHubspotDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -3078,8 +3077,6 @@ class ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials(
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -3088,6 +3085,8 @@ class ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials(
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -3270,7 +3269,7 @@ class ConnectorInstagramDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -3282,8 +3281,6 @@ class ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials(B
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -3292,6 +3289,8 @@ class ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials(B
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -3474,7 +3473,7 @@ class ConnectorIntercomDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -3486,8 +3485,6 @@ class ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseM
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -3496,6 +3493,8 @@ class ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseM
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -3678,7 +3677,7 @@ class ConnectorJiraDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -3690,8 +3689,6 @@ class ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials(Base
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -3700,6 +3697,8 @@ class ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials(Base
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -3882,7 +3881,7 @@ class ConnectorLeverDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -3894,8 +3893,6 @@ class ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials(Bas
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -3904,6 +3901,8 @@ class ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials(Bas
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -4086,7 +4085,7 @@ class ConnectorLinearDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -4098,8 +4097,6 @@ class ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials(B
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -4108,6 +4105,8 @@ class ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials(B
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -4290,7 +4289,7 @@ class ConnectorLinkedinDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -4302,8 +4301,6 @@ class ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials(Bas
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -4312,6 +4309,8 @@ class ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials(Bas
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -4494,7 +4493,7 @@ class ConnectorNotionDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -4506,8 +4505,6 @@ class ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials(B
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -4516,6 +4513,8 @@ class ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials(B
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -4698,7 +4697,7 @@ class ConnectorOutreachDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -4710,8 +4709,6 @@ class ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -4720,6 +4717,8 @@ class ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -4905,7 +4904,7 @@ class ConnectorPipedriveDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -4917,8 +4916,6 @@ class ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -4927,6 +4924,8 @@ class ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -5112,7 +5111,7 @@ class ConnectorQuickbooksDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -5124,8 +5123,6 @@ class ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials(Bas
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -5134,6 +5131,8 @@ class ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials(Bas
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -5316,7 +5315,7 @@ class ConnectorRedditDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -5328,8 +5327,6 @@ class ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials(
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -5338,6 +5335,8 @@ class ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials(
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -5520,7 +5519,7 @@ class ConnectorSalesloftDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -5532,8 +5531,6 @@ class ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -5542,6 +5539,8 @@ class ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -5724,7 +5723,7 @@ class ConnectorSharepointDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -5736,8 +5735,6 @@ class ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials(Base
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -5746,6 +5743,8 @@ class ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials(Base
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -5928,7 +5927,7 @@ class ConnectorSlackDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -5940,8 +5939,6 @@ class ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials(Ba
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -5950,6 +5947,8 @@ class ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials(Ba
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -6132,7 +6131,7 @@ class ConnectorTwitterDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -6144,8 +6143,6 @@ class ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseM
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -6154,6 +6151,8 @@ class ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseM
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -6336,7 +6335,7 @@ class ConnectorXeroDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -6348,8 +6347,6 @@ class ConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuthCredentials(B
 
     raw: Dict[str, object]
 
-    scope: str
-
     client_id: Optional[str] = None
     """Client ID used for the connection"""
 
@@ -6358,6 +6355,8 @@ class ConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuthCredentials(B
     expires_in: Optional[float] = None
 
     refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
 
     token_type: Optional[str] = None
 
@@ -6543,7 +6542,7 @@ class ConnectorZohoDeskDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -6717,7 +6716,7 @@ class ConnectorAirtableDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -6889,7 +6888,7 @@ class ConnectorApolloDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -7061,7 +7060,7 @@ class ConnectorBrexDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -7233,7 +7232,7 @@ class ConnectorCodaDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -7405,7 +7404,7 @@ class ConnectorFinchDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -7670,7 +7669,7 @@ class ConnectorFirebaseDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -7846,7 +7845,7 @@ class ConnectorForeceiptDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -8018,7 +8017,7 @@ class ConnectorGreenhouseDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -8186,7 +8185,7 @@ class ConnectorHeronDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -8354,7 +8353,7 @@ class ConnectorLunchmoneyDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -8522,7 +8521,7 @@ class ConnectorMercuryDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -8696,7 +8695,7 @@ class ConnectorMergeDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -8864,7 +8863,7 @@ class ConnectorMootaDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -9036,7 +9035,7 @@ class ConnectorOnebrickDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -9218,24 +9217,15 @@ class ConnectorPlaidDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
     updated_at: Optional[str] = None
 
 
-class ConnectorPostgresDiscriminatedConnectionSettingsSettingsSourceQueries(BaseModel):
-    invoice: Optional[str] = None
-    """Should order by lastModifiedAt and id descending"""
-
-
 class ConnectorPostgresDiscriminatedConnectionSettingsSettings(BaseModel):
-    database_url: str = FieldInfo(alias="databaseURL")
-
-    source_queries: Optional[ConnectorPostgresDiscriminatedConnectionSettingsSettingsSourceQueries] = FieldInfo(
-        alias="sourceQueries", default=None
-    )
+    database_url: Optional[str] = FieldInfo(alias="databaseURL", default=None)
 
 
 class ConnectorPostgresDiscriminatedConnectionSettingsConnectorSchemas(BaseModel):
@@ -9399,7 +9389,7 @@ class ConnectorPostgresDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -9573,7 +9563,7 @@ class ConnectorRampDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -9741,7 +9731,7 @@ class ConnectorSaltedgeDiscriminatedConnectionSettings(BaseModel):
 
     settings: Optional[object] = None
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -9983,7 +9973,7 @@ class ConnectorSplitwiseDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -10155,7 +10145,7 @@ class ConnectorStripeDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -10327,7 +10317,7 @@ class ConnectorTellerDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -10503,7 +10493,7 @@ class ConnectorTogglDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -10675,7 +10665,7 @@ class ConnectorTwentyDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -10849,7 +10839,7 @@ class ConnectorVenmoDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -11023,7 +11013,7 @@ class ConnectorWiseDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
@@ -11235,7 +11225,7 @@ class ConnectorYodleeDiscriminatedConnectionSettings(BaseModel):
     updates this object will be shallowly merged
     """
 
-    status: Optional[Literal["healthy", "disconnected", "error", "manual"]] = None
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
     status_message: Optional[str] = None
 
