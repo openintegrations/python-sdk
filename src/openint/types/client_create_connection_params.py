@@ -216,14 +216,14 @@ class ClientCreateConnectionParams(TypedDict, total=False):
 class DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -258,14 +258,14 @@ class DataConnectorAcmeOauth2DiscriminatedConnectionSettings(TypedDict, total=Fa
 class DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -300,14 +300,14 @@ class DataConnectorAircallDiscriminatedConnectionSettings(TypedDict, total=False
 class DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -342,14 +342,14 @@ class DataConnectorConfluenceDiscriminatedConnectionSettings(TypedDict, total=Fa
 class DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -384,14 +384,14 @@ class DataConnectorDiscordDiscriminatedConnectionSettings(TypedDict, total=False
 class DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -426,14 +426,14 @@ class DataConnectorFacebookDiscriminatedConnectionSettings(TypedDict, total=Fals
 class DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -468,14 +468,14 @@ class DataConnectorGitHubDiscriminatedConnectionSettings(TypedDict, total=False)
 class DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -513,14 +513,14 @@ class DataConnectorGongDiscriminatedConnectionSettings(TypedDict, total=False):
 class DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -555,14 +555,14 @@ class DataConnectorGoogleCalendarDiscriminatedConnectionSettings(TypedDict, tota
 class DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -597,14 +597,14 @@ class DataConnectorGoogleDocsDiscriminatedConnectionSettings(TypedDict, total=Fa
 class DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -639,14 +639,14 @@ class DataConnectorGoogleDriveDiscriminatedConnectionSettings(TypedDict, total=F
 class DataConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -681,14 +681,14 @@ class DataConnectorGoogleMailDiscriminatedConnectionSettings(TypedDict, total=Fa
 class DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -723,14 +723,14 @@ class DataConnectorGoogleSheetDiscriminatedConnectionSettings(TypedDict, total=F
 class DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -765,14 +765,14 @@ class DataConnectorHubspotDiscriminatedConnectionSettings(TypedDict, total=False
 class DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -807,14 +807,14 @@ class DataConnectorInstagramDiscriminatedConnectionSettings(TypedDict, total=Fal
 class DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -849,14 +849,14 @@ class DataConnectorIntercomDiscriminatedConnectionSettings(TypedDict, total=Fals
 class DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -891,14 +891,14 @@ class DataConnectorJiraDiscriminatedConnectionSettings(TypedDict, total=False):
 class DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -933,14 +933,14 @@ class DataConnectorLeverDiscriminatedConnectionSettings(TypedDict, total=False):
 class DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -975,14 +975,14 @@ class DataConnectorLinearDiscriminatedConnectionSettings(TypedDict, total=False)
 class DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -1017,14 +1017,14 @@ class DataConnectorLinkedinDiscriminatedConnectionSettings(TypedDict, total=Fals
 class DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -1059,14 +1059,14 @@ class DataConnectorNotionDiscriminatedConnectionSettings(TypedDict, total=False)
 class DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -1101,14 +1101,14 @@ class DataConnectorOutreachDiscriminatedConnectionSettings(TypedDict, total=Fals
 class DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -1146,14 +1146,14 @@ class DataConnectorPipedriveDiscriminatedConnectionSettings(TypedDict, total=Fal
 class DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -1191,14 +1191,14 @@ class DataConnectorQuickbooksDiscriminatedConnectionSettings(TypedDict, total=Fa
 class DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -1233,14 +1233,14 @@ class DataConnectorRedditDiscriminatedConnectionSettings(TypedDict, total=False)
 class DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -1275,14 +1275,14 @@ class DataConnectorSalesloftDiscriminatedConnectionSettings(TypedDict, total=Fal
 class DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -1317,14 +1317,14 @@ class DataConnectorSharepointDiscriminatedConnectionSettings(TypedDict, total=Fa
 class DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -1359,14 +1359,14 @@ class DataConnectorSlackDiscriminatedConnectionSettings(TypedDict, total=False):
 class DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -1401,14 +1401,14 @@ class DataConnectorTwitterDiscriminatedConnectionSettings(TypedDict, total=False
 class DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
@@ -1443,14 +1443,14 @@ class DataConnectorXeroDiscriminatedConnectionSettings(TypedDict, total=False):
 class DataConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
     access_token: Required[str]
 
-    raw: Required[Dict[str, object]]
-
     client_id: str
     """Client ID used for the connection"""
 
     expires_at: str
 
     expires_in: float
+
+    raw: Dict[str, object]
 
     refresh_token: str
 
