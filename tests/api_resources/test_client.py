@@ -98,11 +98,11 @@ class TestClient:
                         "credentials": {
                             "access_token": "access_token",
                             "raw": {"foo": "bar"},
-                            "scope": "scope",
                             "client_id": "client_id",
                             "expires_at": "expires_at",
                             "expires_in": 0,
                             "refresh_token": "refresh_token",
+                            "scope": "scope",
                             "token_type": "token_type",
                         },
                         "last_fetched_at": "last_fetched_at",
@@ -111,6 +111,7 @@ class TestClient:
                     }
                 },
             },
+            check_connection=True,
             metadata={"foo": "bar"},
         )
         assert_matches_type(CreateConnectionResponse, client_, path=["response"])
@@ -578,11 +579,11 @@ class TestAsyncClient:
                         "credentials": {
                             "access_token": "access_token",
                             "raw": {"foo": "bar"},
-                            "scope": "scope",
                             "client_id": "client_id",
                             "expires_at": "expires_at",
                             "expires_in": 0,
                             "refresh_token": "refresh_token",
+                            "scope": "scope",
                             "token_type": "token_type",
                         },
                         "last_fetched_at": "last_fetched_at",
@@ -591,6 +592,7 @@ class TestAsyncClient:
                     }
                 },
             },
+            check_connection=True,
             metadata={"foo": "bar"},
         )
         assert_matches_type(CreateConnectionResponse, client, path=["response"])
