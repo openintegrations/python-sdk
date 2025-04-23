@@ -272,6 +272,7 @@ class Openint(SyncAPIClient):
         connector_config_id: str,
         customer_id: str,
         data: client_create_connection_params.Data,
+        check_connection: bool | NotGiven = NOT_GIVEN,
         metadata: Dict[str, object] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -291,6 +292,8 @@ class Openint(SyncAPIClient):
 
           data: Connector specific data
 
+          check_connection: Perform a synchronous connection check before creating it.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -308,6 +311,7 @@ class Openint(SyncAPIClient):
                         "connector_config_id": connector_config_id,
                         "customer_id": customer_id,
                         "data": data,
+                        "check_connection": check_connection,
                         "metadata": metadata,
                     },
                     client_create_connection_params.ClientCreateConnectionParams,
@@ -325,7 +329,7 @@ class Openint(SyncAPIClient):
         self,
         customer_id: str,
         *,
-        client_options: client_create_magic_link_params.ClientOptions | NotGiven = NOT_GIVEN,
+        connect_options: client_create_magic_link_params.ConnectOptions | NotGiven = NOT_GIVEN,
         validity_in_seconds: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -335,12 +339,11 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> CreateMagicLinkResponse:
         """
-        Create a magic link that is ready to be shared with customers who want to use
-        Connect
+        Create a @Connect magic link that is ready to be shared with customers who want
+        to use @Connect
 
         Args:
-          client_options: Search params to configure the connect page. Not signed as part of JWT and
-              therefore can be modified by client
+          customer_id: The unique ID of the customer to create the magic link for
 
           validity_in_seconds: How long the magic link will be valid for (in seconds) before it expires
 
@@ -358,7 +361,7 @@ class Openint(SyncAPIClient):
             f"/customer/{customer_id}/magic-link",
             body=maybe_transform(
                 {
-                    "client_options": client_options,
+                    "connect_options": connect_options,
                     "validity_in_seconds": validity_in_seconds,
                 },
                 client_create_magic_link_params.ClientCreateMagicLinkParams,
@@ -373,6 +376,7 @@ class Openint(SyncAPIClient):
         self,
         customer_id: str,
         *,
+        connect_options: client_create_token_params.ConnectOptions | NotGiven = NOT_GIVEN,
         validity_in_seconds: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -387,10 +391,7 @@ class Openint(SyncAPIClient):
         embed @Connect in your application via the `@openint/connect` npm package.
 
         Args:
-          customer_id: The id of the customer in your application. Ensure it is unique for that
-              customer.
-
-          validity_in_seconds: How long the token will be valid for (in seconds) before it expires
+          customer_id: The unique ID of the customer to create the token for
 
           extra_headers: Send extra headers
 
@@ -405,7 +406,11 @@ class Openint(SyncAPIClient):
         return self.post(
             f"/customer/{customer_id}/token",
             body=maybe_transform(
-                {"validity_in_seconds": validity_in_seconds}, client_create_token_params.ClientCreateTokenParams
+                {
+                    "connect_options": connect_options,
+                    "validity_in_seconds": validity_in_seconds,
+                },
+                client_create_token_params.ClientCreateTokenParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
@@ -529,66 +534,65 @@ class Openint(SyncAPIClient):
     def list_connection_configs(
         self,
         *,
-        connector_name: Literal[
-            "aircall",
-            "airtable",
-            "apollo",
-            "brex",
-            "coda",
-            "confluence",
-            "discord",
-            "dummy-oauth2",
-            "facebook",
-            "finch",
-            "firebase",
-            "foreceipt",
-            "github",
-            "gong",
-            "googlecalendar",
-            "googledocs",
-            "googledrive",
-            "googlemail",
-            "googlesheet",
-            "greenhouse",
-            "heron",
-            "hubspot",
-            "instagram",
-            "intercom",
-            "jira",
-            "kustomer",
-            "lever",
-            "linear",
-            "linkedin",
-            "lunchmoney",
-            "mercury",
-            "merge",
-            "microsoft",
-            "moota",
-            "notion",
-            "onebrick",
-            "outreach",
-            "pipedrive",
-            "plaid",
-            "postgres",
-            "quickbooks",
-            "ramp",
-            "reddit",
-            "salesforce",
-            "salesloft",
-            "saltedge",
-            "sharepointonline",
-            "slack",
-            "splitwise",
-            "stripe",
-            "teller",
-            "toggl",
-            "twenty",
-            "twitter",
-            "venmo",
-            "wise",
-            "xero",
-            "yodlee",
-            "zohodesk",
+        connector_names: List[
+            Literal[
+                "acme-oauth2",
+                "aircall",
+                "airtable",
+                "apollo",
+                "brex",
+                "coda",
+                "confluence",
+                "discord",
+                "facebook",
+                "finch",
+                "firebase",
+                "foreceipt",
+                "github",
+                "gong",
+                "google-calendar",
+                "google-docs",
+                "google-drive",
+                "google-mail",
+                "google-sheet",
+                "greenhouse",
+                "heron",
+                "hubspot",
+                "instagram",
+                "intercom",
+                "jira",
+                "lever",
+                "linear",
+                "linkedin",
+                "lunchmoney",
+                "mercury",
+                "merge",
+                "moota",
+                "notion",
+                "onebrick",
+                "outreach",
+                "pipedrive",
+                "plaid",
+                "postgres",
+                "quickbooks",
+                "ramp",
+                "reddit",
+                "salesloft",
+                "saltedge",
+                "sharepoint",
+                "slack",
+                "splitwise",
+                "stripe",
+                "teller",
+                "toggl",
+                "twenty",
+                "twitter",
+                "venmo",
+                "wise",
+                "xero",
+                "yodlee",
+                "zoho-desk",
+            ]
         ]
         | NotGiven = NOT_GIVEN,
         expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
@@ -602,8 +606,7 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> SyncOffsetPagination[ListConnectionConfigsResponse]:
         """
-        List the connectors that are configured in your account and available for your
-        customers
+        List Configured Connectors
 
         Args:
           extra_headers: Send extra headers
@@ -624,7 +627,7 @@ class Openint(SyncAPIClient):
                 timeout=timeout,
                 query=maybe_transform(
                     {
-                        "connector_name": connector_name,
+                        "connector_names": connector_names,
                         "expand": expand,
                         "limit": limit,
                         "offset": offset,
@@ -641,66 +644,65 @@ class Openint(SyncAPIClient):
         self,
         *,
         connector_config_id: str | NotGiven = NOT_GIVEN,
-        connector_name: Literal[
-            "aircall",
-            "airtable",
-            "apollo",
-            "brex",
-            "coda",
-            "confluence",
-            "discord",
-            "dummy-oauth2",
-            "facebook",
-            "finch",
-            "firebase",
-            "foreceipt",
-            "github",
-            "gong",
-            "googlecalendar",
-            "googledocs",
-            "googledrive",
-            "googlemail",
-            "googlesheet",
-            "greenhouse",
-            "heron",
-            "hubspot",
-            "instagram",
-            "intercom",
-            "jira",
-            "kustomer",
-            "lever",
-            "linear",
-            "linkedin",
-            "lunchmoney",
-            "mercury",
-            "merge",
-            "microsoft",
-            "moota",
-            "notion",
-            "onebrick",
-            "outreach",
-            "pipedrive",
-            "plaid",
-            "postgres",
-            "quickbooks",
-            "ramp",
-            "reddit",
-            "salesforce",
-            "salesloft",
-            "saltedge",
-            "sharepointonline",
-            "slack",
-            "splitwise",
-            "stripe",
-            "teller",
-            "toggl",
-            "twenty",
-            "twitter",
-            "venmo",
-            "wise",
-            "xero",
-            "yodlee",
-            "zohodesk",
+        connector_names: List[
+            Literal[
+                "acme-oauth2",
+                "aircall",
+                "airtable",
+                "apollo",
+                "brex",
+                "coda",
+                "confluence",
+                "discord",
+                "facebook",
+                "finch",
+                "firebase",
+                "foreceipt",
+                "github",
+                "gong",
+                "google-calendar",
+                "google-docs",
+                "google-drive",
+                "google-mail",
+                "google-sheet",
+                "greenhouse",
+                "heron",
+                "hubspot",
+                "instagram",
+                "intercom",
+                "jira",
+                "lever",
+                "linear",
+                "linkedin",
+                "lunchmoney",
+                "mercury",
+                "merge",
+                "moota",
+                "notion",
+                "onebrick",
+                "outreach",
+                "pipedrive",
+                "plaid",
+                "postgres",
+                "quickbooks",
+                "ramp",
+                "reddit",
+                "salesloft",
+                "saltedge",
+                "sharepoint",
+                "slack",
+                "splitwise",
+                "stripe",
+                "teller",
+                "toggl",
+                "twenty",
+                "twitter",
+                "venmo",
+                "wise",
+                "xero",
+                "yodlee",
+                "zoho-desk",
+            ]
         ]
         | NotGiven = NOT_GIVEN,
         customer_id: str | NotGiven = NOT_GIVEN,
@@ -727,6 +729,8 @@ class Openint(SyncAPIClient):
           customer_id: The id of the customer in your application. Ensure it is unique for that
               customer.
 
+          expand: Expand the response with additional optionals
+
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
           extra_headers: Send extra headers
@@ -748,7 +752,7 @@ class Openint(SyncAPIClient):
                 query=maybe_transform(
                     {
                         "connector_config_id": connector_config_id,
-                        "connector_name": connector_name,
+                        "connector_names": connector_names,
                         "customer_id": customer_id,
                         "expand": expand,
                         "include_secrets": include_secrets,
@@ -1034,6 +1038,7 @@ class AsyncOpenint(AsyncAPIClient):
         connector_config_id: str,
         customer_id: str,
         data: client_create_connection_params.Data,
+        check_connection: bool | NotGiven = NOT_GIVEN,
         metadata: Dict[str, object] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -1053,6 +1058,8 @@ class AsyncOpenint(AsyncAPIClient):
 
           data: Connector specific data
 
+          check_connection: Perform a synchronous connection check before creating it.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1070,6 +1077,7 @@ class AsyncOpenint(AsyncAPIClient):
                         "connector_config_id": connector_config_id,
                         "customer_id": customer_id,
                         "data": data,
+                        "check_connection": check_connection,
                         "metadata": metadata,
                     },
                     client_create_connection_params.ClientCreateConnectionParams,
@@ -1087,7 +1095,7 @@ class AsyncOpenint(AsyncAPIClient):
         self,
         customer_id: str,
         *,
-        client_options: client_create_magic_link_params.ClientOptions | NotGiven = NOT_GIVEN,
+        connect_options: client_create_magic_link_params.ConnectOptions | NotGiven = NOT_GIVEN,
         validity_in_seconds: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -1097,12 +1105,11 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> CreateMagicLinkResponse:
         """
-        Create a magic link that is ready to be shared with customers who want to use
-        Connect
+        Create a @Connect magic link that is ready to be shared with customers who want
+        to use @Connect
 
         Args:
-          client_options: Search params to configure the connect page. Not signed as part of JWT and
-              therefore can be modified by client
+          customer_id: The unique ID of the customer to create the magic link for
 
           validity_in_seconds: How long the magic link will be valid for (in seconds) before it expires
 
@@ -1120,7 +1127,7 @@ class AsyncOpenint(AsyncAPIClient):
             f"/customer/{customer_id}/magic-link",
             body=await async_maybe_transform(
                 {
-                    "client_options": client_options,
+                    "connect_options": connect_options,
                     "validity_in_seconds": validity_in_seconds,
                 },
                 client_create_magic_link_params.ClientCreateMagicLinkParams,
@@ -1135,6 +1142,7 @@ class AsyncOpenint(AsyncAPIClient):
         self,
         customer_id: str,
         *,
+        connect_options: client_create_token_params.ConnectOptions | NotGiven = NOT_GIVEN,
         validity_in_seconds: float | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -1149,10 +1157,7 @@ class AsyncOpenint(AsyncAPIClient):
         embed @Connect in your application via the `@openint/connect` npm package.
 
         Args:
-          customer_id: The id of the customer in your application. Ensure it is unique for that
-              customer.
-
-          validity_in_seconds: How long the token will be valid for (in seconds) before it expires
+          customer_id: The unique ID of the customer to create the token for
 
           extra_headers: Send extra headers
 
@@ -1167,7 +1172,11 @@ class AsyncOpenint(AsyncAPIClient):
         return await self.post(
             f"/customer/{customer_id}/token",
             body=await async_maybe_transform(
-                {"validity_in_seconds": validity_in_seconds}, client_create_token_params.ClientCreateTokenParams
+                {
+                    "connect_options": connect_options,
+                    "validity_in_seconds": validity_in_seconds,
+                },
+                client_create_token_params.ClientCreateTokenParams,
             ),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
@@ -1291,66 +1300,65 @@ class AsyncOpenint(AsyncAPIClient):
     def list_connection_configs(
         self,
         *,
-        connector_name: Literal[
-            "aircall",
-            "airtable",
-            "apollo",
-            "brex",
-            "coda",
-            "confluence",
-            "discord",
-            "dummy-oauth2",
-            "facebook",
-            "finch",
-            "firebase",
-            "foreceipt",
-            "github",
-            "gong",
-            "googlecalendar",
-            "googledocs",
-            "googledrive",
-            "googlemail",
-            "googlesheet",
-            "greenhouse",
-            "heron",
-            "hubspot",
-            "instagram",
-            "intercom",
-            "jira",
-            "kustomer",
-            "lever",
-            "linear",
-            "linkedin",
-            "lunchmoney",
-            "mercury",
-            "merge",
-            "microsoft",
-            "moota",
-            "notion",
-            "onebrick",
-            "outreach",
-            "pipedrive",
-            "plaid",
-            "postgres",
-            "quickbooks",
-            "ramp",
-            "reddit",
-            "salesforce",
-            "salesloft",
-            "saltedge",
-            "sharepointonline",
-            "slack",
-            "splitwise",
-            "stripe",
-            "teller",
-            "toggl",
-            "twenty",
-            "twitter",
-            "venmo",
-            "wise",
-            "xero",
-            "yodlee",
-            "zohodesk",
+        connector_names: List[
+            Literal[
+                "acme-oauth2",
+                "aircall",
+                "airtable",
+                "apollo",
+                "brex",
+                "coda",
+                "confluence",
+                "discord",
+                "facebook",
+                "finch",
+                "firebase",
+                "foreceipt",
+                "github",
+                "gong",
+                "google-calendar",
+                "google-docs",
+                "google-drive",
+                "google-mail",
+                "google-sheet",
+                "greenhouse",
+                "heron",
+                "hubspot",
+                "instagram",
+                "intercom",
+                "jira",
+                "lever",
+                "linear",
+                "linkedin",
+                "lunchmoney",
+                "mercury",
+                "merge",
+                "moota",
+                "notion",
+                "onebrick",
+                "outreach",
+                "pipedrive",
+                "plaid",
+                "postgres",
+                "quickbooks",
+                "ramp",
+                "reddit",
+                "salesloft",
+                "saltedge",
+                "sharepoint",
+                "slack",
+                "splitwise",
+                "stripe",
+                "teller",
+                "toggl",
+                "twenty",
+                "twitter",
+                "venmo",
+                "wise",
+                "xero",
+                "yodlee",
+                "zoho-desk",
+            ]
         ]
         | NotGiven = NOT_GIVEN,
         expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
@@ -1364,8 +1372,7 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AsyncPaginator[ListConnectionConfigsResponse, AsyncOffsetPagination[ListConnectionConfigsResponse]]:
         """
-        List the connectors that are configured in your account and available for your
-        customers
+        List Configured Connectors
 
         Args:
           extra_headers: Send extra headers
@@ -1386,7 +1393,7 @@ class AsyncOpenint(AsyncAPIClient):
                 timeout=timeout,
                 query=maybe_transform(
                     {
-                        "connector_name": connector_name,
+                        "connector_names": connector_names,
                         "expand": expand,
                         "limit": limit,
                         "offset": offset,
@@ -1403,66 +1410,65 @@ class AsyncOpenint(AsyncAPIClient):
         self,
         *,
         connector_config_id: str | NotGiven = NOT_GIVEN,
-        connector_name: Literal[
-            "aircall",
-            "airtable",
-            "apollo",
-            "brex",
-            "coda",
-            "confluence",
-            "discord",
-            "dummy-oauth2",
-            "facebook",
-            "finch",
-            "firebase",
-            "foreceipt",
-            "github",
-            "gong",
-            "googlecalendar",
-            "googledocs",
-            "googledrive",
-            "googlemail",
-            "googlesheet",
-            "greenhouse",
-            "heron",
-            "hubspot",
-            "instagram",
-            "intercom",
-            "jira",
-            "kustomer",
-            "lever",
-            "linear",
-            "linkedin",
-            "lunchmoney",
-            "mercury",
-            "merge",
-            "microsoft",
-            "moota",
-            "notion",
-            "onebrick",
-            "outreach",
-            "pipedrive",
-            "plaid",
-            "postgres",
-            "quickbooks",
-            "ramp",
-            "reddit",
-            "salesforce",
-            "salesloft",
-            "saltedge",
-            "sharepointonline",
-            "slack",
-            "splitwise",
-            "stripe",
-            "teller",
-            "toggl",
-            "twenty",
-            "twitter",
-            "venmo",
-            "wise",
-            "xero",
-            "yodlee",
-            "zohodesk",
+        connector_names: List[
+            Literal[
+                "acme-oauth2",
+                "aircall",
+                "airtable",
+                "apollo",
+                "brex",
+                "coda",
+                "confluence",
+                "discord",
+                "facebook",
+                "finch",
+                "firebase",
+                "foreceipt",
+                "github",
+                "gong",
+                "google-calendar",
+                "google-docs",
+                "google-drive",
+                "google-mail",
+                "google-sheet",
+                "greenhouse",
+                "heron",
+                "hubspot",
+                "instagram",
+                "intercom",
+                "jira",
+                "lever",
+                "linear",
+                "linkedin",
+                "lunchmoney",
+                "mercury",
+                "merge",
+                "moota",
+                "notion",
+                "onebrick",
+                "outreach",
+                "pipedrive",
+                "plaid",
+                "postgres",
+                "quickbooks",
+                "ramp",
+                "reddit",
+                "salesloft",
+                "saltedge",
+                "sharepoint",
+                "slack",
+                "splitwise",
+                "stripe",
+                "teller",
+                "toggl",
+                "twenty",
+                "twitter",
+                "venmo",
+                "wise",
+                "xero",
+                "yodlee",
+                "zoho-desk",
+            ]
         ]
         | NotGiven = NOT_GIVEN,
         customer_id: str | NotGiven = NOT_GIVEN,
@@ -1489,6 +1495,8 @@ class AsyncOpenint(AsyncAPIClient):
           customer_id: The id of the customer in your application. Ensure it is unique for that
               customer.
 
+          expand: Expand the response with additional optionals
+
           include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
           extra_headers: Send extra headers
@@ -1510,7 +1518,7 @@ class AsyncOpenint(AsyncAPIClient):
                 query=maybe_transform(
                     {
                         "connector_config_id": connector_config_id,
-                        "connector_name": connector_name,
+                        "connector_names": connector_names,
                         "customer_id": customer_id,
                         "expand": expand,
                         "include_secrets": include_secrets,

@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.5.0 (2025-04-23)
+
+Full Changelog: [v1.4.0...v1.5.0](https://github.com/openintegrations/python-sdk/compare/v1.4.0...v1.5.0)
+
+### Features
+
+* **docs:** updating documented docs for stainless ([f18a77c](https://github.com/openintegrations/python-sdk/commit/f18a77c7f64f898cbdcd79a1f5fcf8b7a69d6633))
+* **docs:** updating documented docs for stainless ([992c9f5](https://github.com/openintegrations/python-sdk/commit/992c9f503f31fd41c23ab91511bc04e662411652))
+* **docs:** updating documented docs for stainless ([05e511c](https://github.com/openintegrations/python-sdk/commit/05e511cdc842d06146cf66e584a6bcbe6e2b00d8))
+* **docs:** updating documented docs for stainless ([78b6e95](https://github.com/openintegrations/python-sdk/commit/78b6e9525a9bd78f16f8281ab9c2da7444f58749))
+* **docs:** updating documented docs for stainless ([042cfc5](https://github.com/openintegrations/python-sdk/commit/042cfc52904e0432958b01414cc640c420d13244))
+
+
+### Bug Fixes
+
+* **pydantic v1:** more robust ModelField.annotation check ([d0ef0a7](https://github.com/openintegrations/python-sdk/commit/d0ef0a7c4ed1b4e6a40caa676389e43c880ca052))
+
+
+### Chores
+
+* **ci:** add timeout thresholds for CI jobs ([727c6e6](https://github.com/openintegrations/python-sdk/commit/727c6e67e6d49f595c770c193c22a9d39faa95ca))
+* **internal:** fix list file params ([65529ca](https://github.com/openintegrations/python-sdk/commit/65529ca89d80ca4cf43f17be158afa7c138ab37c))
+* **internal:** refactor retries to not use recursion ([3b25e8d](https://github.com/openintegrations/python-sdk/commit/3b25e8d4a304edcb193a2d5dc7ccce0e043bad47))
+* **internal:** update models test ([5b1658c](https://github.com/openintegrations/python-sdk/commit/5b1658c4b014410e16ec558c955d0435a7244cf9))
+
 ## 1.4.0 (2025-04-17)
 
 Full Changelog: [v1.3.0...v1.4.0](https://github.com/openintegrations/python-sdk/compare/v1.3.0...v1.4.0)
