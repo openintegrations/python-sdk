@@ -606,8 +606,7 @@ class Openint(SyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> SyncOffsetPagination[ListConnectionConfigsResponse]:
         """
-        List the connectors that are configured in your account and available for your
-        customers
+        List Configured Connectors
 
         Args:
           extra_headers: Send extra headers
@@ -1373,8 +1372,7 @@ class AsyncOpenint(AsyncAPIClient):
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> AsyncPaginator[ListConnectionConfigsResponse, AsyncOffsetPagination[ListConnectionConfigsResponse]]:
         """
-        List the connectors that are configured in your account and available for your
-        customers
+        List Configured Connectors
 
         Args:
           extra_headers: Send extra headers
