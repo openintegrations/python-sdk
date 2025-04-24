@@ -82,8 +82,7 @@ class ClientListConnectionsParams(TypedDict, total=False):
     expand: List[Literal["connector"]]
     """Expand the response with additional optionals"""
 
-    include_secrets: Literal["none", "basic", "all"]
-    """Controls secret inclusion: none (default), basic (auth only), or all secrets"""
+    include_secrets: bool
 
     limit: int
 
