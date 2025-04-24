@@ -77,10 +77,7 @@ class TestClient:
         client_ = client.create_connection(
             connector_config_id="ccfg_",
             customer_id="customer_id",
-            data={
-                "connector_name": "acme-oauth2",
-                "settings": {"oauth": {}},
-            },
+            data={"connector_name": "acme-oauth2"},
         )
         assert_matches_type(CreateConnectionResponse, client_, path=["response"])
 
@@ -122,10 +119,7 @@ class TestClient:
         response = client.with_raw_response.create_connection(
             connector_config_id="ccfg_",
             customer_id="customer_id",
-            data={
-                "connector_name": "acme-oauth2",
-                "settings": {"oauth": {}},
-            },
+            data={"connector_name": "acme-oauth2"},
         )
 
         assert response.is_closed is True
@@ -139,10 +133,7 @@ class TestClient:
         with client.with_streaming_response.create_connection(
             connector_config_id="ccfg_",
             customer_id="customer_id",
-            data={
-                "connector_name": "acme-oauth2",
-                "settings": {"oauth": {}},
-            },
+            data={"connector_name": "acme-oauth2"},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -322,7 +313,7 @@ class TestClient:
         client_ = client.get_connection(
             id="conn_",
             expand=["connector"],
-            include_secrets="none",
+            include_secrets=True,
             refresh_policy="none",
         )
         assert_matches_type(GetConnectionResponse, client_, path=["response"])
@@ -442,7 +433,7 @@ class TestClient:
             connector_names=["acme-oauth2"],
             customer_id="customer_id",
             expand=["connector"],
-            include_secrets="none",
+            include_secrets=True,
             limit=0,
             offset=0,
         )
@@ -558,10 +549,7 @@ class TestAsyncClient:
         client = await async_client.create_connection(
             connector_config_id="ccfg_",
             customer_id="customer_id",
-            data={
-                "connector_name": "acme-oauth2",
-                "settings": {"oauth": {}},
-            },
+            data={"connector_name": "acme-oauth2"},
         )
         assert_matches_type(CreateConnectionResponse, client, path=["response"])
 
@@ -603,10 +591,7 @@ class TestAsyncClient:
         response = await async_client.with_raw_response.create_connection(
             connector_config_id="ccfg_",
             customer_id="customer_id",
-            data={
-                "connector_name": "acme-oauth2",
-                "settings": {"oauth": {}},
-            },
+            data={"connector_name": "acme-oauth2"},
         )
 
         assert response.is_closed is True
@@ -620,10 +605,7 @@ class TestAsyncClient:
         async with async_client.with_streaming_response.create_connection(
             connector_config_id="ccfg_",
             customer_id="customer_id",
-            data={
-                "connector_name": "acme-oauth2",
-                "settings": {"oauth": {}},
-            },
+            data={"connector_name": "acme-oauth2"},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -803,7 +785,7 @@ class TestAsyncClient:
         client = await async_client.get_connection(
             id="conn_",
             expand=["connector"],
-            include_secrets="none",
+            include_secrets=True,
             refresh_policy="none",
         )
         assert_matches_type(GetConnectionResponse, client, path=["response"])
@@ -923,7 +905,7 @@ class TestAsyncClient:
             connector_names=["acme-oauth2"],
             customer_id="customer_id",
             expand=["connector"],
-            include_secrets="none",
+            include_secrets=True,
             limit=0,
             offset=0,
         )

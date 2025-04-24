@@ -458,7 +458,7 @@ class Openint(SyncAPIClient):
         id: str,
         *,
         expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
-        include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
+        include_secrets: bool | NotGiven = NOT_GIVEN,
         refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -472,8 +472,6 @@ class Openint(SyncAPIClient):
 
         Args:
           id: The id of the connection, starts with `conn_`
-
-          include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
           refresh_policy: Controls credential refresh: none (never), force (always), or auto (when
               expired, default)
@@ -707,7 +705,7 @@ class Openint(SyncAPIClient):
         | NotGiven = NOT_GIVEN,
         customer_id: str | NotGiven = NOT_GIVEN,
         expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
-        include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
+        include_secrets: bool | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -730,8 +728,6 @@ class Openint(SyncAPIClient):
               customer.
 
           expand: Expand the response with additional optionals
-
-          include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
           extra_headers: Send extra headers
 
@@ -1224,7 +1220,7 @@ class AsyncOpenint(AsyncAPIClient):
         id: str,
         *,
         expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
-        include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
+        include_secrets: bool | NotGiven = NOT_GIVEN,
         refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -1238,8 +1234,6 @@ class AsyncOpenint(AsyncAPIClient):
 
         Args:
           id: The id of the connection, starts with `conn_`
-
-          include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
           refresh_policy: Controls credential refresh: none (never), force (always), or auto (when
               expired, default)
@@ -1473,7 +1467,7 @@ class AsyncOpenint(AsyncAPIClient):
         | NotGiven = NOT_GIVEN,
         customer_id: str | NotGiven = NOT_GIVEN,
         expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
-        include_secrets: Literal["none", "basic", "all"] | NotGiven = NOT_GIVEN,
+        include_secrets: bool | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -1496,8 +1490,6 @@ class AsyncOpenint(AsyncAPIClient):
               customer.
 
           expand: Expand the response with additional optionals
-
-          include_secrets: Controls secret inclusion: none (default), basic (auth only), or all secrets
 
           extra_headers: Send extra headers
 

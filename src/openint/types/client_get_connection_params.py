@@ -11,8 +11,7 @@ __all__ = ["ClientGetConnectionParams"]
 class ClientGetConnectionParams(TypedDict, total=False):
     expand: List[Literal["connector"]]
 
-    include_secrets: Literal["none", "basic", "all"]
-    """Controls secret inclusion: none (default), basic (auth only), or all secrets"""
+    include_secrets: bool
 
     refresh_policy: Literal["none", "force", "auto"]
     """

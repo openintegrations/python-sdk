@@ -232,8 +232,6 @@ class ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorAcmeOauth2DiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["acme-oauth2"]
 
-    settings: ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -254,6 +252,8 @@ class ConnectorAcmeOauth2DiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -301,8 +301,6 @@ class ConnectorAircallDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorAircallDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["aircall"]
 
-    settings: ConnectorAircallDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -323,6 +321,8 @@ class ConnectorAircallDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorAircallDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -370,8 +370,6 @@ class ConnectorConfluenceDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorConfluenceDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["confluence"]
 
-    settings: ConnectorConfluenceDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -392,6 +390,8 @@ class ConnectorConfluenceDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorConfluenceDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -439,8 +439,6 @@ class ConnectorDiscordDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorDiscordDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["discord"]
 
-    settings: ConnectorDiscordDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -461,6 +459,8 @@ class ConnectorDiscordDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorDiscordDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -508,8 +508,6 @@ class ConnectorFacebookDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorFacebookDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["facebook"]
 
-    settings: ConnectorFacebookDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -530,6 +528,8 @@ class ConnectorFacebookDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorFacebookDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -577,8 +577,6 @@ class ConnectorGitHubDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorGitHubDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["github"]
 
-    settings: ConnectorGitHubDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -599,6 +597,8 @@ class ConnectorGitHubDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorGitHubDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -649,8 +649,6 @@ class ConnectorGongDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorGongDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["gong"]
 
-    settings: ConnectorGongDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -671,6 +669,8 @@ class ConnectorGongDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorGongDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -718,8 +718,6 @@ class ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorGoogleCalendarDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["google-calendar"]
 
-    settings: ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -740,6 +738,8 @@ class ConnectorGoogleCalendarDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -787,8 +787,6 @@ class ConnectorGoogleDocsDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorGoogleDocsDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["google-docs"]
 
-    settings: ConnectorGoogleDocsDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -809,6 +807,8 @@ class ConnectorGoogleDocsDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorGoogleDocsDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -856,8 +856,6 @@ class ConnectorGoogleDriveDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorGoogleDriveDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["google-drive"]
 
-    settings: ConnectorGoogleDriveDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -878,6 +876,8 @@ class ConnectorGoogleDriveDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorGoogleDriveDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -925,8 +925,6 @@ class ConnectorGoogleMailDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorGoogleMailDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["google-mail"]
 
-    settings: ConnectorGoogleMailDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -947,6 +945,8 @@ class ConnectorGoogleMailDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorGoogleMailDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -994,8 +994,6 @@ class ConnectorGoogleSheetDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorGoogleSheetDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["google-sheet"]
 
-    settings: ConnectorGoogleSheetDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -1016,6 +1014,8 @@ class ConnectorGoogleSheetDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorGoogleSheetDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -1063,8 +1063,6 @@ class ConnectorHubspotDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorHubspotDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["hubspot"]
 
-    settings: ConnectorHubspotDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -1085,6 +1083,8 @@ class ConnectorHubspotDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorHubspotDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -1132,8 +1132,6 @@ class ConnectorInstagramDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorInstagramDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["instagram"]
 
-    settings: ConnectorInstagramDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -1154,6 +1152,8 @@ class ConnectorInstagramDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorInstagramDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -1201,8 +1201,6 @@ class ConnectorIntercomDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorIntercomDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["intercom"]
 
-    settings: ConnectorIntercomDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -1223,6 +1221,8 @@ class ConnectorIntercomDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorIntercomDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -1270,8 +1270,6 @@ class ConnectorJiraDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorJiraDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["jira"]
 
-    settings: ConnectorJiraDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -1292,6 +1290,8 @@ class ConnectorJiraDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorJiraDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -1339,8 +1339,6 @@ class ConnectorLeverDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorLeverDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["lever"]
 
-    settings: ConnectorLeverDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -1361,6 +1359,8 @@ class ConnectorLeverDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorLeverDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -1408,8 +1408,6 @@ class ConnectorLinearDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorLinearDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["linear"]
 
-    settings: ConnectorLinearDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -1430,6 +1428,8 @@ class ConnectorLinearDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorLinearDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -1477,8 +1477,6 @@ class ConnectorLinkedinDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorLinkedinDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["linkedin"]
 
-    settings: ConnectorLinkedinDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -1499,6 +1497,8 @@ class ConnectorLinkedinDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorLinkedinDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -1546,8 +1546,6 @@ class ConnectorNotionDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorNotionDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["notion"]
 
-    settings: ConnectorNotionDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -1568,6 +1566,8 @@ class ConnectorNotionDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorNotionDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -1615,8 +1615,6 @@ class ConnectorOutreachDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorOutreachDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["outreach"]
 
-    settings: ConnectorOutreachDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -1637,6 +1635,8 @@ class ConnectorOutreachDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorOutreachDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -1687,8 +1687,6 @@ class ConnectorPipedriveDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorPipedriveDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["pipedrive"]
 
-    settings: ConnectorPipedriveDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -1709,6 +1707,8 @@ class ConnectorPipedriveDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorPipedriveDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -1759,8 +1759,6 @@ class ConnectorQuickbooksDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorQuickbooksDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["quickbooks"]
 
-    settings: ConnectorQuickbooksDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -1781,6 +1779,8 @@ class ConnectorQuickbooksDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorQuickbooksDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -1828,8 +1828,6 @@ class ConnectorRedditDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorRedditDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["reddit"]
 
-    settings: ConnectorRedditDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -1850,6 +1848,8 @@ class ConnectorRedditDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorRedditDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -1897,8 +1897,6 @@ class ConnectorSalesloftDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorSalesloftDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["salesloft"]
 
-    settings: ConnectorSalesloftDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -1919,6 +1917,8 @@ class ConnectorSalesloftDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorSalesloftDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -1966,8 +1966,6 @@ class ConnectorSharepointDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorSharepointDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["sharepoint"]
 
-    settings: ConnectorSharepointDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -1988,6 +1986,8 @@ class ConnectorSharepointDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorSharepointDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2035,8 +2035,6 @@ class ConnectorSlackDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorSlackDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["slack"]
 
-    settings: ConnectorSlackDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2057,6 +2055,8 @@ class ConnectorSlackDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorSlackDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2104,8 +2104,6 @@ class ConnectorTwitterDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorTwitterDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["twitter"]
 
-    settings: ConnectorTwitterDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2126,6 +2124,8 @@ class ConnectorTwitterDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorTwitterDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2173,8 +2173,6 @@ class ConnectorXeroDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorXeroDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["xero"]
 
-    settings: ConnectorXeroDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2195,6 +2193,8 @@ class ConnectorXeroDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorXeroDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2245,8 +2245,6 @@ class ConnectorZohoDeskDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorZohoDeskDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["zoho-desk"]
 
-    settings: ConnectorZohoDeskDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2267,6 +2265,8 @@ class ConnectorZohoDeskDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorZohoDeskDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2284,8 +2284,6 @@ class ConnectorAirtableDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorAirtableDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["airtable"]
 
-    settings: ConnectorAirtableDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2306,6 +2304,8 @@ class ConnectorAirtableDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorAirtableDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2321,8 +2321,6 @@ class ConnectorApolloDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorApolloDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["apollo"]
 
-    settings: ConnectorApolloDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2343,6 +2341,8 @@ class ConnectorApolloDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorApolloDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2358,8 +2358,6 @@ class ConnectorBrexDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorBrexDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["brex"]
 
-    settings: ConnectorBrexDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2380,6 +2378,8 @@ class ConnectorBrexDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorBrexDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2395,8 +2395,6 @@ class ConnectorCodaDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorCodaDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["coda"]
 
-    settings: ConnectorCodaDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2417,6 +2415,8 @@ class ConnectorCodaDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorCodaDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2432,8 +2432,6 @@ class ConnectorFinchDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorFinchDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["finch"]
 
-    settings: ConnectorFinchDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2454,6 +2452,8 @@ class ConnectorFinchDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorFinchDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2562,8 +2562,6 @@ ConnectorFirebaseDiscriminatedConnectionSettingsSettings: TypeAlias = Union[
 class ConnectorFirebaseDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["firebase"]
 
-    settings: ConnectorFirebaseDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2584,6 +2582,8 @@ class ConnectorFirebaseDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorFirebaseDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2603,8 +2603,6 @@ class ConnectorForeceiptDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorForeceiptDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["foreceipt"]
 
-    settings: ConnectorForeceiptDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2625,6 +2623,8 @@ class ConnectorForeceiptDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorForeceiptDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2640,8 +2640,6 @@ class ConnectorGreenhouseDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorGreenhouseDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["greenhouse"]
 
-    settings: ConnectorGreenhouseDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2662,6 +2660,8 @@ class ConnectorGreenhouseDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorGreenhouseDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2673,8 +2673,6 @@ class ConnectorGreenhouseDiscriminatedConnectionSettings(BaseModel):
 class ConnectorHeronDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["heron"]
 
-    settings: object
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2695,6 +2693,8 @@ class ConnectorHeronDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[object] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2706,8 +2706,6 @@ class ConnectorHeronDiscriminatedConnectionSettings(BaseModel):
 class ConnectorLunchmoneyDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["lunchmoney"]
 
-    settings: object
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2728,6 +2726,8 @@ class ConnectorLunchmoneyDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[object] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2739,8 +2739,6 @@ class ConnectorLunchmoneyDiscriminatedConnectionSettings(BaseModel):
 class ConnectorMercuryDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["mercury"]
 
-    settings: object
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2761,6 +2759,8 @@ class ConnectorMercuryDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[object] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2778,8 +2778,6 @@ class ConnectorMergeDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorMergeDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["merge"]
 
-    settings: ConnectorMergeDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2800,6 +2798,8 @@ class ConnectorMergeDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorMergeDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2811,8 +2811,6 @@ class ConnectorMergeDiscriminatedConnectionSettings(BaseModel):
 class ConnectorMootaDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["moota"]
 
-    settings: object
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2833,6 +2831,8 @@ class ConnectorMootaDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[object] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2848,8 +2848,6 @@ class ConnectorOnebrickDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorOnebrickDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["onebrick"]
 
-    settings: ConnectorOnebrickDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2870,6 +2868,8 @@ class ConnectorOnebrickDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorOnebrickDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2895,8 +2895,6 @@ class ConnectorPlaidDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorPlaidDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["plaid"]
 
-    settings: ConnectorPlaidDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2917,6 +2915,8 @@ class ConnectorPlaidDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorPlaidDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2932,8 +2932,6 @@ class ConnectorPostgresDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorPostgresDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["postgres"]
 
-    settings: ConnectorPostgresDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2954,6 +2952,8 @@ class ConnectorPostgresDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorPostgresDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -2971,8 +2971,6 @@ class ConnectorRampDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorRampDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["ramp"]
 
-    settings: ConnectorRampDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -2993,6 +2991,8 @@ class ConnectorRampDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorRampDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -3111,8 +3111,6 @@ class ConnectorSplitwiseDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorSplitwiseDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["splitwise"]
 
-    settings: ConnectorSplitwiseDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -3133,6 +3131,8 @@ class ConnectorSplitwiseDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorSplitwiseDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -3148,8 +3148,6 @@ class ConnectorStripeDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorStripeDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["stripe"]
 
-    settings: ConnectorStripeDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -3170,6 +3168,8 @@ class ConnectorStripeDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorStripeDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -3185,8 +3185,6 @@ class ConnectorTellerDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorTellerDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["teller"]
 
-    settings: ConnectorTellerDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -3207,6 +3205,8 @@ class ConnectorTellerDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorTellerDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -3226,8 +3226,6 @@ class ConnectorTogglDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorTogglDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["toggl"]
 
-    settings: ConnectorTogglDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -3248,6 +3246,8 @@ class ConnectorTogglDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorTogglDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -3263,8 +3263,6 @@ class ConnectorTwentyDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorTwentyDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["twenty"]
 
-    settings: ConnectorTwentyDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -3285,6 +3283,8 @@ class ConnectorTwentyDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorTwentyDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -3302,8 +3302,6 @@ class ConnectorVenmoDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorVenmoDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["venmo"]
 
-    settings: ConnectorVenmoDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -3324,6 +3322,8 @@ class ConnectorVenmoDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorVenmoDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -3341,8 +3341,6 @@ class ConnectorWiseDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorWiseDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["wise"]
 
-    settings: ConnectorWiseDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -3363,6 +3361,8 @@ class ConnectorWiseDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorWiseDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -3418,8 +3418,6 @@ class ConnectorYodleeDiscriminatedConnectionSettingsSettings(BaseModel):
 class ConnectorYodleeDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["yodlee"]
 
-    settings: ConnectorYodleeDiscriminatedConnectionSettingsSettings
-
     id: Optional[str] = None
 
     connector_config_id: Optional[str] = None
@@ -3440,6 +3438,8 @@ class ConnectorYodleeDiscriminatedConnectionSettings(BaseModel):
     separate 1-1 table just for simple key values in your application. During
     updates this object will be shallowly merged
     """
+
+    settings: Optional[ConnectorYodleeDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 

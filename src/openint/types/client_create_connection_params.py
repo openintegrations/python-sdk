@@ -252,7 +252,7 @@ class DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings(TypedDict, 
 class DataConnectorAcmeOauth2DiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["acme-oauth2"]]
 
-    settings: Required[DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -294,7 +294,7 @@ class DataConnectorAircallDiscriminatedConnectionSettingsSettings(TypedDict, tot
 class DataConnectorAircallDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["aircall"]]
 
-    settings: Required[DataConnectorAircallDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorAircallDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -336,7 +336,7 @@ class DataConnectorConfluenceDiscriminatedConnectionSettingsSettings(TypedDict, 
 class DataConnectorConfluenceDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["confluence"]]
 
-    settings: Required[DataConnectorConfluenceDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorConfluenceDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -378,7 +378,7 @@ class DataConnectorDiscordDiscriminatedConnectionSettingsSettings(TypedDict, tot
 class DataConnectorDiscordDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["discord"]]
 
-    settings: Required[DataConnectorDiscordDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorDiscordDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -420,7 +420,7 @@ class DataConnectorFacebookDiscriminatedConnectionSettingsSettings(TypedDict, to
 class DataConnectorFacebookDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["facebook"]]
 
-    settings: Required[DataConnectorFacebookDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorFacebookDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -462,7 +462,7 @@ class DataConnectorGitHubDiscriminatedConnectionSettingsSettings(TypedDict, tota
 class DataConnectorGitHubDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["github"]]
 
-    settings: Required[DataConnectorGitHubDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorGitHubDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -507,7 +507,7 @@ class DataConnectorGongDiscriminatedConnectionSettingsSettings(TypedDict, total=
 class DataConnectorGongDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["gong"]]
 
-    settings: Required[DataConnectorGongDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorGongDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -549,7 +549,7 @@ class DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettings(TypedDi
 class DataConnectorGoogleCalendarDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["google-calendar"]]
 
-    settings: Required[DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -591,7 +591,7 @@ class DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettings(TypedDict, 
 class DataConnectorGoogleDocsDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["google-docs"]]
 
-    settings: Required[DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -633,7 +633,7 @@ class DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettings(TypedDict,
 class DataConnectorGoogleDriveDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["google-drive"]]
 
-    settings: Required[DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -675,7 +675,7 @@ class DataConnectorGoogleMailDiscriminatedConnectionSettingsSettings(TypedDict, 
 class DataConnectorGoogleMailDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["google-mail"]]
 
-    settings: Required[DataConnectorGoogleMailDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorGoogleMailDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -717,7 +717,7 @@ class DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettings(TypedDict,
 class DataConnectorGoogleSheetDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["google-sheet"]]
 
-    settings: Required[DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -759,7 +759,7 @@ class DataConnectorHubspotDiscriminatedConnectionSettingsSettings(TypedDict, tot
 class DataConnectorHubspotDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["hubspot"]]
 
-    settings: Required[DataConnectorHubspotDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorHubspotDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -801,7 +801,7 @@ class DataConnectorInstagramDiscriminatedConnectionSettingsSettings(TypedDict, t
 class DataConnectorInstagramDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["instagram"]]
 
-    settings: Required[DataConnectorInstagramDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorInstagramDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -843,7 +843,7 @@ class DataConnectorIntercomDiscriminatedConnectionSettingsSettings(TypedDict, to
 class DataConnectorIntercomDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["intercom"]]
 
-    settings: Required[DataConnectorIntercomDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorIntercomDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -885,7 +885,7 @@ class DataConnectorJiraDiscriminatedConnectionSettingsSettings(TypedDict, total=
 class DataConnectorJiraDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["jira"]]
 
-    settings: Required[DataConnectorJiraDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorJiraDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -927,7 +927,7 @@ class DataConnectorLeverDiscriminatedConnectionSettingsSettings(TypedDict, total
 class DataConnectorLeverDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["lever"]]
 
-    settings: Required[DataConnectorLeverDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorLeverDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -969,7 +969,7 @@ class DataConnectorLinearDiscriminatedConnectionSettingsSettings(TypedDict, tota
 class DataConnectorLinearDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["linear"]]
 
-    settings: Required[DataConnectorLinearDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorLinearDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -1011,7 +1011,7 @@ class DataConnectorLinkedinDiscriminatedConnectionSettingsSettings(TypedDict, to
 class DataConnectorLinkedinDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["linkedin"]]
 
-    settings: Required[DataConnectorLinkedinDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorLinkedinDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -1053,7 +1053,7 @@ class DataConnectorNotionDiscriminatedConnectionSettingsSettings(TypedDict, tota
 class DataConnectorNotionDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["notion"]]
 
-    settings: Required[DataConnectorNotionDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorNotionDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -1095,7 +1095,7 @@ class DataConnectorOutreachDiscriminatedConnectionSettingsSettings(TypedDict, to
 class DataConnectorOutreachDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["outreach"]]
 
-    settings: Required[DataConnectorOutreachDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorOutreachDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -1140,7 +1140,7 @@ class DataConnectorPipedriveDiscriminatedConnectionSettingsSettings(TypedDict, t
 class DataConnectorPipedriveDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["pipedrive"]]
 
-    settings: Required[DataConnectorPipedriveDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorPipedriveDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -1185,7 +1185,7 @@ class DataConnectorQuickbooksDiscriminatedConnectionSettingsSettings(TypedDict, 
 class DataConnectorQuickbooksDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["quickbooks"]]
 
-    settings: Required[DataConnectorQuickbooksDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorQuickbooksDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -1227,7 +1227,7 @@ class DataConnectorRedditDiscriminatedConnectionSettingsSettings(TypedDict, tota
 class DataConnectorRedditDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["reddit"]]
 
-    settings: Required[DataConnectorRedditDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorRedditDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -1269,7 +1269,7 @@ class DataConnectorSalesloftDiscriminatedConnectionSettingsSettings(TypedDict, t
 class DataConnectorSalesloftDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["salesloft"]]
 
-    settings: Required[DataConnectorSalesloftDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorSalesloftDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -1311,7 +1311,7 @@ class DataConnectorSharepointDiscriminatedConnectionSettingsSettings(TypedDict, 
 class DataConnectorSharepointDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["sharepoint"]]
 
-    settings: Required[DataConnectorSharepointDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorSharepointDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -1353,7 +1353,7 @@ class DataConnectorSlackDiscriminatedConnectionSettingsSettings(TypedDict, total
 class DataConnectorSlackDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["slack"]]
 
-    settings: Required[DataConnectorSlackDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorSlackDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -1395,7 +1395,7 @@ class DataConnectorTwitterDiscriminatedConnectionSettingsSettings(TypedDict, tot
 class DataConnectorTwitterDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["twitter"]]
 
-    settings: Required[DataConnectorTwitterDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorTwitterDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -1437,7 +1437,7 @@ class DataConnectorXeroDiscriminatedConnectionSettingsSettings(TypedDict, total=
 class DataConnectorXeroDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["xero"]]
 
-    settings: Required[DataConnectorXeroDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorXeroDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -1482,7 +1482,7 @@ class DataConnectorZohoDeskDiscriminatedConnectionSettingsSettings(TypedDict, to
 class DataConnectorZohoDeskDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["zoho-desk"]]
 
-    settings: Required[DataConnectorZohoDeskDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorZohoDeskDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorAirtableDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1494,7 +1494,7 @@ class DataConnectorAirtableDiscriminatedConnectionSettingsSettings(TypedDict, to
 class DataConnectorAirtableDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["airtable"]]
 
-    settings: Required[DataConnectorAirtableDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorAirtableDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorApolloDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1504,7 +1504,7 @@ class DataConnectorApolloDiscriminatedConnectionSettingsSettings(TypedDict, tota
 class DataConnectorApolloDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["apollo"]]
 
-    settings: Required[DataConnectorApolloDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorApolloDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorBrexDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1514,7 +1514,7 @@ class DataConnectorBrexDiscriminatedConnectionSettingsSettings(TypedDict, total=
 class DataConnectorBrexDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["brex"]]
 
-    settings: Required[DataConnectorBrexDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorBrexDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorCodaDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1524,7 +1524,7 @@ class DataConnectorCodaDiscriminatedConnectionSettingsSettings(TypedDict, total=
 class DataConnectorCodaDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["coda"]]
 
-    settings: Required[DataConnectorCodaDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorCodaDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorFinchDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1534,7 +1534,7 @@ class DataConnectorFinchDiscriminatedConnectionSettingsSettings(TypedDict, total
 class DataConnectorFinchDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["finch"]]
 
-    settings: Required[DataConnectorFinchDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorFinchDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember0ServiceAccountTyped(
@@ -1658,7 +1658,7 @@ DataConnectorFirebaseDiscriminatedConnectionSettingsSettings: TypeAlias = Union[
 class DataConnectorFirebaseDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["firebase"]]
 
-    settings: Required[DataConnectorFirebaseDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorFirebaseDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorForeceiptDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1672,7 +1672,7 @@ class DataConnectorForeceiptDiscriminatedConnectionSettingsSettings(TypedDict, t
 class DataConnectorForeceiptDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["foreceipt"]]
 
-    settings: Required[DataConnectorForeceiptDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorForeceiptDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorGreenhouseDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1682,25 +1682,25 @@ class DataConnectorGreenhouseDiscriminatedConnectionSettingsSettings(TypedDict, 
 class DataConnectorGreenhouseDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["greenhouse"]]
 
-    settings: Required[DataConnectorGreenhouseDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorGreenhouseDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorHeronDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["heron"]]
 
-    settings: Required[object]
+    settings: object
 
 
 class DataConnectorLunchmoneyDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["lunchmoney"]]
 
-    settings: Required[object]
+    settings: object
 
 
 class DataConnectorMercuryDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["mercury"]]
 
-    settings: Required[object]
+    settings: object
 
 
 class DataConnectorMergeDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1712,13 +1712,13 @@ class DataConnectorMergeDiscriminatedConnectionSettingsSettings(TypedDict, total
 class DataConnectorMergeDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["merge"]]
 
-    settings: Required[DataConnectorMergeDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorMergeDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorMootaDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["moota"]]
 
-    settings: Required[object]
+    settings: object
 
 
 class DataConnectorOnebrickDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1728,7 +1728,7 @@ class DataConnectorOnebrickDiscriminatedConnectionSettingsSettings(TypedDict, to
 class DataConnectorOnebrickDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["onebrick"]]
 
-    settings: Required[DataConnectorOnebrickDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorOnebrickDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorPlaidDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1748,7 +1748,7 @@ class DataConnectorPlaidDiscriminatedConnectionSettingsSettings(TypedDict, total
 class DataConnectorPlaidDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["plaid"]]
 
-    settings: Required[DataConnectorPlaidDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorPlaidDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorPostgresDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1758,7 +1758,7 @@ class DataConnectorPostgresDiscriminatedConnectionSettingsSettings(TypedDict, to
 class DataConnectorPostgresDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["postgres"]]
 
-    settings: Required[DataConnectorPostgresDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorPostgresDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorRampDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1770,7 +1770,7 @@ class DataConnectorRampDiscriminatedConnectionSettingsSettings(TypedDict, total=
 class DataConnectorRampDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["ramp"]]
 
-    settings: Required[DataConnectorRampDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorRampDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorSaltedgeDiscriminatedConnectionSettings(TypedDict, total=False):
@@ -1857,7 +1857,7 @@ class DataConnectorSplitwiseDiscriminatedConnectionSettingsSettings(TypedDict, t
 class DataConnectorSplitwiseDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["splitwise"]]
 
-    settings: Required[DataConnectorSplitwiseDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorSplitwiseDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorStripeDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1867,7 +1867,7 @@ class DataConnectorStripeDiscriminatedConnectionSettingsSettings(TypedDict, tota
 class DataConnectorStripeDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["stripe"]]
 
-    settings: Required[DataConnectorStripeDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorStripeDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorTellerDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1877,7 +1877,7 @@ class DataConnectorTellerDiscriminatedConnectionSettingsSettings(TypedDict, tota
 class DataConnectorTellerDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["teller"]]
 
-    settings: Required[DataConnectorTellerDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorTellerDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorTogglDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1891,7 +1891,7 @@ class DataConnectorTogglDiscriminatedConnectionSettingsSettings(TypedDict, total
 class DataConnectorTogglDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["toggl"]]
 
-    settings: Required[DataConnectorTogglDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorTogglDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorTwentyDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1901,7 +1901,7 @@ class DataConnectorTwentyDiscriminatedConnectionSettingsSettings(TypedDict, tota
 class DataConnectorTwentyDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["twenty"]]
 
-    settings: Required[DataConnectorTwentyDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorTwentyDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorVenmoDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1913,7 +1913,7 @@ class DataConnectorVenmoDiscriminatedConnectionSettingsSettings(TypedDict, total
 class DataConnectorVenmoDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["venmo"]]
 
-    settings: Required[DataConnectorVenmoDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorVenmoDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorWiseDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
@@ -1925,7 +1925,7 @@ class DataConnectorWiseDiscriminatedConnectionSettingsSettings(TypedDict, total=
 class DataConnectorWiseDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["wise"]]
 
-    settings: Required[DataConnectorWiseDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorWiseDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorYodleeDiscriminatedConnectionSettingsSettingsAccessToken(TypedDict, total=False):
@@ -1979,7 +1979,7 @@ class DataConnectorYodleeDiscriminatedConnectionSettingsSettings(TypedDict, tota
 class DataConnectorYodleeDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["yodlee"]]
 
-    settings: Required[DataConnectorYodleeDiscriminatedConnectionSettingsSettings]
+    settings: DataConnectorYodleeDiscriminatedConnectionSettingsSettings
 
 
 Data: TypeAlias = Union[
