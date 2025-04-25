@@ -87,6 +87,7 @@ response = client.create_magic_link(
     connect_options={
         "connector_names": ["acme-oauth2"],
         "debug": True,
+        "is_embedded": True,
         "return_url": "return_url",
         "view": "add",
     },

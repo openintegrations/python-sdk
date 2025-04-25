@@ -83,6 +83,13 @@ class ConnectOptions(TypedDict, total=False):
     debug: bool
     """Whether to enable debug mode"""
 
+    is_embedded: bool
+    """Whether to enable embedded mode.
+
+    Embedded mode hides the side bar with extra context for the end user (customer)
+    on the organization
+    """
+
     return_url: str
     """
     Optional URL to return customers after adding a connection or if they press the

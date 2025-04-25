@@ -159,6 +159,7 @@ class TestClient:
             connect_options={
                 "connector_names": ["acme-oauth2"],
                 "debug": True,
+                "is_embedded": True,
                 "return_url": "return_url",
                 "view": "add",
             },
@@ -216,6 +217,7 @@ class TestClient:
             connect_options={
                 "connector_names": ["acme-oauth2"],
                 "debug": True,
+                "is_embedded": True,
                 "return_url": "return_url",
                 "view": "add",
             },
@@ -631,6 +633,7 @@ class TestAsyncClient:
             connect_options={
                 "connector_names": ["acme-oauth2"],
                 "debug": True,
+                "is_embedded": True,
                 "return_url": "return_url",
                 "view": "add",
             },
@@ -688,6 +691,7 @@ class TestAsyncClient:
             connect_options={
                 "connector_names": ["acme-oauth2"],
                 "debug": True,
+                "is_embedded": True,
                 "return_url": "return_url",
                 "view": "add",
             },
