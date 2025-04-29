@@ -85,5 +85,7 @@ class ClientListConnectionsParams(TypedDict, total=False):
     include_secrets: bool
 
     limit: int
+    """Limit the number of items returned"""
 
     offset: int
+    """Offset the items returned"""

@@ -467,15 +467,17 @@ class TestClient:
     @parametrize
     def test_method_list_connectors(self, client: Openint) -> None:
         client_ = client.list_connectors()
-        assert_matches_type(ListConnectorsResponse, client_, path=["response"])
+        assert_matches_type(SyncOffsetPagination[ListConnectorsResponse], client_, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
     def test_method_list_connectors_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connectors(
             expand=["schemas"],
+            limit=0,
+            offset=0,
         )
-        assert_matches_type(ListConnectorsResponse, client_, path=["response"])
+        assert_matches_type(SyncOffsetPagination[ListConnectorsResponse], client_, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -485,7 +487,7 @@ class TestClient:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         client_ = response.parse()
-        assert_matches_type(ListConnectorsResponse, client_, path=["response"])
+        assert_matches_type(SyncOffsetPagination[ListConnectorsResponse], client_, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -495,7 +497,7 @@ class TestClient:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             client_ = response.parse()
-            assert_matches_type(ListConnectorsResponse, client_, path=["response"])
+            assert_matches_type(SyncOffsetPagination[ListConnectorsResponse], client_, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -941,15 +943,17 @@ class TestAsyncClient:
     @parametrize
     async def test_method_list_connectors(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connectors()
-        assert_matches_type(ListConnectorsResponse, client, path=["response"])
+        assert_matches_type(AsyncOffsetPagination[ListConnectorsResponse], client, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
     async def test_method_list_connectors_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connectors(
             expand=["schemas"],
+            limit=0,
+            offset=0,
         )
-        assert_matches_type(ListConnectorsResponse, client, path=["response"])
+        assert_matches_type(AsyncOffsetPagination[ListConnectorsResponse], client, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -959,7 +963,7 @@ class TestAsyncClient:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         client = await response.parse()
-        assert_matches_type(ListConnectorsResponse, client, path=["response"])
+        assert_matches_type(AsyncOffsetPagination[ListConnectorsResponse], client, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -969,6 +973,6 @@ class TestAsyncClient:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             client = await response.parse()
-            assert_matches_type(ListConnectorsResponse, client, path=["response"])
+            assert_matches_type(AsyncOffsetPagination[ListConnectorsResponse], client, path=["response"])
 
         assert cast(Any, response.is_closed) is True

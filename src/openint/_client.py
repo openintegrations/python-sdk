@@ -607,6 +607,10 @@ class Openint(SyncAPIClient):
         List Configured Connectors
 
         Args:
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -729,6 +733,10 @@ class Openint(SyncAPIClient):
 
           expand: Expand the response with additional optionals
 
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -765,17 +773,23 @@ class Openint(SyncAPIClient):
         self,
         *,
         expand: List[Literal["schemas"]] | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ListConnectorsResponse:
+    ) -> SyncOffsetPagination[ListConnectorsResponse]:
         """
         List all connectors to understand what integrations are available to configure
 
         Args:
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -784,16 +798,24 @@ class Openint(SyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return self.get(
+        return self.get_api_list(
             "/connector",
+            page=SyncOffsetPagination[ListConnectorsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform({"expand": expand}, client_list_connectors_params.ClientListConnectorsParams),
+                query=maybe_transform(
+                    {
+                        "expand": expand,
+                        "limit": limit,
+                        "offset": offset,
+                    },
+                    client_list_connectors_params.ClientListConnectorsParams,
+                ),
             ),
-            cast_to=ListConnectorsResponse,
+            model=ListConnectorsResponse,
         )
 
     @override
@@ -1369,6 +1391,10 @@ class AsyncOpenint(AsyncAPIClient):
         List Configured Connectors
 
         Args:
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1491,6 +1517,10 @@ class AsyncOpenint(AsyncAPIClient):
 
           expand: Expand the response with additional optionals
 
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1523,21 +1553,27 @@ class AsyncOpenint(AsyncAPIClient):
             model=cast(Any, ListConnectionsResponse),  # Union types cannot be passed in as arguments in the type system
         )
 
-    async def list_connectors(
+    def list_connectors(
         self,
         *,
         expand: List[Literal["schemas"]] | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ListConnectorsResponse:
+    ) -> AsyncPaginator[ListConnectorsResponse, AsyncOffsetPagination[ListConnectorsResponse]]:
         """
         List all connectors to understand what integrations are available to configure
 
         Args:
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1546,18 +1582,24 @@ class AsyncOpenint(AsyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return await self.get(
+        return self.get_api_list(
             "/connector",
+            page=AsyncOffsetPagination[ListConnectorsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform(
-                    {"expand": expand}, client_list_connectors_params.ClientListConnectorsParams
+                query=maybe_transform(
+                    {
+                        "expand": expand,
+                        "limit": limit,
+                        "offset": offset,
+                    },
+                    client_list_connectors_params.ClientListConnectorsParams,
                 ),
             ),
-            cast_to=ListConnectorsResponse,
+            model=ListConnectorsResponse,
         )
 
     @override
