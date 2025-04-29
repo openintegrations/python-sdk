@@ -10,3 +10,9 @@ __all__ = ["ClientListConnectorsParams"]
 
 class ClientListConnectorsParams(TypedDict, total=False):
     expand: List[Literal["schemas"]]
+
+    limit: int
+    """Limit the number of items returned"""
+
+    offset: int
+    """Offset the items returned"""

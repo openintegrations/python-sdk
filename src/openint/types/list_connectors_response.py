@@ -7,10 +7,10 @@ from pydantic import Field as FieldInfo
 
 from .._models import BaseModel
 
-__all__ = ["ListConnectorsResponse", "Item", "ItemIntegration", "ItemSchemas", "ItemScope"]
+__all__ = ["ListConnectorsResponse", "Integration", "Schemas", "Scope"]
 
 
-class ItemIntegration(BaseModel):
+class Integration(BaseModel):
     id: str
 
     connector_name: Literal[
@@ -95,7 +95,7 @@ class ItemIntegration(BaseModel):
     version: Optional[str] = None
 
 
-class ItemSchemas(BaseModel):
+class Schemas(BaseModel):
     connect_input: Optional[object] = None
 
     connect_output: Optional[object] = None
@@ -111,7 +111,7 @@ class ItemSchemas(BaseModel):
     webhook_input: Optional[object] = None
 
 
-class ItemScope(BaseModel):
+class Scope(BaseModel):
     scope: str
 
     description: Optional[str] = None
@@ -119,7 +119,7 @@ class ItemScope(BaseModel):
     display_name: Optional[str] = None
 
 
-class Item(BaseModel):
+class ListConnectorsResponse(BaseModel):
     name: str
 
     auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
@@ -128,7 +128,7 @@ class Item(BaseModel):
 
     display_name: Optional[str] = None
 
-    integrations: Optional[List[ItemIntegration]] = None
+    integrations: Optional[List[Integration]] = None
 
     logo_url: Optional[str] = None
 
@@ -136,21 +136,8 @@ class Item(BaseModel):
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
-    schemas: Optional[ItemSchemas] = None
+    schemas: Optional[Schemas] = None
 
-    scopes: Optional[List[ItemScope]] = None
+    scopes: Optional[List[Scope]] = None
 
     stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
-
-
-class ListConnectorsResponse(BaseModel):
-    items: List[Item]
-
-    limit: int
-    """Limit the number of items returned"""
-
-    offset: int
-    """Offset the items returned"""
-
-    total: int
-    """Total number of items in the database for the organization"""
