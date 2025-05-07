@@ -163,6 +163,8 @@ __all__ = [
     "DataConnectorMootaDiscriminatedConnectionSettings",
     "DataConnectorOnebrickDiscriminatedConnectionSettings",
     "DataConnectorOnebrickDiscriminatedConnectionSettingsSettings",
+    "DataConnectorOpenledgerDiscriminatedConnectionSettings",
+    "DataConnectorOpenledgerDiscriminatedConnectionSettingsSettings",
     "DataConnectorPlaidDiscriminatedConnectionSettings",
     "DataConnectorPlaidDiscriminatedConnectionSettingsSettings",
     "DataConnectorPostgresDiscriminatedConnectionSettings",
@@ -1731,6 +1733,17 @@ class DataConnectorOnebrickDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorOnebrickDiscriminatedConnectionSettingsSettings
 
 
+class DataConnectorOpenledgerDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    entity_id: Required[str]
+    """Your entity's identifier, aka customer ID"""
+
+
+class DataConnectorOpenledgerDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["openledger"]]
+
+    settings: DataConnectorOpenledgerDiscriminatedConnectionSettingsSettings
+
+
 class DataConnectorPlaidDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     access_token: Required[Annotated[str, PropertyInfo(alias="accessToken")]]
 
@@ -2027,6 +2040,7 @@ Data: TypeAlias = Union[
     DataConnectorMergeDiscriminatedConnectionSettings,
     DataConnectorMootaDiscriminatedConnectionSettings,
     DataConnectorOnebrickDiscriminatedConnectionSettings,
+    DataConnectorOpenledgerDiscriminatedConnectionSettings,
     DataConnectorPlaidDiscriminatedConnectionSettings,
     DataConnectorPostgresDiscriminatedConnectionSettings,
     DataConnectorRampDiscriminatedConnectionSettings,

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import os
-from typing import Any, Dict, List, Union, Mapping, cast
+from typing import Any, Dict, List, Union, Mapping, Optional, cast
 from typing_extensions import Self, Literal, override
 
 import httpx
@@ -568,6 +568,7 @@ class Openint(SyncAPIClient):
                 "moota",
                 "notion",
                 "onebrick",
+                "openledger",
                 "outreach",
                 "pipedrive",
                 "plaid",
@@ -596,6 +597,7 @@ class Openint(SyncAPIClient):
         expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
+        search_query: Optional[str] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -633,6 +635,7 @@ class Openint(SyncAPIClient):
                         "expand": expand,
                         "limit": limit,
                         "offset": offset,
+                        "search_query": search_query,
                     },
                     client_list_connection_configs_params.ClientListConnectionConfigsParams,
                 ),
@@ -682,6 +685,7 @@ class Openint(SyncAPIClient):
                 "moota",
                 "notion",
                 "onebrick",
+                "openledger",
                 "outreach",
                 "pipedrive",
                 "plaid",
@@ -712,6 +716,7 @@ class Openint(SyncAPIClient):
         include_secrets: bool | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
+        search_query: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -762,6 +767,7 @@ class Openint(SyncAPIClient):
                         "include_secrets": include_secrets,
                         "limit": limit,
                         "offset": offset,
+                        "search_query": search_query,
                     },
                     client_list_connections_params.ClientListConnectionsParams,
                 ),
@@ -1352,6 +1358,7 @@ class AsyncOpenint(AsyncAPIClient):
                 "moota",
                 "notion",
                 "onebrick",
+                "openledger",
                 "outreach",
                 "pipedrive",
                 "plaid",
@@ -1380,6 +1387,7 @@ class AsyncOpenint(AsyncAPIClient):
         expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
+        search_query: Optional[str] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -1417,6 +1425,7 @@ class AsyncOpenint(AsyncAPIClient):
                         "expand": expand,
                         "limit": limit,
                         "offset": offset,
+                        "search_query": search_query,
                     },
                     client_list_connection_configs_params.ClientListConnectionConfigsParams,
                 ),
@@ -1466,6 +1475,7 @@ class AsyncOpenint(AsyncAPIClient):
                 "moota",
                 "notion",
                 "onebrick",
+                "openledger",
                 "outreach",
                 "pipedrive",
                 "plaid",
@@ -1496,6 +1506,7 @@ class AsyncOpenint(AsyncAPIClient):
         include_secrets: bool | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
+        search_query: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -1546,6 +1557,7 @@ class AsyncOpenint(AsyncAPIClient):
                         "include_secrets": include_secrets,
                         "limit": limit,
                         "offset": offset,
+                        "search_query": search_query,
                     },
                     client_list_connections_params.ClientListConnectionsParams,
                 ),
