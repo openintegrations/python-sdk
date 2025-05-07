@@ -73,14 +73,12 @@ class Openint(SyncAPIClient):
     with_streaming_response: OpenintWithStreamedResponse
 
     # client options
-    api_key: str | None
-    customer_token: str | None
+    token: str | None
 
     def __init__(
         self,
         *,
-        api_key: str | None = None,
-        customer_token: str | None = None,
+        token: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -102,13 +100,11 @@ class Openint(SyncAPIClient):
     ) -> None:
         """Construct a new synchronous Openint client instance.
 
-        This automatically infers the `api_key` argument from the `OPENINT_API_KEY` environment variable if it is not provided.
+        This automatically infers the `token` argument from the `OPENINT_API_KEY_OR_CUSTOMER_TOKEN` environment variable if it is not provided.
         """
-        if api_key is None:
-            api_key = os.environ.get("OPENINT_API_KEY")
-        self.api_key = api_key
-
-        self.customer_token = customer_token
+        if token is None:
+            token = os.environ.get("OPENINT_API_KEY_OR_CUSTOMER_TOKEN")
+        self.token = token
 
         if base_url is None:
             base_url = os.environ.get("OPENINT_BASE_URL")
@@ -137,21 +133,10 @@ class Openint(SyncAPIClient):
     @property
     @override
     def auth_headers(self) -> dict[str, str]:
-        return {**self._api_key, **self._customer_token}
-
-    @property
-    def _api_key(self) -> dict[str, str]:
-        api_key = self.api_key
-        if api_key is None:
+        token = self.token
+        if token is None:
             return {}
-        return {"Authorization": f"Bearer {api_key}"}
-
-    @property
-    def _customer_token(self) -> dict[str, str]:
-        customer_token = self.customer_token
-        if customer_token is None:
-            return {}
-        return {"Authorization": f"Bearer {customer_token}"}
+        return {"Authorization": f"Bearer {token}"}
 
     @property
     @override
@@ -164,25 +149,19 @@ class Openint(SyncAPIClient):
 
     @override
     def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
-        if self.api_key and headers.get("Authorization"):
-            return
-        if isinstance(custom_headers.get("Authorization"), Omit):
-            return
-
-        if self.customer_token and headers.get("Authorization"):
+        if self.token and headers.get("Authorization"):
             return
         if isinstance(custom_headers.get("Authorization"), Omit):
             return
 
         raise TypeError(
-            '"Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `Authorization` or `Authorization` headers to be explicitly omitted"'
+            '"Could not resolve authentication method. Expected the token to be set. Or for the `Authorization` headers to be explicitly omitted"'
         )
 
     def copy(
         self,
         *,
-        api_key: str | None = None,
-        customer_token: str | None = None,
+        token: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
         http_client: httpx.Client | None = None,
@@ -216,8 +195,7 @@ class Openint(SyncAPIClient):
 
         http_client = http_client or self._client
         return self.__class__(
-            api_key=api_key or self.api_key,
-            customer_token=customer_token or self.customer_token,
+            token=token or self.token,
             base_url=base_url or self.base_url,
             timeout=self.timeout if isinstance(timeout, NotGiven) else timeout,
             http_client=http_client,
@@ -863,14 +841,12 @@ class AsyncOpenint(AsyncAPIClient):
     with_streaming_response: AsyncOpenintWithStreamedResponse
 
     # client options
-    api_key: str | None
-    customer_token: str | None
+    token: str | None
 
     def __init__(
         self,
         *,
-        api_key: str | None = None,
-        customer_token: str | None = None,
+        token: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -892,13 +868,11 @@ class AsyncOpenint(AsyncAPIClient):
     ) -> None:
         """Construct a new async AsyncOpenint client instance.
 
-        This automatically infers the `api_key` argument from the `OPENINT_API_KEY` environment variable if it is not provided.
+        This automatically infers the `token` argument from the `OPENINT_API_KEY_OR_CUSTOMER_TOKEN` environment variable if it is not provided.
         """
-        if api_key is None:
-            api_key = os.environ.get("OPENINT_API_KEY")
-        self.api_key = api_key
-
-        self.customer_token = customer_token
+        if token is None:
+            token = os.environ.get("OPENINT_API_KEY_OR_CUSTOMER_TOKEN")
+        self.token = token
 
         if base_url is None:
             base_url = os.environ.get("OPENINT_BASE_URL")
@@ -927,21 +901,10 @@ class AsyncOpenint(AsyncAPIClient):
     @property
     @override
     def auth_headers(self) -> dict[str, str]:
-        return {**self._api_key, **self._customer_token}
-
-    @property
-    def _api_key(self) -> dict[str, str]:
-        api_key = self.api_key
-        if api_key is None:
+        token = self.token
+        if token is None:
             return {}
-        return {"Authorization": f"Bearer {api_key}"}
-
-    @property
-    def _customer_token(self) -> dict[str, str]:
-        customer_token = self.customer_token
-        if customer_token is None:
-            return {}
-        return {"Authorization": f"Bearer {customer_token}"}
+        return {"Authorization": f"Bearer {token}"}
 
     @property
     @override
@@ -954,25 +917,19 @@ class AsyncOpenint(AsyncAPIClient):
 
     @override
     def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
-        if self.api_key and headers.get("Authorization"):
-            return
-        if isinstance(custom_headers.get("Authorization"), Omit):
-            return
-
-        if self.customer_token and headers.get("Authorization"):
+        if self.token and headers.get("Authorization"):
             return
         if isinstance(custom_headers.get("Authorization"), Omit):
             return
 
         raise TypeError(
-            '"Could not resolve authentication method. Expected either api_key or customer_token to be set. Or for one of the `Authorization` or `Authorization` headers to be explicitly omitted"'
+            '"Could not resolve authentication method. Expected the token to be set. Or for the `Authorization` headers to be explicitly omitted"'
         )
 
     def copy(
         self,
         *,
-        api_key: str | None = None,
-        customer_token: str | None = None,
+        token: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
         http_client: httpx.AsyncClient | None = None,
@@ -1006,8 +963,7 @@ class AsyncOpenint(AsyncAPIClient):
 
         http_client = http_client or self._client
         return self.__class__(
-            api_key=api_key or self.api_key,
-            customer_token=customer_token or self.customer_token,
+            token=token or self.token,
             base_url=base_url or self.base_url,
             timeout=self.timeout if isinstance(timeout, NotGiven) else timeout,
             http_client=http_client,
