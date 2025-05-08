@@ -396,6 +396,7 @@ class TestClient:
             expand=["connector"],
             limit=0,
             offset=0,
+            search_query="search_query",
         )
         assert_matches_type(SyncOffsetPagination[ListConnectionConfigsResponse], client_, path=["response"])
 
@@ -438,6 +439,7 @@ class TestClient:
             include_secrets=True,
             limit=0,
             offset=0,
+            search_query="search_query",
         )
         assert_matches_type(SyncOffsetPagination[ListConnectionsResponse], client_, path=["response"])
 
@@ -872,6 +874,7 @@ class TestAsyncClient:
             expand=["connector"],
             limit=0,
             offset=0,
+            search_query="search_query",
         )
         assert_matches_type(AsyncOffsetPagination[ListConnectionConfigsResponse], client, path=["response"])
 
@@ -914,6 +917,7 @@ class TestAsyncClient:
             include_secrets=True,
             limit=0,
             offset=0,
+            search_query="search_query",
         )
         assert_matches_type(AsyncOffsetPagination[ListConnectionsResponse], client, path=["response"])
 

@@ -299,6 +299,12 @@ __all__ = [
     "ConnectorOnebrickDiscriminatedConnectorConfigConnectorSchemas",
     "ConnectorOnebrickDiscriminatedConnectorConfigConnectorScope",
     "ConnectorOnebrickDiscriminatedConnectorConfigIntegrations",
+    "ConnectorOpenledgerDiscriminatedConnectorConfig",
+    "ConnectorOpenledgerDiscriminatedConnectorConfigConfig",
+    "ConnectorOpenledgerDiscriminatedConnectorConfigConnector",
+    "ConnectorOpenledgerDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorOpenledgerDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorOpenledgerDiscriminatedConnectorConfigIntegrations",
     "ConnectorPlaidDiscriminatedConnectorConfig",
     "ConnectorPlaidDiscriminatedConnectorConfigConfig",
     "ConnectorPlaidDiscriminatedConnectorConfigConfigCredentials",
@@ -417,11 +423,11 @@ class ConnectorAcmeOauth2DiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorAcmeOauth2DiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -474,6 +480,7 @@ class ConnectorAcmeOauth2DiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -595,11 +602,11 @@ class ConnectorAircallDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorAircallDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -652,6 +659,7 @@ class ConnectorAircallDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -773,11 +781,11 @@ class ConnectorConfluenceDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorConfluenceDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -830,6 +838,7 @@ class ConnectorConfluenceDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -951,11 +960,11 @@ class ConnectorDiscordDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorDiscordDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -1008,6 +1017,7 @@ class ConnectorDiscordDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -1129,11 +1139,11 @@ class ConnectorFacebookDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorFacebookDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -1186,6 +1196,7 @@ class ConnectorFacebookDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -1307,11 +1318,11 @@ class ConnectorGitHubDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorGitHubDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -1364,6 +1375,7 @@ class ConnectorGitHubDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -1485,11 +1497,11 @@ class ConnectorGongDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorGongDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -1542,6 +1554,7 @@ class ConnectorGongDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -1663,11 +1676,11 @@ class ConnectorGoogleCalendarDiscriminatedConnectorConfigConnectorScope(BaseMode
 class ConnectorGoogleCalendarDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -1720,6 +1733,7 @@ class ConnectorGoogleCalendarDiscriminatedConnectorConfigIntegrations(BaseModel)
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -1841,11 +1855,11 @@ class ConnectorGoogleDocsDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorGoogleDocsDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -1898,6 +1912,7 @@ class ConnectorGoogleDocsDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -2019,11 +2034,11 @@ class ConnectorGoogleDriveDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorGoogleDriveDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -2076,6 +2091,7 @@ class ConnectorGoogleDriveDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -2197,11 +2213,11 @@ class ConnectorGoogleMailDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorGoogleMailDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -2254,6 +2270,7 @@ class ConnectorGoogleMailDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -2375,11 +2392,11 @@ class ConnectorGoogleSheetDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorGoogleSheetDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -2432,6 +2449,7 @@ class ConnectorGoogleSheetDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -2553,11 +2571,11 @@ class ConnectorHubspotDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorHubspotDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -2610,6 +2628,7 @@ class ConnectorHubspotDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -2731,11 +2750,11 @@ class ConnectorInstagramDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorInstagramDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -2788,6 +2807,7 @@ class ConnectorInstagramDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -2909,11 +2929,11 @@ class ConnectorIntercomDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorIntercomDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -2966,6 +2986,7 @@ class ConnectorIntercomDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -3087,11 +3108,11 @@ class ConnectorJiraDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorJiraDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -3144,6 +3165,7 @@ class ConnectorJiraDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -3265,11 +3287,11 @@ class ConnectorLeverDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorLeverDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -3322,6 +3344,7 @@ class ConnectorLeverDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -3443,11 +3466,11 @@ class ConnectorLinearDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorLinearDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -3500,6 +3523,7 @@ class ConnectorLinearDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -3621,11 +3645,11 @@ class ConnectorLinkedinDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorLinkedinDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -3678,6 +3702,7 @@ class ConnectorLinkedinDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -3799,11 +3824,11 @@ class ConnectorNotionDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorNotionDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -3856,6 +3881,7 @@ class ConnectorNotionDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -3977,11 +4003,11 @@ class ConnectorOutreachDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorOutreachDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -4034,6 +4060,7 @@ class ConnectorOutreachDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -4155,11 +4182,11 @@ class ConnectorPipedriveDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorPipedriveDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -4212,6 +4239,7 @@ class ConnectorPipedriveDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -4335,11 +4363,11 @@ class ConnectorQuickbooksDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorQuickbooksDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -4392,6 +4420,7 @@ class ConnectorQuickbooksDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -4513,11 +4542,11 @@ class ConnectorRedditDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorRedditDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -4570,6 +4599,7 @@ class ConnectorRedditDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -4691,11 +4721,11 @@ class ConnectorSalesloftDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorSalesloftDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -4748,6 +4778,7 @@ class ConnectorSalesloftDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -4869,11 +4900,11 @@ class ConnectorSharepointDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorSharepointDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -4926,6 +4957,7 @@ class ConnectorSharepointDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -5047,11 +5079,11 @@ class ConnectorSlackDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorSlackDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -5104,6 +5136,7 @@ class ConnectorSlackDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -5225,11 +5258,11 @@ class ConnectorTwitterDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorTwitterDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -5282,6 +5315,7 @@ class ConnectorTwitterDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -5403,11 +5437,11 @@ class ConnectorXeroDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorXeroDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -5460,6 +5494,7 @@ class ConnectorXeroDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -5581,11 +5616,11 @@ class ConnectorZohoDeskDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorZohoDeskDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -5638,6 +5673,7 @@ class ConnectorZohoDeskDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -5743,11 +5779,11 @@ class ConnectorAirtableDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorAirtableDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -5800,6 +5836,7 @@ class ConnectorAirtableDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -5905,11 +5942,11 @@ class ConnectorApolloDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorApolloDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -5962,6 +5999,7 @@ class ConnectorApolloDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -6081,11 +6119,11 @@ class ConnectorBrexDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorBrexDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -6138,6 +6176,7 @@ class ConnectorBrexDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -6243,11 +6282,11 @@ class ConnectorCodaDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorCodaDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -6300,6 +6339,7 @@ class ConnectorCodaDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -6422,11 +6462,11 @@ class ConnectorFinchDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorFinchDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -6479,6 +6519,7 @@ class ConnectorFinchDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -6584,11 +6625,11 @@ class ConnectorFirebaseDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorFirebaseDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -6641,6 +6682,7 @@ class ConnectorFirebaseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -6746,11 +6788,11 @@ class ConnectorForeceiptDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorForeceiptDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -6803,6 +6845,7 @@ class ConnectorForeceiptDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -6908,11 +6951,11 @@ class ConnectorGreenhouseDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorGreenhouseDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -6965,6 +7008,7 @@ class ConnectorGreenhouseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -7074,11 +7118,11 @@ class ConnectorHeronDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorHeronDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -7131,6 +7175,7 @@ class ConnectorHeronDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -7240,11 +7285,11 @@ class ConnectorLunchmoneyDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorLunchmoneyDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -7297,6 +7342,7 @@ class ConnectorLunchmoneyDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -7416,11 +7462,11 @@ class ConnectorMercuryDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorMercuryDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -7473,6 +7519,7 @@ class ConnectorMercuryDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -7582,11 +7629,11 @@ class ConnectorMergeDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorMergeDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -7639,6 +7686,7 @@ class ConnectorMergeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -7748,11 +7796,11 @@ class ConnectorMootaDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorMootaDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -7805,6 +7853,7 @@ class ConnectorMootaDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -7924,11 +7973,11 @@ class ConnectorOnebrickDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorOnebrickDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -7981,6 +8030,7 @@ class ConnectorOnebrickDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -8046,6 +8096,183 @@ class ConnectorOnebrickDiscriminatedConnectorConfig(BaseModel):
     display_name: Optional[str] = None
 
     integrations: Optional[Dict[str, ConnectorOnebrickDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorOpenledgerDiscriminatedConnectorConfigConfig(BaseModel):
+    api_url: str
+    """API endpoint"""
+
+    developer_id: str
+    """Your developer ID for authentication"""
+
+    developer_secret: str
+    """Your developer secret"""
+
+    environment: Literal["development", "production"]
+    """Switch to "production" for live data"""
+
+
+class ConnectorOpenledgerDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorOpenledgerDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorOpenledgerDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
+
+    display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
+
+    logo_url: Optional[str] = None
+
+    openint_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorOpenledgerDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorOpenledgerDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorOpenledgerDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "openledger",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepoint",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorOpenledgerDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorOpenledgerDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["openledger"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorOpenledgerDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorOpenledgerDiscriminatedConnectorConfigIntegrations]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -8133,11 +8360,11 @@ class ConnectorPlaidDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorPlaidDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -8190,6 +8417,7 @@ class ConnectorPlaidDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -8295,11 +8523,11 @@ class ConnectorPostgresDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorPostgresDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -8352,6 +8580,7 @@ class ConnectorPostgresDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -8467,11 +8696,11 @@ class ConnectorRampDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorRampDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -8524,6 +8753,7 @@ class ConnectorRampDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -8637,11 +8867,11 @@ class ConnectorSaltedgeDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorSaltedgeDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -8694,6 +8924,7 @@ class ConnectorSaltedgeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -8799,11 +9030,11 @@ class ConnectorSplitwiseDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorSplitwiseDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -8856,6 +9087,7 @@ class ConnectorSplitwiseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -8975,11 +9207,11 @@ class ConnectorStripeDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorStripeDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -9032,6 +9264,7 @@ class ConnectorStripeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -9143,11 +9376,11 @@ class ConnectorTellerDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorTellerDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -9200,6 +9433,7 @@ class ConnectorTellerDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -9305,11 +9539,11 @@ class ConnectorTogglDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorTogglDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -9362,6 +9596,7 @@ class ConnectorTogglDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -9467,11 +9702,11 @@ class ConnectorTwentyDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorTwentyDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -9524,6 +9759,7 @@ class ConnectorTwentyDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -9643,11 +9879,11 @@ class ConnectorVenmoDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorVenmoDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -9700,6 +9936,7 @@ class ConnectorVenmoDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -9805,11 +10042,11 @@ class ConnectorWiseDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorWiseDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -9862,6 +10099,7 @@ class ConnectorWiseDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -9987,11 +10225,11 @@ class ConnectorYodleeDiscriminatedConnectorConfigConnectorScope(BaseModel):
 class ConnectorYodleeDiscriminatedConnectorConfigConnector(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     logo_url: Optional[str] = None
 
@@ -10044,6 +10282,7 @@ class ConnectorYodleeDiscriminatedConnectorConfigIntegrations(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -10167,6 +10406,7 @@ ListConnectionConfigsResponse: TypeAlias = Union[
     ConnectorMergeDiscriminatedConnectorConfig,
     ConnectorMootaDiscriminatedConnectorConfig,
     ConnectorOnebrickDiscriminatedConnectorConfig,
+    ConnectorOpenledgerDiscriminatedConnectorConfig,
     ConnectorPlaidDiscriminatedConnectorConfig,
     ConnectorPostgresDiscriminatedConnectorConfig,
     ConnectorRampDiscriminatedConnectorConfig,

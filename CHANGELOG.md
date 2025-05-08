@@ -1,23 +1,5 @@
 # Changelog
 
-## 1.6.0 (2025-04-29)
-
-Full Changelog: [v1.5.0...v1.6.0](https://github.com/openintegrations/python-sdk/compare/v1.5.0...v1.6.0)
-
-### Features
-
-* **docs:** updating documented docs for stainless ([894766b](https://github.com/openintegrations/python-sdk/commit/894766b4eb1e79fea8f69e665c43949a4fb997ab))
-* **docs:** updating documented docs for stainless ([656f9df](https://github.com/openintegrations/python-sdk/commit/656f9df38b872e00b3a40750c44b9349e9055e89))
-* **docs:** updating documented docs for stainless ([6a870da](https://github.com/openintegrations/python-sdk/commit/6a870da7731185f03182bc6608b189ad2565efba))
-
-
-### Chores
-
-* broadly detect json family of content-type headers ([900745b](https://github.com/openintegrations/python-sdk/commit/900745b8a05d6fe02ada55b2072927808db9ff61))
-* **ci:** only use depot for staging repos ([ccd3ab3](https://github.com/openintegrations/python-sdk/commit/ccd3ab3fc8908d94ae1010d1d86a54da6d4b6ad1))
-* **internal:** codegen related update ([4c57bbc](https://github.com/openintegrations/python-sdk/commit/4c57bbcf4b1f97ae9783631b414f2746f874d149))
-* **internal:** minor formatting changes ([17c8baa](https://github.com/openintegrations/python-sdk/commit/17c8baabef0340e6d2fdcade1588f139a4601676))
-
 ## 1.5.0 (2025-04-23)
 
 Full Changelog: [v1.4.0...v1.5.0](https://github.com/openintegrations/python-sdk/compare/v1.4.0...v1.5.0)

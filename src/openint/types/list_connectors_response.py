@@ -3,8 +3,6 @@
 from typing import Dict, List, Union, Optional
 from typing_extensions import Literal
 
-from pydantic import Field as FieldInfo
-
 from .._models import BaseModel
 
 __all__ = ["ListConnectorsResponse", "Integration", "Schemas", "Scope"]
@@ -48,6 +46,7 @@ class Integration(BaseModel):
         "moota",
         "notion",
         "onebrick",
+        "openledger",
         "outreach",
         "pipedrive",
         "plaid",
@@ -122,11 +121,11 @@ class Scope(BaseModel):
 class ListConnectorsResponse(BaseModel):
     name: str
 
-    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = FieldInfo(
-        alias="authType", default=None
-    )
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
 
     display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
 
     integrations: Optional[List[Integration]] = None
 
