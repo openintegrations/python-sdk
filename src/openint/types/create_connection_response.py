@@ -162,6 +162,8 @@ __all__ = [
     "ConnectorMootaDiscriminatedConnectionSettings",
     "ConnectorOnebrickDiscriminatedConnectionSettings",
     "ConnectorOnebrickDiscriminatedConnectionSettingsSettings",
+    "ConnectorOpenledgerDiscriminatedConnectionSettings",
+    "ConnectorOpenledgerDiscriminatedConnectionSettingsSettings",
     "ConnectorPlaidDiscriminatedConnectionSettings",
     "ConnectorPlaidDiscriminatedConnectionSettingsSettings",
     "ConnectorPostgresDiscriminatedConnectionSettings",
@@ -2878,6 +2880,44 @@ class ConnectorOnebrickDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorOpenledgerDiscriminatedConnectionSettingsSettings(BaseModel):
+    entity_id: str
+    """Your entity's identifier, aka customer ID"""
+
+
+class ConnectorOpenledgerDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["openledger"]
+
+    id: Optional[str] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    settings: Optional[ConnectorOpenledgerDiscriminatedConnectionSettingsSettings] = None
+
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
+
+    status_message: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorPlaidDiscriminatedConnectionSettingsSettings(BaseModel):
     access_token: str = FieldInfo(alias="accessToken")
 
@@ -3493,6 +3533,7 @@ CreateConnectionResponse: TypeAlias = Union[
     ConnectorMergeDiscriminatedConnectionSettings,
     ConnectorMootaDiscriminatedConnectionSettings,
     ConnectorOnebrickDiscriminatedConnectionSettings,
+    ConnectorOpenledgerDiscriminatedConnectionSettings,
     ConnectorPlaidDiscriminatedConnectionSettings,
     ConnectorPostgresDiscriminatedConnectionSettings,
     ConnectorRampDiscriminatedConnectionSettings,

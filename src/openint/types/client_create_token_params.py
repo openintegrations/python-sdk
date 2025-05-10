@@ -51,6 +51,7 @@ class ConnectOptions(TypedDict, total=False):
             "moota",
             "notion",
             "onebrick",
+            "openledger",
             "outreach",
             "pipedrive",
             "plaid",
