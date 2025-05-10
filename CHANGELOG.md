@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.6.1 (2025-05-10)
+
+Full Changelog: [v1.6.0...v1.6.1](https://github.com/openintegrations/python-sdk/compare/v1.6.0...v1.6.1)
+
+### Chores
+
+* **internal:** avoid errors for isinstance checks on proxies ([9ee5f5e](https://github.com/openintegrations/python-sdk/commit/9ee5f5e1d27707d72f2493b0c1ea1670d04a2852))
+* **internal:** avoid lint errors in pagination expressions ([8bac923](https://github.com/openintegrations/python-sdk/commit/8bac923acbe2aa243c01d6e066b171370e04cceb))
+* remove custom code ([e353f63](https://github.com/openintegrations/python-sdk/commit/e353f63ea4a699a6980138facc41d7b7cfdf67ba))
+* sync repo ([52ac08c](https://github.com/openintegrations/python-sdk/commit/52ac08c3179acfa776adbde54a3055786a0ba3ea))
+
 ## 1.5.0 (2025-04-23)
 
 Full Changelog: [v1.4.0...v1.5.0](https://github.com/openintegrations/python-sdk/compare/v1.4.0...v1.5.0)
