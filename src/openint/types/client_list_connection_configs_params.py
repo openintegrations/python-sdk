@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import List
+from typing import List, Optional
 from typing_extensions import Literal, TypedDict
 
 __all__ = ["ClientListConnectionConfigsParams"]
@@ -45,6 +45,7 @@ class ClientListConnectionConfigsParams(TypedDict, total=False):
             "moota",
             "notion",
             "onebrick",
+            "openledger",
             "outreach",
             "pipedrive",
             "plaid",
@@ -77,3 +78,5 @@ class ClientListConnectionConfigsParams(TypedDict, total=False):
 
     offset: int
     """Offset the items returned"""
+
+    search_query: Optional[str]

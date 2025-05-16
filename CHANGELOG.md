@@ -1,22 +1,22 @@
 # Changelog
 
-## 1.6.0 (2025-04-29)
+## 1.6.1 (2025-05-16)
 
-Full Changelog: [v1.5.0...v1.6.0](https://github.com/openintegrations/python-sdk/compare/v1.5.0...v1.6.0)
+Full Changelog: [v1.6.0...v1.6.1](https://github.com/openintegrations/python-sdk/compare/v1.6.0...v1.6.1)
 
-### Features
+### Bug Fixes
 
-* **docs:** updating documented docs for stainless ([894766b](https://github.com/openintegrations/python-sdk/commit/894766b4eb1e79fea8f69e665c43949a4fb997ab))
-* **docs:** updating documented docs for stainless ([656f9df](https://github.com/openintegrations/python-sdk/commit/656f9df38b872e00b3a40750c44b9349e9055e89))
-* **docs:** updating documented docs for stainless ([6a870da](https://github.com/openintegrations/python-sdk/commit/6a870da7731185f03182bc6608b189ad2565efba))
+* **package:** support direct resource imports ([f5c4e06](https://github.com/openintegrations/python-sdk/commit/f5c4e06c3c0477290c15c0827727d47f058348ca))
 
 
 ### Chores
 
-* broadly detect json family of content-type headers ([900745b](https://github.com/openintegrations/python-sdk/commit/900745b8a05d6fe02ada55b2072927808db9ff61))
-* **ci:** only use depot for staging repos ([ccd3ab3](https://github.com/openintegrations/python-sdk/commit/ccd3ab3fc8908d94ae1010d1d86a54da6d4b6ad1))
-* **internal:** codegen related update ([4c57bbc](https://github.com/openintegrations/python-sdk/commit/4c57bbcf4b1f97ae9783631b414f2746f874d149))
-* **internal:** minor formatting changes ([17c8baa](https://github.com/openintegrations/python-sdk/commit/17c8baabef0340e6d2fdcade1588f139a4601676))
+* **ci:** fix installation instructions ([da67dbd](https://github.com/openintegrations/python-sdk/commit/da67dbd9f87c61c0c2348764a0b6242644056b56))
+* **ci:** upload sdks to package manager ([129ef64](https://github.com/openintegrations/python-sdk/commit/129ef6470c9fe83c70c3ca808fa40c0881854ba0))
+* **internal:** avoid errors for isinstance checks on proxies ([9ee5f5e](https://github.com/openintegrations/python-sdk/commit/9ee5f5e1d27707d72f2493b0c1ea1670d04a2852))
+* **internal:** avoid lint errors in pagination expressions ([8bac923](https://github.com/openintegrations/python-sdk/commit/8bac923acbe2aa243c01d6e066b171370e04cceb))
+* remove custom code ([e353f63](https://github.com/openintegrations/python-sdk/commit/e353f63ea4a699a6980138facc41d7b7cfdf67ba))
+* sync repo ([52ac08c](https://github.com/openintegrations/python-sdk/commit/52ac08c3179acfa776adbde54a3055786a0ba3ea))
 
 ## 1.5.0 (2025-04-23)
 

@@ -48,6 +48,7 @@ class ClientListConnectionsParams(TypedDict, total=False):
             "moota",
             "notion",
             "onebrick",
+            "openledger",
             "outreach",
             "pipedrive",
             "plaid",
@@ -89,3 +90,5 @@ class ClientListConnectionsParams(TypedDict, total=False):
 
     offset: int
     """Offset the items returned"""
+
+    search_query: str

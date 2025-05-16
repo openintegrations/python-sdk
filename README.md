@@ -28,17 +28,19 @@ import os
 from openint import Openint
 
 client = Openint(
-    api_key=os.environ.get("OPENINT_API_KEY"),  # This is the default and can be omitted
+    token=os.environ.get(
+        "OPENINT_API_KEY_OR_CUSTOMER_TOKEN"
+    ),  # This is the default and can be omitted
 )
 
 page = client.list_connections()
 print(page.items)
 ```
 
-While you can provide an `api_key` keyword argument,
+While you can provide a `token` keyword argument,
 we recommend using [python-dotenv](https://pypi.org/project/python-dotenv/)
-to add `OPENINT_API_KEY="My API Key"` to your `.env` file
-so that your API Key is not stored in source control.
+to add `OPENINT_API_KEY_OR_CUSTOMER_TOKEN="My Token"` to your `.env` file
+so that your Token is not stored in source control.
 
 ## Async usage
 
@@ -50,7 +52,9 @@ import asyncio
 from openint import AsyncOpenint
 
 client = AsyncOpenint(
-    api_key=os.environ.get("OPENINT_API_KEY"),  # This is the default and can be omitted
+    token=os.environ.get(
+        "OPENINT_API_KEY_OR_CUSTOMER_TOKEN"
+    ),  # This is the default and can be omitted
 )
 
 
