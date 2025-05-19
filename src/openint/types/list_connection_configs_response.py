@@ -4330,8 +4330,6 @@ class ConnectorQuickbooksDiscriminatedConnectorConfigConfigOAuth(BaseModel):
 
 
 class ConnectorQuickbooksDiscriminatedConnectorConfigConfig(BaseModel):
-    env_name: Literal["sandbox", "production"] = FieldInfo(alias="envName")
-
     oauth: Optional[ConnectorQuickbooksDiscriminatedConnectorConfigConfigOAuth] = None
     """Base oauth configuration for the connector"""
 

@@ -1180,9 +1180,6 @@ class DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth(TypedD
 class DataConnectorQuickbooksDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth]
 
-    realm_id: Required[Annotated[str, PropertyInfo(alias="realmId")]]
-    """The realmId of your quickbooks company (e.g., 9341453474484455)"""
-
 
 class DataConnectorQuickbooksDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["quickbooks"]]
