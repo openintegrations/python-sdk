@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.0 (2025-05-19)
+
+Full Changelog: [v2.0.0...v2.1.0](https://github.com/openintegrations/python-sdk/compare/v2.0.0...v2.1.0)
+
+### Features
+
+* **api:** adding message template ([85b7294](https://github.com/openintegrations/python-sdk/commit/85b729443bfe6aed5b5e1335a058ea721a425ec8))
+* **api:** scheme sync ([db2b3f4](https://github.com/openintegrations/python-sdk/commit/db2b3f4d82a2a498b4b67eadc5191a3e1ff28220))
+* **docs:** updating documented docs for stainless ([b5af4c3](https://github.com/openintegrations/python-sdk/commit/b5af4c3102c40db19cac6fbac2968b2d453e2764))
+
 ## 2.0.0 (2025-05-19)
 
 Full Changelog: [v1.6.1...v2.0.0](https://github.com/openintegrations/python-sdk/compare/v1.6.1...v2.0.0)
