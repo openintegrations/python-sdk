@@ -18,6 +18,7 @@ from openint.types import (
     ListConnectionsResponse,
     CreateConnectionResponse,
     DeleteConnectionResponse,
+    GetMessageTemplateResponse,
     ListConnectionConfigsResponse,
 )
 from openint.pagination import SyncOffsetPagination, AsyncOffsetPagination
@@ -321,6 +322,50 @@ class TestClient:
 
             client_ = response.parse()
             assert_matches_type(GetCurrentUserResponse, client_, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_get_message_template(self, client: Openint) -> None:
+        client_ = client.get_message_template(
+            customer_id="customerId",
+        )
+        assert_matches_type(GetMessageTemplateResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_get_message_template_with_all_params(self, client: Openint) -> None:
+        client_ = client.get_message_template(
+            customer_id="customerId",
+            language="javascript",
+            use_environment_variables=True,
+        )
+        assert_matches_type(GetMessageTemplateResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_raw_response_get_message_template(self, client: Openint) -> None:
+        response = client.with_raw_response.get_message_template(
+            customer_id="customerId",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client_ = response.parse()
+        assert_matches_type(GetMessageTemplateResponse, client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_streaming_response_get_message_template(self, client: Openint) -> None:
+        with client.with_streaming_response.get_message_template(
+            customer_id="customerId",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client_ = response.parse()
+            assert_matches_type(GetMessageTemplateResponse, client_, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -743,6 +788,50 @@ class TestAsyncClient:
 
             client = await response.parse()
             assert_matches_type(GetCurrentUserResponse, client, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_get_message_template(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.get_message_template(
+            customer_id="customerId",
+        )
+        assert_matches_type(GetMessageTemplateResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_get_message_template_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.get_message_template(
+            customer_id="customerId",
+            language="javascript",
+            use_environment_variables=True,
+        )
+        assert_matches_type(GetMessageTemplateResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_raw_response_get_message_template(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.get_message_template(
+            customer_id="customerId",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client = await response.parse()
+        assert_matches_type(GetMessageTemplateResponse, client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_streaming_response_get_message_template(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.get_message_template(
+            customer_id="customerId",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client = await response.parse()
+            assert_matches_type(GetMessageTemplateResponse, client, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
