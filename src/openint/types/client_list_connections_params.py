@@ -91,4 +91,10 @@ class ClientListConnectionsParams(TypedDict, total=False):
     offset: int
     """Offset the items returned"""
 
+    refresh_policy: Literal["none", "force", "auto"]
+    """
+    Controls credential refresh: none (never), force (always), or auto (when
+    expired, default)
+    """
+
     search_query: str

@@ -24,9 +24,14 @@ pip install openint
 The full API of this library can be found in [api.md](api.md).
 
 ```python
+import os
 from openint import Openint
 
-client = Openint()
+client = Openint(
+    token=os.environ.get(
+        "OPENINT_API_KEY_OR_CUSTOMER_TOKEN_OR_CUSTOMER_API_KEY"
+    ),  # This is the default and can be omitted
+)
 
 page = client.list_connections()
 print(page.items)
@@ -42,10 +47,15 @@ so that your Token is not stored in source control.
 Simply import `AsyncOpenint` instead of `Openint` and use `await` with each API call:
 
 ```python
+import os
 import asyncio
 from openint import AsyncOpenint
 
-client = AsyncOpenint()
+client = AsyncOpenint(
+    token=os.environ.get(
+        "OPENINT_API_KEY_OR_CUSTOMER_TOKEN_OR_CUSTOMER_API_KEY"
+    ),  # This is the default and can be omitted
+)
 
 
 async def main() -> None:
@@ -76,7 +86,7 @@ from openint import Openint
 
 client = Openint()
 
-response = client.create_magic_link(
+response = client.create_token(
     customer_id="x",
     connect_options={
         "connector_names": ["acme-oauth2"],
