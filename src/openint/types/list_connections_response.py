@@ -590,6 +590,12 @@ class ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuth(BaseModel)
 class ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuth
 
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class ConnectorAcmeOauth2DiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["acme-oauth2"]
@@ -794,6 +800,12 @@ class ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 
 class ConnectorAircallDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth
+
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class ConnectorAircallDiscriminatedConnectionSettings(BaseModel):
@@ -1000,6 +1012,12 @@ class ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuth(BaseModel)
 class ConnectorConfluenceDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuth
 
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class ConnectorConfluenceDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["confluence"]
@@ -1204,6 +1222,12 @@ class ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 
 class ConnectorDiscordDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuth
+
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class ConnectorDiscordDiscriminatedConnectionSettings(BaseModel):
@@ -1410,6 +1434,12 @@ class ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 class ConnectorFacebookDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuth
 
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class ConnectorFacebookDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["facebook"]
@@ -1614,6 +1644,12 @@ class ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 
 class ConnectorGitHubDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuth
+
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class ConnectorGitHubDiscriminatedConnectionSettings(BaseModel):
@@ -1823,6 +1859,12 @@ class ConnectorGongDiscriminatedConnectionSettingsSettings(BaseModel):
 
     oauth: ConnectorGongDiscriminatedConnectionSettingsSettingsOAuth
 
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class ConnectorGongDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["gong"]
@@ -2027,6 +2069,12 @@ class ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuth(BaseMo
 
 class ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuth
+
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class ConnectorGoogleCalendarDiscriminatedConnectionSettings(BaseModel):
@@ -2233,6 +2281,12 @@ class ConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuth(BaseModel)
 class ConnectorGoogleDocsDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuth
 
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class ConnectorGoogleDocsDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["google-docs"]
@@ -2437,6 +2491,12 @@ class ConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuth(BaseModel
 
 class ConnectorGoogleDriveDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuth
+
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class ConnectorGoogleDriveDiscriminatedConnectionSettings(BaseModel):
@@ -2643,6 +2703,12 @@ class ConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuth(BaseModel)
 class ConnectorGoogleMailDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuth
 
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class ConnectorGoogleMailDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["google-mail"]
@@ -2847,6 +2913,12 @@ class ConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuth(BaseModel
 
 class ConnectorGoogleSheetDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuth
+
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class ConnectorGoogleSheetDiscriminatedConnectionSettings(BaseModel):
@@ -3053,6 +3125,12 @@ class ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 class ConnectorHubspotDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuth
 
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class ConnectorHubspotDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["hubspot"]
@@ -3257,6 +3335,12 @@ class ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 
 class ConnectorInstagramDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuth
+
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class ConnectorInstagramDiscriminatedConnectionSettings(BaseModel):
@@ -3463,6 +3547,12 @@ class ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 class ConnectorIntercomDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuth
 
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class ConnectorIntercomDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["intercom"]
@@ -3667,6 +3757,12 @@ class ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 
 class ConnectorJiraDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuth
+
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class ConnectorJiraDiscriminatedConnectionSettings(BaseModel):
@@ -3873,6 +3969,12 @@ class ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 class ConnectorLeverDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuth
 
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class ConnectorLeverDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["lever"]
@@ -4077,6 +4179,12 @@ class ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 
 class ConnectorLinearDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuth
+
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class ConnectorLinearDiscriminatedConnectionSettings(BaseModel):
@@ -4283,6 +4391,12 @@ class ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 class ConnectorLinkedinDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuth
 
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class ConnectorLinkedinDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["linkedin"]
@@ -4488,6 +4602,12 @@ class ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 class ConnectorNotionDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuth
 
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class ConnectorNotionDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["notion"]
@@ -4692,6 +4812,12 @@ class ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 
 class ConnectorOutreachDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuth
+
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class ConnectorOutreachDiscriminatedConnectionSettings(BaseModel):
@@ -4901,6 +5027,12 @@ class ConnectorPipedriveDiscriminatedConnectionSettingsSettings(BaseModel):
 
     oauth: ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuth
 
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class ConnectorPipedriveDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["pipedrive"]
@@ -5105,6 +5237,12 @@ class ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth(BaseModel)
 
 class ConnectorQuickbooksDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth
+
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class ConnectorQuickbooksDiscriminatedConnectionSettings(BaseModel):
@@ -5311,6 +5449,12 @@ class ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 class ConnectorRedditDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuth
 
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class ConnectorRedditDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["reddit"]
@@ -5515,6 +5659,12 @@ class ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 
 class ConnectorSalesloftDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth
+
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class ConnectorSalesloftDiscriminatedConnectionSettings(BaseModel):
@@ -5721,6 +5871,12 @@ class ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuth(BaseModel)
 class ConnectorSharepointDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuth
 
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class ConnectorSharepointDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["sharepoint"]
@@ -5925,6 +6081,12 @@ class ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 
 class ConnectorSlackDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth
+
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class ConnectorSlackDiscriminatedConnectionSettings(BaseModel):
@@ -6131,6 +6293,12 @@ class ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 class ConnectorTwitterDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuth
 
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class ConnectorTwitterDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["twitter"]
@@ -6335,6 +6503,12 @@ class ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
 
 class ConnectorXeroDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuth
+
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class ConnectorXeroDiscriminatedConnectionSettings(BaseModel):
@@ -6543,6 +6717,12 @@ class ConnectorZohoDeskDiscriminatedConnectionSettingsSettings(BaseModel):
     """The domain extension of your Zoho account (e.g., https://accounts.zoho.com/)"""
 
     oauth: ConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuth
+
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class ConnectorZohoDeskDiscriminatedConnectionSettings(BaseModel):

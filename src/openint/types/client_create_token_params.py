@@ -12,6 +12,11 @@ class ClientCreateTokenParams(TypedDict, total=False):
     connect_options: ConnectOptions
 
     validity_in_seconds: float
+    """
+    How long the publishable token and magic link url will be valid for (in seconds)
+    before it expires. By default it will be valid for 30 days unless otherwise
+    specified.
+    """
 
 
 class ConnectOptions(TypedDict, total=False):

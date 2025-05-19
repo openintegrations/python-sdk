@@ -76,7 +76,7 @@ from openint import Openint
 
 client = Openint()
 
-response = client.create_magic_link(
+response = client.create_token(
     customer_id="x",
     connect_options={
         "connector_names": ["acme-oauth2"],

@@ -250,6 +250,12 @@ class DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuth(TypedD
 class DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuth]
 
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class DataConnectorAcmeOauth2DiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["acme-oauth2"]]
@@ -291,6 +297,12 @@ class DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth(TypedDict
 
 class DataConnectorAircallDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth]
+
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class DataConnectorAircallDiscriminatedConnectionSettings(TypedDict, total=False):
@@ -334,6 +346,12 @@ class DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuth(TypedD
 class DataConnectorConfluenceDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuth]
 
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class DataConnectorConfluenceDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["confluence"]]
@@ -375,6 +393,12 @@ class DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuth(TypedDict
 
 class DataConnectorDiscordDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuth]
+
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class DataConnectorDiscordDiscriminatedConnectionSettings(TypedDict, total=False):
@@ -418,6 +442,12 @@ class DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuth(TypedDic
 class DataConnectorFacebookDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuth]
 
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class DataConnectorFacebookDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["facebook"]]
@@ -459,6 +489,12 @@ class DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuth(TypedDict,
 
 class DataConnectorGitHubDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuth]
+
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class DataConnectorGitHubDiscriminatedConnectionSettings(TypedDict, total=False):
@@ -505,6 +541,12 @@ class DataConnectorGongDiscriminatedConnectionSettingsSettings(TypedDict, total=
 
     oauth: Required[DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuth]
 
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class DataConnectorGongDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["gong"]]
@@ -546,6 +588,12 @@ class DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuth(Ty
 
 class DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuth]
+
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class DataConnectorGoogleCalendarDiscriminatedConnectionSettings(TypedDict, total=False):
@@ -589,6 +637,12 @@ class DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuth(TypedD
 class DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuth]
 
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class DataConnectorGoogleDocsDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["google-docs"]]
@@ -630,6 +684,12 @@ class DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuth(Typed
 
 class DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuth]
+
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class DataConnectorGoogleDriveDiscriminatedConnectionSettings(TypedDict, total=False):
@@ -673,6 +733,12 @@ class DataConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuth(TypedD
 class DataConnectorGoogleMailDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuth]
 
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class DataConnectorGoogleMailDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["google-mail"]]
@@ -714,6 +780,12 @@ class DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuth(Typed
 
 class DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuth]
+
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class DataConnectorGoogleSheetDiscriminatedConnectionSettings(TypedDict, total=False):
@@ -757,6 +829,12 @@ class DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuth(TypedDict
 class DataConnectorHubspotDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuth]
 
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class DataConnectorHubspotDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["hubspot"]]
@@ -798,6 +876,12 @@ class DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuth(TypedDi
 
 class DataConnectorInstagramDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuth]
+
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class DataConnectorInstagramDiscriminatedConnectionSettings(TypedDict, total=False):
@@ -841,6 +925,12 @@ class DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuth(TypedDic
 class DataConnectorIntercomDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuth]
 
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class DataConnectorIntercomDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["intercom"]]
@@ -882,6 +972,12 @@ class DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, t
 
 class DataConnectorJiraDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuth]
+
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class DataConnectorJiraDiscriminatedConnectionSettings(TypedDict, total=False):
@@ -925,6 +1021,12 @@ class DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, 
 class DataConnectorLeverDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuth]
 
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class DataConnectorLeverDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["lever"]]
@@ -966,6 +1068,12 @@ class DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuth(TypedDict,
 
 class DataConnectorLinearDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuth]
+
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class DataConnectorLinearDiscriminatedConnectionSettings(TypedDict, total=False):
@@ -1009,6 +1117,12 @@ class DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuth(TypedDic
 class DataConnectorLinkedinDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuth]
 
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class DataConnectorLinkedinDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["linkedin"]]
@@ -1051,6 +1165,12 @@ class DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuth(TypedDict,
 class DataConnectorNotionDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuth]
 
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class DataConnectorNotionDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["notion"]]
@@ -1092,6 +1212,12 @@ class DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuth(TypedDic
 
 class DataConnectorOutreachDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuth]
+
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class DataConnectorOutreachDiscriminatedConnectionSettings(TypedDict, total=False):
@@ -1138,6 +1264,12 @@ class DataConnectorPipedriveDiscriminatedConnectionSettingsSettings(TypedDict, t
 
     oauth: Required[DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuth]
 
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class DataConnectorPipedriveDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["pipedrive"]]
@@ -1179,6 +1311,12 @@ class DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth(TypedD
 
 class DataConnectorQuickbooksDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth]
+
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class DataConnectorQuickbooksDiscriminatedConnectionSettings(TypedDict, total=False):
@@ -1222,6 +1360,12 @@ class DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuth(TypedDict,
 class DataConnectorRedditDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuth]
 
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class DataConnectorRedditDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["reddit"]]
@@ -1263,6 +1407,12 @@ class DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth(TypedDi
 
 class DataConnectorSalesloftDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth]
+
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class DataConnectorSalesloftDiscriminatedConnectionSettings(TypedDict, total=False):
@@ -1306,6 +1456,12 @@ class DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuth(TypedD
 class DataConnectorSharepointDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuth]
 
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class DataConnectorSharepointDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["sharepoint"]]
@@ -1347,6 +1503,12 @@ class DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, 
 
 class DataConnectorSlackDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth]
+
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class DataConnectorSlackDiscriminatedConnectionSettings(TypedDict, total=False):
@@ -1390,6 +1552,12 @@ class DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuth(TypedDict
 class DataConnectorTwitterDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuth]
 
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
 
 class DataConnectorTwitterDiscriminatedConnectionSettings(TypedDict, total=False):
     connector_name: Required[Literal["twitter"]]
@@ -1431,6 +1599,12 @@ class DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, t
 
 class DataConnectorXeroDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     oauth: Required[DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuth]
+
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class DataConnectorXeroDiscriminatedConnectionSettings(TypedDict, total=False):
@@ -1476,6 +1650,12 @@ class DataConnectorZohoDeskDiscriminatedConnectionSettingsSettings(TypedDict, to
     """The domain extension of your Zoho account (e.g., https://accounts.zoho.com/)"""
 
     oauth: Required[DataConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuth]
+
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
 
 
 class DataConnectorZohoDeskDiscriminatedConnectionSettings(TypedDict, total=False):
