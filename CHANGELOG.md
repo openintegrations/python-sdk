@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.0.0 (2025-05-19)
+
+Full Changelog: [v1.6.1...v2.0.0](https://github.com/openintegrations/python-sdk/compare/v1.6.1...v2.0.0)
+
+### ⚠ BREAKING CHANGES
+
+* **api:** Updating sdk auth schem
+
+### Features
+
+* **api:** Updating sdk auth schem ([1097f03](https://github.com/openintegrations/python-sdk/commit/1097f03ca967070956a0211dcbf2e1f948fa17c1))
+
 ## 1.6.1 (2025-05-16)
 
 Full Changelog: [v1.6.0...v1.6.1](https://github.com/openintegrations/python-sdk/compare/v1.6.0...v1.6.1)
