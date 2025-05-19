@@ -16,6 +16,7 @@ from .types import (
     client_list_connectors_params,
     client_list_connections_params,
     client_create_connection_params,
+    client_get_message_template_params,
     client_list_connection_configs_params,
 )
 from ._types import (
@@ -61,6 +62,7 @@ from .types.get_current_user_response import GetCurrentUserResponse
 from .types.list_connections_response import ListConnectionsResponse
 from .types.create_connection_response import CreateConnectionResponse
 from .types.delete_connection_response import DeleteConnectionResponse
+from .types.get_message_template_response import GetMessageTemplateResponse
 from .types.list_connection_configs_response import ListConnectionConfigsResponse
 
 __all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Openint", "AsyncOpenint", "Client", "AsyncClient"]
@@ -460,6 +462,50 @@ class Openint(SyncAPIClient):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=GetCurrentUserResponse,
+        )
+
+    def get_message_template(
+        self,
+        *,
+        customer_id: str,
+        language: Literal["javascript"] | NotGiven = NOT_GIVEN,
+        use_environment_variables: bool | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> GetMessageTemplateResponse:
+        """
+        Get a message template for an AI agent
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self.get(
+            "/ai/message_template",
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "customer_id": customer_id,
+                        "language": language,
+                        "use_environment_variables": use_environment_variables,
+                    },
+                    client_get_message_template_params.ClientGetMessageTemplateParams,
+                ),
+            ),
+            cast_to=GetMessageTemplateResponse,
         )
 
     def list_connection_configs(
@@ -1192,6 +1238,50 @@ class AsyncOpenint(AsyncAPIClient):
             cast_to=GetCurrentUserResponse,
         )
 
+    async def get_message_template(
+        self,
+        *,
+        customer_id: str,
+        language: Literal["javascript"] | NotGiven = NOT_GIVEN,
+        use_environment_variables: bool | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> GetMessageTemplateResponse:
+        """
+        Get a message template for an AI agent
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return await self.get(
+            "/ai/message_template",
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {
+                        "customer_id": customer_id,
+                        "language": language,
+                        "use_environment_variables": use_environment_variables,
+                    },
+                    client_get_message_template_params.ClientGetMessageTemplateParams,
+                ),
+            ),
+            cast_to=GetMessageTemplateResponse,
+        )
+
     def list_connection_configs(
         self,
         *,
@@ -1546,6 +1636,9 @@ class OpenintWithRawResponse:
         self.get_current_user = to_raw_response_wrapper(
             client.get_current_user,
         )
+        self.get_message_template = to_raw_response_wrapper(
+            client.get_message_template,
+        )
         self.list_connection_configs = to_raw_response_wrapper(
             client.list_connection_configs,
         )
@@ -1576,6 +1669,9 @@ class AsyncOpenintWithRawResponse:
         )
         self.get_current_user = async_to_raw_response_wrapper(
             client.get_current_user,
+        )
+        self.get_message_template = async_to_raw_response_wrapper(
+            client.get_message_template,
         )
         self.list_connection_configs = async_to_raw_response_wrapper(
             client.list_connection_configs,
@@ -1608,6 +1704,9 @@ class OpenintWithStreamedResponse:
         self.get_current_user = to_streamed_response_wrapper(
             client.get_current_user,
         )
+        self.get_message_template = to_streamed_response_wrapper(
+            client.get_message_template,
+        )
         self.list_connection_configs = to_streamed_response_wrapper(
             client.list_connection_configs,
         )
@@ -1638,6 +1737,9 @@ class AsyncOpenintWithStreamedResponse:
         )
         self.get_current_user = async_to_streamed_response_wrapper(
             client.get_current_user,
+        )
+        self.get_message_template = async_to_streamed_response_wrapper(
+            client.get_message_template,
         )
         self.list_connection_configs = async_to_streamed_response_wrapper(
             client.list_connection_configs,
