@@ -16,7 +16,6 @@ from .types import (
     client_list_connectors_params,
     client_list_connections_params,
     client_create_connection_params,
-    client_create_magic_link_params,
     client_list_connection_configs_params,
 )
 from ._types import (
@@ -61,7 +60,6 @@ from .types.check_connection_response import CheckConnectionResponse
 from .types.get_current_user_response import GetCurrentUserResponse
 from .types.list_connections_response import ListConnectionsResponse
 from .types.create_connection_response import CreateConnectionResponse
-from .types.create_magic_link_response import CreateMagicLinkResponse
 from .types.delete_connection_response import DeleteConnectionResponse
 from .types.list_connection_configs_response import ListConnectionConfigsResponse
 
@@ -303,53 +301,6 @@ class Openint(SyncAPIClient):
             ),
         )
 
-    def create_magic_link(
-        self,
-        customer_id: str,
-        *,
-        connect_options: client_create_magic_link_params.ConnectOptions | NotGiven = NOT_GIVEN,
-        validity_in_seconds: float | NotGiven = NOT_GIVEN,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> CreateMagicLinkResponse:
-        """
-        Create a @Connect magic link that is ready to be shared with customers who want
-        to use @Connect
-
-        Args:
-          customer_id: The unique ID of the customer to create the magic link for
-
-          validity_in_seconds: How long the magic link will be valid for (in seconds) before it expires
-
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not customer_id:
-            raise ValueError(f"Expected a non-empty value for `customer_id` but received {customer_id!r}")
-        return self.post(
-            f"/customer/{customer_id}/magic-link",
-            body=maybe_transform(
-                {
-                    "connect_options": connect_options,
-                    "validity_in_seconds": validity_in_seconds,
-                },
-                client_create_magic_link_params.ClientCreateMagicLinkParams,
-            ),
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=CreateMagicLinkResponse,
-        )
-
     def create_token(
         self,
         customer_id: str,
@@ -370,6 +321,10 @@ class Openint(SyncAPIClient):
 
         Args:
           customer_id: The unique ID of the customer to create the token for
+
+          validity_in_seconds: How long the publishable token and magic link url will be valid for (in seconds)
+              before it expires. By default it will be valid for 30 days unless otherwise
+              specified.
 
           extra_headers: Send extra headers
 
@@ -694,6 +649,7 @@ class Openint(SyncAPIClient):
         include_secrets: bool | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
+        refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
         search_query: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -720,6 +676,9 @@ class Openint(SyncAPIClient):
 
           offset: Offset the items returned
 
+          refresh_policy: Controls credential refresh: none (never), force (always), or auto (when
+              expired, default)
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -745,6 +704,7 @@ class Openint(SyncAPIClient):
                         "include_secrets": include_secrets,
                         "limit": limit,
                         "offset": offset,
+                        "refresh_policy": refresh_policy,
                         "search_query": search_query,
                     },
                     client_list_connections_params.ClientListConnectionsParams,
@@ -1071,53 +1031,6 @@ class AsyncOpenint(AsyncAPIClient):
             ),
         )
 
-    async def create_magic_link(
-        self,
-        customer_id: str,
-        *,
-        connect_options: client_create_magic_link_params.ConnectOptions | NotGiven = NOT_GIVEN,
-        validity_in_seconds: float | NotGiven = NOT_GIVEN,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> CreateMagicLinkResponse:
-        """
-        Create a @Connect magic link that is ready to be shared with customers who want
-        to use @Connect
-
-        Args:
-          customer_id: The unique ID of the customer to create the magic link for
-
-          validity_in_seconds: How long the magic link will be valid for (in seconds) before it expires
-
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not customer_id:
-            raise ValueError(f"Expected a non-empty value for `customer_id` but received {customer_id!r}")
-        return await self.post(
-            f"/customer/{customer_id}/magic-link",
-            body=await async_maybe_transform(
-                {
-                    "connect_options": connect_options,
-                    "validity_in_seconds": validity_in_seconds,
-                },
-                client_create_magic_link_params.ClientCreateMagicLinkParams,
-            ),
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=CreateMagicLinkResponse,
-        )
-
     async def create_token(
         self,
         customer_id: str,
@@ -1138,6 +1051,10 @@ class AsyncOpenint(AsyncAPIClient):
 
         Args:
           customer_id: The unique ID of the customer to create the token for
+
+          validity_in_seconds: How long the publishable token and magic link url will be valid for (in seconds)
+              before it expires. By default it will be valid for 30 days unless otherwise
+              specified.
 
           extra_headers: Send extra headers
 
@@ -1462,6 +1379,7 @@ class AsyncOpenint(AsyncAPIClient):
         include_secrets: bool | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
+        refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
         search_query: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -1488,6 +1406,9 @@ class AsyncOpenint(AsyncAPIClient):
 
           offset: Offset the items returned
 
+          refresh_policy: Controls credential refresh: none (never), force (always), or auto (when
+              expired, default)
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1513,6 +1434,7 @@ class AsyncOpenint(AsyncAPIClient):
                         "include_secrets": include_secrets,
                         "limit": limit,
                         "offset": offset,
+                        "refresh_policy": refresh_policy,
                         "search_query": search_query,
                     },
                     client_list_connections_params.ClientListConnectionsParams,
@@ -1612,9 +1534,6 @@ class OpenintWithRawResponse:
         self.create_connection = to_raw_response_wrapper(
             client.create_connection,
         )
-        self.create_magic_link = to_raw_response_wrapper(
-            client.create_magic_link,
-        )
         self.create_token = to_raw_response_wrapper(
             client.create_token,
         )
@@ -1645,9 +1564,6 @@ class AsyncOpenintWithRawResponse:
         )
         self.create_connection = async_to_raw_response_wrapper(
             client.create_connection,
-        )
-        self.create_magic_link = async_to_raw_response_wrapper(
-            client.create_magic_link,
         )
         self.create_token = async_to_raw_response_wrapper(
             client.create_token,
@@ -1680,9 +1596,6 @@ class OpenintWithStreamedResponse:
         self.create_connection = to_streamed_response_wrapper(
             client.create_connection,
         )
-        self.create_magic_link = to_streamed_response_wrapper(
-            client.create_magic_link,
-        )
         self.create_token = to_streamed_response_wrapper(
             client.create_token,
         )
@@ -1713,9 +1626,6 @@ class AsyncOpenintWithStreamedResponse:
         )
         self.create_connection = async_to_streamed_response_wrapper(
             client.create_connection,
-        )
-        self.create_magic_link = async_to_streamed_response_wrapper(
-            client.create_magic_link,
         )
         self.create_token = async_to_streamed_response_wrapper(
             client.create_token,
