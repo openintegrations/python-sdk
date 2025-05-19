@@ -32,6 +32,11 @@ page = client.list_connections()
 print(page.items)
 ```
 
+While you can provide a `token` keyword argument,
+we recommend using [python-dotenv](https://pypi.org/project/python-dotenv/)
+to add `OPENINT_API_KEY_OR_CUSTOMER_TOKEN_OR_CUSTOMER_API_KEY="My Token"` to your `.env` file
+so that your Token is not stored in source control.
+
 ## Async usage
 
 Simply import `AsyncOpenint` instead of `Openint` and use `await` with each API call:

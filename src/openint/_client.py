@@ -100,10 +100,10 @@ class Openint(SyncAPIClient):
     ) -> None:
         """Construct a new synchronous Openint client instance.
 
-        This automatically infers the `token` argument from the `OPENINT_API_KEY_OR_CUSTOMER_TOKEN` environment variable if it is not provided.
+        This automatically infers the `token` argument from the `OPENINT_API_KEY_OR_CUSTOMER_TOKEN_OR_CUSTOMER_API_KEY` environment variable if it is not provided.
         """
         if token is None:
-            token = os.environ.get("OPENINT_API_KEY_OR_CUSTOMER_TOKEN")
+            token = os.environ.get("OPENINT_API_KEY_OR_CUSTOMER_TOKEN_OR_CUSTOMER_API_KEY")
         self.token = token
 
         if base_url is None:
@@ -132,12 +132,31 @@ class Openint(SyncAPIClient):
 
     @property
     @override
+    def auth_headers(self) -> dict[str, str]:
+        token = self.token
+        if token is None:
+            return {}
+        return {"Authorization": f"Bearer {token}"}
+
+    @property
+    @override
     def default_headers(self) -> dict[str, str | Omit]:
         return {
             **super().default_headers,
             "X-Stainless-Async": "false",
             **self._custom_headers,
         }
+
+    @override
+    def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
+        if self.token and headers.get("Authorization"):
+            return
+        if isinstance(custom_headers.get("Authorization"), Omit):
+            return
+
+        raise TypeError(
+            '"Could not resolve authentication method. Expected the token to be set. Or for the `Authorization` headers to be explicitly omitted"'
+        )
 
     def copy(
         self,
@@ -849,10 +868,10 @@ class AsyncOpenint(AsyncAPIClient):
     ) -> None:
         """Construct a new async AsyncOpenint client instance.
 
-        This automatically infers the `token` argument from the `OPENINT_API_KEY_OR_CUSTOMER_TOKEN` environment variable if it is not provided.
+        This automatically infers the `token` argument from the `OPENINT_API_KEY_OR_CUSTOMER_TOKEN_OR_CUSTOMER_API_KEY` environment variable if it is not provided.
         """
         if token is None:
-            token = os.environ.get("OPENINT_API_KEY_OR_CUSTOMER_TOKEN")
+            token = os.environ.get("OPENINT_API_KEY_OR_CUSTOMER_TOKEN_OR_CUSTOMER_API_KEY")
         self.token = token
 
         if base_url is None:
@@ -881,12 +900,31 @@ class AsyncOpenint(AsyncAPIClient):
 
     @property
     @override
+    def auth_headers(self) -> dict[str, str]:
+        token = self.token
+        if token is None:
+            return {}
+        return {"Authorization": f"Bearer {token}"}
+
+    @property
+    @override
     def default_headers(self) -> dict[str, str | Omit]:
         return {
             **super().default_headers,
             "X-Stainless-Async": f"async:{get_async_library()}",
             **self._custom_headers,
         }
+
+    @override
+    def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
+        if self.token and headers.get("Authorization"):
+            return
+        if isinstance(custom_headers.get("Authorization"), Omit):
+            return
+
+        raise TypeError(
+            '"Could not resolve authentication method. Expected the token to be set. Or for the `Authorization` headers to be explicitly omitted"'
+        )
 
     def copy(
         self,
