@@ -5106,9 +5106,6 @@ class ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth(BaseModel)
 class ConnectorQuickbooksDiscriminatedConnectionSettingsSettings(BaseModel):
     oauth: ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth
 
-    realm_id: str = FieldInfo(alias="realmId")
-    """The realmId of your quickbooks company (e.g., 9341453474484455)"""
-
 
 class ConnectorQuickbooksDiscriminatedConnectionSettings(BaseModel):
     connector_name: Literal["quickbooks"]

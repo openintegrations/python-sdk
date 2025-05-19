@@ -24,38 +24,23 @@ pip install openint
 The full API of this library can be found in [api.md](api.md).
 
 ```python
-import os
 from openint import Openint
 
-client = Openint(
-    token=os.environ.get(
-        "OPENINT_API_KEY_OR_CUSTOMER_TOKEN"
-    ),  # This is the default and can be omitted
-)
+client = Openint()
 
 page = client.list_connections()
 print(page.items)
 ```
-
-While you can provide a `token` keyword argument,
-we recommend using [python-dotenv](https://pypi.org/project/python-dotenv/)
-to add `OPENINT_API_KEY_OR_CUSTOMER_TOKEN="My Token"` to your `.env` file
-so that your Token is not stored in source control.
 
 ## Async usage
 
 Simply import `AsyncOpenint` instead of `Openint` and use `await` with each API call:
 
 ```python
-import os
 import asyncio
 from openint import AsyncOpenint
 
-client = AsyncOpenint(
-    token=os.environ.get(
-        "OPENINT_API_KEY_OR_CUSTOMER_TOKEN"
-    ),  # This is the default and can be omitted
-)
+client = AsyncOpenint()
 
 
 async def main() -> None:
