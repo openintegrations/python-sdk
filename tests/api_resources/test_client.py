@@ -329,7 +329,7 @@ class TestClient:
     @parametrize
     def test_method_get_message_template(self, client: Openint) -> None:
         client_ = client.get_message_template(
-            customer_id="customerId",
+            customer_id="customer_id",
         )
         assert_matches_type(GetMessageTemplateResponse, client_, path=["response"])
 
@@ -337,7 +337,7 @@ class TestClient:
     @parametrize
     def test_method_get_message_template_with_all_params(self, client: Openint) -> None:
         client_ = client.get_message_template(
-            customer_id="customerId",
+            customer_id="customer_id",
             language="javascript",
             use_environment_variables=True,
         )
@@ -347,7 +347,7 @@ class TestClient:
     @parametrize
     def test_raw_response_get_message_template(self, client: Openint) -> None:
         response = client.with_raw_response.get_message_template(
-            customer_id="customerId",
+            customer_id="customer_id",
         )
 
         assert response.is_closed is True
@@ -359,7 +359,7 @@ class TestClient:
     @parametrize
     def test_streaming_response_get_message_template(self, client: Openint) -> None:
         with client.with_streaming_response.get_message_template(
-            customer_id="customerId",
+            customer_id="customer_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -795,7 +795,7 @@ class TestAsyncClient:
     @parametrize
     async def test_method_get_message_template(self, async_client: AsyncOpenint) -> None:
         client = await async_client.get_message_template(
-            customer_id="customerId",
+            customer_id="customer_id",
         )
         assert_matches_type(GetMessageTemplateResponse, client, path=["response"])
 
@@ -803,7 +803,7 @@ class TestAsyncClient:
     @parametrize
     async def test_method_get_message_template_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.get_message_template(
-            customer_id="customerId",
+            customer_id="customer_id",
             language="javascript",
             use_environment_variables=True,
         )
@@ -813,7 +813,7 @@ class TestAsyncClient:
     @parametrize
     async def test_raw_response_get_message_template(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.get_message_template(
-            customer_id="customerId",
+            customer_id="customer_id",
         )
 
         assert response.is_closed is True
@@ -825,7 +825,7 @@ class TestAsyncClient:
     @parametrize
     async def test_streaming_response_get_message_template(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.get_message_template(
-            customer_id="customerId",
+            customer_id="customer_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
