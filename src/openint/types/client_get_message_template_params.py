@@ -2,16 +2,14 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Required, Annotated, TypedDict
-
-from .._utils import PropertyInfo
+from typing_extensions import Literal, Required, TypedDict
 
 __all__ = ["ClientGetMessageTemplateParams"]
 
 
 class ClientGetMessageTemplateParams(TypedDict, total=False):
-    customer_id: Required[Annotated[str, PropertyInfo(alias="customerId")]]
+    customer_id: Required[str]
 
     language: Literal["javascript"]
 
-    use_environment_variables: Annotated[bool, PropertyInfo(alias="useEnvironmentVariables")]
+    use_environment_variables: bool
