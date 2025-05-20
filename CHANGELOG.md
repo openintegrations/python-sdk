@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.2.0 (2025-05-19)
+
+Full Changelog: [v2.1.0...v2.2.0](https://github.com/openintegrations/python-sdk/compare/v2.1.0...v2.2.0)
+
+### Features
+
+* **docs:** updating documented docs for stainless ([df87cf1](https://github.com/openintegrations/python-sdk/commit/df87cf1bd25609ff6451e4c83cb2510e9b93aac4))
+
 ## 2.1.0 (2025-05-19)
 
 Full Changelog: [v2.0.0...v2.1.0](https://github.com/openintegrations/python-sdk/compare/v2.0.0...v2.1.0)
