@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.2.1 (2025-05-22)
+
+Full Changelog: [v2.2.0...v2.2.1](https://github.com/openintegrations/python-sdk/compare/v2.2.0...v2.2.1)
+
+### Chores
+
+* **docs:** grammar improvements ([bb4cb0a](https://github.com/openintegrations/python-sdk/commit/bb4cb0aceeee085eeeade60be737e88cb9cbeb23))
+
 ## 2.2.0 (2025-05-19)
 
 Full Changelog: [v2.1.0...v2.2.0](https://github.com/openintegrations/python-sdk/compare/v2.1.0...v2.2.0)
