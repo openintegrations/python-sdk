@@ -16,6 +16,13 @@ __all__ = [
     "ConnectorAcmeOauth2DiscriminatedConnectorConfigConnectorSchemas",
     "ConnectorAcmeOauth2DiscriminatedConnectorConfigConnectorScope",
     "ConnectorAcmeOauth2DiscriminatedConnectorConfigIntegrations",
+    "ConnectorAdobeDiscriminatedConnectorConfig",
+    "ConnectorAdobeDiscriminatedConnectorConfigConfig",
+    "ConnectorAdobeDiscriminatedConnectorConfigConfigOAuth",
+    "ConnectorAdobeDiscriminatedConnectorConfigConnector",
+    "ConnectorAdobeDiscriminatedConnectorConfigConnectorSchemas",
+    "ConnectorAdobeDiscriminatedConnectorConfigConnectorScope",
+    "ConnectorAdobeDiscriminatedConnectorConfigIntegrations",
     "ConnectorAircallDiscriminatedConnectorConfig",
     "ConnectorAircallDiscriminatedConnectorConfigConfig",
     "ConnectorAircallDiscriminatedConnectorConfigConfigOAuth",
@@ -431,7 +438,9 @@ class ConnectorAcmeOauth2DiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -447,6 +456,7 @@ class ConnectorAcmeOauth2DiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -559,6 +569,188 @@ class ConnectorAcmeOauth2DiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorAdobeDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    client_id: Optional[str] = None
+
+    client_secret: Optional[str] = None
+
+    redirect_uri: Optional[str] = None
+    """Custom redirect URI"""
+
+    scopes: Optional[List[str]] = None
+
+
+class ConnectorAdobeDiscriminatedConnectorConfigConfig(BaseModel):
+    oauth: Optional[ConnectorAdobeDiscriminatedConnectorConfigConfigOAuth] = None
+    """Base oauth configuration for the connector"""
+
+
+class ConnectorAdobeDiscriminatedConnectorConfigConnectorSchemas(BaseModel):
+    connect_input: Optional[object] = None
+
+    connect_output: Optional[object] = None
+
+    connection_settings: Optional[object] = None
+
+    connector_config: Optional[object] = None
+
+    integration_data: Optional[object] = None
+
+    pre_connect_input: Optional[object] = None
+
+    webhook_input: Optional[object] = None
+
+
+class ConnectorAdobeDiscriminatedConnectorConfigConnectorScope(BaseModel):
+    scope: str
+
+    description: Optional[str] = None
+
+    display_name: Optional[str] = None
+
+
+class ConnectorAdobeDiscriminatedConnectorConfigConnector(BaseModel):
+    name: str
+
+    auth_type: Optional[Literal["BASIC", "OAUTH1", "OAUTH2", "OAUTH2CC", "API_KEY", "CUSTOM"]] = None
+
+    display_name: Optional[str] = None
+
+    has_openint_credentials: Optional[bool] = None
+
+    logo_url: Optional[str] = None
+
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
+
+    schemas: Optional[ConnectorAdobeDiscriminatedConnectorConfigConnectorSchemas] = None
+
+    scopes: Optional[List[ConnectorAdobeDiscriminatedConnectorConfigConnectorScope]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga", "hidden"]] = None
+
+
+class ConnectorAdobeDiscriminatedConnectorConfigIntegrations(BaseModel):
+    id: str
+
+    connector_name: Literal[
+        "acme-oauth2",
+        "adobe",
+        "aircall",
+        "airtable",
+        "apollo",
+        "brex",
+        "coda",
+        "confluence",
+        "discord",
+        "facebook",
+        "finch",
+        "firebase",
+        "foreceipt",
+        "github",
+        "gong",
+        "google-calendar",
+        "google-docs",
+        "google-drive",
+        "google-mail",
+        "google-sheet",
+        "greenhouse",
+        "heron",
+        "hubspot",
+        "instagram",
+        "intercom",
+        "jira",
+        "lever",
+        "linear",
+        "linkedin",
+        "lunchmoney",
+        "mercury",
+        "merge",
+        "moota",
+        "notion",
+        "onebrick",
+        "openledger",
+        "outreach",
+        "pipedrive",
+        "plaid",
+        "postgres",
+        "quickbooks",
+        "ramp",
+        "reddit",
+        "salesloft",
+        "saltedge",
+        "sharepoint",
+        "slack",
+        "splitwise",
+        "stripe",
+        "teller",
+        "toggl",
+        "twenty",
+        "twitter",
+        "venmo",
+        "wise",
+        "xero",
+        "yodlee",
+        "zoho-desk",
+    ]
+
+    created_at: str
+
+    external: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    name: str
+
+    standard: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    updated_at: str
+
+    auth_type: Optional[str] = None
+
+    category: Optional[str] = None
+
+    logo_url: Optional[str] = None
+
+    platforms: Optional[List[Literal["web", "mobile", "desktop"]]] = None
+
+    stage: Optional[Literal["alpha", "beta", "ga"]] = None
+
+    version: Optional[str] = None
+
+
+class ConnectorAdobeDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorAdobeDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["adobe"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[ConnectorAdobeDiscriminatedConnectorConfigConnector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, ConnectorAdobeDiscriminatedConnectorConfigIntegrations]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorAircallDiscriminatedConnectorConfigConfigOAuth(BaseModel):
     client_id: Optional[str] = None
 
@@ -610,7 +802,9 @@ class ConnectorAircallDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -626,6 +820,7 @@ class ConnectorAircallDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -789,7 +984,9 @@ class ConnectorConfluenceDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -805,6 +1002,7 @@ class ConnectorConfluenceDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -968,7 +1166,9 @@ class ConnectorDiscordDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -984,6 +1184,7 @@ class ConnectorDiscordDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -1147,7 +1348,9 @@ class ConnectorFacebookDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -1163,6 +1366,7 @@ class ConnectorFacebookDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -1326,7 +1530,9 @@ class ConnectorGitHubDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -1342,6 +1548,7 @@ class ConnectorGitHubDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -1505,7 +1712,9 @@ class ConnectorGongDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -1521,6 +1730,7 @@ class ConnectorGongDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -1684,7 +1894,9 @@ class ConnectorGoogleCalendarDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -1700,6 +1912,7 @@ class ConnectorGoogleCalendarDiscriminatedConnectorConfigIntegrations(BaseModel)
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -1863,7 +2076,9 @@ class ConnectorGoogleDocsDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -1879,6 +2094,7 @@ class ConnectorGoogleDocsDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -2042,7 +2258,9 @@ class ConnectorGoogleDriveDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -2058,6 +2276,7 @@ class ConnectorGoogleDriveDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -2221,7 +2440,9 @@ class ConnectorGoogleMailDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -2237,6 +2458,7 @@ class ConnectorGoogleMailDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -2400,7 +2622,9 @@ class ConnectorGoogleSheetDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -2416,6 +2640,7 @@ class ConnectorGoogleSheetDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -2579,7 +2804,9 @@ class ConnectorHubspotDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -2595,6 +2822,7 @@ class ConnectorHubspotDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -2758,7 +2986,9 @@ class ConnectorInstagramDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -2774,6 +3004,7 @@ class ConnectorInstagramDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -2937,7 +3168,9 @@ class ConnectorIntercomDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -2953,6 +3186,7 @@ class ConnectorIntercomDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -3116,7 +3350,9 @@ class ConnectorJiraDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -3132,6 +3368,7 @@ class ConnectorJiraDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -3295,7 +3532,9 @@ class ConnectorLeverDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -3311,6 +3550,7 @@ class ConnectorLeverDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -3474,7 +3714,9 @@ class ConnectorLinearDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -3490,6 +3732,7 @@ class ConnectorLinearDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -3653,7 +3896,9 @@ class ConnectorLinkedinDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -3669,6 +3914,7 @@ class ConnectorLinkedinDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -3832,7 +4078,9 @@ class ConnectorNotionDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -3848,6 +4096,7 @@ class ConnectorNotionDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -4011,7 +4260,9 @@ class ConnectorOutreachDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -4027,6 +4278,7 @@ class ConnectorOutreachDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -4190,7 +4442,9 @@ class ConnectorPipedriveDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -4206,6 +4460,7 @@ class ConnectorPipedriveDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -4369,7 +4624,9 @@ class ConnectorQuickbooksDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -4385,6 +4642,7 @@ class ConnectorQuickbooksDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -4548,7 +4806,9 @@ class ConnectorRedditDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -4564,6 +4824,7 @@ class ConnectorRedditDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -4727,7 +4988,9 @@ class ConnectorSalesloftDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -4743,6 +5006,7 @@ class ConnectorSalesloftDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -4906,7 +5170,9 @@ class ConnectorSharepointDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -4922,6 +5188,7 @@ class ConnectorSharepointDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -5085,7 +5352,9 @@ class ConnectorSlackDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -5101,6 +5370,7 @@ class ConnectorSlackDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -5264,7 +5534,9 @@ class ConnectorTwitterDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -5280,6 +5552,7 @@ class ConnectorTwitterDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -5443,7 +5716,9 @@ class ConnectorXeroDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -5459,6 +5734,7 @@ class ConnectorXeroDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -5622,7 +5898,9 @@ class ConnectorZohoDeskDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -5638,6 +5916,7 @@ class ConnectorZohoDeskDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -5785,7 +6064,9 @@ class ConnectorAirtableDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -5801,6 +6082,7 @@ class ConnectorAirtableDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -5948,7 +6230,9 @@ class ConnectorApolloDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -5964,6 +6248,7 @@ class ConnectorApolloDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -6125,7 +6410,9 @@ class ConnectorBrexDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -6141,6 +6428,7 @@ class ConnectorBrexDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -6288,7 +6576,9 @@ class ConnectorCodaDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -6304,6 +6594,7 @@ class ConnectorCodaDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -6468,7 +6759,9 @@ class ConnectorFinchDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -6484,6 +6777,7 @@ class ConnectorFinchDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -6631,7 +6925,9 @@ class ConnectorFirebaseDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -6647,6 +6943,7 @@ class ConnectorFirebaseDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -6794,7 +7091,9 @@ class ConnectorForeceiptDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -6810,6 +7109,7 @@ class ConnectorForeceiptDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -6957,7 +7257,9 @@ class ConnectorGreenhouseDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -6973,6 +7275,7 @@ class ConnectorGreenhouseDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -7124,7 +7427,9 @@ class ConnectorHeronDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -7140,6 +7445,7 @@ class ConnectorHeronDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -7291,7 +7597,9 @@ class ConnectorLunchmoneyDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -7307,6 +7615,7 @@ class ConnectorLunchmoneyDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -7468,7 +7777,9 @@ class ConnectorMercuryDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -7484,6 +7795,7 @@ class ConnectorMercuryDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -7635,7 +7947,9 @@ class ConnectorMergeDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -7651,6 +7965,7 @@ class ConnectorMergeDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -7802,7 +8117,9 @@ class ConnectorMootaDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -7818,6 +8135,7 @@ class ConnectorMootaDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -7979,7 +8297,9 @@ class ConnectorOnebrickDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -7995,6 +8315,7 @@ class ConnectorOnebrickDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -8156,7 +8477,9 @@ class ConnectorOpenledgerDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -8172,6 +8495,7 @@ class ConnectorOpenledgerDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -8366,7 +8690,9 @@ class ConnectorPlaidDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -8382,6 +8708,7 @@ class ConnectorPlaidDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -8529,7 +8856,9 @@ class ConnectorPostgresDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -8545,6 +8874,7 @@ class ConnectorPostgresDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -8702,7 +9032,9 @@ class ConnectorRampDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -8718,6 +9050,7 @@ class ConnectorRampDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -8873,7 +9206,9 @@ class ConnectorSaltedgeDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -8889,6 +9224,7 @@ class ConnectorSaltedgeDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -9036,7 +9372,9 @@ class ConnectorSplitwiseDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -9052,6 +9390,7 @@ class ConnectorSplitwiseDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -9213,7 +9552,9 @@ class ConnectorStripeDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -9229,6 +9570,7 @@ class ConnectorStripeDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -9382,7 +9724,9 @@ class ConnectorTellerDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -9398,6 +9742,7 @@ class ConnectorTellerDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -9545,7 +9890,9 @@ class ConnectorTogglDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -9561,6 +9908,7 @@ class ConnectorTogglDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -9708,7 +10056,9 @@ class ConnectorTwentyDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -9724,6 +10074,7 @@ class ConnectorTwentyDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -9885,7 +10236,9 @@ class ConnectorVenmoDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -9901,6 +10254,7 @@ class ConnectorVenmoDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -10048,7 +10402,9 @@ class ConnectorWiseDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -10064,6 +10420,7 @@ class ConnectorWiseDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -10231,7 +10588,9 @@ class ConnectorYodleeDiscriminatedConnectorConfigConnector(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
@@ -10247,6 +10606,7 @@ class ConnectorYodleeDiscriminatedConnectorConfigIntegrations(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -10361,6 +10721,7 @@ class ConnectorYodleeDiscriminatedConnectorConfig(BaseModel):
 
 ListConnectionConfigsResponse: TypeAlias = Union[
     ConnectorAcmeOauth2DiscriminatedConnectorConfig,
+    ConnectorAdobeDiscriminatedConnectorConfig,
     ConnectorAircallDiscriminatedConnectorConfig,
     ConnectorConfluenceDiscriminatedConnectorConfig,
     ConnectorDiscordDiscriminatedConnectorConfig,

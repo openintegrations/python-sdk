@@ -514,6 +514,7 @@ class Openint(SyncAPIClient):
         connector_names: List[
             Literal[
                 "acme-oauth2",
+                "adobe",
                 "aircall",
                 "airtable",
                 "apollo",
@@ -631,6 +632,7 @@ class Openint(SyncAPIClient):
         connector_names: List[
             Literal[
                 "acme-oauth2",
+                "adobe",
                 "aircall",
                 "airtable",
                 "apollo",
@@ -1288,6 +1290,7 @@ class AsyncOpenint(AsyncAPIClient):
         connector_names: List[
             Literal[
                 "acme-oauth2",
+                "adobe",
                 "aircall",
                 "airtable",
                 "apollo",
@@ -1405,6 +1408,7 @@ class AsyncOpenint(AsyncAPIClient):
         connector_names: List[
             Literal[
                 "acme-oauth2",
+                "adobe",
                 "aircall",
                 "airtable",
                 "apollo",

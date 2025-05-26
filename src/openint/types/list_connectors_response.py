@@ -13,6 +13,7 @@ class Integration(BaseModel):
 
     connector_name: Literal[
         "acme-oauth2",
+        "adobe",
         "aircall",
         "airtable",
         "apollo",
@@ -131,7 +132,9 @@ class ListConnectorsResponse(BaseModel):
 
     logo_url: Optional[str] = None
 
-    openint_scopes: Optional[List[str]] = None
+    openint_allowed_scopes: Optional[List[str]] = None
+
+    openint_default_scopes: Optional[List[str]] = None
 
     platforms: Optional[List[Literal["web", "mobile", "desktop", "local", "cloud"]]] = None
 
