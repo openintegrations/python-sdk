@@ -14,6 +14,10 @@ __all__ = [
     "DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings",
     "DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuth",
     "DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "DataConnectorAdobeDiscriminatedConnectionSettings",
+    "DataConnectorAdobeDiscriminatedConnectionSettingsSettings",
+    "DataConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuth",
+    "DataConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorAircallDiscriminatedConnectionSettings",
     "DataConnectorAircallDiscriminatedConnectionSettingsSettings",
     "DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth",
@@ -261,6 +265,54 @@ class DataConnectorAcmeOauth2DiscriminatedConnectionSettings(TypedDict, total=Fa
     connector_name: Required[Literal["acme-oauth2"]]
 
     settings: DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings
+
+
+class DataConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    access_token: Required[str]
+
+    client_id: str
+    """Client ID used for the connection"""
+
+    expires_at: str
+
+    expires_in: float
+
+    raw: Dict[str, object]
+
+    refresh_token: str
+
+    scope: str
+
+    token_type: str
+
+
+class DataConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
+    created_at: str
+
+    credentials: DataConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuthCredentials
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: str
+
+    metadata: Optional[Dict[str, object]]
+
+    updated_at: str
+
+
+class DataConnectorAdobeDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    oauth: Required[DataConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuth]
+
+    access_token: str
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
+
+class DataConnectorAdobeDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["adobe"]]
+
+    settings: DataConnectorAdobeDiscriminatedConnectionSettingsSettings
 
 
 class DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
@@ -2174,6 +2226,7 @@ class DataConnectorYodleeDiscriminatedConnectionSettings(TypedDict, total=False)
 
 Data: TypeAlias = Union[
     DataConnectorAcmeOauth2DiscriminatedConnectionSettings,
+    DataConnectorAdobeDiscriminatedConnectionSettings,
     DataConnectorAircallDiscriminatedConnectionSettings,
     DataConnectorConfluenceDiscriminatedConnectionSettings,
     DataConnectorDiscordDiscriminatedConnectionSettings,

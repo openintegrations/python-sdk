@@ -13,6 +13,10 @@ __all__ = [
     "ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings",
     "ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuth",
     "ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials",
+    "ConnectorAdobeDiscriminatedConnectionSettings",
+    "ConnectorAdobeDiscriminatedConnectionSettingsSettings",
+    "ConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorAircallDiscriminatedConnectionSettings",
     "ConnectorAircallDiscriminatedConnectionSettingsSettings",
     "ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth",
@@ -262,6 +266,81 @@ class ConnectorAcmeOauth2DiscriminatedConnectionSettings(BaseModel):
     """
 
     settings: Optional[ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings] = None
+
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
+
+    status_message: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
+class ConnectorAdobeDiscriminatedConnectionSettingsSettings(BaseModel):
+    oauth: ConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuth
+
+    access_token: Optional[str] = None
+    """Same as oauth.credentials.access_token, but more convenient to access.
+
+    Optional for backward compatibility until we remove the oauth field
+    """
+
+
+class ConnectorAdobeDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["adobe"]
+
+    id: Optional[str] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    settings: Optional[ConnectorAdobeDiscriminatedConnectionSettingsSettings] = None
 
     status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
 
@@ -3667,6 +3746,7 @@ class ConnectorYodleeDiscriminatedConnectionSettings(BaseModel):
 
 CreateConnectionResponse: TypeAlias = Union[
     ConnectorAcmeOauth2DiscriminatedConnectionSettings,
+    ConnectorAdobeDiscriminatedConnectionSettings,
     ConnectorAircallDiscriminatedConnectionSettings,
     ConnectorConfluenceDiscriminatedConnectionSettings,
     ConnectorDiscordDiscriminatedConnectionSettings,

@@ -15,6 +15,7 @@ class ClientListConnectionsParams(TypedDict, total=False):
     connector_names: List[
         Literal[
             "acme-oauth2",
+            "adobe",
             "aircall",
             "airtable",
             "apollo",
