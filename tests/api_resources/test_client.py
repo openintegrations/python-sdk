@@ -10,6 +10,7 @@ import pytest
 from openint import Openint, AsyncOpenint
 from tests.utils import assert_matches_type
 from openint.types import (
+    ListEventsResponse,
     CreateTokenResponse,
     GetConnectionResponse,
     GetCurrentUserResponse,
@@ -492,6 +493,44 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_list_events(self, client: Openint) -> None:
+        client_ = client.list_events()
+        assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_list_events_with_all_params(self, client: Openint) -> None:
+        client_ = client.list_events(
+            limit=0,
+            offset=0,
+            search_query="search_query",
+        )
+        assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_raw_response_list_events(self, client: Openint) -> None:
+        response = client.with_raw_response.list_events()
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client_ = response.parse()
+        assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_streaming_response_list_events(self, client: Openint) -> None:
+        with client.with_streaming_response.list_events() as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client_ = response.parse()
+            assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
 
 class TestAsyncClient:
     parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=["loose", "strict"])
@@ -956,5 +995,43 @@ class TestAsyncClient:
 
             client = await response.parse()
             assert_matches_type(AsyncOffsetPagination[ListConnectorsResponse], client, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_list_events(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.list_events()
+        assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_list_events_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.list_events(
+            limit=0,
+            offset=0,
+            search_query="search_query",
+        )
+        assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_raw_response_list_events(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.list_events()
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client = await response.parse()
+        assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_streaming_response_list_events(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.list_events() as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client = await response.parse()
+            assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
 
         assert cast(Any, response.is_closed) is True
