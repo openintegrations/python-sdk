@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.3.0 (2025-05-28)
+
+Full Changelog: [v2.2.0...v2.3.0](https://github.com/openintegrations/python-sdk/compare/v2.2.0...v2.3.0)
+
+### Features
+
+* **api:** adding listEvents ([876e541](https://github.com/openintegrations/python-sdk/commit/876e541830fb00fc015731600f7e9ca9f5e697e4))
+* **api:** rename sdk name ([7cfd633](https://github.com/openintegrations/python-sdk/commit/7cfd6338a35478104fad4b9cb89bff4ad8fecdab))
+* **docs:** updating documented docs for stainless ([c68d363](https://github.com/openintegrations/python-sdk/commit/c68d363f2fabd6d3bb3f9fab692cccd147deff20))
+
+
+### Chores
+
+* **docs:** grammar improvements ([bb4cb0a](https://github.com/openintegrations/python-sdk/commit/bb4cb0aceeee085eeeade60be737e88cb9cbeb23))
+
 ## 2.2.0 (2025-05-19)
 
 Full Changelog: [v2.1.0...v2.2.0](https://github.com/openintegrations/python-sdk/compare/v2.1.0...v2.2.0)

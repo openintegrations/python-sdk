@@ -10,6 +10,7 @@ import pytest
 from openint import Openint, AsyncOpenint
 from tests.utils import assert_matches_type
 from openint.types import (
+    ListEventsResponse,
     CreateTokenResponse,
     GetConnectionResponse,
     GetCurrentUserResponse,
@@ -77,7 +78,7 @@ class TestClient:
         client_ = client.create_connection(
             connector_config_id="ccfg_",
             customer_id="customer_id",
-            data={"connector_name": "acme-oauth2"},
+            data={"connector_name": "accelo"},
         )
         assert_matches_type(CreateConnectionResponse, client_, path=["response"])
 
@@ -88,7 +89,7 @@ class TestClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "acme-oauth2",
+                "connector_name": "accelo",
                 "settings": {
                     "oauth": {
                         "created_at": "created_at",
@@ -106,6 +107,7 @@ class TestClient:
                         "metadata": {"foo": "bar"},
                         "updated_at": "updated_at",
                     },
+                    "subdomain": "https://26f1kl_-n-71.api.accelo.com",
                     "access_token": "access_token",
                 },
             },
@@ -120,7 +122,7 @@ class TestClient:
         response = client.with_raw_response.create_connection(
             connector_config_id="ccfg_",
             customer_id="customer_id",
-            data={"connector_name": "acme-oauth2"},
+            data={"connector_name": "accelo"},
         )
 
         assert response.is_closed is True
@@ -134,7 +136,7 @@ class TestClient:
         with client.with_streaming_response.create_connection(
             connector_config_id="ccfg_",
             customer_id="customer_id",
-            data={"connector_name": "acme-oauth2"},
+            data={"connector_name": "accelo"},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -158,7 +160,7 @@ class TestClient:
         client_ = client.create_token(
             customer_id="x",
             connect_options={
-                "connector_names": ["acme-oauth2"],
+                "connector_names": ["accelo"],
                 "debug": True,
                 "is_embedded": True,
                 "return_url": "return_url",
@@ -379,7 +381,7 @@ class TestClient:
     @parametrize
     def test_method_list_connection_configs_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connection_configs(
-            connector_names=["acme-oauth2"],
+            connector_names=["accelo"],
             expand=["connector"],
             limit=0,
             offset=0,
@@ -420,7 +422,7 @@ class TestClient:
     def test_method_list_connections_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connections(
             connector_config_id="ccfg_",
-            connector_names=["acme-oauth2"],
+            connector_names=["accelo"],
             customer_id="customer_id",
             expand=["connector"],
             include_secrets=True,
@@ -491,6 +493,44 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_list_events(self, client: Openint) -> None:
+        client_ = client.list_events()
+        assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_list_events_with_all_params(self, client: Openint) -> None:
+        client_ = client.list_events(
+            limit=0,
+            offset=0,
+            search_query="search_query",
+        )
+        assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_raw_response_list_events(self, client: Openint) -> None:
+        response = client.with_raw_response.list_events()
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client_ = response.parse()
+        assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_streaming_response_list_events(self, client: Openint) -> None:
+        with client.with_streaming_response.list_events() as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client_ = response.parse()
+            assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
 
 class TestAsyncClient:
     parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=["loose", "strict"])
@@ -543,7 +583,7 @@ class TestAsyncClient:
         client = await async_client.create_connection(
             connector_config_id="ccfg_",
             customer_id="customer_id",
-            data={"connector_name": "acme-oauth2"},
+            data={"connector_name": "accelo"},
         )
         assert_matches_type(CreateConnectionResponse, client, path=["response"])
 
@@ -554,7 +594,7 @@ class TestAsyncClient:
             connector_config_id="ccfg_",
             customer_id="customer_id",
             data={
-                "connector_name": "acme-oauth2",
+                "connector_name": "accelo",
                 "settings": {
                     "oauth": {
                         "created_at": "created_at",
@@ -572,6 +612,7 @@ class TestAsyncClient:
                         "metadata": {"foo": "bar"},
                         "updated_at": "updated_at",
                     },
+                    "subdomain": "https://26f1kl_-n-71.api.accelo.com",
                     "access_token": "access_token",
                 },
             },
@@ -586,7 +627,7 @@ class TestAsyncClient:
         response = await async_client.with_raw_response.create_connection(
             connector_config_id="ccfg_",
             customer_id="customer_id",
-            data={"connector_name": "acme-oauth2"},
+            data={"connector_name": "accelo"},
         )
 
         assert response.is_closed is True
@@ -600,7 +641,7 @@ class TestAsyncClient:
         async with async_client.with_streaming_response.create_connection(
             connector_config_id="ccfg_",
             customer_id="customer_id",
-            data={"connector_name": "acme-oauth2"},
+            data={"connector_name": "accelo"},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -624,7 +665,7 @@ class TestAsyncClient:
         client = await async_client.create_token(
             customer_id="x",
             connect_options={
-                "connector_names": ["acme-oauth2"],
+                "connector_names": ["accelo"],
                 "debug": True,
                 "is_embedded": True,
                 "return_url": "return_url",
@@ -845,7 +886,7 @@ class TestAsyncClient:
     @parametrize
     async def test_method_list_connection_configs_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connection_configs(
-            connector_names=["acme-oauth2"],
+            connector_names=["accelo"],
             expand=["connector"],
             limit=0,
             offset=0,
@@ -886,7 +927,7 @@ class TestAsyncClient:
     async def test_method_list_connections_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connections(
             connector_config_id="ccfg_",
-            connector_names=["acme-oauth2"],
+            connector_names=["accelo"],
             customer_id="customer_id",
             expand=["connector"],
             include_secrets=True,
@@ -954,5 +995,43 @@ class TestAsyncClient:
 
             client = await response.parse()
             assert_matches_type(AsyncOffsetPagination[ListConnectorsResponse], client, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_list_events(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.list_events()
+        assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_list_events_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.list_events(
+            limit=0,
+            offset=0,
+            search_query="search_query",
+        )
+        assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_raw_response_list_events(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.list_events()
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client = await response.parse()
+        assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_streaming_response_list_events(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.list_events() as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client = await response.parse()
+            assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
 
         assert cast(Any, response.is_closed) is True

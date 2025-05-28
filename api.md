@@ -14,6 +14,7 @@ from openint.types import (
     ListConnectionConfigsResponse,
     ListConnectionsResponse,
     ListConnectorsResponse,
+    ListEventsResponse,
 )
 ```
 
@@ -29,3 +30,4 @@ Methods:
 - <code title="get /connector-config">client.<a href="./src/openint/_client.py">list_connection_configs</a>(\*\*<a href="src/openint/types/client_list_connection_configs_params.py">params</a>) -> <a href="./src/openint/types/list_connection_configs_response.py">SyncOffsetPagination[ListConnectionConfigsResponse]</a></code>
 - <code title="get /connection">client.<a href="./src/openint/_client.py">list_connections</a>(\*\*<a href="src/openint/types/client_list_connections_params.py">params</a>) -> <a href="./src/openint/types/list_connections_response.py">SyncOffsetPagination[ListConnectionsResponse]</a></code>
 - <code title="get /connector">client.<a href="./src/openint/_client.py">list_connectors</a>(\*\*<a href="src/openint/types/client_list_connectors_params.py">params</a>) -> <a href="./src/openint/types/list_connectors_response.py">SyncOffsetPagination[ListConnectorsResponse]</a></code>
+- <code title="get /event">client.<a href="./src/openint/_client.py">list_events</a>(\*\*<a href="src/openint/types/client_list_events_params.py">params</a>) -> <a href="./src/openint/types/list_events_response.py">SyncOffsetPagination[ListEventsResponse]</a></code>
