@@ -380,7 +380,7 @@ class UnionMember12(BaseModel):
 
 
 class UnionMember13Data(BaseModel):
-    error_details: None = None
+    error_details: Optional[str] = None
 
     error_message: Optional[str] = None
 

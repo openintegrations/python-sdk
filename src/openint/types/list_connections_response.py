@@ -8,294 +8,577 @@ from pydantic import Field as FieldInfo
 from .._models import BaseModel
 from .connector import Connector
 from .integration import Integration
-from .oauth_connection_settings import OAuthConnectionSettings
 
 __all__ = [
     "ListConnectionsResponse",
     "ConnectorAcceloDiscriminatedConnectionSettings",
     "ConnectorAcceloDiscriminatedConnectionSettingsSettings",
+    "ConnectorAcceloDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorAcceloDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorAcmeOauth2DiscriminatedConnectionSettings",
     "ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings",
+    "ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorAdobeDiscriminatedConnectionSettings",
     "ConnectorAdobeDiscriminatedConnectionSettingsSettings",
+    "ConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorAdyenDiscriminatedConnectionSettings",
     "ConnectorAdyenDiscriminatedConnectionSettingsSettings",
+    "ConnectorAdyenDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorAdyenDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorAircallDiscriminatedConnectionSettings",
     "ConnectorAircallDiscriminatedConnectionSettingsSettings",
+    "ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorAmazonDiscriminatedConnectionSettings",
     "ConnectorAmazonDiscriminatedConnectionSettingsSettings",
+    "ConnectorAmazonDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorAmazonDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorApaleoDiscriminatedConnectionSettings",
     "ConnectorApaleoDiscriminatedConnectionSettingsSettings",
+    "ConnectorApaleoDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorApaleoDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorAsanaDiscriminatedConnectionSettings",
     "ConnectorAsanaDiscriminatedConnectionSettingsSettings",
+    "ConnectorAsanaDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorAsanaDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorAttioDiscriminatedConnectionSettings",
     "ConnectorAttioDiscriminatedConnectionSettingsSettings",
+    "ConnectorAttioDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorAttioDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorAuth0DiscriminatedConnectionSettings",
     "ConnectorAuth0DiscriminatedConnectionSettingsSettings",
+    "ConnectorAuth0DiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorAuth0DiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorAutodeskDiscriminatedConnectionSettings",
     "ConnectorAutodeskDiscriminatedConnectionSettingsSettings",
+    "ConnectorAutodeskDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorAutodeskDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorAwsDiscriminatedConnectionSettings",
     "ConnectorAwsDiscriminatedConnectionSettingsSettings",
+    "ConnectorAwsDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorAwsDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorBamboohrDiscriminatedConnectionSettings",
     "ConnectorBamboohrDiscriminatedConnectionSettingsSettings",
+    "ConnectorBamboohrDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorBamboohrDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorBasecampDiscriminatedConnectionSettings",
     "ConnectorBasecampDiscriminatedConnectionSettingsSettings",
+    "ConnectorBasecampDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorBasecampDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorBattlenetDiscriminatedConnectionSettings",
     "ConnectorBattlenetDiscriminatedConnectionSettingsSettings",
+    "ConnectorBattlenetDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorBattlenetDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorBigcommerceDiscriminatedConnectionSettings",
     "ConnectorBigcommerceDiscriminatedConnectionSettingsSettings",
+    "ConnectorBigcommerceDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorBigcommerceDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorBitbucketDiscriminatedConnectionSettings",
     "ConnectorBitbucketDiscriminatedConnectionSettingsSettings",
+    "ConnectorBitbucketDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorBitbucketDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorBitlyDiscriminatedConnectionSettings",
     "ConnectorBitlyDiscriminatedConnectionSettingsSettings",
+    "ConnectorBitlyDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorBitlyDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorBlackbaudDiscriminatedConnectionSettings",
     "ConnectorBlackbaudDiscriminatedConnectionSettingsSettings",
+    "ConnectorBlackbaudDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorBlackbaudDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorBoldsignDiscriminatedConnectionSettings",
     "ConnectorBoldsignDiscriminatedConnectionSettingsSettings",
+    "ConnectorBoldsignDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorBoldsignDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorBoxDiscriminatedConnectionSettings",
     "ConnectorBoxDiscriminatedConnectionSettingsSettings",
+    "ConnectorBoxDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorBoxDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorBraintreeDiscriminatedConnectionSettings",
     "ConnectorBraintreeDiscriminatedConnectionSettingsSettings",
+    "ConnectorBraintreeDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorBraintreeDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorCalendlyDiscriminatedConnectionSettings",
     "ConnectorCalendlyDiscriminatedConnectionSettingsSettings",
+    "ConnectorCalendlyDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorCalendlyDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorClickupDiscriminatedConnectionSettings",
     "ConnectorClickupDiscriminatedConnectionSettingsSettings",
+    "ConnectorClickupDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorClickupDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorCloseDiscriminatedConnectionSettings",
     "ConnectorCloseDiscriminatedConnectionSettingsSettings",
+    "ConnectorCloseDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorCloseDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorConfluenceDiscriminatedConnectionSettings",
     "ConnectorConfluenceDiscriminatedConnectionSettingsSettings",
+    "ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorContentfulDiscriminatedConnectionSettings",
     "ConnectorContentfulDiscriminatedConnectionSettingsSettings",
+    "ConnectorContentfulDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorContentfulDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorContentstackDiscriminatedConnectionSettings",
     "ConnectorContentstackDiscriminatedConnectionSettingsSettings",
+    "ConnectorContentstackDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorContentstackDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorCopperDiscriminatedConnectionSettings",
     "ConnectorCopperDiscriminatedConnectionSettingsSettings",
+    "ConnectorCopperDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorCopperDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorCorosDiscriminatedConnectionSettings",
     "ConnectorCorosDiscriminatedConnectionSettingsSettings",
+    "ConnectorCorosDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorCorosDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorDatevDiscriminatedConnectionSettings",
     "ConnectorDatevDiscriminatedConnectionSettingsSettings",
+    "ConnectorDatevDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorDatevDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorDeelDiscriminatedConnectionSettings",
     "ConnectorDeelDiscriminatedConnectionSettingsSettings",
+    "ConnectorDeelDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorDeelDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorDialpadDiscriminatedConnectionSettings",
     "ConnectorDialpadDiscriminatedConnectionSettingsSettings",
+    "ConnectorDialpadDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorDialpadDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorDigitaloceanDiscriminatedConnectionSettings",
     "ConnectorDigitaloceanDiscriminatedConnectionSettingsSettings",
+    "ConnectorDigitaloceanDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorDigitaloceanDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorDiscordDiscriminatedConnectionSettings",
     "ConnectorDiscordDiscriminatedConnectionSettingsSettings",
+    "ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorDocusignDiscriminatedConnectionSettings",
     "ConnectorDocusignDiscriminatedConnectionSettingsSettings",
+    "ConnectorDocusignDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorDocusignDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorDropboxDiscriminatedConnectionSettings",
     "ConnectorDropboxDiscriminatedConnectionSettingsSettings",
+    "ConnectorDropboxDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorDropboxDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorEbayDiscriminatedConnectionSettings",
     "ConnectorEbayDiscriminatedConnectionSettingsSettings",
+    "ConnectorEbayDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorEbayDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorEgnyteDiscriminatedConnectionSettings",
     "ConnectorEgnyteDiscriminatedConnectionSettingsSettings",
+    "ConnectorEgnyteDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorEgnyteDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorEnvoyDiscriminatedConnectionSettings",
     "ConnectorEnvoyDiscriminatedConnectionSettingsSettings",
+    "ConnectorEnvoyDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorEnvoyDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorEventbriteDiscriminatedConnectionSettings",
     "ConnectorEventbriteDiscriminatedConnectionSettingsSettings",
+    "ConnectorEventbriteDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorEventbriteDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorExistDiscriminatedConnectionSettings",
     "ConnectorExistDiscriminatedConnectionSettingsSettings",
+    "ConnectorExistDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorExistDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorFacebookDiscriminatedConnectionSettings",
     "ConnectorFacebookDiscriminatedConnectionSettingsSettings",
+    "ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorFactorialDiscriminatedConnectionSettings",
     "ConnectorFactorialDiscriminatedConnectionSettingsSettings",
+    "ConnectorFactorialDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorFactorialDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorFigmaDiscriminatedConnectionSettings",
     "ConnectorFigmaDiscriminatedConnectionSettingsSettings",
+    "ConnectorFigmaDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorFigmaDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorFitbitDiscriminatedConnectionSettings",
     "ConnectorFitbitDiscriminatedConnectionSettingsSettings",
+    "ConnectorFitbitDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorFitbitDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorFortnoxDiscriminatedConnectionSettings",
     "ConnectorFortnoxDiscriminatedConnectionSettingsSettings",
+    "ConnectorFortnoxDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorFortnoxDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorFreshbooksDiscriminatedConnectionSettings",
     "ConnectorFreshbooksDiscriminatedConnectionSettingsSettings",
+    "ConnectorFreshbooksDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorFreshbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorFrontDiscriminatedConnectionSettings",
     "ConnectorFrontDiscriminatedConnectionSettingsSettings",
+    "ConnectorFrontDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorFrontDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorGitHubDiscriminatedConnectionSettings",
     "ConnectorGitHubDiscriminatedConnectionSettingsSettings",
+    "ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorGitlabDiscriminatedConnectionSettings",
     "ConnectorGitlabDiscriminatedConnectionSettingsSettings",
+    "ConnectorGitlabDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGitlabDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorGongDiscriminatedConnectionSettings",
     "ConnectorGongDiscriminatedConnectionSettingsSettings",
+    "ConnectorGongDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorGoogleCalendarDiscriminatedConnectionSettings",
     "ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettings",
+    "ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorGoogleDocsDiscriminatedConnectionSettings",
     "ConnectorGoogleDocsDiscriminatedConnectionSettingsSettings",
+    "ConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorGoogleDriveDiscriminatedConnectionSettings",
     "ConnectorGoogleDriveDiscriminatedConnectionSettingsSettings",
+    "ConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorGoogleMailDiscriminatedConnectionSettings",
     "ConnectorGoogleMailDiscriminatedConnectionSettingsSettings",
+    "ConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorGoogleSheetDiscriminatedConnectionSettings",
     "ConnectorGoogleSheetDiscriminatedConnectionSettingsSettings",
+    "ConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorGorgiasDiscriminatedConnectionSettings",
     "ConnectorGorgiasDiscriminatedConnectionSettingsSettings",
+    "ConnectorGorgiasDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGorgiasDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorGrainDiscriminatedConnectionSettings",
     "ConnectorGrainDiscriminatedConnectionSettingsSettings",
+    "ConnectorGrainDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGrainDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorGumroadDiscriminatedConnectionSettings",
     "ConnectorGumroadDiscriminatedConnectionSettingsSettings",
+    "ConnectorGumroadDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGumroadDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorGustoDiscriminatedConnectionSettings",
     "ConnectorGustoDiscriminatedConnectionSettingsSettings",
+    "ConnectorGustoDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorGustoDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorHarvestDiscriminatedConnectionSettings",
     "ConnectorHarvestDiscriminatedConnectionSettingsSettings",
+    "ConnectorHarvestDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorHarvestDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorHighlevelDiscriminatedConnectionSettings",
     "ConnectorHighlevelDiscriminatedConnectionSettingsSettings",
+    "ConnectorHighlevelDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorHighlevelDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorHubspotDiscriminatedConnectionSettings",
     "ConnectorHubspotDiscriminatedConnectionSettingsSettings",
+    "ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorInstagramDiscriminatedConnectionSettings",
     "ConnectorInstagramDiscriminatedConnectionSettingsSettings",
+    "ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorIntercomDiscriminatedConnectionSettings",
     "ConnectorIntercomDiscriminatedConnectionSettingsSettings",
+    "ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorJiraDiscriminatedConnectionSettings",
     "ConnectorJiraDiscriminatedConnectionSettingsSettings",
+    "ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorKeapDiscriminatedConnectionSettings",
     "ConnectorKeapDiscriminatedConnectionSettingsSettings",
+    "ConnectorKeapDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorKeapDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorLeverDiscriminatedConnectionSettings",
     "ConnectorLeverDiscriminatedConnectionSettingsSettings",
+    "ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorLinearDiscriminatedConnectionSettings",
     "ConnectorLinearDiscriminatedConnectionSettingsSettings",
+    "ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorLinkedinDiscriminatedConnectionSettings",
     "ConnectorLinkedinDiscriminatedConnectionSettingsSettings",
+    "ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorLinkhutDiscriminatedConnectionSettings",
     "ConnectorLinkhutDiscriminatedConnectionSettingsSettings",
+    "ConnectorLinkhutDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorLinkhutDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorMailchimpDiscriminatedConnectionSettings",
     "ConnectorMailchimpDiscriminatedConnectionSettingsSettings",
+    "ConnectorMailchimpDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorMailchimpDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorMiroDiscriminatedConnectionSettings",
     "ConnectorMiroDiscriminatedConnectionSettingsSettings",
+    "ConnectorMiroDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorMiroDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorMondayDiscriminatedConnectionSettings",
     "ConnectorMondayDiscriminatedConnectionSettingsSettings",
+    "ConnectorMondayDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorMondayDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorMuralDiscriminatedConnectionSettings",
     "ConnectorMuralDiscriminatedConnectionSettingsSettings",
+    "ConnectorMuralDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorMuralDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorNamelyDiscriminatedConnectionSettings",
     "ConnectorNamelyDiscriminatedConnectionSettingsSettings",
+    "ConnectorNamelyDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorNamelyDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorNationbuilderDiscriminatedConnectionSettings",
     "ConnectorNationbuilderDiscriminatedConnectionSettingsSettings",
+    "ConnectorNationbuilderDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorNationbuilderDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorNetsuiteDiscriminatedConnectionSettings",
     "ConnectorNetsuiteDiscriminatedConnectionSettingsSettings",
+    "ConnectorNetsuiteDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorNetsuiteDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorNotionDiscriminatedConnectionSettings",
     "ConnectorNotionDiscriminatedConnectionSettingsSettings",
+    "ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorOdooDiscriminatedConnectionSettings",
     "ConnectorOdooDiscriminatedConnectionSettingsSettings",
+    "ConnectorOdooDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorOdooDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorOktaDiscriminatedConnectionSettings",
     "ConnectorOktaDiscriminatedConnectionSettingsSettings",
+    "ConnectorOktaDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorOktaDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorOsuDiscriminatedConnectionSettings",
     "ConnectorOsuDiscriminatedConnectionSettingsSettings",
+    "ConnectorOsuDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorOsuDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorOuraDiscriminatedConnectionSettings",
     "ConnectorOuraDiscriminatedConnectionSettingsSettings",
+    "ConnectorOuraDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorOuraDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorOutreachDiscriminatedConnectionSettings",
     "ConnectorOutreachDiscriminatedConnectionSettingsSettings",
+    "ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorPagerdutyDiscriminatedConnectionSettings",
     "ConnectorPagerdutyDiscriminatedConnectionSettingsSettings",
+    "ConnectorPagerdutyDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorPagerdutyDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorPandadocDiscriminatedConnectionSettings",
     "ConnectorPandadocDiscriminatedConnectionSettingsSettings",
+    "ConnectorPandadocDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorPandadocDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorPayfitDiscriminatedConnectionSettings",
     "ConnectorPayfitDiscriminatedConnectionSettingsSettings",
+    "ConnectorPayfitDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorPayfitDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorPaypalDiscriminatedConnectionSettings",
     "ConnectorPaypalDiscriminatedConnectionSettingsSettings",
+    "ConnectorPaypalDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorPaypalDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorPennylaneDiscriminatedConnectionSettings",
     "ConnectorPennylaneDiscriminatedConnectionSettingsSettings",
+    "ConnectorPennylaneDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorPennylaneDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorPinterestDiscriminatedConnectionSettings",
     "ConnectorPinterestDiscriminatedConnectionSettingsSettings",
+    "ConnectorPinterestDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorPinterestDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorPipedriveDiscriminatedConnectionSettings",
     "ConnectorPipedriveDiscriminatedConnectionSettingsSettings",
+    "ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorPodiumDiscriminatedConnectionSettings",
     "ConnectorPodiumDiscriminatedConnectionSettingsSettings",
+    "ConnectorPodiumDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorPodiumDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorProductboardDiscriminatedConnectionSettings",
     "ConnectorProductboardDiscriminatedConnectionSettingsSettings",
+    "ConnectorProductboardDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorProductboardDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorQualtricsDiscriminatedConnectionSettings",
     "ConnectorQualtricsDiscriminatedConnectionSettingsSettings",
+    "ConnectorQualtricsDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorQualtricsDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorQuickbooksDiscriminatedConnectionSettings",
     "ConnectorQuickbooksDiscriminatedConnectionSettingsSettings",
+    "ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorRedditDiscriminatedConnectionSettings",
     "ConnectorRedditDiscriminatedConnectionSettingsSettings",
+    "ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorSageDiscriminatedConnectionSettings",
     "ConnectorSageDiscriminatedConnectionSettingsSettings",
+    "ConnectorSageDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSageDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorSalesforceDiscriminatedConnectionSettings",
     "ConnectorSalesforceDiscriminatedConnectionSettingsSettings",
+    "ConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorSalesloftDiscriminatedConnectionSettings",
     "ConnectorSalesloftDiscriminatedConnectionSettingsSettings",
+    "ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorSegmentDiscriminatedConnectionSettings",
     "ConnectorSegmentDiscriminatedConnectionSettingsSettings",
+    "ConnectorSegmentDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSegmentDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorServicem8DiscriminatedConnectionSettings",
     "ConnectorServicem8DiscriminatedConnectionSettingsSettings",
+    "ConnectorServicem8DiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorServicem8DiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorServicenowDiscriminatedConnectionSettings",
     "ConnectorServicenowDiscriminatedConnectionSettingsSettings",
+    "ConnectorServicenowDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorServicenowDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorSharepointDiscriminatedConnectionSettings",
     "ConnectorSharepointDiscriminatedConnectionSettingsSettings",
+    "ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorShopifyDiscriminatedConnectionSettings",
     "ConnectorShopifyDiscriminatedConnectionSettingsSettings",
+    "ConnectorShopifyDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorShopifyDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorSignnowDiscriminatedConnectionSettings",
     "ConnectorSignnowDiscriminatedConnectionSettingsSettings",
+    "ConnectorSignnowDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSignnowDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorSlackDiscriminatedConnectionSettings",
     "ConnectorSlackDiscriminatedConnectionSettingsSettings",
+    "ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorSmartsheetDiscriminatedConnectionSettings",
     "ConnectorSmartsheetDiscriminatedConnectionSettingsSettings",
+    "ConnectorSmartsheetDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSmartsheetDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorSnowflakeDiscriminatedConnectionSettings",
     "ConnectorSnowflakeDiscriminatedConnectionSettingsSettings",
+    "ConnectorSnowflakeDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSnowflakeDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorSpotifyDiscriminatedConnectionSettings",
     "ConnectorSpotifyDiscriminatedConnectionSettingsSettings",
+    "ConnectorSpotifyDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSpotifyDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorSquarespaceDiscriminatedConnectionSettings",
     "ConnectorSquarespaceDiscriminatedConnectionSettingsSettings",
+    "ConnectorSquarespaceDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSquarespaceDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorSquareupDiscriminatedConnectionSettings",
     "ConnectorSquareupDiscriminatedConnectionSettingsSettings",
+    "ConnectorSquareupDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorSquareupDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorStackexchangeDiscriminatedConnectionSettings",
     "ConnectorStackexchangeDiscriminatedConnectionSettingsSettings",
+    "ConnectorStackexchangeDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorStackexchangeDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorStravaDiscriminatedConnectionSettings",
     "ConnectorStravaDiscriminatedConnectionSettingsSettings",
+    "ConnectorStravaDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorStravaDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorTeamworkDiscriminatedConnectionSettings",
     "ConnectorTeamworkDiscriminatedConnectionSettingsSettings",
+    "ConnectorTeamworkDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorTeamworkDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorTicktickDiscriminatedConnectionSettings",
     "ConnectorTicktickDiscriminatedConnectionSettingsSettings",
+    "ConnectorTicktickDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorTicktickDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorTimelyDiscriminatedConnectionSettings",
     "ConnectorTimelyDiscriminatedConnectionSettingsSettings",
+    "ConnectorTimelyDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorTimelyDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorTodoistDiscriminatedConnectionSettings",
     "ConnectorTodoistDiscriminatedConnectionSettingsSettings",
+    "ConnectorTodoistDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorTodoistDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorTremendousDiscriminatedConnectionSettings",
     "ConnectorTremendousDiscriminatedConnectionSettingsSettings",
+    "ConnectorTremendousDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorTremendousDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorTsheetsteamDiscriminatedConnectionSettings",
     "ConnectorTsheetsteamDiscriminatedConnectionSettingsSettings",
+    "ConnectorTsheetsteamDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorTsheetsteamDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorTumblrDiscriminatedConnectionSettings",
     "ConnectorTumblrDiscriminatedConnectionSettingsSettings",
+    "ConnectorTumblrDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorTumblrDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorTwinfieldDiscriminatedConnectionSettings",
     "ConnectorTwinfieldDiscriminatedConnectionSettingsSettings",
+    "ConnectorTwinfieldDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorTwinfieldDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorTwitchDiscriminatedConnectionSettings",
     "ConnectorTwitchDiscriminatedConnectionSettingsSettings",
+    "ConnectorTwitchDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorTwitchDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorTwitterDiscriminatedConnectionSettings",
     "ConnectorTwitterDiscriminatedConnectionSettingsSettings",
+    "ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorTypeformDiscriminatedConnectionSettings",
     "ConnectorTypeformDiscriminatedConnectionSettingsSettings",
+    "ConnectorTypeformDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorTypeformDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorUberDiscriminatedConnectionSettings",
     "ConnectorUberDiscriminatedConnectionSettingsSettings",
+    "ConnectorUberDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorUberDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorVimeoDiscriminatedConnectionSettings",
     "ConnectorVimeoDiscriminatedConnectionSettingsSettings",
+    "ConnectorVimeoDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorVimeoDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorWakatimeDiscriminatedConnectionSettings",
     "ConnectorWakatimeDiscriminatedConnectionSettingsSettings",
+    "ConnectorWakatimeDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorWakatimeDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorWealthboxDiscriminatedConnectionSettings",
     "ConnectorWealthboxDiscriminatedConnectionSettingsSettings",
+    "ConnectorWealthboxDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorWealthboxDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorWebflowDiscriminatedConnectionSettings",
     "ConnectorWebflowDiscriminatedConnectionSettingsSettings",
+    "ConnectorWebflowDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorWebflowDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorWhoopDiscriminatedConnectionSettings",
     "ConnectorWhoopDiscriminatedConnectionSettingsSettings",
+    "ConnectorWhoopDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorWhoopDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorWordpressDiscriminatedConnectionSettings",
     "ConnectorWordpressDiscriminatedConnectionSettingsSettings",
+    "ConnectorWordpressDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorWordpressDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorWrikeDiscriminatedConnectionSettings",
     "ConnectorWrikeDiscriminatedConnectionSettingsSettings",
+    "ConnectorWrikeDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorWrikeDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorXeroDiscriminatedConnectionSettings",
     "ConnectorXeroDiscriminatedConnectionSettingsSettings",
+    "ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorYahooDiscriminatedConnectionSettings",
     "ConnectorYahooDiscriminatedConnectionSettingsSettings",
+    "ConnectorYahooDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorYahooDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorYandexDiscriminatedConnectionSettings",
     "ConnectorYandexDiscriminatedConnectionSettingsSettings",
+    "ConnectorYandexDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorYandexDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorZapierDiscriminatedConnectionSettings",
     "ConnectorZapierDiscriminatedConnectionSettingsSettings",
+    "ConnectorZapierDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorZapierDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorZendeskDiscriminatedConnectionSettings",
     "ConnectorZendeskDiscriminatedConnectionSettingsSettings",
+    "ConnectorZendeskDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorZendeskDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorZenefitsDiscriminatedConnectionSettings",
     "ConnectorZenefitsDiscriminatedConnectionSettingsSettings",
+    "ConnectorZenefitsDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorZenefitsDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorZohoDeskDiscriminatedConnectionSettings",
     "ConnectorZohoDeskDiscriminatedConnectionSettingsSettings",
+    "ConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorZohoDiscriminatedConnectionSettings",
     "ConnectorZohoDiscriminatedConnectionSettingsSettings",
+    "ConnectorZohoDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorZohoDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorZoomDiscriminatedConnectionSettings",
     "ConnectorZoomDiscriminatedConnectionSettingsSettings",
+    "ConnectorZoomDiscriminatedConnectionSettingsSettingsOAuth",
+    "ConnectorZoomDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "ConnectorAirtableDiscriminatedConnectionSettings",
     "ConnectorAirtableDiscriminatedConnectionSettingsSettings",
     "ConnectorApolloDiscriminatedConnectionSettings",
@@ -362,8 +645,40 @@ __all__ = [
 ]
 
 
+class ConnectorAcceloDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorAcceloDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorAcceloDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorAcceloDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorAcceloDiscriminatedConnectionSettingsSettingsOAuth
 
     subdomain: str
     """The subdomain of your Accelo account (e.g., https://domain.api.accelo.com)"""
@@ -412,8 +727,40 @@ class ConnectorAcceloDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -459,8 +806,40 @@ class ConnectorAcmeOauth2DiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorAdobeDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -506,11 +885,43 @@ class ConnectorAdobeDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorAdyenDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorAdyenDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorAdyenDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorAdyenDiscriminatedConnectionSettingsSettings(BaseModel):
     environment: str
     """The environment to use (e.g., live|test)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorAdyenDiscriminatedConnectionSettingsSettingsOAuth
 
     resource: str
     """
@@ -562,8 +973,40 @@ class ConnectorAdyenDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorAircallDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -609,11 +1052,43 @@ class ConnectorAircallDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorAmazonDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorAmazonDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorAmazonDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorAmazonDiscriminatedConnectionSettingsSettings(BaseModel):
     extension: str
     """The domain extension for your Amazon account (e.g., com)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorAmazonDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -659,8 +1134,40 @@ class ConnectorAmazonDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorApaleoDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorApaleoDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorApaleoDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorApaleoDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorApaleoDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -706,8 +1213,40 @@ class ConnectorApaleoDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorAsanaDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorAsanaDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorAsanaDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorAsanaDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorAsanaDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -753,8 +1292,40 @@ class ConnectorAsanaDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorAttioDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorAttioDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorAttioDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorAttioDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorAttioDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -800,8 +1371,40 @@ class ConnectorAttioDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorAuth0DiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorAuth0DiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorAuth0DiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorAuth0DiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorAuth0DiscriminatedConnectionSettingsSettingsOAuth
 
     subdomain: str
     """The subdomain of your Auth0 account (e.g., https://domain.auth0.com)"""
@@ -850,8 +1453,40 @@ class ConnectorAuth0DiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorAutodeskDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorAutodeskDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorAutodeskDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorAutodeskDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorAutodeskDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -897,6 +1532,38 @@ class ConnectorAutodeskDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorAwsDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorAwsDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorAwsDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorAwsDiscriminatedConnectionSettingsSettings(BaseModel):
     api_subdomain: str = FieldInfo(alias="apiSubdomain")
     """
@@ -907,7 +1574,7 @@ class ConnectorAwsDiscriminatedConnectionSettingsSettings(BaseModel):
     extension: str
     """The domain extension of your AWS account (e.g., com)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorAwsDiscriminatedConnectionSettingsSettingsOAuth
 
     subdomain: str
     """The subdomain of your AWS account (e.g., https://domain.amazoncognito.com)"""
@@ -956,8 +1623,40 @@ class ConnectorAwsDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorBamboohrDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorBamboohrDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorBamboohrDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorBamboohrDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorBamboohrDiscriminatedConnectionSettingsSettingsOAuth
 
     subdomain: str
     """The subdomain of your BambooHR account (e.g., https://domain.bamboohr.com)"""
@@ -1006,6 +1705,38 @@ class ConnectorBamboohrDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorBasecampDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorBasecampDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorBasecampDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorBasecampDiscriminatedConnectionSettingsSettings(BaseModel):
     account_id: str = FieldInfo(alias="accountId")
     """Your Account ID (e.g., 5899981)"""
@@ -1013,7 +1744,7 @@ class ConnectorBasecampDiscriminatedConnectionSettingsSettings(BaseModel):
     app_details: str = FieldInfo(alias="appDetails")
     """The details of your app (e.g., example-subdomain)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorBasecampDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1059,6 +1790,38 @@ class ConnectorBasecampDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorBattlenetDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorBattlenetDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorBattlenetDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorBattlenetDiscriminatedConnectionSettingsSettings(BaseModel):
     api_domain: str = FieldInfo(alias="apiDomain")
     """
@@ -1068,7 +1831,7 @@ class ConnectorBattlenetDiscriminatedConnectionSettingsSettings(BaseModel):
     extension: str
     """The domain extension of your Battle.net account (e.g., com)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorBattlenetDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1114,6 +1877,38 @@ class ConnectorBattlenetDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorBigcommerceDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorBigcommerceDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorBigcommerceDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorBigcommerceDiscriminatedConnectionSettingsSettings(BaseModel):
     account_uuid: str = FieldInfo(alias="accountUuid")
     """
@@ -1121,7 +1916,7 @@ class ConnectorBigcommerceDiscriminatedConnectionSettingsSettings(BaseModel):
     123e4567-e89b-12d3-a456-426614174000)
     """
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorBigcommerceDiscriminatedConnectionSettingsSettingsOAuth
 
     store_hash: str = FieldInfo(alias="storeHash")
     """The store hash of your BigCommerce account (e.g., Example123)"""
@@ -1170,8 +1965,40 @@ class ConnectorBigcommerceDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorBitbucketDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorBitbucketDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorBitbucketDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorBitbucketDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorBitbucketDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1217,8 +2044,40 @@ class ConnectorBitbucketDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorBitlyDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorBitlyDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorBitlyDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorBitlyDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorBitlyDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1264,8 +2123,40 @@ class ConnectorBitlyDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorBlackbaudDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorBlackbaudDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorBlackbaudDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorBlackbaudDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorBlackbaudDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1311,8 +2202,40 @@ class ConnectorBlackbaudDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorBoldsignDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorBoldsignDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorBoldsignDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorBoldsignDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorBoldsignDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1358,8 +2281,40 @@ class ConnectorBoldsignDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorBoxDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorBoxDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorBoxDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorBoxDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorBoxDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1405,8 +2360,40 @@ class ConnectorBoxDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorBraintreeDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorBraintreeDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorBraintreeDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorBraintreeDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorBraintreeDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1452,8 +2439,40 @@ class ConnectorBraintreeDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorCalendlyDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorCalendlyDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorCalendlyDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorCalendlyDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorCalendlyDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1499,8 +2518,40 @@ class ConnectorCalendlyDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorClickupDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorClickupDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorClickupDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorClickupDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorClickupDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1546,8 +2597,40 @@ class ConnectorClickupDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorCloseDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorCloseDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorCloseDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorCloseDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorCloseDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1593,8 +2676,40 @@ class ConnectorCloseDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorConfluenceDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1640,8 +2755,40 @@ class ConnectorConfluenceDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorContentfulDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorContentfulDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorContentfulDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorContentfulDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorContentfulDiscriminatedConnectionSettingsSettingsOAuth
 
     subdomain: str
     """The subdomain of your Contentful account (e.g., https://domain.contentful.com)"""
@@ -1690,6 +2837,38 @@ class ConnectorContentfulDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorContentstackDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorContentstackDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorContentstackDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorContentstackDiscriminatedConnectionSettingsSettings(BaseModel):
     api_domain: str = FieldInfo(alias="apiDomain")
     """
@@ -1700,7 +2879,7 @@ class ConnectorContentstackDiscriminatedConnectionSettingsSettings(BaseModel):
     app_id: str = FieldInfo(alias="appId")
     """The app ID of your Contentstack account (e.g., example-subdomain)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorContentstackDiscriminatedConnectionSettingsSettingsOAuth
 
     subdomain: str
     """
@@ -1752,8 +2931,40 @@ class ConnectorContentstackDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorCopperDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorCopperDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorCopperDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorCopperDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorCopperDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1799,8 +3010,40 @@ class ConnectorCopperDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorCorosDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorCorosDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorCorosDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorCorosDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorCorosDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1846,8 +3089,40 @@ class ConnectorCorosDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorDatevDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorDatevDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorDatevDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorDatevDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorDatevDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1893,8 +3168,40 @@ class ConnectorDatevDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorDeelDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorDeelDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorDeelDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorDeelDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorDeelDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1940,8 +3247,40 @@ class ConnectorDeelDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorDialpadDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorDialpadDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorDialpadDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorDialpadDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorDialpadDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1987,8 +3326,40 @@ class ConnectorDialpadDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorDigitaloceanDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorDigitaloceanDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorDigitaloceanDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorDigitaloceanDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorDigitaloceanDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2034,8 +3405,40 @@ class ConnectorDigitaloceanDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorDiscordDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2081,8 +3484,40 @@ class ConnectorDiscordDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorDocusignDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorDocusignDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorDocusignDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorDocusignDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorDocusignDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2128,8 +3563,40 @@ class ConnectorDocusignDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorDropboxDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorDropboxDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorDropboxDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorDropboxDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorDropboxDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2175,8 +3642,40 @@ class ConnectorDropboxDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorEbayDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorEbayDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorEbayDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorEbayDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorEbayDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2222,8 +3721,40 @@ class ConnectorEbayDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorEgnyteDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorEgnyteDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorEgnyteDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorEgnyteDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorEgnyteDiscriminatedConnectionSettingsSettingsOAuth
 
     subdomain: str
     """The subdomain of your Egnyte account (e.g., https://domain.egnyte.com)"""
@@ -2272,8 +3803,40 @@ class ConnectorEgnyteDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorEnvoyDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorEnvoyDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorEnvoyDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorEnvoyDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorEnvoyDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2319,8 +3882,40 @@ class ConnectorEnvoyDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorEventbriteDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorEventbriteDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorEventbriteDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorEventbriteDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorEventbriteDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2366,8 +3961,40 @@ class ConnectorEventbriteDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorExistDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorExistDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorExistDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorExistDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorExistDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2413,8 +4040,40 @@ class ConnectorExistDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorFacebookDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2460,8 +4119,40 @@ class ConnectorFacebookDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorFactorialDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorFactorialDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorFactorialDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorFactorialDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorFactorialDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2507,8 +4198,40 @@ class ConnectorFactorialDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorFigmaDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorFigmaDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorFigmaDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorFigmaDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorFigmaDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2554,8 +4277,40 @@ class ConnectorFigmaDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorFitbitDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorFitbitDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorFitbitDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorFitbitDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorFitbitDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2601,8 +4356,40 @@ class ConnectorFitbitDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorFortnoxDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorFortnoxDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorFortnoxDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorFortnoxDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorFortnoxDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2648,8 +4435,40 @@ class ConnectorFortnoxDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorFreshbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorFreshbooksDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorFreshbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorFreshbooksDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorFreshbooksDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2695,8 +4514,40 @@ class ConnectorFreshbooksDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorFrontDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorFrontDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorFrontDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorFrontDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorFrontDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2742,8 +4593,40 @@ class ConnectorFrontDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorGitHubDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2789,8 +4672,40 @@ class ConnectorGitHubDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorGitlabDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGitlabDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGitlabDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorGitlabDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorGitlabDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2836,11 +4751,43 @@ class ConnectorGitlabDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGongDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorGongDiscriminatedConnectionSettingsSettings(BaseModel):
     api_base_url_for_customer: str
     """The base URL of your Gong account (e.g., example)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorGongDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2886,8 +4833,40 @@ class ConnectorGongDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2933,8 +4912,40 @@ class ConnectorGoogleCalendarDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorGoogleDocsDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2980,8 +4991,40 @@ class ConnectorGoogleDocsDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorGoogleDriveDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3027,8 +5070,40 @@ class ConnectorGoogleDriveDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorGoogleMailDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3074,8 +5149,40 @@ class ConnectorGoogleMailDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorGoogleSheetDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3121,8 +5228,40 @@ class ConnectorGoogleSheetDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorGorgiasDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGorgiasDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGorgiasDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorGorgiasDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorGorgiasDiscriminatedConnectionSettingsSettingsOAuth
 
     subdomain: str
     """The subdomain of your Gorgias account (e.g., https://domain.gorgias.com)"""
@@ -3171,8 +5310,40 @@ class ConnectorGorgiasDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorGrainDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGrainDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGrainDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorGrainDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorGrainDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3218,8 +5389,40 @@ class ConnectorGrainDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorGumroadDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGumroadDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGumroadDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorGumroadDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorGumroadDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3265,8 +5468,40 @@ class ConnectorGumroadDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorGustoDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorGustoDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorGustoDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorGustoDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorGustoDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3312,11 +5547,43 @@ class ConnectorGustoDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorHarvestDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorHarvestDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorHarvestDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorHarvestDiscriminatedConnectionSettingsSettings(BaseModel):
     app_details: str = FieldInfo(alias="appDetails")
     """The details of your app (e.g., example-subdomain)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorHarvestDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3362,8 +5629,40 @@ class ConnectorHarvestDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorHighlevelDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorHighlevelDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorHighlevelDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorHighlevelDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorHighlevelDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3409,8 +5708,40 @@ class ConnectorHighlevelDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorHubspotDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3456,8 +5787,40 @@ class ConnectorHubspotDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorInstagramDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3503,8 +5866,40 @@ class ConnectorInstagramDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorIntercomDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3550,8 +5945,40 @@ class ConnectorIntercomDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorJiraDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3597,8 +6024,40 @@ class ConnectorJiraDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorKeapDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorKeapDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorKeapDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorKeapDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorKeapDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3644,8 +6103,40 @@ class ConnectorKeapDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorLeverDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorLeverDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3691,8 +6182,40 @@ class ConnectorLeverDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorLinearDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3738,8 +6261,40 @@ class ConnectorLinearDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorLinkedinDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3785,8 +6340,40 @@ class ConnectorLinkedinDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorLinkhutDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorLinkhutDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorLinkhutDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorLinkhutDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorLinkhutDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3832,11 +6419,43 @@ class ConnectorLinkhutDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorMailchimpDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorMailchimpDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorMailchimpDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorMailchimpDiscriminatedConnectionSettingsSettings(BaseModel):
     dc: str
     """The data center for your account (e.g., us6)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorMailchimpDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3882,8 +6501,40 @@ class ConnectorMailchimpDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorMiroDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorMiroDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorMiroDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorMiroDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorMiroDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3929,8 +6580,40 @@ class ConnectorMiroDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorMondayDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorMondayDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorMondayDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorMondayDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorMondayDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3976,8 +6659,40 @@ class ConnectorMondayDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorMuralDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorMuralDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorMuralDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorMuralDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorMuralDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4023,11 +6738,43 @@ class ConnectorMuralDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorNamelyDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorNamelyDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorNamelyDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorNamelyDiscriminatedConnectionSettingsSettings(BaseModel):
     company: str
     """The name of your Namely company (e.g., example)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorNamelyDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4073,11 +6820,43 @@ class ConnectorNamelyDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorNationbuilderDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorNationbuilderDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorNationbuilderDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorNationbuilderDiscriminatedConnectionSettingsSettings(BaseModel):
     account_id: str = FieldInfo(alias="accountId")
     """The account ID of your NationBuilder account (e.g., example-subdomain)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorNationbuilderDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4123,11 +6902,43 @@ class ConnectorNationbuilderDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorNetsuiteDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorNetsuiteDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorNetsuiteDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorNetsuiteDiscriminatedConnectionSettingsSettings(BaseModel):
     account_id: str = FieldInfo(alias="accountId")
     """The account ID of your NetSuite account (e.g., tstdrv231585)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorNetsuiteDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4173,8 +6984,40 @@ class ConnectorNetsuiteDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorNotionDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4220,8 +7063,40 @@ class ConnectorNotionDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorOdooDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorOdooDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorOdooDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorOdooDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorOdooDiscriminatedConnectionSettingsSettingsOAuth
 
     server_url: str = FieldInfo(alias="serverUrl")
     """The domain of your Odoo account (e.g., https://example-subdomain)"""
@@ -4270,8 +7145,40 @@ class ConnectorOdooDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorOktaDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorOktaDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorOktaDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorOktaDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorOktaDiscriminatedConnectionSettingsSettingsOAuth
 
     subdomain: str
     """The subdomain of your Okta account (e.g., https://domain.okta.com)"""
@@ -4320,8 +7227,40 @@ class ConnectorOktaDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorOsuDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorOsuDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorOsuDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorOsuDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorOsuDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4367,8 +7306,40 @@ class ConnectorOsuDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorOuraDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorOuraDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorOuraDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorOuraDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorOuraDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4414,8 +7385,40 @@ class ConnectorOuraDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorOutreachDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4461,8 +7464,40 @@ class ConnectorOutreachDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorPagerdutyDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorPagerdutyDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorPagerdutyDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorPagerdutyDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorPagerdutyDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4508,8 +7543,40 @@ class ConnectorPagerdutyDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorPandadocDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorPandadocDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorPandadocDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorPandadocDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorPandadocDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4555,8 +7622,40 @@ class ConnectorPandadocDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorPayfitDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorPayfitDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorPayfitDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorPayfitDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorPayfitDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4602,8 +7701,40 @@ class ConnectorPayfitDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorPaypalDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorPaypalDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorPaypalDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorPaypalDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorPaypalDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4649,8 +7780,40 @@ class ConnectorPaypalDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorPennylaneDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorPennylaneDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorPennylaneDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorPennylaneDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorPennylaneDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4696,8 +7859,40 @@ class ConnectorPennylaneDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorPinterestDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorPinterestDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorPinterestDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorPinterestDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorPinterestDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4743,11 +7938,43 @@ class ConnectorPinterestDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorPipedriveDiscriminatedConnectionSettingsSettings(BaseModel):
     api_domain: str
     """The API URL of your Pipedrive account (e.g., example)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4793,11 +8020,43 @@ class ConnectorPipedriveDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorPodiumDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorPodiumDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorPodiumDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorPodiumDiscriminatedConnectionSettingsSettings(BaseModel):
     api_version: str = FieldInfo(alias="apiVersion")
     """The API version of your Podium account (e.g., example-subdomain)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorPodiumDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4843,8 +8102,40 @@ class ConnectorPodiumDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorProductboardDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorProductboardDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorProductboardDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorProductboardDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorProductboardDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4890,8 +8181,40 @@ class ConnectorProductboardDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorQualtricsDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorQualtricsDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorQualtricsDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorQualtricsDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorQualtricsDiscriminatedConnectionSettingsSettingsOAuth
 
     subdomain: str
     """The subdomain of your Qualtrics account (e.g., https://domain.qualtrics.com)"""
@@ -4940,8 +8263,40 @@ class ConnectorQualtricsDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorQuickbooksDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4987,8 +8342,40 @@ class ConnectorQuickbooksDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorRedditDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorRedditDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5034,8 +8421,40 @@ class ConnectorRedditDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorSageDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorSageDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorSageDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorSageDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorSageDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5081,11 +8500,43 @@ class ConnectorSageDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorSalesforceDiscriminatedConnectionSettingsSettings(BaseModel):
     instance_url: str
     """The instance URL of your Salesforce account (e.g., example)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5131,8 +8582,40 @@ class ConnectorSalesforceDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorSalesloftDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5178,8 +8661,40 @@ class ConnectorSalesloftDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorSegmentDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorSegmentDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorSegmentDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorSegmentDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorSegmentDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5225,8 +8740,40 @@ class ConnectorSegmentDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorServicem8DiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorServicem8DiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorServicem8DiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorServicem8DiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorServicem8DiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5272,8 +8819,40 @@ class ConnectorServicem8DiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorServicenowDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorServicenowDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorServicenowDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorServicenowDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorServicenowDiscriminatedConnectionSettingsSettingsOAuth
 
     subdomain: str
     """The subdomain of your ServiceNow account (e.g., https://domain.service-now.com)"""
@@ -5322,8 +8901,40 @@ class ConnectorServicenowDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorSharepointDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5369,8 +8980,40 @@ class ConnectorSharepointDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorShopifyDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorShopifyDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorShopifyDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorShopifyDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorShopifyDiscriminatedConnectionSettingsSettingsOAuth
 
     subdomain: str
     """The subdomain of your Shopify account (e.g., https://domain.myshopify.com)"""
@@ -5419,8 +9062,40 @@ class ConnectorShopifyDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorSignnowDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorSignnowDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorSignnowDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorSignnowDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorSignnowDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5466,8 +9141,40 @@ class ConnectorSignnowDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorSlackDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5513,8 +9220,40 @@ class ConnectorSlackDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorSmartsheetDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorSmartsheetDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorSmartsheetDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorSmartsheetDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorSmartsheetDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5560,8 +9299,40 @@ class ConnectorSmartsheetDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorSnowflakeDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorSnowflakeDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorSnowflakeDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorSnowflakeDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorSnowflakeDiscriminatedConnectionSettingsSettingsOAuth
 
     snowflake_account_url: str
     """The domain of your Snowflake account (e.g., https://example-subdomain)"""
@@ -5610,8 +9381,40 @@ class ConnectorSnowflakeDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorSpotifyDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorSpotifyDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorSpotifyDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorSpotifyDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorSpotifyDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5657,11 +9460,43 @@ class ConnectorSpotifyDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorSquarespaceDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorSquarespaceDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorSquarespaceDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorSquarespaceDiscriminatedConnectionSettingsSettings(BaseModel):
     customapp_description: str = FieldInfo(alias="customappDescription")
     """The user agent of your custom app (e.g., example-subdomain)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorSquarespaceDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5707,8 +9542,40 @@ class ConnectorSquarespaceDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorSquareupDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorSquareupDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorSquareupDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorSquareupDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorSquareupDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5754,8 +9621,40 @@ class ConnectorSquareupDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorStackexchangeDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorStackexchangeDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorStackexchangeDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorStackexchangeDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorStackexchangeDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5801,8 +9700,40 @@ class ConnectorStackexchangeDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorStravaDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorStravaDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorStravaDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorStravaDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorStravaDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5848,8 +9779,40 @@ class ConnectorStravaDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorTeamworkDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorTeamworkDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorTeamworkDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorTeamworkDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorTeamworkDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5895,8 +9858,40 @@ class ConnectorTeamworkDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorTicktickDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorTicktickDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorTicktickDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorTicktickDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorTicktickDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5942,8 +9937,40 @@ class ConnectorTicktickDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorTimelyDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorTimelyDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorTimelyDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorTimelyDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorTimelyDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5989,8 +10016,40 @@ class ConnectorTimelyDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorTodoistDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorTodoistDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorTodoistDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorTodoistDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorTodoistDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6036,8 +10095,40 @@ class ConnectorTodoistDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorTremendousDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorTremendousDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorTremendousDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorTremendousDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorTremendousDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6083,8 +10174,40 @@ class ConnectorTremendousDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorTsheetsteamDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorTsheetsteamDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorTsheetsteamDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorTsheetsteamDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorTsheetsteamDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6130,8 +10253,40 @@ class ConnectorTsheetsteamDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorTumblrDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorTumblrDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorTumblrDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorTumblrDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorTumblrDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6177,11 +10332,43 @@ class ConnectorTumblrDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorTwinfieldDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorTwinfieldDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorTwinfieldDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorTwinfieldDiscriminatedConnectionSettingsSettings(BaseModel):
     cluster: str
     """The cluster to your Twinfield instance (e.g., https://accounting.twinfield.com)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorTwinfieldDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6227,8 +10414,40 @@ class ConnectorTwinfieldDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorTwitchDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorTwitchDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorTwitchDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorTwitchDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorTwitchDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6274,8 +10493,40 @@ class ConnectorTwitchDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorTwitterDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6321,8 +10572,40 @@ class ConnectorTwitterDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorTypeformDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorTypeformDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorTypeformDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorTypeformDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorTypeformDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6368,8 +10651,40 @@ class ConnectorTypeformDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorUberDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorUberDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorUberDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorUberDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorUberDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6415,8 +10730,40 @@ class ConnectorUberDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorVimeoDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorVimeoDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorVimeoDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorVimeoDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorVimeoDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6462,8 +10809,40 @@ class ConnectorVimeoDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorWakatimeDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorWakatimeDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorWakatimeDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorWakatimeDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorWakatimeDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6509,8 +10888,40 @@ class ConnectorWakatimeDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorWealthboxDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorWealthboxDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorWealthboxDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorWealthboxDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorWealthboxDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6556,8 +10967,40 @@ class ConnectorWealthboxDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorWebflowDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorWebflowDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorWebflowDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorWebflowDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorWebflowDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6603,8 +11046,40 @@ class ConnectorWebflowDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorWhoopDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorWhoopDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorWhoopDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorWhoopDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorWhoopDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6650,8 +11125,40 @@ class ConnectorWhoopDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorWordpressDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorWordpressDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorWordpressDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorWordpressDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorWordpressDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6697,11 +11204,43 @@ class ConnectorWordpressDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorWrikeDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorWrikeDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorWrikeDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorWrikeDiscriminatedConnectionSettingsSettings(BaseModel):
     host: str
     """The domain of your Wrike account (e.g., https://example-subdomain)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorWrikeDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6747,8 +11286,40 @@ class ConnectorWrikeDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorXeroDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorXeroDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6794,6 +11365,38 @@ class ConnectorXeroDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorYahooDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorYahooDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorYahooDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorYahooDiscriminatedConnectionSettingsSettings(BaseModel):
     api_domain: str = FieldInfo(alias="apiDomain")
     """
@@ -6801,7 +11404,7 @@ class ConnectorYahooDiscriminatedConnectionSettingsSettings(BaseModel):
     https://fantasysports.yahooapis.com)
     """
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorYahooDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6847,8 +11450,40 @@ class ConnectorYahooDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorYandexDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorYandexDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorYandexDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorYandexDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorYandexDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6894,8 +11529,40 @@ class ConnectorYandexDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorZapierDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorZapierDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorZapierDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorZapierDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorZapierDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6941,8 +11608,40 @@ class ConnectorZapierDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorZendeskDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorZendeskDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorZendeskDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorZendeskDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorZendeskDiscriminatedConnectionSettingsSettingsOAuth
 
     subdomain: str
     """The subdomain of your Zendesk account (e.g., https://domain.zendesk.com)"""
@@ -6991,8 +11690,40 @@ class ConnectorZendeskDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorZenefitsDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorZenefitsDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorZenefitsDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorZenefitsDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorZenefitsDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -7038,11 +11769,43 @@ class ConnectorZenefitsDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorZohoDeskDiscriminatedConnectionSettingsSettings(BaseModel):
     extension: str
     """The domain extension of your Zoho account (e.g., https://accounts.zoho.com/)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -7088,11 +11851,43 @@ class ConnectorZohoDeskDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorZohoDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorZohoDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorZohoDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorZohoDiscriminatedConnectionSettingsSettings(BaseModel):
     extension: str
     """The domain extension of your Zoho account (e.g., https://accounts.zoho.com/)"""
 
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorZohoDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -7138,8 +11933,40 @@ class ConnectorZohoDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorZoomDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    access_token: str
+
+    client_id: Optional[str] = None
+    """Client ID used for the connection"""
+
+    expires_at: Optional[str] = None
+
+    expires_in: Optional[float] = None
+
+    raw: Optional[Dict[str, object]] = None
+
+    refresh_token: Optional[str] = None
+
+    scope: Optional[str] = None
+
+    token_type: Optional[str] = None
+
+
+class ConnectorZoomDiscriminatedConnectionSettingsSettingsOAuth(BaseModel):
+    created_at: Optional[str] = None
+
+    credentials: Optional[ConnectorZoomDiscriminatedConnectionSettingsSettingsOAuthCredentials] = None
+    """Output of the postConnect hook for oauth2 connectors"""
+
+    last_fetched_at: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorZoomDiscriminatedConnectionSettingsSettings(BaseModel):
-    oauth: OAuthConnectionSettings
+    oauth: ConnectorZoomDiscriminatedConnectionSettingsSettingsOAuth
 
     access_token: Optional[str] = None
     """Same as oauth.credentials.access_token, but more convenient to access.
