@@ -6,8 +6,6 @@ Types:
 from openint.types import (
     Connector,
     Integration,
-    OAuthConnectionSettings,
-    OAuthConnectorConfig,
     CheckConnectionResponse,
     CreateConnectionResponse,
     CreateTokenResponse,
