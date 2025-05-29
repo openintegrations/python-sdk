@@ -6,578 +6,295 @@ from typing import Dict, Union, Iterable, Optional
 from typing_extensions import Literal, Required, Annotated, TypeAlias, TypedDict
 
 from .._utils import PropertyInfo
+from .oauth_connection_settings_param import OAuthConnectionSettingsParam
 
 __all__ = [
     "ClientCreateConnectionParams",
     "Data",
     "DataConnectorAcceloDiscriminatedConnectionSettings",
     "DataConnectorAcceloDiscriminatedConnectionSettingsSettings",
-    "DataConnectorAcceloDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorAcceloDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorAcmeOauth2DiscriminatedConnectionSettings",
     "DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings",
-    "DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorAdobeDiscriminatedConnectionSettings",
     "DataConnectorAdobeDiscriminatedConnectionSettingsSettings",
-    "DataConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorAdyenDiscriminatedConnectionSettings",
     "DataConnectorAdyenDiscriminatedConnectionSettingsSettings",
-    "DataConnectorAdyenDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorAdyenDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorAircallDiscriminatedConnectionSettings",
     "DataConnectorAircallDiscriminatedConnectionSettingsSettings",
-    "DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorAmazonDiscriminatedConnectionSettings",
     "DataConnectorAmazonDiscriminatedConnectionSettingsSettings",
-    "DataConnectorAmazonDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorAmazonDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorApaleoDiscriminatedConnectionSettings",
     "DataConnectorApaleoDiscriminatedConnectionSettingsSettings",
-    "DataConnectorApaleoDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorApaleoDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorAsanaDiscriminatedConnectionSettings",
     "DataConnectorAsanaDiscriminatedConnectionSettingsSettings",
-    "DataConnectorAsanaDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorAsanaDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorAttioDiscriminatedConnectionSettings",
     "DataConnectorAttioDiscriminatedConnectionSettingsSettings",
-    "DataConnectorAttioDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorAttioDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorAuth0DiscriminatedConnectionSettings",
     "DataConnectorAuth0DiscriminatedConnectionSettingsSettings",
-    "DataConnectorAuth0DiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorAuth0DiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorAutodeskDiscriminatedConnectionSettings",
     "DataConnectorAutodeskDiscriminatedConnectionSettingsSettings",
-    "DataConnectorAutodeskDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorAutodeskDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorAwsDiscriminatedConnectionSettings",
     "DataConnectorAwsDiscriminatedConnectionSettingsSettings",
-    "DataConnectorAwsDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorAwsDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorBamboohrDiscriminatedConnectionSettings",
     "DataConnectorBamboohrDiscriminatedConnectionSettingsSettings",
-    "DataConnectorBamboohrDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorBamboohrDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorBasecampDiscriminatedConnectionSettings",
     "DataConnectorBasecampDiscriminatedConnectionSettingsSettings",
-    "DataConnectorBasecampDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorBasecampDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorBattlenetDiscriminatedConnectionSettings",
     "DataConnectorBattlenetDiscriminatedConnectionSettingsSettings",
-    "DataConnectorBattlenetDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorBattlenetDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorBigcommerceDiscriminatedConnectionSettings",
     "DataConnectorBigcommerceDiscriminatedConnectionSettingsSettings",
-    "DataConnectorBigcommerceDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorBigcommerceDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorBitbucketDiscriminatedConnectionSettings",
     "DataConnectorBitbucketDiscriminatedConnectionSettingsSettings",
-    "DataConnectorBitbucketDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorBitbucketDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorBitlyDiscriminatedConnectionSettings",
     "DataConnectorBitlyDiscriminatedConnectionSettingsSettings",
-    "DataConnectorBitlyDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorBitlyDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorBlackbaudDiscriminatedConnectionSettings",
     "DataConnectorBlackbaudDiscriminatedConnectionSettingsSettings",
-    "DataConnectorBlackbaudDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorBlackbaudDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorBoldsignDiscriminatedConnectionSettings",
     "DataConnectorBoldsignDiscriminatedConnectionSettingsSettings",
-    "DataConnectorBoldsignDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorBoldsignDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorBoxDiscriminatedConnectionSettings",
     "DataConnectorBoxDiscriminatedConnectionSettingsSettings",
-    "DataConnectorBoxDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorBoxDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorBraintreeDiscriminatedConnectionSettings",
     "DataConnectorBraintreeDiscriminatedConnectionSettingsSettings",
-    "DataConnectorBraintreeDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorBraintreeDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorCalendlyDiscriminatedConnectionSettings",
     "DataConnectorCalendlyDiscriminatedConnectionSettingsSettings",
-    "DataConnectorCalendlyDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorCalendlyDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorClickupDiscriminatedConnectionSettings",
     "DataConnectorClickupDiscriminatedConnectionSettingsSettings",
-    "DataConnectorClickupDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorClickupDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorCloseDiscriminatedConnectionSettings",
     "DataConnectorCloseDiscriminatedConnectionSettingsSettings",
-    "DataConnectorCloseDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorCloseDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorConfluenceDiscriminatedConnectionSettings",
     "DataConnectorConfluenceDiscriminatedConnectionSettingsSettings",
-    "DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorContentfulDiscriminatedConnectionSettings",
     "DataConnectorContentfulDiscriminatedConnectionSettingsSettings",
-    "DataConnectorContentfulDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorContentfulDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorContentstackDiscriminatedConnectionSettings",
     "DataConnectorContentstackDiscriminatedConnectionSettingsSettings",
-    "DataConnectorContentstackDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorContentstackDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorCopperDiscriminatedConnectionSettings",
     "DataConnectorCopperDiscriminatedConnectionSettingsSettings",
-    "DataConnectorCopperDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorCopperDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorCorosDiscriminatedConnectionSettings",
     "DataConnectorCorosDiscriminatedConnectionSettingsSettings",
-    "DataConnectorCorosDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorCorosDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorDatevDiscriminatedConnectionSettings",
     "DataConnectorDatevDiscriminatedConnectionSettingsSettings",
-    "DataConnectorDatevDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorDatevDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorDeelDiscriminatedConnectionSettings",
     "DataConnectorDeelDiscriminatedConnectionSettingsSettings",
-    "DataConnectorDeelDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorDeelDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorDialpadDiscriminatedConnectionSettings",
     "DataConnectorDialpadDiscriminatedConnectionSettingsSettings",
-    "DataConnectorDialpadDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorDialpadDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorDigitaloceanDiscriminatedConnectionSettings",
     "DataConnectorDigitaloceanDiscriminatedConnectionSettingsSettings",
-    "DataConnectorDigitaloceanDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorDigitaloceanDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorDiscordDiscriminatedConnectionSettings",
     "DataConnectorDiscordDiscriminatedConnectionSettingsSettings",
-    "DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorDocusignDiscriminatedConnectionSettings",
     "DataConnectorDocusignDiscriminatedConnectionSettingsSettings",
-    "DataConnectorDocusignDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorDocusignDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorDropboxDiscriminatedConnectionSettings",
     "DataConnectorDropboxDiscriminatedConnectionSettingsSettings",
-    "DataConnectorDropboxDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorDropboxDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorEbayDiscriminatedConnectionSettings",
     "DataConnectorEbayDiscriminatedConnectionSettingsSettings",
-    "DataConnectorEbayDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorEbayDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorEgnyteDiscriminatedConnectionSettings",
     "DataConnectorEgnyteDiscriminatedConnectionSettingsSettings",
-    "DataConnectorEgnyteDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorEgnyteDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorEnvoyDiscriminatedConnectionSettings",
     "DataConnectorEnvoyDiscriminatedConnectionSettingsSettings",
-    "DataConnectorEnvoyDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorEnvoyDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorEventbriteDiscriminatedConnectionSettings",
     "DataConnectorEventbriteDiscriminatedConnectionSettingsSettings",
-    "DataConnectorEventbriteDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorEventbriteDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorExistDiscriminatedConnectionSettings",
     "DataConnectorExistDiscriminatedConnectionSettingsSettings",
-    "DataConnectorExistDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorExistDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorFacebookDiscriminatedConnectionSettings",
     "DataConnectorFacebookDiscriminatedConnectionSettingsSettings",
-    "DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorFactorialDiscriminatedConnectionSettings",
     "DataConnectorFactorialDiscriminatedConnectionSettingsSettings",
-    "DataConnectorFactorialDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorFactorialDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorFigmaDiscriminatedConnectionSettings",
     "DataConnectorFigmaDiscriminatedConnectionSettingsSettings",
-    "DataConnectorFigmaDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorFigmaDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorFitbitDiscriminatedConnectionSettings",
     "DataConnectorFitbitDiscriminatedConnectionSettingsSettings",
-    "DataConnectorFitbitDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorFitbitDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorFortnoxDiscriminatedConnectionSettings",
     "DataConnectorFortnoxDiscriminatedConnectionSettingsSettings",
-    "DataConnectorFortnoxDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorFortnoxDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorFreshbooksDiscriminatedConnectionSettings",
     "DataConnectorFreshbooksDiscriminatedConnectionSettingsSettings",
-    "DataConnectorFreshbooksDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorFreshbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorFrontDiscriminatedConnectionSettings",
     "DataConnectorFrontDiscriminatedConnectionSettingsSettings",
-    "DataConnectorFrontDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorFrontDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorGitHubDiscriminatedConnectionSettings",
     "DataConnectorGitHubDiscriminatedConnectionSettingsSettings",
-    "DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorGitlabDiscriminatedConnectionSettings",
     "DataConnectorGitlabDiscriminatedConnectionSettingsSettings",
-    "DataConnectorGitlabDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorGitlabDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorGongDiscriminatedConnectionSettings",
     "DataConnectorGongDiscriminatedConnectionSettingsSettings",
-    "DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorGoogleCalendarDiscriminatedConnectionSettings",
     "DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettings",
-    "DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorGoogleDocsDiscriminatedConnectionSettings",
     "DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettings",
-    "DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorGoogleDriveDiscriminatedConnectionSettings",
     "DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettings",
-    "DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorGoogleMailDiscriminatedConnectionSettings",
     "DataConnectorGoogleMailDiscriminatedConnectionSettingsSettings",
-    "DataConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorGoogleSheetDiscriminatedConnectionSettings",
     "DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettings",
-    "DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorGorgiasDiscriminatedConnectionSettings",
     "DataConnectorGorgiasDiscriminatedConnectionSettingsSettings",
-    "DataConnectorGorgiasDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorGorgiasDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorGrainDiscriminatedConnectionSettings",
     "DataConnectorGrainDiscriminatedConnectionSettingsSettings",
-    "DataConnectorGrainDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorGrainDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorGumroadDiscriminatedConnectionSettings",
     "DataConnectorGumroadDiscriminatedConnectionSettingsSettings",
-    "DataConnectorGumroadDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorGumroadDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorGustoDiscriminatedConnectionSettings",
     "DataConnectorGustoDiscriminatedConnectionSettingsSettings",
-    "DataConnectorGustoDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorGustoDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorHarvestDiscriminatedConnectionSettings",
     "DataConnectorHarvestDiscriminatedConnectionSettingsSettings",
-    "DataConnectorHarvestDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorHarvestDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorHighlevelDiscriminatedConnectionSettings",
     "DataConnectorHighlevelDiscriminatedConnectionSettingsSettings",
-    "DataConnectorHighlevelDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorHighlevelDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorHubspotDiscriminatedConnectionSettings",
     "DataConnectorHubspotDiscriminatedConnectionSettingsSettings",
-    "DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorInstagramDiscriminatedConnectionSettings",
     "DataConnectorInstagramDiscriminatedConnectionSettingsSettings",
-    "DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorIntercomDiscriminatedConnectionSettings",
     "DataConnectorIntercomDiscriminatedConnectionSettingsSettings",
-    "DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorJiraDiscriminatedConnectionSettings",
     "DataConnectorJiraDiscriminatedConnectionSettingsSettings",
-    "DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorKeapDiscriminatedConnectionSettings",
     "DataConnectorKeapDiscriminatedConnectionSettingsSettings",
-    "DataConnectorKeapDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorKeapDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorLeverDiscriminatedConnectionSettings",
     "DataConnectorLeverDiscriminatedConnectionSettingsSettings",
-    "DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorLinearDiscriminatedConnectionSettings",
     "DataConnectorLinearDiscriminatedConnectionSettingsSettings",
-    "DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorLinkedinDiscriminatedConnectionSettings",
     "DataConnectorLinkedinDiscriminatedConnectionSettingsSettings",
-    "DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorLinkhutDiscriminatedConnectionSettings",
     "DataConnectorLinkhutDiscriminatedConnectionSettingsSettings",
-    "DataConnectorLinkhutDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorLinkhutDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorMailchimpDiscriminatedConnectionSettings",
     "DataConnectorMailchimpDiscriminatedConnectionSettingsSettings",
-    "DataConnectorMailchimpDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorMailchimpDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorMiroDiscriminatedConnectionSettings",
     "DataConnectorMiroDiscriminatedConnectionSettingsSettings",
-    "DataConnectorMiroDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorMiroDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorMondayDiscriminatedConnectionSettings",
     "DataConnectorMondayDiscriminatedConnectionSettingsSettings",
-    "DataConnectorMondayDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorMondayDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorMuralDiscriminatedConnectionSettings",
     "DataConnectorMuralDiscriminatedConnectionSettingsSettings",
-    "DataConnectorMuralDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorMuralDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorNamelyDiscriminatedConnectionSettings",
     "DataConnectorNamelyDiscriminatedConnectionSettingsSettings",
-    "DataConnectorNamelyDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorNamelyDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorNationbuilderDiscriminatedConnectionSettings",
     "DataConnectorNationbuilderDiscriminatedConnectionSettingsSettings",
-    "DataConnectorNationbuilderDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorNationbuilderDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorNetsuiteDiscriminatedConnectionSettings",
     "DataConnectorNetsuiteDiscriminatedConnectionSettingsSettings",
-    "DataConnectorNetsuiteDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorNetsuiteDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorNotionDiscriminatedConnectionSettings",
     "DataConnectorNotionDiscriminatedConnectionSettingsSettings",
-    "DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorOdooDiscriminatedConnectionSettings",
     "DataConnectorOdooDiscriminatedConnectionSettingsSettings",
-    "DataConnectorOdooDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorOdooDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorOktaDiscriminatedConnectionSettings",
     "DataConnectorOktaDiscriminatedConnectionSettingsSettings",
-    "DataConnectorOktaDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorOktaDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorOsuDiscriminatedConnectionSettings",
     "DataConnectorOsuDiscriminatedConnectionSettingsSettings",
-    "DataConnectorOsuDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorOsuDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorOuraDiscriminatedConnectionSettings",
     "DataConnectorOuraDiscriminatedConnectionSettingsSettings",
-    "DataConnectorOuraDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorOuraDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorOutreachDiscriminatedConnectionSettings",
     "DataConnectorOutreachDiscriminatedConnectionSettingsSettings",
-    "DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorPagerdutyDiscriminatedConnectionSettings",
     "DataConnectorPagerdutyDiscriminatedConnectionSettingsSettings",
-    "DataConnectorPagerdutyDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorPagerdutyDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorPandadocDiscriminatedConnectionSettings",
     "DataConnectorPandadocDiscriminatedConnectionSettingsSettings",
-    "DataConnectorPandadocDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorPandadocDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorPayfitDiscriminatedConnectionSettings",
     "DataConnectorPayfitDiscriminatedConnectionSettingsSettings",
-    "DataConnectorPayfitDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorPayfitDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorPaypalDiscriminatedConnectionSettings",
     "DataConnectorPaypalDiscriminatedConnectionSettingsSettings",
-    "DataConnectorPaypalDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorPaypalDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorPennylaneDiscriminatedConnectionSettings",
     "DataConnectorPennylaneDiscriminatedConnectionSettingsSettings",
-    "DataConnectorPennylaneDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorPennylaneDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorPinterestDiscriminatedConnectionSettings",
     "DataConnectorPinterestDiscriminatedConnectionSettingsSettings",
-    "DataConnectorPinterestDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorPinterestDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorPipedriveDiscriminatedConnectionSettings",
     "DataConnectorPipedriveDiscriminatedConnectionSettingsSettings",
-    "DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorPodiumDiscriminatedConnectionSettings",
     "DataConnectorPodiumDiscriminatedConnectionSettingsSettings",
-    "DataConnectorPodiumDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorPodiumDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorProductboardDiscriminatedConnectionSettings",
     "DataConnectorProductboardDiscriminatedConnectionSettingsSettings",
-    "DataConnectorProductboardDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorProductboardDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorQualtricsDiscriminatedConnectionSettings",
     "DataConnectorQualtricsDiscriminatedConnectionSettingsSettings",
-    "DataConnectorQualtricsDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorQualtricsDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorQuickbooksDiscriminatedConnectionSettings",
     "DataConnectorQuickbooksDiscriminatedConnectionSettingsSettings",
-    "DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorRedditDiscriminatedConnectionSettings",
     "DataConnectorRedditDiscriminatedConnectionSettingsSettings",
-    "DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorSageDiscriminatedConnectionSettings",
     "DataConnectorSageDiscriminatedConnectionSettingsSettings",
-    "DataConnectorSageDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorSageDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorSalesforceDiscriminatedConnectionSettings",
     "DataConnectorSalesforceDiscriminatedConnectionSettingsSettings",
-    "DataConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorSalesloftDiscriminatedConnectionSettings",
     "DataConnectorSalesloftDiscriminatedConnectionSettingsSettings",
-    "DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorSegmentDiscriminatedConnectionSettings",
     "DataConnectorSegmentDiscriminatedConnectionSettingsSettings",
-    "DataConnectorSegmentDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorSegmentDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorServicem8DiscriminatedConnectionSettings",
     "DataConnectorServicem8DiscriminatedConnectionSettingsSettings",
-    "DataConnectorServicem8DiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorServicem8DiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorServicenowDiscriminatedConnectionSettings",
     "DataConnectorServicenowDiscriminatedConnectionSettingsSettings",
-    "DataConnectorServicenowDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorServicenowDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorSharepointDiscriminatedConnectionSettings",
     "DataConnectorSharepointDiscriminatedConnectionSettingsSettings",
-    "DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorShopifyDiscriminatedConnectionSettings",
     "DataConnectorShopifyDiscriminatedConnectionSettingsSettings",
-    "DataConnectorShopifyDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorShopifyDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorSignnowDiscriminatedConnectionSettings",
     "DataConnectorSignnowDiscriminatedConnectionSettingsSettings",
-    "DataConnectorSignnowDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorSignnowDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorSlackDiscriminatedConnectionSettings",
     "DataConnectorSlackDiscriminatedConnectionSettingsSettings",
-    "DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorSmartsheetDiscriminatedConnectionSettings",
     "DataConnectorSmartsheetDiscriminatedConnectionSettingsSettings",
-    "DataConnectorSmartsheetDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorSmartsheetDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorSnowflakeDiscriminatedConnectionSettings",
     "DataConnectorSnowflakeDiscriminatedConnectionSettingsSettings",
-    "DataConnectorSnowflakeDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorSnowflakeDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorSpotifyDiscriminatedConnectionSettings",
     "DataConnectorSpotifyDiscriminatedConnectionSettingsSettings",
-    "DataConnectorSpotifyDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorSpotifyDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorSquarespaceDiscriminatedConnectionSettings",
     "DataConnectorSquarespaceDiscriminatedConnectionSettingsSettings",
-    "DataConnectorSquarespaceDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorSquarespaceDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorSquareupDiscriminatedConnectionSettings",
     "DataConnectorSquareupDiscriminatedConnectionSettingsSettings",
-    "DataConnectorSquareupDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorSquareupDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorStackexchangeDiscriminatedConnectionSettings",
     "DataConnectorStackexchangeDiscriminatedConnectionSettingsSettings",
-    "DataConnectorStackexchangeDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorStackexchangeDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorStravaDiscriminatedConnectionSettings",
     "DataConnectorStravaDiscriminatedConnectionSettingsSettings",
-    "DataConnectorStravaDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorStravaDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorTeamworkDiscriminatedConnectionSettings",
     "DataConnectorTeamworkDiscriminatedConnectionSettingsSettings",
-    "DataConnectorTeamworkDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorTeamworkDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorTicktickDiscriminatedConnectionSettings",
     "DataConnectorTicktickDiscriminatedConnectionSettingsSettings",
-    "DataConnectorTicktickDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorTicktickDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorTimelyDiscriminatedConnectionSettings",
     "DataConnectorTimelyDiscriminatedConnectionSettingsSettings",
-    "DataConnectorTimelyDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorTimelyDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorTodoistDiscriminatedConnectionSettings",
     "DataConnectorTodoistDiscriminatedConnectionSettingsSettings",
-    "DataConnectorTodoistDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorTodoistDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorTremendousDiscriminatedConnectionSettings",
     "DataConnectorTremendousDiscriminatedConnectionSettingsSettings",
-    "DataConnectorTremendousDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorTremendousDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorTsheetsteamDiscriminatedConnectionSettings",
     "DataConnectorTsheetsteamDiscriminatedConnectionSettingsSettings",
-    "DataConnectorTsheetsteamDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorTsheetsteamDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorTumblrDiscriminatedConnectionSettings",
     "DataConnectorTumblrDiscriminatedConnectionSettingsSettings",
-    "DataConnectorTumblrDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorTumblrDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorTwinfieldDiscriminatedConnectionSettings",
     "DataConnectorTwinfieldDiscriminatedConnectionSettingsSettings",
-    "DataConnectorTwinfieldDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorTwinfieldDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorTwitchDiscriminatedConnectionSettings",
     "DataConnectorTwitchDiscriminatedConnectionSettingsSettings",
-    "DataConnectorTwitchDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorTwitchDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorTwitterDiscriminatedConnectionSettings",
     "DataConnectorTwitterDiscriminatedConnectionSettingsSettings",
-    "DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorTypeformDiscriminatedConnectionSettings",
     "DataConnectorTypeformDiscriminatedConnectionSettingsSettings",
-    "DataConnectorTypeformDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorTypeformDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorUberDiscriminatedConnectionSettings",
     "DataConnectorUberDiscriminatedConnectionSettingsSettings",
-    "DataConnectorUberDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorUberDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorVimeoDiscriminatedConnectionSettings",
     "DataConnectorVimeoDiscriminatedConnectionSettingsSettings",
-    "DataConnectorVimeoDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorVimeoDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorWakatimeDiscriminatedConnectionSettings",
     "DataConnectorWakatimeDiscriminatedConnectionSettingsSettings",
-    "DataConnectorWakatimeDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorWakatimeDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorWealthboxDiscriminatedConnectionSettings",
     "DataConnectorWealthboxDiscriminatedConnectionSettingsSettings",
-    "DataConnectorWealthboxDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorWealthboxDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorWebflowDiscriminatedConnectionSettings",
     "DataConnectorWebflowDiscriminatedConnectionSettingsSettings",
-    "DataConnectorWebflowDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorWebflowDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorWhoopDiscriminatedConnectionSettings",
     "DataConnectorWhoopDiscriminatedConnectionSettingsSettings",
-    "DataConnectorWhoopDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorWhoopDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorWordpressDiscriminatedConnectionSettings",
     "DataConnectorWordpressDiscriminatedConnectionSettingsSettings",
-    "DataConnectorWordpressDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorWordpressDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorWrikeDiscriminatedConnectionSettings",
     "DataConnectorWrikeDiscriminatedConnectionSettingsSettings",
-    "DataConnectorWrikeDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorWrikeDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorXeroDiscriminatedConnectionSettings",
     "DataConnectorXeroDiscriminatedConnectionSettingsSettings",
-    "DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorYahooDiscriminatedConnectionSettings",
     "DataConnectorYahooDiscriminatedConnectionSettingsSettings",
-    "DataConnectorYahooDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorYahooDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorYandexDiscriminatedConnectionSettings",
     "DataConnectorYandexDiscriminatedConnectionSettingsSettings",
-    "DataConnectorYandexDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorYandexDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorZapierDiscriminatedConnectionSettings",
     "DataConnectorZapierDiscriminatedConnectionSettingsSettings",
-    "DataConnectorZapierDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorZapierDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorZendeskDiscriminatedConnectionSettings",
     "DataConnectorZendeskDiscriminatedConnectionSettingsSettings",
-    "DataConnectorZendeskDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorZendeskDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorZenefitsDiscriminatedConnectionSettings",
     "DataConnectorZenefitsDiscriminatedConnectionSettingsSettings",
-    "DataConnectorZenefitsDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorZenefitsDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorZohoDeskDiscriminatedConnectionSettings",
     "DataConnectorZohoDeskDiscriminatedConnectionSettingsSettings",
-    "DataConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorZohoDiscriminatedConnectionSettings",
     "DataConnectorZohoDiscriminatedConnectionSettingsSettings",
-    "DataConnectorZohoDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorZohoDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorZoomDiscriminatedConnectionSettings",
     "DataConnectorZoomDiscriminatedConnectionSettingsSettings",
-    "DataConnectorZoomDiscriminatedConnectionSettingsSettingsOAuth",
-    "DataConnectorZoomDiscriminatedConnectionSettingsSettingsOAuthCredentials",
     "DataConnectorAirtableDiscriminatedConnectionSettings",
     "DataConnectorAirtableDiscriminatedConnectionSettingsSettings",
     "DataConnectorApolloDiscriminatedConnectionSettings",
@@ -663,40 +380,8 @@ class ClientCreateConnectionParams(TypedDict, total=False):
     metadata: Dict[str, object]
 
 
-class DataConnectorAcceloDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorAcceloDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorAcceloDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorAcceloDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorAcceloDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     subdomain: Required[str]
     """The subdomain of your Accelo account (e.g., https://domain.api.accelo.com)"""
@@ -714,40 +399,8 @@ class DataConnectorAcceloDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorAcceloDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -762,40 +415,8 @@ class DataConnectorAcmeOauth2DiscriminatedConnectionSettings(TypedDict, total=Fa
     settings: DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorAdobeDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorAdobeDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -810,43 +431,11 @@ class DataConnectorAdobeDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorAdobeDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorAdyenDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorAdyenDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorAdyenDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorAdyenDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     environment: Required[str]
     """The environment to use (e.g., live|test)"""
 
-    oauth: Required[DataConnectorAdyenDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     resource: Required[str]
     """
@@ -867,40 +456,8 @@ class DataConnectorAdyenDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorAdyenDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorAircallDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorAircallDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -915,43 +472,11 @@ class DataConnectorAircallDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorAircallDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorAmazonDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorAmazonDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorAmazonDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorAmazonDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     extension: Required[str]
     """The domain extension for your Amazon account (e.g., com)"""
 
-    oauth: Required[DataConnectorAmazonDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -966,40 +491,8 @@ class DataConnectorAmazonDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorAmazonDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorApaleoDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorApaleoDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorApaleoDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorApaleoDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorApaleoDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1014,40 +507,8 @@ class DataConnectorApaleoDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorApaleoDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorAsanaDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorAsanaDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorAsanaDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorAsanaDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorAsanaDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1062,40 +523,8 @@ class DataConnectorAsanaDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorAsanaDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorAttioDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorAttioDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorAttioDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorAttioDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorAttioDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1110,40 +539,8 @@ class DataConnectorAttioDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorAttioDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorAuth0DiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorAuth0DiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorAuth0DiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorAuth0DiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorAuth0DiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     subdomain: Required[str]
     """The subdomain of your Auth0 account (e.g., https://domain.auth0.com)"""
@@ -1161,40 +558,8 @@ class DataConnectorAuth0DiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorAuth0DiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorAutodeskDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorAutodeskDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorAutodeskDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorAutodeskDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorAutodeskDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1209,38 +574,6 @@ class DataConnectorAutodeskDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorAutodeskDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorAwsDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorAwsDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorAwsDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorAwsDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     api_subdomain: Required[Annotated[str, PropertyInfo(alias="apiSubdomain")]]
     """
@@ -1251,7 +584,7 @@ class DataConnectorAwsDiscriminatedConnectionSettingsSettings(TypedDict, total=F
     extension: Required[str]
     """The domain extension of your AWS account (e.g., com)"""
 
-    oauth: Required[DataConnectorAwsDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     subdomain: Required[str]
     """The subdomain of your AWS account (e.g., https://domain.amazoncognito.com)"""
@@ -1269,40 +602,8 @@ class DataConnectorAwsDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorAwsDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorBamboohrDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorBamboohrDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorBamboohrDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorBamboohrDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorBamboohrDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     subdomain: Required[str]
     """The subdomain of your BambooHR account (e.g., https://domain.bamboohr.com)"""
@@ -1320,38 +621,6 @@ class DataConnectorBamboohrDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorBamboohrDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorBasecampDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorBasecampDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorBasecampDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorBasecampDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     account_id: Required[Annotated[str, PropertyInfo(alias="accountId")]]
     """Your Account ID (e.g., 5899981)"""
@@ -1359,7 +628,7 @@ class DataConnectorBasecampDiscriminatedConnectionSettingsSettings(TypedDict, to
     app_details: Required[Annotated[str, PropertyInfo(alias="appDetails")]]
     """The details of your app (e.g., example-subdomain)"""
 
-    oauth: Required[DataConnectorBasecampDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1374,38 +643,6 @@ class DataConnectorBasecampDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorBasecampDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorBattlenetDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorBattlenetDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorBattlenetDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorBattlenetDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     api_domain: Required[Annotated[str, PropertyInfo(alias="apiDomain")]]
     """
@@ -1415,7 +652,7 @@ class DataConnectorBattlenetDiscriminatedConnectionSettingsSettings(TypedDict, t
     extension: Required[str]
     """The domain extension of your Battle.net account (e.g., com)"""
 
-    oauth: Required[DataConnectorBattlenetDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1430,38 +667,6 @@ class DataConnectorBattlenetDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorBattlenetDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorBigcommerceDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorBigcommerceDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorBigcommerceDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorBigcommerceDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     account_uuid: Required[Annotated[str, PropertyInfo(alias="accountUuid")]]
     """
@@ -1469,7 +674,7 @@ class DataConnectorBigcommerceDiscriminatedConnectionSettingsSettings(TypedDict,
     123e4567-e89b-12d3-a456-426614174000)
     """
 
-    oauth: Required[DataConnectorBigcommerceDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     store_hash: Required[Annotated[str, PropertyInfo(alias="storeHash")]]
     """The store hash of your BigCommerce account (e.g., Example123)"""
@@ -1487,40 +692,8 @@ class DataConnectorBigcommerceDiscriminatedConnectionSettings(TypedDict, total=F
     settings: DataConnectorBigcommerceDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorBitbucketDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorBitbucketDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorBitbucketDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorBitbucketDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorBitbucketDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1535,40 +708,8 @@ class DataConnectorBitbucketDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorBitbucketDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorBitlyDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorBitlyDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorBitlyDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorBitlyDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorBitlyDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1583,40 +724,8 @@ class DataConnectorBitlyDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorBitlyDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorBlackbaudDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorBlackbaudDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorBlackbaudDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorBlackbaudDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorBlackbaudDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1631,40 +740,8 @@ class DataConnectorBlackbaudDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorBlackbaudDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorBoldsignDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorBoldsignDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorBoldsignDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorBoldsignDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorBoldsignDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1679,40 +756,8 @@ class DataConnectorBoldsignDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorBoldsignDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorBoxDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorBoxDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorBoxDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorBoxDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorBoxDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1727,40 +772,8 @@ class DataConnectorBoxDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorBoxDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorBraintreeDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorBraintreeDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorBraintreeDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorBraintreeDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorBraintreeDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1775,40 +788,8 @@ class DataConnectorBraintreeDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorBraintreeDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorCalendlyDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorCalendlyDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorCalendlyDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorCalendlyDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorCalendlyDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1823,40 +804,8 @@ class DataConnectorCalendlyDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorCalendlyDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorClickupDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorClickupDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorClickupDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorClickupDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorClickupDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1871,40 +820,8 @@ class DataConnectorClickupDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorClickupDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorCloseDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorCloseDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorCloseDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorCloseDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorCloseDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1919,40 +836,8 @@ class DataConnectorCloseDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorCloseDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorConfluenceDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -1967,40 +852,8 @@ class DataConnectorConfluenceDiscriminatedConnectionSettings(TypedDict, total=Fa
     settings: DataConnectorConfluenceDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorContentfulDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorContentfulDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorContentfulDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorContentfulDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorContentfulDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     subdomain: Required[str]
     """The subdomain of your Contentful account (e.g., https://domain.contentful.com)"""
@@ -2018,38 +871,6 @@ class DataConnectorContentfulDiscriminatedConnectionSettings(TypedDict, total=Fa
     settings: DataConnectorContentfulDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorContentstackDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorContentstackDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorContentstackDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorContentstackDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     api_domain: Required[Annotated[str, PropertyInfo(alias="apiDomain")]]
     """
@@ -2060,7 +881,7 @@ class DataConnectorContentstackDiscriminatedConnectionSettingsSettings(TypedDict
     app_id: Required[Annotated[str, PropertyInfo(alias="appId")]]
     """The app ID of your Contentstack account (e.g., example-subdomain)"""
 
-    oauth: Required[DataConnectorContentstackDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     subdomain: Required[str]
     """
@@ -2081,40 +902,8 @@ class DataConnectorContentstackDiscriminatedConnectionSettings(TypedDict, total=
     settings: DataConnectorContentstackDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorCopperDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorCopperDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorCopperDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorCopperDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorCopperDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2129,40 +918,8 @@ class DataConnectorCopperDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorCopperDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorCorosDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorCorosDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorCorosDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorCorosDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorCorosDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2177,40 +934,8 @@ class DataConnectorCorosDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorCorosDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorDatevDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorDatevDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorDatevDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorDatevDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorDatevDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2225,40 +950,8 @@ class DataConnectorDatevDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorDatevDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorDeelDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorDeelDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorDeelDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorDeelDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorDeelDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2273,40 +966,8 @@ class DataConnectorDeelDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorDeelDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorDialpadDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorDialpadDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorDialpadDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorDialpadDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorDialpadDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2321,40 +982,8 @@ class DataConnectorDialpadDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorDialpadDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorDigitaloceanDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorDigitaloceanDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorDigitaloceanDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorDigitaloceanDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorDigitaloceanDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2369,40 +998,8 @@ class DataConnectorDigitaloceanDiscriminatedConnectionSettings(TypedDict, total=
     settings: DataConnectorDigitaloceanDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorDiscordDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2417,40 +1014,8 @@ class DataConnectorDiscordDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorDiscordDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorDocusignDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorDocusignDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorDocusignDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorDocusignDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorDocusignDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2465,40 +1030,8 @@ class DataConnectorDocusignDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorDocusignDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorDropboxDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorDropboxDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorDropboxDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorDropboxDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorDropboxDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2513,40 +1046,8 @@ class DataConnectorDropboxDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorDropboxDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorEbayDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorEbayDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorEbayDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorEbayDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorEbayDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2561,40 +1062,8 @@ class DataConnectorEbayDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorEbayDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorEgnyteDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorEgnyteDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorEgnyteDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorEgnyteDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorEgnyteDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     subdomain: Required[str]
     """The subdomain of your Egnyte account (e.g., https://domain.egnyte.com)"""
@@ -2612,40 +1081,8 @@ class DataConnectorEgnyteDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorEgnyteDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorEnvoyDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorEnvoyDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorEnvoyDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorEnvoyDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorEnvoyDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2660,40 +1097,8 @@ class DataConnectorEnvoyDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorEnvoyDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorEventbriteDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorEventbriteDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorEventbriteDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorEventbriteDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorEventbriteDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2708,40 +1113,8 @@ class DataConnectorEventbriteDiscriminatedConnectionSettings(TypedDict, total=Fa
     settings: DataConnectorEventbriteDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorExistDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorExistDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorExistDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorExistDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorExistDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2756,40 +1129,8 @@ class DataConnectorExistDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorExistDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorFacebookDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorFacebookDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2804,40 +1145,8 @@ class DataConnectorFacebookDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorFacebookDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorFactorialDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorFactorialDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorFactorialDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorFactorialDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorFactorialDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2852,40 +1161,8 @@ class DataConnectorFactorialDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorFactorialDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorFigmaDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorFigmaDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorFigmaDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorFigmaDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorFigmaDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2900,40 +1177,8 @@ class DataConnectorFigmaDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorFigmaDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorFitbitDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorFitbitDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorFitbitDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorFitbitDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorFitbitDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2948,40 +1193,8 @@ class DataConnectorFitbitDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorFitbitDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorFortnoxDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorFortnoxDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorFortnoxDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorFortnoxDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorFortnoxDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -2996,40 +1209,8 @@ class DataConnectorFortnoxDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorFortnoxDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorFreshbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorFreshbooksDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorFreshbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorFreshbooksDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorFreshbooksDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3044,40 +1225,8 @@ class DataConnectorFreshbooksDiscriminatedConnectionSettings(TypedDict, total=Fa
     settings: DataConnectorFreshbooksDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorFrontDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorFrontDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorFrontDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorFrontDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorFrontDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3092,40 +1241,8 @@ class DataConnectorFrontDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorFrontDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorGitHubDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3140,40 +1257,8 @@ class DataConnectorGitHubDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorGitHubDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorGitlabDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorGitlabDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorGitlabDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorGitlabDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorGitlabDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3188,43 +1273,11 @@ class DataConnectorGitlabDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorGitlabDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorGongDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     api_base_url_for_customer: Required[str]
     """The base URL of your Gong account (e.g., example)"""
 
-    oauth: Required[DataConnectorGongDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3239,40 +1292,8 @@ class DataConnectorGongDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorGongDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3287,40 +1308,8 @@ class DataConnectorGoogleCalendarDiscriminatedConnectionSettings(TypedDict, tota
     settings: DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3335,40 +1324,8 @@ class DataConnectorGoogleDocsDiscriminatedConnectionSettings(TypedDict, total=Fa
     settings: DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3383,40 +1340,8 @@ class DataConnectorGoogleDriveDiscriminatedConnectionSettings(TypedDict, total=F
     settings: DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorGoogleMailDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3431,40 +1356,8 @@ class DataConnectorGoogleMailDiscriminatedConnectionSettings(TypedDict, total=Fa
     settings: DataConnectorGoogleMailDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3479,40 +1372,8 @@ class DataConnectorGoogleSheetDiscriminatedConnectionSettings(TypedDict, total=F
     settings: DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorGorgiasDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorGorgiasDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorGorgiasDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorGorgiasDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorGorgiasDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     subdomain: Required[str]
     """The subdomain of your Gorgias account (e.g., https://domain.gorgias.com)"""
@@ -3530,40 +1391,8 @@ class DataConnectorGorgiasDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorGorgiasDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorGrainDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorGrainDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorGrainDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorGrainDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorGrainDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3578,40 +1407,8 @@ class DataConnectorGrainDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorGrainDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorGumroadDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorGumroadDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorGumroadDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorGumroadDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorGumroadDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3626,40 +1423,8 @@ class DataConnectorGumroadDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorGumroadDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorGustoDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorGustoDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorGustoDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorGustoDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorGustoDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3674,43 +1439,11 @@ class DataConnectorGustoDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorGustoDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorHarvestDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorHarvestDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorHarvestDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorHarvestDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     app_details: Required[Annotated[str, PropertyInfo(alias="appDetails")]]
     """The details of your app (e.g., example-subdomain)"""
 
-    oauth: Required[DataConnectorHarvestDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3725,40 +1458,8 @@ class DataConnectorHarvestDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorHarvestDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorHighlevelDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorHighlevelDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorHighlevelDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorHighlevelDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorHighlevelDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3773,40 +1474,8 @@ class DataConnectorHighlevelDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorHighlevelDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorHubspotDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3821,40 +1490,8 @@ class DataConnectorHubspotDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorHubspotDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorInstagramDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3869,40 +1506,8 @@ class DataConnectorInstagramDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorInstagramDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorIntercomDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorIntercomDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3917,40 +1522,8 @@ class DataConnectorIntercomDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorIntercomDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorJiraDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -3965,40 +1538,8 @@ class DataConnectorJiraDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorJiraDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorKeapDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorKeapDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorKeapDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorKeapDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorKeapDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4013,40 +1554,8 @@ class DataConnectorKeapDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorKeapDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorLeverDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorLeverDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4061,40 +1570,8 @@ class DataConnectorLeverDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorLeverDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorLinearDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4109,40 +1586,8 @@ class DataConnectorLinearDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorLinearDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorLinkedinDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorLinkedinDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4157,40 +1602,8 @@ class DataConnectorLinkedinDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorLinkedinDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorLinkhutDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorLinkhutDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorLinkhutDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorLinkhutDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorLinkhutDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4205,43 +1618,11 @@ class DataConnectorLinkhutDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorLinkhutDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorMailchimpDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorMailchimpDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorMailchimpDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorMailchimpDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     dc: Required[str]
     """The data center for your account (e.g., us6)"""
 
-    oauth: Required[DataConnectorMailchimpDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4256,40 +1637,8 @@ class DataConnectorMailchimpDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorMailchimpDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorMiroDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorMiroDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorMiroDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorMiroDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorMiroDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4304,40 +1653,8 @@ class DataConnectorMiroDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorMiroDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorMondayDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorMondayDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorMondayDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorMondayDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorMondayDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4352,40 +1669,8 @@ class DataConnectorMondayDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorMondayDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorMuralDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorMuralDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorMuralDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorMuralDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorMuralDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4400,43 +1685,11 @@ class DataConnectorMuralDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorMuralDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorNamelyDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorNamelyDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorNamelyDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorNamelyDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     company: Required[str]
     """The name of your Namely company (e.g., example)"""
 
-    oauth: Required[DataConnectorNamelyDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4451,43 +1704,11 @@ class DataConnectorNamelyDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorNamelyDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorNationbuilderDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorNationbuilderDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorNationbuilderDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorNationbuilderDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     account_id: Required[Annotated[str, PropertyInfo(alias="accountId")]]
     """The account ID of your NationBuilder account (e.g., example-subdomain)"""
 
-    oauth: Required[DataConnectorNationbuilderDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4502,43 +1723,11 @@ class DataConnectorNationbuilderDiscriminatedConnectionSettings(TypedDict, total
     settings: DataConnectorNationbuilderDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorNetsuiteDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorNetsuiteDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorNetsuiteDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorNetsuiteDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     account_id: Required[Annotated[str, PropertyInfo(alias="accountId")]]
     """The account ID of your NetSuite account (e.g., tstdrv231585)"""
 
-    oauth: Required[DataConnectorNetsuiteDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4553,40 +1742,8 @@ class DataConnectorNetsuiteDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorNetsuiteDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorNotionDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4601,40 +1758,8 @@ class DataConnectorNotionDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorNotionDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorOdooDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorOdooDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorOdooDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorOdooDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorOdooDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     server_url: Required[Annotated[str, PropertyInfo(alias="serverUrl")]]
     """The domain of your Odoo account (e.g., https://example-subdomain)"""
@@ -4652,40 +1777,8 @@ class DataConnectorOdooDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorOdooDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorOktaDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorOktaDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorOktaDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorOktaDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorOktaDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     subdomain: Required[str]
     """The subdomain of your Okta account (e.g., https://domain.okta.com)"""
@@ -4703,40 +1796,8 @@ class DataConnectorOktaDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorOktaDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorOsuDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorOsuDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorOsuDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorOsuDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorOsuDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4751,40 +1812,8 @@ class DataConnectorOsuDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorOsuDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorOuraDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorOuraDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorOuraDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorOuraDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorOuraDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4799,40 +1828,8 @@ class DataConnectorOuraDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorOuraDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorOutreachDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorOutreachDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4847,40 +1844,8 @@ class DataConnectorOutreachDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorOutreachDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorPagerdutyDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorPagerdutyDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorPagerdutyDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorPagerdutyDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorPagerdutyDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4895,40 +1860,8 @@ class DataConnectorPagerdutyDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorPagerdutyDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorPandadocDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorPandadocDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorPandadocDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorPandadocDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorPandadocDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4943,40 +1876,8 @@ class DataConnectorPandadocDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorPandadocDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorPayfitDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorPayfitDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorPayfitDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorPayfitDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorPayfitDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -4991,40 +1892,8 @@ class DataConnectorPayfitDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorPayfitDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorPaypalDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorPaypalDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorPaypalDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorPaypalDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorPaypalDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5039,40 +1908,8 @@ class DataConnectorPaypalDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorPaypalDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorPennylaneDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorPennylaneDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorPennylaneDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorPennylaneDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorPennylaneDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5087,40 +1924,8 @@ class DataConnectorPennylaneDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorPennylaneDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorPinterestDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorPinterestDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorPinterestDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorPinterestDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorPinterestDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5135,43 +1940,11 @@ class DataConnectorPinterestDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorPinterestDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorPipedriveDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     api_domain: Required[str]
     """The API URL of your Pipedrive account (e.g., example)"""
 
-    oauth: Required[DataConnectorPipedriveDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5186,43 +1959,11 @@ class DataConnectorPipedriveDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorPipedriveDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorPodiumDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorPodiumDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorPodiumDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorPodiumDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     api_version: Required[Annotated[str, PropertyInfo(alias="apiVersion")]]
     """The API version of your Podium account (e.g., example-subdomain)"""
 
-    oauth: Required[DataConnectorPodiumDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5237,40 +1978,8 @@ class DataConnectorPodiumDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorPodiumDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorProductboardDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorProductboardDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorProductboardDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorProductboardDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorProductboardDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5285,40 +1994,8 @@ class DataConnectorProductboardDiscriminatedConnectionSettings(TypedDict, total=
     settings: DataConnectorProductboardDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorQualtricsDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorQualtricsDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorQualtricsDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorQualtricsDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorQualtricsDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     subdomain: Required[str]
     """The subdomain of your Qualtrics account (e.g., https://domain.qualtrics.com)"""
@@ -5336,40 +2013,8 @@ class DataConnectorQualtricsDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorQualtricsDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorQuickbooksDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorQuickbooksDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5384,40 +2029,8 @@ class DataConnectorQuickbooksDiscriminatedConnectionSettings(TypedDict, total=Fa
     settings: DataConnectorQuickbooksDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorRedditDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorRedditDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5432,40 +2045,8 @@ class DataConnectorRedditDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorRedditDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorSageDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorSageDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorSageDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorSageDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorSageDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5480,43 +2061,11 @@ class DataConnectorSageDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorSageDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorSalesforceDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     instance_url: Required[str]
     """The instance URL of your Salesforce account (e.g., example)"""
 
-    oauth: Required[DataConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5531,40 +2080,8 @@ class DataConnectorSalesforceDiscriminatedConnectionSettings(TypedDict, total=Fa
     settings: DataConnectorSalesforceDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorSalesloftDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorSalesloftDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5579,40 +2096,8 @@ class DataConnectorSalesloftDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorSalesloftDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorSegmentDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorSegmentDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorSegmentDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorSegmentDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorSegmentDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5627,40 +2112,8 @@ class DataConnectorSegmentDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorSegmentDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorServicem8DiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorServicem8DiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorServicem8DiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorServicem8DiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorServicem8DiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5675,40 +2128,8 @@ class DataConnectorServicem8DiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorServicem8DiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorServicenowDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorServicenowDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorServicenowDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorServicenowDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorServicenowDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     subdomain: Required[str]
     """The subdomain of your ServiceNow account (e.g., https://domain.service-now.com)"""
@@ -5726,40 +2147,8 @@ class DataConnectorServicenowDiscriminatedConnectionSettings(TypedDict, total=Fa
     settings: DataConnectorServicenowDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorSharepointDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5774,40 +2163,8 @@ class DataConnectorSharepointDiscriminatedConnectionSettings(TypedDict, total=Fa
     settings: DataConnectorSharepointDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorShopifyDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorShopifyDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorShopifyDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorShopifyDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorShopifyDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     subdomain: Required[str]
     """The subdomain of your Shopify account (e.g., https://domain.myshopify.com)"""
@@ -5825,40 +2182,8 @@ class DataConnectorShopifyDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorShopifyDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorSignnowDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorSignnowDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorSignnowDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorSignnowDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorSignnowDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5873,40 +2198,8 @@ class DataConnectorSignnowDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorSignnowDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorSlackDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5921,40 +2214,8 @@ class DataConnectorSlackDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorSlackDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorSmartsheetDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorSmartsheetDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorSmartsheetDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorSmartsheetDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorSmartsheetDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -5969,40 +2230,8 @@ class DataConnectorSmartsheetDiscriminatedConnectionSettings(TypedDict, total=Fa
     settings: DataConnectorSmartsheetDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorSnowflakeDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorSnowflakeDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorSnowflakeDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorSnowflakeDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorSnowflakeDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     snowflake_account_url: Required[str]
     """The domain of your Snowflake account (e.g., https://example-subdomain)"""
@@ -6020,40 +2249,8 @@ class DataConnectorSnowflakeDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorSnowflakeDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorSpotifyDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorSpotifyDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorSpotifyDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorSpotifyDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorSpotifyDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6068,43 +2265,11 @@ class DataConnectorSpotifyDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorSpotifyDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorSquarespaceDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorSquarespaceDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorSquarespaceDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorSquarespaceDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     customapp_description: Required[Annotated[str, PropertyInfo(alias="customappDescription")]]
     """The user agent of your custom app (e.g., example-subdomain)"""
 
-    oauth: Required[DataConnectorSquarespaceDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6119,40 +2284,8 @@ class DataConnectorSquarespaceDiscriminatedConnectionSettings(TypedDict, total=F
     settings: DataConnectorSquarespaceDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorSquareupDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorSquareupDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorSquareupDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorSquareupDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorSquareupDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6167,40 +2300,8 @@ class DataConnectorSquareupDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorSquareupDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorStackexchangeDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorStackexchangeDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorStackexchangeDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorStackexchangeDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorStackexchangeDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6215,40 +2316,8 @@ class DataConnectorStackexchangeDiscriminatedConnectionSettings(TypedDict, total
     settings: DataConnectorStackexchangeDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorStravaDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorStravaDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorStravaDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorStravaDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorStravaDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6263,40 +2332,8 @@ class DataConnectorStravaDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorStravaDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorTeamworkDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorTeamworkDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorTeamworkDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorTeamworkDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorTeamworkDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6311,40 +2348,8 @@ class DataConnectorTeamworkDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorTeamworkDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorTicktickDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorTicktickDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorTicktickDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorTicktickDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorTicktickDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6359,40 +2364,8 @@ class DataConnectorTicktickDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorTicktickDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorTimelyDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorTimelyDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorTimelyDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorTimelyDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorTimelyDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6407,40 +2380,8 @@ class DataConnectorTimelyDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorTimelyDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorTodoistDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorTodoistDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorTodoistDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorTodoistDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorTodoistDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6455,40 +2396,8 @@ class DataConnectorTodoistDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorTodoistDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorTremendousDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorTremendousDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorTremendousDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorTremendousDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorTremendousDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6503,40 +2412,8 @@ class DataConnectorTremendousDiscriminatedConnectionSettings(TypedDict, total=Fa
     settings: DataConnectorTremendousDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorTsheetsteamDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorTsheetsteamDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorTsheetsteamDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorTsheetsteamDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorTsheetsteamDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6551,40 +2428,8 @@ class DataConnectorTsheetsteamDiscriminatedConnectionSettings(TypedDict, total=F
     settings: DataConnectorTsheetsteamDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorTumblrDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorTumblrDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorTumblrDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorTumblrDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorTumblrDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6599,43 +2444,11 @@ class DataConnectorTumblrDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorTumblrDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorTwinfieldDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorTwinfieldDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorTwinfieldDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorTwinfieldDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     cluster: Required[str]
     """The cluster to your Twinfield instance (e.g., https://accounting.twinfield.com)"""
 
-    oauth: Required[DataConnectorTwinfieldDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6650,40 +2463,8 @@ class DataConnectorTwinfieldDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorTwinfieldDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorTwitchDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorTwitchDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorTwitchDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorTwitchDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorTwitchDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6698,40 +2479,8 @@ class DataConnectorTwitchDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorTwitchDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorTwitterDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorTwitterDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6746,40 +2495,8 @@ class DataConnectorTwitterDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorTwitterDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorTypeformDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorTypeformDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorTypeformDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorTypeformDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorTypeformDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6794,40 +2511,8 @@ class DataConnectorTypeformDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorTypeformDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorUberDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorUberDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorUberDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorUberDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorUberDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6842,40 +2527,8 @@ class DataConnectorUberDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorUberDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorVimeoDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorVimeoDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorVimeoDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorVimeoDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorVimeoDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6890,40 +2543,8 @@ class DataConnectorVimeoDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorVimeoDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorWakatimeDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorWakatimeDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorWakatimeDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorWakatimeDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorWakatimeDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6938,40 +2559,8 @@ class DataConnectorWakatimeDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorWakatimeDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorWealthboxDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorWealthboxDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorWealthboxDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorWealthboxDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorWealthboxDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -6986,40 +2575,8 @@ class DataConnectorWealthboxDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorWealthboxDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorWebflowDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorWebflowDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorWebflowDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorWebflowDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorWebflowDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -7034,40 +2591,8 @@ class DataConnectorWebflowDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorWebflowDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorWhoopDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorWhoopDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorWhoopDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorWhoopDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorWhoopDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -7082,40 +2607,8 @@ class DataConnectorWhoopDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorWhoopDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorWordpressDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorWordpressDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorWordpressDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorWordpressDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorWordpressDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -7130,43 +2623,11 @@ class DataConnectorWordpressDiscriminatedConnectionSettings(TypedDict, total=Fal
     settings: DataConnectorWordpressDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorWrikeDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorWrikeDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorWrikeDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorWrikeDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     host: Required[str]
     """The domain of your Wrike account (e.g., https://example-subdomain)"""
 
-    oauth: Required[DataConnectorWrikeDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -7181,40 +2642,8 @@ class DataConnectorWrikeDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorWrikeDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorXeroDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorXeroDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -7229,38 +2658,6 @@ class DataConnectorXeroDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorXeroDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorYahooDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorYahooDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorYahooDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorYahooDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     api_domain: Required[Annotated[str, PropertyInfo(alias="apiDomain")]]
     """
@@ -7268,7 +2665,7 @@ class DataConnectorYahooDiscriminatedConnectionSettingsSettings(TypedDict, total
     https://fantasysports.yahooapis.com)
     """
 
-    oauth: Required[DataConnectorYahooDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -7283,40 +2680,8 @@ class DataConnectorYahooDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorYahooDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorYandexDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorYandexDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorYandexDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorYandexDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorYandexDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -7331,40 +2696,8 @@ class DataConnectorYandexDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorYandexDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorZapierDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorZapierDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorZapierDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorZapierDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorZapierDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -7379,40 +2712,8 @@ class DataConnectorZapierDiscriminatedConnectionSettings(TypedDict, total=False)
     settings: DataConnectorZapierDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorZendeskDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorZendeskDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorZendeskDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorZendeskDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorZendeskDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     subdomain: Required[str]
     """The subdomain of your Zendesk account (e.g., https://domain.zendesk.com)"""
@@ -7430,40 +2731,8 @@ class DataConnectorZendeskDiscriminatedConnectionSettings(TypedDict, total=False
     settings: DataConnectorZendeskDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorZenefitsDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorZenefitsDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorZenefitsDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorZenefitsDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorZenefitsDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -7478,43 +2747,11 @@ class DataConnectorZenefitsDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorZenefitsDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorZohoDeskDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     extension: Required[str]
     """The domain extension of your Zoho account (e.g., https://accounts.zoho.com/)"""
 
-    oauth: Required[DataConnectorZohoDeskDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -7529,43 +2766,11 @@ class DataConnectorZohoDeskDiscriminatedConnectionSettings(TypedDict, total=Fals
     settings: DataConnectorZohoDeskDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorZohoDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorZohoDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorZohoDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorZohoDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
     extension: Required[str]
     """The domain extension of your Zoho account (e.g., https://accounts.zoho.com/)"""
 
-    oauth: Required[DataConnectorZohoDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.
@@ -7580,40 +2785,8 @@ class DataConnectorZohoDiscriminatedConnectionSettings(TypedDict, total=False):
     settings: DataConnectorZohoDiscriminatedConnectionSettingsSettings
 
 
-class DataConnectorZoomDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
-    access_token: Required[str]
-
-    client_id: str
-    """Client ID used for the connection"""
-
-    expires_at: str
-
-    expires_in: float
-
-    raw: Dict[str, object]
-
-    refresh_token: str
-
-    scope: str
-
-    token_type: str
-
-
-class DataConnectorZoomDiscriminatedConnectionSettingsSettingsOAuth(TypedDict, total=False):
-    created_at: str
-
-    credentials: DataConnectorZoomDiscriminatedConnectionSettingsSettingsOAuthCredentials
-    """Output of the postConnect hook for oauth2 connectors"""
-
-    last_fetched_at: str
-
-    metadata: Optional[Dict[str, object]]
-
-    updated_at: str
-
-
 class DataConnectorZoomDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    oauth: Required[DataConnectorZoomDiscriminatedConnectionSettingsSettingsOAuth]
+    oauth: Required[OAuthConnectionSettingsParam]
 
     access_token: str
     """Same as oauth.credentials.access_token, but more convenient to access.

@@ -1037,6 +1037,7 @@ class Openint(SyncAPIClient):
     def list_events(
         self,
         *,
+        expand: List[Literal["prompt"]] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         search_query: str | NotGiven = NOT_GIVEN,
@@ -1074,6 +1075,7 @@ class Openint(SyncAPIClient):
                 timeout=timeout,
                 query=maybe_transform(
                     {
+                        "expand": expand,
                         "limit": limit,
                         "offset": offset,
                         "search_query": search_query,
@@ -2086,6 +2088,7 @@ class AsyncOpenint(AsyncAPIClient):
     def list_events(
         self,
         *,
+        expand: List[Literal["prompt"]] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         search_query: str | NotGiven = NOT_GIVEN,
@@ -2123,6 +2126,7 @@ class AsyncOpenint(AsyncAPIClient):
                 timeout=timeout,
                 query=maybe_transform(
                     {
+                        "expand": expand,
                         "limit": limit,
                         "offset": offset,
                         "search_query": search_query,

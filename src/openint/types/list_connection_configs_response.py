@@ -8,435 +8,294 @@ from pydantic import Field as FieldInfo
 from .._models import BaseModel
 from .connector import Connector
 from .integration import Integration
+from .oauth_connector_config import OAuthConnectorConfig
 
 __all__ = [
     "ListConnectionConfigsResponse",
     "ConnectorAcceloDiscriminatedConnectorConfig",
     "ConnectorAcceloDiscriminatedConnectorConfigConfig",
-    "ConnectorAcceloDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorAcmeOauth2DiscriminatedConnectorConfig",
     "ConnectorAcmeOauth2DiscriminatedConnectorConfigConfig",
-    "ConnectorAcmeOauth2DiscriminatedConnectorConfigConfigOAuth",
     "ConnectorAdobeDiscriminatedConnectorConfig",
     "ConnectorAdobeDiscriminatedConnectorConfigConfig",
-    "ConnectorAdobeDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorAdyenDiscriminatedConnectorConfig",
     "ConnectorAdyenDiscriminatedConnectorConfigConfig",
-    "ConnectorAdyenDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorAircallDiscriminatedConnectorConfig",
     "ConnectorAircallDiscriminatedConnectorConfigConfig",
-    "ConnectorAircallDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorAmazonDiscriminatedConnectorConfig",
     "ConnectorAmazonDiscriminatedConnectorConfigConfig",
-    "ConnectorAmazonDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorApaleoDiscriminatedConnectorConfig",
     "ConnectorApaleoDiscriminatedConnectorConfigConfig",
-    "ConnectorApaleoDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorAsanaDiscriminatedConnectorConfig",
     "ConnectorAsanaDiscriminatedConnectorConfigConfig",
-    "ConnectorAsanaDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorAttioDiscriminatedConnectorConfig",
     "ConnectorAttioDiscriminatedConnectorConfigConfig",
-    "ConnectorAttioDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorAuth0DiscriminatedConnectorConfig",
     "ConnectorAuth0DiscriminatedConnectorConfigConfig",
-    "ConnectorAuth0DiscriminatedConnectorConfigConfigOAuth",
     "ConnectorAutodeskDiscriminatedConnectorConfig",
     "ConnectorAutodeskDiscriminatedConnectorConfigConfig",
-    "ConnectorAutodeskDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorAwsDiscriminatedConnectorConfig",
     "ConnectorAwsDiscriminatedConnectorConfigConfig",
-    "ConnectorAwsDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorBamboohrDiscriminatedConnectorConfig",
     "ConnectorBamboohrDiscriminatedConnectorConfigConfig",
-    "ConnectorBamboohrDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorBasecampDiscriminatedConnectorConfig",
     "ConnectorBasecampDiscriminatedConnectorConfigConfig",
-    "ConnectorBasecampDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorBattlenetDiscriminatedConnectorConfig",
     "ConnectorBattlenetDiscriminatedConnectorConfigConfig",
-    "ConnectorBattlenetDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorBigcommerceDiscriminatedConnectorConfig",
     "ConnectorBigcommerceDiscriminatedConnectorConfigConfig",
-    "ConnectorBigcommerceDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorBitbucketDiscriminatedConnectorConfig",
     "ConnectorBitbucketDiscriminatedConnectorConfigConfig",
-    "ConnectorBitbucketDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorBitlyDiscriminatedConnectorConfig",
     "ConnectorBitlyDiscriminatedConnectorConfigConfig",
-    "ConnectorBitlyDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorBlackbaudDiscriminatedConnectorConfig",
     "ConnectorBlackbaudDiscriminatedConnectorConfigConfig",
-    "ConnectorBlackbaudDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorBoldsignDiscriminatedConnectorConfig",
     "ConnectorBoldsignDiscriminatedConnectorConfigConfig",
-    "ConnectorBoldsignDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorBoxDiscriminatedConnectorConfig",
     "ConnectorBoxDiscriminatedConnectorConfigConfig",
-    "ConnectorBoxDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorBraintreeDiscriminatedConnectorConfig",
     "ConnectorBraintreeDiscriminatedConnectorConfigConfig",
-    "ConnectorBraintreeDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorCalendlyDiscriminatedConnectorConfig",
     "ConnectorCalendlyDiscriminatedConnectorConfigConfig",
-    "ConnectorCalendlyDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorClickupDiscriminatedConnectorConfig",
     "ConnectorClickupDiscriminatedConnectorConfigConfig",
-    "ConnectorClickupDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorCloseDiscriminatedConnectorConfig",
     "ConnectorCloseDiscriminatedConnectorConfigConfig",
-    "ConnectorCloseDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorConfluenceDiscriminatedConnectorConfig",
     "ConnectorConfluenceDiscriminatedConnectorConfigConfig",
-    "ConnectorConfluenceDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorContentfulDiscriminatedConnectorConfig",
     "ConnectorContentfulDiscriminatedConnectorConfigConfig",
-    "ConnectorContentfulDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorContentstackDiscriminatedConnectorConfig",
     "ConnectorContentstackDiscriminatedConnectorConfigConfig",
-    "ConnectorContentstackDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorCopperDiscriminatedConnectorConfig",
     "ConnectorCopperDiscriminatedConnectorConfigConfig",
-    "ConnectorCopperDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorCorosDiscriminatedConnectorConfig",
     "ConnectorCorosDiscriminatedConnectorConfigConfig",
-    "ConnectorCorosDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorDatevDiscriminatedConnectorConfig",
     "ConnectorDatevDiscriminatedConnectorConfigConfig",
-    "ConnectorDatevDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorDeelDiscriminatedConnectorConfig",
     "ConnectorDeelDiscriminatedConnectorConfigConfig",
-    "ConnectorDeelDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorDialpadDiscriminatedConnectorConfig",
     "ConnectorDialpadDiscriminatedConnectorConfigConfig",
-    "ConnectorDialpadDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorDigitaloceanDiscriminatedConnectorConfig",
     "ConnectorDigitaloceanDiscriminatedConnectorConfigConfig",
-    "ConnectorDigitaloceanDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorDiscordDiscriminatedConnectorConfig",
     "ConnectorDiscordDiscriminatedConnectorConfigConfig",
-    "ConnectorDiscordDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorDocusignDiscriminatedConnectorConfig",
     "ConnectorDocusignDiscriminatedConnectorConfigConfig",
-    "ConnectorDocusignDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorDropboxDiscriminatedConnectorConfig",
     "ConnectorDropboxDiscriminatedConnectorConfigConfig",
-    "ConnectorDropboxDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorEbayDiscriminatedConnectorConfig",
     "ConnectorEbayDiscriminatedConnectorConfigConfig",
-    "ConnectorEbayDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorEgnyteDiscriminatedConnectorConfig",
     "ConnectorEgnyteDiscriminatedConnectorConfigConfig",
-    "ConnectorEgnyteDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorEnvoyDiscriminatedConnectorConfig",
     "ConnectorEnvoyDiscriminatedConnectorConfigConfig",
-    "ConnectorEnvoyDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorEventbriteDiscriminatedConnectorConfig",
     "ConnectorEventbriteDiscriminatedConnectorConfigConfig",
-    "ConnectorEventbriteDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorExistDiscriminatedConnectorConfig",
     "ConnectorExistDiscriminatedConnectorConfigConfig",
-    "ConnectorExistDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorFacebookDiscriminatedConnectorConfig",
     "ConnectorFacebookDiscriminatedConnectorConfigConfig",
-    "ConnectorFacebookDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorFactorialDiscriminatedConnectorConfig",
     "ConnectorFactorialDiscriminatedConnectorConfigConfig",
-    "ConnectorFactorialDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorFigmaDiscriminatedConnectorConfig",
     "ConnectorFigmaDiscriminatedConnectorConfigConfig",
-    "ConnectorFigmaDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorFitbitDiscriminatedConnectorConfig",
     "ConnectorFitbitDiscriminatedConnectorConfigConfig",
-    "ConnectorFitbitDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorFortnoxDiscriminatedConnectorConfig",
     "ConnectorFortnoxDiscriminatedConnectorConfigConfig",
-    "ConnectorFortnoxDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorFreshbooksDiscriminatedConnectorConfig",
     "ConnectorFreshbooksDiscriminatedConnectorConfigConfig",
-    "ConnectorFreshbooksDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorFrontDiscriminatedConnectorConfig",
     "ConnectorFrontDiscriminatedConnectorConfigConfig",
-    "ConnectorFrontDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorGitHubDiscriminatedConnectorConfig",
     "ConnectorGitHubDiscriminatedConnectorConfigConfig",
-    "ConnectorGitHubDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorGitlabDiscriminatedConnectorConfig",
     "ConnectorGitlabDiscriminatedConnectorConfigConfig",
-    "ConnectorGitlabDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorGongDiscriminatedConnectorConfig",
     "ConnectorGongDiscriminatedConnectorConfigConfig",
-    "ConnectorGongDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorGoogleCalendarDiscriminatedConnectorConfig",
     "ConnectorGoogleCalendarDiscriminatedConnectorConfigConfig",
-    "ConnectorGoogleCalendarDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorGoogleDocsDiscriminatedConnectorConfig",
     "ConnectorGoogleDocsDiscriminatedConnectorConfigConfig",
-    "ConnectorGoogleDocsDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorGoogleDriveDiscriminatedConnectorConfig",
     "ConnectorGoogleDriveDiscriminatedConnectorConfigConfig",
-    "ConnectorGoogleDriveDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorGoogleMailDiscriminatedConnectorConfig",
     "ConnectorGoogleMailDiscriminatedConnectorConfigConfig",
-    "ConnectorGoogleMailDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorGoogleSheetDiscriminatedConnectorConfig",
     "ConnectorGoogleSheetDiscriminatedConnectorConfigConfig",
-    "ConnectorGoogleSheetDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorGorgiasDiscriminatedConnectorConfig",
     "ConnectorGorgiasDiscriminatedConnectorConfigConfig",
-    "ConnectorGorgiasDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorGrainDiscriminatedConnectorConfig",
     "ConnectorGrainDiscriminatedConnectorConfigConfig",
-    "ConnectorGrainDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorGumroadDiscriminatedConnectorConfig",
     "ConnectorGumroadDiscriminatedConnectorConfigConfig",
-    "ConnectorGumroadDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorGustoDiscriminatedConnectorConfig",
     "ConnectorGustoDiscriminatedConnectorConfigConfig",
-    "ConnectorGustoDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorHarvestDiscriminatedConnectorConfig",
     "ConnectorHarvestDiscriminatedConnectorConfigConfig",
-    "ConnectorHarvestDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorHighlevelDiscriminatedConnectorConfig",
     "ConnectorHighlevelDiscriminatedConnectorConfigConfig",
-    "ConnectorHighlevelDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorHubspotDiscriminatedConnectorConfig",
     "ConnectorHubspotDiscriminatedConnectorConfigConfig",
-    "ConnectorHubspotDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorInstagramDiscriminatedConnectorConfig",
     "ConnectorInstagramDiscriminatedConnectorConfigConfig",
-    "ConnectorInstagramDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorIntercomDiscriminatedConnectorConfig",
     "ConnectorIntercomDiscriminatedConnectorConfigConfig",
-    "ConnectorIntercomDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorJiraDiscriminatedConnectorConfig",
     "ConnectorJiraDiscriminatedConnectorConfigConfig",
-    "ConnectorJiraDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorKeapDiscriminatedConnectorConfig",
     "ConnectorKeapDiscriminatedConnectorConfigConfig",
-    "ConnectorKeapDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorLeverDiscriminatedConnectorConfig",
     "ConnectorLeverDiscriminatedConnectorConfigConfig",
-    "ConnectorLeverDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorLinearDiscriminatedConnectorConfig",
     "ConnectorLinearDiscriminatedConnectorConfigConfig",
-    "ConnectorLinearDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorLinkedinDiscriminatedConnectorConfig",
     "ConnectorLinkedinDiscriminatedConnectorConfigConfig",
-    "ConnectorLinkedinDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorLinkhutDiscriminatedConnectorConfig",
     "ConnectorLinkhutDiscriminatedConnectorConfigConfig",
-    "ConnectorLinkhutDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorMailchimpDiscriminatedConnectorConfig",
     "ConnectorMailchimpDiscriminatedConnectorConfigConfig",
-    "ConnectorMailchimpDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorMiroDiscriminatedConnectorConfig",
     "ConnectorMiroDiscriminatedConnectorConfigConfig",
-    "ConnectorMiroDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorMondayDiscriminatedConnectorConfig",
     "ConnectorMondayDiscriminatedConnectorConfigConfig",
-    "ConnectorMondayDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorMuralDiscriminatedConnectorConfig",
     "ConnectorMuralDiscriminatedConnectorConfigConfig",
-    "ConnectorMuralDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorNamelyDiscriminatedConnectorConfig",
     "ConnectorNamelyDiscriminatedConnectorConfigConfig",
-    "ConnectorNamelyDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorNationbuilderDiscriminatedConnectorConfig",
     "ConnectorNationbuilderDiscriminatedConnectorConfigConfig",
-    "ConnectorNationbuilderDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorNetsuiteDiscriminatedConnectorConfig",
     "ConnectorNetsuiteDiscriminatedConnectorConfigConfig",
-    "ConnectorNetsuiteDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorNotionDiscriminatedConnectorConfig",
     "ConnectorNotionDiscriminatedConnectorConfigConfig",
-    "ConnectorNotionDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorOdooDiscriminatedConnectorConfig",
     "ConnectorOdooDiscriminatedConnectorConfigConfig",
-    "ConnectorOdooDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorOktaDiscriminatedConnectorConfig",
     "ConnectorOktaDiscriminatedConnectorConfigConfig",
-    "ConnectorOktaDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorOsuDiscriminatedConnectorConfig",
     "ConnectorOsuDiscriminatedConnectorConfigConfig",
-    "ConnectorOsuDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorOuraDiscriminatedConnectorConfig",
     "ConnectorOuraDiscriminatedConnectorConfigConfig",
-    "ConnectorOuraDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorOutreachDiscriminatedConnectorConfig",
     "ConnectorOutreachDiscriminatedConnectorConfigConfig",
-    "ConnectorOutreachDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorPagerdutyDiscriminatedConnectorConfig",
     "ConnectorPagerdutyDiscriminatedConnectorConfigConfig",
-    "ConnectorPagerdutyDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorPandadocDiscriminatedConnectorConfig",
     "ConnectorPandadocDiscriminatedConnectorConfigConfig",
-    "ConnectorPandadocDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorPayfitDiscriminatedConnectorConfig",
     "ConnectorPayfitDiscriminatedConnectorConfigConfig",
-    "ConnectorPayfitDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorPaypalDiscriminatedConnectorConfig",
     "ConnectorPaypalDiscriminatedConnectorConfigConfig",
-    "ConnectorPaypalDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorPennylaneDiscriminatedConnectorConfig",
     "ConnectorPennylaneDiscriminatedConnectorConfigConfig",
-    "ConnectorPennylaneDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorPinterestDiscriminatedConnectorConfig",
     "ConnectorPinterestDiscriminatedConnectorConfigConfig",
-    "ConnectorPinterestDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorPipedriveDiscriminatedConnectorConfig",
     "ConnectorPipedriveDiscriminatedConnectorConfigConfig",
-    "ConnectorPipedriveDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorPodiumDiscriminatedConnectorConfig",
     "ConnectorPodiumDiscriminatedConnectorConfigConfig",
-    "ConnectorPodiumDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorProductboardDiscriminatedConnectorConfig",
     "ConnectorProductboardDiscriminatedConnectorConfigConfig",
-    "ConnectorProductboardDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorQualtricsDiscriminatedConnectorConfig",
     "ConnectorQualtricsDiscriminatedConnectorConfigConfig",
-    "ConnectorQualtricsDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorQuickbooksDiscriminatedConnectorConfig",
     "ConnectorQuickbooksDiscriminatedConnectorConfigConfig",
-    "ConnectorQuickbooksDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorRedditDiscriminatedConnectorConfig",
     "ConnectorRedditDiscriminatedConnectorConfigConfig",
-    "ConnectorRedditDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorSageDiscriminatedConnectorConfig",
     "ConnectorSageDiscriminatedConnectorConfigConfig",
-    "ConnectorSageDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorSalesforceDiscriminatedConnectorConfig",
     "ConnectorSalesforceDiscriminatedConnectorConfigConfig",
-    "ConnectorSalesforceDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorSalesloftDiscriminatedConnectorConfig",
     "ConnectorSalesloftDiscriminatedConnectorConfigConfig",
-    "ConnectorSalesloftDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorSegmentDiscriminatedConnectorConfig",
     "ConnectorSegmentDiscriminatedConnectorConfigConfig",
-    "ConnectorSegmentDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorServicem8DiscriminatedConnectorConfig",
     "ConnectorServicem8DiscriminatedConnectorConfigConfig",
-    "ConnectorServicem8DiscriminatedConnectorConfigConfigOAuth",
     "ConnectorServicenowDiscriminatedConnectorConfig",
     "ConnectorServicenowDiscriminatedConnectorConfigConfig",
-    "ConnectorServicenowDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorSharepointDiscriminatedConnectorConfig",
     "ConnectorSharepointDiscriminatedConnectorConfigConfig",
-    "ConnectorSharepointDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorShopifyDiscriminatedConnectorConfig",
     "ConnectorShopifyDiscriminatedConnectorConfigConfig",
-    "ConnectorShopifyDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorSignnowDiscriminatedConnectorConfig",
     "ConnectorSignnowDiscriminatedConnectorConfigConfig",
-    "ConnectorSignnowDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorSlackDiscriminatedConnectorConfig",
     "ConnectorSlackDiscriminatedConnectorConfigConfig",
-    "ConnectorSlackDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorSmartsheetDiscriminatedConnectorConfig",
     "ConnectorSmartsheetDiscriminatedConnectorConfigConfig",
-    "ConnectorSmartsheetDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorSnowflakeDiscriminatedConnectorConfig",
     "ConnectorSnowflakeDiscriminatedConnectorConfigConfig",
-    "ConnectorSnowflakeDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorSpotifyDiscriminatedConnectorConfig",
     "ConnectorSpotifyDiscriminatedConnectorConfigConfig",
-    "ConnectorSpotifyDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorSquarespaceDiscriminatedConnectorConfig",
     "ConnectorSquarespaceDiscriminatedConnectorConfigConfig",
-    "ConnectorSquarespaceDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorSquareupDiscriminatedConnectorConfig",
     "ConnectorSquareupDiscriminatedConnectorConfigConfig",
-    "ConnectorSquareupDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorStackexchangeDiscriminatedConnectorConfig",
     "ConnectorStackexchangeDiscriminatedConnectorConfigConfig",
-    "ConnectorStackexchangeDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorStravaDiscriminatedConnectorConfig",
     "ConnectorStravaDiscriminatedConnectorConfigConfig",
-    "ConnectorStravaDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorTeamworkDiscriminatedConnectorConfig",
     "ConnectorTeamworkDiscriminatedConnectorConfigConfig",
-    "ConnectorTeamworkDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorTicktickDiscriminatedConnectorConfig",
     "ConnectorTicktickDiscriminatedConnectorConfigConfig",
-    "ConnectorTicktickDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorTimelyDiscriminatedConnectorConfig",
     "ConnectorTimelyDiscriminatedConnectorConfigConfig",
-    "ConnectorTimelyDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorTodoistDiscriminatedConnectorConfig",
     "ConnectorTodoistDiscriminatedConnectorConfigConfig",
-    "ConnectorTodoistDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorTremendousDiscriminatedConnectorConfig",
     "ConnectorTremendousDiscriminatedConnectorConfigConfig",
-    "ConnectorTremendousDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorTsheetsteamDiscriminatedConnectorConfig",
     "ConnectorTsheetsteamDiscriminatedConnectorConfigConfig",
-    "ConnectorTsheetsteamDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorTumblrDiscriminatedConnectorConfig",
     "ConnectorTumblrDiscriminatedConnectorConfigConfig",
-    "ConnectorTumblrDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorTwinfieldDiscriminatedConnectorConfig",
     "ConnectorTwinfieldDiscriminatedConnectorConfigConfig",
-    "ConnectorTwinfieldDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorTwitchDiscriminatedConnectorConfig",
     "ConnectorTwitchDiscriminatedConnectorConfigConfig",
-    "ConnectorTwitchDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorTwitterDiscriminatedConnectorConfig",
     "ConnectorTwitterDiscriminatedConnectorConfigConfig",
-    "ConnectorTwitterDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorTypeformDiscriminatedConnectorConfig",
     "ConnectorTypeformDiscriminatedConnectorConfigConfig",
-    "ConnectorTypeformDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorUberDiscriminatedConnectorConfig",
     "ConnectorUberDiscriminatedConnectorConfigConfig",
-    "ConnectorUberDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorVimeoDiscriminatedConnectorConfig",
     "ConnectorVimeoDiscriminatedConnectorConfigConfig",
-    "ConnectorVimeoDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorWakatimeDiscriminatedConnectorConfig",
     "ConnectorWakatimeDiscriminatedConnectorConfigConfig",
-    "ConnectorWakatimeDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorWealthboxDiscriminatedConnectorConfig",
     "ConnectorWealthboxDiscriminatedConnectorConfigConfig",
-    "ConnectorWealthboxDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorWebflowDiscriminatedConnectorConfig",
     "ConnectorWebflowDiscriminatedConnectorConfigConfig",
-    "ConnectorWebflowDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorWhoopDiscriminatedConnectorConfig",
     "ConnectorWhoopDiscriminatedConnectorConfigConfig",
-    "ConnectorWhoopDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorWordpressDiscriminatedConnectorConfig",
     "ConnectorWordpressDiscriminatedConnectorConfigConfig",
-    "ConnectorWordpressDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorWrikeDiscriminatedConnectorConfig",
     "ConnectorWrikeDiscriminatedConnectorConfigConfig",
-    "ConnectorWrikeDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorXeroDiscriminatedConnectorConfig",
     "ConnectorXeroDiscriminatedConnectorConfigConfig",
-    "ConnectorXeroDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorYahooDiscriminatedConnectorConfig",
     "ConnectorYahooDiscriminatedConnectorConfigConfig",
-    "ConnectorYahooDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorYandexDiscriminatedConnectorConfig",
     "ConnectorYandexDiscriminatedConnectorConfigConfig",
-    "ConnectorYandexDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorZapierDiscriminatedConnectorConfig",
     "ConnectorZapierDiscriminatedConnectorConfigConfig",
-    "ConnectorZapierDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorZendeskDiscriminatedConnectorConfig",
     "ConnectorZendeskDiscriminatedConnectorConfigConfig",
-    "ConnectorZendeskDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorZenefitsDiscriminatedConnectorConfig",
     "ConnectorZenefitsDiscriminatedConnectorConfigConfig",
-    "ConnectorZenefitsDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorZohoDeskDiscriminatedConnectorConfig",
     "ConnectorZohoDeskDiscriminatedConnectorConfigConfig",
-    "ConnectorZohoDeskDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorZohoDiscriminatedConnectorConfig",
     "ConnectorZohoDiscriminatedConnectorConfigConfig",
-    "ConnectorZohoDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorZoomDiscriminatedConnectorConfig",
     "ConnectorZoomDiscriminatedConnectorConfigConfig",
-    "ConnectorZoomDiscriminatedConnectorConfigConfigOAuth",
     "ConnectorAirtableDiscriminatedConnectorConfig",
     "ConnectorApolloDiscriminatedConnectorConfig",
     "ConnectorBrexDiscriminatedConnectorConfig",
@@ -490,19 +349,8 @@ __all__ = [
 ]
 
 
-class ConnectorAcceloDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorAcceloDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorAcceloDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -537,19 +385,8 @@ class ConnectorAcceloDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorAcmeOauth2DiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorAcmeOauth2DiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorAcmeOauth2DiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -584,19 +421,8 @@ class ConnectorAcmeOauth2DiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorAdobeDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorAdobeDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorAdobeDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -631,19 +457,8 @@ class ConnectorAdobeDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorAdyenDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorAdyenDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorAdyenDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -678,19 +493,8 @@ class ConnectorAdyenDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorAircallDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorAircallDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorAircallDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -725,19 +529,8 @@ class ConnectorAircallDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorAmazonDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorAmazonDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorAmazonDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -772,19 +565,8 @@ class ConnectorAmazonDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorApaleoDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorApaleoDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorApaleoDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -819,19 +601,8 @@ class ConnectorApaleoDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorAsanaDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorAsanaDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorAsanaDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -866,19 +637,8 @@ class ConnectorAsanaDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorAttioDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorAttioDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorAttioDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -913,19 +673,8 @@ class ConnectorAttioDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorAuth0DiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorAuth0DiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorAuth0DiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -960,19 +709,8 @@ class ConnectorAuth0DiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorAutodeskDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorAutodeskDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorAutodeskDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1007,19 +745,8 @@ class ConnectorAutodeskDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorAwsDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorAwsDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorAwsDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1054,19 +781,8 @@ class ConnectorAwsDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorBamboohrDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorBamboohrDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorBamboohrDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1101,19 +817,8 @@ class ConnectorBamboohrDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorBasecampDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorBasecampDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorBasecampDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1148,19 +853,8 @@ class ConnectorBasecampDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorBattlenetDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorBattlenetDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorBattlenetDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1195,19 +889,8 @@ class ConnectorBattlenetDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorBigcommerceDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorBigcommerceDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorBigcommerceDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1242,19 +925,8 @@ class ConnectorBigcommerceDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorBitbucketDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorBitbucketDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorBitbucketDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1289,19 +961,8 @@ class ConnectorBitbucketDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorBitlyDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorBitlyDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorBitlyDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1336,19 +997,8 @@ class ConnectorBitlyDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorBlackbaudDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorBlackbaudDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorBlackbaudDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1383,19 +1033,8 @@ class ConnectorBlackbaudDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorBoldsignDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorBoldsignDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorBoldsignDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1430,19 +1069,8 @@ class ConnectorBoldsignDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorBoxDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorBoxDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorBoxDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1477,19 +1105,8 @@ class ConnectorBoxDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorBraintreeDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorBraintreeDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorBraintreeDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1524,19 +1141,8 @@ class ConnectorBraintreeDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorCalendlyDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorCalendlyDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorCalendlyDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1571,19 +1177,8 @@ class ConnectorCalendlyDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorClickupDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorClickupDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorClickupDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1618,19 +1213,8 @@ class ConnectorClickupDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorCloseDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorCloseDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorCloseDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1665,19 +1249,8 @@ class ConnectorCloseDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorConfluenceDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorConfluenceDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorConfluenceDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1712,19 +1285,8 @@ class ConnectorConfluenceDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorContentfulDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorContentfulDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorContentfulDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1759,19 +1321,8 @@ class ConnectorContentfulDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorContentstackDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorContentstackDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorContentstackDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1806,19 +1357,8 @@ class ConnectorContentstackDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorCopperDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorCopperDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorCopperDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1853,19 +1393,8 @@ class ConnectorCopperDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorCorosDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorCorosDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorCorosDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1900,19 +1429,8 @@ class ConnectorCorosDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorDatevDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorDatevDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorDatevDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1947,19 +1465,8 @@ class ConnectorDatevDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorDeelDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorDeelDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorDeelDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -1994,19 +1501,8 @@ class ConnectorDeelDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorDialpadDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorDialpadDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorDialpadDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2041,19 +1537,8 @@ class ConnectorDialpadDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorDigitaloceanDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorDigitaloceanDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorDigitaloceanDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2088,19 +1573,8 @@ class ConnectorDigitaloceanDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorDiscordDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorDiscordDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorDiscordDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2135,19 +1609,8 @@ class ConnectorDiscordDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorDocusignDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorDocusignDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorDocusignDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2182,19 +1645,8 @@ class ConnectorDocusignDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorDropboxDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorDropboxDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorDropboxDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2229,19 +1681,8 @@ class ConnectorDropboxDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorEbayDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorEbayDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorEbayDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2276,19 +1717,8 @@ class ConnectorEbayDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorEgnyteDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorEgnyteDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorEgnyteDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2323,19 +1753,8 @@ class ConnectorEgnyteDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorEnvoyDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorEnvoyDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorEnvoyDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2370,19 +1789,8 @@ class ConnectorEnvoyDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorEventbriteDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorEventbriteDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorEventbriteDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2417,19 +1825,8 @@ class ConnectorEventbriteDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorExistDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorExistDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorExistDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2464,19 +1861,8 @@ class ConnectorExistDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorFacebookDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorFacebookDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorFacebookDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2511,19 +1897,8 @@ class ConnectorFacebookDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorFactorialDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorFactorialDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorFactorialDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2558,19 +1933,8 @@ class ConnectorFactorialDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorFigmaDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorFigmaDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorFigmaDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2605,19 +1969,8 @@ class ConnectorFigmaDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorFitbitDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorFitbitDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorFitbitDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2652,19 +2005,8 @@ class ConnectorFitbitDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorFortnoxDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorFortnoxDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorFortnoxDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2699,19 +2041,8 @@ class ConnectorFortnoxDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorFreshbooksDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorFreshbooksDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorFreshbooksDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2746,19 +2077,8 @@ class ConnectorFreshbooksDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorFrontDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorFrontDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorFrontDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2793,19 +2113,8 @@ class ConnectorFrontDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorGitHubDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorGitHubDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGitHubDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2840,19 +2149,8 @@ class ConnectorGitHubDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorGitlabDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorGitlabDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGitlabDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2887,19 +2185,8 @@ class ConnectorGitlabDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorGongDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorGongDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGongDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2934,19 +2221,8 @@ class ConnectorGongDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorGoogleCalendarDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorGoogleCalendarDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGoogleCalendarDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -2981,19 +2257,8 @@ class ConnectorGoogleCalendarDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorGoogleDocsDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorGoogleDocsDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGoogleDocsDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3028,19 +2293,8 @@ class ConnectorGoogleDocsDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorGoogleDriveDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorGoogleDriveDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGoogleDriveDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3075,19 +2329,8 @@ class ConnectorGoogleDriveDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorGoogleMailDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorGoogleMailDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGoogleMailDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3122,19 +2365,8 @@ class ConnectorGoogleMailDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorGoogleSheetDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorGoogleSheetDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGoogleSheetDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3169,19 +2401,8 @@ class ConnectorGoogleSheetDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorGorgiasDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorGorgiasDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGorgiasDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3216,19 +2437,8 @@ class ConnectorGorgiasDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorGrainDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorGrainDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGrainDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3263,19 +2473,8 @@ class ConnectorGrainDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorGumroadDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorGumroadDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGumroadDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3310,19 +2509,8 @@ class ConnectorGumroadDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorGustoDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorGustoDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorGustoDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3357,19 +2545,8 @@ class ConnectorGustoDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorHarvestDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorHarvestDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorHarvestDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3404,19 +2581,8 @@ class ConnectorHarvestDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorHighlevelDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorHighlevelDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorHighlevelDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3451,19 +2617,8 @@ class ConnectorHighlevelDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorHubspotDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorHubspotDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorHubspotDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3498,19 +2653,8 @@ class ConnectorHubspotDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorInstagramDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorInstagramDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorInstagramDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3545,19 +2689,8 @@ class ConnectorInstagramDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorIntercomDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorIntercomDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorIntercomDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3592,19 +2725,8 @@ class ConnectorIntercomDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorJiraDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorJiraDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorJiraDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3639,19 +2761,8 @@ class ConnectorJiraDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorKeapDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorKeapDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorKeapDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3686,19 +2797,8 @@ class ConnectorKeapDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorLeverDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorLeverDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorLeverDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3733,19 +2833,8 @@ class ConnectorLeverDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorLinearDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorLinearDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorLinearDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3780,19 +2869,8 @@ class ConnectorLinearDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorLinkedinDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorLinkedinDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorLinkedinDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3827,19 +2905,8 @@ class ConnectorLinkedinDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorLinkhutDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorLinkhutDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorLinkhutDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3874,19 +2941,8 @@ class ConnectorLinkhutDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorMailchimpDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorMailchimpDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorMailchimpDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3921,19 +2977,8 @@ class ConnectorMailchimpDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorMiroDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorMiroDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorMiroDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -3968,19 +3013,8 @@ class ConnectorMiroDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorMondayDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorMondayDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorMondayDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4015,19 +3049,8 @@ class ConnectorMondayDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorMuralDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorMuralDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorMuralDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4062,19 +3085,8 @@ class ConnectorMuralDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorNamelyDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorNamelyDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorNamelyDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4109,19 +3121,8 @@ class ConnectorNamelyDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorNationbuilderDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorNationbuilderDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorNationbuilderDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4156,19 +3157,8 @@ class ConnectorNationbuilderDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorNetsuiteDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorNetsuiteDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorNetsuiteDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4203,19 +3193,8 @@ class ConnectorNetsuiteDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorNotionDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorNotionDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorNotionDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4250,19 +3229,8 @@ class ConnectorNotionDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorOdooDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorOdooDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorOdooDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4297,19 +3265,8 @@ class ConnectorOdooDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorOktaDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorOktaDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorOktaDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4344,19 +3301,8 @@ class ConnectorOktaDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorOsuDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorOsuDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorOsuDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4391,19 +3337,8 @@ class ConnectorOsuDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorOuraDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorOuraDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorOuraDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4438,19 +3373,8 @@ class ConnectorOuraDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorOutreachDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorOutreachDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorOutreachDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4485,19 +3409,8 @@ class ConnectorOutreachDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorPagerdutyDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorPagerdutyDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorPagerdutyDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4532,19 +3445,8 @@ class ConnectorPagerdutyDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorPandadocDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorPandadocDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorPandadocDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4579,19 +3481,8 @@ class ConnectorPandadocDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorPayfitDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorPayfitDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorPayfitDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4626,19 +3517,8 @@ class ConnectorPayfitDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorPaypalDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorPaypalDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorPaypalDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4673,19 +3553,8 @@ class ConnectorPaypalDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorPennylaneDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorPennylaneDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorPennylaneDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4720,19 +3589,8 @@ class ConnectorPennylaneDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorPinterestDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorPinterestDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorPinterestDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4767,19 +3625,8 @@ class ConnectorPinterestDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorPipedriveDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorPipedriveDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorPipedriveDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4814,19 +3661,8 @@ class ConnectorPipedriveDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorPodiumDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorPodiumDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorPodiumDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4861,19 +3697,8 @@ class ConnectorPodiumDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorProductboardDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorProductboardDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorProductboardDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4908,19 +3733,8 @@ class ConnectorProductboardDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorQualtricsDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorQualtricsDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorQualtricsDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -4955,19 +3769,8 @@ class ConnectorQualtricsDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorQuickbooksDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorQuickbooksDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorQuickbooksDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5002,19 +3805,8 @@ class ConnectorQuickbooksDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorRedditDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorRedditDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorRedditDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5049,19 +3841,8 @@ class ConnectorRedditDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorSageDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorSageDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorSageDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5096,19 +3877,8 @@ class ConnectorSageDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorSalesforceDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorSalesforceDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorSalesforceDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5143,19 +3913,8 @@ class ConnectorSalesforceDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorSalesloftDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorSalesloftDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorSalesloftDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5190,19 +3949,8 @@ class ConnectorSalesloftDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorSegmentDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorSegmentDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorSegmentDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5237,19 +3985,8 @@ class ConnectorSegmentDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorServicem8DiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorServicem8DiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorServicem8DiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5284,19 +4021,8 @@ class ConnectorServicem8DiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorServicenowDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorServicenowDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorServicenowDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5331,19 +4057,8 @@ class ConnectorServicenowDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorSharepointDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorSharepointDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorSharepointDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5378,19 +4093,8 @@ class ConnectorSharepointDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorShopifyDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorShopifyDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorShopifyDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5425,19 +4129,8 @@ class ConnectorShopifyDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorSignnowDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorSignnowDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorSignnowDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5472,19 +4165,8 @@ class ConnectorSignnowDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorSlackDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorSlackDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorSlackDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5519,19 +4201,8 @@ class ConnectorSlackDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorSmartsheetDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorSmartsheetDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorSmartsheetDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5566,19 +4237,8 @@ class ConnectorSmartsheetDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorSnowflakeDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorSnowflakeDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorSnowflakeDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5613,19 +4273,8 @@ class ConnectorSnowflakeDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorSpotifyDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorSpotifyDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorSpotifyDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5660,19 +4309,8 @@ class ConnectorSpotifyDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorSquarespaceDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorSquarespaceDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorSquarespaceDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5707,19 +4345,8 @@ class ConnectorSquarespaceDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorSquareupDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorSquareupDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorSquareupDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5754,19 +4381,8 @@ class ConnectorSquareupDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorStackexchangeDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorStackexchangeDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorStackexchangeDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5801,19 +4417,8 @@ class ConnectorStackexchangeDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorStravaDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorStravaDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorStravaDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5848,19 +4453,8 @@ class ConnectorStravaDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorTeamworkDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorTeamworkDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorTeamworkDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5895,19 +4489,8 @@ class ConnectorTeamworkDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorTicktickDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorTicktickDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorTicktickDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5942,19 +4525,8 @@ class ConnectorTicktickDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorTimelyDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorTimelyDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorTimelyDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -5989,19 +4561,8 @@ class ConnectorTimelyDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorTodoistDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorTodoistDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorTodoistDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6036,19 +4597,8 @@ class ConnectorTodoistDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorTremendousDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorTremendousDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorTremendousDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6083,19 +4633,8 @@ class ConnectorTremendousDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorTsheetsteamDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorTsheetsteamDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorTsheetsteamDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6130,19 +4669,8 @@ class ConnectorTsheetsteamDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorTumblrDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorTumblrDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorTumblrDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6177,19 +4705,8 @@ class ConnectorTumblrDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorTwinfieldDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorTwinfieldDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorTwinfieldDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6224,19 +4741,8 @@ class ConnectorTwinfieldDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorTwitchDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorTwitchDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorTwitchDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6271,19 +4777,8 @@ class ConnectorTwitchDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorTwitterDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorTwitterDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorTwitterDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6318,19 +4813,8 @@ class ConnectorTwitterDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorTypeformDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorTypeformDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorTypeformDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6365,19 +4849,8 @@ class ConnectorTypeformDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorUberDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorUberDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorUberDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6412,19 +4885,8 @@ class ConnectorUberDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorVimeoDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorVimeoDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorVimeoDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6459,19 +4921,8 @@ class ConnectorVimeoDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorWakatimeDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorWakatimeDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorWakatimeDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6506,19 +4957,8 @@ class ConnectorWakatimeDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorWealthboxDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorWealthboxDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorWealthboxDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6553,19 +4993,8 @@ class ConnectorWealthboxDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorWebflowDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorWebflowDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorWebflowDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6600,19 +5029,8 @@ class ConnectorWebflowDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorWhoopDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorWhoopDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorWhoopDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6647,19 +5065,8 @@ class ConnectorWhoopDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorWordpressDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorWordpressDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorWordpressDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6694,19 +5101,8 @@ class ConnectorWordpressDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorWrikeDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorWrikeDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorWrikeDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6741,19 +5137,8 @@ class ConnectorWrikeDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorXeroDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorXeroDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorXeroDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6788,19 +5173,8 @@ class ConnectorXeroDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorYahooDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorYahooDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorYahooDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6835,19 +5209,8 @@ class ConnectorYahooDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorYandexDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorYandexDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorYandexDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6882,19 +5245,8 @@ class ConnectorYandexDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorZapierDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorZapierDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorZapierDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6929,19 +5281,8 @@ class ConnectorZapierDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorZendeskDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorZendeskDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorZendeskDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -6976,19 +5317,8 @@ class ConnectorZendeskDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorZenefitsDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorZenefitsDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorZenefitsDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -7023,19 +5353,8 @@ class ConnectorZenefitsDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorZohoDeskDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorZohoDeskDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorZohoDeskDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -7070,19 +5389,8 @@ class ConnectorZohoDeskDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorZohoDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorZohoDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorZohoDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
@@ -7117,19 +5425,8 @@ class ConnectorZohoDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-class ConnectorZoomDiscriminatedConnectorConfigConfigOAuth(BaseModel):
-    client_id: Optional[str] = None
-
-    client_secret: Optional[str] = None
-
-    redirect_uri: Optional[str] = None
-    """Custom redirect URI"""
-
-    scopes: Optional[List[str]] = None
-
-
 class ConnectorZoomDiscriminatedConnectorConfigConfig(BaseModel):
-    oauth: Optional[ConnectorZoomDiscriminatedConnectorConfigConfigOAuth] = None
+    oauth: Optional[OAuthConnectorConfig] = None
     """Base oauth configuration for the connector"""
 
 
