@@ -15,3 +15,5 @@ class ClientListEventsParams(TypedDict, total=False):
     """Offset the items returned"""
 
     search_query: str
+
+    since: str
