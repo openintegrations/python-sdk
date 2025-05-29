@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.4.0 (2025-05-29)
+
+Full Changelog: [v2.3.0...v2.4.0](https://github.com/openintegrations/python-sdk/compare/v2.3.0...v2.4.0)
+
+### Features
+
+* **api:** add models ([4da6d66](https://github.com/openintegrations/python-sdk/commit/4da6d6652a088cd8833a25cdb6a3c326ef7b4e00))
+* **api:** Adding models ([52c515e](https://github.com/openintegrations/python-sdk/commit/52c515e0e48e59d4c306a9a602b1bf6e371cdc22))
+* **api:** updating oas ([6cdfe52](https://github.com/openintegrations/python-sdk/commit/6cdfe52906d50e482b0fe57ba28f1ca827350a7e))
+
 ## 2.3.0 (2025-05-28)
 
 Full Changelog: [v2.2.0...v2.3.0](https://github.com/openintegrations/python-sdk/compare/v2.2.0...v2.3.0)

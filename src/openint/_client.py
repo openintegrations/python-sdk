@@ -102,10 +102,10 @@ class Openint(SyncAPIClient):
     ) -> None:
         """Construct a new synchronous Openint client instance.
 
-        This automatically infers the `token` argument from the `OPENINT_API_KEY_OR_CUSTOMER_TOKEN_OR_CUSTOMER_API_KEY` environment variable if it is not provided.
+        This automatically infers the `token` argument from the `OPENINT_API_KEY` environment variable if it is not provided.
         """
         if token is None:
-            token = os.environ.get("OPENINT_API_KEY_OR_CUSTOMER_TOKEN_OR_CUSTOMER_API_KEY")
+            token = os.environ.get("OPENINT_API_KEY")
         self.token = token
 
         if base_url is None:
@@ -1149,10 +1149,10 @@ class AsyncOpenint(AsyncAPIClient):
     ) -> None:
         """Construct a new async AsyncOpenint client instance.
 
-        This automatically infers the `token` argument from the `OPENINT_API_KEY_OR_CUSTOMER_TOKEN_OR_CUSTOMER_API_KEY` environment variable if it is not provided.
+        This automatically infers the `token` argument from the `OPENINT_API_KEY` environment variable if it is not provided.
         """
         if token is None:
-            token = os.environ.get("OPENINT_API_KEY_OR_CUSTOMER_TOKEN_OR_CUSTOMER_API_KEY")
+            token = os.environ.get("OPENINT_API_KEY")
         self.token = token
 
         if base_url is None:

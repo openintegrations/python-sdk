@@ -317,7 +317,7 @@ class TestOpenint:
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         assert request.headers.get("Authorization") == f"Bearer {token}"
 
-        with update_env(**{"OPENINT_API_KEY_OR_CUSTOMER_TOKEN_OR_CUSTOMER_API_KEY": Omit()}):
+        with update_env(**{"OPENINT_API_KEY": Omit()}):
             client2 = Openint(base_url=base_url, token=None, _strict_response_validation=True)
 
         with pytest.raises(
@@ -1055,7 +1055,7 @@ class TestAsyncOpenint:
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         assert request.headers.get("Authorization") == f"Bearer {token}"
 
-        with update_env(**{"OPENINT_API_KEY_OR_CUSTOMER_TOKEN_OR_CUSTOMER_API_KEY": Omit()}):
+        with update_env(**{"OPENINT_API_KEY": Omit()}):
             client2 = AsyncOpenint(base_url=base_url, token=None, _strict_response_validation=True)
 
         with pytest.raises(
@@ -1545,7 +1545,7 @@ class TestAsyncOpenint:
             [sys.executable, "-c", test_code],
             text=True,
         ) as process:
-            timeout = 10  # seconds
+            timeout = 30  # seconds
 
             start_time = time.monotonic()
             while True:
