@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.6.0 (2025-05-29)
+
+Full Changelog: [v2.5.0...v2.6.0](https://github.com/openintegrations/python-sdk/compare/v2.5.0...v2.6.0)
+
+### Features
+
+* **docs:** updating documented docs for stainless ([dd0da8d](https://github.com/openintegrations/python-sdk/commit/dd0da8de0a3461bff861fb232374a5e065e091db))
+
+
+### Bug Fixes
+
+* **api:** adding prompt parameter ([f3e2286](https://github.com/openintegrations/python-sdk/commit/f3e2286b17393f506724721b5fbc0f6e05c4969e))
+
 ## 2.5.0 (2025-05-29)
 
 Full Changelog: [v2.4.0...v2.5.0](https://github.com/openintegrations/python-sdk/compare/v2.4.0...v2.5.0)
