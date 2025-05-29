@@ -506,6 +506,7 @@ class TestClient:
             limit=0,
             offset=0,
             search_query="search_query",
+            since="since",
         )
         assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
 
@@ -1011,6 +1012,7 @@ class TestAsyncClient:
             limit=0,
             offset=0,
             search_query="search_query",
+            since="since",
         )
         assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
 
