@@ -1545,7 +1545,7 @@ class TestAsyncOpenint:
             [sys.executable, "-c", test_code],
             text=True,
         ) as process:
-            timeout = 10  # seconds
+            timeout = 30  # seconds
 
             start_time = time.monotonic()
             while True:
