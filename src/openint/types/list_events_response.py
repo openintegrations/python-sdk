@@ -36,10 +36,12 @@ __all__ = [
     "UnionMember15",
     "UnionMember15Data",
     "UnionMember16",
+    "UnionMember16Data",
     "UnionMember17",
     "UnionMember18",
     "UnionMember19",
-    "UnionMember19Data",
+    "UnionMember20",
+    "UnionMember20Data",
 ]
 
 
@@ -378,16 +380,15 @@ class UnionMember12(BaseModel):
 
 
 class UnionMember13Data(BaseModel):
-    connection_id: str
-    """Must start with 'conn\\__'"""
+    error_details: None = None
 
-    customer_id: Optional[str] = None
+    error_message: Optional[str] = None
 
 
 class UnionMember13(BaseModel):
     data: UnionMember13Data
 
-    name: Literal["connect.connection-connected"]
+    name: Literal["connect.loading-error"]
 
     id: Optional[str] = None
 
@@ -410,13 +411,13 @@ class UnionMember14Data(BaseModel):
     connection_id: str
     """Must start with 'conn\\__'"""
 
-    customer_id: str
+    customer_id: Optional[str] = None
 
 
 class UnionMember14(BaseModel):
     data: UnionMember14Data
 
-    name: Literal["connect.connection-deleted"]
+    name: Literal["connect.connection-connected"]
 
     id: Optional[str] = None
 
@@ -441,15 +442,11 @@ class UnionMember15Data(BaseModel):
 
     customer_id: str
 
-    status: Optional[str] = None
-
-    status_message: Optional[str] = None
-
 
 class UnionMember15(BaseModel):
     data: UnionMember15Data
 
-    name: Literal["connect.connection-checked"]
+    name: Literal["connect.connection-deleted"]
 
     id: Optional[str] = None
 
@@ -468,10 +465,21 @@ class UnionMember15(BaseModel):
     v: Optional[str] = None
 
 
-class UnionMember16(BaseModel):
-    data: object
+class UnionMember16Data(BaseModel):
+    connection_id: str
+    """Must start with 'conn\\__'"""
 
-    name: Literal["api.token-copied"]
+    customer_id: str
+
+    status: Optional[str] = None
+
+    status_message: Optional[str] = None
+
+
+class UnionMember16(BaseModel):
+    data: UnionMember16Data
+
+    name: Literal["connect.connection-checked"]
 
     id: Optional[str] = None
 
@@ -493,7 +501,7 @@ class UnionMember16(BaseModel):
 class UnionMember17(BaseModel):
     data: object
 
-    name: Literal["api.graphql-request"]
+    name: Literal["api.token-copied"]
 
     id: Optional[str] = None
 
@@ -515,6 +523,28 @@ class UnionMember17(BaseModel):
 class UnionMember18(BaseModel):
     data: object
 
+    name: Literal["api.graphql-request"]
+
+    id: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    org_id: Optional[str] = None
+
+    prompt: Optional[str] = None
+
+    timestamp: Optional[str] = None
+
+    user: Union[str, float, bool, Dict[str, object], List[object], None] = None
+
+    user_id: Optional[str] = None
+
+    v: Optional[str] = None
+
+
+class UnionMember19(BaseModel):
+    data: object
+
     name: Literal["api.rest-request"]
 
     id: Optional[str] = None
@@ -534,14 +564,14 @@ class UnionMember18(BaseModel):
     v: Optional[str] = None
 
 
-class UnionMember19Data(BaseModel):
+class UnionMember20Data(BaseModel):
     current_url: str
 
     path: str
 
 
-class UnionMember19(BaseModel):
-    data: UnionMember19Data
+class UnionMember20(BaseModel):
+    data: UnionMember20Data
 
     name: Literal["pageview"]
 
@@ -583,4 +613,5 @@ ListEventsResponse: TypeAlias = Union[
     UnionMember17,
     UnionMember18,
     UnionMember19,
+    UnionMember20,
 ]
