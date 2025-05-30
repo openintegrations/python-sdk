@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.7.0 (2025-05-30)
+
+Full Changelog: [v2.6.0...v2.7.0](https://github.com/openintegrations/python-sdk/compare/v2.6.0...v2.7.0)
+
+### Features
+
+* **api:** coercing expand array ([e4a4abf](https://github.com/openintegrations/python-sdk/commit/e4a4abfec3d912271fc5ab5d0cb344b18020b98c))
+* **docs:** updating documented docs for stainless ([370267f](https://github.com/openintegrations/python-sdk/commit/370267f29ab9eb07bc842ce9a977e161a8147ffe))
+
 ## 2.6.0 (2025-05-29)
 
 Full Changelog: [v2.5.0...v2.6.0](https://github.com/openintegrations/python-sdk/compare/v2.5.0...v2.6.0)
