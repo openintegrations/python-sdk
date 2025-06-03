@@ -84,13 +84,7 @@ client = Openint()
 
 response = client.create_token(
     customer_id="x",
-    connect_options={
-        "connector_names": ["accelo"],
-        "debug": True,
-        "is_embedded": True,
-        "return_url": "return_url",
-        "view": "add",
-    },
+    connect_options={},
 )
 print(response.connect_options)
 ```
