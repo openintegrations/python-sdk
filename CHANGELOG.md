@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.8.0 (2025-06-03)
+
+Full Changelog: [v2.7.0...v2.8.0](https://github.com/openintegrations/python-sdk/compare/v2.7.0...v2.8.0)
+
+### Features
+
+* **client:** add follow_redirects request option ([b9b9a31](https://github.com/openintegrations/python-sdk/commit/b9b9a31b91ad89eaaae440a5c0e979b18cd80d9e))
+
+
+### Chores
+
+* **docs:** remove reference to rye shell ([9a8cb2f](https://github.com/openintegrations/python-sdk/commit/9a8cb2f511a40dfdfbd2ab037505b15e95b2b5a4))
+* **docs:** remove unnecessary param examples ([eeb75d3](https://github.com/openintegrations/python-sdk/commit/eeb75d3ba0620c94e84975c3963f751545c3e525))
+
 ## 2.7.0 (2025-05-30)
 
 Full Changelog: [v2.6.0...v2.7.0](https://github.com/openintegrations/python-sdk/compare/v2.6.0...v2.7.0)
