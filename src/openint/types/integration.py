@@ -13,6 +13,7 @@ class Integration(BaseModel):
 
     connector_name: Literal[
         "accelo",
+        "acme-apikey",
         "acme-oauth2",
         "adobe",
         "adyen",
@@ -135,6 +136,7 @@ class Integration(BaseModel):
         "servicem8",
         "servicenow",
         "sharepoint",
+        "sharepoint-onprem",
         "shopify",
         "signnow",
         "slack",
