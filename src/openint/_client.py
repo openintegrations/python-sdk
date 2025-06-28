@@ -516,6 +516,7 @@ class Openint(SyncAPIClient):
         connector_names: List[
             Literal[
                 "accelo",
+                "acme-apikey",
                 "acme-oauth2",
                 "adobe",
                 "adyen",
@@ -638,6 +639,7 @@ class Openint(SyncAPIClient):
                 "servicem8",
                 "servicenow",
                 "sharepoint",
+                "sharepoint-onprem",
                 "shopify",
                 "signnow",
                 "slack",
@@ -745,6 +747,7 @@ class Openint(SyncAPIClient):
         connector_names: List[
             Literal[
                 "accelo",
+                "acme-apikey",
                 "acme-oauth2",
                 "adobe",
                 "adyen",
@@ -867,6 +870,7 @@ class Openint(SyncAPIClient):
                 "servicem8",
                 "servicenow",
                 "sharepoint",
+                "sharepoint-onprem",
                 "shopify",
                 "signnow",
                 "slack",
@@ -1567,6 +1571,7 @@ class AsyncOpenint(AsyncAPIClient):
         connector_names: List[
             Literal[
                 "accelo",
+                "acme-apikey",
                 "acme-oauth2",
                 "adobe",
                 "adyen",
@@ -1689,6 +1694,7 @@ class AsyncOpenint(AsyncAPIClient):
                 "servicem8",
                 "servicenow",
                 "sharepoint",
+                "sharepoint-onprem",
                 "shopify",
                 "signnow",
                 "slack",
@@ -1796,6 +1802,7 @@ class AsyncOpenint(AsyncAPIClient):
         connector_names: List[
             Literal[
                 "accelo",
+                "acme-apikey",
                 "acme-oauth2",
                 "adobe",
                 "adyen",
@@ -1918,6 +1925,7 @@ class AsyncOpenint(AsyncAPIClient):
                 "servicem8",
                 "servicenow",
                 "sharepoint",
+                "sharepoint-onprem",
                 "shopify",
                 "signnow",
                 "slack",

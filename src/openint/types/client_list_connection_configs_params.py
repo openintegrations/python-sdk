@@ -12,6 +12,7 @@ class ClientListConnectionConfigsParams(TypedDict, total=False):
     connector_names: List[
         Literal[
             "accelo",
+            "acme-apikey",
             "acme-oauth2",
             "adobe",
             "adyen",
@@ -134,6 +135,7 @@ class ClientListConnectionConfigsParams(TypedDict, total=False):
             "servicem8",
             "servicenow",
             "sharepoint",
+            "sharepoint-onprem",
             "shopify",
             "signnow",
             "slack",
