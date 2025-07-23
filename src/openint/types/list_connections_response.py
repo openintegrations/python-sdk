@@ -12267,6 +12267,7 @@ class ConnectorFinchDiscriminatedConnectionSettings(BaseModel):
 class ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember0ServiceAccount(BaseModel):
     project_id: str
 
+    __pydantic_extra__: Dict[str, object] = FieldInfo(init=False)  # pyright: ignore[reportIncompatibleVariableOverride]
     if TYPE_CHECKING:
         # Stub to indicate that arbitrary properties are accepted.
         # To access properties that are not valid identifiers you can use `getattr`, e.g.
@@ -12289,6 +12290,7 @@ class ConnectorFirebaseDiscriminatedConnectionSettingsSettingsUnionMember1AuthDa
 
     uid: str
 
+    __pydantic_extra__: Dict[str, object] = FieldInfo(init=False)  # pyright: ignore[reportIncompatibleVariableOverride]
     if TYPE_CHECKING:
         # Stub to indicate that arbitrary properties are accepted.
         # To access properties that are not valid identifiers you can use `getattr`, e.g.
