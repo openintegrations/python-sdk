@@ -13,8 +13,10 @@ from openint.types import (
     ListEventsResponse,
     CreateTokenResponse,
     GetConnectionResponse,
+    ListCustomersResponse,
     GetCurrentUserResponse,
     ListConnectorsResponse,
+    UpsertCustomerResponse,
     CheckConnectionResponse,
     ListConnectionsResponse,
     CreateConnectionResponse,
@@ -636,6 +638,44 @@ class TestClient:
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
+    def test_method_list_customers(self, client: Openint) -> None:
+        client_ = client.list_customers()
+        assert_matches_type(SyncOffsetPagination[ListCustomersResponse], client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_method_list_customers_with_all_params(self, client: Openint) -> None:
+        client_ = client.list_customers(
+            limit=0,
+            offset=0,
+            search_query="search_query",
+        )
+        assert_matches_type(SyncOffsetPagination[ListCustomersResponse], client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_raw_response_list_customers(self, client: Openint) -> None:
+        response = client.with_raw_response.list_customers()
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client_ = response.parse()
+        assert_matches_type(SyncOffsetPagination[ListCustomersResponse], client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_streaming_response_list_customers(self, client: Openint) -> None:
+        with client.with_streaming_response.list_customers() as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client_ = response.parse()
+            assert_matches_type(SyncOffsetPagination[ListCustomersResponse], client_, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
     def test_method_list_events(self, client: Openint) -> None:
         client_ = client.list_events()
         assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
@@ -726,6 +766,43 @@ class TestClient:
             client.with_raw_response.upsert_connnector_config(
                 id="",
             )
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_method_upsert_customer(self, client: Openint) -> None:
+        client_ = client.upsert_customer()
+        assert_matches_type(UpsertCustomerResponse, client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_method_upsert_customer_with_all_params(self, client: Openint) -> None:
+        client_ = client.upsert_customer(
+            id="id",
+            metadata={"foo": "bar"},
+        )
+        assert_matches_type(UpsertCustomerResponse, client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_raw_response_upsert_customer(self, client: Openint) -> None:
+        response = client.with_raw_response.upsert_customer()
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client_ = response.parse()
+        assert_matches_type(UpsertCustomerResponse, client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_streaming_response_upsert_customer(self, client: Openint) -> None:
+        with client.with_streaming_response.upsert_customer() as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client_ = response.parse()
+            assert_matches_type(UpsertCustomerResponse, client_, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
 
 
 class TestAsyncClient:
@@ -1335,6 +1412,44 @@ class TestAsyncClient:
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
+    async def test_method_list_customers(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.list_customers()
+        assert_matches_type(AsyncOffsetPagination[ListCustomersResponse], client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_method_list_customers_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.list_customers(
+            limit=0,
+            offset=0,
+            search_query="search_query",
+        )
+        assert_matches_type(AsyncOffsetPagination[ListCustomersResponse], client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_raw_response_list_customers(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.list_customers()
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client = await response.parse()
+        assert_matches_type(AsyncOffsetPagination[ListCustomersResponse], client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_streaming_response_list_customers(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.list_customers() as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client = await response.parse()
+            assert_matches_type(AsyncOffsetPagination[ListCustomersResponse], client, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
     async def test_method_list_events(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_events()
         assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
@@ -1425,3 +1540,40 @@ class TestAsyncClient:
             await async_client.with_raw_response.upsert_connnector_config(
                 id="",
             )
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_method_upsert_customer(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.upsert_customer()
+        assert_matches_type(UpsertCustomerResponse, client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_method_upsert_customer_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.upsert_customer(
+            id="id",
+            metadata={"foo": "bar"},
+        )
+        assert_matches_type(UpsertCustomerResponse, client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_raw_response_upsert_customer(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.upsert_customer()
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client = await response.parse()
+        assert_matches_type(UpsertCustomerResponse, client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_streaming_response_upsert_customer(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.upsert_customer() as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client = await response.parse()
+            assert_matches_type(UpsertCustomerResponse, client, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
