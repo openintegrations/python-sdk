@@ -14,7 +14,9 @@ from .types import (
     client_list_events_params,
     client_create_token_params,
     client_get_connection_params,
+    client_list_customers_params,
     client_list_connectors_params,
+    client_upsert_customer_params,
     client_list_connections_params,
     client_create_connection_params,
     client_get_conector_config_params,
@@ -62,7 +64,9 @@ from ._base_client import (
 from .types.list_events_response import ListEventsResponse
 from .types.create_token_response import CreateTokenResponse
 from .types.get_connection_response import GetConnectionResponse
+from .types.list_customers_response import ListCustomersResponse
 from .types.list_connectors_response import ListConnectorsResponse
+from .types.upsert_customer_response import UpsertCustomerResponse
 from .types.check_connection_response import CheckConnectionResponse
 from .types.get_current_user_response import GetCurrentUserResponse
 from .types.list_connections_response import ListConnectionsResponse
@@ -1369,6 +1373,55 @@ class Openint(SyncAPIClient):
             ),  # Union types cannot be passed in as arguments in the type system
         )
 
+    def list_customers(
+        self,
+        *,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
+        search_query: Optional[str] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> SyncOffsetPagination[ListCustomersResponse]:
+        """
+        List all customers
+
+        Args:
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self.get_api_list(
+            "/customer",
+            page=SyncOffsetPagination[ListCustomersResponse],
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "limit": limit,
+                        "offset": offset,
+                        "search_query": search_query,
+                    },
+                    client_list_customers_params.ClientListCustomersParams,
+                ),
+            ),
+            model=ListCustomersResponse,
+        )
+
     def list_events(
         self,
         *,
@@ -1469,6 +1522,45 @@ class Openint(SyncAPIClient):
                     Any, UpsertConnnectorConfigResponse
                 ),  # Union types cannot be passed in as arguments in the type system
             ),
+        )
+
+    def upsert_customer(
+        self,
+        *,
+        id: str | NotGiven = NOT_GIVEN,
+        metadata: Dict[str, object] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> UpsertCustomerResponse:
+        """
+        Create or update a customer
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self.put(
+            "/customer",
+            body=maybe_transform(
+                {
+                    "id": id,
+                    "metadata": metadata,
+                },
+                client_upsert_customer_params.ClientUpsertCustomerParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=UpsertCustomerResponse,
         )
 
     @override
@@ -2796,6 +2888,55 @@ class AsyncOpenint(AsyncAPIClient):
             ),  # Union types cannot be passed in as arguments in the type system
         )
 
+    def list_customers(
+        self,
+        *,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
+        search_query: Optional[str] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> AsyncPaginator[ListCustomersResponse, AsyncOffsetPagination[ListCustomersResponse]]:
+        """
+        List all customers
+
+        Args:
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self.get_api_list(
+            "/customer",
+            page=AsyncOffsetPagination[ListCustomersResponse],
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "limit": limit,
+                        "offset": offset,
+                        "search_query": search_query,
+                    },
+                    client_list_customers_params.ClientListCustomersParams,
+                ),
+            ),
+            model=ListCustomersResponse,
+        )
+
     def list_events(
         self,
         *,
@@ -2898,6 +3039,45 @@ class AsyncOpenint(AsyncAPIClient):
             ),
         )
 
+    async def upsert_customer(
+        self,
+        *,
+        id: str | NotGiven = NOT_GIVEN,
+        metadata: Dict[str, object] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> UpsertCustomerResponse:
+        """
+        Create or update a customer
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return await self.put(
+            "/customer",
+            body=await async_maybe_transform(
+                {
+                    "id": id,
+                    "metadata": metadata,
+                },
+                client_upsert_customer_params.ClientUpsertCustomerParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=UpsertCustomerResponse,
+        )
+
     @override
     def _make_status_error(
         self,
@@ -2973,11 +3153,17 @@ class OpenintWithRawResponse:
         self.list_connnector_configs = to_raw_response_wrapper(
             client.list_connnector_configs,
         )
+        self.list_customers = to_raw_response_wrapper(
+            client.list_customers,
+        )
         self.list_events = to_raw_response_wrapper(
             client.list_events,
         )
         self.upsert_connnector_config = to_raw_response_wrapper(
             client.upsert_connnector_config,
+        )
+        self.upsert_customer = to_raw_response_wrapper(
+            client.upsert_customer,
         )
 
 
@@ -3022,11 +3208,17 @@ class AsyncOpenintWithRawResponse:
         self.list_connnector_configs = async_to_raw_response_wrapper(
             client.list_connnector_configs,
         )
+        self.list_customers = async_to_raw_response_wrapper(
+            client.list_customers,
+        )
         self.list_events = async_to_raw_response_wrapper(
             client.list_events,
         )
         self.upsert_connnector_config = async_to_raw_response_wrapper(
             client.upsert_connnector_config,
+        )
+        self.upsert_customer = async_to_raw_response_wrapper(
+            client.upsert_customer,
         )
 
 
@@ -3071,11 +3263,17 @@ class OpenintWithStreamedResponse:
         self.list_connnector_configs = to_streamed_response_wrapper(
             client.list_connnector_configs,
         )
+        self.list_customers = to_streamed_response_wrapper(
+            client.list_customers,
+        )
         self.list_events = to_streamed_response_wrapper(
             client.list_events,
         )
         self.upsert_connnector_config = to_streamed_response_wrapper(
             client.upsert_connnector_config,
+        )
+        self.upsert_customer = to_streamed_response_wrapper(
+            client.upsert_customer,
         )
 
 
@@ -3120,11 +3318,17 @@ class AsyncOpenintWithStreamedResponse:
         self.list_connnector_configs = async_to_streamed_response_wrapper(
             client.list_connnector_configs,
         )
+        self.list_customers = async_to_streamed_response_wrapper(
+            client.list_customers,
+        )
         self.list_events = async_to_streamed_response_wrapper(
             client.list_events,
         )
         self.upsert_connnector_config = async_to_streamed_response_wrapper(
             client.upsert_connnector_config,
+        )
+        self.upsert_customer = async_to_streamed_response_wrapper(
+            client.upsert_customer,
         )
 
 

@@ -19,8 +19,10 @@ from openint.types import (
     ListConnectionsResponse,
     ListConnectorsResponse,
     ListConnnectorConfigsResponse,
+    ListCustomersResponse,
     ListEventsResponse,
     UpsertConnnectorConfigResponse,
+    UpsertCustomerResponse,
 )
 ```
 
@@ -39,5 +41,7 @@ Methods:
 - <code title="get /connection">client.<a href="./src/openint/_client.py">list_connections</a>(\*\*<a href="src/openint/types/client_list_connections_params.py">params</a>) -> <a href="./src/openint/types/list_connections_response.py">SyncOffsetPagination[ListConnectionsResponse]</a></code>
 - <code title="get /connector">client.<a href="./src/openint/_client.py">list_connectors</a>(\*\*<a href="src/openint/types/client_list_connectors_params.py">params</a>) -> <a href="./src/openint/types/list_connectors_response.py">SyncOffsetPagination[ListConnectorsResponse]</a></code>
 - <code title="get /connector-config">client.<a href="./src/openint/_client.py">list_connnector_configs</a>(\*\*<a href="src/openint/types/client_list_connnector_configs_params.py">params</a>) -> <a href="./src/openint/types/list_connnector_configs_response.py">SyncOffsetPagination[ListConnnectorConfigsResponse]</a></code>
+- <code title="get /customer">client.<a href="./src/openint/_client.py">list_customers</a>(\*\*<a href="src/openint/types/client_list_customers_params.py">params</a>) -> <a href="./src/openint/types/list_customers_response.py">SyncOffsetPagination[ListCustomersResponse]</a></code>
 - <code title="get /event">client.<a href="./src/openint/_client.py">list_events</a>(\*\*<a href="src/openint/types/client_list_events_params.py">params</a>) -> <a href="./src/openint/types/list_events_response.py">SyncOffsetPagination[ListEventsResponse]</a></code>
 - <code title="put /connector-config/{id}">client.<a href="./src/openint/_client.py">upsert_connnector_config</a>(id, \*\*<a href="src/openint/types/client_upsert_connnector_config_params.py">params</a>) -> <a href="./src/openint/types/upsert_connnector_config_response.py">UpsertConnnectorConfigResponse</a></code>
+- <code title="put /customer">client.<a href="./src/openint/_client.py">upsert_customer</a>(\*\*<a href="src/openint/types/client_upsert_customer_params.py">params</a>) -> <a href="./src/openint/types/upsert_customer_response.py">UpsertCustomerResponse</a></code>
