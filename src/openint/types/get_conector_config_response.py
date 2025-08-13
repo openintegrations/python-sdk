@@ -10,7 +10,7 @@ from .connector import Connector
 from .integration import Integration
 
 __all__ = [
-    "ListConnectionConfigsResponse",
+    "GetConectorConfigResponse",
     "ConnectorAcceloDiscriminatedConnectorConfig",
     "ConnectorAcceloDiscriminatedConnectorConfigConfig",
     "ConnectorAcceloDiscriminatedConnectorConfigConfigOAuth",
@@ -8274,7 +8274,7 @@ class ConnectorYodleeDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-ListConnectionConfigsResponse: TypeAlias = Union[
+GetConectorConfigResponse: TypeAlias = Union[
     ConnectorAcceloDiscriminatedConnectorConfig,
     ConnectorAcmeApikeyDiscriminatedConnectorConfig,
     ConnectorAcmeOauth2DiscriminatedConnectorConfig,

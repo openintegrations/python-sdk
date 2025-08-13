@@ -1,5 +1,55 @@
 # Changelog
 
+## 2.8.0 (2025-08-13)
+
+Full Changelog: [v2.7.0...v2.8.0](https://github.com/openintegrations/python-sdk/compare/v2.7.0...v2.8.0)
+
+### Features
+
+* **api:** exposing more APIs ([1dc7eb4](https://github.com/openintegrations/python-sdk/commit/1dc7eb455b99c94c4bb00c95c9e63d99ee1d11ea))
+* **api:** new endpoints ([73c7b5d](https://github.com/openintegrations/python-sdk/commit/73c7b5d69f08d5dbbeb0e77a27c330e4dadc7307))
+* clean up environment call outs ([0de7cb3](https://github.com/openintegrations/python-sdk/commit/0de7cb3fe67f104d2786e9353cecd9e46e574ea1))
+* **client:** add follow_redirects request option ([b9b9a31](https://github.com/openintegrations/python-sdk/commit/b9b9a31b91ad89eaaae440a5c0e979b18cd80d9e))
+* **client:** add support for aiohttp ([1f74a9a](https://github.com/openintegrations/python-sdk/commit/1f74a9a2c8ff4e8d92991f5d6d2a1b41eb0bef0e))
+* **docs:** updating documented docs for stainless ([735f889](https://github.com/openintegrations/python-sdk/commit/735f88912419dbdc3a80d0b665bdcef84cc26427))
+* **docs:** updating documented docs for stainless ([365ba48](https://github.com/openintegrations/python-sdk/commit/365ba486e77ce93e68a80a48649626119927b7b4))
+* **docs:** updating documented docs for stainless ([4d50fa2](https://github.com/openintegrations/python-sdk/commit/4d50fa222eaac99eb9b71b01c192c002720852cf))
+
+
+### Bug Fixes
+
+* **ci:** correct conditional ([3c5fa29](https://github.com/openintegrations/python-sdk/commit/3c5fa29b84f0bfdf76f05b7adca4cf8374afe425))
+* **ci:** release-doctor — report correct token name ([afdd5f4](https://github.com/openintegrations/python-sdk/commit/afdd5f492ce333fb11913b2c247b9af8292f1f24))
+* **client:** correctly parse binary response | stream ([caa6b27](https://github.com/openintegrations/python-sdk/commit/caa6b273178dbed4a68f007498fdc1aa0bd806b1))
+* **client:** don't send Content-Type header on GET requests ([c93f487](https://github.com/openintegrations/python-sdk/commit/c93f48787feef9bfadb7d4a4d740138cf9c5819b))
+* **parsing:** correctly handle nested discriminated unions ([21690ae](https://github.com/openintegrations/python-sdk/commit/21690ae92ff4e64eee4ea06050630f221018a4fe))
+* **parsing:** ignore empty metadata ([e261c8d](https://github.com/openintegrations/python-sdk/commit/e261c8d982826578cd2722dafa820c2c59928a33))
+* **parsing:** parse extra field types ([ad534e6](https://github.com/openintegrations/python-sdk/commit/ad534e6e930a4d5151a3cfdb9418e90e3670a7ab))
+
+
+### Chores
+
+* **ci:** change upload type ([3617fa8](https://github.com/openintegrations/python-sdk/commit/3617fa8cb1ce2407e0368a4bde03a29380dc6163))
+* **ci:** enable for pull requests ([931d7a6](https://github.com/openintegrations/python-sdk/commit/931d7a69639ed5e97247b25d7948830bd0f6722e))
+* **ci:** only run for pushes and fork pull requests ([7dc816a](https://github.com/openintegrations/python-sdk/commit/7dc816a1047a7b076b85745aa9cea3074e8657ea))
+* **docs:** remove reference to rye shell ([9a8cb2f](https://github.com/openintegrations/python-sdk/commit/9a8cb2f511a40dfdfbd2ab037505b15e95b2b5a4))
+* **docs:** remove unnecessary param examples ([eeb75d3](https://github.com/openintegrations/python-sdk/commit/eeb75d3ba0620c94e84975c3963f751545c3e525))
+* **internal:** bump pinned h11 dep ([30b9c6f](https://github.com/openintegrations/python-sdk/commit/30b9c6fd75dd3138d8018e27e8efedbc09757e3e))
+* **internal:** codegen related update ([9bcaeb5](https://github.com/openintegrations/python-sdk/commit/9bcaeb5741a5deb86b7033e8038ba5b0a5239682))
+* **internal:** update conftest.py ([c7fb0bb](https://github.com/openintegrations/python-sdk/commit/c7fb0bbc6dae0c4f04f6d71b9b247fdbd7c455fd))
+* **package:** mark python 3.13 as supported ([7816ba8](https://github.com/openintegrations/python-sdk/commit/7816ba8cf4cc1b395b488a5b899eeee3a5c6e9ef))
+* **project:** add settings file for vscode ([bd8d6a2](https://github.com/openintegrations/python-sdk/commit/bd8d6a28c1cf97bc10405bacb84703a01a562c64))
+* **readme:** fix version rendering on pypi ([ff23de4](https://github.com/openintegrations/python-sdk/commit/ff23de4d954014004757e17fb5c016ca6a97a023))
+* **readme:** update badges ([80e3c80](https://github.com/openintegrations/python-sdk/commit/80e3c8052559c503805acce6b9371fd8fa61e2f4))
+* **tests:** add tests for httpx client instantiation & proxies ([fb80b72](https://github.com/openintegrations/python-sdk/commit/fb80b72788f99715598043f3f8fd807f207a6041))
+* **tests:** run tests in parallel ([2944351](https://github.com/openintegrations/python-sdk/commit/2944351d65ce2c8a2499377f508b0ed3d32211ec))
+* **tests:** skip some failing tests on the latest python versions ([a49ae20](https://github.com/openintegrations/python-sdk/commit/a49ae20e614483d37f8353da78c0c2c731287342))
+
+
+### Documentation
+
+* **client:** fix httpx.Timeout documentation reference ([defb222](https://github.com/openintegrations/python-sdk/commit/defb22221843470910685c6aef3ca0c5e0805db2))
+
 ## 2.7.0 (2025-05-30)
 
 Full Changelog: [v2.6.0...v2.7.0](https://github.com/openintegrations/python-sdk/compare/v2.6.0...v2.7.0)

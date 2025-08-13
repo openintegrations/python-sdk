@@ -1,6 +1,7 @@
 # Openint Python API library
 
-[![PyPI version](https://img.shields.io/pypi/v/openint.svg)](https://pypi.org/project/openint/)
+<!-- prettier-ignore -->
+[![PyPI version](https://img.shields.io/pypi/v/openint.svg?label=pypi%20(stable))](https://pypi.org/project/openint/)
 
 The Openint Python library provides convenient access to the Openint REST API from any Python 3.8+
 application. The library includes type definitions for all request params and response fields,
@@ -64,6 +65,37 @@ asyncio.run(main())
 
 Functionality between the synchronous and asynchronous clients is otherwise identical.
 
+### With aiohttp
+
+By default, the async client uses `httpx` for HTTP requests. However, for improved concurrency performance you may also use `aiohttp` as the HTTP backend.
+
+You can enable this by installing `aiohttp`:
+
+```sh
+# install from PyPI
+pip install openint[aiohttp]
+```
+
+Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
+
+```python
+import asyncio
+from openint import DefaultAioHttpClient
+from openint import AsyncOpenint
+
+
+async def main() -> None:
+    async with AsyncOpenint(
+        token="My Token",
+        http_client=DefaultAioHttpClient(),
+    ) as client:
+        page = await client.list_connections()
+        print(page.items)
+
+
+asyncio.run(main())
+```
+
 ## Using types
 
 Nested request parameters are [TypedDicts](https://docs.python.org/3/library/typing.html#typing.TypedDict). Responses are [Pydantic models](https://docs.pydantic.dev) which also provide helper methods for things like:
@@ -84,13 +116,7 @@ client = Openint()
 
 response = client.create_token(
     customer_id="x",
-    connect_options={
-        "connector_names": ["accelo"],
-        "debug": True,
-        "is_embedded": True,
-        "return_url": "return_url",
-        "view": "add",
-    },
+    connect_options={},
 )
 print(response.connect_options)
 ```
@@ -160,7 +186,7 @@ client.with_options(max_retries=5).list_connections()
 ### Timeouts
 
 By default requests time out after 1 minute. You can configure this with a `timeout` option,
-which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
+which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/timeouts/#fine-tuning-the-configuration) object:
 
 ```python
 from openint import Openint

@@ -2,16 +2,13 @@
 
 from __future__ import annotations
 
-from typing import List
+from typing import List, Optional
 from typing_extensions import Literal, TypedDict
 
-__all__ = ["ClientListConnectionsParams"]
+__all__ = ["ClientListConnnectorConfigsParams"]
 
 
-class ClientListConnectionsParams(TypedDict, total=False):
-    connector_config_id: str
-    """The id of the connector config, starts with `ccfg_`"""
-
+class ClientListConnnectorConfigsParams(TypedDict, total=False):
     connector_names: List[
         Literal[
             "accelo",
@@ -188,16 +185,7 @@ class ClientListConnectionsParams(TypedDict, total=False):
         ]
     ]
 
-    customer_id: str
-    """The id of the customer in your application.
-
-    Ensure it is unique for that customer.
-    """
-
-    expand: List[Literal["connector"]]
-    """Expand the response with additional optionals"""
-
-    include_secrets: bool
+    expand: List[Literal["connector", "connector.schemas", "connection_count"]]
 
     limit: int
     """Limit the number of items returned"""
@@ -205,10 +193,4 @@ class ClientListConnectionsParams(TypedDict, total=False):
     offset: int
     """Offset the items returned"""
 
-    refresh_policy: Literal["none", "force", "auto"]
-    """
-    Controls credential refresh: none (never), force (always), or auto (when
-    expired, default)
-    """
-
-    search_query: str
+    search_query: Optional[str]

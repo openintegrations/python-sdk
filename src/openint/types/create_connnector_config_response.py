@@ -6,11 +6,9 @@ from typing_extensions import Literal, TypeAlias
 from pydantic import Field as FieldInfo
 
 from .._models import BaseModel
-from .connector import Connector
-from .integration import Integration
 
 __all__ = [
-    "ListConnectionConfigsResponse",
+    "CreateConnnectorConfigResponse",
     "ConnectorAcceloDiscriminatedConnectorConfig",
     "ConnectorAcceloDiscriminatedConnectorConfigConfig",
     "ConnectorAcceloDiscriminatedConnectorConfigConfigOAuth",
@@ -515,17 +513,11 @@ class ConnectorAcceloDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -547,17 +539,11 @@ class ConnectorAcmeApikeyDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -594,17 +580,11 @@ class ConnectorAcmeOauth2DiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -641,17 +621,11 @@ class ConnectorAdobeDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -688,17 +662,11 @@ class ConnectorAdyenDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -735,17 +703,11 @@ class ConnectorAircallDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -782,17 +744,11 @@ class ConnectorAmazonDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -829,17 +785,11 @@ class ConnectorApaleoDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -876,17 +826,11 @@ class ConnectorAsanaDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -923,17 +867,11 @@ class ConnectorAttioDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -970,17 +908,11 @@ class ConnectorAuth0DiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1017,17 +949,11 @@ class ConnectorAutodeskDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1064,17 +990,11 @@ class ConnectorAwsDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1111,17 +1031,11 @@ class ConnectorBamboohrDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1158,17 +1072,11 @@ class ConnectorBasecampDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1205,17 +1113,11 @@ class ConnectorBattlenetDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1252,17 +1154,11 @@ class ConnectorBigcommerceDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1299,17 +1195,11 @@ class ConnectorBitbucketDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1346,17 +1236,11 @@ class ConnectorBitlyDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1393,17 +1277,11 @@ class ConnectorBlackbaudDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1440,17 +1318,11 @@ class ConnectorBoldsignDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1487,17 +1359,11 @@ class ConnectorBoxDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1534,17 +1400,11 @@ class ConnectorBraintreeDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1581,17 +1441,11 @@ class ConnectorCalendlyDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1628,17 +1482,11 @@ class ConnectorClickupDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1675,17 +1523,11 @@ class ConnectorCloseDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1722,17 +1564,11 @@ class ConnectorConfluenceDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1769,17 +1605,11 @@ class ConnectorContentfulDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1816,17 +1646,11 @@ class ConnectorContentstackDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1863,17 +1687,11 @@ class ConnectorCopperDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1910,17 +1728,11 @@ class ConnectorCorosDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -1957,17 +1769,11 @@ class ConnectorDatevDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2004,17 +1810,11 @@ class ConnectorDeelDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2051,17 +1851,11 @@ class ConnectorDialpadDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2098,17 +1892,11 @@ class ConnectorDigitaloceanDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2145,17 +1933,11 @@ class ConnectorDiscordDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2192,17 +1974,11 @@ class ConnectorDocusignDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2239,17 +2015,11 @@ class ConnectorDropboxDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2286,17 +2056,11 @@ class ConnectorEbayDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2333,17 +2097,11 @@ class ConnectorEgnyteDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2380,17 +2138,11 @@ class ConnectorEnvoyDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2427,17 +2179,11 @@ class ConnectorEventbriteDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2474,17 +2220,11 @@ class ConnectorExistDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2521,17 +2261,11 @@ class ConnectorFacebookDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2568,17 +2302,11 @@ class ConnectorFactorialDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2615,17 +2343,11 @@ class ConnectorFigmaDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2662,17 +2384,11 @@ class ConnectorFitbitDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2709,17 +2425,11 @@ class ConnectorFortnoxDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2756,17 +2466,11 @@ class ConnectorFreshbooksDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2803,17 +2507,11 @@ class ConnectorFrontDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2850,17 +2548,11 @@ class ConnectorGitHubDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2897,17 +2589,11 @@ class ConnectorGitlabDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2944,17 +2630,11 @@ class ConnectorGongDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -2991,17 +2671,11 @@ class ConnectorGoogleCalendarDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3038,17 +2712,11 @@ class ConnectorGoogleDocsDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3085,17 +2753,11 @@ class ConnectorGoogleDriveDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3132,17 +2794,11 @@ class ConnectorGoogleMailDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3179,17 +2835,11 @@ class ConnectorGoogleSheetDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3226,17 +2876,11 @@ class ConnectorGorgiasDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3273,17 +2917,11 @@ class ConnectorGrainDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3320,17 +2958,11 @@ class ConnectorGumroadDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3367,17 +2999,11 @@ class ConnectorGustoDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3414,17 +3040,11 @@ class ConnectorHarvestDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3461,17 +3081,11 @@ class ConnectorHighlevelDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3508,17 +3122,11 @@ class ConnectorHubspotDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3555,17 +3163,11 @@ class ConnectorInstagramDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3602,17 +3204,11 @@ class ConnectorIntercomDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3649,17 +3245,11 @@ class ConnectorJiraDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3696,17 +3286,11 @@ class ConnectorKeapDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3743,17 +3327,11 @@ class ConnectorLeverDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3790,17 +3368,11 @@ class ConnectorLinearDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3837,17 +3409,11 @@ class ConnectorLinkedinDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3884,17 +3450,11 @@ class ConnectorLinkhutDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3931,17 +3491,11 @@ class ConnectorMailchimpDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -3978,17 +3532,11 @@ class ConnectorMiroDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4025,17 +3573,11 @@ class ConnectorMondayDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4072,17 +3614,11 @@ class ConnectorMuralDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4119,17 +3655,11 @@ class ConnectorNamelyDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4166,17 +3696,11 @@ class ConnectorNationbuilderDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4213,17 +3737,11 @@ class ConnectorNetsuiteDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4260,17 +3778,11 @@ class ConnectorNotionDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4307,17 +3819,11 @@ class ConnectorOdooDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4354,17 +3860,11 @@ class ConnectorOktaDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4401,17 +3901,11 @@ class ConnectorOsuDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4448,17 +3942,11 @@ class ConnectorOuraDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4495,17 +3983,11 @@ class ConnectorOutreachDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4542,17 +4024,11 @@ class ConnectorPagerdutyDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4589,17 +4065,11 @@ class ConnectorPandadocDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4636,17 +4106,11 @@ class ConnectorPayfitDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4683,17 +4147,11 @@ class ConnectorPaypalDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4730,17 +4188,11 @@ class ConnectorPennylaneDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4777,17 +4229,11 @@ class ConnectorPinterestDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4824,17 +4270,11 @@ class ConnectorPipedriveDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4871,17 +4311,11 @@ class ConnectorPodiumDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4918,17 +4352,11 @@ class ConnectorProductboardDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -4965,17 +4393,11 @@ class ConnectorQualtricsDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5012,17 +4434,11 @@ class ConnectorQuickbooksDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5059,17 +4475,11 @@ class ConnectorRedditDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5106,17 +4516,11 @@ class ConnectorSageDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5153,17 +4557,11 @@ class ConnectorSalesforceDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5200,17 +4598,11 @@ class ConnectorSalesloftDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5247,17 +4639,11 @@ class ConnectorSegmentDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5294,17 +4680,11 @@ class ConnectorServicem8DiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5341,17 +4721,11 @@ class ConnectorServicenowDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5388,17 +4762,11 @@ class ConnectorSharepointDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5435,17 +4803,11 @@ class ConnectorShopifyDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5482,17 +4844,11 @@ class ConnectorSignnowDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5529,17 +4885,11 @@ class ConnectorSlackDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5576,17 +4926,11 @@ class ConnectorSmartsheetDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5623,17 +4967,11 @@ class ConnectorSnowflakeDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5670,17 +5008,11 @@ class ConnectorSpotifyDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5717,17 +5049,11 @@ class ConnectorSquarespaceDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5764,17 +5090,11 @@ class ConnectorSquareupDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5811,17 +5131,11 @@ class ConnectorStackexchangeDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5858,17 +5172,11 @@ class ConnectorStravaDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5905,17 +5213,11 @@ class ConnectorTeamworkDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5952,17 +5254,11 @@ class ConnectorTicktickDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -5999,17 +5295,11 @@ class ConnectorTimelyDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6046,17 +5336,11 @@ class ConnectorTodoistDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6093,17 +5377,11 @@ class ConnectorTremendousDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6140,17 +5418,11 @@ class ConnectorTsheetsteamDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6187,17 +5459,11 @@ class ConnectorTumblrDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6234,17 +5500,11 @@ class ConnectorTwinfieldDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6281,17 +5541,11 @@ class ConnectorTwitchDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6328,17 +5582,11 @@ class ConnectorTwitterDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6375,17 +5623,11 @@ class ConnectorTypeformDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6422,17 +5664,11 @@ class ConnectorUberDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6469,17 +5705,11 @@ class ConnectorVimeoDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6516,17 +5746,11 @@ class ConnectorWakatimeDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6563,17 +5787,11 @@ class ConnectorWealthboxDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6610,17 +5828,11 @@ class ConnectorWebflowDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6657,17 +5869,11 @@ class ConnectorWhoopDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6704,17 +5910,11 @@ class ConnectorWordpressDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6751,17 +5951,11 @@ class ConnectorWrikeDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6798,17 +5992,11 @@ class ConnectorXeroDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6845,17 +6033,11 @@ class ConnectorYahooDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6892,17 +6074,11 @@ class ConnectorYandexDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6939,17 +6115,11 @@ class ConnectorZapierDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -6986,17 +6156,11 @@ class ConnectorZendeskDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7033,17 +6197,11 @@ class ConnectorZenefitsDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7080,17 +6238,11 @@ class ConnectorZohoDeskDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7127,17 +6279,11 @@ class ConnectorZohoDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7174,17 +6320,11 @@ class ConnectorZoomDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7205,17 +6345,11 @@ class ConnectorAirtableDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7236,17 +6370,11 @@ class ConnectorApolloDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7281,17 +6409,11 @@ class ConnectorBrexDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7312,17 +6434,11 @@ class ConnectorCodaDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7360,17 +6476,11 @@ class ConnectorFinchDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7391,17 +6501,11 @@ class ConnectorFirebaseDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7422,17 +6526,11 @@ class ConnectorForeceiptDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7453,17 +6551,11 @@ class ConnectorGreenhouseDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7488,17 +6580,11 @@ class ConnectorHeronDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7523,17 +6609,11 @@ class ConnectorLunchmoneyDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7568,17 +6648,11 @@ class ConnectorMercuryDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7603,17 +6677,11 @@ class ConnectorMergeDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7638,17 +6706,11 @@ class ConnectorMootaDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7683,17 +6745,11 @@ class ConnectorOnebrickDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7728,17 +6784,11 @@ class ConnectorOpenledgerDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7806,17 +6856,11 @@ class ConnectorPlaidDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7837,17 +6881,11 @@ class ConnectorPostgresDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7878,17 +6916,11 @@ class ConnectorRampDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7917,17 +6949,11 @@ class ConnectorSaltedgeDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7948,17 +6974,11 @@ class ConnectorSharepointOnpremDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -7979,17 +6999,11 @@ class ConnectorSplitwiseDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -8024,17 +7038,11 @@ class ConnectorStripeDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -8061,17 +7069,11 @@ class ConnectorTellerDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -8092,17 +7094,11 @@ class ConnectorTogglDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -8123,17 +7119,11 @@ class ConnectorTwentyDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -8168,17 +7158,11 @@ class ConnectorVenmoDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -8199,17 +7183,11 @@ class ConnectorWiseDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -8250,17 +7228,11 @@ class ConnectorYodleeDiscriminatedConnectorConfig(BaseModel):
 
     id: Optional[str] = None
 
-    connection_count: Optional[float] = None
-
-    connector: Optional[Connector] = None
-
     created_at: Optional[str] = None
 
     disabled: Optional[bool] = None
 
     display_name: Optional[str] = None
-
-    integrations: Optional[Dict[str, Integration]] = None
 
     metadata: Optional[Dict[str, object]] = None
     """
@@ -8274,7 +7246,7 @@ class ConnectorYodleeDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
-ListConnectionConfigsResponse: TypeAlias = Union[
+CreateConnnectorConfigResponse: TypeAlias = Union[
     ConnectorAcceloDiscriminatedConnectorConfig,
     ConnectorAcmeApikeyDiscriminatedConnectorConfig,
     ConnectorAcmeOauth2DiscriminatedConnectorConfig,
