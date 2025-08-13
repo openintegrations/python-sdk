@@ -15,13 +15,14 @@ from .types import (
     client_create_token_params,
     client_get_connection_params,
     client_list_connectors_params,
-    client_upsert_customer_params,
     client_list_connections_params,
     client_create_connection_params,
     client_get_conector_config_params,
     client_get_message_template_params,
     client_list_connection_configs_params,
     client_list_connnector_configs_params,
+    client_create_connnector_config_params,
+    client_upsert_connnector_config_params,
 )
 from ._types import (
     NOT_GIVEN,
@@ -62,7 +63,6 @@ from .types.list_events_response import ListEventsResponse
 from .types.create_token_response import CreateTokenResponse
 from .types.get_connection_response import GetConnectionResponse
 from .types.list_connectors_response import ListConnectorsResponse
-from .types.upsert_customer_response import UpsertCustomerResponse
 from .types.check_connection_response import CheckConnectionResponse
 from .types.get_current_user_response import GetCurrentUserResponse
 from .types.list_connections_response import ListConnectionsResponse
@@ -72,6 +72,8 @@ from .types.get_conector_config_response import GetConectorConfigResponse
 from .types.get_message_template_response import GetMessageTemplateResponse
 from .types.list_connection_configs_response import ListConnectionConfigsResponse
 from .types.list_connnector_configs_response import ListConnnectorConfigsResponse
+from .types.create_connnector_config_response import CreateConnnectorConfigResponse
+from .types.upsert_connnector_config_response import UpsertConnnectorConfigResponse
 
 __all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Openint", "AsyncOpenint", "Client", "AsyncClient"]
 
@@ -307,6 +309,54 @@ class Openint(SyncAPIClient):
                 ),
                 cast_to=cast(
                     Any, CreateConnectionResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+    def create_connnector_config(
+        self,
+        *,
+        connector_name: str,
+        config: Optional[Dict[str, object]] | NotGiven = NOT_GIVEN,
+        disabled: Optional[bool] | NotGiven = NOT_GIVEN,
+        display_name: Optional[str] | NotGiven = NOT_GIVEN,
+        metadata: Optional[Dict[str, object]] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> CreateConnnectorConfigResponse:
+        """
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return cast(
+            CreateConnnectorConfigResponse,
+            self.post(
+                "/connector-config",
+                body=maybe_transform(
+                    {
+                        "connector_name": connector_name,
+                        "config": config,
+                        "disabled": disabled,
+                        "display_name": display_name,
+                        "metadata": metadata,
+                    },
+                    client_create_connnector_config_params.ClientCreateConnnectorConfigParams,
+                ),
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, CreateConnnectorConfigResponse
                 ),  # Union types cannot be passed in as arguments in the type system
             ),
         )
@@ -1372,22 +1422,24 @@ class Openint(SyncAPIClient):
             model=cast(Any, ListEventsResponse),  # Union types cannot be passed in as arguments in the type system
         )
 
-    def upsert_customer(
+    def upsert_connnector_config(
         self,
+        id: str,
         *,
-        id: str | NotGiven = NOT_GIVEN,
-        metadata: Dict[str, object] | NotGiven = NOT_GIVEN,
+        config: Optional[Dict[str, object]] | NotGiven = NOT_GIVEN,
+        disabled: bool | NotGiven = NOT_GIVEN,
+        display_name: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> UpsertCustomerResponse:
+    ) -> UpsertConnnectorConfigResponse:
         """
-        Create or update a customer
-
         Args:
+          id: The id of the connector config, starts with `ccfg_`
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -1396,19 +1448,27 @@ class Openint(SyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return self.put(
-            "/customers",
-            body=maybe_transform(
-                {
-                    "id": id,
-                    "metadata": metadata,
-                },
-                client_upsert_customer_params.ClientUpsertCustomerParams,
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        return cast(
+            UpsertConnnectorConfigResponse,
+            self.put(
+                f"/connector-config/{id}",
+                body=maybe_transform(
+                    {
+                        "config": config,
+                        "disabled": disabled,
+                        "display_name": display_name,
+                    },
+                    client_upsert_connnector_config_params.ClientUpsertConnnectorConfigParams,
+                ),
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, UpsertConnnectorConfigResponse
+                ),  # Union types cannot be passed in as arguments in the type system
             ),
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=UpsertCustomerResponse,
         )
 
     @override
@@ -1676,6 +1736,54 @@ class AsyncOpenint(AsyncAPIClient):
                 ),
                 cast_to=cast(
                     Any, CreateConnectionResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
+    async def create_connnector_config(
+        self,
+        *,
+        connector_name: str,
+        config: Optional[Dict[str, object]] | NotGiven = NOT_GIVEN,
+        disabled: Optional[bool] | NotGiven = NOT_GIVEN,
+        display_name: Optional[str] | NotGiven = NOT_GIVEN,
+        metadata: Optional[Dict[str, object]] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> CreateConnnectorConfigResponse:
+        """
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return cast(
+            CreateConnnectorConfigResponse,
+            await self.post(
+                "/connector-config",
+                body=await async_maybe_transform(
+                    {
+                        "connector_name": connector_name,
+                        "config": config,
+                        "disabled": disabled,
+                        "display_name": display_name,
+                        "metadata": metadata,
+                    },
+                    client_create_connnector_config_params.ClientCreateConnnectorConfigParams,
+                ),
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, CreateConnnectorConfigResponse
                 ),  # Union types cannot be passed in as arguments in the type system
             ),
         )
@@ -2741,22 +2849,24 @@ class AsyncOpenint(AsyncAPIClient):
             model=cast(Any, ListEventsResponse),  # Union types cannot be passed in as arguments in the type system
         )
 
-    async def upsert_customer(
+    async def upsert_connnector_config(
         self,
+        id: str,
         *,
-        id: str | NotGiven = NOT_GIVEN,
-        metadata: Dict[str, object] | NotGiven = NOT_GIVEN,
+        config: Optional[Dict[str, object]] | NotGiven = NOT_GIVEN,
+        disabled: bool | NotGiven = NOT_GIVEN,
+        display_name: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> UpsertCustomerResponse:
+    ) -> UpsertConnnectorConfigResponse:
         """
-        Create or update a customer
-
         Args:
+          id: The id of the connector config, starts with `ccfg_`
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -2765,19 +2875,27 @@ class AsyncOpenint(AsyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return await self.put(
-            "/customers",
-            body=await async_maybe_transform(
-                {
-                    "id": id,
-                    "metadata": metadata,
-                },
-                client_upsert_customer_params.ClientUpsertCustomerParams,
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        return cast(
+            UpsertConnnectorConfigResponse,
+            await self.put(
+                f"/connector-config/{id}",
+                body=await async_maybe_transform(
+                    {
+                        "config": config,
+                        "disabled": disabled,
+                        "display_name": display_name,
+                    },
+                    client_upsert_connnector_config_params.ClientUpsertConnnectorConfigParams,
+                ),
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, UpsertConnnectorConfigResponse
+                ),  # Union types cannot be passed in as arguments in the type system
             ),
-            options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-            ),
-            cast_to=UpsertCustomerResponse,
         )
 
     @override
@@ -2822,6 +2940,9 @@ class OpenintWithRawResponse:
         self.create_connection = to_raw_response_wrapper(
             client.create_connection,
         )
+        self.create_connnector_config = to_raw_response_wrapper(
+            client.create_connnector_config,
+        )
         self.create_token = to_raw_response_wrapper(
             client.create_token,
         )
@@ -2855,8 +2976,8 @@ class OpenintWithRawResponse:
         self.list_events = to_raw_response_wrapper(
             client.list_events,
         )
-        self.upsert_customer = to_raw_response_wrapper(
-            client.upsert_customer,
+        self.upsert_connnector_config = to_raw_response_wrapper(
+            client.upsert_connnector_config,
         )
 
 
@@ -2867,6 +2988,9 @@ class AsyncOpenintWithRawResponse:
         )
         self.create_connection = async_to_raw_response_wrapper(
             client.create_connection,
+        )
+        self.create_connnector_config = async_to_raw_response_wrapper(
+            client.create_connnector_config,
         )
         self.create_token = async_to_raw_response_wrapper(
             client.create_token,
@@ -2901,8 +3025,8 @@ class AsyncOpenintWithRawResponse:
         self.list_events = async_to_raw_response_wrapper(
             client.list_events,
         )
-        self.upsert_customer = async_to_raw_response_wrapper(
-            client.upsert_customer,
+        self.upsert_connnector_config = async_to_raw_response_wrapper(
+            client.upsert_connnector_config,
         )
 
 
@@ -2913,6 +3037,9 @@ class OpenintWithStreamedResponse:
         )
         self.create_connection = to_streamed_response_wrapper(
             client.create_connection,
+        )
+        self.create_connnector_config = to_streamed_response_wrapper(
+            client.create_connnector_config,
         )
         self.create_token = to_streamed_response_wrapper(
             client.create_token,
@@ -2947,8 +3074,8 @@ class OpenintWithStreamedResponse:
         self.list_events = to_streamed_response_wrapper(
             client.list_events,
         )
-        self.upsert_customer = to_streamed_response_wrapper(
-            client.upsert_customer,
+        self.upsert_connnector_config = to_streamed_response_wrapper(
+            client.upsert_connnector_config,
         )
 
 
@@ -2959,6 +3086,9 @@ class AsyncOpenintWithStreamedResponse:
         )
         self.create_connection = async_to_streamed_response_wrapper(
             client.create_connection,
+        )
+        self.create_connnector_config = async_to_streamed_response_wrapper(
+            client.create_connnector_config,
         )
         self.create_token = async_to_streamed_response_wrapper(
             client.create_token,
@@ -2993,8 +3123,8 @@ class AsyncOpenintWithStreamedResponse:
         self.list_events = async_to_streamed_response_wrapper(
             client.list_events,
         )
-        self.upsert_customer = async_to_streamed_response_wrapper(
-            client.upsert_customer,
+        self.upsert_connnector_config = async_to_streamed_response_wrapper(
+            client.upsert_connnector_config,
         )
 
 
