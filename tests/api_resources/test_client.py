@@ -15,7 +15,6 @@ from openint.types import (
     GetConnectionResponse,
     GetCurrentUserResponse,
     ListConnectorsResponse,
-    UpsertCustomerResponse,
     CheckConnectionResponse,
     ListConnectionsResponse,
     CreateConnectionResponse,
@@ -24,6 +23,8 @@ from openint.types import (
     GetMessageTemplateResponse,
     ListConnectionConfigsResponse,
     ListConnnectorConfigsResponse,
+    CreateConnnectorConfigResponse,
+    UpsertConnnectorConfigResponse,
 )
 from openint.pagination import SyncOffsetPagination, AsyncOffsetPagination
 
@@ -146,6 +147,52 @@ class TestClient:
 
             client_ = response.parse()
             assert_matches_type(CreateConnectionResponse, client_, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_method_create_connnector_config(self, client: Openint) -> None:
+        client_ = client.create_connnector_config(
+            connector_name="connector_name",
+        )
+        assert_matches_type(CreateConnnectorConfigResponse, client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_method_create_connnector_config_with_all_params(self, client: Openint) -> None:
+        client_ = client.create_connnector_config(
+            connector_name="connector_name",
+            config={"foo": "bar"},
+            disabled=True,
+            display_name="display_name",
+            metadata={"foo": "bar"},
+        )
+        assert_matches_type(CreateConnnectorConfigResponse, client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_raw_response_create_connnector_config(self, client: Openint) -> None:
+        response = client.with_raw_response.create_connnector_config(
+            connector_name="connector_name",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client_ = response.parse()
+        assert_matches_type(CreateConnnectorConfigResponse, client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_streaming_response_create_connnector_config(self, client: Openint) -> None:
+        with client.with_streaming_response.create_connnector_config(
+            connector_name="connector_name",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client_ = response.parse()
+            assert_matches_type(CreateConnnectorConfigResponse, client_, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -629,40 +676,56 @@ class TestClient:
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
-    def test_method_upsert_customer(self, client: Openint) -> None:
-        client_ = client.upsert_customer()
-        assert_matches_type(UpsertCustomerResponse, client_, path=["response"])
-
-    @pytest.mark.skip(reason="Prism tests are disabled")
-    @parametrize
-    def test_method_upsert_customer_with_all_params(self, client: Openint) -> None:
-        client_ = client.upsert_customer(
-            id="id",
-            metadata={"foo": "bar"},
+    def test_method_upsert_connnector_config(self, client: Openint) -> None:
+        client_ = client.upsert_connnector_config(
+            id="ccfg_",
         )
-        assert_matches_type(UpsertCustomerResponse, client_, path=["response"])
+        assert_matches_type(UpsertConnnectorConfigResponse, client_, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
-    def test_raw_response_upsert_customer(self, client: Openint) -> None:
-        response = client.with_raw_response.upsert_customer()
+    def test_method_upsert_connnector_config_with_all_params(self, client: Openint) -> None:
+        client_ = client.upsert_connnector_config(
+            id="ccfg_",
+            config={"foo": "bar"},
+            disabled=True,
+            display_name="display_name",
+        )
+        assert_matches_type(UpsertConnnectorConfigResponse, client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_raw_response_upsert_connnector_config(self, client: Openint) -> None:
+        response = client.with_raw_response.upsert_connnector_config(
+            id="ccfg_",
+        )
 
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         client_ = response.parse()
-        assert_matches_type(UpsertCustomerResponse, client_, path=["response"])
+        assert_matches_type(UpsertConnnectorConfigResponse, client_, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
-    def test_streaming_response_upsert_customer(self, client: Openint) -> None:
-        with client.with_streaming_response.upsert_customer() as response:
+    def test_streaming_response_upsert_connnector_config(self, client: Openint) -> None:
+        with client.with_streaming_response.upsert_connnector_config(
+            id="ccfg_",
+        ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             client_ = response.parse()
-            assert_matches_type(UpsertCustomerResponse, client_, path=["response"])
+            assert_matches_type(UpsertConnnectorConfigResponse, client_, path=["response"])
 
         assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_path_params_upsert_connnector_config(self, client: Openint) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            client.with_raw_response.upsert_connnector_config(
+                id="",
+            )
 
 
 class TestAsyncClient:
@@ -783,6 +846,52 @@ class TestAsyncClient:
 
             client = await response.parse()
             assert_matches_type(CreateConnectionResponse, client, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_method_create_connnector_config(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.create_connnector_config(
+            connector_name="connector_name",
+        )
+        assert_matches_type(CreateConnnectorConfigResponse, client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_method_create_connnector_config_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.create_connnector_config(
+            connector_name="connector_name",
+            config={"foo": "bar"},
+            disabled=True,
+            display_name="display_name",
+            metadata={"foo": "bar"},
+        )
+        assert_matches_type(CreateConnnectorConfigResponse, client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_raw_response_create_connnector_config(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.create_connnector_config(
+            connector_name="connector_name",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client = await response.parse()
+        assert_matches_type(CreateConnnectorConfigResponse, client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_streaming_response_create_connnector_config(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.create_connnector_config(
+            connector_name="connector_name",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client = await response.parse()
+            assert_matches_type(CreateConnnectorConfigResponse, client, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -1266,37 +1375,53 @@ class TestAsyncClient:
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
-    async def test_method_upsert_customer(self, async_client: AsyncOpenint) -> None:
-        client = await async_client.upsert_customer()
-        assert_matches_type(UpsertCustomerResponse, client, path=["response"])
-
-    @pytest.mark.skip(reason="Prism tests are disabled")
-    @parametrize
-    async def test_method_upsert_customer_with_all_params(self, async_client: AsyncOpenint) -> None:
-        client = await async_client.upsert_customer(
-            id="id",
-            metadata={"foo": "bar"},
+    async def test_method_upsert_connnector_config(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.upsert_connnector_config(
+            id="ccfg_",
         )
-        assert_matches_type(UpsertCustomerResponse, client, path=["response"])
+        assert_matches_type(UpsertConnnectorConfigResponse, client, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
-    async def test_raw_response_upsert_customer(self, async_client: AsyncOpenint) -> None:
-        response = await async_client.with_raw_response.upsert_customer()
+    async def test_method_upsert_connnector_config_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.upsert_connnector_config(
+            id="ccfg_",
+            config={"foo": "bar"},
+            disabled=True,
+            display_name="display_name",
+        )
+        assert_matches_type(UpsertConnnectorConfigResponse, client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_raw_response_upsert_connnector_config(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.upsert_connnector_config(
+            id="ccfg_",
+        )
 
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         client = await response.parse()
-        assert_matches_type(UpsertCustomerResponse, client, path=["response"])
+        assert_matches_type(UpsertConnnectorConfigResponse, client, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
-    async def test_streaming_response_upsert_customer(self, async_client: AsyncOpenint) -> None:
-        async with async_client.with_streaming_response.upsert_customer() as response:
+    async def test_streaming_response_upsert_connnector_config(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.upsert_connnector_config(
+            id="ccfg_",
+        ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             client = await response.parse()
-            assert_matches_type(UpsertCustomerResponse, client, path=["response"])
+            assert_matches_type(UpsertConnnectorConfigResponse, client, path=["response"])
 
         assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_path_params_upsert_connnector_config(self, async_client: AsyncOpenint) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            await async_client.with_raw_response.upsert_connnector_config(
+                id="",
+            )
