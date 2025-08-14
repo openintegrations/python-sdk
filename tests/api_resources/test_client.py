@@ -684,7 +684,7 @@ class TestClient:
     @parametrize
     def test_method_list_events_with_all_params(self, client: Openint) -> None:
         client_ = client.list_events(
-            expand=["prompt"],
+            include_prompt=True,
             limit=0,
             offset=0,
             search_query="search_query",
@@ -1458,7 +1458,7 @@ class TestAsyncClient:
     @parametrize
     async def test_method_list_events_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_events(
-            expand=["prompt"],
+            include_prompt=True,
             limit=0,
             offset=0,
             search_query="search_query",
