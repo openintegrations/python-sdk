@@ -203,6 +203,12 @@ class ConnectOptions(TypedDict, total=False):
     debug: bool
     """Whether to enable debug mode"""
 
+    hide_navigation: bool
+    """Whether to hide the navigation bar.
+
+    This is useful for hardcoding to a particular view.
+    """
+
     is_embedded: bool
     """Whether to enable embedded mode.
 

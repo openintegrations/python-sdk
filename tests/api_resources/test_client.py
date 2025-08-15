@@ -214,6 +214,7 @@ class TestClient:
             connect_options={
                 "connector_names": ["accelo"],
                 "debug": True,
+                "hide_navigation": True,
                 "is_embedded": True,
                 "return_url": "return_url",
                 "view": "add",
@@ -988,6 +989,7 @@ class TestAsyncClient:
             connect_options={
                 "connector_names": ["accelo"],
                 "debug": True,
+                "hide_navigation": True,
                 "is_embedded": True,
                 "return_url": "return_url",
                 "view": "add",
