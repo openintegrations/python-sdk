@@ -7920,7 +7920,7 @@ class DataConnectorPlaidDiscriminatedConnectionSettings(TypedDict, total=False):
 
 
 class DataConnectorPostgresDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
-    database_url: Annotated[str, PropertyInfo(alias="databaseURL")]
+    database_url: str
 
 
 class DataConnectorPostgresDiscriminatedConnectionSettings(TypedDict, total=False):

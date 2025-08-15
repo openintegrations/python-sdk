@@ -12174,7 +12174,7 @@ class ConnectorPlaidDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorPostgresDiscriminatedConnectionSettingsSettings(BaseModel):
-    database_url: Optional[str] = FieldInfo(alias="databaseURL", default=None)
+    database_url: Optional[str] = None
 
 
 class ConnectorPostgresDiscriminatedConnectionSettings(BaseModel):
