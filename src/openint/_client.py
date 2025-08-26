@@ -75,6 +75,7 @@ from .types.create_connection_response import CreateConnectionResponse
 from .types.delete_assignment_response import DeleteAssignmentResponse
 from .types.delete_connection_response import DeleteConnectionResponse
 from .types.get_conector_config_response import GetConectorConfigResponse
+from .types.upsert_organization_response import UpsertOrganizationResponse
 from .types.delete_connector_config_response import DeleteConnectorConfigResponse
 from .types.list_connection_configs_response import ListConnectionConfigsResponse
 from .types.list_connnector_configs_response import ListConnnectorConfigsResponse
@@ -1673,6 +1674,40 @@ class Openint(SyncAPIClient):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=UpsertCustomerResponse,
+        )
+
+    def upsert_organization(
+        self,
+        org_id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> UpsertOrganizationResponse:
+        """Upsert an organization by ID.
+
+        Creates if it does not exist.
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not org_id:
+            raise ValueError(f"Expected a non-empty value for `org_id` but received {org_id!r}")
+        return self.put(
+            f"/v2/organization/{org_id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=UpsertOrganizationResponse,
         )
 
     @override
@@ -3300,6 +3335,40 @@ class AsyncOpenint(AsyncAPIClient):
             cast_to=UpsertCustomerResponse,
         )
 
+    async def upsert_organization(
+        self,
+        org_id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> UpsertOrganizationResponse:
+        """Upsert an organization by ID.
+
+        Creates if it does not exist.
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not org_id:
+            raise ValueError(f"Expected a non-empty value for `org_id` but received {org_id!r}")
+        return await self.put(
+            f"/v2/organization/{org_id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=UpsertOrganizationResponse,
+        )
+
     @override
     def _make_status_error(
         self,
@@ -3396,6 +3465,9 @@ class OpenintWithRawResponse:
         self.upsert_customer = to_raw_response_wrapper(
             client.upsert_customer,
         )
+        self.upsert_organization = to_raw_response_wrapper(
+            client.upsert_organization,
+        )
 
 
 class AsyncOpenintWithRawResponse:
@@ -3459,6 +3531,9 @@ class AsyncOpenintWithRawResponse:
         )
         self.upsert_customer = async_to_raw_response_wrapper(
             client.upsert_customer,
+        )
+        self.upsert_organization = async_to_raw_response_wrapper(
+            client.upsert_organization,
         )
 
 
@@ -3524,6 +3599,9 @@ class OpenintWithStreamedResponse:
         self.upsert_customer = to_streamed_response_wrapper(
             client.upsert_customer,
         )
+        self.upsert_organization = to_streamed_response_wrapper(
+            client.upsert_organization,
+        )
 
 
 class AsyncOpenintWithStreamedResponse:
@@ -3587,6 +3665,9 @@ class AsyncOpenintWithStreamedResponse:
         )
         self.upsert_customer = async_to_streamed_response_wrapper(
             client.upsert_customer,
+        )
+        self.upsert_organization = async_to_streamed_response_wrapper(
+            client.upsert_organization,
         )
 
 
