@@ -26,7 +26,6 @@ from openint.types import (
     ListEventsResponse,
     UpsertConnnectorConfigResponse,
     UpsertCustomerResponse,
-    UpsertOrganizationResponse,
 )
 ```
 
@@ -52,4 +51,3 @@ Methods:
 - <code title="get /v1/event">client.<a href="./src/openint/_client.py">list_events</a>(\*\*<a href="src/openint/types/client_list_events_params.py">params</a>) -> <a href="./src/openint/types/list_events_response.py">SyncOffsetPagination[ListEventsResponse]</a></code>
 - <code title="put /v2/connector-config/{id}">client.<a href="./src/openint/_client.py">upsert_connnector_config</a>(id, \*\*<a href="src/openint/types/client_upsert_connnector_config_params.py">params</a>) -> <a href="./src/openint/types/upsert_connnector_config_response.py">UpsertConnnectorConfigResponse</a></code>
 - <code title="put /v1/customer">client.<a href="./src/openint/_client.py">upsert_customer</a>(\*\*<a href="src/openint/types/client_upsert_customer_params.py">params</a>) -> <a href="./src/openint/types/upsert_customer_response.py">UpsertCustomerResponse</a></code>
-- <code title="put /v2/organization/{orgId}">client.<a href="./src/openint/_client.py">upsert_organization</a>(org_id) -> <a href="./src/openint/types/upsert_organization_response.py">UpsertOrganizationResponse</a></code>
