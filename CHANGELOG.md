@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.9.0 (2025-08-26)
+
+Full Changelog: [v2.8.0...v2.9.0](https://github.com/openintegrations/python-sdk/compare/v2.8.0...v2.9.0)
+
+### Features
+
+* **api-v2:** api v2 spec ([48aff10](https://github.com/openintegrations/python-sdk/commit/48aff10bbe28bb6f428f07c97ea5d005c35cb759))
+* **api!:** manual updates ([4ce79dc](https://github.com/openintegrations/python-sdk/commit/4ce79dc74d3212e2ef4e3b0ec2c7d3efe25b2a6d))
+* **api:** new parameters ([5a7dc00](https://github.com/openintegrations/python-sdk/commit/5a7dc00e9cf23c605ccdea421817a9c61825f1c3))
+* **api:** org apis ([ec5d611](https://github.com/openintegrations/python-sdk/commit/ec5d611b5fa1068f0d7fbd5611f290cc4af75aac))
+* **docs:** updating documented docs for stainless ([444bab6](https://github.com/openintegrations/python-sdk/commit/444bab6f2527e7d21fc33b840cbdeec21fdddd8c))
+* **docs:** updating documented docs for stainless ([316e546](https://github.com/openintegrations/python-sdk/commit/316e546bdb14eabb87ff0878545a21c1d7cef4a8))
+
+
+### Chores
+
+* update github action ([cd673e1](https://github.com/openintegrations/python-sdk/commit/cd673e1e7fff34115e2c735e458d53804c2f0628))
+
 ## 2.8.0 (2025-08-13)
 
 Full Changelog: [v2.7.0...v2.8.0](https://github.com/openintegrations/python-sdk/compare/v2.7.0...v2.8.0)
