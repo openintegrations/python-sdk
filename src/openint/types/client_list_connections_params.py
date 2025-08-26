@@ -9,6 +9,8 @@ __all__ = ["ClientListConnectionsParams"]
 
 
 class ClientListConnectionsParams(TypedDict, total=False):
+    connection_ids: List[str]
+
     connector_config_id: str
     """The id of the connector config, starts with `ccfg_`"""
 

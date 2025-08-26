@@ -24,7 +24,7 @@ from pydantic import ValidationError
 from openint import Openint, AsyncOpenint, APIResponseValidationError
 from openint._types import Omit
 from openint._models import BaseModel, FinalRequestOptions
-from openint._exceptions import APIStatusError, APIResponseValidationError
+from openint._exceptions import APIStatusError, APITimeoutError, APIResponseValidationError
 from openint._base_client import (
     DEFAULT_TIMEOUT,
     HTTPX_DEFAULT_TIMEOUT,
@@ -48,6 +48,14 @@ def _get_params(client: BaseClient[Any, Any]) -> dict[str, str]:
 
 def _low_retry_timeout(*_args: Any, **_kwargs: Any) -> float:
     return 0.1
+
+
+def _get_open_connections(client: Openint | AsyncOpenint) -> int:
+    transport = client._client._transport
+    assert isinstance(transport, httpx.HTTPTransport) or isinstance(transport, httpx.AsyncHTTPTransport)
+
+    pool = transport._pool
+    return len(pool._requests)
 
 
 class TestOpenint:
@@ -699,6 +707,27 @@ class TestOpenint:
         calculated = client._calculate_retry_timeout(remaining_retries, options, headers)
         assert calculated == pytest.approx(timeout, 0.5 * 0.875)  # pyright: ignore[reportUnknownMemberType]
 
+    @mock.patch("openint._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @pytest.mark.respx(base_url=base_url)
+    def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter, client: Openint) -> None:
+        respx_mock.put("/v2/connection/conn_/assignment/replId").mock(
+            side_effect=httpx.TimeoutException("Test timeout error")
+        )
+
+        with pytest.raises(APITimeoutError):
+            client.with_streaming_response.assign_connection(repl_id="replId", id="conn_").__enter__()
+
+        assert _get_open_connections(self.client) == 0
+
+    @mock.patch("openint._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @pytest.mark.respx(base_url=base_url)
+    def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter, client: Openint) -> None:
+        respx_mock.put("/v2/connection/conn_/assignment/replId").mock(return_value=httpx.Response(500))
+
+        with pytest.raises(APIStatusError):
+            client.with_streaming_response.assign_connection(repl_id="replId", id="conn_").__enter__()
+        assert _get_open_connections(self.client) == 0
+
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
     @mock.patch("openint._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
@@ -723,9 +752,9 @@ class TestOpenint:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.get("/connection").mock(side_effect=retry_handler)
+        respx_mock.put("/v2/connection/conn_/assignment/replId").mock(side_effect=retry_handler)
 
-        response = client.with_raw_response.list_connections()
+        response = client.with_raw_response.assign_connection(repl_id="replId", id="conn_")
 
         assert response.retries_taken == failures_before_success
         assert int(response.http_request.headers.get("x-stainless-retry-count")) == failures_before_success
@@ -747,9 +776,11 @@ class TestOpenint:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.get("/connection").mock(side_effect=retry_handler)
+        respx_mock.put("/v2/connection/conn_/assignment/replId").mock(side_effect=retry_handler)
 
-        response = client.with_raw_response.list_connections(extra_headers={"x-stainless-retry-count": Omit()})
+        response = client.with_raw_response.assign_connection(
+            repl_id="replId", id="conn_", extra_headers={"x-stainless-retry-count": Omit()}
+        )
 
         assert len(response.http_request.headers.get_list("x-stainless-retry-count")) == 0
 
@@ -770,9 +801,11 @@ class TestOpenint:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.get("/connection").mock(side_effect=retry_handler)
+        respx_mock.put("/v2/connection/conn_/assignment/replId").mock(side_effect=retry_handler)
 
-        response = client.with_raw_response.list_connections(extra_headers={"x-stainless-retry-count": "42"})
+        response = client.with_raw_response.assign_connection(
+            repl_id="replId", id="conn_", extra_headers={"x-stainless-retry-count": "42"}
+        )
 
         assert response.http_request.headers.get("x-stainless-retry-count") == "42"
 
@@ -1491,6 +1524,29 @@ class TestAsyncOpenint:
         calculated = client._calculate_retry_timeout(remaining_retries, options, headers)
         assert calculated == pytest.approx(timeout, 0.5 * 0.875)  # pyright: ignore[reportUnknownMemberType]
 
+    @mock.patch("openint._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @pytest.mark.respx(base_url=base_url)
+    async def test_retrying_timeout_errors_doesnt_leak(
+        self, respx_mock: MockRouter, async_client: AsyncOpenint
+    ) -> None:
+        respx_mock.put("/v2/connection/conn_/assignment/replId").mock(
+            side_effect=httpx.TimeoutException("Test timeout error")
+        )
+
+        with pytest.raises(APITimeoutError):
+            await async_client.with_streaming_response.assign_connection(repl_id="replId", id="conn_").__aenter__()
+
+        assert _get_open_connections(self.client) == 0
+
+    @mock.patch("openint._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @pytest.mark.respx(base_url=base_url)
+    async def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter, async_client: AsyncOpenint) -> None:
+        respx_mock.put("/v2/connection/conn_/assignment/replId").mock(return_value=httpx.Response(500))
+
+        with pytest.raises(APIStatusError):
+            await async_client.with_streaming_response.assign_connection(repl_id="replId", id="conn_").__aenter__()
+        assert _get_open_connections(self.client) == 0
+
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
     @mock.patch("openint._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
@@ -1516,9 +1572,9 @@ class TestAsyncOpenint:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.get("/connection").mock(side_effect=retry_handler)
+        respx_mock.put("/v2/connection/conn_/assignment/replId").mock(side_effect=retry_handler)
 
-        response = await client.with_raw_response.list_connections()
+        response = await client.with_raw_response.assign_connection(repl_id="replId", id="conn_")
 
         assert response.retries_taken == failures_before_success
         assert int(response.http_request.headers.get("x-stainless-retry-count")) == failures_before_success
@@ -1541,9 +1597,11 @@ class TestAsyncOpenint:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.get("/connection").mock(side_effect=retry_handler)
+        respx_mock.put("/v2/connection/conn_/assignment/replId").mock(side_effect=retry_handler)
 
-        response = await client.with_raw_response.list_connections(extra_headers={"x-stainless-retry-count": Omit()})
+        response = await client.with_raw_response.assign_connection(
+            repl_id="replId", id="conn_", extra_headers={"x-stainless-retry-count": Omit()}
+        )
 
         assert len(response.http_request.headers.get_list("x-stainless-retry-count")) == 0
 
@@ -1565,9 +1623,11 @@ class TestAsyncOpenint:
                 return httpx.Response(500)
             return httpx.Response(200)
 
-        respx_mock.get("/connection").mock(side_effect=retry_handler)
+        respx_mock.put("/v2/connection/conn_/assignment/replId").mock(side_effect=retry_handler)
 
-        response = await client.with_raw_response.list_connections(extra_headers={"x-stainless-retry-count": "42"})
+        response = await client.with_raw_response.assign_connection(
+            repl_id="replId", id="conn_", extra_headers={"x-stainless-retry-count": "42"}
+        )
 
         assert response.http_request.headers.get("x-stainless-retry-count") == "42"
 
