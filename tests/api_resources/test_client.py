@@ -681,6 +681,7 @@ class TestClient:
             limit=0,
             offset=0,
             refresh_policy="none",
+            repl_id="repl_id",
             search_query="search_query",
         )
         assert_matches_type(SyncOffsetPagination[ListConnectionsResponse], client_, path=["response"])
@@ -1602,6 +1603,7 @@ class TestAsyncClient:
             limit=0,
             offset=0,
             refresh_policy="none",
+            repl_id="repl_id",
             search_query="search_query",
         )
         assert_matches_type(AsyncOffsetPagination[ListConnectionsResponse], client, path=["response"])

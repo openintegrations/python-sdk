@@ -213,4 +213,6 @@ class ClientListConnectionsParams(TypedDict, total=False):
     expired, default)
     """
 
+    repl_id: str
+
     search_query: str
