@@ -9,6 +9,8 @@ __all__ = ["ClientListConnectionsParams"]
 
 
 class ClientListConnectionsParams(TypedDict, total=False):
+    connection_ids: List[str]
+
     connector_config_id: str
     """The id of the connector config, starts with `ccfg_`"""
 
@@ -210,5 +212,7 @@ class ClientListConnectionsParams(TypedDict, total=False):
     Controls credential refresh: none (never), force (always), or auto (when
     expired, default)
     """
+
+    repl_id: str
 
     search_query: str

@@ -9,6 +9,8 @@ __all__ = ["ClientListConnectorsParams"]
 
 
 class ClientListConnectorsParams(TypedDict, total=False):
+    connector_name: str
+
     expand: List[Literal["schemas"]]
 
     limit: int

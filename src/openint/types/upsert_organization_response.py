@@ -2,10 +2,10 @@
 
 from .._models import BaseModel
 
-__all__ = ["GetMessageTemplateResponse"]
+__all__ = ["UpsertOrganizationResponse"]
 
 
-class GetMessageTemplateResponse(BaseModel):
-    language: str
+class UpsertOrganizationResponse(BaseModel):
+    id: str
 
-    template: str
+    created: bool

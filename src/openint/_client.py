@@ -20,7 +20,6 @@ from .types import (
     client_list_connections_params,
     client_create_connection_params,
     client_get_conector_config_params,
-    client_get_message_template_params,
     client_list_connection_configs_params,
     client_list_connnector_configs_params,
     client_create_connnector_config_params,
@@ -69,11 +68,15 @@ from .types.list_connectors_response import ListConnectorsResponse
 from .types.upsert_customer_response import UpsertCustomerResponse
 from .types.check_connection_response import CheckConnectionResponse
 from .types.get_current_user_response import GetCurrentUserResponse
+from .types.list_assignments_response import ListAssignmentsResponse
 from .types.list_connections_response import ListConnectionsResponse
+from .types.assign_connection_response import AssignConnectionResponse
 from .types.create_connection_response import CreateConnectionResponse
+from .types.delete_assignment_response import DeleteAssignmentResponse
 from .types.delete_connection_response import DeleteConnectionResponse
 from .types.get_conector_config_response import GetConectorConfigResponse
-from .types.get_message_template_response import GetMessageTemplateResponse
+from .types.upsert_organization_response import UpsertOrganizationResponse
+from .types.delete_connector_config_response import DeleteConnectorConfigResponse
 from .types.list_connection_configs_response import ListConnectionConfigsResponse
 from .types.list_connnector_configs_response import ListConnnectorConfigsResponse
 from .types.create_connnector_config_response import CreateConnnectorConfigResponse
@@ -123,7 +126,7 @@ class Openint(SyncAPIClient):
         if base_url is None:
             base_url = os.environ.get("OPENINT_BASE_URL")
         if base_url is None:
-            base_url = f"https://api.openint.dev/v1"
+            base_url = f"https://api.openint.dev"
 
         super().__init__(
             version=__version__,
@@ -223,6 +226,46 @@ class Openint(SyncAPIClient):
     # client.with_options(timeout=10).foo.create(...)
     with_options = copy
 
+    def assign_connection(
+        self,
+        repl_id: str,
+        *,
+        id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> AssignConnectionResponse:
+        """
+        Assign a connection to a customer
+
+        Args:
+          id: The id of the connection, starts with `conn_`
+
+          repl_id: The repl ID to assign to this connection
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        if not repl_id:
+            raise ValueError(f"Expected a non-empty value for `repl_id` but received {repl_id!r}")
+        return self.put(
+            f"/v2/connection/{id}/assignment/{repl_id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=AssignConnectionResponse,
+        )
+
     def check_connection(
         self,
         id: str,
@@ -251,7 +294,7 @@ class Openint(SyncAPIClient):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self.post(
-            f"/connection/{id}/check",
+            f"/v1/connection/{id}/check",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -297,7 +340,7 @@ class Openint(SyncAPIClient):
         return cast(
             CreateConnectionResponse,
             self.post(
-                "/connection",
+                "/v2/connection",
                 body=maybe_transform(
                     {
                         "connector_config_id": connector_config_id,
@@ -345,7 +388,7 @@ class Openint(SyncAPIClient):
         return cast(
             CreateConnnectorConfigResponse,
             self.post(
-                "/connector-config",
+                "/v2/connector-config",
                 body=maybe_transform(
                     {
                         "connector_name": connector_name,
@@ -401,7 +444,7 @@ class Openint(SyncAPIClient):
         if not customer_id:
             raise ValueError(f"Expected a non-empty value for `customer_id` but received {customer_id!r}")
         return self.post(
-            f"/customer/{customer_id}/token",
+            f"/v1/customer/{customer_id}/token",
             body=maybe_transform(
                 {
                     "connect_options": connect_options,
@@ -413,6 +456,46 @@ class Openint(SyncAPIClient):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=CreateTokenResponse,
+        )
+
+    def delete_assignment(
+        self,
+        repl_id: str,
+        *,
+        id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> DeleteAssignmentResponse:
+        """
+        Remove a repl assignment from a connection
+
+        Args:
+          id: The id of the connection, starts with `conn_`
+
+          repl_id: The repl ID to remove from this connection
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        if not repl_id:
+            raise ValueError(f"Expected a non-empty value for `repl_id` but received {repl_id!r}")
+        return self.delete(
+            f"/v2/connection/{id}/assignment/{repl_id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=DeleteAssignmentResponse,
         )
 
     def delete_connection(
@@ -443,11 +526,44 @@ class Openint(SyncAPIClient):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self.delete(
-            f"/connection/{id}",
+            f"/v2/connection/{id}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=DeleteConnectionResponse,
+        )
+
+    def delete_connector_config(
+        self,
+        id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> DeleteConnectorConfigResponse:
+        """
+        Args:
+          id: The id of the connector config, starts with `ccfg_`
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        return self.delete(
+            f"/v2/connector-config/{id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=DeleteConnectorConfigResponse,
         )
 
     def get_conector_config(
@@ -479,7 +595,7 @@ class Openint(SyncAPIClient):
         return cast(
             GetConectorConfigResponse,
             self.get(
-                f"/connector-config/{id}",
+                f"/v2/connector-config/{id}",
                 options=make_request_options(
                     extra_headers=extra_headers,
                     extra_query=extra_query,
@@ -531,7 +647,7 @@ class Openint(SyncAPIClient):
         return cast(
             GetConnectionResponse,
             self.get(
-                f"/connection/{id}",
+                f"/v2/connection/{id}",
                 options=make_request_options(
                     extra_headers=extra_headers,
                     extra_query=extra_query,
@@ -564,30 +680,30 @@ class Openint(SyncAPIClient):
     ) -> GetCurrentUserResponse:
         """Get information about the current authenticated user"""
         return self.get(
-            "/viewer",
+            "/v1/viewer",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=GetCurrentUserResponse,
         )
 
-    def get_message_template(
+    def list_assignments(
         self,
+        id: str,
         *,
-        customer_id: str,
-        language: Literal["javascript"] | NotGiven = NOT_GIVEN,
-        use_environment_variables: bool | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> GetMessageTemplateResponse:
+    ) -> ListAssignmentsResponse:
         """
-        Get a message template for an AI agent
+        Get the list of assignments for a specific connection
 
         Args:
+          id: The id of the connection, starts with `conn_`
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -596,23 +712,14 @@ class Openint(SyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self.get(
-            "/ai/message_template",
+            f"/v2/connection/{id}/assignment",
             options=make_request_options(
-                extra_headers=extra_headers,
-                extra_query=extra_query,
-                extra_body=extra_body,
-                timeout=timeout,
-                query=maybe_transform(
-                    {
-                        "customer_id": customer_id,
-                        "language": language,
-                        "use_environment_variables": use_environment_variables,
-                    },
-                    client_get_message_template_params.ClientGetMessageTemplateParams,
-                ),
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=GetMessageTemplateResponse,
+            cast_to=ListAssignmentsResponse,
         )
 
     def list_connection_configs(
@@ -822,7 +929,7 @@ class Openint(SyncAPIClient):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self.get_api_list(
-            "/connector-config",
+            "/v2/connector-config",
             page=SyncOffsetPagination[ListConnectionConfigsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -848,6 +955,7 @@ class Openint(SyncAPIClient):
     def list_connections(
         self,
         *,
+        connection_ids: List[str] | NotGiven = NOT_GIVEN,
         connector_config_id: str | NotGiven = NOT_GIVEN,
         connector_names: List[
             Literal[
@@ -1031,6 +1139,7 @@ class Openint(SyncAPIClient):
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
+        repl_id: str | NotGiven = NOT_GIVEN,
         search_query: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -1069,7 +1178,7 @@ class Openint(SyncAPIClient):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self.get_api_list(
-            "/connection",
+            "/v2/connection",
             page=SyncOffsetPagination[ListConnectionsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -1078,6 +1187,7 @@ class Openint(SyncAPIClient):
                 timeout=timeout,
                 query=maybe_transform(
                     {
+                        "connection_ids": connection_ids,
                         "connector_config_id": connector_config_id,
                         "connector_names": connector_names,
                         "customer_id": customer_id,
@@ -1086,6 +1196,7 @@ class Openint(SyncAPIClient):
                         "limit": limit,
                         "offset": offset,
                         "refresh_policy": refresh_policy,
+                        "repl_id": repl_id,
                         "search_query": search_query,
                     },
                     client_list_connections_params.ClientListConnectionsParams,
@@ -1097,6 +1208,7 @@ class Openint(SyncAPIClient):
     def list_connectors(
         self,
         *,
+        connector_name: str | NotGiven = NOT_GIVEN,
         expand: List[Literal["schemas"]] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
@@ -1124,7 +1236,7 @@ class Openint(SyncAPIClient):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self.get_api_list(
-            "/connector",
+            "/v2/connector",
             page=SyncOffsetPagination[ListConnectorsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -1133,6 +1245,7 @@ class Openint(SyncAPIClient):
                 timeout=timeout,
                 query=maybe_transform(
                     {
+                        "connector_name": connector_name,
                         "expand": expand,
                         "limit": limit,
                         "offset": offset,
@@ -1350,7 +1463,7 @@ class Openint(SyncAPIClient):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self.get_api_list(
-            "/connector-config",
+            "/v2/connector-config",
             page=SyncOffsetPagination[ListConnnectorConfigsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -1403,7 +1516,7 @@ class Openint(SyncAPIClient):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self.get_api_list(
-            "/customer",
+            "/v1/customer",
             page=SyncOffsetPagination[ListCustomersResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -1425,7 +1538,7 @@ class Openint(SyncAPIClient):
     def list_events(
         self,
         *,
-        expand: List[Literal["prompt"]] | NotGiven = NOT_GIVEN,
+        include_prompt: bool | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         search_query: str | NotGiven = NOT_GIVEN,
@@ -1454,7 +1567,7 @@ class Openint(SyncAPIClient):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self.get_api_list(
-            "/event",
+            "/v1/event",
             page=SyncOffsetPagination[ListEventsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -1463,7 +1576,7 @@ class Openint(SyncAPIClient):
                 timeout=timeout,
                 query=maybe_transform(
                     {
-                        "expand": expand,
+                        "include_prompt": include_prompt,
                         "limit": limit,
                         "offset": offset,
                         "search_query": search_query,
@@ -1506,7 +1619,7 @@ class Openint(SyncAPIClient):
         return cast(
             UpsertConnnectorConfigResponse,
             self.put(
-                f"/connector-config/{id}",
+                f"/v2/connector-config/{id}",
                 body=maybe_transform(
                     {
                         "config": config,
@@ -1549,7 +1662,7 @@ class Openint(SyncAPIClient):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self.put(
-            "/customer",
+            "/v1/customer",
             body=maybe_transform(
                 {
                     "id": id,
@@ -1561,6 +1674,40 @@ class Openint(SyncAPIClient):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=UpsertCustomerResponse,
+        )
+
+    def upsert_organization(
+        self,
+        org_id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> UpsertOrganizationResponse:
+        """Upsert an organization by ID.
+
+        Creates if it does not exist.
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not org_id:
+            raise ValueError(f"Expected a non-empty value for `org_id` but received {org_id!r}")
+        return self.put(
+            f"/v2/organization/{org_id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=UpsertOrganizationResponse,
         )
 
     @override
@@ -1638,7 +1785,7 @@ class AsyncOpenint(AsyncAPIClient):
         if base_url is None:
             base_url = os.environ.get("OPENINT_BASE_URL")
         if base_url is None:
-            base_url = f"https://api.openint.dev/v1"
+            base_url = f"https://api.openint.dev"
 
         super().__init__(
             version=__version__,
@@ -1738,6 +1885,46 @@ class AsyncOpenint(AsyncAPIClient):
     # client.with_options(timeout=10).foo.create(...)
     with_options = copy
 
+    async def assign_connection(
+        self,
+        repl_id: str,
+        *,
+        id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> AssignConnectionResponse:
+        """
+        Assign a connection to a customer
+
+        Args:
+          id: The id of the connection, starts with `conn_`
+
+          repl_id: The repl ID to assign to this connection
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        if not repl_id:
+            raise ValueError(f"Expected a non-empty value for `repl_id` but received {repl_id!r}")
+        return await self.put(
+            f"/v2/connection/{id}/assignment/{repl_id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=AssignConnectionResponse,
+        )
+
     async def check_connection(
         self,
         id: str,
@@ -1766,7 +1953,7 @@ class AsyncOpenint(AsyncAPIClient):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self.post(
-            f"/connection/{id}/check",
+            f"/v1/connection/{id}/check",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -1812,7 +1999,7 @@ class AsyncOpenint(AsyncAPIClient):
         return cast(
             CreateConnectionResponse,
             await self.post(
-                "/connection",
+                "/v2/connection",
                 body=await async_maybe_transform(
                     {
                         "connector_config_id": connector_config_id,
@@ -1860,7 +2047,7 @@ class AsyncOpenint(AsyncAPIClient):
         return cast(
             CreateConnnectorConfigResponse,
             await self.post(
-                "/connector-config",
+                "/v2/connector-config",
                 body=await async_maybe_transform(
                     {
                         "connector_name": connector_name,
@@ -1916,7 +2103,7 @@ class AsyncOpenint(AsyncAPIClient):
         if not customer_id:
             raise ValueError(f"Expected a non-empty value for `customer_id` but received {customer_id!r}")
         return await self.post(
-            f"/customer/{customer_id}/token",
+            f"/v1/customer/{customer_id}/token",
             body=await async_maybe_transform(
                 {
                     "connect_options": connect_options,
@@ -1928,6 +2115,46 @@ class AsyncOpenint(AsyncAPIClient):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=CreateTokenResponse,
+        )
+
+    async def delete_assignment(
+        self,
+        repl_id: str,
+        *,
+        id: str,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> DeleteAssignmentResponse:
+        """
+        Remove a repl assignment from a connection
+
+        Args:
+          id: The id of the connection, starts with `conn_`
+
+          repl_id: The repl ID to remove from this connection
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        if not repl_id:
+            raise ValueError(f"Expected a non-empty value for `repl_id` but received {repl_id!r}")
+        return await self.delete(
+            f"/v2/connection/{id}/assignment/{repl_id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=DeleteAssignmentResponse,
         )
 
     async def delete_connection(
@@ -1958,11 +2185,44 @@ class AsyncOpenint(AsyncAPIClient):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self.delete(
-            f"/connection/{id}",
+            f"/v2/connection/{id}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=DeleteConnectionResponse,
+        )
+
+    async def delete_connector_config(
+        self,
+        id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> DeleteConnectorConfigResponse:
+        """
+        Args:
+          id: The id of the connector config, starts with `ccfg_`
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        return await self.delete(
+            f"/v2/connector-config/{id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=DeleteConnectorConfigResponse,
         )
 
     async def get_conector_config(
@@ -1994,7 +2254,7 @@ class AsyncOpenint(AsyncAPIClient):
         return cast(
             GetConectorConfigResponse,
             await self.get(
-                f"/connector-config/{id}",
+                f"/v2/connector-config/{id}",
                 options=make_request_options(
                     extra_headers=extra_headers,
                     extra_query=extra_query,
@@ -2046,7 +2306,7 @@ class AsyncOpenint(AsyncAPIClient):
         return cast(
             GetConnectionResponse,
             await self.get(
-                f"/connection/{id}",
+                f"/v2/connection/{id}",
                 options=make_request_options(
                     extra_headers=extra_headers,
                     extra_query=extra_query,
@@ -2079,30 +2339,30 @@ class AsyncOpenint(AsyncAPIClient):
     ) -> GetCurrentUserResponse:
         """Get information about the current authenticated user"""
         return await self.get(
-            "/viewer",
+            "/v1/viewer",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=GetCurrentUserResponse,
         )
 
-    async def get_message_template(
+    async def list_assignments(
         self,
+        id: str,
         *,
-        customer_id: str,
-        language: Literal["javascript"] | NotGiven = NOT_GIVEN,
-        use_environment_variables: bool | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> GetMessageTemplateResponse:
+    ) -> ListAssignmentsResponse:
         """
-        Get a message template for an AI agent
+        Get the list of assignments for a specific connection
 
         Args:
+          id: The id of the connection, starts with `conn_`
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -2111,23 +2371,14 @@ class AsyncOpenint(AsyncAPIClient):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self.get(
-            "/ai/message_template",
+            f"/v2/connection/{id}/assignment",
             options=make_request_options(
-                extra_headers=extra_headers,
-                extra_query=extra_query,
-                extra_body=extra_body,
-                timeout=timeout,
-                query=await async_maybe_transform(
-                    {
-                        "customer_id": customer_id,
-                        "language": language,
-                        "use_environment_variables": use_environment_variables,
-                    },
-                    client_get_message_template_params.ClientGetMessageTemplateParams,
-                ),
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=GetMessageTemplateResponse,
+            cast_to=ListAssignmentsResponse,
         )
 
     def list_connection_configs(
@@ -2337,7 +2588,7 @@ class AsyncOpenint(AsyncAPIClient):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self.get_api_list(
-            "/connector-config",
+            "/v2/connector-config",
             page=AsyncOffsetPagination[ListConnectionConfigsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -2363,6 +2614,7 @@ class AsyncOpenint(AsyncAPIClient):
     def list_connections(
         self,
         *,
+        connection_ids: List[str] | NotGiven = NOT_GIVEN,
         connector_config_id: str | NotGiven = NOT_GIVEN,
         connector_names: List[
             Literal[
@@ -2546,6 +2798,7 @@ class AsyncOpenint(AsyncAPIClient):
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
+        repl_id: str | NotGiven = NOT_GIVEN,
         search_query: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -2584,7 +2837,7 @@ class AsyncOpenint(AsyncAPIClient):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self.get_api_list(
-            "/connection",
+            "/v2/connection",
             page=AsyncOffsetPagination[ListConnectionsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -2593,6 +2846,7 @@ class AsyncOpenint(AsyncAPIClient):
                 timeout=timeout,
                 query=maybe_transform(
                     {
+                        "connection_ids": connection_ids,
                         "connector_config_id": connector_config_id,
                         "connector_names": connector_names,
                         "customer_id": customer_id,
@@ -2601,6 +2855,7 @@ class AsyncOpenint(AsyncAPIClient):
                         "limit": limit,
                         "offset": offset,
                         "refresh_policy": refresh_policy,
+                        "repl_id": repl_id,
                         "search_query": search_query,
                     },
                     client_list_connections_params.ClientListConnectionsParams,
@@ -2612,6 +2867,7 @@ class AsyncOpenint(AsyncAPIClient):
     def list_connectors(
         self,
         *,
+        connector_name: str | NotGiven = NOT_GIVEN,
         expand: List[Literal["schemas"]] | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
@@ -2639,7 +2895,7 @@ class AsyncOpenint(AsyncAPIClient):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self.get_api_list(
-            "/connector",
+            "/v2/connector",
             page=AsyncOffsetPagination[ListConnectorsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -2648,6 +2904,7 @@ class AsyncOpenint(AsyncAPIClient):
                 timeout=timeout,
                 query=maybe_transform(
                     {
+                        "connector_name": connector_name,
                         "expand": expand,
                         "limit": limit,
                         "offset": offset,
@@ -2865,7 +3122,7 @@ class AsyncOpenint(AsyncAPIClient):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self.get_api_list(
-            "/connector-config",
+            "/v2/connector-config",
             page=AsyncOffsetPagination[ListConnnectorConfigsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -2918,7 +3175,7 @@ class AsyncOpenint(AsyncAPIClient):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self.get_api_list(
-            "/customer",
+            "/v1/customer",
             page=AsyncOffsetPagination[ListCustomersResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -2940,7 +3197,7 @@ class AsyncOpenint(AsyncAPIClient):
     def list_events(
         self,
         *,
-        expand: List[Literal["prompt"]] | NotGiven = NOT_GIVEN,
+        include_prompt: bool | NotGiven = NOT_GIVEN,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         search_query: str | NotGiven = NOT_GIVEN,
@@ -2969,7 +3226,7 @@ class AsyncOpenint(AsyncAPIClient):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self.get_api_list(
-            "/event",
+            "/v1/event",
             page=AsyncOffsetPagination[ListEventsResponse],
             options=make_request_options(
                 extra_headers=extra_headers,
@@ -2978,7 +3235,7 @@ class AsyncOpenint(AsyncAPIClient):
                 timeout=timeout,
                 query=maybe_transform(
                     {
-                        "expand": expand,
+                        "include_prompt": include_prompt,
                         "limit": limit,
                         "offset": offset,
                         "search_query": search_query,
@@ -3021,7 +3278,7 @@ class AsyncOpenint(AsyncAPIClient):
         return cast(
             UpsertConnnectorConfigResponse,
             await self.put(
-                f"/connector-config/{id}",
+                f"/v2/connector-config/{id}",
                 body=await async_maybe_transform(
                     {
                         "config": config,
@@ -3064,7 +3321,7 @@ class AsyncOpenint(AsyncAPIClient):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self.put(
-            "/customer",
+            "/v1/customer",
             body=await async_maybe_transform(
                 {
                     "id": id,
@@ -3076,6 +3333,40 @@ class AsyncOpenint(AsyncAPIClient):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=UpsertCustomerResponse,
+        )
+
+    async def upsert_organization(
+        self,
+        org_id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> UpsertOrganizationResponse:
+        """Upsert an organization by ID.
+
+        Creates if it does not exist.
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not org_id:
+            raise ValueError(f"Expected a non-empty value for `org_id` but received {org_id!r}")
+        return await self.put(
+            f"/v2/organization/{org_id}",
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=UpsertOrganizationResponse,
         )
 
     @override
@@ -3114,6 +3405,9 @@ class AsyncOpenint(AsyncAPIClient):
 
 class OpenintWithRawResponse:
     def __init__(self, client: Openint) -> None:
+        self.assign_connection = to_raw_response_wrapper(
+            client.assign_connection,
+        )
         self.check_connection = to_raw_response_wrapper(
             client.check_connection,
         )
@@ -3126,8 +3420,14 @@ class OpenintWithRawResponse:
         self.create_token = to_raw_response_wrapper(
             client.create_token,
         )
+        self.delete_assignment = to_raw_response_wrapper(
+            client.delete_assignment,
+        )
         self.delete_connection = to_raw_response_wrapper(
             client.delete_connection,
+        )
+        self.delete_connector_config = to_raw_response_wrapper(
+            client.delete_connector_config,
         )
         self.get_conector_config = to_raw_response_wrapper(
             client.get_conector_config,
@@ -3138,8 +3438,8 @@ class OpenintWithRawResponse:
         self.get_current_user = to_raw_response_wrapper(
             client.get_current_user,
         )
-        self.get_message_template = to_raw_response_wrapper(
-            client.get_message_template,
+        self.list_assignments = to_raw_response_wrapper(
+            client.list_assignments,
         )
         self.list_connection_configs = to_raw_response_wrapper(
             client.list_connection_configs,
@@ -3165,10 +3465,16 @@ class OpenintWithRawResponse:
         self.upsert_customer = to_raw_response_wrapper(
             client.upsert_customer,
         )
+        self.upsert_organization = to_raw_response_wrapper(
+            client.upsert_organization,
+        )
 
 
 class AsyncOpenintWithRawResponse:
     def __init__(self, client: AsyncOpenint) -> None:
+        self.assign_connection = async_to_raw_response_wrapper(
+            client.assign_connection,
+        )
         self.check_connection = async_to_raw_response_wrapper(
             client.check_connection,
         )
@@ -3181,8 +3487,14 @@ class AsyncOpenintWithRawResponse:
         self.create_token = async_to_raw_response_wrapper(
             client.create_token,
         )
+        self.delete_assignment = async_to_raw_response_wrapper(
+            client.delete_assignment,
+        )
         self.delete_connection = async_to_raw_response_wrapper(
             client.delete_connection,
+        )
+        self.delete_connector_config = async_to_raw_response_wrapper(
+            client.delete_connector_config,
         )
         self.get_conector_config = async_to_raw_response_wrapper(
             client.get_conector_config,
@@ -3193,8 +3505,8 @@ class AsyncOpenintWithRawResponse:
         self.get_current_user = async_to_raw_response_wrapper(
             client.get_current_user,
         )
-        self.get_message_template = async_to_raw_response_wrapper(
-            client.get_message_template,
+        self.list_assignments = async_to_raw_response_wrapper(
+            client.list_assignments,
         )
         self.list_connection_configs = async_to_raw_response_wrapper(
             client.list_connection_configs,
@@ -3220,10 +3532,16 @@ class AsyncOpenintWithRawResponse:
         self.upsert_customer = async_to_raw_response_wrapper(
             client.upsert_customer,
         )
+        self.upsert_organization = async_to_raw_response_wrapper(
+            client.upsert_organization,
+        )
 
 
 class OpenintWithStreamedResponse:
     def __init__(self, client: Openint) -> None:
+        self.assign_connection = to_streamed_response_wrapper(
+            client.assign_connection,
+        )
         self.check_connection = to_streamed_response_wrapper(
             client.check_connection,
         )
@@ -3236,8 +3554,14 @@ class OpenintWithStreamedResponse:
         self.create_token = to_streamed_response_wrapper(
             client.create_token,
         )
+        self.delete_assignment = to_streamed_response_wrapper(
+            client.delete_assignment,
+        )
         self.delete_connection = to_streamed_response_wrapper(
             client.delete_connection,
+        )
+        self.delete_connector_config = to_streamed_response_wrapper(
+            client.delete_connector_config,
         )
         self.get_conector_config = to_streamed_response_wrapper(
             client.get_conector_config,
@@ -3248,8 +3572,8 @@ class OpenintWithStreamedResponse:
         self.get_current_user = to_streamed_response_wrapper(
             client.get_current_user,
         )
-        self.get_message_template = to_streamed_response_wrapper(
-            client.get_message_template,
+        self.list_assignments = to_streamed_response_wrapper(
+            client.list_assignments,
         )
         self.list_connection_configs = to_streamed_response_wrapper(
             client.list_connection_configs,
@@ -3275,10 +3599,16 @@ class OpenintWithStreamedResponse:
         self.upsert_customer = to_streamed_response_wrapper(
             client.upsert_customer,
         )
+        self.upsert_organization = to_streamed_response_wrapper(
+            client.upsert_organization,
+        )
 
 
 class AsyncOpenintWithStreamedResponse:
     def __init__(self, client: AsyncOpenint) -> None:
+        self.assign_connection = async_to_streamed_response_wrapper(
+            client.assign_connection,
+        )
         self.check_connection = async_to_streamed_response_wrapper(
             client.check_connection,
         )
@@ -3291,8 +3621,14 @@ class AsyncOpenintWithStreamedResponse:
         self.create_token = async_to_streamed_response_wrapper(
             client.create_token,
         )
+        self.delete_assignment = async_to_streamed_response_wrapper(
+            client.delete_assignment,
+        )
         self.delete_connection = async_to_streamed_response_wrapper(
             client.delete_connection,
+        )
+        self.delete_connector_config = async_to_streamed_response_wrapper(
+            client.delete_connector_config,
         )
         self.get_conector_config = async_to_streamed_response_wrapper(
             client.get_conector_config,
@@ -3303,8 +3639,8 @@ class AsyncOpenintWithStreamedResponse:
         self.get_current_user = async_to_streamed_response_wrapper(
             client.get_current_user,
         )
-        self.get_message_template = async_to_streamed_response_wrapper(
-            client.get_message_template,
+        self.list_assignments = async_to_streamed_response_wrapper(
+            client.list_assignments,
         )
         self.list_connection_configs = async_to_streamed_response_wrapper(
             client.list_connection_configs,
@@ -3329,6 +3665,9 @@ class AsyncOpenintWithStreamedResponse:
         )
         self.upsert_customer = async_to_streamed_response_wrapper(
             client.upsert_customer,
+        )
+        self.upsert_organization = async_to_streamed_response_wrapper(
+            client.upsert_organization,
         )
 
 

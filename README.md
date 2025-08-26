@@ -32,7 +32,7 @@ client = Openint(
     token=os.environ.get("OPENINT_API_KEY"),  # This is the default and can be omitted
 )
 
-page = client.list_connections()
+page = client.list_connectors()
 print(page.items)
 ```
 
@@ -56,7 +56,7 @@ client = AsyncOpenint(
 
 
 async def main() -> None:
-    page = await client.list_connections()
+    page = await client.list_connectors()
     print(page.items)
 
 
@@ -89,7 +89,7 @@ async def main() -> None:
         token="My Token",
         http_client=DefaultAioHttpClient(),
     ) as client:
-        page = await client.list_connections()
+        page = await client.list_connectors()
         print(page.items)
 
 
@@ -137,7 +137,7 @@ from openint import Openint
 client = Openint()
 
 try:
-    client.list_connections()
+    client.list_connectors()
 except openint.APIConnectionError as e:
     print("The server could not be reached")
     print(e.__cause__)  # an underlying Exception, likely raised within httpx.
@@ -180,7 +180,7 @@ client = Openint(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).list_connections()
+client.with_options(max_retries=5).list_connectors()
 ```
 
 ### Timeouts
@@ -203,7 +203,7 @@ client = Openint(
 )
 
 # Override per-request:
-client.with_options(timeout=5.0).list_connections()
+client.with_options(timeout=5.0).list_connectors()
 ```
 
 On timeout, an `APITimeoutError` is thrown.
@@ -244,10 +244,10 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 from openint import Openint
 
 client = Openint()
-response = client.with_raw_response.list_connections()
+response = client.with_raw_response.list_connectors()
 print(response.headers.get('X-My-Header'))
 
-client = response.parse()  # get the object that `list_connections()` would have returned
+client = response.parse()  # get the object that `list_connectors()` would have returned
 print(client)
 ```
 
@@ -262,7 +262,7 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.with_streaming_response.list_connections() as response:
+with client.with_streaming_response.list_connectors() as response:
     print(response.headers.get("X-My-Header"))
 
     for line in response.iter_lines():

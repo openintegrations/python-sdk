@@ -2,14 +2,13 @@
 
 from __future__ import annotations
 
-from typing import List
-from typing_extensions import Literal, TypedDict
+from typing_extensions import TypedDict
 
 __all__ = ["ClientListEventsParams"]
 
 
 class ClientListEventsParams(TypedDict, total=False):
-    expand: List[Literal["prompt"]]
+    include_prompt: bool
 
     limit: int
     """Limit the number of items returned"""
