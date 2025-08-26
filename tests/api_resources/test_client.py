@@ -25,6 +25,7 @@ from openint.types import (
     DeleteAssignmentResponse,
     DeleteConnectionResponse,
     GetConectorConfigResponse,
+    UpsertOrganizationResponse,
     DeleteConnectorConfigResponse,
     ListConnectionConfigsResponse,
     ListConnnectorConfigsResponse,
@@ -955,6 +956,48 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_method_upsert_organization(self, client: Openint) -> None:
+        client_ = client.upsert_organization(
+            "x",
+        )
+        assert_matches_type(UpsertOrganizationResponse, client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_raw_response_upsert_organization(self, client: Openint) -> None:
+        response = client.with_raw_response.upsert_organization(
+            "x",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client_ = response.parse()
+        assert_matches_type(UpsertOrganizationResponse, client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_streaming_response_upsert_organization(self, client: Openint) -> None:
+        with client.with_streaming_response.upsert_organization(
+            "x",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client_ = response.parse()
+            assert_matches_type(UpsertOrganizationResponse, client_, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_path_params_upsert_organization(self, client: Openint) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `org_id` but received ''"):
+            client.with_raw_response.upsert_organization(
+                "",
+            )
+
 
 class TestAsyncClient:
     parametrize = pytest.mark.parametrize(
@@ -1876,3 +1919,45 @@ class TestAsyncClient:
             assert_matches_type(UpsertCustomerResponse, client, path=["response"])
 
         assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_method_upsert_organization(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.upsert_organization(
+            "x",
+        )
+        assert_matches_type(UpsertOrganizationResponse, client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_raw_response_upsert_organization(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.upsert_organization(
+            "x",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client = await response.parse()
+        assert_matches_type(UpsertOrganizationResponse, client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_streaming_response_upsert_organization(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.upsert_organization(
+            "x",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client = await response.parse()
+            assert_matches_type(UpsertOrganizationResponse, client, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_path_params_upsert_organization(self, async_client: AsyncOpenint) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `org_id` but received ''"):
+            await async_client.with_raw_response.upsert_organization(
+                "",
+            )
