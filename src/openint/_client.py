@@ -1138,6 +1138,7 @@ class Openint(SyncAPIClient):
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
+        repl_id: str | NotGiven = NOT_GIVEN,
         search_query: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -1194,6 +1195,7 @@ class Openint(SyncAPIClient):
                         "limit": limit,
                         "offset": offset,
                         "refresh_policy": refresh_policy,
+                        "repl_id": repl_id,
                         "search_query": search_query,
                     },
                     client_list_connections_params.ClientListConnectionsParams,
@@ -2761,6 +2763,7 @@ class AsyncOpenint(AsyncAPIClient):
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
         refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
+        repl_id: str | NotGiven = NOT_GIVEN,
         search_query: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -2817,6 +2820,7 @@ class AsyncOpenint(AsyncAPIClient):
                         "limit": limit,
                         "offset": offset,
                         "refresh_policy": refresh_policy,
+                        "repl_id": repl_id,
                         "search_query": search_query,
                     },
                     client_list_connections_params.ClientListConnectionsParams,
