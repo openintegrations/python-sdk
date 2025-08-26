@@ -5,10 +5,10 @@ from __future__ import annotations
 from typing import List, Optional
 from typing_extensions import Literal, TypedDict
 
-__all__ = ["ClientListConnectionConfigsParams"]
+__all__ = ["ClientListConnectorConfigsParams"]
 
 
-class ClientListConnectionConfigsParams(TypedDict, total=False):
+class ClientListConnectorConfigsParams(TypedDict, total=False):
     connector_names: List[
         Literal[
             "accelo",
