@@ -26,6 +26,7 @@ from openint.types import (
     ListCustomersResponse,
     ListEventsResponse,
     PreConfigureConnectorResponse,
+    PreConnectResponse,
     UpsertConnnectorConfigResponse,
     UpsertCustomerResponse,
     UpsertOrganizationResponse,
@@ -54,6 +55,7 @@ Methods:
 - <code title="get /v1/customer">client.<a href="./src/openint/_client.py">list_customers</a>(\*\*<a href="src/openint/types/client_list_customers_params.py">params</a>) -> <a href="./src/openint/types/list_customers_response.py">SyncOffsetPagination[ListCustomersResponse]</a></code>
 - <code title="get /v1/event">client.<a href="./src/openint/_client.py">list_events</a>(\*\*<a href="src/openint/types/client_list_events_params.py">params</a>) -> <a href="./src/openint/types/list_events_response.py">SyncOffsetPagination[ListEventsResponse]</a></code>
 - <code title="post /v2/connector-config/pre-configure">client.<a href="./src/openint/_client.py">pre_configure_connector</a>(\*\*<a href="src/openint/types/client_pre_configure_connector_params.py">params</a>) -> <a href="./src/openint/types/pre_configure_connector_response.py">PreConfigureConnectorResponse</a></code>
+- <code title="post /v1/connect/pre-connect">client.<a href="./src/openint/_client.py">pre_connect</a>(\*\*<a href="src/openint/types/client_pre_connect_params.py">params</a>) -> <a href="./src/openint/types/pre_connect_response.py">PreConnectResponse</a></code>
 - <code title="put /v2/connector-config/{id}">client.<a href="./src/openint/_client.py">upsert_connnector_config</a>(id, \*\*<a href="src/openint/types/client_upsert_connnector_config_params.py">params</a>) -> <a href="./src/openint/types/upsert_connnector_config_response.py">UpsertConnnectorConfigResponse</a></code>
 - <code title="put /v1/customer">client.<a href="./src/openint/_client.py">upsert_customer</a>(\*\*<a href="src/openint/types/client_upsert_customer_params.py">params</a>) -> <a href="./src/openint/types/upsert_customer_response.py">UpsertCustomerResponse</a></code>
 - <code title="put /v2/organization/{org_id}">client.<a href="./src/openint/_client.py">upsert_organization</a>(org_id) -> <a href="./src/openint/types/upsert_organization_response.py">UpsertOrganizationResponse</a></code>
