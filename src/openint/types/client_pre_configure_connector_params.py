@@ -2,14 +2,13 @@
 
 from __future__ import annotations
 
-from typing import List, Optional
-from typing_extensions import Literal, TypedDict
+from typing_extensions import Literal, Required, TypedDict
 
-__all__ = ["ClientListConnnectorConfigsParams"]
+__all__ = ["ClientPreConfigureConnectorParams"]
 
 
-class ClientListConnnectorConfigsParams(TypedDict, total=False):
-    connector_names: List[
+class ClientPreConfigureConnectorParams(TypedDict, total=False):
+    connector_name: Required[
         Literal[
             "accelo",
             "acme-apikey",
@@ -185,13 +184,3 @@ class ClientListConnnectorConfigsParams(TypedDict, total=False):
             "zoom",
         ]
     ]
-
-    expand: List[Literal["connector", "connector.schemas", "connection_count"]]
-
-    limit: int
-    """Limit the number of items returned"""
-
-    offset: int
-    """Offset the items returned"""
-
-    search_query: Optional[str]

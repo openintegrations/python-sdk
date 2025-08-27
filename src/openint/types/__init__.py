@@ -6,6 +6,7 @@ from .connector import Connector as Connector
 from .integration import Integration as Integration
 from .list_events_response import ListEventsResponse as ListEventsResponse
 from .create_token_response import CreateTokenResponse as CreateTokenResponse
+from .connector_rpc_response import ConnectorRpcResponse as ConnectorRpcResponse
 from .get_connection_response import GetConnectionResponse as GetConnectionResponse
 from .list_customers_response import ListCustomersResponse as ListCustomersResponse
 from .list_connectors_response import ListConnectorsResponse as ListConnectorsResponse
@@ -20,6 +21,7 @@ from .client_create_token_params import ClientCreateTokenParams as ClientCreateT
 from .create_connection_response import CreateConnectionResponse as CreateConnectionResponse
 from .delete_assignment_response import DeleteAssignmentResponse as DeleteAssignmentResponse
 from .delete_connection_response import DeleteConnectionResponse as DeleteConnectionResponse
+from .client_connector_rpc_params import ClientConnectorRpcParams as ClientConnectorRpcParams
 from .client_get_connection_params import ClientGetConnectionParams as ClientGetConnectionParams
 from .client_list_customers_params import ClientListCustomersParams as ClientListCustomersParams
 from .get_conector_config_response import GetConectorConfigResponse as GetConectorConfigResponse
@@ -31,12 +33,16 @@ from .client_create_connection_params import ClientCreateConnectionParams as Cli
 from .list_connector_configs_response import ListConnectorConfigsResponse as ListConnectorConfigsResponse
 from .delete_connector_config_response import DeleteConnectorConfigResponse as DeleteConnectorConfigResponse
 from .list_connnector_configs_response import ListConnnectorConfigsResponse as ListConnnectorConfigsResponse
+from .pre_configure_connector_response import PreConfigureConnectorResponse as PreConfigureConnectorResponse
 from .client_get_conector_config_params import ClientGetConectorConfigParams as ClientGetConectorConfigParams
 from .create_connnector_config_response import CreateConnnectorConfigResponse as CreateConnnectorConfigResponse
 from .upsert_connnector_config_response import UpsertConnnectorConfigResponse as UpsertConnnectorConfigResponse
 from .client_list_connector_configs_params import ClientListConnectorConfigsParams as ClientListConnectorConfigsParams
 from .client_list_connnector_configs_params import (
     ClientListConnnectorConfigsParams as ClientListConnnectorConfigsParams,
+)
+from .client_pre_configure_connector_params import (
+    ClientPreConfigureConnectorParams as ClientPreConfigureConnectorParams,
 )
 from .client_create_connnector_config_params import (
     ClientCreateConnnectorConfigParams as ClientCreateConnnectorConfigParams,
