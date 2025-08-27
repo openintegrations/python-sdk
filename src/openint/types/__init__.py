@@ -5,6 +5,7 @@ from __future__ import annotations
 from .connector import Connector as Connector
 from .integration import Integration as Integration
 from .list_events_response import ListEventsResponse as ListEventsResponse
+from .pre_connect_response import PreConnectResponse as PreConnectResponse
 from .create_token_response import CreateTokenResponse as CreateTokenResponse
 from .connector_rpc_response import ConnectorRpcResponse as ConnectorRpcResponse
 from .get_connection_response import GetConnectionResponse as GetConnectionResponse
@@ -13,6 +14,7 @@ from .list_connectors_response import ListConnectorsResponse as ListConnectorsRe
 from .upsert_customer_response import UpsertCustomerResponse as UpsertCustomerResponse
 from .check_connection_response import CheckConnectionResponse as CheckConnectionResponse
 from .client_list_events_params import ClientListEventsParams as ClientListEventsParams
+from .client_pre_connect_params import ClientPreConnectParams as ClientPreConnectParams
 from .get_current_user_response import GetCurrentUserResponse as GetCurrentUserResponse
 from .list_assignments_response import ListAssignmentsResponse as ListAssignmentsResponse
 from .list_connections_response import ListConnectionsResponse as ListConnectionsResponse

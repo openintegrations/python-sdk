@@ -11,6 +11,7 @@ from openint import Openint, AsyncOpenint
 from tests.utils import assert_matches_type
 from openint.types import (
     ListEventsResponse,
+    PreConnectResponse,
     CreateTokenResponse,
     ConnectorRpcResponse,
     GetConnectionResponse,
@@ -956,6 +957,71 @@ class TestClient:
 
             client_ = response.parse()
             assert_matches_type(PreConfigureConnectorResponse, client_, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_method_pre_connect(self, client: Openint) -> None:
+        client_ = client.pre_connect(
+            connector_config_id="connector_config_id",
+            discriminated_data={
+                "connector_name": "accelo",
+                "pre_connect_input": {},
+            },
+            options={},
+        )
+        assert_matches_type(PreConnectResponse, client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_method_pre_connect_with_all_params(self, client: Openint) -> None:
+        client_ = client.pre_connect(
+            connector_config_id="connector_config_id",
+            discriminated_data={
+                "connector_name": "accelo",
+                "pre_connect_input": {"connection_id": "connection_id"},
+            },
+            options={
+                "connection_external_id": "string",
+                "integration_external_id": "string",
+            },
+        )
+        assert_matches_type(PreConnectResponse, client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_raw_response_pre_connect(self, client: Openint) -> None:
+        response = client.with_raw_response.pre_connect(
+            connector_config_id="connector_config_id",
+            discriminated_data={
+                "connector_name": "accelo",
+                "pre_connect_input": {},
+            },
+            options={},
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client_ = response.parse()
+        assert_matches_type(PreConnectResponse, client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_streaming_response_pre_connect(self, client: Openint) -> None:
+        with client.with_streaming_response.pre_connect(
+            connector_config_id="connector_config_id",
+            discriminated_data={
+                "connector_name": "accelo",
+                "pre_connect_input": {},
+            },
+            options={},
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client_ = response.parse()
+            assert_matches_type(PreConnectResponse, client_, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -2011,6 +2077,71 @@ class TestAsyncClient:
 
             client = await response.parse()
             assert_matches_type(PreConfigureConnectorResponse, client, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_method_pre_connect(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.pre_connect(
+            connector_config_id="connector_config_id",
+            discriminated_data={
+                "connector_name": "accelo",
+                "pre_connect_input": {},
+            },
+            options={},
+        )
+        assert_matches_type(PreConnectResponse, client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_method_pre_connect_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.pre_connect(
+            connector_config_id="connector_config_id",
+            discriminated_data={
+                "connector_name": "accelo",
+                "pre_connect_input": {"connection_id": "connection_id"},
+            },
+            options={
+                "connection_external_id": "string",
+                "integration_external_id": "string",
+            },
+        )
+        assert_matches_type(PreConnectResponse, client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_raw_response_pre_connect(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.pre_connect(
+            connector_config_id="connector_config_id",
+            discriminated_data={
+                "connector_name": "accelo",
+                "pre_connect_input": {},
+            },
+            options={},
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client = await response.parse()
+        assert_matches_type(PreConnectResponse, client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_streaming_response_pre_connect(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.pre_connect(
+            connector_config_id="connector_config_id",
+            discriminated_data={
+                "connector_name": "accelo",
+                "pre_connect_input": {},
+            },
+            options={},
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client = await response.parse()
+            assert_matches_type(PreConnectResponse, client, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 

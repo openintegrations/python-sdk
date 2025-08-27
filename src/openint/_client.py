@@ -12,6 +12,7 @@ from . import _exceptions
 from ._qs import Querystring
 from .types import (
     client_list_events_params,
+    client_pre_connect_params,
     client_create_token_params,
     client_connector_rpc_params,
     client_get_connection_params,
@@ -63,6 +64,7 @@ from ._base_client import (
     make_request_options,
 )
 from .types.list_events_response import ListEventsResponse
+from .types.pre_connect_response import PreConnectResponse
 from .types.create_token_response import CreateTokenResponse
 from .types.connector_rpc_response import ConnectorRpcResponse
 from .types.get_connection_response import GetConnectionResponse
@@ -1843,6 +1845,55 @@ class Openint(SyncAPIClient):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=PreConfigureConnectorResponse,
+        )
+
+    def pre_connect(
+        self,
+        *,
+        connector_config_id: str,
+        discriminated_data: client_pre_connect_params.DiscriminatedData,
+        options: client_pre_connect_params.Options,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> PreConnectResponse:
+        """Args:
+          connector_config_id: Must correspond to data.connector_name.
+
+        Technically id should imply
+              connector_name already but there is no way to specify a discriminated union with
+              id alone.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return cast(
+            PreConnectResponse,
+            self.post(
+                "/v1/connect/pre-connect",
+                body=maybe_transform(
+                    {
+                        "connector_config_id": connector_config_id,
+                        "discriminated_data": discriminated_data,
+                        "options": options,
+                    },
+                    client_pre_connect_params.ClientPreConnectParams,
+                ),
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, PreConnectResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
         )
 
     def upsert_connnector_config(
@@ -3757,6 +3808,55 @@ class AsyncOpenint(AsyncAPIClient):
             cast_to=PreConfigureConnectorResponse,
         )
 
+    async def pre_connect(
+        self,
+        *,
+        connector_config_id: str,
+        discriminated_data: client_pre_connect_params.DiscriminatedData,
+        options: client_pre_connect_params.Options,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> PreConnectResponse:
+        """Args:
+          connector_config_id: Must correspond to data.connector_name.
+
+        Technically id should imply
+              connector_name already but there is no way to specify a discriminated union with
+              id alone.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return cast(
+            PreConnectResponse,
+            await self.post(
+                "/v1/connect/pre-connect",
+                body=await async_maybe_transform(
+                    {
+                        "connector_config_id": connector_config_id,
+                        "discriminated_data": discriminated_data,
+                        "options": options,
+                    },
+                    client_pre_connect_params.ClientPreConnectParams,
+                ),
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, PreConnectResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
     async def upsert_connnector_config(
         self,
         id: str,
@@ -3975,6 +4075,9 @@ class OpenintWithRawResponse:
         self.pre_configure_connector = to_raw_response_wrapper(
             client.pre_configure_connector,
         )
+        self.pre_connect = to_raw_response_wrapper(
+            client.pre_connect,
+        )
         self.upsert_connnector_config = to_raw_response_wrapper(
             client.upsert_connnector_config,
         )
@@ -4047,6 +4150,9 @@ class AsyncOpenintWithRawResponse:
         )
         self.pre_configure_connector = async_to_raw_response_wrapper(
             client.pre_configure_connector,
+        )
+        self.pre_connect = async_to_raw_response_wrapper(
+            client.pre_connect,
         )
         self.upsert_connnector_config = async_to_raw_response_wrapper(
             client.upsert_connnector_config,
@@ -4121,6 +4227,9 @@ class OpenintWithStreamedResponse:
         self.pre_configure_connector = to_streamed_response_wrapper(
             client.pre_configure_connector,
         )
+        self.pre_connect = to_streamed_response_wrapper(
+            client.pre_connect,
+        )
         self.upsert_connnector_config = to_streamed_response_wrapper(
             client.upsert_connnector_config,
         )
@@ -4193,6 +4302,9 @@ class AsyncOpenintWithStreamedResponse:
         )
         self.pre_configure_connector = async_to_streamed_response_wrapper(
             client.pre_configure_connector,
+        )
+        self.pre_connect = async_to_streamed_response_wrapper(
+            client.pre_connect,
         )
         self.upsert_connnector_config = async_to_streamed_response_wrapper(
             client.upsert_connnector_config,

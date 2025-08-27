@@ -7981,12 +7981,6 @@ class ConnectorSlackAgentDiscriminatedConnectorConfigConfig(BaseModel):
     challenge_response: str
     """USER_PASTED_TOKEN - SLACK_ONETIME_CHALLENGE_CODE"""
 
-    event_subscription_url: str
-    """Initial event subscription URL"""
-
-    service_token: str
-    """Service token - xoxb-..."""
-
     app_id: Optional[str] = None
     """App ID - A1234567890"""
 
@@ -7996,8 +7990,14 @@ class ConnectorSlackAgentDiscriminatedConnectorConfigConfig(BaseModel):
     client_secret: Optional[str] = None
     """Client secret - abc123..."""
 
+    event_subscription_url: Optional[str] = None
+    """Initial event subscription URL"""
+
     initial_oauth_url: Optional[str] = None
     """Initial OAuth URL - https://slack.com/oauth/v2/authorize?..."""
+
+    service_token: Optional[str] = None
+    """Service token - xoxb-..."""
 
     signing_secret: Optional[str] = None
     """Signing secret - abc123..."""
