@@ -474,6 +474,8 @@ __all__ = [
     "ConnectorSaltedgeDiscriminatedConnectorConfig",
     "ConnectorSaltedgeDiscriminatedConnectorConfigConfig",
     "ConnectorSharepointOnpremDiscriminatedConnectorConfig",
+    "ConnectorSlackAgentDiscriminatedConnectorConfig",
+    "ConnectorSlackAgentDiscriminatedConnectorConfigConfig",
     "ConnectorSplitwiseDiscriminatedConnectorConfig",
     "ConnectorStripeDiscriminatedConnectorConfig",
     "ConnectorStripeDiscriminatedConnectorConfigConfig",
@@ -7972,6 +7974,69 @@ class ConnectorSharepointOnpremDiscriminatedConnectorConfig(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorSlackAgentDiscriminatedConnectorConfigConfig(BaseModel):
+    challenge_code: str
+    """Previous challenge code - e.g. challenge_slack_abc123xyz"""
+
+    challenge_response: str
+    """USER_PASTED_TOKEN - SLACK_ONETIME_CHALLENGE_CODE"""
+
+    app_id: Optional[str] = None
+    """App ID - A1234567890"""
+
+    client_id: Optional[str] = None
+    """Client ID - 1234567890.1234567890"""
+
+    client_secret: Optional[str] = None
+    """Client secret - abc123..."""
+
+    event_subscription_url: Optional[str] = None
+    """Initial event subscription URL"""
+
+    initial_oauth_url: Optional[str] = None
+    """Initial OAuth URL - https://slack.com/oauth/v2/authorize?..."""
+
+    service_token: Optional[str] = None
+    """Service token - xoxb-..."""
+
+    signing_secret: Optional[str] = None
+    """Signing secret - abc123..."""
+
+    verification_token: Optional[str] = None
+    """Verification token - xyz123..."""
+
+
+class ConnectorSlackAgentDiscriminatedConnectorConfig(BaseModel):
+    config: ConnectorSlackAgentDiscriminatedConnectorConfigConfig
+
+    connector_name: Literal["slack-agent"]
+
+    id: Optional[str] = None
+
+    connection_count: Optional[float] = None
+
+    connector: Optional[Connector] = None
+
+    created_at: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integrations: Optional[Dict[str, Integration]] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    org_id: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorSplitwiseDiscriminatedConnectorConfig(BaseModel):
     config: object
 
@@ -8438,6 +8503,7 @@ ListConnnectorConfigsResponse: TypeAlias = Union[
     ConnectorRampDiscriminatedConnectorConfig,
     ConnectorSaltedgeDiscriminatedConnectorConfig,
     ConnectorSharepointOnpremDiscriminatedConnectorConfig,
+    ConnectorSlackAgentDiscriminatedConnectorConfig,
     ConnectorSplitwiseDiscriminatedConnectorConfig,
     ConnectorStripeDiscriminatedConnectorConfig,
     ConnectorTellerDiscriminatedConnectorConfig,

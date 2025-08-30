@@ -12,7 +12,9 @@ from . import _exceptions
 from ._qs import Querystring
 from .types import (
     client_list_events_params,
+    client_pre_connect_params,
     client_create_token_params,
+    client_connector_rpc_params,
     client_get_connection_params,
     client_list_customers_params,
     client_list_connectors_params,
@@ -20,8 +22,9 @@ from .types import (
     client_list_connections_params,
     client_create_connection_params,
     client_get_conector_config_params,
-    client_list_connection_configs_params,
+    client_list_connector_configs_params,
     client_list_connnector_configs_params,
+    client_pre_configure_connector_params,
     client_create_connnector_config_params,
     client_upsert_connnector_config_params,
 )
@@ -61,7 +64,9 @@ from ._base_client import (
     make_request_options,
 )
 from .types.list_events_response import ListEventsResponse
+from .types.pre_connect_response import PreConnectResponse
 from .types.create_token_response import CreateTokenResponse
+from .types.connector_rpc_response import ConnectorRpcResponse
 from .types.get_connection_response import GetConnectionResponse
 from .types.list_customers_response import ListCustomersResponse
 from .types.list_connectors_response import ListConnectorsResponse
@@ -76,9 +81,10 @@ from .types.delete_assignment_response import DeleteAssignmentResponse
 from .types.delete_connection_response import DeleteConnectionResponse
 from .types.get_conector_config_response import GetConectorConfigResponse
 from .types.upsert_organization_response import UpsertOrganizationResponse
+from .types.list_connector_configs_response import ListConnectorConfigsResponse
 from .types.delete_connector_config_response import DeleteConnectorConfigResponse
-from .types.list_connection_configs_response import ListConnectionConfigsResponse
 from .types.list_connnector_configs_response import ListConnnectorConfigsResponse
+from .types.pre_configure_connector_response import PreConfigureConnectorResponse
 from .types.create_connnector_config_response import CreateConnnectorConfigResponse
 from .types.upsert_connnector_config_response import UpsertConnnectorConfigResponse
 
@@ -299,6 +305,50 @@ class Openint(SyncAPIClient):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=CheckConnectionResponse,
+        )
+
+    def connector_rpc(
+        self,
+        function_name: str,
+        *,
+        connector_config_id: str,
+        input: Dict[str, object],
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> ConnectorRpcResponse:
+        """
+        Execute RPC function on connector
+
+        Args:
+          connector_config_id: The id of the connector config, starts with `ccfg_`
+
+          function_name: RPC function name to execute
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not connector_config_id:
+            raise ValueError(
+                f"Expected a non-empty value for `connector_config_id` but received {connector_config_id!r}"
+            )
+        if not function_name:
+            raise ValueError(f"Expected a non-empty value for `function_name` but received {function_name!r}")
+        return self.post(
+            f"/v2/connector-config/{connector_config_id}/rpc/{function_name}",
+            body=maybe_transform({"input": input}, client_connector_rpc_params.ClientConnectorRpcParams),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=ConnectorRpcResponse,
         )
 
     def create_connection(
@@ -722,236 +772,6 @@ class Openint(SyncAPIClient):
             cast_to=ListAssignmentsResponse,
         )
 
-    def list_connection_configs(
-        self,
-        *,
-        connector_names: List[
-            Literal[
-                "accelo",
-                "acme-apikey",
-                "acme-oauth2",
-                "adobe",
-                "adyen",
-                "aircall",
-                "airtable",
-                "amazon",
-                "apaleo",
-                "apollo",
-                "asana",
-                "attio",
-                "auth0",
-                "autodesk",
-                "aws",
-                "bamboohr",
-                "basecamp",
-                "battlenet",
-                "bigcommerce",
-                "bitbucket",
-                "bitly",
-                "blackbaud",
-                "boldsign",
-                "box",
-                "braintree",
-                "brex",
-                "calendly",
-                "clickup",
-                "close",
-                "coda",
-                "confluence",
-                "contentful",
-                "contentstack",
-                "copper",
-                "coros",
-                "datev",
-                "deel",
-                "dialpad",
-                "digitalocean",
-                "discord",
-                "docusign",
-                "dropbox",
-                "ebay",
-                "egnyte",
-                "envoy",
-                "eventbrite",
-                "exist",
-                "facebook",
-                "factorial",
-                "figma",
-                "finch",
-                "firebase",
-                "fitbit",
-                "foreceipt",
-                "fortnox",
-                "freshbooks",
-                "front",
-                "github",
-                "gitlab",
-                "gong",
-                "google-calendar",
-                "google-docs",
-                "google-drive",
-                "google-mail",
-                "google-sheet",
-                "gorgias",
-                "grain",
-                "greenhouse",
-                "gumroad",
-                "gusto",
-                "harvest",
-                "heron",
-                "highlevel",
-                "hubspot",
-                "instagram",
-                "intercom",
-                "jira",
-                "keap",
-                "lever",
-                "linear",
-                "linkedin",
-                "linkhut",
-                "lunchmoney",
-                "mailchimp",
-                "mercury",
-                "merge",
-                "miro",
-                "monday",
-                "moota",
-                "mural",
-                "namely",
-                "nationbuilder",
-                "netsuite",
-                "notion",
-                "odoo",
-                "okta",
-                "onebrick",
-                "openledger",
-                "osu",
-                "oura",
-                "outreach",
-                "pagerduty",
-                "pandadoc",
-                "payfit",
-                "paypal",
-                "pennylane",
-                "pinterest",
-                "pipedrive",
-                "plaid",
-                "podium",
-                "postgres",
-                "productboard",
-                "qualtrics",
-                "quickbooks",
-                "ramp",
-                "reddit",
-                "sage",
-                "salesforce",
-                "salesloft",
-                "saltedge",
-                "segment",
-                "servicem8",
-                "servicenow",
-                "sharepoint",
-                "sharepoint-onprem",
-                "shopify",
-                "signnow",
-                "slack",
-                "smartsheet",
-                "snowflake",
-                "splitwise",
-                "spotify",
-                "squarespace",
-                "squareup",
-                "stackexchange",
-                "strava",
-                "stripe",
-                "teamwork",
-                "teller",
-                "ticktick",
-                "timely",
-                "todoist",
-                "toggl",
-                "tremendous",
-                "tsheetsteam",
-                "tumblr",
-                "twenty",
-                "twinfield",
-                "twitch",
-                "twitter",
-                "typeform",
-                "uber",
-                "venmo",
-                "vimeo",
-                "wakatime",
-                "wealthbox",
-                "webflow",
-                "whoop",
-                "wise",
-                "wordpress",
-                "wrike",
-                "xero",
-                "yahoo",
-                "yandex",
-                "yodlee",
-                "zapier",
-                "zendesk",
-                "zenefits",
-                "zoho",
-                "zoho-desk",
-                "zoom",
-            ]
-        ]
-        | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        search_query: Optional[str] | NotGiven = NOT_GIVEN,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SyncOffsetPagination[ListConnectionConfigsResponse]:
-        """
-        List Configured Connectors
-
-        Args:
-          limit: Limit the number of items returned
-
-          offset: Offset the items returned
-
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        return self.get_api_list(
-            "/v2/connector-config",
-            page=SyncOffsetPagination[ListConnectionConfigsResponse],
-            options=make_request_options(
-                extra_headers=extra_headers,
-                extra_query=extra_query,
-                extra_body=extra_body,
-                timeout=timeout,
-                query=maybe_transform(
-                    {
-                        "connector_names": connector_names,
-                        "expand": expand,
-                        "limit": limit,
-                        "offset": offset,
-                        "search_query": search_query,
-                    },
-                    client_list_connection_configs_params.ClientListConnectionConfigsParams,
-                ),
-            ),
-            model=cast(
-                Any, ListConnectionConfigsResponse
-            ),  # Union types cannot be passed in as arguments in the type system
-        )
-
     def list_connections(
         self,
         *,
@@ -1087,6 +907,7 @@ class Openint(SyncAPIClient):
                 "shopify",
                 "signnow",
                 "slack",
+                "slack-agent",
                 "smartsheet",
                 "snowflake",
                 "splitwise",
@@ -1203,6 +1024,237 @@ class Openint(SyncAPIClient):
                 ),
             ),
             model=cast(Any, ListConnectionsResponse),  # Union types cannot be passed in as arguments in the type system
+        )
+
+    def list_connector_configs(
+        self,
+        *,
+        connector_names: List[
+            Literal[
+                "accelo",
+                "acme-apikey",
+                "acme-oauth2",
+                "adobe",
+                "adyen",
+                "aircall",
+                "airtable",
+                "amazon",
+                "apaleo",
+                "apollo",
+                "asana",
+                "attio",
+                "auth0",
+                "autodesk",
+                "aws",
+                "bamboohr",
+                "basecamp",
+                "battlenet",
+                "bigcommerce",
+                "bitbucket",
+                "bitly",
+                "blackbaud",
+                "boldsign",
+                "box",
+                "braintree",
+                "brex",
+                "calendly",
+                "clickup",
+                "close",
+                "coda",
+                "confluence",
+                "contentful",
+                "contentstack",
+                "copper",
+                "coros",
+                "datev",
+                "deel",
+                "dialpad",
+                "digitalocean",
+                "discord",
+                "docusign",
+                "dropbox",
+                "ebay",
+                "egnyte",
+                "envoy",
+                "eventbrite",
+                "exist",
+                "facebook",
+                "factorial",
+                "figma",
+                "finch",
+                "firebase",
+                "fitbit",
+                "foreceipt",
+                "fortnox",
+                "freshbooks",
+                "front",
+                "github",
+                "gitlab",
+                "gong",
+                "google-calendar",
+                "google-docs",
+                "google-drive",
+                "google-mail",
+                "google-sheet",
+                "gorgias",
+                "grain",
+                "greenhouse",
+                "gumroad",
+                "gusto",
+                "harvest",
+                "heron",
+                "highlevel",
+                "hubspot",
+                "instagram",
+                "intercom",
+                "jira",
+                "keap",
+                "lever",
+                "linear",
+                "linkedin",
+                "linkhut",
+                "lunchmoney",
+                "mailchimp",
+                "mercury",
+                "merge",
+                "miro",
+                "monday",
+                "moota",
+                "mural",
+                "namely",
+                "nationbuilder",
+                "netsuite",
+                "notion",
+                "odoo",
+                "okta",
+                "onebrick",
+                "openledger",
+                "osu",
+                "oura",
+                "outreach",
+                "pagerduty",
+                "pandadoc",
+                "payfit",
+                "paypal",
+                "pennylane",
+                "pinterest",
+                "pipedrive",
+                "plaid",
+                "podium",
+                "postgres",
+                "productboard",
+                "qualtrics",
+                "quickbooks",
+                "ramp",
+                "reddit",
+                "sage",
+                "salesforce",
+                "salesloft",
+                "saltedge",
+                "segment",
+                "servicem8",
+                "servicenow",
+                "sharepoint",
+                "sharepoint-onprem",
+                "shopify",
+                "signnow",
+                "slack",
+                "slack-agent",
+                "smartsheet",
+                "snowflake",
+                "splitwise",
+                "spotify",
+                "squarespace",
+                "squareup",
+                "stackexchange",
+                "strava",
+                "stripe",
+                "teamwork",
+                "teller",
+                "ticktick",
+                "timely",
+                "todoist",
+                "toggl",
+                "tremendous",
+                "tsheetsteam",
+                "tumblr",
+                "twenty",
+                "twinfield",
+                "twitch",
+                "twitter",
+                "typeform",
+                "uber",
+                "venmo",
+                "vimeo",
+                "wakatime",
+                "wealthbox",
+                "webflow",
+                "whoop",
+                "wise",
+                "wordpress",
+                "wrike",
+                "xero",
+                "yahoo",
+                "yandex",
+                "yodlee",
+                "zapier",
+                "zendesk",
+                "zenefits",
+                "zoho",
+                "zoho-desk",
+                "zoom",
+            ]
+        ]
+        | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
+        search_query: Optional[str] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> SyncOffsetPagination[ListConnectorConfigsResponse]:
+        """
+        List Configured Connectors
+
+        Args:
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self.get_api_list(
+            "/v2/connector-config",
+            page=SyncOffsetPagination[ListConnectorConfigsResponse],
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "connector_names": connector_names,
+                        "expand": expand,
+                        "limit": limit,
+                        "offset": offset,
+                        "search_query": search_query,
+                    },
+                    client_list_connector_configs_params.ClientListConnectorConfigsParams,
+                ),
+            ),
+            model=cast(
+                Any, ListConnectorConfigsResponse
+            ),  # Union types cannot be passed in as arguments in the type system
         )
 
     def list_connectors(
@@ -1389,6 +1441,7 @@ class Openint(SyncAPIClient):
                 "shopify",
                 "signnow",
                 "slack",
+                "slack-agent",
                 "smartsheet",
                 "snowflake",
                 "splitwise",
@@ -1586,6 +1639,261 @@ class Openint(SyncAPIClient):
                 ),
             ),
             model=cast(Any, ListEventsResponse),  # Union types cannot be passed in as arguments in the type system
+        )
+
+    def pre_configure_connector(
+        self,
+        *,
+        connector_name: Literal[
+            "accelo",
+            "acme-apikey",
+            "acme-oauth2",
+            "adobe",
+            "adyen",
+            "aircall",
+            "airtable",
+            "amazon",
+            "apaleo",
+            "apollo",
+            "asana",
+            "attio",
+            "auth0",
+            "autodesk",
+            "aws",
+            "bamboohr",
+            "basecamp",
+            "battlenet",
+            "bigcommerce",
+            "bitbucket",
+            "bitly",
+            "blackbaud",
+            "boldsign",
+            "box",
+            "braintree",
+            "brex",
+            "calendly",
+            "clickup",
+            "close",
+            "coda",
+            "confluence",
+            "contentful",
+            "contentstack",
+            "copper",
+            "coros",
+            "datev",
+            "deel",
+            "dialpad",
+            "digitalocean",
+            "discord",
+            "docusign",
+            "dropbox",
+            "ebay",
+            "egnyte",
+            "envoy",
+            "eventbrite",
+            "exist",
+            "facebook",
+            "factorial",
+            "figma",
+            "finch",
+            "firebase",
+            "fitbit",
+            "foreceipt",
+            "fortnox",
+            "freshbooks",
+            "front",
+            "github",
+            "gitlab",
+            "gong",
+            "google-calendar",
+            "google-docs",
+            "google-drive",
+            "google-mail",
+            "google-sheet",
+            "gorgias",
+            "grain",
+            "greenhouse",
+            "gumroad",
+            "gusto",
+            "harvest",
+            "heron",
+            "highlevel",
+            "hubspot",
+            "instagram",
+            "intercom",
+            "jira",
+            "keap",
+            "lever",
+            "linear",
+            "linkedin",
+            "linkhut",
+            "lunchmoney",
+            "mailchimp",
+            "mercury",
+            "merge",
+            "miro",
+            "monday",
+            "moota",
+            "mural",
+            "namely",
+            "nationbuilder",
+            "netsuite",
+            "notion",
+            "odoo",
+            "okta",
+            "onebrick",
+            "openledger",
+            "osu",
+            "oura",
+            "outreach",
+            "pagerduty",
+            "pandadoc",
+            "payfit",
+            "paypal",
+            "pennylane",
+            "pinterest",
+            "pipedrive",
+            "plaid",
+            "podium",
+            "postgres",
+            "productboard",
+            "qualtrics",
+            "quickbooks",
+            "ramp",
+            "reddit",
+            "sage",
+            "salesforce",
+            "salesloft",
+            "saltedge",
+            "segment",
+            "servicem8",
+            "servicenow",
+            "sharepoint",
+            "sharepoint-onprem",
+            "shopify",
+            "signnow",
+            "slack",
+            "slack-agent",
+            "smartsheet",
+            "snowflake",
+            "splitwise",
+            "spotify",
+            "squarespace",
+            "squareup",
+            "stackexchange",
+            "strava",
+            "stripe",
+            "teamwork",
+            "teller",
+            "ticktick",
+            "timely",
+            "todoist",
+            "toggl",
+            "tremendous",
+            "tsheetsteam",
+            "tumblr",
+            "twenty",
+            "twinfield",
+            "twitch",
+            "twitter",
+            "typeform",
+            "uber",
+            "venmo",
+            "vimeo",
+            "wakatime",
+            "wealthbox",
+            "webflow",
+            "whoop",
+            "wise",
+            "wordpress",
+            "wrike",
+            "xero",
+            "yahoo",
+            "yandex",
+            "yodlee",
+            "zapier",
+            "zendesk",
+            "zenefits",
+            "zoho",
+            "zoho-desk",
+            "zoom",
+        ],
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> PreConfigureConnectorResponse:
+        """
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self.post(
+            "/v2/connector-config/pre-configure",
+            body=maybe_transform(
+                {"connector_name": connector_name},
+                client_pre_configure_connector_params.ClientPreConfigureConnectorParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=PreConfigureConnectorResponse,
+        )
+
+    def pre_connect(
+        self,
+        *,
+        connector_config_id: str,
+        discriminated_data: client_pre_connect_params.DiscriminatedData,
+        options: client_pre_connect_params.Options,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> PreConnectResponse:
+        """Args:
+          connector_config_id: Must correspond to data.connector_name.
+
+        Technically id should imply
+              connector_name already but there is no way to specify a discriminated union with
+              id alone.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return cast(
+            PreConnectResponse,
+            self.post(
+                "/v1/connect/pre-connect",
+                body=maybe_transform(
+                    {
+                        "connector_config_id": connector_config_id,
+                        "discriminated_data": discriminated_data,
+                        "options": options,
+                    },
+                    client_pre_connect_params.ClientPreConnectParams,
+                ),
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, PreConnectResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
         )
 
     def upsert_connnector_config(
@@ -1958,6 +2266,50 @@ class AsyncOpenint(AsyncAPIClient):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=CheckConnectionResponse,
+        )
+
+    async def connector_rpc(
+        self,
+        function_name: str,
+        *,
+        connector_config_id: str,
+        input: Dict[str, object],
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> ConnectorRpcResponse:
+        """
+        Execute RPC function on connector
+
+        Args:
+          connector_config_id: The id of the connector config, starts with `ccfg_`
+
+          function_name: RPC function name to execute
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not connector_config_id:
+            raise ValueError(
+                f"Expected a non-empty value for `connector_config_id` but received {connector_config_id!r}"
+            )
+        if not function_name:
+            raise ValueError(f"Expected a non-empty value for `function_name` but received {function_name!r}")
+        return await self.post(
+            f"/v2/connector-config/{connector_config_id}/rpc/{function_name}",
+            body=await async_maybe_transform({"input": input}, client_connector_rpc_params.ClientConnectorRpcParams),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=ConnectorRpcResponse,
         )
 
     async def create_connection(
@@ -2381,236 +2733,6 @@ class AsyncOpenint(AsyncAPIClient):
             cast_to=ListAssignmentsResponse,
         )
 
-    def list_connection_configs(
-        self,
-        *,
-        connector_names: List[
-            Literal[
-                "accelo",
-                "acme-apikey",
-                "acme-oauth2",
-                "adobe",
-                "adyen",
-                "aircall",
-                "airtable",
-                "amazon",
-                "apaleo",
-                "apollo",
-                "asana",
-                "attio",
-                "auth0",
-                "autodesk",
-                "aws",
-                "bamboohr",
-                "basecamp",
-                "battlenet",
-                "bigcommerce",
-                "bitbucket",
-                "bitly",
-                "blackbaud",
-                "boldsign",
-                "box",
-                "braintree",
-                "brex",
-                "calendly",
-                "clickup",
-                "close",
-                "coda",
-                "confluence",
-                "contentful",
-                "contentstack",
-                "copper",
-                "coros",
-                "datev",
-                "deel",
-                "dialpad",
-                "digitalocean",
-                "discord",
-                "docusign",
-                "dropbox",
-                "ebay",
-                "egnyte",
-                "envoy",
-                "eventbrite",
-                "exist",
-                "facebook",
-                "factorial",
-                "figma",
-                "finch",
-                "firebase",
-                "fitbit",
-                "foreceipt",
-                "fortnox",
-                "freshbooks",
-                "front",
-                "github",
-                "gitlab",
-                "gong",
-                "google-calendar",
-                "google-docs",
-                "google-drive",
-                "google-mail",
-                "google-sheet",
-                "gorgias",
-                "grain",
-                "greenhouse",
-                "gumroad",
-                "gusto",
-                "harvest",
-                "heron",
-                "highlevel",
-                "hubspot",
-                "instagram",
-                "intercom",
-                "jira",
-                "keap",
-                "lever",
-                "linear",
-                "linkedin",
-                "linkhut",
-                "lunchmoney",
-                "mailchimp",
-                "mercury",
-                "merge",
-                "miro",
-                "monday",
-                "moota",
-                "mural",
-                "namely",
-                "nationbuilder",
-                "netsuite",
-                "notion",
-                "odoo",
-                "okta",
-                "onebrick",
-                "openledger",
-                "osu",
-                "oura",
-                "outreach",
-                "pagerduty",
-                "pandadoc",
-                "payfit",
-                "paypal",
-                "pennylane",
-                "pinterest",
-                "pipedrive",
-                "plaid",
-                "podium",
-                "postgres",
-                "productboard",
-                "qualtrics",
-                "quickbooks",
-                "ramp",
-                "reddit",
-                "sage",
-                "salesforce",
-                "salesloft",
-                "saltedge",
-                "segment",
-                "servicem8",
-                "servicenow",
-                "sharepoint",
-                "sharepoint-onprem",
-                "shopify",
-                "signnow",
-                "slack",
-                "smartsheet",
-                "snowflake",
-                "splitwise",
-                "spotify",
-                "squarespace",
-                "squareup",
-                "stackexchange",
-                "strava",
-                "stripe",
-                "teamwork",
-                "teller",
-                "ticktick",
-                "timely",
-                "todoist",
-                "toggl",
-                "tremendous",
-                "tsheetsteam",
-                "tumblr",
-                "twenty",
-                "twinfield",
-                "twitch",
-                "twitter",
-                "typeform",
-                "uber",
-                "venmo",
-                "vimeo",
-                "wakatime",
-                "wealthbox",
-                "webflow",
-                "whoop",
-                "wise",
-                "wordpress",
-                "wrike",
-                "xero",
-                "yahoo",
-                "yandex",
-                "yodlee",
-                "zapier",
-                "zendesk",
-                "zenefits",
-                "zoho",
-                "zoho-desk",
-                "zoom",
-            ]
-        ]
-        | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        search_query: Optional[str] | NotGiven = NOT_GIVEN,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> AsyncPaginator[ListConnectionConfigsResponse, AsyncOffsetPagination[ListConnectionConfigsResponse]]:
-        """
-        List Configured Connectors
-
-        Args:
-          limit: Limit the number of items returned
-
-          offset: Offset the items returned
-
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        return self.get_api_list(
-            "/v2/connector-config",
-            page=AsyncOffsetPagination[ListConnectionConfigsResponse],
-            options=make_request_options(
-                extra_headers=extra_headers,
-                extra_query=extra_query,
-                extra_body=extra_body,
-                timeout=timeout,
-                query=maybe_transform(
-                    {
-                        "connector_names": connector_names,
-                        "expand": expand,
-                        "limit": limit,
-                        "offset": offset,
-                        "search_query": search_query,
-                    },
-                    client_list_connection_configs_params.ClientListConnectionConfigsParams,
-                ),
-            ),
-            model=cast(
-                Any, ListConnectionConfigsResponse
-            ),  # Union types cannot be passed in as arguments in the type system
-        )
-
     def list_connections(
         self,
         *,
@@ -2746,6 +2868,7 @@ class AsyncOpenint(AsyncAPIClient):
                 "shopify",
                 "signnow",
                 "slack",
+                "slack-agent",
                 "smartsheet",
                 "snowflake",
                 "splitwise",
@@ -2862,6 +2985,237 @@ class AsyncOpenint(AsyncAPIClient):
                 ),
             ),
             model=cast(Any, ListConnectionsResponse),  # Union types cannot be passed in as arguments in the type system
+        )
+
+    def list_connector_configs(
+        self,
+        *,
+        connector_names: List[
+            Literal[
+                "accelo",
+                "acme-apikey",
+                "acme-oauth2",
+                "adobe",
+                "adyen",
+                "aircall",
+                "airtable",
+                "amazon",
+                "apaleo",
+                "apollo",
+                "asana",
+                "attio",
+                "auth0",
+                "autodesk",
+                "aws",
+                "bamboohr",
+                "basecamp",
+                "battlenet",
+                "bigcommerce",
+                "bitbucket",
+                "bitly",
+                "blackbaud",
+                "boldsign",
+                "box",
+                "braintree",
+                "brex",
+                "calendly",
+                "clickup",
+                "close",
+                "coda",
+                "confluence",
+                "contentful",
+                "contentstack",
+                "copper",
+                "coros",
+                "datev",
+                "deel",
+                "dialpad",
+                "digitalocean",
+                "discord",
+                "docusign",
+                "dropbox",
+                "ebay",
+                "egnyte",
+                "envoy",
+                "eventbrite",
+                "exist",
+                "facebook",
+                "factorial",
+                "figma",
+                "finch",
+                "firebase",
+                "fitbit",
+                "foreceipt",
+                "fortnox",
+                "freshbooks",
+                "front",
+                "github",
+                "gitlab",
+                "gong",
+                "google-calendar",
+                "google-docs",
+                "google-drive",
+                "google-mail",
+                "google-sheet",
+                "gorgias",
+                "grain",
+                "greenhouse",
+                "gumroad",
+                "gusto",
+                "harvest",
+                "heron",
+                "highlevel",
+                "hubspot",
+                "instagram",
+                "intercom",
+                "jira",
+                "keap",
+                "lever",
+                "linear",
+                "linkedin",
+                "linkhut",
+                "lunchmoney",
+                "mailchimp",
+                "mercury",
+                "merge",
+                "miro",
+                "monday",
+                "moota",
+                "mural",
+                "namely",
+                "nationbuilder",
+                "netsuite",
+                "notion",
+                "odoo",
+                "okta",
+                "onebrick",
+                "openledger",
+                "osu",
+                "oura",
+                "outreach",
+                "pagerduty",
+                "pandadoc",
+                "payfit",
+                "paypal",
+                "pennylane",
+                "pinterest",
+                "pipedrive",
+                "plaid",
+                "podium",
+                "postgres",
+                "productboard",
+                "qualtrics",
+                "quickbooks",
+                "ramp",
+                "reddit",
+                "sage",
+                "salesforce",
+                "salesloft",
+                "saltedge",
+                "segment",
+                "servicem8",
+                "servicenow",
+                "sharepoint",
+                "sharepoint-onprem",
+                "shopify",
+                "signnow",
+                "slack",
+                "slack-agent",
+                "smartsheet",
+                "snowflake",
+                "splitwise",
+                "spotify",
+                "squarespace",
+                "squareup",
+                "stackexchange",
+                "strava",
+                "stripe",
+                "teamwork",
+                "teller",
+                "ticktick",
+                "timely",
+                "todoist",
+                "toggl",
+                "tremendous",
+                "tsheetsteam",
+                "tumblr",
+                "twenty",
+                "twinfield",
+                "twitch",
+                "twitter",
+                "typeform",
+                "uber",
+                "venmo",
+                "vimeo",
+                "wakatime",
+                "wealthbox",
+                "webflow",
+                "whoop",
+                "wise",
+                "wordpress",
+                "wrike",
+                "xero",
+                "yahoo",
+                "yandex",
+                "yodlee",
+                "zapier",
+                "zendesk",
+                "zenefits",
+                "zoho",
+                "zoho-desk",
+                "zoom",
+            ]
+        ]
+        | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
+        search_query: Optional[str] | NotGiven = NOT_GIVEN,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> AsyncPaginator[ListConnectorConfigsResponse, AsyncOffsetPagination[ListConnectorConfigsResponse]]:
+        """
+        List Configured Connectors
+
+        Args:
+          limit: Limit the number of items returned
+
+          offset: Offset the items returned
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return self.get_api_list(
+            "/v2/connector-config",
+            page=AsyncOffsetPagination[ListConnectorConfigsResponse],
+            options=make_request_options(
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "connector_names": connector_names,
+                        "expand": expand,
+                        "limit": limit,
+                        "offset": offset,
+                        "search_query": search_query,
+                    },
+                    client_list_connector_configs_params.ClientListConnectorConfigsParams,
+                ),
+            ),
+            model=cast(
+                Any, ListConnectorConfigsResponse
+            ),  # Union types cannot be passed in as arguments in the type system
         )
 
     def list_connectors(
@@ -3048,6 +3402,7 @@ class AsyncOpenint(AsyncAPIClient):
                 "shopify",
                 "signnow",
                 "slack",
+                "slack-agent",
                 "smartsheet",
                 "snowflake",
                 "splitwise",
@@ -3247,6 +3602,261 @@ class AsyncOpenint(AsyncAPIClient):
             model=cast(Any, ListEventsResponse),  # Union types cannot be passed in as arguments in the type system
         )
 
+    async def pre_configure_connector(
+        self,
+        *,
+        connector_name: Literal[
+            "accelo",
+            "acme-apikey",
+            "acme-oauth2",
+            "adobe",
+            "adyen",
+            "aircall",
+            "airtable",
+            "amazon",
+            "apaleo",
+            "apollo",
+            "asana",
+            "attio",
+            "auth0",
+            "autodesk",
+            "aws",
+            "bamboohr",
+            "basecamp",
+            "battlenet",
+            "bigcommerce",
+            "bitbucket",
+            "bitly",
+            "blackbaud",
+            "boldsign",
+            "box",
+            "braintree",
+            "brex",
+            "calendly",
+            "clickup",
+            "close",
+            "coda",
+            "confluence",
+            "contentful",
+            "contentstack",
+            "copper",
+            "coros",
+            "datev",
+            "deel",
+            "dialpad",
+            "digitalocean",
+            "discord",
+            "docusign",
+            "dropbox",
+            "ebay",
+            "egnyte",
+            "envoy",
+            "eventbrite",
+            "exist",
+            "facebook",
+            "factorial",
+            "figma",
+            "finch",
+            "firebase",
+            "fitbit",
+            "foreceipt",
+            "fortnox",
+            "freshbooks",
+            "front",
+            "github",
+            "gitlab",
+            "gong",
+            "google-calendar",
+            "google-docs",
+            "google-drive",
+            "google-mail",
+            "google-sheet",
+            "gorgias",
+            "grain",
+            "greenhouse",
+            "gumroad",
+            "gusto",
+            "harvest",
+            "heron",
+            "highlevel",
+            "hubspot",
+            "instagram",
+            "intercom",
+            "jira",
+            "keap",
+            "lever",
+            "linear",
+            "linkedin",
+            "linkhut",
+            "lunchmoney",
+            "mailchimp",
+            "mercury",
+            "merge",
+            "miro",
+            "monday",
+            "moota",
+            "mural",
+            "namely",
+            "nationbuilder",
+            "netsuite",
+            "notion",
+            "odoo",
+            "okta",
+            "onebrick",
+            "openledger",
+            "osu",
+            "oura",
+            "outreach",
+            "pagerduty",
+            "pandadoc",
+            "payfit",
+            "paypal",
+            "pennylane",
+            "pinterest",
+            "pipedrive",
+            "plaid",
+            "podium",
+            "postgres",
+            "productboard",
+            "qualtrics",
+            "quickbooks",
+            "ramp",
+            "reddit",
+            "sage",
+            "salesforce",
+            "salesloft",
+            "saltedge",
+            "segment",
+            "servicem8",
+            "servicenow",
+            "sharepoint",
+            "sharepoint-onprem",
+            "shopify",
+            "signnow",
+            "slack",
+            "slack-agent",
+            "smartsheet",
+            "snowflake",
+            "splitwise",
+            "spotify",
+            "squarespace",
+            "squareup",
+            "stackexchange",
+            "strava",
+            "stripe",
+            "teamwork",
+            "teller",
+            "ticktick",
+            "timely",
+            "todoist",
+            "toggl",
+            "tremendous",
+            "tsheetsteam",
+            "tumblr",
+            "twenty",
+            "twinfield",
+            "twitch",
+            "twitter",
+            "typeform",
+            "uber",
+            "venmo",
+            "vimeo",
+            "wakatime",
+            "wealthbox",
+            "webflow",
+            "whoop",
+            "wise",
+            "wordpress",
+            "wrike",
+            "xero",
+            "yahoo",
+            "yandex",
+            "yodlee",
+            "zapier",
+            "zendesk",
+            "zenefits",
+            "zoho",
+            "zoho-desk",
+            "zoom",
+        ],
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> PreConfigureConnectorResponse:
+        """
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return await self.post(
+            "/v2/connector-config/pre-configure",
+            body=await async_maybe_transform(
+                {"connector_name": connector_name},
+                client_pre_configure_connector_params.ClientPreConfigureConnectorParams,
+            ),
+            options=make_request_options(
+                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+            ),
+            cast_to=PreConfigureConnectorResponse,
+        )
+
+    async def pre_connect(
+        self,
+        *,
+        connector_config_id: str,
+        discriminated_data: client_pre_connect_params.DiscriminatedData,
+        options: client_pre_connect_params.Options,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> PreConnectResponse:
+        """Args:
+          connector_config_id: Must correspond to data.connector_name.
+
+        Technically id should imply
+              connector_name already but there is no way to specify a discriminated union with
+              id alone.
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        return cast(
+            PreConnectResponse,
+            await self.post(
+                "/v1/connect/pre-connect",
+                body=await async_maybe_transform(
+                    {
+                        "connector_config_id": connector_config_id,
+                        "discriminated_data": discriminated_data,
+                        "options": options,
+                    },
+                    client_pre_connect_params.ClientPreConnectParams,
+                ),
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(
+                    Any, PreConnectResponse
+                ),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
     async def upsert_connnector_config(
         self,
         id: str,
@@ -3411,6 +4021,9 @@ class OpenintWithRawResponse:
         self.check_connection = to_raw_response_wrapper(
             client.check_connection,
         )
+        self.connector_rpc = to_raw_response_wrapper(
+            client.connector_rpc,
+        )
         self.create_connection = to_raw_response_wrapper(
             client.create_connection,
         )
@@ -3441,11 +4054,11 @@ class OpenintWithRawResponse:
         self.list_assignments = to_raw_response_wrapper(
             client.list_assignments,
         )
-        self.list_connection_configs = to_raw_response_wrapper(
-            client.list_connection_configs,
-        )
         self.list_connections = to_raw_response_wrapper(
             client.list_connections,
+        )
+        self.list_connector_configs = to_raw_response_wrapper(
+            client.list_connector_configs,
         )
         self.list_connectors = to_raw_response_wrapper(
             client.list_connectors,
@@ -3458,6 +4071,12 @@ class OpenintWithRawResponse:
         )
         self.list_events = to_raw_response_wrapper(
             client.list_events,
+        )
+        self.pre_configure_connector = to_raw_response_wrapper(
+            client.pre_configure_connector,
+        )
+        self.pre_connect = to_raw_response_wrapper(
+            client.pre_connect,
         )
         self.upsert_connnector_config = to_raw_response_wrapper(
             client.upsert_connnector_config,
@@ -3477,6 +4096,9 @@ class AsyncOpenintWithRawResponse:
         )
         self.check_connection = async_to_raw_response_wrapper(
             client.check_connection,
+        )
+        self.connector_rpc = async_to_raw_response_wrapper(
+            client.connector_rpc,
         )
         self.create_connection = async_to_raw_response_wrapper(
             client.create_connection,
@@ -3508,11 +4130,11 @@ class AsyncOpenintWithRawResponse:
         self.list_assignments = async_to_raw_response_wrapper(
             client.list_assignments,
         )
-        self.list_connection_configs = async_to_raw_response_wrapper(
-            client.list_connection_configs,
-        )
         self.list_connections = async_to_raw_response_wrapper(
             client.list_connections,
+        )
+        self.list_connector_configs = async_to_raw_response_wrapper(
+            client.list_connector_configs,
         )
         self.list_connectors = async_to_raw_response_wrapper(
             client.list_connectors,
@@ -3525,6 +4147,12 @@ class AsyncOpenintWithRawResponse:
         )
         self.list_events = async_to_raw_response_wrapper(
             client.list_events,
+        )
+        self.pre_configure_connector = async_to_raw_response_wrapper(
+            client.pre_configure_connector,
+        )
+        self.pre_connect = async_to_raw_response_wrapper(
+            client.pre_connect,
         )
         self.upsert_connnector_config = async_to_raw_response_wrapper(
             client.upsert_connnector_config,
@@ -3544,6 +4172,9 @@ class OpenintWithStreamedResponse:
         )
         self.check_connection = to_streamed_response_wrapper(
             client.check_connection,
+        )
+        self.connector_rpc = to_streamed_response_wrapper(
+            client.connector_rpc,
         )
         self.create_connection = to_streamed_response_wrapper(
             client.create_connection,
@@ -3575,11 +4206,11 @@ class OpenintWithStreamedResponse:
         self.list_assignments = to_streamed_response_wrapper(
             client.list_assignments,
         )
-        self.list_connection_configs = to_streamed_response_wrapper(
-            client.list_connection_configs,
-        )
         self.list_connections = to_streamed_response_wrapper(
             client.list_connections,
+        )
+        self.list_connector_configs = to_streamed_response_wrapper(
+            client.list_connector_configs,
         )
         self.list_connectors = to_streamed_response_wrapper(
             client.list_connectors,
@@ -3592,6 +4223,12 @@ class OpenintWithStreamedResponse:
         )
         self.list_events = to_streamed_response_wrapper(
             client.list_events,
+        )
+        self.pre_configure_connector = to_streamed_response_wrapper(
+            client.pre_configure_connector,
+        )
+        self.pre_connect = to_streamed_response_wrapper(
+            client.pre_connect,
         )
         self.upsert_connnector_config = to_streamed_response_wrapper(
             client.upsert_connnector_config,
@@ -3611,6 +4248,9 @@ class AsyncOpenintWithStreamedResponse:
         )
         self.check_connection = async_to_streamed_response_wrapper(
             client.check_connection,
+        )
+        self.connector_rpc = async_to_streamed_response_wrapper(
+            client.connector_rpc,
         )
         self.create_connection = async_to_streamed_response_wrapper(
             client.create_connection,
@@ -3642,11 +4282,11 @@ class AsyncOpenintWithStreamedResponse:
         self.list_assignments = async_to_streamed_response_wrapper(
             client.list_assignments,
         )
-        self.list_connection_configs = async_to_streamed_response_wrapper(
-            client.list_connection_configs,
-        )
         self.list_connections = async_to_streamed_response_wrapper(
             client.list_connections,
+        )
+        self.list_connector_configs = async_to_streamed_response_wrapper(
+            client.list_connector_configs,
         )
         self.list_connectors = async_to_streamed_response_wrapper(
             client.list_connectors,
@@ -3659,6 +4299,12 @@ class AsyncOpenintWithStreamedResponse:
         )
         self.list_events = async_to_streamed_response_wrapper(
             client.list_events,
+        )
+        self.pre_configure_connector = async_to_streamed_response_wrapper(
+            client.pre_configure_connector,
+        )
+        self.pre_connect = async_to_streamed_response_wrapper(
+            client.pre_connect,
         )
         self.upsert_connnector_config = async_to_streamed_response_wrapper(
             client.upsert_connnector_config,

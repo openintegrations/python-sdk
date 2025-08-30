@@ -144,6 +144,7 @@ class ClientListConnectionsParams(TypedDict, total=False):
             "shopify",
             "signnow",
             "slack",
+            "slack-agent",
             "smartsheet",
             "snowflake",
             "splitwise",

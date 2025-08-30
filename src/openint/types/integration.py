@@ -140,6 +140,7 @@ class Integration(BaseModel):
         "shopify",
         "signnow",
         "slack",
+        "slack-agent",
         "smartsheet",
         "snowflake",
         "splitwise",
