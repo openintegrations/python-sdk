@@ -1,5 +1,29 @@
 # Changelog
 
+## 2.10.0 (2025-08-30)
+
+Full Changelog: [v2.9.0...v2.10.0](https://github.com/openintegrations/python-sdk/compare/v2.9.0...v2.10.0)
+
+### Features
+
+* **api:** adding preconnect ([3344695](https://github.com/openintegrations/python-sdk/commit/3344695e46661bed707c0a568123392ef59d094a))
+* **api:** casing ([e92ec04](https://github.com/openintegrations/python-sdk/commit/e92ec0402cbf32aa6278345e5daad14d39c30255))
+* **api:** org api updates ([d5af5d8](https://github.com/openintegrations/python-sdk/commit/d5af5d822322bc00c43778ecd388fcb1865ab778))
+* **api:** preconfigure, preconnect & rpc methods ([b34e94f](https://github.com/openintegrations/python-sdk/commit/b34e94febbd1048b02a79227728765a2b862338d))
+* **api:** renaming connectionConfigs ([b388433](https://github.com/openintegrations/python-sdk/commit/b388433332d18e139ff4d2ff5aa2f57edf4e4091))
+
+
+### Bug Fixes
+
+* avoid newer type syntax ([a6c3bd3](https://github.com/openintegrations/python-sdk/commit/a6c3bd3d6ec3516064cca83ec66310b6a6ad327c))
+
+
+### Chores
+
+* **internal:** add Sequence related utils ([614f2d0](https://github.com/openintegrations/python-sdk/commit/614f2d0eb04ad768d4bee478e01be0cbbcd5c405))
+* **internal:** change ci workflow machines ([c7335da](https://github.com/openintegrations/python-sdk/commit/c7335da65b5ea21fd125b0d47d5aa7708a3e5df0))
+* **internal:** update pyright exclude list ([81cb316](https://github.com/openintegrations/python-sdk/commit/81cb316c7362c1a2304d4528dc1aa5e60b026392))
+
 ## 2.9.0 (2025-08-26)
 
 Full Changelog: [v2.8.0...v2.9.0](https://github.com/openintegrations/python-sdk/compare/v2.8.0...v2.9.0)
