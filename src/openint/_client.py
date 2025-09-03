@@ -39,6 +39,7 @@ from ._types import (
     Transport,
     ProxiesTypes,
     RequestOptions,
+    SequenceNotStr,
 )
 from ._utils import (
     is_given,
@@ -775,7 +776,7 @@ class Openint(SyncAPIClient):
     def list_connections(
         self,
         *,
-        connection_ids: List[str] | NotGiven = NOT_GIVEN,
+        connection_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         connector_config_id: str | NotGiven = NOT_GIVEN,
         connector_names: List[
             Literal[
@@ -2736,7 +2737,7 @@ class AsyncOpenint(AsyncAPIClient):
     def list_connections(
         self,
         *,
-        connection_ids: List[str] | NotGiven = NOT_GIVEN,
+        connection_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
         connector_config_id: str | NotGiven = NOT_GIVEN,
         connector_names: List[
             Literal[
