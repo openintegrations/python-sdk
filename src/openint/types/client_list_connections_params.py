@@ -5,11 +5,13 @@ from __future__ import annotations
 from typing import List
 from typing_extensions import Literal, TypedDict
 
+from .._types import SequenceNotStr
+
 __all__ = ["ClientListConnectionsParams"]
 
 
 class ClientListConnectionsParams(TypedDict, total=False):
-    connection_ids: List[str]
+    connection_ids: SequenceNotStr[str]
 
     connector_config_id: str
     """The id of the connector config, starts with `ccfg_`"""
