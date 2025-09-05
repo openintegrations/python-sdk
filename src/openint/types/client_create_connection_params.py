@@ -624,6 +624,8 @@ __all__ = [
     "DataConnectorSaltedgeDiscriminatedConnectionSettings",
     "DataConnectorSharepointOnpremDiscriminatedConnectionSettings",
     "DataConnectorSharepointOnpremDiscriminatedConnectionSettingsSettings",
+    "DataConnectorSlackAgentDiscriminatedConnectionSettings",
+    "DataConnectorSlackAgentDiscriminatedConnectionSettingsSettings",
     "DataConnectorSplitwiseDiscriminatedConnectionSettings",
     "DataConnectorSplitwiseDiscriminatedConnectionSettingsSettings",
     "DataConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUser",
@@ -7961,6 +7963,17 @@ class DataConnectorSharepointOnpremDiscriminatedConnectionSettings(TypedDict, to
     settings: DataConnectorSharepointOnpremDiscriminatedConnectionSettingsSettings
 
 
+class DataConnectorSlackAgentDiscriminatedConnectionSettingsSettings(TypedDict, total=False):
+    bot_access_token: Required[str]
+    """Bot OAuth token - xoxb-..."""
+
+
+class DataConnectorSlackAgentDiscriminatedConnectionSettings(TypedDict, total=False):
+    connector_name: Required[Literal["slack-agent"]]
+
+    settings: DataConnectorSlackAgentDiscriminatedConnectionSettingsSettings
+
+
 class DataConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUserNotifications(TypedDict, total=False):
     added_as_friend: Required[bool]
 
@@ -8328,6 +8341,7 @@ Data: TypeAlias = Union[
     DataConnectorRampDiscriminatedConnectionSettings,
     DataConnectorSaltedgeDiscriminatedConnectionSettings,
     DataConnectorSharepointOnpremDiscriminatedConnectionSettings,
+    DataConnectorSlackAgentDiscriminatedConnectionSettings,
     DataConnectorSplitwiseDiscriminatedConnectionSettings,
     DataConnectorStripeDiscriminatedConnectionSettings,
     DataConnectorTellerDiscriminatedConnectionSettings,

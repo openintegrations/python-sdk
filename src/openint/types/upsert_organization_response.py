@@ -8,4 +8,6 @@ __all__ = ["UpsertOrganizationResponse"]
 class UpsertOrganizationResponse(BaseModel):
     id: str
 
+    api_key: str
+
     created: bool

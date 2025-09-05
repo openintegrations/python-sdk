@@ -623,6 +623,8 @@ __all__ = [
     "ConnectorSaltedgeDiscriminatedConnectionSettings",
     "ConnectorSharepointOnpremDiscriminatedConnectionSettings",
     "ConnectorSharepointOnpremDiscriminatedConnectionSettingsSettings",
+    "ConnectorSlackAgentDiscriminatedConnectionSettings",
+    "ConnectorSlackAgentDiscriminatedConnectionSettingsSettings",
     "ConnectorSplitwiseDiscriminatedConnectionSettings",
     "ConnectorSplitwiseDiscriminatedConnectionSettingsSettings",
     "ConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUser",
@@ -12323,6 +12325,44 @@ class ConnectorSharepointOnpremDiscriminatedConnectionSettings(BaseModel):
     updated_at: Optional[str] = None
 
 
+class ConnectorSlackAgentDiscriminatedConnectionSettingsSettings(BaseModel):
+    bot_access_token: str
+    """Bot OAuth token - xoxb-..."""
+
+
+class ConnectorSlackAgentDiscriminatedConnectionSettings(BaseModel):
+    connector_name: Literal["slack-agent"]
+
+    id: Optional[str] = None
+
+    connector_config_id: Optional[str] = None
+
+    created_at: Optional[str] = None
+
+    customer_id: Optional[str] = None
+
+    disabled: Optional[bool] = None
+
+    display_name: Optional[str] = None
+
+    integration_id: Optional[str] = None
+
+    metadata: Optional[Dict[str, object]] = None
+    """
+    JSON object can can be used to associate arbitrary metadata to avoid needing a
+    separate 1-1 table just for simple key values in your application. During
+    updates this object will be shallowly merged
+    """
+
+    settings: Optional[ConnectorSlackAgentDiscriminatedConnectionSettingsSettings] = None
+
+    status: Optional[Literal["healthy", "disconnected", "error", "manual", "unknown"]] = None
+
+    status_message: Optional[str] = None
+
+    updated_at: Optional[str] = None
+
+
 class ConnectorSplitwiseDiscriminatedConnectionSettingsSettingsCurrentUserNotifications(BaseModel):
     added_as_friend: bool
 
@@ -12901,6 +12941,7 @@ CreateConnectionResponse: TypeAlias = Union[
     ConnectorRampDiscriminatedConnectionSettings,
     ConnectorSaltedgeDiscriminatedConnectionSettings,
     ConnectorSharepointOnpremDiscriminatedConnectionSettings,
+    ConnectorSlackAgentDiscriminatedConnectionSettings,
     ConnectorSplitwiseDiscriminatedConnectionSettings,
     ConnectorStripeDiscriminatedConnectionSettings,
     ConnectorTellerDiscriminatedConnectionSettings,
