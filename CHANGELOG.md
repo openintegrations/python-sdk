@@ -1,5 +1,32 @@
 # Changelog
 
+## 2.10.0 (2025-09-05)
+
+Full Changelog: [v2.9.0...v2.10.0](https://github.com/openintegrations/python-sdk/compare/v2.9.0...v2.10.0)
+
+### Features
+
+* **api:** adding preconnect ([3344695](https://github.com/openintegrations/python-sdk/commit/3344695e46661bed707c0a568123392ef59d094a))
+* **api:** casing ([e92ec04](https://github.com/openintegrations/python-sdk/commit/e92ec0402cbf32aa6278345e5daad14d39c30255))
+* **api:** org api updates ([d5af5d8](https://github.com/openintegrations/python-sdk/commit/d5af5d822322bc00c43778ecd388fcb1865ab778))
+* **api:** preconfigure, preconnect & rpc methods ([b34e94f](https://github.com/openintegrations/python-sdk/commit/b34e94febbd1048b02a79227728765a2b862338d))
+* **api:** renaming connectionConfigs ([b388433](https://github.com/openintegrations/python-sdk/commit/b388433332d18e139ff4d2ff5aa2f57edf4e4091))
+* improve future compat with pydantic v3 ([1193b57](https://github.com/openintegrations/python-sdk/commit/1193b57f35d7de48c4f823ba9e2f49a4098da5e0))
+* **types:** replace List[str] with SequenceNotStr in params ([c1996fe](https://github.com/openintegrations/python-sdk/commit/c1996fe4d4a7bd7d6018331a2935e369d982e037))
+
+
+### Bug Fixes
+
+* avoid newer type syntax ([a6c3bd3](https://github.com/openintegrations/python-sdk/commit/a6c3bd3d6ec3516064cca83ec66310b6a6ad327c))
+
+
+### Chores
+
+* **internal:** add Sequence related utils ([614f2d0](https://github.com/openintegrations/python-sdk/commit/614f2d0eb04ad768d4bee478e01be0cbbcd5c405))
+* **internal:** change ci workflow machines ([c7335da](https://github.com/openintegrations/python-sdk/commit/c7335da65b5ea21fd125b0d47d5aa7708a3e5df0))
+* **internal:** move mypy configurations to `pyproject.toml` file ([3353de9](https://github.com/openintegrations/python-sdk/commit/3353de9e526c20d6be9997fe93de2f3ab5c53d77))
+* **internal:** update pyright exclude list ([81cb316](https://github.com/openintegrations/python-sdk/commit/81cb316c7362c1a2304d4528dc1aa5e60b026392))
+
 ## 2.9.0 (2025-08-26)
 
 Full Changelog: [v2.8.0...v2.9.0](https://github.com/openintegrations/python-sdk/compare/v2.8.0...v2.9.0)
