@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import os
-from typing import Any, Dict, List, Union, Mapping, Optional, cast
+from typing import Any, Dict, List, Mapping, Optional, cast
 from typing_extensions import Self, Literal, override
 
 import httpx
@@ -29,7 +29,6 @@ from .types import (
     client_upsert_connnector_config_params,
 )
 from ._types import (
-    NOT_GIVEN,
     Body,
     Omit,
     Query,
@@ -40,6 +39,8 @@ from ._types import (
     ProxiesTypes,
     RequestOptions,
     SequenceNotStr,
+    omit,
+    not_given,
 )
 from ._utils import (
     is_given,
@@ -104,7 +105,7 @@ class Openint(SyncAPIClient):
         *,
         token: str | None = None,
         base_url: str | httpx.URL | None = None,
-        timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
+        timeout: float | Timeout | None | NotGiven = not_given,
         max_retries: int = DEFAULT_MAX_RETRIES,
         default_headers: Mapping[str, str] | None = None,
         default_query: Mapping[str, object] | None = None,
@@ -187,9 +188,9 @@ class Openint(SyncAPIClient):
         *,
         token: str | None = None,
         base_url: str | httpx.URL | None = None,
-        timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | Timeout | None | NotGiven = not_given,
         http_client: httpx.Client | None = None,
-        max_retries: int | NotGiven = NOT_GIVEN,
+        max_retries: int | NotGiven = not_given,
         default_headers: Mapping[str, str] | None = None,
         set_default_headers: Mapping[str, str] | None = None,
         default_query: Mapping[str, object] | None = None,
@@ -243,7 +244,7 @@ class Openint(SyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AssignConnectionResponse:
         """
         Assign a connection to a customer
@@ -282,7 +283,7 @@ class Openint(SyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CheckConnectionResponse:
         """
         Verify that a connection is healthy
@@ -319,7 +320,7 @@ class Openint(SyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ConnectorRpcResponse:
         """
         Execute RPC function on connector
@@ -358,14 +359,14 @@ class Openint(SyncAPIClient):
         connector_config_id: str,
         customer_id: str,
         data: client_create_connection_params.Data,
-        check_connection: bool | NotGiven = NOT_GIVEN,
-        metadata: Dict[str, object] | NotGiven = NOT_GIVEN,
+        check_connection: bool | Omit = omit,
+        metadata: Dict[str, object] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CreateConnectionResponse:
         """
         Import an existing connection after validation
@@ -415,16 +416,16 @@ class Openint(SyncAPIClient):
         self,
         *,
         connector_name: str,
-        config: Optional[Dict[str, object]] | NotGiven = NOT_GIVEN,
-        disabled: Optional[bool] | NotGiven = NOT_GIVEN,
-        display_name: Optional[str] | NotGiven = NOT_GIVEN,
-        metadata: Optional[Dict[str, object]] | NotGiven = NOT_GIVEN,
+        config: Optional[Dict[str, object]] | Omit = omit,
+        disabled: Optional[bool] | Omit = omit,
+        display_name: Optional[str] | Omit = omit,
+        metadata: Optional[Dict[str, object]] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CreateConnnectorConfigResponse:
         """
         Args:
@@ -463,14 +464,14 @@ class Openint(SyncAPIClient):
         self,
         customer_id: str,
         *,
-        connect_options: client_create_token_params.ConnectOptions | NotGiven = NOT_GIVEN,
-        validity_in_seconds: float | NotGiven = NOT_GIVEN,
+        connect_options: client_create_token_params.ConnectOptions | Omit = omit,
+        validity_in_seconds: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CreateTokenResponse:
         """Create a @Connect authentication token for a customer.
 
@@ -519,7 +520,7 @@ class Openint(SyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DeleteAssignmentResponse:
         """
         Remove a repl assignment from a connection
@@ -558,7 +559,7 @@ class Openint(SyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DeleteConnectionResponse:
         """
         Delete a connection
@@ -593,7 +594,7 @@ class Openint(SyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DeleteConnectorConfigResponse:
         """
         Args:
@@ -621,13 +622,13 @@ class Openint(SyncAPIClient):
         self,
         id: str,
         *,
-        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> GetConectorConfigResponse:
         """
         Args:
@@ -666,15 +667,15 @@ class Openint(SyncAPIClient):
         self,
         id: str,
         *,
-        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
-        include_secrets: bool | NotGiven = NOT_GIVEN,
-        refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector"]] | Omit = omit,
+        include_secrets: bool | Omit = omit,
+        refresh_policy: Literal["none", "force", "auto"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> GetConnectionResponse:
         """
         Get details of a specific connection, including credentials
@@ -727,7 +728,7 @@ class Openint(SyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> GetCurrentUserResponse:
         """Get information about the current authenticated user"""
         return self.get(
@@ -747,7 +748,7 @@ class Openint(SyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ListAssignmentsResponse:
         """
         Get the list of assignments for a specific connection
@@ -776,8 +777,8 @@ class Openint(SyncAPIClient):
     def list_connections(
         self,
         *,
-        connection_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        connector_config_id: str | NotGiven = NOT_GIVEN,
+        connection_ids: SequenceNotStr[str] | Omit = omit,
+        connector_config_id: str | Omit = omit,
         connector_names: List[
             Literal[
                 "accelo",
@@ -954,21 +955,21 @@ class Openint(SyncAPIClient):
                 "zoom",
             ]
         ]
-        | NotGiven = NOT_GIVEN,
-        customer_id: str | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
-        include_secrets: bool | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
-        repl_id: str | NotGiven = NOT_GIVEN,
-        search_query: str | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        customer_id: str | Omit = omit,
+        expand: List[Literal["connector"]] | Omit = omit,
+        include_secrets: bool | Omit = omit,
+        limit: int | Omit = omit,
+        offset: int | Omit = omit,
+        refresh_policy: Literal["none", "force", "auto"] | Omit = omit,
+        repl_id: str | Omit = omit,
+        search_query: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SyncOffsetPagination[ListConnectionsResponse]:
         """List all connections with optional filtering.
 
@@ -1206,17 +1207,17 @@ class Openint(SyncAPIClient):
                 "zoom",
             ]
         ]
-        | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        search_query: Optional[str] | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | Omit = omit,
+        limit: int | Omit = omit,
+        offset: int | Omit = omit,
+        search_query: Optional[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SyncOffsetPagination[ListConnectorConfigsResponse]:
         """
         List Configured Connectors
@@ -1261,16 +1262,16 @@ class Openint(SyncAPIClient):
     def list_connectors(
         self,
         *,
-        connector_name: str | NotGiven = NOT_GIVEN,
-        expand: List[Literal["schemas"]] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
+        connector_name: str | Omit = omit,
+        expand: List[Literal["schemas"]] | Omit = omit,
+        limit: int | Omit = omit,
+        offset: int | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SyncOffsetPagination[ListConnectorsResponse]:
         """
         List all connectors to understand what integrations are available to configure
@@ -1488,17 +1489,17 @@ class Openint(SyncAPIClient):
                 "zoom",
             ]
         ]
-        | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        search_query: Optional[str] | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | Omit = omit,
+        limit: int | Omit = omit,
+        offset: int | Omit = omit,
+        search_query: Optional[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SyncOffsetPagination[ListConnnectorConfigsResponse]:
         """
         List Configured Connectors
@@ -1543,15 +1544,15 @@ class Openint(SyncAPIClient):
     def list_customers(
         self,
         *,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        search_query: Optional[str] | NotGiven = NOT_GIVEN,
+        limit: int | Omit = omit,
+        offset: int | Omit = omit,
+        search_query: Optional[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SyncOffsetPagination[ListCustomersResponse]:
         """
         List all customers
@@ -1592,17 +1593,17 @@ class Openint(SyncAPIClient):
     def list_events(
         self,
         *,
-        include_prompt: bool | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        search_query: str | NotGiven = NOT_GIVEN,
-        since: str | NotGiven = NOT_GIVEN,
+        include_prompt: bool | Omit = omit,
+        limit: int | Omit = omit,
+        offset: int | Omit = omit,
+        search_query: str | Omit = omit,
+        since: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SyncOffsetPagination[ListEventsResponse]:
         """
         List all events for an organization
@@ -1824,7 +1825,7 @@ class Openint(SyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> PreConfigureConnectorResponse:
         """
         Args:
@@ -1859,7 +1860,7 @@ class Openint(SyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> PreConnectResponse:
         """Args:
           connector_config_id: Must correspond to data.connector_name.
@@ -1901,15 +1902,15 @@ class Openint(SyncAPIClient):
         self,
         id: str,
         *,
-        config: Optional[Dict[str, object]] | NotGiven = NOT_GIVEN,
-        disabled: bool | NotGiven = NOT_GIVEN,
-        display_name: str | NotGiven = NOT_GIVEN,
+        config: Optional[Dict[str, object]] | Omit = omit,
+        disabled: bool | Omit = omit,
+        display_name: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UpsertConnnectorConfigResponse:
         """
         Args:
@@ -1949,14 +1950,14 @@ class Openint(SyncAPIClient):
     def upsert_customer(
         self,
         *,
-        id: str | NotGiven = NOT_GIVEN,
-        metadata: Dict[str, object] | NotGiven = NOT_GIVEN,
+        id: str | Omit = omit,
+        metadata: Dict[str, object] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UpsertCustomerResponse:
         """
         Create or update a customer
@@ -1994,7 +1995,7 @@ class Openint(SyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UpsertOrganizationResponse:
         """Upsert an organization by ID.
 
@@ -2065,7 +2066,7 @@ class AsyncOpenint(AsyncAPIClient):
         *,
         token: str | None = None,
         base_url: str | httpx.URL | None = None,
-        timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
+        timeout: float | Timeout | None | NotGiven = not_given,
         max_retries: int = DEFAULT_MAX_RETRIES,
         default_headers: Mapping[str, str] | None = None,
         default_query: Mapping[str, object] | None = None,
@@ -2148,9 +2149,9 @@ class AsyncOpenint(AsyncAPIClient):
         *,
         token: str | None = None,
         base_url: str | httpx.URL | None = None,
-        timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | Timeout | None | NotGiven = not_given,
         http_client: httpx.AsyncClient | None = None,
-        max_retries: int | NotGiven = NOT_GIVEN,
+        max_retries: int | NotGiven = not_given,
         default_headers: Mapping[str, str] | None = None,
         set_default_headers: Mapping[str, str] | None = None,
         default_query: Mapping[str, object] | None = None,
@@ -2204,7 +2205,7 @@ class AsyncOpenint(AsyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AssignConnectionResponse:
         """
         Assign a connection to a customer
@@ -2243,7 +2244,7 @@ class AsyncOpenint(AsyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CheckConnectionResponse:
         """
         Verify that a connection is healthy
@@ -2280,7 +2281,7 @@ class AsyncOpenint(AsyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ConnectorRpcResponse:
         """
         Execute RPC function on connector
@@ -2319,14 +2320,14 @@ class AsyncOpenint(AsyncAPIClient):
         connector_config_id: str,
         customer_id: str,
         data: client_create_connection_params.Data,
-        check_connection: bool | NotGiven = NOT_GIVEN,
-        metadata: Dict[str, object] | NotGiven = NOT_GIVEN,
+        check_connection: bool | Omit = omit,
+        metadata: Dict[str, object] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CreateConnectionResponse:
         """
         Import an existing connection after validation
@@ -2376,16 +2377,16 @@ class AsyncOpenint(AsyncAPIClient):
         self,
         *,
         connector_name: str,
-        config: Optional[Dict[str, object]] | NotGiven = NOT_GIVEN,
-        disabled: Optional[bool] | NotGiven = NOT_GIVEN,
-        display_name: Optional[str] | NotGiven = NOT_GIVEN,
-        metadata: Optional[Dict[str, object]] | NotGiven = NOT_GIVEN,
+        config: Optional[Dict[str, object]] | Omit = omit,
+        disabled: Optional[bool] | Omit = omit,
+        display_name: Optional[str] | Omit = omit,
+        metadata: Optional[Dict[str, object]] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CreateConnnectorConfigResponse:
         """
         Args:
@@ -2424,14 +2425,14 @@ class AsyncOpenint(AsyncAPIClient):
         self,
         customer_id: str,
         *,
-        connect_options: client_create_token_params.ConnectOptions | NotGiven = NOT_GIVEN,
-        validity_in_seconds: float | NotGiven = NOT_GIVEN,
+        connect_options: client_create_token_params.ConnectOptions | Omit = omit,
+        validity_in_seconds: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CreateTokenResponse:
         """Create a @Connect authentication token for a customer.
 
@@ -2480,7 +2481,7 @@ class AsyncOpenint(AsyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DeleteAssignmentResponse:
         """
         Remove a repl assignment from a connection
@@ -2519,7 +2520,7 @@ class AsyncOpenint(AsyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DeleteConnectionResponse:
         """
         Delete a connection
@@ -2554,7 +2555,7 @@ class AsyncOpenint(AsyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DeleteConnectorConfigResponse:
         """
         Args:
@@ -2582,13 +2583,13 @@ class AsyncOpenint(AsyncAPIClient):
         self,
         id: str,
         *,
-        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> GetConectorConfigResponse:
         """
         Args:
@@ -2627,15 +2628,15 @@ class AsyncOpenint(AsyncAPIClient):
         self,
         id: str,
         *,
-        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
-        include_secrets: bool | NotGiven = NOT_GIVEN,
-        refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
+        expand: List[Literal["connector"]] | Omit = omit,
+        include_secrets: bool | Omit = omit,
+        refresh_policy: Literal["none", "force", "auto"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> GetConnectionResponse:
         """
         Get details of a specific connection, including credentials
@@ -2688,7 +2689,7 @@ class AsyncOpenint(AsyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> GetCurrentUserResponse:
         """Get information about the current authenticated user"""
         return await self.get(
@@ -2708,7 +2709,7 @@ class AsyncOpenint(AsyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ListAssignmentsResponse:
         """
         Get the list of assignments for a specific connection
@@ -2737,8 +2738,8 @@ class AsyncOpenint(AsyncAPIClient):
     def list_connections(
         self,
         *,
-        connection_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        connector_config_id: str | NotGiven = NOT_GIVEN,
+        connection_ids: SequenceNotStr[str] | Omit = omit,
+        connector_config_id: str | Omit = omit,
         connector_names: List[
             Literal[
                 "accelo",
@@ -2915,21 +2916,21 @@ class AsyncOpenint(AsyncAPIClient):
                 "zoom",
             ]
         ]
-        | NotGiven = NOT_GIVEN,
-        customer_id: str | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector"]] | NotGiven = NOT_GIVEN,
-        include_secrets: bool | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        refresh_policy: Literal["none", "force", "auto"] | NotGiven = NOT_GIVEN,
-        repl_id: str | NotGiven = NOT_GIVEN,
-        search_query: str | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        customer_id: str | Omit = omit,
+        expand: List[Literal["connector"]] | Omit = omit,
+        include_secrets: bool | Omit = omit,
+        limit: int | Omit = omit,
+        offset: int | Omit = omit,
+        refresh_policy: Literal["none", "force", "auto"] | Omit = omit,
+        repl_id: str | Omit = omit,
+        search_query: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AsyncPaginator[ListConnectionsResponse, AsyncOffsetPagination[ListConnectionsResponse]]:
         """List all connections with optional filtering.
 
@@ -3167,17 +3168,17 @@ class AsyncOpenint(AsyncAPIClient):
                 "zoom",
             ]
         ]
-        | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        search_query: Optional[str] | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | Omit = omit,
+        limit: int | Omit = omit,
+        offset: int | Omit = omit,
+        search_query: Optional[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AsyncPaginator[ListConnectorConfigsResponse, AsyncOffsetPagination[ListConnectorConfigsResponse]]:
         """
         List Configured Connectors
@@ -3222,16 +3223,16 @@ class AsyncOpenint(AsyncAPIClient):
     def list_connectors(
         self,
         *,
-        connector_name: str | NotGiven = NOT_GIVEN,
-        expand: List[Literal["schemas"]] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
+        connector_name: str | Omit = omit,
+        expand: List[Literal["schemas"]] | Omit = omit,
+        limit: int | Omit = omit,
+        offset: int | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AsyncPaginator[ListConnectorsResponse, AsyncOffsetPagination[ListConnectorsResponse]]:
         """
         List all connectors to understand what integrations are available to configure
@@ -3449,17 +3450,17 @@ class AsyncOpenint(AsyncAPIClient):
                 "zoom",
             ]
         ]
-        | NotGiven = NOT_GIVEN,
-        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        search_query: Optional[str] | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        expand: List[Literal["connector", "connector.schemas", "connection_count"]] | Omit = omit,
+        limit: int | Omit = omit,
+        offset: int | Omit = omit,
+        search_query: Optional[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AsyncPaginator[ListConnnectorConfigsResponse, AsyncOffsetPagination[ListConnnectorConfigsResponse]]:
         """
         List Configured Connectors
@@ -3504,15 +3505,15 @@ class AsyncOpenint(AsyncAPIClient):
     def list_customers(
         self,
         *,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        search_query: Optional[str] | NotGiven = NOT_GIVEN,
+        limit: int | Omit = omit,
+        offset: int | Omit = omit,
+        search_query: Optional[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AsyncPaginator[ListCustomersResponse, AsyncOffsetPagination[ListCustomersResponse]]:
         """
         List all customers
@@ -3553,17 +3554,17 @@ class AsyncOpenint(AsyncAPIClient):
     def list_events(
         self,
         *,
-        include_prompt: bool | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        offset: int | NotGiven = NOT_GIVEN,
-        search_query: str | NotGiven = NOT_GIVEN,
-        since: str | NotGiven = NOT_GIVEN,
+        include_prompt: bool | Omit = omit,
+        limit: int | Omit = omit,
+        offset: int | Omit = omit,
+        search_query: str | Omit = omit,
+        since: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> AsyncPaginator[ListEventsResponse, AsyncOffsetPagination[ListEventsResponse]]:
         """
         List all events for an organization
@@ -3785,7 +3786,7 @@ class AsyncOpenint(AsyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> PreConfigureConnectorResponse:
         """
         Args:
@@ -3820,7 +3821,7 @@ class AsyncOpenint(AsyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> PreConnectResponse:
         """Args:
           connector_config_id: Must correspond to data.connector_name.
@@ -3862,15 +3863,15 @@ class AsyncOpenint(AsyncAPIClient):
         self,
         id: str,
         *,
-        config: Optional[Dict[str, object]] | NotGiven = NOT_GIVEN,
-        disabled: bool | NotGiven = NOT_GIVEN,
-        display_name: str | NotGiven = NOT_GIVEN,
+        config: Optional[Dict[str, object]] | Omit = omit,
+        disabled: bool | Omit = omit,
+        display_name: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UpsertConnnectorConfigResponse:
         """
         Args:
@@ -3910,14 +3911,14 @@ class AsyncOpenint(AsyncAPIClient):
     async def upsert_customer(
         self,
         *,
-        id: str | NotGiven = NOT_GIVEN,
-        metadata: Dict[str, object] | NotGiven = NOT_GIVEN,
+        id: str | Omit = omit,
+        metadata: Dict[str, object] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UpsertCustomerResponse:
         """
         Create or update a customer
@@ -3955,7 +3956,7 @@ class AsyncOpenint(AsyncAPIClient):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UpsertOrganizationResponse:
         """Upsert an organization by ID.
 
