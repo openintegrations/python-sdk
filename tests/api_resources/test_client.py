@@ -13,17 +13,15 @@ from openint.types import (
     ListEventsResponse,
     PreConnectResponse,
     CreateTokenResponse,
+    PostConnectResponse,
     ConnectorRpcResponse,
-    GetConnectionResponse,
     ListCustomersResponse,
     GetCurrentUserResponse,
     ListConnectorsResponse,
     UpsertCustomerResponse,
     CheckConnectionResponse,
     ListAssignmentsResponse,
-    ListConnectionsResponse,
     AssignConnectionResponse,
-    CreateConnectionResponse,
     DeleteAssignmentResponse,
     DeleteConnectionResponse,
     GetConectorConfigResponse,
@@ -199,72 +197,50 @@ class TestClient:
     def test_method_create_connection(self, client: Openint) -> None:
         client_ = client.create_connection(
             connector_config_id="ccfg_",
-            customer_id="customer_id",
-            data={"connector_name": "accelo"},
+            data={"connector_name": "acme-apikey"},
         )
-        assert_matches_type(CreateConnectionResponse, client_, path=["response"])
+        assert_matches_type(object, client_, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_create_connection_with_all_params(self, client: Openint) -> None:
         client_ = client.create_connection(
             connector_config_id="ccfg_",
-            customer_id="customer_id",
             data={
-                "connector_name": "accelo",
-                "settings": {
-                    "oauth": {
-                        "created_at": "created_at",
-                        "credentials": {
-                            "access_token": "access_token",
-                            "client_id": "client_id",
-                            "expires_at": "expires_at",
-                            "expires_in": 0,
-                            "raw": {"foo": "bar"},
-                            "refresh_token": "refresh_token",
-                            "scope": "scope",
-                            "token_type": "token_type",
-                        },
-                        "last_fetched_at": "last_fetched_at",
-                        "metadata": {"foo": "bar"},
-                        "updated_at": "updated_at",
-                    },
-                    "subdomain": "https://26f1kl_-n-71.api.accelo.com",
-                    "access_token": "access_token",
-                },
+                "connector_name": "acme-apikey",
+                "settings": {"api_key": "api_key"},
             },
             check_connection=True,
+            customer_id="customer_id",
             metadata={"foo": "bar"},
         )
-        assert_matches_type(CreateConnectionResponse, client_, path=["response"])
+        assert_matches_type(object, client_, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_create_connection(self, client: Openint) -> None:
         response = client.with_raw_response.create_connection(
             connector_config_id="ccfg_",
-            customer_id="customer_id",
-            data={"connector_name": "accelo"},
+            data={"connector_name": "acme-apikey"},
         )
 
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         client_ = response.parse()
-        assert_matches_type(CreateConnectionResponse, client_, path=["response"])
+        assert_matches_type(object, client_, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_create_connection(self, client: Openint) -> None:
         with client.with_streaming_response.create_connection(
             connector_config_id="ccfg_",
-            customer_id="customer_id",
-            data={"connector_name": "accelo"},
+            data={"connector_name": "acme-apikey"},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             client_ = response.parse()
-            assert_matches_type(CreateConnectionResponse, client_, path=["response"])
+            assert_matches_type(object, client_, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -328,11 +304,13 @@ class TestClient:
         client_ = client.create_token(
             customer_id="x",
             connect_options={
-                "connector_names": ["accelo"],
+                "auto_connect": "acme-apikey",
+                "connector_names": ["acme-apikey"],
                 "debug": True,
                 "hide_navigation": True,
                 "is_embedded": True,
                 "return_url": "return_url",
+                "theme": "light",
                 "view": "add",
             },
             validity_in_seconds=0,
@@ -566,7 +544,7 @@ class TestClient:
         client_ = client.get_connection(
             id="conn_",
         )
-        assert_matches_type(GetConnectionResponse, client_, path=["response"])
+        assert_matches_type(object, client_, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -577,7 +555,7 @@ class TestClient:
             include_secrets=True,
             refresh_policy="none",
         )
-        assert_matches_type(GetConnectionResponse, client_, path=["response"])
+        assert_matches_type(object, client_, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -589,7 +567,7 @@ class TestClient:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         client_ = response.parse()
-        assert_matches_type(GetConnectionResponse, client_, path=["response"])
+        assert_matches_type(object, client_, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -601,7 +579,7 @@ class TestClient:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             client_ = response.parse()
-            assert_matches_type(GetConnectionResponse, client_, path=["response"])
+            assert_matches_type(object, client_, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -687,7 +665,7 @@ class TestClient:
     @parametrize
     def test_method_list_connections(self, client: Openint) -> None:
         client_ = client.list_connections()
-        assert_matches_type(SyncOffsetPagination[ListConnectionsResponse], client_, path=["response"])
+        assert_matches_type(SyncOffsetPagination[object], client_, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -695,7 +673,7 @@ class TestClient:
         client_ = client.list_connections(
             connection_ids=["conn_"],
             connector_config_id="ccfg_",
-            connector_names=["accelo"],
+            connector_names=["acme-apikey"],
             customer_id="customer_id",
             expand=["connector"],
             include_secrets=True,
@@ -705,7 +683,7 @@ class TestClient:
             repl_id="repl_id",
             search_query="search_query",
         )
-        assert_matches_type(SyncOffsetPagination[ListConnectionsResponse], client_, path=["response"])
+        assert_matches_type(SyncOffsetPagination[object], client_, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -715,7 +693,7 @@ class TestClient:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         client_ = response.parse()
-        assert_matches_type(SyncOffsetPagination[ListConnectionsResponse], client_, path=["response"])
+        assert_matches_type(SyncOffsetPagination[object], client_, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -725,7 +703,7 @@ class TestClient:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             client_ = response.parse()
-            assert_matches_type(SyncOffsetPagination[ListConnectionsResponse], client_, path=["response"])
+            assert_matches_type(SyncOffsetPagination[object], client_, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -739,8 +717,9 @@ class TestClient:
     @parametrize
     def test_method_list_connector_configs_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connector_configs(
-            connector_names=["accelo"],
+            connector_names=["acme-apikey"],
             expand=["connector"],
+            include_disabled=True,
             limit=0,
             offset=0,
             search_query="search_query",
@@ -818,8 +797,9 @@ class TestClient:
     @parametrize
     def test_method_list_connnector_configs_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connnector_configs(
-            connector_names=["accelo"],
+            connector_names=["acme-apikey"],
             expand=["connector"],
+            include_disabled=True,
             limit=0,
             offset=0,
             search_query="search_query",
@@ -928,9 +908,76 @@ class TestClient:
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
+    def test_method_post_connect(self, client: Openint) -> None:
+        client_ = client.post_connect(
+            connector_config_id="connector_config_id",
+            discriminated_data={
+                "connect_output": {"api_key": "api_key"},
+                "connector_name": "acme-apikey",
+            },
+            options={},
+        )
+        assert_matches_type(PostConnectResponse, client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_method_post_connect_with_all_params(self, client: Openint) -> None:
+        client_ = client.post_connect(
+            connector_config_id="connector_config_id",
+            discriminated_data={
+                "connect_output": {"api_key": "api_key"},
+                "connector_name": "acme-apikey",
+            },
+            options={
+                "connection_external_id": "string",
+                "integration_external_id": "string",
+                "integration_id": "integrationId",
+                "sync_in_band": True,
+            },
+        )
+        assert_matches_type(PostConnectResponse, client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_raw_response_post_connect(self, client: Openint) -> None:
+        response = client.with_raw_response.post_connect(
+            connector_config_id="connector_config_id",
+            discriminated_data={
+                "connect_output": {"api_key": "api_key"},
+                "connector_name": "acme-apikey",
+            },
+            options={},
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client_ = response.parse()
+        assert_matches_type(PostConnectResponse, client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_streaming_response_post_connect(self, client: Openint) -> None:
+        with client.with_streaming_response.post_connect(
+            connector_config_id="connector_config_id",
+            discriminated_data={
+                "connect_output": {"api_key": "api_key"},
+                "connector_name": "acme-apikey",
+            },
+            options={},
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client_ = response.parse()
+            assert_matches_type(PostConnectResponse, client_, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
     def test_method_pre_configure_connector(self, client: Openint) -> None:
         client_ = client.pre_configure_connector(
-            connector_name="accelo",
+            connector_name="acme-apikey",
         )
         assert_matches_type(PreConfigureConnectorResponse, client_, path=["response"])
 
@@ -938,7 +985,7 @@ class TestClient:
     @parametrize
     def test_raw_response_pre_configure_connector(self, client: Openint) -> None:
         response = client.with_raw_response.pre_configure_connector(
-            connector_name="accelo",
+            connector_name="acme-apikey",
         )
 
         assert response.is_closed is True
@@ -950,7 +997,7 @@ class TestClient:
     @parametrize
     def test_streaming_response_pre_configure_connector(self, client: Openint) -> None:
         with client.with_streaming_response.pre_configure_connector(
-            connector_name="accelo",
+            connector_name="acme-apikey",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -965,11 +1012,6 @@ class TestClient:
     def test_method_pre_connect(self, client: Openint) -> None:
         client_ = client.pre_connect(
             connector_config_id="connector_config_id",
-            discriminated_data={
-                "connector_name": "accelo",
-                "pre_connect_input": {},
-            },
-            options={},
         )
         assert_matches_type(PreConnectResponse, client_, path=["response"])
 
@@ -979,8 +1021,8 @@ class TestClient:
         client_ = client.pre_connect(
             connector_config_id="connector_config_id",
             discriminated_data={
-                "connector_name": "accelo",
-                "pre_connect_input": {"connection_id": "connection_id"},
+                "connector_name": "acme-apikey",
+                "pre_connect_input": {},
             },
             options={
                 "connection_external_id": "string",
@@ -994,11 +1036,6 @@ class TestClient:
     def test_raw_response_pre_connect(self, client: Openint) -> None:
         response = client.with_raw_response.pre_connect(
             connector_config_id="connector_config_id",
-            discriminated_data={
-                "connector_name": "accelo",
-                "pre_connect_input": {},
-            },
-            options={},
         )
 
         assert response.is_closed is True
@@ -1011,11 +1048,6 @@ class TestClient:
     def test_streaming_response_pre_connect(self, client: Openint) -> None:
         with client.with_streaming_response.pre_connect(
             connector_config_id="connector_config_id",
-            discriminated_data={
-                "connector_name": "accelo",
-                "pre_connect_input": {},
-            },
-            options={},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -1119,7 +1151,17 @@ class TestClient:
     @parametrize
     def test_method_upsert_organization(self, client: Openint) -> None:
         client_ = client.upsert_organization(
-            "x",
+            org_id="x",
+        )
+        assert_matches_type(UpsertOrganizationResponse, client_, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    def test_method_upsert_organization_with_all_params(self, client: Openint) -> None:
+        client_ = client.upsert_organization(
+            org_id="x",
+            name="name",
+            slug="slug",
         )
         assert_matches_type(UpsertOrganizationResponse, client_, path=["response"])
 
@@ -1127,7 +1169,7 @@ class TestClient:
     @parametrize
     def test_raw_response_upsert_organization(self, client: Openint) -> None:
         response = client.with_raw_response.upsert_organization(
-            "x",
+            org_id="x",
         )
 
         assert response.is_closed is True
@@ -1139,7 +1181,7 @@ class TestClient:
     @parametrize
     def test_streaming_response_upsert_organization(self, client: Openint) -> None:
         with client.with_streaming_response.upsert_organization(
-            "x",
+            org_id="x",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -1154,7 +1196,7 @@ class TestClient:
     def test_path_params_upsert_organization(self, client: Openint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `org_id` but received ''"):
             client.with_raw_response.upsert_organization(
-                "",
+                org_id="",
             )
 
 
@@ -1319,72 +1361,50 @@ class TestAsyncClient:
     async def test_method_create_connection(self, async_client: AsyncOpenint) -> None:
         client = await async_client.create_connection(
             connector_config_id="ccfg_",
-            customer_id="customer_id",
-            data={"connector_name": "accelo"},
+            data={"connector_name": "acme-apikey"},
         )
-        assert_matches_type(CreateConnectionResponse, client, path=["response"])
+        assert_matches_type(object, client, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_create_connection_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.create_connection(
             connector_config_id="ccfg_",
-            customer_id="customer_id",
             data={
-                "connector_name": "accelo",
-                "settings": {
-                    "oauth": {
-                        "created_at": "created_at",
-                        "credentials": {
-                            "access_token": "access_token",
-                            "client_id": "client_id",
-                            "expires_at": "expires_at",
-                            "expires_in": 0,
-                            "raw": {"foo": "bar"},
-                            "refresh_token": "refresh_token",
-                            "scope": "scope",
-                            "token_type": "token_type",
-                        },
-                        "last_fetched_at": "last_fetched_at",
-                        "metadata": {"foo": "bar"},
-                        "updated_at": "updated_at",
-                    },
-                    "subdomain": "https://26f1kl_-n-71.api.accelo.com",
-                    "access_token": "access_token",
-                },
+                "connector_name": "acme-apikey",
+                "settings": {"api_key": "api_key"},
             },
             check_connection=True,
+            customer_id="customer_id",
             metadata={"foo": "bar"},
         )
-        assert_matches_type(CreateConnectionResponse, client, path=["response"])
+        assert_matches_type(object, client, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_create_connection(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.create_connection(
             connector_config_id="ccfg_",
-            customer_id="customer_id",
-            data={"connector_name": "accelo"},
+            data={"connector_name": "acme-apikey"},
         )
 
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         client = await response.parse()
-        assert_matches_type(CreateConnectionResponse, client, path=["response"])
+        assert_matches_type(object, client, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_create_connection(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.create_connection(
             connector_config_id="ccfg_",
-            customer_id="customer_id",
-            data={"connector_name": "accelo"},
+            data={"connector_name": "acme-apikey"},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             client = await response.parse()
-            assert_matches_type(CreateConnectionResponse, client, path=["response"])
+            assert_matches_type(object, client, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -1448,11 +1468,13 @@ class TestAsyncClient:
         client = await async_client.create_token(
             customer_id="x",
             connect_options={
-                "connector_names": ["accelo"],
+                "auto_connect": "acme-apikey",
+                "connector_names": ["acme-apikey"],
                 "debug": True,
                 "hide_navigation": True,
                 "is_embedded": True,
                 "return_url": "return_url",
+                "theme": "light",
                 "view": "add",
             },
             validity_in_seconds=0,
@@ -1686,7 +1708,7 @@ class TestAsyncClient:
         client = await async_client.get_connection(
             id="conn_",
         )
-        assert_matches_type(GetConnectionResponse, client, path=["response"])
+        assert_matches_type(object, client, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -1697,7 +1719,7 @@ class TestAsyncClient:
             include_secrets=True,
             refresh_policy="none",
         )
-        assert_matches_type(GetConnectionResponse, client, path=["response"])
+        assert_matches_type(object, client, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -1709,7 +1731,7 @@ class TestAsyncClient:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         client = await response.parse()
-        assert_matches_type(GetConnectionResponse, client, path=["response"])
+        assert_matches_type(object, client, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -1721,7 +1743,7 @@ class TestAsyncClient:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             client = await response.parse()
-            assert_matches_type(GetConnectionResponse, client, path=["response"])
+            assert_matches_type(object, client, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -1807,7 +1829,7 @@ class TestAsyncClient:
     @parametrize
     async def test_method_list_connections(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connections()
-        assert_matches_type(AsyncOffsetPagination[ListConnectionsResponse], client, path=["response"])
+        assert_matches_type(AsyncOffsetPagination[object], client, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -1815,7 +1837,7 @@ class TestAsyncClient:
         client = await async_client.list_connections(
             connection_ids=["conn_"],
             connector_config_id="ccfg_",
-            connector_names=["accelo"],
+            connector_names=["acme-apikey"],
             customer_id="customer_id",
             expand=["connector"],
             include_secrets=True,
@@ -1825,7 +1847,7 @@ class TestAsyncClient:
             repl_id="repl_id",
             search_query="search_query",
         )
-        assert_matches_type(AsyncOffsetPagination[ListConnectionsResponse], client, path=["response"])
+        assert_matches_type(AsyncOffsetPagination[object], client, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -1835,7 +1857,7 @@ class TestAsyncClient:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         client = await response.parse()
-        assert_matches_type(AsyncOffsetPagination[ListConnectionsResponse], client, path=["response"])
+        assert_matches_type(AsyncOffsetPagination[object], client, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
@@ -1845,7 +1867,7 @@ class TestAsyncClient:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             client = await response.parse()
-            assert_matches_type(AsyncOffsetPagination[ListConnectionsResponse], client, path=["response"])
+            assert_matches_type(AsyncOffsetPagination[object], client, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -1859,8 +1881,9 @@ class TestAsyncClient:
     @parametrize
     async def test_method_list_connector_configs_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connector_configs(
-            connector_names=["accelo"],
+            connector_names=["acme-apikey"],
             expand=["connector"],
+            include_disabled=True,
             limit=0,
             offset=0,
             search_query="search_query",
@@ -1938,8 +1961,9 @@ class TestAsyncClient:
     @parametrize
     async def test_method_list_connnector_configs_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connnector_configs(
-            connector_names=["accelo"],
+            connector_names=["acme-apikey"],
             expand=["connector"],
+            include_disabled=True,
             limit=0,
             offset=0,
             search_query="search_query",
@@ -2048,9 +2072,76 @@ class TestAsyncClient:
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
+    async def test_method_post_connect(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.post_connect(
+            connector_config_id="connector_config_id",
+            discriminated_data={
+                "connect_output": {"api_key": "api_key"},
+                "connector_name": "acme-apikey",
+            },
+            options={},
+        )
+        assert_matches_type(PostConnectResponse, client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_method_post_connect_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.post_connect(
+            connector_config_id="connector_config_id",
+            discriminated_data={
+                "connect_output": {"api_key": "api_key"},
+                "connector_name": "acme-apikey",
+            },
+            options={
+                "connection_external_id": "string",
+                "integration_external_id": "string",
+                "integration_id": "integrationId",
+                "sync_in_band": True,
+            },
+        )
+        assert_matches_type(PostConnectResponse, client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_raw_response_post_connect(self, async_client: AsyncOpenint) -> None:
+        response = await async_client.with_raw_response.post_connect(
+            connector_config_id="connector_config_id",
+            discriminated_data={
+                "connect_output": {"api_key": "api_key"},
+                "connector_name": "acme-apikey",
+            },
+            options={},
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        client = await response.parse()
+        assert_matches_type(PostConnectResponse, client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_streaming_response_post_connect(self, async_client: AsyncOpenint) -> None:
+        async with async_client.with_streaming_response.post_connect(
+            connector_config_id="connector_config_id",
+            discriminated_data={
+                "connect_output": {"api_key": "api_key"},
+                "connector_name": "acme-apikey",
+            },
+            options={},
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            client = await response.parse()
+            assert_matches_type(PostConnectResponse, client, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
     async def test_method_pre_configure_connector(self, async_client: AsyncOpenint) -> None:
         client = await async_client.pre_configure_connector(
-            connector_name="accelo",
+            connector_name="acme-apikey",
         )
         assert_matches_type(PreConfigureConnectorResponse, client, path=["response"])
 
@@ -2058,7 +2149,7 @@ class TestAsyncClient:
     @parametrize
     async def test_raw_response_pre_configure_connector(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.pre_configure_connector(
-            connector_name="accelo",
+            connector_name="acme-apikey",
         )
 
         assert response.is_closed is True
@@ -2070,7 +2161,7 @@ class TestAsyncClient:
     @parametrize
     async def test_streaming_response_pre_configure_connector(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.pre_configure_connector(
-            connector_name="accelo",
+            connector_name="acme-apikey",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -2085,11 +2176,6 @@ class TestAsyncClient:
     async def test_method_pre_connect(self, async_client: AsyncOpenint) -> None:
         client = await async_client.pre_connect(
             connector_config_id="connector_config_id",
-            discriminated_data={
-                "connector_name": "accelo",
-                "pre_connect_input": {},
-            },
-            options={},
         )
         assert_matches_type(PreConnectResponse, client, path=["response"])
 
@@ -2099,8 +2185,8 @@ class TestAsyncClient:
         client = await async_client.pre_connect(
             connector_config_id="connector_config_id",
             discriminated_data={
-                "connector_name": "accelo",
-                "pre_connect_input": {"connection_id": "connection_id"},
+                "connector_name": "acme-apikey",
+                "pre_connect_input": {},
             },
             options={
                 "connection_external_id": "string",
@@ -2114,11 +2200,6 @@ class TestAsyncClient:
     async def test_raw_response_pre_connect(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.pre_connect(
             connector_config_id="connector_config_id",
-            discriminated_data={
-                "connector_name": "accelo",
-                "pre_connect_input": {},
-            },
-            options={},
         )
 
         assert response.is_closed is True
@@ -2131,11 +2212,6 @@ class TestAsyncClient:
     async def test_streaming_response_pre_connect(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.pre_connect(
             connector_config_id="connector_config_id",
-            discriminated_data={
-                "connector_name": "accelo",
-                "pre_connect_input": {},
-            },
-            options={},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -2239,7 +2315,17 @@ class TestAsyncClient:
     @parametrize
     async def test_method_upsert_organization(self, async_client: AsyncOpenint) -> None:
         client = await async_client.upsert_organization(
-            "x",
+            org_id="x",
+        )
+        assert_matches_type(UpsertOrganizationResponse, client, path=["response"])
+
+    @pytest.mark.skip(reason="Prism tests are disabled")
+    @parametrize
+    async def test_method_upsert_organization_with_all_params(self, async_client: AsyncOpenint) -> None:
+        client = await async_client.upsert_organization(
+            org_id="x",
+            name="name",
+            slug="slug",
         )
         assert_matches_type(UpsertOrganizationResponse, client, path=["response"])
 
@@ -2247,7 +2333,7 @@ class TestAsyncClient:
     @parametrize
     async def test_raw_response_upsert_organization(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.upsert_organization(
-            "x",
+            org_id="x",
         )
 
         assert response.is_closed is True
@@ -2259,7 +2345,7 @@ class TestAsyncClient:
     @parametrize
     async def test_streaming_response_upsert_organization(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.upsert_organization(
-            "x",
+            org_id="x",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -2274,5 +2360,5 @@ class TestAsyncClient:
     async def test_path_params_upsert_organization(self, async_client: AsyncOpenint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `org_id` but received ''"):
             await async_client.with_raw_response.upsert_organization(
-                "",
+                org_id="",
             )

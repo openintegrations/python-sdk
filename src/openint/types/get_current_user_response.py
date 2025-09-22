@@ -11,7 +11,7 @@ __all__ = ["GetCurrentUserResponse"]
 
 
 class GetCurrentUserResponse(BaseModel):
-    role: Literal["anon", "customer", "user", "org", "system"]
+    role: Literal["anon", "customer", "user", "org", "system", "util"]
 
     __pydantic_extra__: Dict[str, object] = FieldInfo(init=False)  # pyright: ignore[reportIncompatibleVariableOverride]
     if TYPE_CHECKING:
