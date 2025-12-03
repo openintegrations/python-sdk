@@ -79,6 +79,7 @@ pip install openint[aiohttp]
 Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
 
 ```python
+import os
 import asyncio
 from openint import DefaultAioHttpClient
 from openint import AsyncOpenint
@@ -86,7 +87,7 @@ from openint import AsyncOpenint
 
 async def main() -> None:
     async with AsyncOpenint(
-        token="My Token",
+        token=os.environ.get("OPENINT_API_KEY"),  # This is the default and can be omitted
         http_client=DefaultAioHttpClient(),
     ) as client:
         page = await client.list_connectors()
