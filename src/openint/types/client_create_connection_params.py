@@ -205,6 +205,8 @@ class DataConnectorAcmeApikeyDiscriminatedConnectionSettings(TypedDict, total=Fa
 
 
 class DataConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -253,6 +255,8 @@ class DataConnectorAcmeOauth2DiscriminatedConnectionSettings(TypedDict, total=Fa
 
 
 class DataConnectorAsanaDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -301,6 +305,8 @@ class DataConnectorAsanaDiscriminatedConnectionSettings(TypedDict, total=False):
 
 
 class DataConnectorBigqueryDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -349,6 +355,8 @@ class DataConnectorBigqueryDiscriminatedConnectionSettings(TypedDict, total=Fals
 
 
 class DataConnectorBoxDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -397,6 +405,8 @@ class DataConnectorBoxDiscriminatedConnectionSettings(TypedDict, total=False):
 
 
 class DataConnectorCalendlyDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -445,6 +455,8 @@ class DataConnectorCalendlyDiscriminatedConnectionSettings(TypedDict, total=Fals
 
 
 class DataConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -493,6 +505,8 @@ class DataConnectorConfluenceDiscriminatedConnectionSettings(TypedDict, total=Fa
 
 
 class DataConnectorDatabricksDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -547,6 +561,8 @@ class DataConnectorDatabricksDiscriminatedConnectionSettings(TypedDict, total=Fa
 
 
 class DataConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -595,6 +611,8 @@ class DataConnectorDiscordDiscriminatedConnectionSettings(TypedDict, total=False
 
 
 class DataConnectorDropboxDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -643,6 +661,8 @@ class DataConnectorDropboxDiscriminatedConnectionSettings(TypedDict, total=False
 
 
 class DataConnectorFigmaDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -691,6 +711,8 @@ class DataConnectorFigmaDiscriminatedConnectionSettings(TypedDict, total=False):
 
 
 class DataConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -739,6 +761,8 @@ class DataConnectorGitHubDiscriminatedConnectionSettings(TypedDict, total=False)
 
 
 class DataConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -787,6 +811,8 @@ class DataConnectorGoogleCalendarDiscriminatedConnectionSettings(TypedDict, tota
 
 
 class DataConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -835,6 +861,8 @@ class DataConnectorGoogleDocsDiscriminatedConnectionSettings(TypedDict, total=Fa
 
 
 class DataConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -883,6 +911,8 @@ class DataConnectorGoogleDriveDiscriminatedConnectionSettings(TypedDict, total=F
 
 
 class DataConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -931,6 +961,8 @@ class DataConnectorGoogleMailDiscriminatedConnectionSettings(TypedDict, total=Fa
 
 
 class DataConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -979,6 +1011,8 @@ class DataConnectorGoogleSheetDiscriminatedConnectionSettings(TypedDict, total=F
 
 
 class DataConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1027,6 +1061,8 @@ class DataConnectorHubspotDiscriminatedConnectionSettings(TypedDict, total=False
 
 
 class DataConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1075,6 +1111,8 @@ class DataConnectorInstagramDiscriminatedConnectionSettings(TypedDict, total=Fal
 
 
 class DataConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1123,6 +1161,8 @@ class DataConnectorJiraDiscriminatedConnectionSettings(TypedDict, total=False):
 
 
 class DataConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1171,6 +1211,8 @@ class DataConnectorLinearDiscriminatedConnectionSettings(TypedDict, total=False)
 
 
 class DataConnectorMondayDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1219,6 +1261,8 @@ class DataConnectorMondayDiscriminatedConnectionSettings(TypedDict, total=False)
 
 
 class DataConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1267,6 +1311,8 @@ class DataConnectorNotionDiscriminatedConnectionSettings(TypedDict, total=False)
 
 
 class DataConnectorOnedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1315,6 +1361,8 @@ class DataConnectorOnedriveDiscriminatedConnectionSettings(TypedDict, total=Fals
 
 
 class DataConnectorOutlookDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1373,6 +1421,8 @@ class DataConnectorResendDiscriminatedConnectionSettings(TypedDict, total=False)
 
 
 class DataConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1434,6 +1484,8 @@ class DataConnectorSendgridDiscriminatedConnectionSettings(TypedDict, total=Fals
 
 
 class DataConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1482,6 +1534,8 @@ class DataConnectorSharepointDiscriminatedConnectionSettings(TypedDict, total=Fa
 
 
 class DataConnectorSlackDeployedAgentDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1530,6 +1584,8 @@ class DataConnectorSlackDeployedAgentDiscriminatedConnectionSettings(TypedDict, 
 
 
 class DataConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1578,6 +1634,8 @@ class DataConnectorSlackDiscriminatedConnectionSettings(TypedDict, total=False):
 
 
 class DataConnectorSnowflakeDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1629,6 +1687,8 @@ class DataConnectorSnowflakeDiscriminatedConnectionSettings(TypedDict, total=Fal
 
 
 class DataConnectorSpotifyDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1677,6 +1737,8 @@ class DataConnectorSpotifyDiscriminatedConnectionSettings(TypedDict, total=False
 
 
 class DataConnectorYoutubeDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1725,6 +1787,8 @@ class DataConnectorYoutubeDiscriminatedConnectionSettings(TypedDict, total=False
 
 
 class DataConnectorZendeskDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1776,6 +1840,8 @@ class DataConnectorZendeskDiscriminatedConnectionSettings(TypedDict, total=False
 
 
 class DataConnectorZoomDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1875,6 +1941,8 @@ class DataConnectorSlackAgentDiscriminatedConnectionSettings(TypedDict, total=Fa
 
 
 class DataConnectorSlackAgentBuilderDiscriminatedConnectionSettingsSettingsOAuthCredentials(TypedDict, total=False):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1909,6 +1977,8 @@ class DataConnectorSlackAgentBuilderDiscriminatedConnectionSettingsSettingsOAuth
 class DataConnectorSlackAgentBuilderDiscriminatedConnectionSettingsSettingsAgentBuilderOAuthCredentials(
     TypedDict, total=False
 ):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: Required[str]
 
     client_id: str
@@ -1941,6 +2011,8 @@ class DataConnectorSlackAgentBuilderDiscriminatedConnectionSettingsSettingsAgent
 
 
 class DataConnectorSlackAgentBuilderDiscriminatedConnectionSettingsSettingsAgentBuilderApp(TypedDict, total=False):
+    """Slack app configuration created by the agent builder"""
+
     app_id: Required[str]
     """The Slack app ID"""
 

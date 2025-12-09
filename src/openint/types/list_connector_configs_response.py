@@ -163,6 +163,8 @@ class ConnectorAcmeApikeyDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorAcmeOauth2DiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -210,6 +212,8 @@ class ConnectorAcmeOauth2DiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorAsanaDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -257,6 +261,8 @@ class ConnectorAsanaDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorBigqueryDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -304,6 +310,8 @@ class ConnectorBigqueryDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorBoxDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -351,6 +359,8 @@ class ConnectorBoxDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorCalendlyDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -398,6 +408,8 @@ class ConnectorCalendlyDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorConfluenceDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -445,6 +457,8 @@ class ConnectorConfluenceDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorDatabricksDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -492,6 +506,8 @@ class ConnectorDatabricksDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorDiscordDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -539,6 +555,8 @@ class ConnectorDiscordDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorDropboxDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -586,6 +604,8 @@ class ConnectorDropboxDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorFigmaDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -633,6 +653,8 @@ class ConnectorFigmaDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorGitHubDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -680,6 +702,8 @@ class ConnectorGitHubDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorGoogleCalendarDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -727,6 +751,8 @@ class ConnectorGoogleCalendarDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorGoogleDocsDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -774,6 +800,8 @@ class ConnectorGoogleDocsDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorGoogleDriveDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -821,6 +849,8 @@ class ConnectorGoogleDriveDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorGoogleMailDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -868,6 +898,8 @@ class ConnectorGoogleMailDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorGoogleSheetDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -915,6 +947,8 @@ class ConnectorGoogleSheetDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorHubspotDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -962,6 +996,8 @@ class ConnectorHubspotDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorInstagramDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -1009,6 +1045,8 @@ class ConnectorInstagramDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorJiraDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -1056,6 +1094,8 @@ class ConnectorJiraDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorLinearDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -1103,6 +1143,8 @@ class ConnectorLinearDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorMondayDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -1150,6 +1192,8 @@ class ConnectorMondayDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorNotionDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -1197,6 +1241,8 @@ class ConnectorNotionDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorOnedriveDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -1244,6 +1290,8 @@ class ConnectorOnedriveDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorOutlookDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -1323,6 +1371,8 @@ class ConnectorResendDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorSalesforceDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -1402,6 +1452,8 @@ class ConnectorSendgridDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorSharepointDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -1449,6 +1501,8 @@ class ConnectorSharepointDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorSlackDeployedAgentDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -1496,6 +1550,8 @@ class ConnectorSlackDeployedAgentDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorSlackDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -1543,6 +1599,8 @@ class ConnectorSlackDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorSnowflakeDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -1590,6 +1648,8 @@ class ConnectorSnowflakeDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorSpotifyDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -1637,6 +1697,8 @@ class ConnectorSpotifyDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorYoutubeDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -1684,6 +1746,8 @@ class ConnectorYoutubeDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorZendeskDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -1731,6 +1795,8 @@ class ConnectorZendeskDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorZoomDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None
@@ -1987,6 +2053,8 @@ class ConnectorSlackAgentDiscriminatedConnectorConfig(BaseModel):
 
 
 class ConnectorSlackAgentBuilderDiscriminatedConnectorConfigConfigOAuth(BaseModel):
+    """Base oauth configuration for the connector"""
+
     client_id: Optional[str] = None
 
     client_secret: Optional[str] = None

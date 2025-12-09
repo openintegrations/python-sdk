@@ -212,6 +212,8 @@ class ConnectorAcmeApikeyDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorAcmeOauth2DiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -287,6 +289,8 @@ class ConnectorAcmeOauth2DiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorAsanaDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -362,6 +366,8 @@ class ConnectorAsanaDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorBigqueryDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -437,6 +443,8 @@ class ConnectorBigqueryDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorBoxDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -512,6 +520,8 @@ class ConnectorBoxDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorCalendlyDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -587,6 +597,8 @@ class ConnectorCalendlyDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorConfluenceDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -662,6 +674,8 @@ class ConnectorConfluenceDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorDatabricksDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -743,6 +757,8 @@ class ConnectorDatabricksDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorDiscordDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -818,6 +834,8 @@ class ConnectorDiscordDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorDropboxDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -893,6 +911,8 @@ class ConnectorDropboxDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorFigmaDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -968,6 +988,8 @@ class ConnectorFigmaDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorGitHubDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -1043,6 +1065,8 @@ class ConnectorGitHubDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorGoogleCalendarDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -1118,6 +1142,8 @@ class ConnectorGoogleCalendarDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorGoogleDocsDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -1193,6 +1219,8 @@ class ConnectorGoogleDocsDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorGoogleDriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -1268,6 +1296,8 @@ class ConnectorGoogleDriveDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorGoogleMailDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -1343,6 +1373,8 @@ class ConnectorGoogleMailDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorGoogleSheetDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -1418,6 +1450,8 @@ class ConnectorGoogleSheetDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorHubspotDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -1493,6 +1527,8 @@ class ConnectorHubspotDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorInstagramDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -1568,6 +1604,8 @@ class ConnectorInstagramDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorJiraDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -1643,6 +1681,8 @@ class ConnectorJiraDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorLinearDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -1718,6 +1758,8 @@ class ConnectorLinearDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorMondayDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -1793,6 +1835,8 @@ class ConnectorMondayDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorNotionDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -1868,6 +1912,8 @@ class ConnectorNotionDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorOnedriveDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -1943,6 +1989,8 @@ class ConnectorOnedriveDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorOutlookDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -2055,6 +2103,8 @@ class ConnectorResendDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorSalesforceDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -2170,6 +2220,8 @@ class ConnectorSendgridDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorSharepointDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -2245,6 +2297,8 @@ class ConnectorSharepointDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorSlackDeployedAgentDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -2320,6 +2374,8 @@ class ConnectorSlackDeployedAgentDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorSlackDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -2395,6 +2451,8 @@ class ConnectorSlackDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorSnowflakeDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -2473,6 +2531,8 @@ class ConnectorSnowflakeDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorSpotifyDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -2548,6 +2608,8 @@ class ConnectorSpotifyDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorYoutubeDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -2623,6 +2685,8 @@ class ConnectorYoutubeDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorZendeskDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -2701,6 +2765,8 @@ class ConnectorZendeskDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorZoomDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -2935,6 +3001,8 @@ class ConnectorSlackAgentDiscriminatedConnectionSettings(BaseModel):
 
 
 class ConnectorSlackAgentBuilderDiscriminatedConnectionSettingsSettingsOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -2967,6 +3035,8 @@ class ConnectorSlackAgentBuilderDiscriminatedConnectionSettingsSettingsOAuth(Bas
 
 
 class ConnectorSlackAgentBuilderDiscriminatedConnectionSettingsSettingsAgentBuilderOAuthCredentials(BaseModel):
+    """Output of the postConnect hook for oauth2 connectors"""
+
     access_token: str
 
     client_id: Optional[str] = None
@@ -3001,6 +3071,8 @@ class ConnectorSlackAgentBuilderDiscriminatedConnectionSettingsSettingsAgentBuil
 
 
 class ConnectorSlackAgentBuilderDiscriminatedConnectionSettingsSettingsAgentBuilderApp(BaseModel):
+    """Slack app configuration created by the agent builder"""
+
     app_id: str
     """The Slack app ID"""
 
