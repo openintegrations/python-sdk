@@ -50,6 +50,7 @@ from ._utils import (
     get_async_library,
     async_maybe_transform,
 )
+from ._compat import cached_property
 from ._version import __version__
 from ._response import (
     to_raw_response_wrapper,
@@ -94,9 +95,6 @@ __all__ = ["Timeout", "Transport", "ProxiesTypes", "RequestOptions", "Openint", 
 
 
 class Openint(SyncAPIClient):
-    with_raw_response: OpenintWithRawResponse
-    with_streaming_response: OpenintWithStreamedResponse
-
     # client options
     token: str | None
 
@@ -147,8 +145,13 @@ class Openint(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.with_raw_response = OpenintWithRawResponse(self)
-        self.with_streaming_response = OpenintWithStreamedResponse(self)
+    @cached_property
+    def with_raw_response(self) -> OpenintWithRawResponse:
+        return OpenintWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> OpenintWithStreamedResponse:
+        return OpenintWithStreamedResponse(self)
 
     @property
     @override
@@ -1605,9 +1608,6 @@ class Openint(SyncAPIClient):
 
 
 class AsyncOpenint(AsyncAPIClient):
-    with_raw_response: AsyncOpenintWithRawResponse
-    with_streaming_response: AsyncOpenintWithStreamedResponse
-
     # client options
     token: str | None
 
@@ -1658,8 +1658,13 @@ class AsyncOpenint(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.with_raw_response = AsyncOpenintWithRawResponse(self)
-        self.with_streaming_response = AsyncOpenintWithStreamedResponse(self)
+    @cached_property
+    def with_raw_response(self) -> AsyncOpenintWithRawResponse:
+        return AsyncOpenintWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> AsyncOpenintWithStreamedResponse:
+        return AsyncOpenintWithStreamedResponse(self)
 
     @property
     @override
@@ -3116,7 +3121,11 @@ class AsyncOpenint(AsyncAPIClient):
 
 
 class OpenintWithRawResponse:
+    _client: Openint
+
     def __init__(self, client: Openint) -> None:
+        self._client = client
+
         self.assign_connection = to_raw_response_wrapper(
             client.assign_connection,
         )
@@ -3195,7 +3204,11 @@ class OpenintWithRawResponse:
 
 
 class AsyncOpenintWithRawResponse:
+    _client: AsyncOpenint
+
     def __init__(self, client: AsyncOpenint) -> None:
+        self._client = client
+
         self.assign_connection = async_to_raw_response_wrapper(
             client.assign_connection,
         )
@@ -3274,7 +3287,11 @@ class AsyncOpenintWithRawResponse:
 
 
 class OpenintWithStreamedResponse:
+    _client: Openint
+
     def __init__(self, client: Openint) -> None:
+        self._client = client
+
         self.assign_connection = to_streamed_response_wrapper(
             client.assign_connection,
         )
@@ -3353,7 +3370,11 @@ class OpenintWithStreamedResponse:
 
 
 class AsyncOpenintWithStreamedResponse:
+    _client: AsyncOpenint
+
     def __init__(self, client: AsyncOpenint) -> None:
+        self._client = client
+
         self.assign_connection = async_to_streamed_response_wrapper(
             client.assign_connection,
         )
