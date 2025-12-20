@@ -106,6 +106,71 @@ Nested request parameters are [TypedDicts](https://docs.python.org/3/library/typ
 
 Typed requests and responses provide autocomplete and documentation within your editor. If you would like to see type errors in VS Code to help catch bugs earlier, set `python.analysis.typeCheckingMode` to `basic`.
 
+## Pagination
+
+List methods in the Openint API are paginated.
+
+This library provides auto-paginating iterators with each list response, so you do not have to request successive pages manually:
+
+```python
+from openint import Openint
+
+client = Openint()
+
+all_clients = []
+# Automatically fetches more pages as needed.
+for client in client.list_connectors():
+    # Do something with client here
+    all_clients.append(client)
+print(all_clients)
+```
+
+Or, asynchronously:
+
+```python
+import asyncio
+from openint import AsyncOpenint
+
+client = AsyncOpenint()
+
+
+async def main() -> None:
+    all_clients = []
+    # Iterate through items across all pages, issuing requests as needed.
+    async for client in client.list_connectors():
+        all_clients.append(client)
+    print(all_clients)
+
+
+asyncio.run(main())
+```
+
+Alternatively, you can use the `.has_next_page()`, `.next_page_info()`, or `.get_next_page()` methods for more granular control working with pages:
+
+```python
+first_page = await client.list_connectors()
+if first_page.has_next_page():
+    print(f"will fetch next page using these details: {first_page.next_page_info()}")
+    next_page = await first_page.get_next_page()
+    print(f"number of items we just fetched: {len(next_page.items)}")
+
+# Remove `await` for non-async usage.
+```
+
+Or just work directly with the returned data:
+
+```python
+first_page = await client.list_connectors()
+
+print(
+    f"the current start offset for this page: {first_page.offset}"
+)  # => "the current start offset for this page: 1"
+for client in first_page.items:
+    print(client)
+
+# Remove `await` for non-async usage.
+```
+
 ## Nested params
 
 Nested parameters are dictionaries, typed using `TypedDict`, for example:
