@@ -41,7 +41,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestClient:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_assign_connection(self, client: Openint) -> None:
         client_ = client.assign_connection(
@@ -50,7 +50,7 @@ class TestClient:
         )
         assert_matches_type(AssignConnectionResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_assign_connection(self, client: Openint) -> None:
         response = client.with_raw_response.assign_connection(
@@ -63,7 +63,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(AssignConnectionResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_assign_connection(self, client: Openint) -> None:
         with client.with_streaming_response.assign_connection(
@@ -78,7 +78,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_assign_connection(self, client: Openint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -93,7 +93,7 @@ class TestClient:
                 id="conn_",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_check_connection(self, client: Openint) -> None:
         client_ = client.check_connection(
@@ -101,7 +101,7 @@ class TestClient:
         )
         assert_matches_type(CheckConnectionResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_check_connection(self, client: Openint) -> None:
         response = client.with_raw_response.check_connection(
@@ -113,7 +113,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(CheckConnectionResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_check_connection(self, client: Openint) -> None:
         with client.with_streaming_response.check_connection(
@@ -127,7 +127,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_check_connection(self, client: Openint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -135,7 +135,7 @@ class TestClient:
                 "",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_connector_rpc(self, client: Openint) -> None:
         client_ = client.connector_rpc(
@@ -145,7 +145,7 @@ class TestClient:
         )
         assert_matches_type(ConnectorRpcResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_connector_rpc(self, client: Openint) -> None:
         response = client.with_raw_response.connector_rpc(
@@ -159,7 +159,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(ConnectorRpcResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_connector_rpc(self, client: Openint) -> None:
         with client.with_streaming_response.connector_rpc(
@@ -175,7 +175,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_connector_rpc(self, client: Openint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `connector_config_id` but received ''"):
@@ -192,7 +192,7 @@ class TestClient:
                 input={"foo": "bar"},
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create_connection(self, client: Openint) -> None:
         client_ = client.create_connection(
@@ -201,7 +201,7 @@ class TestClient:
         )
         assert_matches_type(object, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create_connection_with_all_params(self, client: Openint) -> None:
         client_ = client.create_connection(
@@ -216,7 +216,7 @@ class TestClient:
         )
         assert_matches_type(object, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_create_connection(self, client: Openint) -> None:
         response = client.with_raw_response.create_connection(
@@ -229,7 +229,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(object, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_create_connection(self, client: Openint) -> None:
         with client.with_streaming_response.create_connection(
@@ -244,7 +244,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create_connnector_config(self, client: Openint) -> None:
         client_ = client.create_connnector_config(
@@ -252,7 +252,7 @@ class TestClient:
         )
         assert_matches_type(CreateConnnectorConfigResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create_connnector_config_with_all_params(self, client: Openint) -> None:
         client_ = client.create_connnector_config(
@@ -264,7 +264,7 @@ class TestClient:
         )
         assert_matches_type(CreateConnnectorConfigResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_create_connnector_config(self, client: Openint) -> None:
         response = client.with_raw_response.create_connnector_config(
@@ -276,7 +276,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(CreateConnnectorConfigResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_create_connnector_config(self, client: Openint) -> None:
         with client.with_streaming_response.create_connnector_config(
@@ -290,7 +290,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create_token(self, client: Openint) -> None:
         client_ = client.create_token(
@@ -298,7 +298,7 @@ class TestClient:
         )
         assert_matches_type(CreateTokenResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create_token_with_all_params(self, client: Openint) -> None:
         client_ = client.create_token(
@@ -317,7 +317,7 @@ class TestClient:
         )
         assert_matches_type(CreateTokenResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_create_token(self, client: Openint) -> None:
         response = client.with_raw_response.create_token(
@@ -329,7 +329,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(CreateTokenResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_create_token(self, client: Openint) -> None:
         with client.with_streaming_response.create_token(
@@ -343,7 +343,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_create_token(self, client: Openint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `customer_id` but received ''"):
@@ -351,7 +351,7 @@ class TestClient:
                 customer_id="",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_delete_assignment(self, client: Openint) -> None:
         client_ = client.delete_assignment(
@@ -360,7 +360,7 @@ class TestClient:
         )
         assert_matches_type(DeleteAssignmentResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_delete_assignment(self, client: Openint) -> None:
         response = client.with_raw_response.delete_assignment(
@@ -373,7 +373,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(DeleteAssignmentResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_delete_assignment(self, client: Openint) -> None:
         with client.with_streaming_response.delete_assignment(
@@ -388,7 +388,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_delete_assignment(self, client: Openint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -403,7 +403,7 @@ class TestClient:
                 id="conn_",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_delete_connection(self, client: Openint) -> None:
         client_ = client.delete_connection(
@@ -411,7 +411,7 @@ class TestClient:
         )
         assert_matches_type(DeleteConnectionResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_delete_connection(self, client: Openint) -> None:
         response = client.with_raw_response.delete_connection(
@@ -423,7 +423,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(DeleteConnectionResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_delete_connection(self, client: Openint) -> None:
         with client.with_streaming_response.delete_connection(
@@ -437,7 +437,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_delete_connection(self, client: Openint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -445,7 +445,7 @@ class TestClient:
                 "",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_delete_connector_config(self, client: Openint) -> None:
         client_ = client.delete_connector_config(
@@ -453,7 +453,7 @@ class TestClient:
         )
         assert_matches_type(DeleteConnectorConfigResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_delete_connector_config(self, client: Openint) -> None:
         response = client.with_raw_response.delete_connector_config(
@@ -465,7 +465,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(DeleteConnectorConfigResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_delete_connector_config(self, client: Openint) -> None:
         with client.with_streaming_response.delete_connector_config(
@@ -479,7 +479,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_delete_connector_config(self, client: Openint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -487,7 +487,7 @@ class TestClient:
                 "",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_get_conector_config(self, client: Openint) -> None:
         client_ = client.get_conector_config(
@@ -495,7 +495,7 @@ class TestClient:
         )
         assert_matches_type(GetConectorConfigResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_get_conector_config_with_all_params(self, client: Openint) -> None:
         client_ = client.get_conector_config(
@@ -504,7 +504,7 @@ class TestClient:
         )
         assert_matches_type(GetConectorConfigResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_get_conector_config(self, client: Openint) -> None:
         response = client.with_raw_response.get_conector_config(
@@ -516,7 +516,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(GetConectorConfigResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_get_conector_config(self, client: Openint) -> None:
         with client.with_streaming_response.get_conector_config(
@@ -530,7 +530,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_get_conector_config(self, client: Openint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -538,7 +538,7 @@ class TestClient:
                 id="",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_get_connection(self, client: Openint) -> None:
         client_ = client.get_connection(
@@ -546,7 +546,7 @@ class TestClient:
         )
         assert_matches_type(object, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_get_connection_with_all_params(self, client: Openint) -> None:
         client_ = client.get_connection(
@@ -557,7 +557,7 @@ class TestClient:
         )
         assert_matches_type(object, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_get_connection(self, client: Openint) -> None:
         response = client.with_raw_response.get_connection(
@@ -569,7 +569,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(object, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_get_connection(self, client: Openint) -> None:
         with client.with_streaming_response.get_connection(
@@ -583,7 +583,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_get_connection(self, client: Openint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -591,13 +591,13 @@ class TestClient:
                 id="",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_get_current_user(self, client: Openint) -> None:
         client_ = client.get_current_user()
         assert_matches_type(GetCurrentUserResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_get_current_user(self, client: Openint) -> None:
         response = client.with_raw_response.get_current_user()
@@ -607,7 +607,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(GetCurrentUserResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_get_current_user(self, client: Openint) -> None:
         with client.with_streaming_response.get_current_user() as response:
@@ -619,7 +619,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_assignments(self, client: Openint) -> None:
         client_ = client.list_assignments(
@@ -627,7 +627,7 @@ class TestClient:
         )
         assert_matches_type(ListAssignmentsResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_list_assignments(self, client: Openint) -> None:
         response = client.with_raw_response.list_assignments(
@@ -639,7 +639,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(ListAssignmentsResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_list_assignments(self, client: Openint) -> None:
         with client.with_streaming_response.list_assignments(
@@ -653,7 +653,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_list_assignments(self, client: Openint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -661,13 +661,13 @@ class TestClient:
                 "",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_connections(self, client: Openint) -> None:
         client_ = client.list_connections()
         assert_matches_type(SyncOffsetPagination[object], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_connections_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connections(
@@ -685,7 +685,7 @@ class TestClient:
         )
         assert_matches_type(SyncOffsetPagination[object], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_list_connections(self, client: Openint) -> None:
         response = client.with_raw_response.list_connections()
@@ -695,7 +695,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(SyncOffsetPagination[object], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_list_connections(self, client: Openint) -> None:
         with client.with_streaming_response.list_connections() as response:
@@ -707,13 +707,13 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_connector_configs(self, client: Openint) -> None:
         client_ = client.list_connector_configs()
         assert_matches_type(SyncOffsetPagination[ListConnectorConfigsResponse], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_connector_configs_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connector_configs(
@@ -726,7 +726,7 @@ class TestClient:
         )
         assert_matches_type(SyncOffsetPagination[ListConnectorConfigsResponse], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_list_connector_configs(self, client: Openint) -> None:
         response = client.with_raw_response.list_connector_configs()
@@ -736,7 +736,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(SyncOffsetPagination[ListConnectorConfigsResponse], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_list_connector_configs(self, client: Openint) -> None:
         with client.with_streaming_response.list_connector_configs() as response:
@@ -748,13 +748,13 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_connectors(self, client: Openint) -> None:
         client_ = client.list_connectors()
         assert_matches_type(SyncOffsetPagination[ListConnectorsResponse], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_connectors_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connectors(
@@ -765,7 +765,7 @@ class TestClient:
         )
         assert_matches_type(SyncOffsetPagination[ListConnectorsResponse], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_list_connectors(self, client: Openint) -> None:
         response = client.with_raw_response.list_connectors()
@@ -775,7 +775,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(SyncOffsetPagination[ListConnectorsResponse], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_list_connectors(self, client: Openint) -> None:
         with client.with_streaming_response.list_connectors() as response:
@@ -787,13 +787,13 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_connnector_configs(self, client: Openint) -> None:
         client_ = client.list_connnector_configs()
         assert_matches_type(SyncOffsetPagination[ListConnnectorConfigsResponse], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_connnector_configs_with_all_params(self, client: Openint) -> None:
         client_ = client.list_connnector_configs(
@@ -806,7 +806,7 @@ class TestClient:
         )
         assert_matches_type(SyncOffsetPagination[ListConnnectorConfigsResponse], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_list_connnector_configs(self, client: Openint) -> None:
         response = client.with_raw_response.list_connnector_configs()
@@ -816,7 +816,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(SyncOffsetPagination[ListConnnectorConfigsResponse], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_list_connnector_configs(self, client: Openint) -> None:
         with client.with_streaming_response.list_connnector_configs() as response:
@@ -828,13 +828,13 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_customers(self, client: Openint) -> None:
         client_ = client.list_customers()
         assert_matches_type(SyncOffsetPagination[ListCustomersResponse], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_customers_with_all_params(self, client: Openint) -> None:
         client_ = client.list_customers(
@@ -844,7 +844,7 @@ class TestClient:
         )
         assert_matches_type(SyncOffsetPagination[ListCustomersResponse], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_list_customers(self, client: Openint) -> None:
         response = client.with_raw_response.list_customers()
@@ -854,7 +854,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(SyncOffsetPagination[ListCustomersResponse], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_list_customers(self, client: Openint) -> None:
         with client.with_streaming_response.list_customers() as response:
@@ -866,13 +866,13 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_events(self, client: Openint) -> None:
         client_ = client.list_events()
         assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_events_with_all_params(self, client: Openint) -> None:
         client_ = client.list_events(
@@ -884,7 +884,7 @@ class TestClient:
         )
         assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_list_events(self, client: Openint) -> None:
         response = client.with_raw_response.list_events()
@@ -894,7 +894,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(SyncOffsetPagination[ListEventsResponse], client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_list_events(self, client: Openint) -> None:
         with client.with_streaming_response.list_events() as response:
@@ -906,7 +906,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_post_connect(self, client: Openint) -> None:
         client_ = client.post_connect(
@@ -919,7 +919,7 @@ class TestClient:
         )
         assert_matches_type(PostConnectResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_post_connect_with_all_params(self, client: Openint) -> None:
         client_ = client.post_connect(
@@ -937,7 +937,7 @@ class TestClient:
         )
         assert_matches_type(PostConnectResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_post_connect(self, client: Openint) -> None:
         response = client.with_raw_response.post_connect(
@@ -954,7 +954,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(PostConnectResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_post_connect(self, client: Openint) -> None:
         with client.with_streaming_response.post_connect(
@@ -973,7 +973,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_pre_configure_connector(self, client: Openint) -> None:
         client_ = client.pre_configure_connector(
@@ -981,7 +981,7 @@ class TestClient:
         )
         assert_matches_type(PreConfigureConnectorResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_pre_configure_connector(self, client: Openint) -> None:
         response = client.with_raw_response.pre_configure_connector(
@@ -993,7 +993,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(PreConfigureConnectorResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_pre_configure_connector(self, client: Openint) -> None:
         with client.with_streaming_response.pre_configure_connector(
@@ -1007,7 +1007,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_pre_connect(self, client: Openint) -> None:
         client_ = client.pre_connect(
@@ -1015,7 +1015,7 @@ class TestClient:
         )
         assert_matches_type(PreConnectResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_pre_connect_with_all_params(self, client: Openint) -> None:
         client_ = client.pre_connect(
@@ -1031,7 +1031,7 @@ class TestClient:
         )
         assert_matches_type(PreConnectResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_pre_connect(self, client: Openint) -> None:
         response = client.with_raw_response.pre_connect(
@@ -1043,7 +1043,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(PreConnectResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_pre_connect(self, client: Openint) -> None:
         with client.with_streaming_response.pre_connect(
@@ -1057,7 +1057,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_upsert_connnector_config(self, client: Openint) -> None:
         client_ = client.upsert_connnector_config(
@@ -1065,7 +1065,7 @@ class TestClient:
         )
         assert_matches_type(UpsertConnnectorConfigResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_upsert_connnector_config_with_all_params(self, client: Openint) -> None:
         client_ = client.upsert_connnector_config(
@@ -1076,7 +1076,7 @@ class TestClient:
         )
         assert_matches_type(UpsertConnnectorConfigResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_upsert_connnector_config(self, client: Openint) -> None:
         response = client.with_raw_response.upsert_connnector_config(
@@ -1088,7 +1088,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(UpsertConnnectorConfigResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_upsert_connnector_config(self, client: Openint) -> None:
         with client.with_streaming_response.upsert_connnector_config(
@@ -1102,7 +1102,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_upsert_connnector_config(self, client: Openint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -1110,13 +1110,13 @@ class TestClient:
                 id="",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_upsert_customer(self, client: Openint) -> None:
         client_ = client.upsert_customer()
         assert_matches_type(UpsertCustomerResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_upsert_customer_with_all_params(self, client: Openint) -> None:
         client_ = client.upsert_customer(
@@ -1125,7 +1125,7 @@ class TestClient:
         )
         assert_matches_type(UpsertCustomerResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_upsert_customer(self, client: Openint) -> None:
         response = client.with_raw_response.upsert_customer()
@@ -1135,7 +1135,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(UpsertCustomerResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_upsert_customer(self, client: Openint) -> None:
         with client.with_streaming_response.upsert_customer() as response:
@@ -1147,7 +1147,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_upsert_organization(self, client: Openint) -> None:
         client_ = client.upsert_organization(
@@ -1155,7 +1155,7 @@ class TestClient:
         )
         assert_matches_type(UpsertOrganizationResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_upsert_organization_with_all_params(self, client: Openint) -> None:
         client_ = client.upsert_organization(
@@ -1165,7 +1165,7 @@ class TestClient:
         )
         assert_matches_type(UpsertOrganizationResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_upsert_organization(self, client: Openint) -> None:
         response = client.with_raw_response.upsert_organization(
@@ -1177,7 +1177,7 @@ class TestClient:
         client_ = response.parse()
         assert_matches_type(UpsertOrganizationResponse, client_, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_upsert_organization(self, client: Openint) -> None:
         with client.with_streaming_response.upsert_organization(
@@ -1191,7 +1191,7 @@ class TestClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_upsert_organization(self, client: Openint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `org_id` but received ''"):
@@ -1205,7 +1205,7 @@ class TestAsyncClient:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_assign_connection(self, async_client: AsyncOpenint) -> None:
         client = await async_client.assign_connection(
@@ -1214,7 +1214,7 @@ class TestAsyncClient:
         )
         assert_matches_type(AssignConnectionResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_assign_connection(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.assign_connection(
@@ -1227,7 +1227,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(AssignConnectionResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_assign_connection(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.assign_connection(
@@ -1242,7 +1242,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_assign_connection(self, async_client: AsyncOpenint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -1257,7 +1257,7 @@ class TestAsyncClient:
                 id="conn_",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_check_connection(self, async_client: AsyncOpenint) -> None:
         client = await async_client.check_connection(
@@ -1265,7 +1265,7 @@ class TestAsyncClient:
         )
         assert_matches_type(CheckConnectionResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_check_connection(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.check_connection(
@@ -1277,7 +1277,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(CheckConnectionResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_check_connection(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.check_connection(
@@ -1291,7 +1291,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_check_connection(self, async_client: AsyncOpenint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -1299,7 +1299,7 @@ class TestAsyncClient:
                 "",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_connector_rpc(self, async_client: AsyncOpenint) -> None:
         client = await async_client.connector_rpc(
@@ -1309,7 +1309,7 @@ class TestAsyncClient:
         )
         assert_matches_type(ConnectorRpcResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_connector_rpc(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.connector_rpc(
@@ -1323,7 +1323,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(ConnectorRpcResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_connector_rpc(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.connector_rpc(
@@ -1339,7 +1339,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_connector_rpc(self, async_client: AsyncOpenint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `connector_config_id` but received ''"):
@@ -1356,7 +1356,7 @@ class TestAsyncClient:
                 input={"foo": "bar"},
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create_connection(self, async_client: AsyncOpenint) -> None:
         client = await async_client.create_connection(
@@ -1365,7 +1365,7 @@ class TestAsyncClient:
         )
         assert_matches_type(object, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create_connection_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.create_connection(
@@ -1380,7 +1380,7 @@ class TestAsyncClient:
         )
         assert_matches_type(object, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_create_connection(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.create_connection(
@@ -1393,7 +1393,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(object, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_create_connection(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.create_connection(
@@ -1408,7 +1408,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create_connnector_config(self, async_client: AsyncOpenint) -> None:
         client = await async_client.create_connnector_config(
@@ -1416,7 +1416,7 @@ class TestAsyncClient:
         )
         assert_matches_type(CreateConnnectorConfigResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create_connnector_config_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.create_connnector_config(
@@ -1428,7 +1428,7 @@ class TestAsyncClient:
         )
         assert_matches_type(CreateConnnectorConfigResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_create_connnector_config(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.create_connnector_config(
@@ -1440,7 +1440,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(CreateConnnectorConfigResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_create_connnector_config(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.create_connnector_config(
@@ -1454,7 +1454,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create_token(self, async_client: AsyncOpenint) -> None:
         client = await async_client.create_token(
@@ -1462,7 +1462,7 @@ class TestAsyncClient:
         )
         assert_matches_type(CreateTokenResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create_token_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.create_token(
@@ -1481,7 +1481,7 @@ class TestAsyncClient:
         )
         assert_matches_type(CreateTokenResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_create_token(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.create_token(
@@ -1493,7 +1493,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(CreateTokenResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_create_token(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.create_token(
@@ -1507,7 +1507,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_create_token(self, async_client: AsyncOpenint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `customer_id` but received ''"):
@@ -1515,7 +1515,7 @@ class TestAsyncClient:
                 customer_id="",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_delete_assignment(self, async_client: AsyncOpenint) -> None:
         client = await async_client.delete_assignment(
@@ -1524,7 +1524,7 @@ class TestAsyncClient:
         )
         assert_matches_type(DeleteAssignmentResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_delete_assignment(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.delete_assignment(
@@ -1537,7 +1537,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(DeleteAssignmentResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_delete_assignment(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.delete_assignment(
@@ -1552,7 +1552,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_delete_assignment(self, async_client: AsyncOpenint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -1567,7 +1567,7 @@ class TestAsyncClient:
                 id="conn_",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_delete_connection(self, async_client: AsyncOpenint) -> None:
         client = await async_client.delete_connection(
@@ -1575,7 +1575,7 @@ class TestAsyncClient:
         )
         assert_matches_type(DeleteConnectionResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_delete_connection(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.delete_connection(
@@ -1587,7 +1587,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(DeleteConnectionResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_delete_connection(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.delete_connection(
@@ -1601,7 +1601,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_delete_connection(self, async_client: AsyncOpenint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -1609,7 +1609,7 @@ class TestAsyncClient:
                 "",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_delete_connector_config(self, async_client: AsyncOpenint) -> None:
         client = await async_client.delete_connector_config(
@@ -1617,7 +1617,7 @@ class TestAsyncClient:
         )
         assert_matches_type(DeleteConnectorConfigResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_delete_connector_config(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.delete_connector_config(
@@ -1629,7 +1629,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(DeleteConnectorConfigResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_delete_connector_config(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.delete_connector_config(
@@ -1643,7 +1643,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_delete_connector_config(self, async_client: AsyncOpenint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -1651,7 +1651,7 @@ class TestAsyncClient:
                 "",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_get_conector_config(self, async_client: AsyncOpenint) -> None:
         client = await async_client.get_conector_config(
@@ -1659,7 +1659,7 @@ class TestAsyncClient:
         )
         assert_matches_type(GetConectorConfigResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_get_conector_config_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.get_conector_config(
@@ -1668,7 +1668,7 @@ class TestAsyncClient:
         )
         assert_matches_type(GetConectorConfigResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_get_conector_config(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.get_conector_config(
@@ -1680,7 +1680,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(GetConectorConfigResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_get_conector_config(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.get_conector_config(
@@ -1694,7 +1694,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_get_conector_config(self, async_client: AsyncOpenint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -1702,7 +1702,7 @@ class TestAsyncClient:
                 id="",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_get_connection(self, async_client: AsyncOpenint) -> None:
         client = await async_client.get_connection(
@@ -1710,7 +1710,7 @@ class TestAsyncClient:
         )
         assert_matches_type(object, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_get_connection_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.get_connection(
@@ -1721,7 +1721,7 @@ class TestAsyncClient:
         )
         assert_matches_type(object, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_get_connection(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.get_connection(
@@ -1733,7 +1733,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(object, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_get_connection(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.get_connection(
@@ -1747,7 +1747,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_get_connection(self, async_client: AsyncOpenint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -1755,13 +1755,13 @@ class TestAsyncClient:
                 id="",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_get_current_user(self, async_client: AsyncOpenint) -> None:
         client = await async_client.get_current_user()
         assert_matches_type(GetCurrentUserResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_get_current_user(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.get_current_user()
@@ -1771,7 +1771,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(GetCurrentUserResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_get_current_user(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.get_current_user() as response:
@@ -1783,7 +1783,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_assignments(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_assignments(
@@ -1791,7 +1791,7 @@ class TestAsyncClient:
         )
         assert_matches_type(ListAssignmentsResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_list_assignments(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.list_assignments(
@@ -1803,7 +1803,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(ListAssignmentsResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_list_assignments(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.list_assignments(
@@ -1817,7 +1817,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_list_assignments(self, async_client: AsyncOpenint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -1825,13 +1825,13 @@ class TestAsyncClient:
                 "",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_connections(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connections()
         assert_matches_type(AsyncOffsetPagination[object], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_connections_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connections(
@@ -1849,7 +1849,7 @@ class TestAsyncClient:
         )
         assert_matches_type(AsyncOffsetPagination[object], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_list_connections(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.list_connections()
@@ -1859,7 +1859,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(AsyncOffsetPagination[object], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_list_connections(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.list_connections() as response:
@@ -1871,13 +1871,13 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_connector_configs(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connector_configs()
         assert_matches_type(AsyncOffsetPagination[ListConnectorConfigsResponse], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_connector_configs_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connector_configs(
@@ -1890,7 +1890,7 @@ class TestAsyncClient:
         )
         assert_matches_type(AsyncOffsetPagination[ListConnectorConfigsResponse], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_list_connector_configs(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.list_connector_configs()
@@ -1900,7 +1900,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(AsyncOffsetPagination[ListConnectorConfigsResponse], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_list_connector_configs(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.list_connector_configs() as response:
@@ -1912,13 +1912,13 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_connectors(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connectors()
         assert_matches_type(AsyncOffsetPagination[ListConnectorsResponse], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_connectors_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connectors(
@@ -1929,7 +1929,7 @@ class TestAsyncClient:
         )
         assert_matches_type(AsyncOffsetPagination[ListConnectorsResponse], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_list_connectors(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.list_connectors()
@@ -1939,7 +1939,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(AsyncOffsetPagination[ListConnectorsResponse], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_list_connectors(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.list_connectors() as response:
@@ -1951,13 +1951,13 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_connnector_configs(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connnector_configs()
         assert_matches_type(AsyncOffsetPagination[ListConnnectorConfigsResponse], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_connnector_configs_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_connnector_configs(
@@ -1970,7 +1970,7 @@ class TestAsyncClient:
         )
         assert_matches_type(AsyncOffsetPagination[ListConnnectorConfigsResponse], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_list_connnector_configs(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.list_connnector_configs()
@@ -1980,7 +1980,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(AsyncOffsetPagination[ListConnnectorConfigsResponse], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_list_connnector_configs(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.list_connnector_configs() as response:
@@ -1992,13 +1992,13 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_customers(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_customers()
         assert_matches_type(AsyncOffsetPagination[ListCustomersResponse], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_customers_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_customers(
@@ -2008,7 +2008,7 @@ class TestAsyncClient:
         )
         assert_matches_type(AsyncOffsetPagination[ListCustomersResponse], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_list_customers(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.list_customers()
@@ -2018,7 +2018,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(AsyncOffsetPagination[ListCustomersResponse], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_list_customers(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.list_customers() as response:
@@ -2030,13 +2030,13 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_events(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_events()
         assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_events_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.list_events(
@@ -2048,7 +2048,7 @@ class TestAsyncClient:
         )
         assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_list_events(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.list_events()
@@ -2058,7 +2058,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(AsyncOffsetPagination[ListEventsResponse], client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_list_events(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.list_events() as response:
@@ -2070,7 +2070,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_post_connect(self, async_client: AsyncOpenint) -> None:
         client = await async_client.post_connect(
@@ -2083,7 +2083,7 @@ class TestAsyncClient:
         )
         assert_matches_type(PostConnectResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_post_connect_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.post_connect(
@@ -2101,7 +2101,7 @@ class TestAsyncClient:
         )
         assert_matches_type(PostConnectResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_post_connect(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.post_connect(
@@ -2118,7 +2118,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(PostConnectResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_post_connect(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.post_connect(
@@ -2137,7 +2137,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_pre_configure_connector(self, async_client: AsyncOpenint) -> None:
         client = await async_client.pre_configure_connector(
@@ -2145,7 +2145,7 @@ class TestAsyncClient:
         )
         assert_matches_type(PreConfigureConnectorResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_pre_configure_connector(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.pre_configure_connector(
@@ -2157,7 +2157,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(PreConfigureConnectorResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_pre_configure_connector(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.pre_configure_connector(
@@ -2171,7 +2171,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_pre_connect(self, async_client: AsyncOpenint) -> None:
         client = await async_client.pre_connect(
@@ -2179,7 +2179,7 @@ class TestAsyncClient:
         )
         assert_matches_type(PreConnectResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_pre_connect_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.pre_connect(
@@ -2195,7 +2195,7 @@ class TestAsyncClient:
         )
         assert_matches_type(PreConnectResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_pre_connect(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.pre_connect(
@@ -2207,7 +2207,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(PreConnectResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_pre_connect(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.pre_connect(
@@ -2221,7 +2221,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_upsert_connnector_config(self, async_client: AsyncOpenint) -> None:
         client = await async_client.upsert_connnector_config(
@@ -2229,7 +2229,7 @@ class TestAsyncClient:
         )
         assert_matches_type(UpsertConnnectorConfigResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_upsert_connnector_config_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.upsert_connnector_config(
@@ -2240,7 +2240,7 @@ class TestAsyncClient:
         )
         assert_matches_type(UpsertConnnectorConfigResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_upsert_connnector_config(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.upsert_connnector_config(
@@ -2252,7 +2252,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(UpsertConnnectorConfigResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_upsert_connnector_config(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.upsert_connnector_config(
@@ -2266,7 +2266,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_upsert_connnector_config(self, async_client: AsyncOpenint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -2274,13 +2274,13 @@ class TestAsyncClient:
                 id="",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_upsert_customer(self, async_client: AsyncOpenint) -> None:
         client = await async_client.upsert_customer()
         assert_matches_type(UpsertCustomerResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_upsert_customer_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.upsert_customer(
@@ -2289,7 +2289,7 @@ class TestAsyncClient:
         )
         assert_matches_type(UpsertCustomerResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_upsert_customer(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.upsert_customer()
@@ -2299,7 +2299,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(UpsertCustomerResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_upsert_customer(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.upsert_customer() as response:
@@ -2311,7 +2311,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_upsert_organization(self, async_client: AsyncOpenint) -> None:
         client = await async_client.upsert_organization(
@@ -2319,7 +2319,7 @@ class TestAsyncClient:
         )
         assert_matches_type(UpsertOrganizationResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_upsert_organization_with_all_params(self, async_client: AsyncOpenint) -> None:
         client = await async_client.upsert_organization(
@@ -2329,7 +2329,7 @@ class TestAsyncClient:
         )
         assert_matches_type(UpsertOrganizationResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_upsert_organization(self, async_client: AsyncOpenint) -> None:
         response = await async_client.with_raw_response.upsert_organization(
@@ -2341,7 +2341,7 @@ class TestAsyncClient:
         client = await response.parse()
         assert_matches_type(UpsertOrganizationResponse, client, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_upsert_organization(self, async_client: AsyncOpenint) -> None:
         async with async_client.with_streaming_response.upsert_organization(
@@ -2355,7 +2355,7 @@ class TestAsyncClient:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_upsert_organization(self, async_client: AsyncOpenint) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `org_id` but received ''"):
