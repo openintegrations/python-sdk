@@ -46,6 +46,7 @@ from ._types import (
 )
 from ._utils import (
     is_given,
+    path_template,
     maybe_transform,
     get_async_library,
     async_maybe_transform,
@@ -268,7 +269,7 @@ class Openint(SyncAPIClient):
         if not repl_id:
             raise ValueError(f"Expected a non-empty value for `repl_id` but received {repl_id!r}")
         return self.put(
-            f"/v2/connection/{id}/assignment/{repl_id}",
+            path_template("/v2/connection/{id}/assignment/{repl_id}", id=id, repl_id=repl_id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -303,7 +304,7 @@ class Openint(SyncAPIClient):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self.post(
-            f"/v1/connection/{id}/check",
+            path_template("/v1/connection/{id}/check", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -346,7 +347,11 @@ class Openint(SyncAPIClient):
         if not function_name:
             raise ValueError(f"Expected a non-empty value for `function_name` but received {function_name!r}")
         return self.post(
-            f"/v2/connector-config/{connector_config_id}/rpc/{function_name}",
+            path_template(
+                "/v2/connector-config/{connector_config_id}/rpc/{function_name}",
+                connector_config_id=connector_config_id,
+                function_name=function_name,
+            ),
             body=maybe_transform({"input": input}, client_connector_rpc_params.ClientConnectorRpcParams),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
@@ -492,7 +497,7 @@ class Openint(SyncAPIClient):
         if not customer_id:
             raise ValueError(f"Expected a non-empty value for `customer_id` but received {customer_id!r}")
         return self.post(
-            f"/v1/customer/{customer_id}/token",
+            path_template("/v1/customer/{customer_id}/token", customer_id=customer_id),
             body=maybe_transform(
                 {
                     "connect_options": connect_options,
@@ -539,7 +544,7 @@ class Openint(SyncAPIClient):
         if not repl_id:
             raise ValueError(f"Expected a non-empty value for `repl_id` but received {repl_id!r}")
         return self.delete(
-            f"/v2/connection/{id}/assignment/{repl_id}",
+            path_template("/v2/connection/{id}/assignment/{repl_id}", id=id, repl_id=repl_id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -574,7 +579,7 @@ class Openint(SyncAPIClient):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self.delete(
-            f"/v2/connection/{id}",
+            path_template("/v2/connection/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -607,7 +612,7 @@ class Openint(SyncAPIClient):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self.delete(
-            f"/v2/connector-config/{id}",
+            path_template("/v2/connector-config/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -643,7 +648,7 @@ class Openint(SyncAPIClient):
         return cast(
             GetConectorConfigResponse,
             self.get(
-                f"/v2/connector-config/{id}",
+                path_template("/v2/connector-config/{id}", id=id),
                 options=make_request_options(
                     extra_headers=extra_headers,
                     extra_query=extra_query,
@@ -693,7 +698,7 @@ class Openint(SyncAPIClient):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self.get(
-            f"/v2/connection/{id}",
+            path_template("/v2/connection/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -758,7 +763,7 @@ class Openint(SyncAPIClient):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return self.get(
-            f"/v2/connection/{id}/assignment",
+            path_template("/v2/connection/{id}/assignment", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -1471,7 +1476,7 @@ class Openint(SyncAPIClient):
         return cast(
             UpsertConnnectorConfigResponse,
             self.put(
-                f"/v2/connector-config/{id}",
+                path_template("/v2/connector-config/{id}", id=id),
                 body=maybe_transform(
                     {
                         "config": config,
@@ -1557,7 +1562,7 @@ class Openint(SyncAPIClient):
         if not org_id:
             raise ValueError(f"Expected a non-empty value for `org_id` but received {org_id!r}")
         return self.put(
-            f"/v2/organization/{org_id}",
+            path_template("/v2/organization/{org_id}", org_id=org_id),
             body=maybe_transform(
                 {
                     "name": name,
@@ -1779,7 +1784,7 @@ class AsyncOpenint(AsyncAPIClient):
         if not repl_id:
             raise ValueError(f"Expected a non-empty value for `repl_id` but received {repl_id!r}")
         return await self.put(
-            f"/v2/connection/{id}/assignment/{repl_id}",
+            path_template("/v2/connection/{id}/assignment/{repl_id}", id=id, repl_id=repl_id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -1814,7 +1819,7 @@ class AsyncOpenint(AsyncAPIClient):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self.post(
-            f"/v1/connection/{id}/check",
+            path_template("/v1/connection/{id}/check", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -1857,7 +1862,11 @@ class AsyncOpenint(AsyncAPIClient):
         if not function_name:
             raise ValueError(f"Expected a non-empty value for `function_name` but received {function_name!r}")
         return await self.post(
-            f"/v2/connector-config/{connector_config_id}/rpc/{function_name}",
+            path_template(
+                "/v2/connector-config/{connector_config_id}/rpc/{function_name}",
+                connector_config_id=connector_config_id,
+                function_name=function_name,
+            ),
             body=await async_maybe_transform({"input": input}, client_connector_rpc_params.ClientConnectorRpcParams),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
@@ -2003,7 +2012,7 @@ class AsyncOpenint(AsyncAPIClient):
         if not customer_id:
             raise ValueError(f"Expected a non-empty value for `customer_id` but received {customer_id!r}")
         return await self.post(
-            f"/v1/customer/{customer_id}/token",
+            path_template("/v1/customer/{customer_id}/token", customer_id=customer_id),
             body=await async_maybe_transform(
                 {
                     "connect_options": connect_options,
@@ -2050,7 +2059,7 @@ class AsyncOpenint(AsyncAPIClient):
         if not repl_id:
             raise ValueError(f"Expected a non-empty value for `repl_id` but received {repl_id!r}")
         return await self.delete(
-            f"/v2/connection/{id}/assignment/{repl_id}",
+            path_template("/v2/connection/{id}/assignment/{repl_id}", id=id, repl_id=repl_id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -2085,7 +2094,7 @@ class AsyncOpenint(AsyncAPIClient):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self.delete(
-            f"/v2/connection/{id}",
+            path_template("/v2/connection/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -2118,7 +2127,7 @@ class AsyncOpenint(AsyncAPIClient):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self.delete(
-            f"/v2/connector-config/{id}",
+            path_template("/v2/connector-config/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -2154,7 +2163,7 @@ class AsyncOpenint(AsyncAPIClient):
         return cast(
             GetConectorConfigResponse,
             await self.get(
-                f"/v2/connector-config/{id}",
+                path_template("/v2/connector-config/{id}", id=id),
                 options=make_request_options(
                     extra_headers=extra_headers,
                     extra_query=extra_query,
@@ -2204,7 +2213,7 @@ class AsyncOpenint(AsyncAPIClient):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self.get(
-            f"/v2/connection/{id}",
+            path_template("/v2/connection/{id}", id=id),
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -2269,7 +2278,7 @@ class AsyncOpenint(AsyncAPIClient):
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         return await self.get(
-            f"/v2/connection/{id}/assignment",
+            path_template("/v2/connection/{id}/assignment", id=id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -2982,7 +2991,7 @@ class AsyncOpenint(AsyncAPIClient):
         return cast(
             UpsertConnnectorConfigResponse,
             await self.put(
-                f"/v2/connector-config/{id}",
+                path_template("/v2/connector-config/{id}", id=id),
                 body=await async_maybe_transform(
                     {
                         "config": config,
@@ -3068,7 +3077,7 @@ class AsyncOpenint(AsyncAPIClient):
         if not org_id:
             raise ValueError(f"Expected a non-empty value for `org_id` but received {org_id!r}")
         return await self.put(
-            f"/v2/organization/{org_id}",
+            path_template("/v2/organization/{org_id}", org_id=org_id),
             body=await async_maybe_transform(
                 {
                     "name": name,
